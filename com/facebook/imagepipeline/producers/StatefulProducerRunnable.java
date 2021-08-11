@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.executors.StatefulRunnable;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class StatefulProducerRunnable<T> extends StatefulRunnable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

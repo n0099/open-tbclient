@@ -2,6 +2,7 @@ package com.baidu.tieba.quickWebView;
 
 import android.content.Context;
 import android.webkit.JsPromptResult;
+import c.a.g.a.a;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
@@ -10,17 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.f.a.a;
 @a
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class QuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public d.a.q0.u2.a mProxy;
+    public c.a.p0.v2.a mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QuickWebViewBridge(Context context, d.a.q0.u2.a aVar) {
+    public QuickWebViewBridge(Context context, c.a.p0.v2.a aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -41,7 +41,7 @@ public class QuickWebViewBridge extends CommonTbJsBridge {
         this.mProxy = aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, d.a.q0.h3.l0.b
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, c.a.p0.i3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

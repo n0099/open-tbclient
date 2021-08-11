@@ -29,7 +29,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class SapiContext implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHINA_TELECOM_EXPIRED_TIME = "china_telecom_expired_time";
@@ -93,7 +93,7 @@ public final class SapiContext implements NoProguard {
             }
         }
         this.context = context;
-        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f9328c, 0);
+        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f43975c, 0);
     }
 
     private String getCancelNuomiAddrCountKey() {
@@ -410,9 +410,9 @@ public final class SapiContext implements NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            long j = getLong(KEY_DEVICE_INFO_READ_TIMES, 0L) + 1;
-            put(KEY_DEVICE_INFO_READ_TIMES, j);
-            return j;
+            long j2 = getLong(KEY_DEVICE_INFO_READ_TIMES, 0L) + 1;
+            put(KEY_DEVICE_INFO_READ_TIMES, j2);
+            return j2;
         }
         return invokeV.longValue;
     }
@@ -479,10 +479,10 @@ public final class SapiContext implements NoProguard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? getSapiOptions().loginStatExtraLimitLen : invokeV.intValue;
     }
 
-    public long getLong(String str, long j) {
+    public long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048604, this, str, j)) == null) ? this.storage.getLong(str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048604, this, str, j2)) == null) ? this.storage.getLong(str, j2) : invokeLJ.longValue;
     }
 
     public boolean getModifiedDirExecPer() {
@@ -919,10 +919,10 @@ public final class SapiContext implements NoProguard {
         }
     }
 
-    public void put(String str, long j) {
+    public void put(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048629, this, str, j) == null) {
-            this.storage.edit().putLong(str, j).apply();
+        if (interceptable == null || interceptable.invokeLJ(1048629, this, str, j2) == null) {
+            this.storage.edit().putLong(str, j2).apply();
         }
     }
 

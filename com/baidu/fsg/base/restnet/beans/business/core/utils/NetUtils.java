@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class NetUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetUtils";
@@ -80,7 +80,9 @@ public final class NetUtils {
                     jSONObject2.put("ssid", connectionInfo.getSSID());
                     jSONObject.put("wifi_conn", jSONObject2);
                 }
-                if (scanResults != null && scanResults.size() > 0) {
+                if (scanResults == null || scanResults.size() <= 0) {
+                    jSONObject.put("wifi_scan", "");
+                } else {
                     int i2 = 0;
                     JSONArray jSONArray = new JSONArray();
                     for (ScanResult scanResult : scanResults) {
@@ -95,8 +97,6 @@ public final class NetUtils {
                         }
                     }
                     jSONObject.put("wifi_scan", jSONArray);
-                } else {
-                    jSONObject.put("wifi_scan", "");
                 }
                 return jSONObject;
             } catch (Exception e3) {

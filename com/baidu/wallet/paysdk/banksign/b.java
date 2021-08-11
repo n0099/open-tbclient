@@ -4,14 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
 import com.baidu.wallet.base.controllers.PayController;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.presenter.j;
@@ -21,8 +19,9 @@ import com.baidu.wallet.paysdk.ui.BusinessSignedGuideActivity;
 import com.baidu.wallet.paysdk.ui.OrderConfirmActivity;
 import com.baidu.wallet.paysdk.ui.PayTypeActivity;
 import com.baidu.wallet.paysdk.ui.PostWebviewActivity;
-import com.baidu.wallet.statistics.api.StatisticManager;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+/* loaded from: classes8.dex */
 public class b implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,12 +56,12 @@ public class b implements a {
         }
         String i2 = com.baidu.wallet.paysdk.banksign.a.a.a().i();
         byte[] k = com.baidu.wallet.paysdk.banksign.a.a.a().k();
-        String j = com.baidu.wallet.paysdk.banksign.a.a.a().j();
-        if (TextUtils.isEmpty(j)) {
-            j = ResUtils.getString(context, "dxmpay_banksign_web_title");
+        String j2 = com.baidu.wallet.paysdk.banksign.a.a.a().j();
+        if (TextUtils.isEmpty(j2)) {
+            j2 = ResUtils.getString(context, "dxmpay_banksign_web_title");
         }
-        StatisticManager.onEvent(StatServiceEvent.EVENT_ENTER_BANK_SIGN);
-        PostWebviewActivity.startPostWebview(context, i2, k, j);
+        StatisticManager.onEvent("enterBankSign");
+        PostWebviewActivity.startPostWebview(context, i2, k, j2);
     }
 
     @Override // com.baidu.wallet.paysdk.banksign.a

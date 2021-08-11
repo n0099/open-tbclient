@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.c.f.b;
+import c.a.p0.i3.h0.n;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -32,12 +34,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.FlutterBoost;
 import com.idlefish.flutterboost.Utils;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
-import d.a.d.c.f.b;
-import d.a.q0.h3.h0.m;
 import io.flutter.embedding.android.FlutterView;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FlutterStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -202,14 +202,14 @@ public class FlutterStatic {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // d.a.d.c.f.f
+                @Override // c.a.e.c.f.f
                 public CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, customMessage, customMessageTask)) == null) ? (customMessage == null || customMessage.getData() == null || !(customMessage.getData() instanceof IntentConfig)) ? customMessage : OpenFlutter.goToFlutter(customMessage) : (CustomMessage) invokeLL.objValue;
                 }
             });
-            MessageManager.getInstance().registerTask(new CustomMessageTask(2002015, new CustomMessageTask.CustomRunnable<m>() { // from class: com.baidu.tieba.flutter.base.FlutterStatic.4
+            MessageManager.getInstance().registerTask(new CustomMessageTask(2002015, new CustomMessageTask.CustomRunnable<n>() { // from class: com.baidu.tieba.flutter.base.FlutterStatic.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -228,7 +228,7 @@ public class FlutterStatic {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<m> run(CustomMessage<m> customMessage) {
+                public CustomResponsedMessage<n> run(CustomMessage<n> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {

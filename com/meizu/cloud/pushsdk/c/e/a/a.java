@@ -4,7 +4,7 @@ import com.meizu.cloud.pushsdk.c.b.a.b;
 import com.meizu.cloud.pushsdk.c.e.c;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends c {
     public static final String n = "a";
     public static ScheduledExecutorService o;
@@ -26,9 +26,9 @@ public class a extends c {
     }
 
     public void c() {
-        if (o == null && this.f37637i) {
+        if (o == null && this.f74483i) {
             com.meizu.cloud.pushsdk.c.f.c.b(n, "Session checking has been resumed.", new Object[0]);
-            final com.meizu.cloud.pushsdk.c.e.a aVar = this.f37632d;
+            final com.meizu.cloud.pushsdk.c.e.a aVar = this.f74478d;
             ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
             o = newSingleThreadScheduledExecutor;
             Runnable runnable = new Runnable() { // from class: com.meizu.cloud.pushsdk.c.e.a.a.1
@@ -37,8 +37,8 @@ public class a extends c {
                     aVar.b();
                 }
             };
-            long j = this.j;
-            newSingleThreadScheduledExecutor.scheduleAtFixedRate(runnable, j, j, this.l);
+            long j2 = this.f74484j;
+            newSingleThreadScheduledExecutor.scheduleAtFixedRate(runnable, j2, j2, this.l);
         }
     }
 }

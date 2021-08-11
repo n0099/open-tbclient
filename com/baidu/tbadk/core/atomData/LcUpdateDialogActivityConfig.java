@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LcUpdateDialogActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LC_UPDATE_APKMD5RSA = "key_lc_update_apkmd5rsa";
@@ -40,7 +39,7 @@ public class LcUpdateDialogActivityConfig extends IntentConfig {
             }
         }
         Intent intent = getIntent();
-        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        intent.setFlags(268435456);
         intent.putExtra(KEY_LC_UPDATE_DATA, clientUpdateInfo);
         intent.putExtra(KEY_LC_UPDATE_APKMD5RSA, str);
         TbadkCoreApplication.getInst().setHasNewVersion(true);

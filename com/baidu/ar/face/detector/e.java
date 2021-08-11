@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class e extends a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "e";
@@ -61,15 +61,15 @@ public class e extends a {
         }
     }
 
-    public void a(int i2, int i3, boolean z, int i4, boolean z2, long j) {
+    public void a(int i2, int i3, boolean z, int i4, boolean z2, long j2) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Boolean.valueOf(z2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Boolean.valueOf(z2), Long.valueOf(j2)}) == null) {
             dJ();
             this.or = this.oc.dY();
             if (this.oc.ee() && (algoHandleController = this.or) != null) {
                 this.oh = algoHandleController.createHandle();
-                this.oc.dY().setHandleInput(this.oh, 10, j, 2, i2, i3, z, i4, z2, this.oe);
+                this.oc.dY().setHandleInput(this.oh, 10, j2, 2, i2, i3, z, i4, z2, this.oe);
             }
             this.oq = new FAUImage(this.oe, i2, i3, 2);
         }
@@ -87,9 +87,9 @@ public class e extends a {
             this.ob.setFaceFrame(new FaceFrame());
             AlgoHandleController algoHandleController = this.or;
             if (algoHandleController != null) {
-                long j = this.oh;
-                if (j > 0) {
-                    algoHandleController.setHandleFaceHandle(j, this.mf);
+                long j2 = this.oh;
+                if (j2 > 0) {
+                    algoHandleController.setHandleFaceHandle(j2, this.mf);
                 }
             }
         }

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RemoteActivityProxyService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PLUGIN_CHECK_RESULT = 0;
@@ -24,13 +24,13 @@ public class RemoteActivityProxyService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public Messenger mMessenger;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

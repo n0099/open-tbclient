@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bv extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f40183a;
+    public final /* synthetic */ bu f77034a;
 
     public bv(bu buVar) {
         Interceptable interceptable = $ic;
@@ -31,12 +31,12 @@ public class bv extends ai.a {
                 return;
             }
         }
-        this.f40183a = buVar;
+        this.f77034a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "10052" : (String) invokeV.objValue;
@@ -50,12 +50,12 @@ public class bv extends ai.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("exec== mUploadJob");
-            ckVar = this.f40183a.f163a;
+            ckVar = this.f77034a.f167a;
             if (ckVar != null) {
-                ckVar2 = this.f40183a.f163a;
-                context = this.f40183a.f160a;
+                ckVar2 = this.f77034a.f167a;
+                context = this.f77034a.f164a;
                 ckVar2.a(context);
-                this.f40183a.b("upload_time");
+                this.f77034a.b("upload_time");
             }
         }
     }

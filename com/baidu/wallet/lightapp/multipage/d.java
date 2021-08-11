@@ -1,7 +1,7 @@
 package com.baidu.wallet.lightapp.multipage;
 
 import android.app.Activity;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface d {
     void backPressed();
 
@@ -9,11 +9,13 @@ public interface d {
 
     void closeWindow();
 
-    boolean createLangbridgeCell(String str, boolean z, boolean z2);
+    boolean createLangbridgeCell(String str, boolean z, boolean z2, String str2);
 
     Activity getControllerActivity();
 
     long getLangbridgeHash();
+
+    String getLangbridgeStamp();
 
     int getLangbridgeStatus();
 
@@ -24,6 +26,8 @@ public interface d {
     boolean isActiveCell(c cVar);
 
     boolean isBottomCell(c cVar);
+
+    void setLangbridgeStamp(String str);
 
     void setRnAuthResult(int i2, String str);
 }

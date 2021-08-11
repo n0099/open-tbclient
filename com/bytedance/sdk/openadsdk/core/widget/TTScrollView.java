@@ -13,24 +13,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TTScrollView extends ScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30976a;
+    public int f66907a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f30977b;
+    public boolean f66908b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f30978c;
+    public a f66909c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f30979d;
+    public boolean f66910d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(boolean z);
     }
@@ -53,8 +53,8 @@ public class TTScrollView extends ScrollView {
                 return;
             }
         }
-        this.f30977b = false;
-        this.f30979d = false;
+        this.f66908b = false;
+        this.f66910d = false;
     }
 
     @Override // android.widget.ScrollView, android.widget.FrameLayout, android.view.ViewGroup, android.view.View
@@ -62,11 +62,11 @@ public class TTScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            if (this.f30977b) {
+            if (this.f66908b) {
                 return;
             }
             try {
-                this.f30977b = true;
+                this.f66908b = true;
                 View childAt = ((ViewGroup) getChildAt(0)).getChildAt(1);
                 ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                 layoutParams.height = getHeight();
@@ -90,13 +90,13 @@ public class TTScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f30976a = getChildAt(0).getMeasuredHeight();
+            this.f66907a = getChildAt(0).getMeasuredHeight();
             post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.TTScrollView.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTScrollView f30982a;
+                public final /* synthetic */ TTScrollView f66913a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -113,15 +113,15 @@ public class TTScrollView extends ScrollView {
                             return;
                         }
                     }
-                    this.f30982a = this;
+                    this.f66913a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        TTScrollView tTScrollView = this.f30982a;
-                        tTScrollView.smoothScrollTo(0, tTScrollView.f30976a);
+                        TTScrollView tTScrollView = this.f66913a;
+                        tTScrollView.smoothScrollTo(0, tTScrollView.f66907a);
                     }
                 }
             });
@@ -141,14 +141,14 @@ public class TTScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
             boolean z = true;
-            if (motionEvent.getAction() == 1 && getScrollY() < this.f30976a) {
-                if (getScrollY() > this.f30976a / 2) {
+            if (motionEvent.getAction() == 1 && getScrollY() < this.f66907a) {
+                if (getScrollY() > this.f66907a / 2) {
                     post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.widget.TTScrollView.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ TTScrollView f30980a;
+                        public final /* synthetic */ TTScrollView f66911a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -165,15 +165,15 @@ public class TTScrollView extends ScrollView {
                                     return;
                                 }
                             }
-                            this.f30980a = this;
+                            this.f66911a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                TTScrollView tTScrollView = this.f30980a;
-                                tTScrollView.smoothScrollTo(0, tTScrollView.f30976a);
+                                TTScrollView tTScrollView = this.f66911a;
+                                tTScrollView.smoothScrollTo(0, tTScrollView.f66907a);
                             }
                         }
                     });
@@ -184,7 +184,7 @@ public class TTScrollView extends ScrollView {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ TTScrollView f30981a;
+                            public final /* synthetic */ TTScrollView f66912a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -201,30 +201,30 @@ public class TTScrollView extends ScrollView {
                                         return;
                                     }
                                 }
-                                this.f30981a = this;
+                                this.f66912a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f30981a.smoothScrollTo(0, 0);
+                                    this.f66912a.smoothScrollTo(0, 0);
                                 }
                             }
                         });
                     }
-                    aVar = this.f30978c;
-                    if (aVar != null && z != this.f30979d) {
+                    aVar = this.f66909c;
+                    if (aVar != null && z != this.f66910d) {
                         aVar.a(z);
                     }
-                    this.f30979d = z;
+                    this.f66910d = z;
                 }
                 z = false;
-                aVar = this.f30978c;
+                aVar = this.f66909c;
                 if (aVar != null) {
                     aVar.a(z);
                 }
-                this.f30979d = z;
+                this.f66910d = z;
             }
             return super.onTouchEvent(motionEvent);
         }
@@ -234,14 +234,14 @@ public class TTScrollView extends ScrollView {
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.f30978c = aVar;
+            this.f66909c = aVar;
         }
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30979d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f66910d : invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -263,8 +263,8 @@ public class TTScrollView extends ScrollView {
                 return;
             }
         }
-        this.f30977b = false;
-        this.f30979d = false;
+        this.f66908b = false;
+        this.f66910d = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -286,7 +286,7 @@ public class TTScrollView extends ScrollView {
                 return;
             }
         }
-        this.f30977b = false;
-        this.f30979d = false;
+        this.f66908b = false;
+        this.f66910d = false;
     }
 }

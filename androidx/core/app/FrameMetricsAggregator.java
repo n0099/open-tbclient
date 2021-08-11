@@ -186,13 +186,13 @@ public class FrameMetricsAggregator {
             }
         }
 
-        public void addDurationItem(SparseIntArray sparseIntArray, long j) {
+        public void addDurationItem(SparseIntArray sparseIntArray, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseIntArray, j) == null) || sparseIntArray == null) {
+            if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseIntArray, j2) == null) || sparseIntArray == null) {
                 return;
             }
-            int i2 = (int) ((500000 + j) / 1000000);
-            if (j >= 0) {
+            int i2 = (int) ((500000 + j2) / 1000000);
+            if (j2 >= 0) {
                 sparseIntArray.put(i2, sparseIntArray.get(i2) + 1);
             }
         }

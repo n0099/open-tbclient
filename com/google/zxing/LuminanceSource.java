@@ -1,14 +1,13 @@
 package com.google.zxing;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class LuminanceSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -112,7 +111,7 @@ public abstract class LuminanceSource {
                 bArr = getRow(i3, bArr);
                 for (int i4 = 0; i4 < this.width; i4++) {
                     int i5 = bArr[i4] & 255;
-                    sb.append(i5 < 64 ? '#' : i5 < 128 ? '+' : i5 < 192 ? IStringUtil.EXTENSION_SEPARATOR : ' ');
+                    sb.append(i5 < 64 ? '#' : i5 < 128 ? '+' : i5 < 192 ? '.' : ' ');
                 }
                 sb.append('\n');
             }

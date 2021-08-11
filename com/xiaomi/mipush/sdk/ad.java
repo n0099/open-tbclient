@@ -14,13 +14,13 @@ import com.xiaomi.push.hs;
 import com.xiaomi.push.hx;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ad extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f40036a;
+    public Context f76887a;
 
     public ad(Context context) {
         Interceptable interceptable = $ic;
@@ -37,12 +37,12 @@ public class ad extends ai.a {
                 return;
             }
         }
-        this.f40036a = context;
+        this.f76887a = context;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "2" : (String) invokeV.objValue;
@@ -52,14 +52,14 @@ public class ad extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            com.xiaomi.push.service.aq a2 = com.xiaomi.push.service.aq.a(this.f40036a);
+            com.xiaomi.push.service.aq a2 = com.xiaomi.push.service.aq.a(this.f76887a);
             hx hxVar = new hx();
-            hxVar.a(com.xiaomi.push.service.ar.a(a2, hl.f40561a));
-            hxVar.b(com.xiaomi.push.service.ar.a(a2, hl.f40562b));
+            hxVar.a(com.xiaomi.push.service.ar.a(a2, hl.f77424a));
+            hxVar.b(com.xiaomi.push.service.ar.a(a2, hl.f77425b));
             ie ieVar = new ie("-1", false);
-            ieVar.c(hp.p.f509a);
+            ieVar.c(hp.p.f513a);
             ieVar.a(ip.a(hxVar));
-            an.a(this.f40036a).a((an) ieVar, hf.f40530i, (hs) null);
+            an.a(this.f76887a).a((an) ieVar, hf.f77389i, (hs) null);
         }
     }
 }

@@ -2,7 +2,6 @@ package com.baidu.android.imsdk.upload.action;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMPushUploadConstants;
@@ -35,7 +34,7 @@ import okio.BufferedSink;
 import okio.GzipSink;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMPushUploadManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long PING_INTERVAL_MS = 1000;
@@ -45,7 +44,7 @@ public class IMPushUploadManager {
     public Context mContext;
     public OkHttpClient mOkHttpClient;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class GzipRequestInterceptor implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,8 +121,7 @@ public class IMPushUploadManager {
                         try {
                             this.val$body.writeTo(buffer);
                             buffer.close();
-                        } catch (IOException e2) {
-                            Log.e(IMPushUploadConstants.TAG, "RequestBody gzip exception ", e2);
+                        } catch (IOException unused) {
                         }
                     }
                 }
@@ -224,10 +222,9 @@ public class IMPushUploadManager {
                     this.mOkHttpClient.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
                     this.mOkHttpClient = this.mOkHttpClient.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
                 }
-                Log.d(IMPushUploadConstants.TAG, "parseResponse errorCode :" + parseFrom.getErrorCode() + ", errorMsg ：" + parseFrom.getErrorMsg());
+                String str = "parseResponse errorCode :" + parseFrom.getErrorCode() + ", errorMsg ：" + parseFrom.getErrorMsg();
                 return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
-            } catch (InvalidProtocolBufferException e2) {
-                Log.e(IMPushUploadConstants.TAG, "parseResponse has exception ", e2);
+            } catch (InvalidProtocolBufferException unused) {
                 return new String[]{String.valueOf(-1), "parseResponse exception"};
             }
         }
@@ -293,25 +290,21 @@ public class IMPushUploadManager {
                         String str3 = "ok";
                         int i2 = 0;
                         try {
-                            try {
-                                if (response.body() != null) {
-                                    String[] parseResponse = this.this$0.parseResponse(response.body().bytes());
-                                    i2 = Integer.valueOf(parseResponse[0]).intValue();
-                                    str3 = parseResponse[1];
-                                }
-                                Log.d(IMPushUploadConstants.TAG, "onResponse response = " + i2 + " body = " + str3 + ", logId :" + this.val$logId);
-                                iMPushUploadResponseListener2 = this.val$responseListener;
-                                if (iMPushUploadResponseListener2 == null) {
-                                    return;
-                                }
-                            } catch (IOException e2) {
-                                Log.e(IMPushUploadConstants.TAG, "onResponse exception ", e2);
-                                iMPushUploadResponseListener2 = this.val$responseListener;
-                                if (iMPushUploadResponseListener2 == null) {
-                                    return;
-                                }
+                            if (response.body() != null) {
+                                String[] parseResponse = this.this$0.parseResponse(response.body().bytes());
+                                i2 = Integer.valueOf(parseResponse[0]).intValue();
+                                str3 = parseResponse[1];
                             }
-                            iMPushUploadResponseListener2.uploadResponse(i2, str3);
+                            String str4 = "onResponse response = " + i2 + " body = " + str3 + ", logId :" + this.val$logId;
+                            iMPushUploadResponseListener2 = this.val$responseListener;
+                            if (iMPushUploadResponseListener2 == null) {
+                                return;
+                            }
+                        } catch (IOException unused) {
+                            iMPushUploadResponseListener2 = this.val$responseListener;
+                            if (iMPushUploadResponseListener2 == null) {
+                                return;
+                            }
                         } catch (Throwable th) {
                             IMPushUploadResponseListener iMPushUploadResponseListener3 = this.val$responseListener;
                             if (iMPushUploadResponseListener3 != null) {
@@ -319,6 +312,7 @@ public class IMPushUploadManager {
                             }
                             throw th;
                         }
+                        iMPushUploadResponseListener2.uploadResponse(i2, str3);
                     }
                 }
             });

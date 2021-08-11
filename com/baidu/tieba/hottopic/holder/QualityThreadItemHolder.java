@@ -10,40 +10,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class QualityThreadItemHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f17178a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f17179b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f17180c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f17181d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f17182e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View f17183f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TbImageView f17184g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f17185h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f17186i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
+    public View contentDividerLine;
+    public TextView descView;
+    public TextView frsNameView;
+    public TextView moduleTheme;
+    public TextView replyTextView;
+    public View rootView;
+    public int skinType;
+    public TbImageView threadImg;
+    public RelativeLayout threadView;
+    public TextView titleView;
+    public View topDivilerLine;
+    public TextView zanTextView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QualityThreadItemHolder(View view) {
@@ -63,31 +45,31 @@ public class QualityThreadItemHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f17178a = 3;
-        this.f17179b = null;
-        this.f17180c = null;
-        this.f17181d = null;
-        this.f17182e = null;
-        this.f17183f = null;
-        this.f17184g = null;
-        this.f17179b = view;
-        b(view);
+        this.skinType = 3;
+        this.rootView = null;
+        this.topDivilerLine = null;
+        this.moduleTheme = null;
+        this.threadView = null;
+        this.contentDividerLine = null;
+        this.threadImg = null;
+        this.rootView = view;
+        a(view);
     }
 
-    public final void b(View view) {
+    public final void a(View view) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        this.f17180c = view.findViewById(R.id.top_divider_line);
-        this.f17181d = (TextView) view.findViewById(R.id.quality_item_theme_title);
-        this.f17183f = view.findViewById(R.id.divider_line);
-        this.f17182e = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
-        this.f17184g = (TbImageView) view.findViewById(R.id.img);
-        this.f17185h = (TextView) view.findViewById(R.id.title);
-        this.f17186i = (TextView) view.findViewById(R.id.desc);
-        this.j = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
-        this.k = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
-        this.l = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);
+        this.topDivilerLine = view.findViewById(R.id.top_divider_line);
+        this.moduleTheme = (TextView) view.findViewById(R.id.quality_item_theme_title);
+        this.contentDividerLine = view.findViewById(R.id.divider_line);
+        this.threadView = (RelativeLayout) view.findViewById(R.id.quality_thread_view);
+        this.threadImg = (TbImageView) view.findViewById(R.id.img);
+        this.titleView = (TextView) view.findViewById(R.id.title);
+        this.descView = (TextView) view.findViewById(R.id.desc);
+        this.frsNameView = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_tag);
+        this.zanTextView = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_praise);
+        this.replyTextView = (TextView) view.findViewById(R.id.hot_thread_comment).findViewById(R.id.hot_thread_line_comment);
     }
 }

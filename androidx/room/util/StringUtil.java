@@ -1,10 +1,8 @@
 package androidx.room.util;
 
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
-import androidx.room.Room;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -108,8 +106,7 @@ public class StringUtil {
             while (stringTokenizer.hasMoreElements()) {
                 try {
                     arrayList.add(Integer.valueOf(Integer.parseInt(stringTokenizer.nextToken())));
-                } catch (NumberFormatException e2) {
-                    Log.e(Room.LOG_TAG, "Malformed integer list", e2);
+                } catch (NumberFormatException unused) {
                 }
             }
             return arrayList;

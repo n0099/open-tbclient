@@ -4,7 +4,7 @@ import android.app.Service;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ServiceControlSurface {
     void attachToService(@NonNull Service service, @Nullable Lifecycle lifecycle, boolean z);
 

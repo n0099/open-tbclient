@@ -1,12 +1,11 @@
 package com.win.opensdk;
 
-import android.util.Log;
 import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class K0 implements ViewTreeObserver.OnTouchModeChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +30,7 @@ public class K0 implements ViewTreeObserver.OnTouchModeChangeListener {
     public void onTouchModeChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            Log.e("register", "onTouchModeChanged:" + z);
+            String str = "onTouchModeChanged:" + z;
         }
     }
 }

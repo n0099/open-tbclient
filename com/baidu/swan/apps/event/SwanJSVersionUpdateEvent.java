@@ -1,7 +1,9 @@
 package com.baidu.swan.apps.event;
 
-import android.util.Log;
 import androidx.annotation.Keep;
+import c.a.n0.a.c1.a;
+import c.a.n0.a.k;
+import c.a.n0.a.m2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -12,11 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.c1.a;
-import d.a.o0.a.k;
-import d.a.o0.a.m2.b;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwanJSVersionUpdateEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -38,7 +37,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = k.f46335a;
+        DEBUG = k.f6803a;
     }
 
     public SwanJSVersionUpdateEvent() {
@@ -64,16 +63,16 @@ public class SwanJSVersionUpdateEvent {
         this.mVersionName = null;
     }
 
-    public static void sendEvent(long j) {
+    public static void sendEvent(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65538, null, j2) == null) {
             SwanJSVersionUpdateEvent swanJSVersionUpdateEvent = new SwanJSVersionUpdateEvent();
             if (swanJSVersionUpdateEvent.mVersionName == null) {
                 return;
             }
             a.I().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
-                Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX);
+                String str = "send SwanJSVersionUpdateEvent, downVersion:" + j2 + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX;
             }
         }
     }

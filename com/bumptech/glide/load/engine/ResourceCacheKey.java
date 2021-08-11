@@ -17,7 +17,8 @@ import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public final class ResourceCacheKey implements Key {
     public static /* synthetic */ Interceptable $ic;
     public static final LruCache<Class<?>, byte[]> RESOURCE_CLASS_BYTES;
@@ -120,7 +121,7 @@ public final class ResourceCacheKey implements Key {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ResourceCacheKey{sourceKey=" + this.sourceKey + ", signature=" + this.signature + ", width=" + this.width + ", height=" + this.height + ", decodedResourceClass=" + this.decodedResourceClass + ", transformation='" + this.transformation + "', options=" + this.options + '}';
+            return "ResourceCacheKey{sourceKey=" + this.sourceKey + ", signature=" + this.signature + ", width=" + this.width + ", height=" + this.height + ", decodedResourceClass=" + this.decodedResourceClass + ", transformation='" + this.transformation + ExtendedMessageFormat.QUOTE + ", options=" + this.options + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

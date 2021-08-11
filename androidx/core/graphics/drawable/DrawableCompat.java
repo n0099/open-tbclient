@@ -9,7 +9,6 @@ import android.graphics.drawable.DrawableContainer;
 import android.graphics.drawable.InsetDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -134,8 +133,7 @@ public final class DrawableCompat {
                         Method declaredMethod = Drawable.class.getDeclaredMethod("getLayoutDirection", new Class[0]);
                         sGetLayoutDirectionMethod = declaredMethod;
                         declaredMethod.setAccessible(true);
-                    } catch (NoSuchMethodException e2) {
-                        Log.i(TAG, "Failed to retrieve getLayoutDirection() method", e2);
+                    } catch (NoSuchMethodException unused) {
                     }
                     sGetLayoutDirectionMethodFetched = true;
                 }
@@ -143,8 +141,7 @@ public final class DrawableCompat {
                 if (method != null) {
                     try {
                         return ((Integer) method.invoke(drawable, new Object[0])).intValue();
-                    } catch (Exception e3) {
-                        Log.i(TAG, "Failed to invoke getLayoutDirection() via reflection", e3);
+                    } catch (Exception unused2) {
                         sGetLayoutDirectionMethod = null;
                     }
                 }
@@ -223,8 +220,7 @@ public final class DrawableCompat {
                         Method declaredMethod = Drawable.class.getDeclaredMethod("setLayoutDirection", Integer.TYPE);
                         sSetLayoutDirectionMethod = declaredMethod;
                         declaredMethod.setAccessible(true);
-                    } catch (NoSuchMethodException e2) {
-                        Log.i(TAG, "Failed to retrieve setLayoutDirection(int) method", e2);
+                    } catch (NoSuchMethodException unused) {
                     }
                     sSetLayoutDirectionMethodFetched = true;
                 }
@@ -233,8 +229,7 @@ public final class DrawableCompat {
                     try {
                         method.invoke(drawable, Integer.valueOf(i2));
                         return true;
-                    } catch (Exception e3) {
-                        Log.i(TAG, "Failed to invoke setLayoutDirection(int) via reflection", e3);
+                    } catch (Exception unused2) {
                         sSetLayoutDirectionMethod = null;
                     }
                 }

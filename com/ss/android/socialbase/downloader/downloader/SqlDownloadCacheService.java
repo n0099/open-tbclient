@@ -6,7 +6,10 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.IBinder;
-import android.util.Log;
+import c.p.a.e.b.g.e;
+import c.p.a.e.b.g.k;
+import c.p.a.e.b.g.t;
+import c.p.a.e.b.m.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,16 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.l.a.e.b.g.e;
-import d.l.a.e.b.g.k;
-import d.l.a.e.b.g.t;
-import d.l.a.e.b.m.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SqlDownloadCacheService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38703a;
+    public static final String f75517a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +39,7 @@ public class SqlDownloadCacheService extends Service {
                 return;
             }
         }
-        f38703a = SqlDownloadCacheService.class.getSimpleName();
+        f75517a = SqlDownloadCacheService.class.getSimpleName();
     }
 
     public SqlDownloadCacheService() {
@@ -68,8 +67,7 @@ public class SqlDownloadCacheService extends Service {
                 context.bindService(intent, serviceConnection, 1);
             }
             context.startService(intent);
-        } catch (Throwable th) {
-            Log.w(f38703a, "startServiceAndBind fail", th);
+        } catch (Throwable unused) {
         }
     }
 

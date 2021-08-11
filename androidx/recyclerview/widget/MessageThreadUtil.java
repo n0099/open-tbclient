@@ -3,7 +3,6 @@ package androidx.recyclerview.widget;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.ThreadUtil;
 import androidx.recyclerview.widget.TileList;
@@ -90,7 +89,7 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                             } else if (i4 == 2) {
                                 this.this$1.val$callback.addTile(next.arg1, (TileList.Tile) next.data);
                             } else if (i4 != 3) {
-                                Log.e("ThreadUtil", "Unsupported message, what=" + next.what);
+                                String str = "Unsupported message, what=" + next.what;
                             } else {
                                 this.this$1.val$callback.removeTile(next.arg1, next.arg2);
                             }
@@ -216,7 +215,7 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                         } else if (i4 == 3) {
                             this.this$1.val$callback.loadTile(next.arg1, next.arg2);
                         } else if (i4 != 4) {
-                            Log.e("ThreadUtil", "Unsupported message, what=" + next.what);
+                            String str = "Unsupported message, what=" + next.what;
                         } else {
                             this.this$1.val$callback.recycleTile((TileList.Tile) next.data);
                         }

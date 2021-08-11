@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import androidx.core.content.ContextCompat;
+import c.a.e.e.p.l;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
@@ -12,8 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PushDialogUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,10 +39,10 @@ public class PushDialogUserLikeButton extends CommonUserLikeButton {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void g(int i2) {
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if (this.f12807g) {
+            if (this.mCurrentIsLike) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0109, 1, i2);
                 setBackgroundDrawable(null);

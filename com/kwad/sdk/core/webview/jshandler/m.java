@@ -13,27 +13,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class m implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f35429a;
+    public b f72186a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f35430b;
+    public Handler f72187b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f35431c;
+    public com.kwad.sdk.core.webview.a.c f72188c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f35434a;
+        public int f72191a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -55,7 +55,7 @@ public class m implements com.kwad.sdk.core.webview.a.a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f35434a = jSONObject.optInt("status");
+            this.f72191a = jSONObject.optInt("status");
         }
 
         @Override // com.kwad.sdk.core.b
@@ -64,14 +64,14 @@ public class m implements com.kwad.sdk.core.webview.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                com.kwad.sdk.utils.q.a(jSONObject, "status", this.f35434a);
+                com.kwad.sdk.utils.q.a(jSONObject, "status", this.f72191a);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         @MainThread
         void a(int i2);
@@ -92,15 +92,15 @@ public class m implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f35429a = bVar;
-        this.f35430b = new Handler(Looper.getMainLooper());
+        this.f72186a = bVar;
+        this.f72187b = new Handler(Looper.getMainLooper());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65538, this, i2) == null) || (bVar = this.f35429a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65538, this, i2) == null) || (bVar = this.f72186a) == null) {
             return;
         }
         bVar.a(i2);
@@ -118,19 +118,19 @@ public class m implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            this.f35431c = cVar;
+            this.f72188c = cVar;
             try {
                 a aVar = new a();
                 aVar.parseJson(new JSONObject(str));
-                this.f35430b.post(new Runnable(this, aVar) { // from class: com.kwad.sdk.core.webview.jshandler.m.1
+                this.f72187b.post(new Runnable(this, aVar) { // from class: com.kwad.sdk.core.webview.jshandler.m.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f35432a;
+                    public final /* synthetic */ a f72189a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ m f35433b;
+                    public final /* synthetic */ m f72190b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -147,17 +147,17 @@ public class m implements com.kwad.sdk.core.webview.a.a {
                                 return;
                             }
                         }
-                        this.f35433b = this;
-                        this.f35432a = aVar;
+                        this.f72190b = this;
+                        this.f72189a = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f35433b.a(this.f35432a.f35434a);
-                            if (this.f35433b.f35431c != null) {
-                                this.f35433b.f35431c.a(null);
+                            this.f72190b.a(this.f72189a.f72191a);
+                            if (this.f72190b.f72188c != null) {
+                                this.f72190b.f72188c.a(null);
                             }
                         }
                     }
@@ -173,9 +173,9 @@ public class m implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f35429a = null;
-            this.f35431c = null;
-            this.f35430b.removeCallbacksAndMessages(null);
+            this.f72186a = null;
+            this.f72188c = null;
+            this.f72187b.removeCallbacksAndMessages(null);
         }
     }
 }

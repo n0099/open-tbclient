@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.tieba.flutter.base.util.OpenFlutter;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlinx.coroutines.DebugKt;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,32 +19,34 @@ public class d {
     public boolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f30048a;
+    public float f65949a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f30049b;
+    public float f65950b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f30050c;
+    public float f65951c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f30051d;
+    public float f65952d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f30052e;
+    public float f65953e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f30053f;
+    public float f65954f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f30054g;
+    public float f65955g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f30055h;
+    public float f65956h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f30056i;
-    public float j;
+    public float f65957i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public float f65958j;
     public int k;
     public int l;
     public String m;
@@ -80,68 +81,68 @@ public class d {
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30048a : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f65949a : invokeV.floatValue;
     }
 
     public float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f30049b : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f65950b : invokeV.floatValue;
     }
 
     public void c(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.f30050c = f2;
+            this.f65951c = f2;
         }
     }
 
     public void d(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
-            this.f30051d = f2;
+            this.f65952d = f2;
         }
     }
 
     public void e(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f30052e = f2;
+            this.f65953e = f2;
         }
     }
 
     public void f(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
-            this.f30053f = f2;
+            this.f65954f = f2;
         }
     }
 
     public void g(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048598, this, f2) == null) {
-            this.f30054g = f2;
+            this.f65955g = f2;
         }
     }
 
     public void h(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048601, this, f2) == null) {
-            this.f30055h = f2;
+            this.f65956h = f2;
         }
     }
 
     public void i(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048604, this, f2) == null) {
-            this.f30056i = f2;
+            this.f65957i = f2;
         }
     }
 
     public void j(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048607, this, f2) == null) {
-            this.j = f2;
+            this.f65958j = f2;
         }
     }
 
@@ -179,45 +180,45 @@ public class d {
     public void a(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.f30048a = f2;
+            this.f65949a = f2;
         }
     }
 
     public void b(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.f30049b = f2;
+            this.f65950b = f2;
         }
     }
 
     public float c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f30053f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f65954f : invokeV.floatValue;
     }
 
     public float d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f30054g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f65955g : invokeV.floatValue;
     }
 
     public float e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f30055h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f65956h : invokeV.floatValue;
     }
 
     public float f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f30056i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f65957i : invokeV.floatValue;
     }
 
     public float g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f65958j : invokeV.floatValue;
     }
 
     public int h() {
@@ -375,7 +376,7 @@ public class d {
             dVar.l(jSONObject.optString("clickArea", "creative"));
             dVar.m(jSONObject.optString("clickTigger", PrefetchEvent.STATE_CLICK));
             dVar.b(jSONObject.optString("fontFamily", "PingFangSC"));
-            dVar.c(jSONObject.optString("textAlign", CustomDialogData.POS_LEFT));
+            dVar.c(jSONObject.optString("textAlign", "left"));
             dVar.d(jSONObject.optString("color", "#999999"));
             dVar.e(jSONObject.optString("bgColor", OpenFlutter.EXTRA_TRANSPARANT));
             dVar.f(jSONObject.optString("borderColor", "#000000"));

@@ -11,19 +11,19 @@ import com.bytedance.sdk.openadsdk.core.e.k;
 import com.bytedance.sdk.openadsdk.core.nativeexpress.o;
 import com.bytedance.sdk.openadsdk.q.s;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<View> f30077a;
+    public WeakReference<View> f65979a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<View> f30078b;
+    public WeakReference<View> f65980b;
 
     /* renamed from: c  reason: collision with root package name */
-    public o f30079c;
+    public o f65981c;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -42,21 +42,21 @@ public class a extends c {
     public void a(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, oVar) == null) {
-            this.f30079c = oVar;
+            this.f65981c = oVar;
         }
     }
 
     public void b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            this.f30078b = new WeakReference<>(view);
+            this.f65980b = new WeakReference<>(view);
         }
     }
 
     public void a(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f30077a = new WeakReference<>(view);
+            this.f65979a = new WeakReference<>(view);
         }
     }
 
@@ -70,16 +70,16 @@ public class a extends c {
 
     private void a(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65537, this, i2) == null) || this.f30079c == null) {
+        if (!(interceptable == null || interceptable.invokeI(65537, this, i2) == null) || this.f65981c == null) {
             return;
         }
         int[] iArr = new int[2];
         int[] iArr2 = new int[2];
-        WeakReference<View> weakReference = this.f30078b;
+        WeakReference<View> weakReference = this.f65980b;
         if (weakReference != null) {
             iArr = s.a(weakReference.get());
-            iArr2 = s.c(this.f30078b.get());
+            iArr2 = s.c(this.f65980b.get());
         }
-        this.f30079c.a(i2, new k.a().d(this.t).c(this.u).b(this.v).a(this.w).b(this.x).a(this.y).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
+        this.f65981c.a(i2, new k.a().d(this.t).c(this.u).b(this.v).a(this.w).b(this.x).a(this.y).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
     }
 }

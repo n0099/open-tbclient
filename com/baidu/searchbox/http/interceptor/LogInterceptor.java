@@ -1,7 +1,6 @@
 package com.baidu.searchbox.http.interceptor;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -31,7 +30,7 @@ import okhttp3.ResponseBody;
 import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LogInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "http";
@@ -40,7 +39,7 @@ public class LogInterceptor implements Interceptor {
     public volatile Level level;
     public final Logger logger;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class DefaultLogger implements Logger {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,13 +72,12 @@ public class LogInterceptor implements Interceptor {
         public void log(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                Log.d(this.tag, str);
             }
         }
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class Level {
         public static final /* synthetic */ Level[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -142,7 +140,7 @@ public class LogInterceptor implements Interceptor {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface Logger {
         void log(String str);
     }

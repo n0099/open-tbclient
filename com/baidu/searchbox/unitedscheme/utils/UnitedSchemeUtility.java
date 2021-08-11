@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -34,7 +33,7 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class UnitedSchemeUtility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -336,7 +335,7 @@ public final class UnitedSchemeUtility {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65556, null, callbackHandler, unitedSchemeEntity, str, str2) == null) {
             if (DEBUG) {
-                Log.i(TAG, "safeCallback handler:" + callbackHandler + "; params:" + str + ";callback:" + str2);
+                String str3 = "safeCallback handler:" + callbackHandler + "; params:" + str + ";callback:" + str2;
             }
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 safeCallbackOnUiThread(callbackHandler, unitedSchemeEntity, str, str2);
@@ -386,7 +385,7 @@ public final class UnitedSchemeUtility {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65557, null, callbackHandler, unitedSchemeEntity, str, str2) == null) {
             if (DEBUG) {
-                Log.i(TAG, "safeCallback callback:" + str2);
+                String str3 = "safeCallback callback:" + str2;
             }
             if ((callbackHandler instanceof NullableCallbackHandler) || !(callbackHandler == null || TextUtils.isEmpty(str2))) {
                 if (unitedSchemeEntity != null) {
@@ -394,9 +393,7 @@ public final class UnitedSchemeUtility {
                         return;
                     }
                 }
-                if (DEBUG) {
-                    Log.i(TAG, "safeCallback check success");
-                }
+                boolean z = DEBUG;
                 callbackHandler.handleSchemeDispatchCallback(str2, str);
             }
         }
@@ -556,7 +553,7 @@ public final class UnitedSchemeUtility {
             }
             String param = unitedSchemeEntity.getParam("callback");
             if (DEBUG) {
-                Log.d(TAG, unitedSchemeEntity.getUri().toString() + " callCallback " + param + " " + jSONObject.toString());
+                String str = unitedSchemeEntity.getUri().toString() + " callCallback " + param + " " + jSONObject.toString();
             }
             if ((!TextUtils.isEmpty(param) || (callbackHandler instanceof NullableCallbackHandler)) && !unitedSchemeEntity.isCallbackInvoked()) {
                 safeCallback(callbackHandler, unitedSchemeEntity, jSONObject.toString(), param);

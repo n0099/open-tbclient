@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class InviteFriendListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GROUP_ID = "groupid";
@@ -63,13 +63,13 @@ public class InviteFriendListActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InviteFriendListActivityConfig(Context context, long j, long j2) {
+    public InviteFriendListActivityConfig(Context context, long j2, long j3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -81,7 +81,7 @@ public class InviteFriendListActivityConfig extends IntentConfig {
             }
         }
         Intent intent = getIntent();
-        intent.putExtra("gid", j);
-        intent.putExtra("groupid", j2);
+        intent.putExtra("gid", j2);
+        intent.putExtra("groupid", j3);
     }
 }

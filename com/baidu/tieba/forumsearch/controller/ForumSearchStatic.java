@@ -1,5 +1,6 @@
 package com.baidu.tieba.forumsearch.controller;
 
+import c.a.p0.i3.d0.a;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumSearchActivityConfig;
@@ -13,8 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.h3.d0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ForumSearchStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

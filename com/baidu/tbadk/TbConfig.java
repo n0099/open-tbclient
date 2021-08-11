@@ -4,9 +4,12 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.o0.b0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -19,10 +22,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.b0.c;
 import java.util.HashSet;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSTRACT_AUTO = 0;
@@ -588,6 +589,7 @@ public class TbConfig {
     public static final String URL_GET_USER_BLOCK_INFO = "c/u/user/getUserBlackInfo";
     public static final String URL_GET_USER_BY_TIEBA_UID = "c/u/user/getUserByTiebaUid";
     public static final String URL_GET_VIDEO_INFO_BY_VLOGID = "/c/f/video/getVideoInfoByVLogId";
+    public static final String URL_GET_WORKS_TAGS = "c/f/video/getWorksTags";
     public static final String URL_GOD_AUTH = "https://tieba.baidu.com/mo/q/godRegister";
     public static final String URL_GOD_EXAMINE = "https://tieba.baidu.com/mo/q/godExamine";
     public static final String URL_HISTORY_SWAN = "c/s/historySwan";
@@ -708,7 +710,7 @@ public class TbConfig {
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
         public static HashSet<Integer> sInterruptCMDs;
@@ -782,7 +784,7 @@ public class TbConfig {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";
@@ -846,7 +848,7 @@ public class TbConfig {
         BIG_IMAGE_SIZE = 10240;
         BIG_IMAGE_MAX_USED_MEMORY = 1048576;
         PHOTO_SMALL_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
-        PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
+        PHOTO_BIG_ADDRESS = ThreadAchievementShareDialogView.THREAD_IMG_HOST;
         FRIEND_PHOTO_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
         IMAGE_ADDRESS = SERVER_ADDRESS + "c/p/img?";
         UPLOAD_IMG_URL = SERVER_ADDRESS + "c/s/uploadPicture";

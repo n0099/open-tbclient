@@ -8,9 +8,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import java.net.URLEncoder;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public class FaceVerifyInfo implements IFaceProcessInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +64,7 @@ public class FaceVerifyInfo implements IFaceProcessInfo {
                 }
                 jSONObject.put("verify_type", String.valueOf(this.verifyType));
                 if (this.nation != null) {
-                    jSONObject.put("nation", this.nation);
+                    jSONObject.put(UrlOcrConfig.IdCardKey.NATION, this.nation);
                 }
                 if (this.livenessControl != null) {
                     jSONObject.put("liveness_control", this.livenessControl.name());

@@ -1,7 +1,7 @@
 package com.baidu.tieba.pb.data;
 
+import c.a.p0.i2.b;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.gesture.GestureAR;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
@@ -10,9 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.h2.b;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +53,7 @@ public class PbFloorAgreeResponseMessage extends JsonHttpResponsedMessage {
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject("agree");
             if (optJSONObject2 != null) {
-                this.mScore = optJSONObject2.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
+                this.mScore = optJSONObject2.optInt("score");
             }
             this.mActDialogData = b.a(optJSONObject);
             JSONObject optJSONObject3 = optJSONObject.optJSONObject("contri_info");

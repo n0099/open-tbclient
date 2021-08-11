@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class y implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f39989a;
+    public final /* synthetic */ PBSplash f76840a;
 
     public y(PBSplash pBSplash) {
         Interceptable interceptable = $ic;
@@ -28,17 +28,17 @@ public class y implements View.OnClickListener {
                 return;
             }
         }
-        this.f39989a = pBSplash;
+        this.f76840a = pBSplash;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            PBSplash pBSplash = this.f39989a;
-            if (pBSplash.f39639e != null) {
-                pBSplash.f39640f = true;
-                this.f39989a.f39639e.onSkip();
+            PBSplash pBSplash = this.f76840a;
+            if (pBSplash.f76476e != null) {
+                pBSplash.f76477f = true;
+                this.f76840a.f76476e.onSkip();
             }
         }
     }

@@ -1,6 +1,13 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.j;
+import c.i.d.a.n;
+import c.i.d.c.d1;
+import c.i.d.c.e1;
+import c.i.d.c.o1;
+import c.i.d.c.q0;
+import c.i.d.c.y0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,13 +21,6 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ImmutableSortedSet;
-import d.f.d.a.j;
-import d.f.d.a.n;
-import d.f.d.c.d1;
-import d.f.d.c.e1;
-import d.f.d.c.o1;
-import d.f.d.c.q0;
-import d.f.d.c.y0;
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -29,7 +29,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implements e1<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -38,7 +38,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     public transient ImmutableSet<Map.Entry<K, V>> entries;
     public transient ImmutableSetMultimap<V, K> inverse;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class EntrySet<K, V> extends ImmutableSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +102,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class a<K, V> extends ImmutableMultimap.c<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -147,12 +147,12 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                Collection entrySet = this.f33409a.entrySet();
-                Comparator<? super K> comparator = this.f33410b;
+                Collection entrySet = this.f70126a.entrySet();
+                Comparator<? super K> comparator = this.f70127b;
                 if (comparator != null) {
                     entrySet = Ordering.from(comparator).onKeys().immutableSortedCopy(entrySet);
                 }
-                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f33411c);
+                return ImmutableSetMultimap.fromMapEntries(entrySet, this.f70128c);
             }
             return (ImmutableSetMultimap) invokeV.objValue;
         }
@@ -188,12 +188,12 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final d1.b<ImmutableSetMultimap> f33430a;
+        public static final d1.b<ImmutableSetMultimap> f70147a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -209,7 +209,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                     return;
                 }
             }
-            f33430a = d1.a(ImmutableSetMultimap.class, "emptySet");
+            f70147a = d1.a(ImmutableSetMultimap.class, "emptySet");
         }
     }
 
@@ -338,9 +338,9 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
                     }
                 }
                 try {
-                    ImmutableMultimap.d.f33412a.b(this, builder.a());
-                    ImmutableMultimap.d.f33413b.a(this, i2);
-                    b.f33430a.b(this, emptySet(comparator));
+                    ImmutableMultimap.d.f70129a.b(this, builder.a());
+                    ImmutableMultimap.d.f70130b.a(this, i2);
+                    b.f70147a.b(this, emptySet(comparator));
                     return;
                 } catch (IllegalArgumentException e2) {
                     throw ((InvalidObjectException) new InvalidObjectException(e2.getMessage()).initCause(e2));
@@ -379,14 +379,14 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.f.d.c.q0, d.f.d.c.p0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
     public /* bridge */ /* synthetic */ ImmutableCollection get(Object obj) {
         return get((ImmutableSetMultimap<K, V>) obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.f.d.c.c, d.f.d.c.q0, d.f.d.c.p0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.c, c.i.d.c.q0
     @Deprecated
     public /* bridge */ /* synthetic */ ImmutableCollection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableSetMultimap<K, V>) obj, iterable);
@@ -437,7 +437,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.f.d.c.q0, d.f.d.c.p0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
     public /* bridge */ /* synthetic */ Collection get(Object obj) {
         return get((ImmutableSetMultimap<K, V>) obj);
     }
@@ -461,7 +461,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.f.d.c.c, d.f.d.c.q0, d.f.d.c.p0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.c, c.i.d.c.q0
     @Deprecated
     public /* bridge */ /* synthetic */ Collection replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableSetMultimap<K, V>) obj, iterable);
@@ -469,21 +469,21 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.f.d.c.q0, d.f.d.c.p0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
     public /* bridge */ /* synthetic */ Set get(Object obj) {
         return get((ImmutableSetMultimap<K, V>) obj);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.google.common.collect.ImmutableMultimap, d.f.d.c.c, d.f.d.c.q0, d.f.d.c.p0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.c, c.i.d.c.q0
     @Deprecated
     public /* bridge */ /* synthetic */ Set replaceValues(Object obj, Iterable iterable) {
         return replaceValues((ImmutableSetMultimap<K, V>) obj, iterable);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableMultimap, d.f.d.c.c, d.f.d.c.q0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.c, c.i.d.c.q0
     public ImmutableSet<Map.Entry<K, V>> entries() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -499,7 +499,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         return (ImmutableSet) invokeV.objValue;
     }
 
-    @Override // com.google.common.collect.ImmutableMultimap, d.f.d.c.q0, d.f.d.c.p0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
     public ImmutableSet<V> get(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -507,7 +507,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableMultimap, d.f.d.c.q0, d.f.d.c.p0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.q0
     @Deprecated
     public ImmutableSet<V> removeAll(Object obj) {
         InterceptResult invokeL;
@@ -518,7 +518,7 @@ public class ImmutableSetMultimap<K, V> extends ImmutableMultimap<K, V> implemen
         return (ImmutableSet) invokeL.objValue;
     }
 
-    @Override // com.google.common.collect.ImmutableMultimap, d.f.d.c.c, d.f.d.c.q0, d.f.d.c.p0
+    @Override // com.google.common.collect.ImmutableMultimap, c.i.d.c.c, c.i.d.c.q0
     @Deprecated
     public ImmutableSet<V> replaceValues(K k, Iterable<? extends V> iterable) {
         InterceptResult invokeLL;

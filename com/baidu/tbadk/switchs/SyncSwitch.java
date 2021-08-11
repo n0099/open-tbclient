@@ -1,13 +1,13 @@
 package com.baidu.tbadk.switchs;
 
+import c.a.e.e.n.c;
+import c.a.e.e.o.a;
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.n.c;
-import d.a.d.e.o.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SyncSwitch {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -141,6 +141,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(FunAdSplashClickRegionSwitch.class);
             SwitchManager.getInstance().registerSwitch(WeChatShareSmallAppToH5Switch.class);
             SwitchManager.getInstance().registerSwitch(QqShareH5Switch.class);
+            SwitchManager.getInstance().registerSwitch(WorkAddTopicSwitch.class);
         }
     }
 }

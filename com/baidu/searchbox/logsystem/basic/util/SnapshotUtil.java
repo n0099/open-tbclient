@@ -31,14 +31,15 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes5.dex */
 public class SnapshotUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_FILE_PATH_NAME_PARAMETER_DIVIDER = "=";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.util.SnapshotUtil$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$logsys$eventscene$snapshot$DeviceSnapshotType;
         public static /* synthetic */ Interceptable $ic;
@@ -128,7 +129,7 @@ public class SnapshotUtil {
                                             fileWriter2.write(String.valueOf(logFile.mCanDelete));
                                             fileWriter2.write("=");
                                             fileWriter2.write(String.valueOf(logFile.mNecessary));
-                                            fileWriter2.write("\n");
+                                            fileWriter2.write(StringUtils.LF);
                                         }
                                     }
                                 }
@@ -353,7 +354,7 @@ public class SnapshotUtil {
                     saveFragmentSnapshot = forwardingProcessEventSceneHandler.saveFragmentSnapshot(context, eventObject, file2);
                 } catch (Exception e2) {
                     if (LLog.sDebug) {
-                        Log.d("SnapshotUtil", Log.getStackTraceString(e2));
+                        Log.getStackTraceString(e2);
                     }
                 }
                 if (saveFragmentSnapshot && file2.exists()) {

@@ -7,18 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.n.i;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.io.InputStream;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<i.b> f31900a;
+    public List<i.b> f67850a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f31901b;
+    public f f67851b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -41,9 +42,9 @@ public abstract class a {
         List<i.b> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str != null && (list = this.f31900a) != null && list.size() > 0) {
-                for (i.b bVar : this.f31900a) {
-                    if (str.equals(bVar.f31984a)) {
+            if (str != null && (list = this.f67850a) != null && list.size() > 0) {
+                for (i.b bVar : this.f67850a) {
+                    if (str.equals(bVar.f67936a)) {
                         return bVar;
                     }
                 }
@@ -59,7 +60,7 @@ public abstract class a {
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
             switch (i2) {
                 case 200:
-                    return "OK";
+                    return StatHelper.SENSOR_OK;
                 case 201:
                     return "Created";
                 case 202:
@@ -159,6 +160,6 @@ public abstract class a {
     public f g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f31901b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f67851b : (f) invokeV.objValue;
     }
 }

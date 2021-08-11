@@ -80,7 +80,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayEventTyp
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AppPayServiceImpl implements IAppPayService, IPayInnerLogic, IRevenueDataReceiver, IRevenueService.IRevenueServiceListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AppPayServiceImpl";
@@ -272,11 +272,11 @@ public class AppPayServiceImpl implements IAppPayService, IPayInnerLogic, IReven
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.impl.IPayInnerLogic
-    public void dealOnOrderInter(IResponse iResponse, ChargeCurrencyReqParams chargeCurrencyReqParams, PayOrderResult payOrderResult, IRequest iRequest, HiidoReport.CReportResponse cReportResponse, long j) {
+    public void dealOnOrderInter(IResponse iResponse, ChargeCurrencyReqParams chargeCurrencyReqParams, PayOrderResult payOrderResult, IRequest iRequest, HiidoReport.CReportResponse cReportResponse, long j2) {
         IPayCallback iPayCallback;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{iResponse, chargeCurrencyReqParams, payOrderResult, iRequest, cReportResponse, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{iResponse, chargeCurrencyReqParams, payOrderResult, iRequest, cReportResponse, Long.valueOf(j2)}) == null) {
             if (iResponse.isSuccess() && chargeCurrencyReqParams != null && payOrderResult != null) {
                 RLog.warn("AppPayServiceImpl", "payorder --- order sucess! orderid=" + payOrderResult.getOrderId());
                 ISDKReporter iSDKReporter = this.mSDKRepoter;

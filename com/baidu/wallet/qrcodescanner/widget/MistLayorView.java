@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MistLayorView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Paint f27434a;
+    public final Paint f63285a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f27435b;
+    public final int f63286b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Rect f27436c;
+    public Rect f63287c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MistLayorView(Context context, AttributeSet attributeSet) {
@@ -46,15 +46,15 @@ public class MistLayorView extends View {
                 return;
             }
         }
-        this.f27436c = new Rect();
-        this.f27434a = new Paint();
-        this.f27435b = Color.argb(127, 0, 0, 0);
+        this.f63287c = new Rect();
+        this.f63285a = new Paint();
+        this.f63286b = Color.argb(127, 0, 0, 0);
     }
 
     public Rect getFocusFrame() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27436c : (Rect) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f63287c : (Rect) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -64,25 +64,25 @@ public class MistLayorView extends View {
             super.onDraw(canvas);
             int width = canvas.getWidth();
             int height = canvas.getHeight();
-            this.f27434a.setColor(this.f27435b);
-            if (this.f27436c.width() == 0) {
-                canvas.drawRect(0.0f, 0.0f, width, height, this.f27434a);
+            this.f63285a.setColor(this.f63286b);
+            if (this.f63287c.width() == 0) {
+                canvas.drawRect(0.0f, 0.0f, width, height, this.f63285a);
                 return;
             }
             float f2 = width;
-            canvas.drawRect(0.0f, 0.0f, f2, this.f27436c.top, this.f27434a);
-            Rect rect = this.f27436c;
-            canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom + 1, this.f27434a);
-            Rect rect2 = this.f27436c;
-            canvas.drawRect(rect2.right + 1, rect2.top, f2, rect2.bottom + 1, this.f27434a);
-            canvas.drawRect(0.0f, this.f27436c.bottom + 1, f2, height, this.f27434a);
+            canvas.drawRect(0.0f, 0.0f, f2, this.f63287c.top, this.f63285a);
+            Rect rect = this.f63287c;
+            canvas.drawRect(0.0f, rect.top, rect.left, rect.bottom + 1, this.f63285a);
+            Rect rect2 = this.f63287c;
+            canvas.drawRect(rect2.right + 1, rect2.top, f2, rect2.bottom + 1, this.f63285a);
+            canvas.drawRect(0.0f, this.f63287c.bottom + 1, f2, height, this.f63285a);
         }
     }
 
     public void setFocusFrame(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rect) == null) {
-            this.f27436c = rect;
+            this.f63287c = rect;
             invalidate();
         }
     }

@@ -1,6 +1,7 @@
 package com.baidu.tbadk.coreExtra;
 
 import android.os.Bundle;
+import c.a.o0.t.i.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,20 +13,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.t.i.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class InitUserNameDialogActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.p0.t.i.b mInputUserNameDialog;
+    public c.a.o0.t.i.b mInputUserNameDialog;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements b.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InitUserNameDialogActivity f12864a;
+        public final /* synthetic */ InitUserNameDialogActivity f47845a;
 
         public a(InitUserNameDialogActivity initUserNameDialogActivity) {
             Interceptable interceptable = $ic;
@@ -42,26 +42,26 @@ public class InitUserNameDialogActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f12864a = initUserNameDialogActivity;
+            this.f47845a = initUserNameDialogActivity;
         }
 
-        @Override // d.a.p0.t.i.b.e
+        @Override // c.a.o0.t.i.b.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921350));
-                this.f12864a.finish();
+                this.f47845a.finish();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b implements b.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ InitUserNameDialogActivity f12865a;
+        public final /* synthetic */ InitUserNameDialogActivity f47846a;
 
         public b(InitUserNameDialogActivity initUserNameDialogActivity) {
             Interceptable interceptable = $ic;
@@ -78,15 +78,15 @@ public class InitUserNameDialogActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f12865a = initUserNameDialogActivity;
+            this.f47846a = initUserNameDialogActivity;
         }
 
-        @Override // d.a.p0.t.i.b.e
+        @Override // c.a.o0.t.i.b.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921350));
-                this.f12865a.finish();
+                this.f47846a.finish();
             }
         }
     }
@@ -131,7 +131,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            d.a.p0.t.i.b bVar = new d.a.p0.t.i.b(this);
+            c.a.o0.t.i.b bVar = new c.a.o0.t.i.b(this);
             this.mInputUserNameDialog = bVar;
             bVar.v(new a(this));
             this.mInputUserNameDialog.w(new b(this));

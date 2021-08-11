@@ -9,34 +9,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f28378a;
+    public static final b f64228a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f28379b;
+    public static final b f64229b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f28380c;
+    public static final b f64230c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final b f28381d;
+    public static final b f64231d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final b f28382e;
+    public static final b f64232e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final b f28383f;
+    public static final b f64233f;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final /* synthetic */ b[] f28384h;
+    public static final /* synthetic */ b[] f64234h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int f28385g;
+    public final int f64235g;
 
     static {
         InterceptResult invokeClinit;
@@ -51,14 +51,14 @@ public final class b {
                 return;
             }
         }
-        f28378a = new b("NO_ERROR", 0, 0);
-        f28379b = new b("PROTOCOL_ERROR", 1, 1);
-        f28380c = new b("INTERNAL_ERROR", 2, 2);
-        f28381d = new b("FLOW_CONTROL_ERROR", 3, 3);
-        f28382e = new b("REFUSED_STREAM", 4, 7);
+        f64228a = new b("NO_ERROR", 0, 0);
+        f64229b = new b("PROTOCOL_ERROR", 1, 1);
+        f64230c = new b("INTERNAL_ERROR", 2, 2);
+        f64231d = new b("FLOW_CONTROL_ERROR", 3, 3);
+        f64232e = new b("REFUSED_STREAM", 4, 7);
         b bVar = new b("CANCEL", 5, 8);
-        f28383f = bVar;
-        f28384h = new b[]{f28378a, f28379b, f28380c, f28381d, f28382e, bVar};
+        f64233f = bVar;
+        f64234h = new b[]{f64228a, f64229b, f64230c, f64231d, f64232e, bVar};
     }
 
     public b(String str, int i2, int i3) {
@@ -79,7 +79,7 @@ public final class b {
                 return;
             }
         }
-        this.f28385g = i3;
+        this.f64235g = i3;
     }
 
     public static b a(int i2) {
@@ -88,7 +88,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
             for (b bVar : values()) {
-                if (bVar.f28385g == i2) {
+                if (bVar.f64235g == i2) {
                     return bVar;
                 }
             }
@@ -106,6 +106,6 @@ public final class b {
     public static b[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (b[]) f28384h.clone() : (b[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (b[]) f64234h.clone() : (b[]) invokeV.objValue;
     }
 }

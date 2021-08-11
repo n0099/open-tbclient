@@ -16,13 +16,13 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Converter<Data> converter;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class ByteBufferFactory implements ModelLoaderFactory<byte[], ByteBuffer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,14 +94,14 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface Converter<Data> {
         Data convert(byte[] bArr);
 
         Class<Data> getDataClass();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Fetcher<Data> implements DataFetcher<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +167,7 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class StreamFactory implements ModelLoaderFactory<byte[], InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -5,11 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.pngencrypt.PngjException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class r extends ae {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean j;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f72795j;
     public String k;
     public String l;
 
@@ -32,7 +34,7 @@ public class r extends ae {
                 return;
             }
         }
-        this.j = false;
+        this.f72795j = false;
         this.k = "";
         this.l = "";
     }
@@ -45,7 +47,7 @@ public class r extends ae {
             int i2 = 0;
             int i3 = 0;
             while (true) {
-                byte[] bArr = dVar.f35981d;
+                byte[] bArr = dVar.f72763d;
                 if (i2 >= bArr.length) {
                     break;
                 }
@@ -64,20 +66,20 @@ public class r extends ae {
             if (i3 != 3) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk"));
             }
-            ((ae) this).f35968h = b.a(dVar.f35981d, 0, iArr[0]);
+            ((ae) this).f72750h = b.a(dVar.f72763d, 0, iArr[0]);
             int i4 = iArr[0] + 1;
-            boolean z = dVar.f35981d[i4] != 0;
-            this.j = z;
+            boolean z = dVar.f72763d[i4] != 0;
+            this.f72795j = z;
             int i5 = i4 + 1;
-            if (z && dVar.f35981d[i5] != 0) {
+            if (z && dVar.f72763d[i5] != 0) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Bad formed PngChunkITXT chunk - bad compression method "));
             }
-            this.k = b.a(dVar.f35981d, i5, iArr[1] - i5);
-            this.l = b.b(dVar.f35981d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
+            this.k = b.a(dVar.f72763d, i5, iArr[1] - i5);
+            this.l = b.b(dVar.f72763d, iArr[1] + 1, (iArr[2] - iArr[1]) - 1);
             int i6 = iArr[2] + 1;
-            boolean z2 = this.j;
-            byte[] bArr2 = dVar.f35981d;
-            this.f35969i = z2 ? b.b(b.a(bArr2, i6, bArr2.length - i6, false)) : b.b(bArr2, i6, bArr2.length - i6);
+            boolean z2 = this.f72795j;
+            byte[] bArr2 = dVar.f72763d;
+            this.f72751i = z2 ? b.b(b.a(bArr2, i6, bArr2.length - i6, false)) : b.b(bArr2, i6, bArr2.length - i6);
         }
     }
 }

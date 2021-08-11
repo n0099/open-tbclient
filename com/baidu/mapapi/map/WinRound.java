@@ -5,7 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes5.dex */
 public class WinRound {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +38,7 @@ public class WinRound {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "WinRound{left=" + this.left + ", right=" + this.right + ", top=" + this.top + ", bottom=" + this.bottom + '}';
+            return "WinRound{left=" + this.left + ", right=" + this.right + ", top=" + this.top + ", bottom=" + this.bottom + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

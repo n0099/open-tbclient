@@ -1,7 +1,6 @@
 package com.baidu.turbonet.net;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,22 +9,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.turbonet.net.TurbonetEngine;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class TurbonetContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TurbonetEngine f23376a;
+    public TurbonetEngine f59101a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f23377b;
+    public Context f59102b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f23378c;
+    public String f59103c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f23379d;
+    public String f59104d;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
         Interceptable interceptable = $ic;
@@ -42,49 +41,48 @@ public final class TurbonetContext {
                 return;
             }
         }
-        this.f23377b = context;
-        this.f23378c = str;
-        this.f23379d = str2;
+        this.f59102b = context;
+        this.f59103c = str;
+        this.f59104d = str2;
         a(turbonetConfig);
     }
 
     public final void a(TurbonetConfig turbonetConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, turbonetConfig) == null) {
-            TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f23377b);
+            TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f59102b);
             if (turbonetConfig == null) {
-                builder.r(this.f23378c);
-                builder.q(this.f23379d);
-                this.f23376a = builder.b();
-            } else {
-                if (turbonetConfig.h()) {
-                    builder.u(turbonetConfig.l());
-                }
-                try {
-                    if (turbonetConfig.g().has("nq") && turbonetConfig.g().getJSONObject("nq").getBoolean("network_quality_enabled")) {
-                        builder.e(true, "");
-                    }
-                } catch (JSONException e2) {
-                    Log.e("cr_TurbonetContext", "JSON expcetion: " + e2);
-                }
-                builder.r(this.f23378c);
-                builder.q(this.f23379d);
-                builder.a(turbonetConfig.g().toString());
-                this.f23376a = builder.b();
+                builder.r(this.f59103c);
+                builder.q(this.f59104d);
+                this.f59101a = builder.b();
+                return;
             }
-            Log.v("cr_TurbonetContext", "Turbonet init context success.");
+            if (turbonetConfig.h()) {
+                builder.u(turbonetConfig.l());
+            }
+            try {
+                if (turbonetConfig.g().has("nq") && turbonetConfig.g().getJSONObject("nq").getBoolean("network_quality_enabled")) {
+                    builder.e(true, "");
+                }
+            } catch (JSONException e2) {
+                String str = "JSON expcetion: " + e2;
+            }
+            builder.r(this.f59103c);
+            builder.q(this.f59104d);
+            builder.a(turbonetConfig.g().toString());
+            this.f59101a = builder.b();
         }
     }
 
     public TurbonetEngine b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f23376a : (TurbonetEngine) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59101a : (TurbonetEngine) invokeV.objValue;
     }
 
     public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23376a.d() : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59101a.d() : invokeV.longValue;
     }
 }

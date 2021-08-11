@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<Uri, UpdatePackage>, Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.b f32382d;
+    public com.bytedance.sdk.openadsdk.preload.geckox.b f68343d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f32383e;
+    public File f68344e;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class b extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<Uri, UpdateP
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) {
             super.a(objArr);
-            this.f32382d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
-            this.f32383e = (File) objArr[1];
+            this.f68343d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
+            this.f68344e = (File) objArr[1];
         }
     }
 
@@ -56,12 +56,12 @@ public class b extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<Uri, UpdateP
             UpdatePackage updatePackage = (UpdatePackage) pair.second;
             String uri = ((Uri) pair.first).toString();
             long length = updatePackage.getFullPackage().getLength();
-            File file = this.f32383e;
+            File file = this.f68344e;
             File file2 = new File(file, updatePackage.getAccessKey() + File.separator + updatePackage.getChannel() + File.separator + updatePackage.getVersion() + "--updating");
             file2.mkdirs();
-            com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f32382d.a(), new File(file2, "res.zip"), length);
+            com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f68343d.a(), new File(file2, "res.zip"), length);
             try {
-                this.f32382d.h().a(uri, length, new com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b(a2));
+                this.f68343d.h().a(uri, length, new com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b(a2));
                 try {
                     return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
                 } finally {

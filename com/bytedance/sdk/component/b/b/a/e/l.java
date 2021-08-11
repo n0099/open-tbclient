@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final CountDownLatch f28527a;
+    public final CountDownLatch f64381a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f28528b;
+    public long f64382b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f28529c;
+    public long f64383c;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -33,16 +33,16 @@ public final class l {
                 return;
             }
         }
-        this.f28527a = new CountDownLatch(1);
-        this.f28528b = -1L;
-        this.f28529c = -1L;
+        this.f64381a = new CountDownLatch(1);
+        this.f64382b = -1L;
+        this.f64383c = -1L;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f28528b == -1) {
-                this.f28528b = System.nanoTime();
+            if (this.f64382b == -1) {
+                this.f64382b = System.nanoTime();
                 return;
             }
             throw new IllegalStateException();
@@ -52,9 +52,9 @@ public final class l {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f28529c == -1 && this.f28528b != -1) {
-                this.f28529c = System.nanoTime();
-                this.f28527a.countDown();
+            if (this.f64383c == -1 && this.f64382b != -1) {
+                this.f64383c = System.nanoTime();
+                this.f64381a.countDown();
                 return;
             }
             throw new IllegalStateException();
@@ -64,11 +64,11 @@ public final class l {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f28529c == -1) {
-                long j = this.f28528b;
-                if (j != -1) {
-                    this.f28529c = j - 1;
-                    this.f28527a.countDown();
+            if (this.f64383c == -1) {
+                long j2 = this.f64382b;
+                if (j2 != -1) {
+                    this.f64383c = j2 - 1;
+                    this.f64381a.countDown();
                     return;
                 }
             }

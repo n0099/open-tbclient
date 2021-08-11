@@ -7,7 +7,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import androidx.annotation.NonNull;
@@ -26,6 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public class LinearLayoutManager extends RecyclerView.LayoutManager implements ItemTouchHelper.ViewDropHandler, RecyclerView.SmoothScroller.ScrollVectorProvider {
     public static /* synthetic */ Interceptable $ic = null;
@@ -164,7 +164,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return "AnchorInfo{mPosition=" + this.mPosition + ", mCoordinate=" + this.mCoordinate + ", mLayoutFromEnd=" + this.mLayoutFromEnd + ", mValid=" + this.mValid + '}';
+                return "AnchorInfo{mPosition=" + this.mPosition + ", mCoordinate=" + this.mCoordinate + ", mLayoutFromEnd=" + this.mLayoutFromEnd + ", mValid=" + this.mValid + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -287,7 +287,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
         public void log() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                Log.d(TAG, "avail:" + this.mAvailable + ", ind:" + this.mCurrentPosition + ", dir:" + this.mItemDirection + ", offset:" + this.mOffset + ", layoutDir:" + this.mLayoutDirection);
+                String str = "avail:" + this.mAvailable + ", ind:" + this.mCurrentPosition + ", dir:" + this.mItemDirection + ", offset:" + this.mOffset + ", layoutDir:" + this.mLayoutDirection;
             }
         }
 
@@ -700,12 +700,10 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     private void logChildren() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            Log.d(TAG, "internal representation of views on the screen");
             for (int i2 = 0; i2 < getChildCount(); i2++) {
                 View childAt = getChildAt(i2);
-                Log.d(TAG, "item " + getPosition(childAt) + ", coord:" + this.mOrientationHelper.getDecoratedStart(childAt));
+                String str = "item " + getPosition(childAt) + ", coord:" + this.mOrientationHelper.getDecoratedStart(childAt);
             }
-            Log.d(TAG, "==============");
         }
     }
 
@@ -1991,7 +1989,7 @@ public class LinearLayoutManager extends RecyclerView.LayoutManager implements I
     public void validateChildOrder() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048639, this) == null) {
-            Log.d(TAG, "validating child count " + getChildCount());
+            String str = "validating child count " + getChildCount();
             if (getChildCount() < 1) {
                 return;
             }

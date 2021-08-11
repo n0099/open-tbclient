@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.material.internal.ManufacturerUtils;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f23496a;
+    public static int f59225a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class l {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f23496a == 0) {
+            if (f59225a == 0) {
                 String str = Build.MODEL;
                 String str2 = Build.MANUFACTURER;
                 String str3 = Build.BRAND;
@@ -64,11 +64,11 @@ public final class l {
                     } else if (str.contains("meizu") || str2.contains("meizu") || str3.contains("meizu")) {
                         i2 = 7;
                     }
-                    f23496a = i2;
+                    f59225a = i2;
                 }
-                f23496a = 1;
+                f59225a = 1;
             }
-            return f23496a;
+            return f59225a;
         }
         return invokeV.intValue;
     }

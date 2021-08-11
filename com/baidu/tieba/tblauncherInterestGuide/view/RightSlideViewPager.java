@@ -10,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RightSlideViewPager extends ViewPager {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG_SCROLL = "canScroll";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,7 +43,7 @@ public class RightSlideViewPager extends ViewPager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             Object tag = getTag();
-            if (tag != null && (tag instanceof String) && "canScroll".equals((String) tag)) {
+            if (tag != null && (tag instanceof String) && TAG_SCROLL.equals((String) tag)) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -56,7 +57,7 @@ public class RightSlideViewPager extends ViewPager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             Object tag = getTag();
-            if (tag != null && (tag instanceof String) && "canScroll".equals((String) tag)) {
+            if (tag != null && (tag instanceof String) && TAG_SCROLL.equals((String) tag)) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;

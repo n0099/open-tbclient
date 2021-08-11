@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.sdk.OpenClientPushMessageReceiver;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ViPushMessageReceiver extends OpenClientPushMessageReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

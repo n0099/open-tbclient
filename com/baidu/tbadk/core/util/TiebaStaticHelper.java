@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.s.a.a;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,9 +15,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.o.a.a;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TiebaStaticHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final HashMap<String, String> mActivityNames;
@@ -64,6 +64,11 @@ public class TiebaStaticHelper {
         statisticItem.param(TiebaStatic.YYParams.YYSSID, yyExtData.mSsid);
         statisticItem.param(TiebaStatic.YYParams.YYUID, yyExtData.mYyUid);
         statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
+        statisticItem.param("template_id", yyExtData.mTemplateId);
+        if (statisticItem.hasParam("liveid")) {
+            return;
+        }
+        statisticItem.param("liveid", yyExtData.liveId);
     }
 
     public static String getCurrentActivity() {

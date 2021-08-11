@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.s.z.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,8 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.z.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LoginActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_ID = "activity_id";

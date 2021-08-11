@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class Month implements Comparable<Month>, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<Month> CREATOR;
@@ -110,12 +110,12 @@ public final class Month implements Comparable<Month>, Parcelable {
     }
 
     @NonNull
-    public static Month create(long j) {
+    public static Month create(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) {
             Calendar utcCalendar = UtcDates.getUtcCalendar();
-            utcCalendar.setTimeInMillis(j);
+            utcCalendar.setTimeInMillis(j2);
             return new Month(utcCalendar);
         }
         return (Month) invokeJ.objValue;

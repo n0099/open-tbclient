@@ -1,5 +1,7 @@
 package com.baidu.tieba.card.data;
 
+import c.a.e.e.p.k;
+import c.a.e.k.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -11,14 +13,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.d.k.e.n;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GuessLikeThreadInfo;
 import tbclient.PbPage.GuessLikeStruct;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CardHListViewData extends BaseCardInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_COUNT = 9;
@@ -72,7 +72,7 @@ public class CardHListViewData extends BaseCardInfo implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mList : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.d.k.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

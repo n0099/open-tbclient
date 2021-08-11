@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ItemEmotionView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,10 +36,10 @@ public class ItemEmotionView extends RelativeLayout {
                 return;
             }
         }
-        a(context);
+        init(context);
     }
 
-    public void a(Context context) {
+    public void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.forum_emotion_msg_manage, (ViewGroup) this, true);
@@ -47,9 +47,17 @@ public class ItemEmotionView extends RelativeLayout {
         }
     }
 
+    public void onChangeSkinType(ForumDetailActivity forumDetailActivity, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i2) == null) {
+            forumDetailActivity.getLayoutMode().k(i2 == 1);
+            forumDetailActivity.getLayoutMode().j(this);
+        }
+    }
+
     public void setEmotionData(BarEmotionResponseMessage.ForumEmotionData forumEmotionData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumEmotionData) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumEmotionData) == null) {
             if (forumEmotionData != null && forumEmotionData.forum_pkg_status == 1) {
                 setVisibility(0);
             } else {
@@ -60,7 +68,7 @@ public class ItemEmotionView extends RelativeLayout {
 
     public void setEmotionOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             findViewById(R.id.bar_info_emotion_layout).setOnClickListener(onClickListener);
         }
     }
@@ -84,6 +92,6 @@ public class ItemEmotionView extends RelativeLayout {
                 return;
             }
         }
-        a(context);
+        init(context);
     }
 }

@@ -14,19 +14,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FileLock {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Integer> f32471a;
+    public static final Map<String, Integer> f68433a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f32472b;
+    public final int f68434b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f32473c;
+    public final String f68435c;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class FileLock {
                 return;
             }
         }
-        f32471a = new HashMap();
+        f68433a = new HashMap();
         g.a("file_lock_pg");
     }
 
@@ -60,8 +60,8 @@ public class FileLock {
                 return;
             }
         }
-        this.f32473c = str;
-        this.f32472b = i2;
+        this.f68435c = str;
+        this.f68434b = i2;
     }
 
     public static FileLock a(String str) {
@@ -119,12 +119,12 @@ public class FileLock {
         Integer num;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
-            synchronized (f32471a) {
-                num = f32471a.get(str);
+            synchronized (f68433a) {
+                num = f68433a.get(str);
                 if (num == null) {
                     new File(str).getParentFile().mkdirs();
                     num = Integer.valueOf(nGetFD(str));
-                    f32471a.put(str, num);
+                    f68433a.put(str, num);
                 }
             }
             return num.intValue();
@@ -163,13 +163,13 @@ public class FileLock {
         Integer remove;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (f32471a) {
-                remove = f32471a.remove(this.f32473c);
+            synchronized (f68433a) {
+                remove = f68433a.remove(this.f68435c);
             }
             try {
                 nRelease(remove.intValue());
             } catch (Exception e2) {
-                throw new RuntimeException("release lock failed, file:" + this.f32473c + " caused by:" + e2.getMessage());
+                throw new RuntimeException("release lock failed, file:" + this.f68435c + " caused by:" + e2.getMessage());
             }
         }
     }
@@ -178,9 +178,9 @@ public class FileLock {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                nUnlockFile(this.f32472b);
+                nUnlockFile(this.f68434b);
             } catch (Exception unused) {
-                throw new RuntimeException("release lock failed，path:" + this.f32473c);
+                throw new RuntimeException("release lock failed，path:" + this.f68435c);
             }
         }
     }

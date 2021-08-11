@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaBannerRecyclerView extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14234e;
+    public int f49371e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14235f;
+    public int f49372f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaBannerRecyclerView(Context context) {
@@ -43,7 +43,7 @@ public class AlaBannerRecyclerView extends RecyclerView {
         }
     }
 
-    public final int b(int i2) {
+    public final int a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
@@ -72,8 +72,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        int i2 = y - this.f14234e;
-                        int i3 = x - this.f14235f;
+                        int i2 = y - this.f49371e;
+                        int i3 = x - this.f49372f;
                         if (Math.abs(i2) > ViewConfiguration.getTouchSlop() && Math.abs(i2) > Math.abs(i3)) {
                             getParent().requestDisallowInterceptTouchEvent(false);
                         } else {
@@ -83,12 +83,12 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 }
                 getParent().requestDisallowInterceptTouchEvent(false);
             } else {
-                this.f14234e = y;
-                this.f14235f = x;
+                this.f49371e = y;
+                this.f49372f = x;
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
-            this.f14234e = y;
-            this.f14235f = x;
+            this.f49371e = y;
+            this.f49372f = x;
             return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -98,7 +98,7 @@ public class AlaBannerRecyclerView extends RecyclerView {
     public boolean fling(int i2, int i3) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? super.fling(b(i2), b(i3)) : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? super.fling(a(i2), a(i3)) : invokeII.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -10,13 +10,13 @@ import com.bytedance.JProtect;
 import ms.bd.c.e0;
 @Keep
 @JProtect
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class MSConfig extends e0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public e0 n;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a extends e0.a<a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public final class MSConfig extends e0 {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

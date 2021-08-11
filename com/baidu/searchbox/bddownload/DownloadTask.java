@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadTask extends IdentifiedTask implements Comparable<DownloadTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
     public final String url;
     public final boolean wifiRequired;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class TaskHideWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,17 +99,17 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
             }
         }
 
-        public static void setLastCallbackProcessTs(DownloadTask downloadTask, long j) {
+        public static void setLastCallbackProcessTs(DownloadTask downloadTask, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65539, null, downloadTask, j) == null) {
-                downloadTask.setLastCallbackProcessTs(j);
+            if (interceptable == null || interceptable.invokeLJ(65539, null, downloadTask, j2) == null) {
+                downloadTask.setLastCallbackProcessTs(j2);
             }
         }
 
-        public static void setSpeedIncreaseBytes(DownloadTask downloadTask, long j) {
+        public static void setSpeedIncreaseBytes(DownloadTask downloadTask, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask, j) == null) {
-                downloadTask.setSpeedIncreaseBytes(j);
+            if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, downloadTask, j2) == null) {
+                downloadTask.setSpeedIncreaseBytes(j2);
             }
         }
     }
@@ -533,10 +533,10 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    public void setLastCallbackProcessTs(long j) {
+    public void setLastCallbackProcessTs(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048618, this, j) == null) {
-            this.lastCallbackProcessTimestamp.set(j);
+        if (interceptable == null || interceptable.invokeJ(1048618, this, j2) == null) {
+            this.lastCallbackProcessTimestamp.set(j2);
         }
     }
 
@@ -547,13 +547,13 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    public void setSpeedIncreaseBytes(long j) {
+    public void setSpeedIncreaseBytes(long j2) {
         SpeedCalculator speedCalculator;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048620, this, j) == null) || (speedCalculator = this.speedCalculator) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) || (speedCalculator = this.speedCalculator) == null) {
             return;
         }
-        speedCalculator.downloading(j);
+        speedCalculator.downloading(j2);
     }
 
     public void setTag(Object obj) {
@@ -614,7 +614,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.tag : invokeV.objValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEFAULT_AUTO_CALLBACK_TO_UI_THREAD = true;
@@ -926,7 +926,7 @@ public class DownloadTask extends IdentifiedTask implements Comparable<DownloadT
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class MockTaskForCompare extends IdentifiedTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

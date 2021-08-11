@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.net.NetResponse;
 import com.bytedance.sdk.component.net.executor.NetExecutor;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class NetCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public abstract class NetCallback {
         }
     }
 
-    public void onDownloadProgress(NetExecutor netExecutor, long j, long j2) {
+    public void onDownloadProgress(NetExecutor netExecutor, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{netExecutor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{netExecutor, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
         }
     }
 

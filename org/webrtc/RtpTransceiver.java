@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class RtpTransceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public class RtpTransceiver {
     public long nativeRtpTransceiver;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class RtpTransceiverDirection {
         public static final /* synthetic */ RtpTransceiverDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -111,7 +111,7 @@ public class RtpTransceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class RtpTransceiverInit {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,12 +192,12 @@ public class RtpTransceiver {
     }
 
     @CalledByNative
-    public RtpTransceiver(long j) {
+    public RtpTransceiver(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -207,9 +207,9 @@ public class RtpTransceiver {
                 return;
             }
         }
-        this.nativeRtpTransceiver = j;
-        this.cachedSender = nativeGetSender(j);
-        this.cachedReceiver = nativeGetReceiver(j);
+        this.nativeRtpTransceiver = j2;
+        this.cachedSender = nativeGetSender(j2);
+        this.cachedReceiver = nativeGetReceiver(j2);
     }
 
     private void checkRtpTransceiverExists() {
@@ -219,23 +219,23 @@ public class RtpTransceiver {
         }
     }
 
-    public static native RtpTransceiverDirection nativeCurrentDirection(long j);
+    public static native RtpTransceiverDirection nativeCurrentDirection(long j2);
 
-    public static native RtpTransceiverDirection nativeDirection(long j);
+    public static native RtpTransceiverDirection nativeDirection(long j2);
 
-    public static native MediaStreamTrack.MediaType nativeGetMediaType(long j);
+    public static native MediaStreamTrack.MediaType nativeGetMediaType(long j2);
 
-    public static native String nativeGetMid(long j);
+    public static native String nativeGetMid(long j2);
 
-    public static native RtpReceiver nativeGetReceiver(long j);
+    public static native RtpReceiver nativeGetReceiver(long j2);
 
-    public static native RtpSender nativeGetSender(long j);
+    public static native RtpSender nativeGetSender(long j2);
 
-    public static native void nativeSetDirection(long j, RtpTransceiverDirection rtpTransceiverDirection);
+    public static native void nativeSetDirection(long j2, RtpTransceiverDirection rtpTransceiverDirection);
 
-    public static native void nativeStop(long j);
+    public static native void nativeStop(long j2);
 
-    public static native boolean nativeStopped(long j);
+    public static native boolean nativeStopped(long j2);
 
     @CalledByNative
     public void dispose() {

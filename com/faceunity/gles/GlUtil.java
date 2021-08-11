@@ -2,7 +2,6 @@ package com.faceunity.gles;
 
 import android.opengl.GLES20;
 import android.opengl.Matrix;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GlUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float[] IDENTITY_MATRIX;
@@ -61,9 +60,7 @@ public class GlUtil {
         if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
-        String str2 = str + ": glError 0x" + Integer.toHexString(glGetError);
-        Log.e("Grafika", str2);
-        throw new RuntimeException(str2);
+        throw new RuntimeException(str + ": glError 0x" + Integer.toHexString(glGetError));
     }
 
     public static void checkLocation(int i2, String str) {
@@ -118,9 +115,6 @@ public class GlUtil {
             }
             int glCreateProgram = GLES20.glCreateProgram();
             checkGlError("glCreateProgram");
-            if (glCreateProgram == 0) {
-                Log.e("Grafika", "Could not create program");
-            }
             GLES20.glAttachShader(glCreateProgram, loadShader2);
             checkGlError("glAttachShader");
             GLES20.glAttachShader(glCreateProgram, loadShader);
@@ -129,8 +123,7 @@ public class GlUtil {
             int[] iArr = new int[1];
             GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
             if (iArr[0] != 1) {
-                Log.e("Grafika", "Could not link program: ");
-                Log.e("Grafika", GLES20.glGetProgramInfoLog(glCreateProgram));
+                GLES20.glGetProgramInfoLog(glCreateProgram);
                 GLES20.glDeleteProgram(glCreateProgram);
                 return 0;
             }
@@ -150,11 +143,8 @@ public class GlUtil {
             int[] iArr = new int[1];
             GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
             if (iArr[0] == 0) {
-                Log.e("Grafika", "Could not compile shader " + i2 + ":");
-                StringBuilder sb = new StringBuilder();
-                sb.append(" ");
-                sb.append(GLES20.glGetShaderInfoLog(glCreateShader));
-                Log.e("Grafika", sb.toString());
+                String str2 = "Could not compile shader " + i2 + ":";
+                String str3 = " " + GLES20.glGetShaderInfoLog(glCreateShader);
                 GLES20.glDeleteShader(glCreateShader);
                 return 0;
             }
@@ -166,9 +156,9 @@ public class GlUtil {
     public static void logVersionInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            Log.i("Grafika", "vendor  : " + GLES20.glGetString(7936));
-            Log.i("Grafika", "renderer: " + GLES20.glGetString(7937));
-            Log.i("Grafika", "version : " + GLES20.glGetString(7938));
+            String str = "vendor  : " + GLES20.glGetString(7936);
+            String str2 = "renderer: " + GLES20.glGetString(7937);
+            String str3 = "version : " + GLES20.glGetString(7938);
         }
     }
 }

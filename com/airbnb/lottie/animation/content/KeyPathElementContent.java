@@ -1,6 +1,6 @@
 package com.airbnb.lottie.animation.content;
 
 import com.airbnb.lottie.model.KeyPathElement;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface KeyPathElementContent extends KeyPathElement, Content {
 }

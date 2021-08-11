@@ -5,7 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.router.RouterProvider;
-/* loaded from: classes5.dex */
+import com.dxmpay.wallet.core.beans.BeanConstants;
+/* loaded from: classes8.dex */
 public class DxmPaySDKProvider extends RouterProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,8 +38,9 @@ public class DxmPaySDKProvider extends RouterProvider {
             registerAction("enterGetPayMethod", new EnterWalletGetPayMethodAction());
             registerAction("enterChangePayMethod", new EnterWalletChangePayMethodAction());
             registerAction("enterPreOrderPay", new EnterWalletPreOrderPayAction());
-            registerAction("enterIdCardDetect", new EnterWalletIdCardDetectAction());
             registerAction("enterDoRemotePay", new EnterWalletDoRemotePayAction());
+            registerAction("enterDoPostEvent", new EnterWalletDoPostEventAction());
+            registerAction(BeanConstants.SDK_ENTER_WALLET_DXM_PAY_SERVICE, new EnterWalletDxmPayServiceAction());
         }
     }
 }

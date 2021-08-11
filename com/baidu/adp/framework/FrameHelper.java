@@ -1,6 +1,7 @@
 package com.baidu.adp.framework;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.c.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,16 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.c.d;
 import java.util.LinkedList;
 import org.apache.http.HttpVersion;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class FrameHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class TYPE {
         public static final /* synthetic */ TYPE[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

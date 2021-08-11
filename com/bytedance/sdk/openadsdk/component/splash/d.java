@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.e.m;
 import com.bytedance.sdk.openadsdk.e.b.o;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d extends com.bytedance.sdk.openadsdk.core.video.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.b.a {
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f30767b == null || i2 == 308) {
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) || this.f66691b == null || i2 == 308) {
             return;
         }
         o.a aVar = new o.a();
@@ -60,7 +60,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.b.a {
         aVar.a(n());
         aVar.a(i2);
         aVar.b(i3);
-        com.bytedance.sdk.openadsdk.e.a.a.d(this.f30767b.get(), w(), aVar);
+        com.bytedance.sdk.openadsdk.e.a.a.d(this.f66691b.get(), w(), aVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
@@ -75,7 +75,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.b.a {
         aVar.c(q());
         aVar.b(o());
         aVar.f(p());
-        com.bytedance.sdk.openadsdk.e.a.a.g(this.f30767b.get(), this.f30766a, aVar);
+        com.bytedance.sdk.openadsdk.e.a.a.g(this.f66691b.get(), this.f66690a, aVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.b.a
@@ -98,7 +98,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.b.a {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             o.a aVar = new o.a();
             aVar.b(true);
-            com.bytedance.sdk.openadsdk.e.a.a.a(this.f30767b.get(), this.f30766a, aVar);
+            com.bytedance.sdk.openadsdk.e.a.a.a(this.f66691b.get(), this.f66690a, aVar);
         }
     }
 
@@ -106,7 +106,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.b.a {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            com.bytedance.sdk.openadsdk.e.a.a.a(this.f30767b.get(), this.f30768c, this.f30766a, this.j);
+            com.bytedance.sdk.openadsdk.e.a.a.a(this.f66691b.get(), this.f66692c, this.f66690a, this.f66699j);
         }
     }
 
@@ -116,7 +116,7 @@ public class d extends com.bytedance.sdk.openadsdk.core.video.b.a {
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             o.a aVar = new o.a();
             aVar.b(true);
-            com.bytedance.sdk.openadsdk.e.a.a.a(this.f30767b.get(), this.f30766a, aVar);
+            com.bytedance.sdk.openadsdk.e.a.a.a(this.f66691b.get(), this.f66690a, aVar);
         }
     }
 }

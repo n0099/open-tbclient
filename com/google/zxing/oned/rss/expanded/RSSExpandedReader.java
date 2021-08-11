@@ -34,7 +34,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class RSSExpandedReader extends AbstractRSSReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] EVEN_TOTAL_SUBSET;

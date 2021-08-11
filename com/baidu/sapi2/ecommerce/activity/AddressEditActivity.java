@@ -68,8 +68,9 @@ import com.bumptech.glide.load.engine.GlideException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AddressEditActivity extends BaseAddressActivity<AddressEditPresenter> implements ImgOcrOptionDialog.OptionOnClickListener, OnDialogSelectedListenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADDRESS_4_ELEMENT = 15;
@@ -1135,19 +1136,19 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
             if (!TextUtils.isEmpty(optString)) {
                 sb.append("姓名：");
                 sb.append(optString);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             String optString2 = jSONObject.optString("phone");
             if (!TextUtils.isEmpty(optString2)) {
                 sb.append("电话：");
                 sb.append(optString2);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             String replaceAll = getRegionDetailStr(AddressConverter.convertRegionJsonObj2Region(jSONObject)).replaceAll(" ", "");
             if (!TextUtils.isEmpty(replaceAll)) {
                 sb.append("所在地区：");
                 sb.append(replaceAll);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             String optString3 = jSONObject.optString(AddressField.KEY_DETAIL_ADDR);
             if (!TextUtils.isEmpty(optString3)) {
@@ -1758,9 +1759,9 @@ public class AddressEditActivity extends BaseAddressActivity<AddressEditPresente
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
                         InputMethodManager inputMethodManager = (InputMethodManager) this.this$0.getSystemService("input_method");
                         if (inputMethodManager != null) {
                             inputMethodManager.hideSoftInputFromWindow(this.this$0.detailAddrEt.getWindowToken(), 0);

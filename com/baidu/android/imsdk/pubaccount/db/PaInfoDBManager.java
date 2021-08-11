@@ -34,14 +34,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PaInfoDBManager extends DBBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PaInfoDBManager";
     public static PaInfoDBManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class PaInfoListParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class PaInfoParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class PaidParse implements CursorParse {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,15 +219,15 @@ public class PaInfoDBManager extends DBBase {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, cursor)) == null) {
-            long j = cursor.getLong(cursor.getColumnIndex("paid"));
+            long j2 = cursor.getLong(cursor.getColumnIndex("paid"));
             String string = cursor.getString(cursor.getColumnIndex("nickname"));
             String string2 = cursor.getString(cursor.getColumnIndex("avatar"));
             String string3 = cursor.getString(cursor.getColumnIndex("description"));
             int i2 = cursor.getInt(cursor.getColumnIndex("acceptpush"));
             String string4 = cursor.getString(cursor.getColumnIndex("url"));
-            long j2 = cursor.getLong(cursor.getColumnIndex("timestamp"));
+            long j3 = cursor.getLong(cursor.getColumnIndex("timestamp"));
             String string5 = cursor.getString(cursor.getColumnIndex("detail"));
-            long j3 = cursor.getLong(cursor.getColumnIndex("tpl"));
+            long j4 = cursor.getLong(cursor.getColumnIndex("tpl"));
             int i3 = cursor.getInt(cursor.getColumnIndex("disturb"));
             int i4 = cursor.getInt(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_SUBTYPE));
             int i5 = cursor.getInt(cursor.getColumnIndex("classtype"));
@@ -235,10 +235,10 @@ public class PaInfoDBManager extends DBBase {
             String string6 = cursor.getString(cursor.getColumnIndex("classtitle"));
             String string7 = cursor.getString(cursor.getColumnIndex("classavatar"));
             int i7 = cursor.getInt(cursor.getColumnIndex("marktop"));
-            long j4 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
+            long j5 = cursor.getLong(cursor.getColumnIndex("marktoptime"));
             int i8 = cursor.getInt(cursor.getColumnIndex("status"));
             String string8 = cursor.getString(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_REPLIES));
-            long j5 = cursor.getLong(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_REFRESH_TIME));
+            long j6 = cursor.getLong(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_REFRESH_TIME));
             int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_SUBSET_TYPE));
             String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_PA_EXT));
             String string10 = cursor.getString(cursor.getColumnIndex("v_portrait"));
@@ -246,20 +246,20 @@ public class PaInfoDBManager extends DBBase {
             String string12 = cursor.getString(cursor.getColumnIndex("identity"));
             int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_HAS_IDENTITY));
             int i11 = cursor.getInt(cursor.getColumnIndex("shield"));
-            long j6 = cursor.getLong(cursor.getColumnIndex("shield_time"));
+            long j7 = cursor.getLong(cursor.getColumnIndex("shield_time"));
             int i12 = cursor.getInt(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE));
             String string13 = cursor.getString(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_THIRD_EXT));
             int i13 = cursor.getInt(cursor.getColumnIndex(TableDefine.PaSubscribeColumns.COLUMN_REJECT_MENU));
             PaInfo paInfo = new PaInfo();
-            paInfo.setPaId(j);
+            paInfo.setPaId(j2);
             paInfo.setNickName(string);
             paInfo.setAvatar(string2);
             paInfo.setDescription(string3);
             paInfo.setUrl(string4);
             paInfo.setAcceptPush(i2 == 1);
-            paInfo.setSubcribeTime(j2);
+            paInfo.setSubcribeTime(j3);
             paInfo.setDetail(string5);
-            paInfo.setTPL(j3);
+            paInfo.setTPL(j4);
             paInfo.setDisturb(i3);
             paInfo.setSubtype(i4);
             paInfo.setClassType(i5);
@@ -268,15 +268,15 @@ public class PaInfoDBManager extends DBBase {
             paInfo.setClassshow(i6);
             paInfo.setStatus(i8);
             paInfo.setMarkTop(i7);
-            paInfo.setMarkTopTime(j4);
+            paInfo.setMarkTopTime(j5);
             paInfo.setRepliesStr(string8);
-            paInfo.setLastRefreshTime(j5);
+            paInfo.setLastRefreshTime(j6);
             paInfo.setSubsetType(i9);
             paInfo.setPaExt(string9);
             paInfo.setVPortrait(string10);
             paInfo.setHasIdentity(i10);
             paInfo.setShield(i11);
-            paInfo.setShieldTime(j6);
+            paInfo.setShieldTime(j7);
             paInfo.setIdentity(string12);
             paInfo.setVipId(string11);
             paInfo.setSubscribe(i12);
@@ -416,16 +416,16 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    public boolean acceptPaPush(long j, boolean z) {
+    public boolean acceptPaPush(long j2, boolean z) {
         InterceptResult invokeCommon;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("acceptpush", Integer.valueOf(z ? 1 : 0));
             synchronized (DBBase.mSyncLock) {
                 z2 = true;
-                if (update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid=?", new String[]{String.valueOf(j)}, contentValues) <= 0) {
+                if (update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid=?", new String[]{String.valueOf(j2)}, contentValues) <= 0) {
                     z2 = false;
                 }
             }
@@ -579,13 +579,13 @@ public class PaInfoDBManager extends DBBase {
                             if (!cursor.moveToNext()) {
                                 break;
                             }
-                            long j = cursor.getLong(cursor.getColumnIndex("paid"));
+                            long j2 = cursor.getLong(cursor.getColumnIndex("paid"));
                             ChatSession chatSession = new ChatSession();
                             int i3 = 0;
                             while (true) {
                                 if (i3 >= list.size()) {
                                     break;
-                                } else if (list.get(i3).getContacter() == j) {
+                                } else if (list.get(i3).getContacter() == j2) {
                                     chatSession = list.get(i3);
                                     break;
                                 } else {
@@ -621,16 +621,16 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00c3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00c4, code lost:
         if (r11 != null) goto L30;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00c6, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:32:0x00d3, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00d4, code lost:
         if (r11 == null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d7, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00d8, code lost:
         return r0;
      */
     /*
@@ -671,10 +671,10 @@ public class PaInfoDBManager extends DBBase {
         }
     }
 
-    public boolean isSubscribed(long j) {
+    public boolean isSubscribed(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
             synchronized (DBBase.mSyncLock) {
                 SQLiteDatabase openDatabase = openDatabase();
                 Cursor cursor = null;
@@ -683,7 +683,7 @@ public class PaInfoDBManager extends DBBase {
                     return false;
                 }
                 try {
-                    cursor = openDatabase.query(TableDefine.DB_TABLE_PA_SUBSCRIBE, new String[]{"paid"}, "paid=?", new String[]{String.valueOf(j)}, null, null, null);
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_PA_SUBSCRIBE, new String[]{"paid"}, "paid=?", new String[]{String.valueOf(j2)}, null, null, null);
                     if (cursor != null) {
                         if (cursor.getCount() > 0) {
                             z = true;
@@ -721,14 +721,14 @@ public class PaInfoDBManager extends DBBase {
         return (ArrayList) invokeI.objValue;
     }
 
-    public PaInfo queryPaInfo(long j) {
+    public PaInfo queryPaInfo(long j2) {
         InterceptResult invokeJ;
         PaInfo result;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
             PaInfoParse paInfoParse = new PaInfoParse(this);
             synchronized (DBBase.mSyncLock) {
-                query(TableDefine.DB_TABLE_PA_SUBSCRIBE, null, "paid = ?", new String[]{Long.toString(j)}, null, null, null, paInfoParse);
+                query(TableDefine.DB_TABLE_PA_SUBSCRIBE, null, "paid = ?", new String[]{Long.toString(j2)}, null, null, null, paInfoParse);
                 result = paInfoParse.getResult();
             }
             return result;
@@ -781,16 +781,16 @@ public class PaInfoDBManager extends DBBase {
         return (List) invokeV.objValue;
     }
 
-    public int setPaQuickRelies(long j, String str, long j2) {
+    public int setPaQuickRelies(long j2, String str, long j3) {
         InterceptResult invokeCommon;
         int update;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), str, Long.valueOf(j3)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_REPLIES, str);
-            contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_REFRESH_TIME, Long.valueOf(j2));
+            contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_REFRESH_TIME, Long.valueOf(j3));
             synchronized (DBBase.mSyncLock) {
-                update = update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid=?", new String[]{String.valueOf(j)}, contentValues);
+                update = update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid=?", new String[]{String.valueOf(j2)}, contentValues);
             }
             return update;
         }
@@ -840,16 +840,16 @@ public class PaInfoDBManager extends DBBase {
         return invokeL.longValue;
     }
 
-    public int unSubscribePa(long j) {
+    public int unSubscribePa(long j2) {
         InterceptResult invokeJ;
         int delete;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
-            if (j < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j2)) == null) {
+            if (j2 < 0) {
                 return -1;
             }
             synchronized (DBBase.mSyncLock) {
-                delete = delete(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid=?", new String[]{String.valueOf(j)});
+                delete = delete(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid=?", new String[]{String.valueOf(j2)});
             }
             return delete;
         }
@@ -900,16 +900,16 @@ public class PaInfoDBManager extends DBBase {
         });
     }
 
-    public boolean updateDisturb(long j, int i2) {
+    public boolean updateDisturb(long j2, int i2) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put("disturb", Integer.valueOf(i2));
             synchronized (DBBase.mSyncLock) {
                 z = true;
-                if (update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid=?", new String[]{String.valueOf(j)}, contentValues) <= 0) {
+                if (update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid=?", new String[]{String.valueOf(j2)}, contentValues) <= 0) {
                     z = false;
                 }
             }
@@ -918,23 +918,23 @@ public class PaInfoDBManager extends DBBase {
         return invokeCommon.booleanValue;
     }
 
-    public boolean updateMarkTop(long j, int i2, long j2) {
+    public boolean updateMarkTop(long j2, int i2, long j3) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3)})) == null) {
             String str = TAG;
-            LogUtils.d(str, "updateMarkTop, paid=" + j + ", markToped=" + i2 + ", updateTime=" + j2);
+            LogUtils.d(str, "updateMarkTop, paid=" + j2 + ", markToped=" + i2 + ", updateTime=" + j3);
             ContentValues contentValues = new ContentValues();
             contentValues.put("marktop", Integer.valueOf(i2));
-            contentValues.put("marktoptime", Long.valueOf(j2));
+            contentValues.put("marktoptime", Long.valueOf(j3));
             ContentValues contentValues2 = new ContentValues();
             contentValues2.put("marktop", Integer.valueOf(i2));
-            contentValues2.put("marktoptime", Long.valueOf(j2));
+            contentValues2.put("marktoptime", Long.valueOf(j3));
             synchronized (DBBase.mSyncLock) {
                 z = true;
-                boolean z2 = update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid =? ", new String[]{String.valueOf(j)}, contentValues) > 0;
-                boolean z3 = update(TableDefine.DB_TABLE_CHAT_SESSION, "contacter =? ", new String[]{String.valueOf(j)}, contentValues2) > 0;
+                boolean z2 = update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid =? ", new String[]{String.valueOf(j2)}, contentValues) > 0;
+                boolean z3 = update(TableDefine.DB_TABLE_CHAT_SESSION, "contacter =? ", new String[]{String.valueOf(j2)}, contentValues2) > 0;
                 if (!z2 && !z3) {
                     z = false;
                 }
@@ -1069,16 +1069,16 @@ public class PaInfoDBManager extends DBBase {
         });
     }
 
-    public boolean updateSubscribedUser(long j, int i2) {
+    public boolean updateSubscribedUser(long j2, int i2) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_SUBSCRIBE, Integer.valueOf(i2));
             synchronized (DBBase.mSyncLock) {
                 z = true;
-                if (update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid =? ", new String[]{String.valueOf(j)}, contentValues) <= 0) {
+                if (update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid =? ", new String[]{String.valueOf(j2)}, contentValues) <= 0) {
                     z = false;
                 }
             }
@@ -1087,16 +1087,16 @@ public class PaInfoDBManager extends DBBase {
         return invokeCommon.booleanValue;
     }
 
-    public boolean updateSubsetType(long j, int i2) {
+    public boolean updateSubsetType(long j2, int i2) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(TableDefine.PaSubscribeColumns.COLUMN_SUBSET_TYPE, Integer.valueOf(i2));
             synchronized (DBBase.mSyncLock) {
                 z = true;
-                if (update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid=?", new String[]{String.valueOf(j)}, contentValues) <= 0) {
+                if (update(TableDefine.DB_TABLE_PA_SUBSCRIBE, "paid=?", new String[]{String.valueOf(j2)}, contentValues) <= 0) {
                     z = false;
                 }
             }

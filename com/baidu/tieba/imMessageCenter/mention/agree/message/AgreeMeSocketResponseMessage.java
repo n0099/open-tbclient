@@ -1,5 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention.agree.message;
 
+import c.a.p0.k1.b.p.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -8,13 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.j1.b.p.a;
 import java.util.ArrayList;
 import tbclient.AgreeList;
 import tbclient.AgreeMe.AgreeMeResIdl;
 import tbclient.AgreeMe.DataRes;
 import tbclient.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
     public void afterDispatchInBackGround(int i2, byte[] bArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) && !hasError() && (getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) getOrginalMessage().getExtra()).id == 0) {
-            d.a.p0.s.r.a.f().e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
+            c.a.o0.s.r.a.f().e("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName()).a("agree_me_cache_key", bArr);
         }
     }
 
@@ -74,7 +74,7 @@ public class AgreeMeSocketResponseMessage extends SocketResponsedMessage {
                 for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
                     if (agreeList != null) {
                         a aVar = new a();
-                        aVar.E(agreeList);
+                        aVar.G(agreeList);
                         this.datas.add(aVar);
                     }
                 }

@@ -19,6 +19,8 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.j;
+import c.a.e.e.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -40,12 +42,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.d.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.v0.a, HotTopicSelectModel.c {
+/* loaded from: classes7.dex */
+public class HotTopicSelectActivity extends SuspendedActivity implements c.a.o0.v0.a, HotTopicSelectModel.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCancelBtn;
@@ -56,24 +56,24 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
     public ExpandableListView mLvNoSearch;
     public ViewGroup mMainLayout;
     public NoDataView mNoDataView;
-    public d.a.q0.h1.e mNoSearchAdapter;
+    public c.a.p0.i1.e mNoSearchAdapter;
     public final ExpandableListView.OnChildClickListener mOnChildClickListener;
     public final View.OnClickListener mOnClickListener;
     public final ExpandableListView.OnGroupClickListener mOnGroupClickListener;
     public final AdapterView.OnItemClickListener mOnItemClickListener;
     public Intent mResultIntent;
-    public final List<d.a.q0.h1.d> mSearchList;
-    public d.a.q0.h1.b mSuggestAdatper;
+    public final List<c.a.p0.i1.d> mSearchList;
+    public c.a.p0.i1.b mSuggestAdatper;
     public BdListView mSuggestView;
     public TextView mTopicText;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f17311e;
+        public final /* synthetic */ HotTopicSelectActivity f52510e;
 
         public a(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -90,29 +90,29 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
                     return;
                 }
             }
-            this.f17311e = hotTopicSelectActivity;
+            this.f52510e = hotTopicSelectActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f17311e.mClearView) {
-                    this.f17311e.clearAllTextStatus();
-                } else if (view == this.f17311e.mCancelBtn) {
-                    this.f17311e.createIntent("");
+                if (view == this.f52510e.mClearView) {
+                    this.f52510e.clearAllTextStatus();
+                } else if (view == this.f52510e.mCancelBtn) {
+                    this.f52510e.createIntent("");
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f17312e;
+        public final /* synthetic */ HotTopicSelectActivity f52511e;
 
         public b(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -129,29 +129,29 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
                     return;
                 }
             }
-            this.f17312e = hotTopicSelectActivity;
+            this.f52511e = hotTopicSelectActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            d.a.q0.h1.d dVar;
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+            c.a.p0.i1.d dVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (dVar = (d.a.q0.h1.d) ListUtils.getItem(this.f17312e.mSuggestAdatper.d(), i2)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (dVar = (c.a.p0.i1.d) ListUtils.getItem(this.f52511e.mSuggestAdatper.d(), i2)) == null) {
                 return;
             }
             String b2 = dVar.b();
-            this.f17312e.createIntent(b2);
-            this.f17312e.addClickStats(b2, 3);
+            this.f52511e.createIntent(b2);
+            this.f52511e.addClickStats(b2, 3);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c implements ExpandableListView.OnGroupClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f17313a;
+        public final /* synthetic */ HotTopicSelectActivity f52512a;
 
         public c(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -168,16 +168,16 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
                     return;
                 }
             }
-            this.f17313a = hotTopicSelectActivity;
+            this.f52512a = hotTopicSelectActivity;
         }
 
         @Override // android.widget.ExpandableListView.OnGroupClickListener
-        public boolean onGroupClick(ExpandableListView expandableListView, View view, int i2, long j) {
+        public boolean onGroupClick(ExpandableListView expandableListView, View view, int i2, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view, Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-                if (this.f17313a.mLvNoSearch != null) {
-                    this.f17313a.mLvNoSearch.expandGroup(i2);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+                if (this.f52512a.mLvNoSearch != null) {
+                    this.f52512a.mLvNoSearch.expandGroup(i2);
                     return true;
                 }
                 return true;
@@ -186,13 +186,13 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements ExpandableListView.OnChildClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f17314e;
+        public final /* synthetic */ HotTopicSelectActivity f52513e;
 
         public d(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -209,23 +209,23 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
                     return;
                 }
             }
-            this.f17314e = hotTopicSelectActivity;
+            this.f52513e = hotTopicSelectActivity;
         }
 
         @Override // android.widget.ExpandableListView.OnChildClickListener
-        public boolean onChildClick(ExpandableListView expandableListView, View view, int i2, int i3, long j) {
+        public boolean onChildClick(ExpandableListView expandableListView, View view, int i2, int i3, long j2) {
             InterceptResult invokeCommon;
-            d.a.q0.h1.d child;
+            c.a.p0.i1.d child;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
-                if (this.f17314e.mNoSearchAdapter == null || (child = this.f17314e.mNoSearchAdapter.getChild(i2, i3)) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
+                if (this.f52513e.mNoSearchAdapter == null || (child = this.f52513e.mNoSearchAdapter.getChild(i2, i3)) == null) {
                     return false;
                 }
                 String b2 = child.b();
-                this.f17314e.createIntent(b2);
-                d.a.q0.h1.c group = this.f17314e.mNoSearchAdapter.getGroup(i2);
+                this.f52513e.createIntent(b2);
+                c.a.p0.i1.c group = this.f52513e.mNoSearchAdapter.getGroup(i2);
                 if (group != null) {
-                    this.f17314e.addClickStats(b2, group.c() == 0 ? 1 : 2);
+                    this.f52513e.addClickStats(b2, group.c() == 0 ? 1 : 2);
                     return false;
                 }
                 return false;
@@ -234,13 +234,13 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class e implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f17315e;
+        public final /* synthetic */ HotTopicSelectActivity f52514e;
 
         public e(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -257,7 +257,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
                     return;
                 }
             }
-            this.f17315e = hotTopicSelectActivity;
+            this.f52514e = hotTopicSelectActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -266,17 +266,17 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
             if (!(interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) || z) {
                 return;
             }
-            l.x(this.f17315e.getPageContext().getPageActivity(), view);
+            l.x(this.f52514e.getPageContext().getPageActivity(), view);
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class f implements TextView.OnEditorActionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f17316a;
+        public final /* synthetic */ HotTopicSelectActivity f52515a;
 
         public f(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -293,7 +293,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
                     return;
                 }
             }
-            this.f17316a = hotTopicSelectActivity;
+            this.f52515a = hotTopicSelectActivity;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
@@ -302,11 +302,11 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, textView, i2, keyEvent)) == null) {
                 if (i2 == 6) {
-                    l.K(this.f17316a.getPageContext().getPageActivity(), textView);
-                    if (TextUtils.isEmpty(this.f17316a.getSearchKey())) {
+                    l.K(this.f52515a.getPageContext().getPageActivity(), textView);
+                    if (TextUtils.isEmpty(this.f52515a.getSearchKey())) {
                         return true;
                     }
-                    HotTopicSelectActivity hotTopicSelectActivity = this.f17316a;
+                    HotTopicSelectActivity hotTopicSelectActivity = this.f52515a;
                     hotTopicSelectActivity.createIntent(hotTopicSelectActivity.getSearchKey());
                     return true;
                 }
@@ -316,13 +316,13 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class g implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicSelectActivity f17317e;
+        public final /* synthetic */ HotTopicSelectActivity f52516e;
 
         public g(HotTopicSelectActivity hotTopicSelectActivity) {
             Interceptable interceptable = $ic;
@@ -339,7 +339,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
                     return;
                 }
             }
-            this.f17317e = hotTopicSelectActivity;
+            this.f52516e = hotTopicSelectActivity;
         }
 
         @Override // android.text.TextWatcher
@@ -348,15 +348,15 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 String obj = editable.toString();
                 if (obj == null || obj.trim().length() <= 0) {
-                    this.f17317e.afterDealText();
+                    this.f52516e.afterDealText();
                 } else {
-                    this.f17317e.mNoDataView.setVisibility(8);
-                    this.f17317e.mListCustomView.setVisibility(8);
-                    this.f17317e.showLoadingView();
-                    this.f17317e.mHotModel.K(obj);
+                    this.f52516e.mNoDataView.setVisibility(8);
+                    this.f52516e.mListCustomView.setVisibility(8);
+                    this.f52516e.showLoadingView();
+                    this.f52516e.mHotModel.K(obj);
                 }
-                this.f17317e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
-                this.f17317e.setTopicTextViewColor();
+                this.f52516e.setDelButtonVisible(!StringUtils.isNull(editable.toString()));
+                this.f52516e.setTopicTextViewColor();
             }
         }
 
@@ -413,7 +413,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
             this.mLvNoSearch.setVisibility(0);
             this.mSuggestView.setVisibility(8);
             this.mSuggestAdatper.b();
-            d.a.q0.h1.e eVar = this.mNoSearchAdapter;
+            c.a.p0.i1.e eVar = this.mNoSearchAdapter;
             if (eVar != null && !ListUtils.isEmpty(eVar.f())) {
                 this.mListCustomView.setVisibility(0);
                 return;
@@ -450,15 +450,15 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
         }
     }
 
-    private d.a.q0.h1.d createSearchData(String str) {
+    private c.a.p0.i1.d createSearchData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, this, str)) == null) {
-            d.a.q0.h1.d dVar = new d.a.q0.h1.d();
+            c.a.p0.i1.d dVar = new c.a.p0.i1.d();
             dVar.d(str);
             return dVar;
         }
-        return (d.a.q0.h1.d) invokeL.objValue;
+        return (c.a.p0.i1.d) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -500,11 +500,11 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
             layoutParams.gravity = 17;
             this.mMainLayout.addView(this.mNoDataView, layoutParams);
             this.mNoDataView.setVisibility(8);
-            d.a.q0.h1.b bVar = new d.a.q0.h1.b(getPageContext());
+            c.a.p0.i1.b bVar = new c.a.p0.i1.b(getPageContext());
             this.mSuggestAdatper = bVar;
             this.mSuggestView.setAdapter((ListAdapter) bVar);
             this.mLvNoSearch = (ExpandableListView) findViewById(R.id.home_no_search_listview);
-            d.a.q0.h1.e eVar = new d.a.q0.h1.e(getPageContext());
+            c.a.p0.i1.e eVar = new c.a.p0.i1.e(getPageContext());
             this.mNoSearchAdapter = eVar;
             this.mLvNoSearch.setAdapter(eVar);
             this.mSuggestView.setOnItemClickListener(this.mOnItemClickListener);
@@ -517,7 +517,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
         }
     }
 
-    private void parseAndDealData(d.a.q0.h1.c cVar, boolean z) {
+    private void parseAndDealData(c.a.p0.i1.c cVar, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(65560, this, cVar, z) == null) || cVar == null || ListUtils.isEmpty(cVar.b())) {
             return;
@@ -551,7 +551,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
         }
     }
 
-    @Override // d.a.p0.v0.a
+    @Override // c.a.o0.v0.a
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -559,7 +559,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public d.a.p0.v0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.o0.v0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout, navigationBar)) == null) {
@@ -568,10 +568,10 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
             LayoutInflater.from(this).inflate(R.layout.hot_select_main, (ViewGroup) linearLayout, true);
             return this;
         }
-        return (d.a.p0.v0.a) invokeLL.objValue;
+        return (c.a.o0.v0.a) invokeLL.objValue;
     }
 
-    @Override // d.a.p0.v0.a
+    @Override // c.a.o0.v0.a
     public boolean isOnViewCancel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -581,7 +581,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.p0.v0.a
+    @Override // c.a.o0.v0.a
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         ListView listView;
@@ -615,13 +615,13 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
             this.mSkinType = i2;
             NoDataView noDataView = this.mNoDataView;
             if (noDataView != null) {
-                noDataView.f(getPageContext(), i2);
+                noDataView.onChangeSkinType(getPageContext(), i2);
             }
-            d.a.q0.h1.b bVar = this.mSuggestAdatper;
+            c.a.p0.i1.b bVar = this.mSuggestAdatper;
             if (bVar != null) {
                 bVar.notifyDataSetChanged();
             }
-            d.a.q0.h1.e eVar = this.mNoSearchAdapter;
+            c.a.p0.i1.e eVar = this.mNoSearchAdapter;
             if (eVar != null) {
                 eVar.notifyDataSetChanged();
             }
@@ -660,7 +660,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.mHotModel.onDestroy();
-            this.mNoDataView.e();
+            this.mNoDataView.onActivityStop();
             hideLoadingView(this.mMainLayout);
             super.onDestroy();
         }
@@ -685,7 +685,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void onHotSelectDataNoSearchSuccess(d.a.q0.h1.c cVar, d.a.q0.h1.c cVar2) {
+    public void onHotSelectDataNoSearchSuccess(c.a.p0.i1.c cVar, c.a.p0.i1.c cVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048585, this, cVar, cVar2) == null) {
             this.mListCustomView.setVisibility(0);
@@ -712,7 +712,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
             this.mSuggestView.setVisibility(0);
             hideLoadingView(this.mMainLayout);
             String searchKey = getSearchKey();
-            d.a.q0.h1.d createSearchData = createSearchData(searchKey);
+            c.a.p0.i1.d createSearchData = createSearchData(searchKey);
             this.mSearchList.clear();
             this.mSearchList.add(createSearchData);
             this.mSuggestAdatper.e(searchKey, this.mSearchList);
@@ -720,7 +720,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void onHotSelectDataSearchSuccess(d.a.q0.h1.c cVar) {
+    public void onHotSelectDataSearchSuccess(c.a.p0.i1.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
             this.mListCustomView.setVisibility(0);
@@ -747,12 +747,12 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.p0.
             setSkinType(3);
             NoDataView noDataView = this.mNoDataView;
             if (noDataView != null) {
-                noDataView.e();
+                noDataView.onActivityStop();
             }
         }
     }
 
-    @Override // d.a.p0.v0.a
+    @Override // c.a.o0.v0.a
     public void onViewChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {

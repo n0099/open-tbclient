@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ConnManagerParams implements ConnManagerPNames {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MAX_TOTAL_CONNECTIONS = 20;
@@ -72,9 +72,9 @@ public final class ConnManagerParams implements ConnManagerPNames {
         }
     }
 
-    public static void setTimeout(HttpParams httpParams, long j) {
+    public static void setTimeout(HttpParams httpParams, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, httpParams, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(AdIconUtil.BAIDU_LOGO_ID, null, httpParams, j2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

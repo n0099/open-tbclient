@@ -14,21 +14,21 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f37504a = "";
+    public static String f74346a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37505b = "";
+    public static String f74347b = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f37505b)) {
-            f37505b = !a() ? c(context) : d(context);
-            return f37505b;
+        if (TextUtils.isEmpty(f74347b)) {
+            f74347b = !a() ? c(context) : d(context);
+            return f74347b;
         }
-        return f37505b;
+        return f74347b;
     }
 
     public static String a(String str) {
@@ -40,15 +40,15 @@ public class c {
             fileInputStream.close();
         } catch (FileNotFoundException unused) {
             str2 = "getMacAddressWithIfName File not found Exception";
-            d.h.a.a.a.b(DeviceUtils.TAG, str2);
+            c.l.a.a.a.b(DeviceUtils.TAG, str2);
             return r1;
         } catch (IOException unused2) {
             str2 = "getMacAddressWithIfName IOException";
-            d.h.a.a.a.b(DeviceUtils.TAG, str2);
+            c.l.a.a.a.b(DeviceUtils.TAG, str2);
             return r1;
         } catch (Exception unused3) {
             str2 = "getMacAddressWithIfName Exception ";
-            d.h.a.a.a.b(DeviceUtils.TAG, str2);
+            c.l.a.a.a.b(DeviceUtils.TAG, str2);
             return r1;
         }
         return r1;
@@ -57,10 +57,10 @@ public class c {
     public static boolean a() {
         String a2 = j.a("ro.target.product");
         if (TextUtils.isEmpty(a2)) {
-            d.h.a.a.a.d(DeviceUtils.TAG, "current product is phone");
+            c.l.a.a.a.d(DeviceUtils.TAG, "current product is phone");
             return true;
         }
-        d.h.a.a.a.d(DeviceUtils.TAG, "current product is " + a2);
+        c.l.a.a.a.d(DeviceUtils.TAG, "current product is " + a2);
         return false;
     }
 
@@ -74,11 +74,11 @@ public class c {
         String str;
         WifiInfo connectionInfo;
         String macAddress;
-        if (TextUtils.isEmpty(f37504a)) {
+        if (TextUtils.isEmpty(f74346a)) {
             try {
                 str = null;
             } catch (Exception unused) {
-                d.h.a.a.a.b(DeviceUtils.TAG, "get address exception ");
+                c.l.a.a.a.b(DeviceUtils.TAG, "get address exception ");
             }
             if (Build.VERSION.SDK_INT < 23) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
@@ -86,8 +86,8 @@ public class c {
                     macAddress = connectionInfo.getMacAddress();
                     str = macAddress;
                 }
-                f37504a = str;
-                return f37504a;
+                f74346a = str;
+                return f74346a;
             }
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager != null) {
@@ -103,22 +103,22 @@ public class c {
                     str = macAddress;
                 }
             }
-            f37504a = str;
-            return f37504a;
-            d.h.a.a.a.b(DeviceUtils.TAG, "get address exception ");
-            return f37504a;
+            f74346a = str;
+            return f74346a;
+            c.l.a.a.a.b(DeviceUtils.TAG, "get address exception ");
+            return f74346a;
         }
-        return f37504a;
+        return f74346a;
     }
 
     public static String c(Context context) {
         StringBuilder sb = new StringBuilder();
         String str = Build.SERIAL;
-        d.h.a.a.a.d(DeviceUtils.TAG, "device serial " + str);
+        c.l.a.a.a.d(DeviceUtils.TAG, "device serial " + str);
         if (!TextUtils.isEmpty(str)) {
             sb.append(str);
             String b2 = b(context);
-            d.h.a.a.a.b(DeviceUtils.TAG, "mac address " + b2);
+            c.l.a.a.a.b(DeviceUtils.TAG, "mac address " + b2);
             if (!TextUtils.isEmpty(b2)) {
                 sb.append(b2.replace(":", "").toUpperCase());
                 return sb.toString();
@@ -129,6 +129,6 @@ public class c {
 
     public static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.f37487a ? (String) a2.f37488b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.f74329a ? (String) a2.f74330b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

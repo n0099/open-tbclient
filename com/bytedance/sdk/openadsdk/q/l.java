@@ -4,7 +4,6 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.apollon.statusbar.ImmersiveOSUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,39 +18,39 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f32515a = false;
+    public static boolean f68477a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f32516b = false;
+    public static boolean f68478b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CharSequence f32517c;
+    public static final CharSequence f68479c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final CharSequence f32518d;
+    public static final CharSequence f68480d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final CharSequence f32519e;
+    public static final CharSequence f68481e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f32520f = null;
+    public static String f68482f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f32521g = Integer.MAX_VALUE;
+    public static int f68483g = Integer.MAX_VALUE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Callable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f32523a;
+        public String f68485a;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -68,7 +67,7 @@ public class l {
                     return;
                 }
             }
-            this.f32523a = str;
+            this.f68485a = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -79,7 +78,7 @@ public class l {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                String c2 = l.c(this.f32523a);
+                String c2 = l.c(this.f68485a);
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                 com.bytedance.sdk.component.utils.k.b("RomUtils", "property:" + c2 + ",getSystemProperty use time :" + currentTimeMillis2);
                 if (!TextUtils.isEmpty(c2)) {
@@ -113,26 +112,26 @@ public class l {
                 return;
             }
         }
-        f32517c = "sony";
-        f32518d = "amigo";
-        f32519e = "funtouch";
+        f68479c = "sony";
+        f68480d = "amigo";
+        f68481e = "funtouch";
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!TextUtils.isEmpty(f32520f)) {
-                return f32520f;
+            if (!TextUtils.isEmpty(f68482f)) {
+                return f68482f;
             }
             String a2 = com.bytedance.sdk.openadsdk.core.h.a("sdk_local_rom_info", 604800000L);
-            f32520f = a2;
+            f68482f = a2;
             if (TextUtils.isEmpty(a2)) {
                 String u = u();
-                f32520f = u;
+                f68482f = u;
                 com.bytedance.sdk.openadsdk.core.h.a("sdk_local_rom_info", u);
             }
-            return f32520f;
+            return f68482f;
         }
         return (String) invokeV.objValue;
     }
@@ -164,18 +163,18 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (!f32516b) {
+            if (!f68478b) {
                 try {
                     if (Class.forName("miui.os.Build") != null) {
-                        f32515a = true;
-                        f32516b = true;
+                        f68477a = true;
+                        f68478b = true;
                         return true;
                     }
                 } catch (Exception unused) {
                 }
-                f32516b = true;
+                f68478b = true;
             }
-            return f32515a;
+            return f68477a;
         }
         return invokeV.booleanValue;
     }
@@ -194,7 +193,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             String d2 = d("ro.vivo.os.build.display.id");
-            return !TextUtils.isEmpty(d2) && d2.toLowerCase().contains(f32519e);
+            return !TextUtils.isEmpty(d2) && d2.toLowerCase().contains(f68481e);
         }
         return invokeV.booleanValue;
     }
@@ -202,7 +201,7 @@ public class l {
     public static boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase().contains(f32518d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? !TextUtils.isEmpty(Build.DISPLAY) && Build.DISPLAY.toLowerCase().contains(f68480d) : invokeV.booleanValue;
     }
 
     public static String i() {
@@ -290,7 +289,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
             String str = Build.DISPLAY;
-            return (str == null || !str.toLowerCase().contains(ImmersiveOSUtils.FLYME)) ? "" : str;
+            return (str == null || !str.toLowerCase().contains("flyme")) ? "" : str;
         }
         return (String) invokeV.objValue;
     }
@@ -299,16 +298,16 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            if (f32521g == Integer.MAX_VALUE) {
+            if (f68483g == Integer.MAX_VALUE) {
                 String str = Build.MANUFACTURER;
                 String m = q.m("kllk");
                 if (!TextUtils.isEmpty(str) && str.toLowerCase().contains(m)) {
-                    f32521g = 1;
+                    f68483g = 1;
                 } else {
-                    f32521g = 0;
+                    f68483g = 0;
                 }
             }
-            return f32521g == 1;
+            return f68483g == 1;
         }
         return invokeV.booleanValue;
     }
@@ -374,8 +373,8 @@ public class l {
                 if (d()) {
                     return c();
                 }
-                String j = j();
-                return !TextUtils.isEmpty(j) ? j : Build.DISPLAY;
+                String j2 = j();
+                return !TextUtils.isEmpty(j2) ? j2 : Build.DISPLAY;
             }
             return m;
         }
@@ -405,7 +404,7 @@ public class l {
     public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.DISPLAY.contains("Flyme") || Build.USER.equals(ImmersiveOSUtils.FLYME) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Build.DISPLAY.contains("Flyme") || Build.USER.equals("flyme") : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
@@ -486,7 +485,7 @@ public class l {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ com.bytedance.sdk.component.d.f f32522a;
+                            public final /* synthetic */ com.bytedance.sdk.component.d.f f68484a;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                             {
@@ -506,14 +505,14 @@ public class l {
                                         return;
                                     }
                                 }
-                                this.f32522a = fVar;
+                                this.f68484a = fVar;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f32522a.run();
+                                    this.f68484a.run();
                                 }
                             }
                         });

@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.v0.a;
+import c.a.p0.b4.k.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -15,9 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v0.a;
-import d.a.q0.a4.k.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlbumFloatActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,7 +45,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             if (this.albumView == null) {
                 e eVar = new e(this, null, linearLayout.getId(), R.id.root_stub);
                 this.albumView = eVar;
-                eVar.Q(navigationBar);
+                eVar.U(navigationBar);
             }
             return this.albumView;
         }
@@ -58,7 +58,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             if (i3 == -1) {
-                this.albumView.L(intent);
+                this.albumView.P(intent);
             }
         }
     }
@@ -118,7 +118,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             super.onRequestPermissionsResult(i2, strArr, iArr);
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.F(i2, strArr, iArr);
+                eVar.D(i2, strArr, iArr);
             }
         }
     }
@@ -130,7 +130,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             super.onResume();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.G();
+                eVar.J();
             }
         }
     }
@@ -142,7 +142,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             super.onStart();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.I();
+                eVar.L();
             }
         }
     }
@@ -154,7 +154,7 @@ public class AlbumFloatActivity extends SuspendedActivity {
             super.onStop();
             e eVar = this.albumView;
             if (eVar != null) {
-                eVar.J();
+                eVar.N();
             }
         }
     }

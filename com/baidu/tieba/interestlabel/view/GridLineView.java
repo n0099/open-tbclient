@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
@@ -13,17 +14,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GridLineView extends BdGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f18130e;
+    public Paint f53392e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18131f;
+    public int f53393f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GridLineView(Context context) {
@@ -43,25 +43,18 @@ public class GridLineView extends BdGridView {
                 return;
             }
         }
-        c(context);
+        a(context);
     }
 
-    public final void c(Context context) {
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             Paint paint = new Paint();
-            this.f18130e = paint;
+            this.f53392e = paint;
             paint.setStyle(Paint.Style.STROKE);
-            this.f18130e.setColor(SkinManager.getColor(R.color.CAM_X0204));
-            this.f18130e.setStrokeWidth(1.0f);
-            this.f18131f = l.g(context, R.dimen.ds26);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18130e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+            this.f53392e.setColor(SkinManager.getColor(R.color.CAM_X0204));
+            this.f53392e.setStrokeWidth(1.0f);
+            this.f53393f = l.g(context, R.dimen.ds26);
         }
     }
 
@@ -70,7 +63,7 @@ public class GridLineView extends BdGridView {
         View childAt;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.dispatchDraw(canvas);
             int childCount = getChildCount();
             if (childCount > 0 && (childAt = getChildAt(0)) != null) {
@@ -86,14 +79,21 @@ public class GridLineView extends BdGridView {
                 int top = childAt.getTop();
                 for (int i5 = 1; i5 <= i4; i5++) {
                     float f2 = top + (height * i5);
-                    canvas.drawLine(0.0f, f2, width, f2, this.f18130e);
+                    canvas.drawLine(0.0f, f2, width, f2, this.f53392e);
                     for (int i6 = 1; i6 < numColumns; i6++) {
                         float f3 = width2 * i6;
-                        int i7 = this.f18131f;
-                        canvas.drawLine(f3, ((i5 - 1) * height) + top + i7, f3, i2 - i7, this.f18130e);
+                        int i7 = this.f53393f;
+                        canvas.drawLine(f3, ((i5 - 1) * height) + top + i7, f3, i2 - i7, this.f53392e);
                     }
                 }
             }
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f53392e.setColor(SkinManager.getColor(R.color.CAM_X0204));
         }
     }
 
@@ -116,7 +116,7 @@ public class GridLineView extends BdGridView {
                 return;
             }
         }
-        c(context);
+        a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,6 +138,6 @@ public class GridLineView extends BdGridView {
                 return;
             }
         }
-        c(context);
+        a(context);
     }
 }

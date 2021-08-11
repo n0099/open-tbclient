@@ -1,16 +1,16 @@
 package com.bytedance.embedapplog;
 
 import androidx.core.view.InputDeviceCompat;
+import c.b.a.h0;
+import c.b.a.i0;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.b.a.h0;
-import d.b.a.i0;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class GameReportHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCESS_ACCOUNT = "access_account";

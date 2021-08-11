@@ -9,18 +9,19 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LocalVideoCompressingDialogView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CompressProgressView f21678e;
+    public CompressProgressView f57240e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f21679f;
+    public TextView f57241f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalVideoCompressingDialogView(Context context) {
@@ -47,18 +48,24 @@ public class LocalVideoCompressingDialogView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.local_video_compress_dialog, this);
-            this.f21678e = (CompressProgressView) findViewById(R.id.compress_progress_view);
-            this.f21679f = (TextView) findViewById(R.id.compress_progress_text);
+            this.f57240e = (CompressProgressView) findViewById(R.id.compress_progress_view);
+            this.f57241f = (TextView) findViewById(R.id.compress_progress_text);
         }
+    }
+
+    public boolean isShowing() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getParent() != null : invokeV.booleanValue;
     }
 
     public void setPercent(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 < 0 || i2 > 100) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 0 || i2 > 100) {
             return;
         }
-        this.f21678e.setProgress(i2);
-        TextView textView = this.f21679f;
+        this.f57240e.setProgress(i2);
+        TextView textView = this.f57241f;
         textView.setText(i2 + "%");
     }
 

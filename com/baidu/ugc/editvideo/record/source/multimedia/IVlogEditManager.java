@@ -12,17 +12,19 @@ import com.baidu.ugc.editvideo.subtitle.SubTitleUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlProtocol {
     public static final String FILTER_ORIGINAL = "FILTER_ORIGINAL";
 
     void addMultiMediaData(int i2, List<MultiMediaData> list);
 
+    void addOneTrack(MediaTrack mediaTrack);
+
     void addStickerData(MultiMediaData multiMediaData, String str);
 
     void deleteMultiMediaData(int i2);
 
-    int editOneEffect(int i2, MediaAEffectConfig mediaAEffectConfig, long j, long j2);
+    int editOneEffect(int i2, MediaAEffectConfig mediaAEffectConfig, long j2, long j3);
 
     String exportConfigJson(String str);
 
@@ -42,13 +44,15 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     float getVideoRatio();
 
-    void modifyTimeByRange(long j, long j2);
+    void modifyTimeByRange(long j2, long j3);
 
     void needDrawEffect(boolean z);
 
-    boolean rangeSegmentScope(int i2, long j, long j2);
+    boolean rangeSegmentScope(int i2, long j2, long j3);
 
     void removeLastEffect();
+
+    void removeOneTrack(String str);
 
     void replaceStickerData(int i2, MultiMediaData multiMediaData, String str);
 
@@ -60,6 +64,8 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
     void setAudioChangeType(int i2);
 
     void setAudioChangeType(int[] iArr);
+
+    void setAudioChangeType(int[] iArr, double[] dArr, int[] iArr2);
 
     void setEffectList(List<MediaSegment> list, Map<String, ShaderConfig> map);
 
@@ -93,9 +99,9 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void setY(float f2);
 
-    void split(int i2, long j, OnMultiMediaSplitListener onMultiMediaSplitListener);
+    void split(int i2, long j2, OnMultiMediaSplitListener onMultiMediaSplitListener);
 
     void updateInputDataOrder(List<MultiMediaData> list);
 
-    void updateStickerDataRange(int i2, String str, long j, long j2);
+    void updateStickerDataRange(int i2, String str, long j2, long j3);
 }

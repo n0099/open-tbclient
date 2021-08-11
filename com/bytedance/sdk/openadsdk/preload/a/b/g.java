@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigDecimal;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class g extends Number {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f32167a;
+    public final String f68121a;
 
     public g(String str) {
         Interceptable interceptable = $ic;
@@ -30,14 +30,14 @@ public final class g extends Number {
                 return;
             }
         }
-        this.f32167a = str;
+        this.f68121a = str;
     }
 
     @Override // java.lang.Number
     public double doubleValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Double.parseDouble(this.f32167a) : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Double.parseDouble(this.f68121a) : invokeV.doubleValue;
     }
 
     public boolean equals(Object obj) {
@@ -48,8 +48,8 @@ public final class g extends Number {
                 return true;
             }
             if (obj instanceof g) {
-                String str = this.f32167a;
-                String str2 = ((g) obj).f32167a;
+                String str = this.f68121a;
+                String str2 = ((g) obj).f68121a;
                 return str == str2 || str.equals(str2);
             }
             return false;
@@ -61,13 +61,13 @@ public final class g extends Number {
     public float floatValue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Float.parseFloat(this.f32167a) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Float.parseFloat(this.f68121a) : invokeV.floatValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32167a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f68121a.hashCode() : invokeV.intValue;
     }
 
     @Override // java.lang.Number
@@ -77,12 +77,12 @@ public final class g extends Number {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
                 try {
-                    return Integer.parseInt(this.f32167a);
+                    return Integer.parseInt(this.f68121a);
                 } catch (NumberFormatException unused) {
-                    return new BigDecimal(this.f32167a).intValue();
+                    return new BigDecimal(this.f68121a).intValue();
                 }
             } catch (NumberFormatException unused2) {
-                return (int) Long.parseLong(this.f32167a);
+                return (int) Long.parseLong(this.f68121a);
             }
         }
         return invokeV.intValue;
@@ -94,9 +94,9 @@ public final class g extends Number {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                return Long.parseLong(this.f32167a);
+                return Long.parseLong(this.f68121a);
             } catch (NumberFormatException unused) {
-                return new BigDecimal(this.f32167a).longValue();
+                return new BigDecimal(this.f68121a).longValue();
             }
         }
         return invokeV.longValue;
@@ -105,6 +105,6 @@ public final class g extends Number {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f32167a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f68121a : (String) invokeV.objValue;
     }
 }

@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.p;
 import com.vivo.push.util.z;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f39376a;
+    public static final Object f76208a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f39377b;
+    public static volatile b f76209b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f39378c;
+    public e f76210c;
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +38,7 @@ public final class b {
                 return;
             }
         }
-        f39376a = new Object();
+        f76208a = new Object();
     }
 
     public b() {
@@ -59,14 +59,14 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f39377b == null) {
-                synchronized (f39376a) {
-                    if (f39377b == null) {
-                        f39377b = new b();
+            if (f76209b == null) {
+                synchronized (f76208a) {
+                    if (f76209b == null) {
+                        f76209b = new b();
                     }
                 }
             }
-            return f39377b;
+            return f76209b;
         }
         return (b) invokeV.objValue;
     }
@@ -75,7 +75,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            e eVar = this.f39378c;
+            e eVar = this.f76210c;
             if (eVar != null) {
                 return eVar;
             }
@@ -84,7 +84,7 @@ public final class b {
                 Method method = Class.forName(str).getMethod("getInstance", Context.class);
                 p.d("ConfigManagerFactory", "createConfig success is " + str);
                 e eVar2 = (e) method.invoke(null, context);
-                this.f39378c = eVar2;
+                this.f76210c = eVar2;
                 return eVar2;
             } catch (Exception e2) {
                 e2.printStackTrace();

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import c.p.a.e.b.g.e;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,25 +15,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.ss.android.socialbase.downloader.notification.DownloadNotificationService;
-import d.l.a.e.b.g.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38694a;
+    public static final String f75508a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f38695e;
+        public final /* synthetic */ Context f75509e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f38696f;
+        public final /* synthetic */ String f75510f;
 
         public a(DownloadReceiver downloadReceiver, Context context, String str) {
             Interceptable interceptable = $ic;
@@ -49,8 +49,8 @@ public class DownloadReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f38695e = context;
-            this.f38696f = str;
+            this.f75509e = context;
+            this.f75510f = str;
         }
 
         @Override // java.lang.Runnable
@@ -58,9 +58,9 @@ public class DownloadReceiver extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    Intent intent = new Intent(this.f38695e, DownloadNotificationService.class);
-                    intent.setAction(this.f38696f);
-                    this.f38695e.startService(intent);
+                    Intent intent = new Intent(this.f75509e, DownloadNotificationService.class);
+                    intent.setAction(this.f75510f);
+                    this.f75509e.startService(intent);
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
@@ -81,7 +81,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f38694a = DownloadReceiver.class.getSimpleName();
+        f75508a = DownloadReceiver.class.getSimpleName();
     }
 
     public DownloadReceiver() {
@@ -129,8 +129,8 @@ public class DownloadReceiver extends BroadcastReceiver {
             return;
         }
         if (action.equals("android.net.conn.CONNECTIVITY_CHANGE")) {
-            if (d.l.a.e.b.c.a.e()) {
-                d.l.a.e.b.c.a.c(f38694a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
+            if (c.p.a.e.b.c.a.e()) {
+                c.p.a.e.b.c.a.c(f75508a, "Received broadcast intent for android.net.conn.CONNECTIVITY_CHANGE");
             }
             a(context, action);
         } else if (action.equals("android.intent.action.MEDIA_UNMOUNTED") || action.equals("android.intent.action.MEDIA_REMOVED") || action.equals("android.intent.action.MEDIA_BAD_REMOVAL") || action.equals("android.intent.action.MEDIA_EJECT")) {

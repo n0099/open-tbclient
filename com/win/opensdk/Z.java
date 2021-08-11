@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Z implements N0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ View f39717a;
+    public final /* synthetic */ View f76557a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d0 f39718b;
+    public final /* synthetic */ d0 f76558b;
 
     public Z(d0 d0Var, View view) {
         Interceptable interceptable = $ic;
@@ -33,34 +33,34 @@ public class Z implements N0 {
                 return;
             }
         }
-        this.f39718b = d0Var;
-        this.f39717a = view;
+        this.f76558b = d0Var;
+        this.f76557a = view;
     }
 
     @Override // com.win.opensdk.N0
     public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f39717a == null) {
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.f76557a == null) {
             return;
         }
-        this.f39718b.f39782f.a(z);
+        this.f76558b.f76622f.a(z);
     }
 
     @Override // com.win.opensdk.N0
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f39717a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f76557a == null) {
             return;
         }
-        this.f39718b.f39782f.onDisplayed();
+        this.f76558b.f76622f.onDisplayed();
     }
 
     @Override // com.win.opensdk.N0
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f39717a == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f76557a == null) {
             return;
         }
-        new Handler().postDelayed(new Y(this), this.f39718b.f39779c.getSpet());
+        new Handler().postDelayed(new Y(this), this.f76558b.f76619c.getSpet());
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.im.chat;
 
 import android.view.View;
 import android.view.ViewGroup;
+import c.a.p0.j1.f.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,13 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.i1.f.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends MsgCommonItemAdapter.MsgViewHolder<d> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,19 +68,19 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, d.a.d.k.e.a
-    public /* bridge */ /* synthetic */ View X(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        i0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.e.k.e.a
+    public /* bridge */ /* synthetic */ View a0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        k0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View i0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<d> msgViewHolder) {
+    public View k0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<d> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
-            super.X(i2, view, viewGroup, chatMessage, msgViewHolder);
-            msgViewHolder.b().j(chatMessage);
+            super.a0(i2, view, viewGroup, chatMessage, msgViewHolder);
+            msgViewHolder.getMsgItemView().h(chatMessage);
             this.m.getLayoutMode().k(false);
             this.m.getLayoutMode().j(view);
             return view;
@@ -89,14 +89,14 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.d.k.e.a
-    /* renamed from: o0 */
-    public MsgCommonItemAdapter.MsgViewHolder<d> Q(ViewGroup viewGroup) {
+    @Override // c.a.e.k.e.a
+    /* renamed from: q0 */
+    public MsgCommonItemAdapter.MsgViewHolder<d> U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
             d dVar = new d(this.m);
-            return new a(this, dVar.e(), dVar);
+            return new a(this, dVar.d(), dVar);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }

@@ -2,7 +2,7 @@ package com.baidu.wallet.base.camera;
 
 import android.graphics.Rect;
 import com.baidu.wallet.core.NoProguard;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface IImageProcess extends NoProguard {
     void destroyProcessor();
 

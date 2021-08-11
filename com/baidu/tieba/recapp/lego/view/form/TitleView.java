@@ -14,15 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TitleView extends FormItemBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView A;
-    public ImageView B;
-    public TextView x;
-    public ImageView y;
-    public ImageView z;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f56126e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f56127f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public ImageView f56128g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ImageView f56129h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public ImageView f56130i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TitleView(Context context) {
@@ -42,38 +52,108 @@ public class TitleView extends FormItemBaseView {
                 return;
             }
         }
-        this.x = null;
-        this.y = null;
-        this.z = null;
-        this.A = null;
-        this.B = null;
-        h();
+        this.f56126e = null;
+        this.f56127f = null;
+        this.f56128g = null;
+        this.f56129h = null;
+        this.f56130i = null;
+        b();
     }
 
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormCardView.d
-    public boolean a() {
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.f56126e = new TextView(this.mContext);
+            this.f56127f = new ImageView(this.mContext);
+            this.f56128g = new ImageView(this.mContext);
+            this.f56129h = new ImageView(this.mContext);
+            this.f56130i = new ImageView(this.mContext);
+            e();
+            c(this.f56129h, true, 2);
+            c(this.f56130i, false, 3);
+            d(this.f56127f, true);
+            d(this.f56128g, false);
+        }
+    }
+
+    public final void c(ImageView imageView, boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{imageView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            imageView.setId(i2);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(15);
+            if (z) {
+                imageView.setImageResource(R.drawable.form_title_icon_left);
+                layoutParams.addRule(0, this.f56126e.getId());
+            } else {
+                imageView.setImageResource(R.drawable.form_title_icon_right);
+                layoutParams.addRule(1, this.f56126e.getId());
+            }
+            int i3 = this.mSize20;
+            layoutParams.leftMargin = i3;
+            layoutParams.rightMargin = i3;
+            addView(imageView, layoutParams);
+        }
+    }
+
+    public final void d(ImageView imageView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, imageView, z) == null) {
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.mResources.getDimension(R.dimen.ds1));
+            layoutParams.addRule(15);
+            if (z) {
+                layoutParams.addRule(0, this.f56129h.getId());
+            } else {
+                layoutParams.addRule(1, this.f56130i.getId());
+            }
+            addView(imageView, layoutParams);
+            imageView.setBackgroundColor(this.mFrameColor);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f56126e.setTextSize(0, this.mFontSize36);
+            this.f56126e.setTextColor(-1);
+            this.f56126e.setId(1);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
+            layoutParams.addRule(13);
+            addView(this.f56126e, layoutParams);
+        }
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
+    public String getResult() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? FormItemBaseView.defaultContent : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView, com.baidu.tieba.recapp.lego.view.form.FormCardView.d
+    public boolean isPrepareToCommit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public boolean g(FormCard.b bVar) {
+    public boolean updateView(FormCard.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
-            if (super.g(bVar)) {
-                this.x.setTextSize(0, this.p);
-                this.x.setText(bVar.f20620b);
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.A.getLayoutParams();
-                int i2 = this.f20700g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
+            if (super.updateView(bVar)) {
+                this.f56126e.setTextSize(0, this.mFontSize36);
+                this.f56126e.setText(bVar.f56009b);
+                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f56129h.getLayoutParams();
+                int i2 = this.mSize20;
                 marginLayoutParams.leftMargin = i2;
                 marginLayoutParams.rightMargin = i2;
-                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.B.getLayoutParams();
-                int i3 = this.f20700g;
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.f56130i.getLayoutParams();
+                int i3 = this.mSize20;
                 marginLayoutParams2.leftMargin = i3;
                 marginLayoutParams2.rightMargin = i3;
                 return true;
@@ -81,76 +161,6 @@ public class TitleView extends FormItemBaseView {
             return false;
         }
         return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.form.FormItemBaseView
-    public String getResult() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NEGLIGIBLE" : (String) invokeV.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.x = new TextView(this.f20698e);
-            this.y = new ImageView(this.f20698e);
-            this.z = new ImageView(this.f20698e);
-            this.A = new ImageView(this.f20698e);
-            this.B = new ImageView(this.f20698e);
-            k();
-            i(this.A, true, 2);
-            i(this.B, false, 3);
-            j(this.y, true);
-            j(this.z, false);
-        }
-    }
-
-    public final void i(ImageView imageView, boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{imageView, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            imageView.setId(i2);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(15);
-            if (z) {
-                imageView.setImageResource(R.drawable.form_title_icon_left);
-                layoutParams.addRule(0, this.x.getId());
-            } else {
-                imageView.setImageResource(R.drawable.form_title_icon_right);
-                layoutParams.addRule(1, this.x.getId());
-            }
-            int i3 = this.f20700g;
-            layoutParams.leftMargin = i3;
-            layoutParams.rightMargin = i3;
-            addView(imageView, layoutParams);
-        }
-    }
-
-    public final void j(ImageView imageView, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, imageView, z) == null) {
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, (int) this.f20699f.getDimension(R.dimen.ds1));
-            layoutParams.addRule(15);
-            if (z) {
-                layoutParams.addRule(0, this.A.getId());
-            } else {
-                layoutParams.addRule(1, this.B.getId());
-            }
-            addView(imageView, layoutParams);
-            imageView.setBackgroundColor(this.s);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.x.setTextSize(0, this.p);
-            this.x.setTextColor(-1);
-            this.x.setId(1);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams.addRule(13);
-            addView(this.x, layoutParams);
-        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -172,12 +182,12 @@ public class TitleView extends FormItemBaseView {
                 return;
             }
         }
-        this.x = null;
-        this.y = null;
-        this.z = null;
-        this.A = null;
-        this.B = null;
-        h();
+        this.f56126e = null;
+        this.f56127f = null;
+        this.f56128g = null;
+        this.f56129h = null;
+        this.f56130i = null;
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -199,11 +209,11 @@ public class TitleView extends FormItemBaseView {
                 return;
             }
         }
-        this.x = null;
-        this.y = null;
-        this.z = null;
-        this.A = null;
-        this.B = null;
-        h();
+        this.f56126e = null;
+        this.f56127f = null;
+        this.f56128g = null;
+        this.f56129h = null;
+        this.f56130i = null;
+        b();
     }
 }

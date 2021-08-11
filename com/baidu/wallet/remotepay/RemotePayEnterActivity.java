@@ -5,39 +5,42 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pay.PayCallBack;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
-import com.baidu.wallet.api.Constants;
-import com.baidu.wallet.base.a.a;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
+import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.paysdk.PayCallBackManager;
 import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
 import com.baidu.wallet.remotepay.IRemoteServiceCallback;
+import com.dxmpay.wallet.api.WalletLoginHelper;
+import com.dxmpay.wallet.core.beans.BeanConstants;
+import com.dxmpay.wallet.passport.LoginBackListenerProxy;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.realtimeevent.RealTimeEventHelper;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class RemotePayEnterActivity extends PayBaseBeanActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RemotePayEnterActivity";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IRemoteServiceCallback f27458a;
+    public IRemoteServiceCallback f63309a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f27459b;
+    public Map<String, String> f63310b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, String> f27460c;
+    public Map<String, String> f63311c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27461d;
+    public String f63312d;
 
     public RemotePayEnterActivity() {
         Interceptable interceptable = $ic;
@@ -69,18 +72,18 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
         if (bundle == null) {
             return;
         }
-        this.f27461d = bundle.getString("order_info");
+        this.f63312d = bundle.getString("order_info");
         String str = "";
         if (Build.VERSION.SDK_INT < 18) {
             try {
                 iBinder = (IBinder) bundle.getClass().getDeclaredMethod("getIBinder", String.class).invoke(bundle, "callback");
             } catch (Exception e2) {
-                String str2 = this.f27461d;
+                String str2 = this.f63312d;
                 String[] strArr = new String[2];
-                Map<String, String> map = this.f27460c;
-                strArr[0] = (map == null || map.isEmpty()) ? "" : this.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
+                Map<String, String> map = this.f63311c;
+                strArr[0] = (map == null || map.isEmpty()) ? "" : this.f63311c.get("key_remote_pkg_name");
                 strArr[1] = e2.getMessage();
-                PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_BINDER_CATCH, a.a(str2, strArr));
+                StatisticManager.onEventWithValues("remoteEnterActivityBinderCatch", RealTimeEventHelper.genEventValue(str2, strArr));
                 e2.printStackTrace();
                 finish();
             }
@@ -88,17 +91,17 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
             iBinder = bundle.getBinder("callback");
         }
         try {
-            this.f27458a = IRemoteServiceCallback.Stub.asInterface(iBinder);
+            this.f63309a = IRemoteServiceCallback.Stub.asInterface(iBinder);
         } catch (Exception e3) {
-            String str3 = this.f27461d;
+            String str3 = this.f63312d;
             String[] strArr2 = new String[2];
-            Map<String, String> map2 = this.f27460c;
+            Map<String, String> map2 = this.f63311c;
             if (map2 != null && !map2.isEmpty()) {
-                str = this.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
+                str = this.f63311c.get("key_remote_pkg_name");
             }
             strArr2[0] = str;
             strArr2[1] = e3.getMessage();
-            PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_INITCALLBACK_CATCH, a.a(str3, strArr2));
+            StatisticManager.onEventWithValues("remoteEnterActivityInitcallbackCatch", RealTimeEventHelper.genEventValue(str3, strArr2));
             e3.printStackTrace();
             finish();
         }
@@ -106,106 +109,74 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
         if (parcelableArrayList == null || parcelableArrayList.size() <= 0 || (arrayList = (ArrayList) parcelableArrayList.get(0)) == null || arrayList.size() <= 0) {
             return;
         }
-        this.f27459b = (Map) arrayList.get(0);
-        this.f27460c = (Map) arrayList.get(1);
+        this.f63310b = (Map) arrayList.get(0);
+        this.f63311c = (Map) arrayList.get(1);
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity
+    @Override // com.dxmpay.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             getBundleData(getIntent());
-            String str = this.f27461d;
+            String str = this.f63312d;
             String[] strArr = new String[2];
-            Map<String, String> map = this.f27460c;
-            strArr[0] = (map == null || map.isEmpty()) ? "" : this.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
+            Map<String, String> map = this.f63311c;
+            strArr[0] = (map == null || map.isEmpty()) ? "" : this.f63311c.get("key_remote_pkg_name");
             strArr[1] = "activity";
-            PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY, a.a(str, strArr));
-            BaiduPayDelegate.getInstance().doRemotePay(this, this.f27461d, new PayCallBack(this) { // from class: com.baidu.wallet.remotepay.RemotePayEnterActivity.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
+            StatisticManager.onEventWithValues("remoteEnterActivity", RealTimeEventHelper.genEventValue(str, strArr));
+            if (BeanConstants.CHANNEL_ID.equals(com.baidu.wallet.paysdk.beans.BeanConstants.CHANNEL_ID_CHE_LIAN_WANG)) {
+                WalletLoginHelper.getInstance().verifyPassLogin(false, new LoginBackListenerProxy(getActivity(), new ILoginBackListener(this) { // from class: com.baidu.wallet.remotepay.RemotePayEnterActivity.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
 
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RemotePayEnterActivity f27462a;
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ RemotePayEnterActivity f63313a;
 
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f27462a = this;
-                }
-
-                @Override // com.baidu.android.pay.PayCallBack
-                public boolean isHideLoadingDialog() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        if (this.f27462a.f27458a != null) {
-                            try {
-                                try {
-                                    this.f27462a.f27458a.isHideLoadingDialog();
-                                } catch (RemoteException e2) {
-                                    String str2 = this.f27462a.f27461d;
-                                    String[] strArr2 = new String[2];
-                                    strArr2[0] = (this.f27462a.f27460c == null || this.f27462a.f27460c.isEmpty()) ? "" : (String) this.f27462a.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
-                                    strArr2[1] = e2.getMessage();
-                                    PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_CATCH, a.a(str2, strArr2));
-                                    e2.printStackTrace();
-                                }
-                            } finally {
-                                this.f27462a.finish();
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
                             }
                         }
-                        return false;
+                        this.f63313a = this;
                     }
-                    return invokeV.booleanValue;
-                }
 
-                @Override // com.baidu.android.pay.PayCallBack
-                public void onPayResult(int i2, String str2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
-                        if (1000 == i2) {
-                        }
-                        try {
-                            if (this.f27462a.f27458a != null) {
-                                try {
-                                    this.f27462a.f27458a.onPayEnd(i2, str2);
-                                } catch (RemoteException e2) {
-                                    String str3 = this.f27462a.f27461d;
-                                    String[] strArr2 = new String[2];
-                                    strArr2[0] = (this.f27462a.f27460c == null || this.f27462a.f27460c.isEmpty()) ? "" : (String) this.f27462a.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
-                                    strArr2[1] = e2.getMessage();
-                                    PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_CATCH, a.a(str3, strArr2));
-                                    PayCallBackManager.isClientDead = true;
-                                    e2.printStackTrace();
-                                }
-                            }
-                        } finally {
-                            this.f27462a.finish();
+                    @Override // com.baidu.wallet.api.ILoginBackListener
+                    public void onFail(int i2, String str2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
+                            this.f63313a.a();
                         }
                     }
-                }
-            }, this.f27460c);
+
+                    @Override // com.baidu.wallet.api.ILoginBackListener
+                    public void onSuccess(int i2, String str2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
+                            this.f63313a.a();
+                        }
+                    }
+                }));
+            } else {
+                a();
+            }
         }
     }
 
@@ -215,18 +186,18 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
             super.onNewIntent(intent);
             getBundleData(intent);
-            String str = this.f27461d;
+            String str = this.f63312d;
             String[] strArr = new String[2];
-            Map<String, String> map = this.f27460c;
-            strArr[0] = (map == null || map.isEmpty()) ? "" : this.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
+            Map<String, String> map = this.f63311c;
+            strArr[0] = (map == null || map.isEmpty()) ? "" : this.f63311c.get("key_remote_pkg_name");
             strArr[1] = "activity";
-            PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY, a.a(str, strArr));
-            BaiduPayDelegate.getInstance().doRemotePay(this, this.f27461d, new PayCallBack(this) { // from class: com.baidu.wallet.remotepay.RemotePayEnterActivity.2
+            StatisticManager.onEventWithValues("remoteEnterActivity", RealTimeEventHelper.genEventValue(str, strArr));
+            BaiduPayDelegate.getInstance().doRemotePay(this, this.f63312d, new PayCallBack(this) { // from class: com.baidu.wallet.remotepay.RemotePayEnterActivity.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RemotePayEnterActivity f27463a;
+                public final /* synthetic */ RemotePayEnterActivity f63315a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -243,7 +214,7 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
                             return;
                         }
                     }
-                    this.f27463a = this;
+                    this.f63315a = this;
                 }
 
                 @Override // com.baidu.android.pay.PayCallBack
@@ -251,20 +222,20 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                        if (this.f27463a.f27458a != null) {
+                        if (this.f63315a.f63309a != null) {
                             try {
                                 try {
-                                    this.f27463a.f27458a.isHideLoadingDialog();
+                                    this.f63315a.f63309a.isHideLoadingDialog();
                                 } catch (RemoteException e2) {
-                                    String str2 = this.f27463a.f27461d;
+                                    String str2 = this.f63315a.f63312d;
                                     String[] strArr2 = new String[2];
-                                    strArr2[0] = (this.f27463a.f27460c == null || this.f27463a.f27460c.isEmpty()) ? "" : (String) this.f27463a.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
+                                    strArr2[0] = (this.f63315a.f63311c == null || this.f63315a.f63311c.isEmpty()) ? "" : (String) this.f63315a.f63311c.get("key_remote_pkg_name");
                                     strArr2[1] = e2.getMessage();
-                                    PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_CATCH, a.a(str2, strArr2));
+                                    StatisticManager.onEventWithValues("remoteEnterActivityCatch", RealTimeEventHelper.genEventValue(str2, strArr2));
                                     e2.printStackTrace();
                                 }
                             } finally {
-                                this.f27463a.finish();
+                                this.f63315a.finish();
                             }
                         }
                         return false;
@@ -275,36 +246,120 @@ public class RemotePayEnterActivity extends PayBaseBeanActivity {
                 @Override // com.baidu.android.pay.PayCallBack
                 public void onPayResult(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
                         if (1000 == i2) {
                         }
                         try {
-                            if (this.f27463a.f27458a != null) {
+                            if (this.f63315a.f63309a != null) {
                                 try {
-                                    this.f27463a.f27458a.onPayEnd(i2, str2);
+                                    this.f63315a.f63309a.onPayEnd(i2, str2);
                                 } catch (Exception e2) {
-                                    String str3 = this.f27463a.f27461d;
+                                    String str3 = this.f63315a.f63312d;
                                     String[] strArr2 = new String[2];
-                                    strArr2[0] = (this.f27463a.f27460c == null || this.f27463a.f27460c.isEmpty()) ? "" : (String) this.f27463a.f27460c.get(Constants.KEY_REMOTE_PKG_NAME);
+                                    strArr2[0] = (this.f63315a.f63311c == null || this.f63315a.f63311c.isEmpty()) ? "" : (String) this.f63315a.f63311c.get("key_remote_pkg_name");
                                     strArr2[1] = e2.getMessage();
-                                    PayStatisticsUtil.onEventWithValues(StatServiceEvent.REMOTE_ENTER_ACTIVITY_CATCH, a.a(str3, strArr2));
+                                    StatisticManager.onEventWithValues("remoteEnterActivityCatch", RealTimeEventHelper.genEventValue(str3, strArr2));
                                     PayCallBackManager.isClientDead = true;
                                 }
                             }
                         } finally {
-                            this.f27463a.finish();
+                            this.f63315a.finish();
                         }
                     }
                 }
-            }, this.f27460c);
+            }, this.f63311c);
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, this) == null) {
+            BaiduPayDelegate.getInstance().doRemotePay(this, this.f63312d, new PayCallBack(this) { // from class: com.baidu.wallet.remotepay.RemotePayEnterActivity.2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ RemotePayEnterActivity f63314a;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f63314a = this;
+                }
+
+                @Override // com.baidu.android.pay.PayCallBack
+                public boolean isHideLoadingDialog() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        if (this.f63314a.f63309a != null) {
+                            try {
+                                try {
+                                    this.f63314a.f63309a.isHideLoadingDialog();
+                                } catch (RemoteException e2) {
+                                    String str = this.f63314a.f63312d;
+                                    String[] strArr = new String[2];
+                                    strArr[0] = (this.f63314a.f63311c == null || this.f63314a.f63311c.isEmpty()) ? "" : (String) this.f63314a.f63311c.get("key_remote_pkg_name");
+                                    strArr[1] = e2.getMessage();
+                                    StatisticManager.onEventWithValues("remoteEnterActivityCatch", RealTimeEventHelper.genEventValue(str, strArr));
+                                    e2.printStackTrace();
+                                }
+                            } finally {
+                                this.f63314a.finish();
+                            }
+                        }
+                        return false;
+                    }
+                    return invokeV.booleanValue;
+                }
+
+                @Override // com.baidu.android.pay.PayCallBack
+                public void onPayResult(int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+                        if (1000 == i2) {
+                        }
+                        try {
+                            if (this.f63314a.f63309a != null) {
+                                try {
+                                    this.f63314a.f63309a.onPayEnd(i2, str);
+                                } catch (RemoteException e2) {
+                                    String str2 = this.f63314a.f63312d;
+                                    String[] strArr = new String[2];
+                                    strArr[0] = (this.f63314a.f63311c == null || this.f63314a.f63311c.isEmpty()) ? "" : (String) this.f63314a.f63311c.get("key_remote_pkg_name");
+                                    strArr[1] = e2.getMessage();
+                                    StatisticManager.onEventWithValues("remoteEnterActivityCatch", RealTimeEventHelper.genEventValue(str2, strArr));
+                                    PayCallBackManager.isClientDead = true;
+                                    e2.printStackTrace();
+                                }
+                            }
+                        } finally {
+                            this.f63314a.finish();
+                        }
+                    }
+                }
+            }, this.f63311c);
         }
     }
 }

@@ -16,6 +16,8 @@ import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.m;
+import c.a.e.k.d.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -29,8 +31,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.m;
-import d.a.d.k.d.a;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -39,7 +39,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.lang.reflect.Array;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BitmapHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_2_BITMAP_MUL = 10;
@@ -1348,7 +1348,7 @@ public class BitmapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65584, null, context, uri, i2)) == null) {
             try {
-                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7788a);
+                parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f42062a);
             } catch (Throwable unused) {
                 parcelFileDescriptor = null;
             }

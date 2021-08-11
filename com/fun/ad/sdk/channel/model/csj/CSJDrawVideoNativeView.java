@@ -1,6 +1,6 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.r.b.a.b;
+import a.a.a.a.s.b.a.b;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class CSJDrawVideoNativeView extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f32872f;
+    public FrameLayout f69561f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJDrawVideoNativeView(Context context) {
@@ -85,7 +85,7 @@ public final class CSJDrawVideoNativeView extends b {
         }
     }
 
-    @Override // a.a.a.a.r.b.a.b
+    @Override // a.a.a.a.s.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, tTNativeAd, adInteractionListener) == null) {
@@ -95,18 +95,18 @@ public final class CSJDrawVideoNativeView extends b {
                 ((ViewGroup) adView.getParent()).removeView(adView);
             }
             if (adView != null) {
-                this.f32872f.removeAllViews();
-                this.f32872f.addView(adView);
+                this.f69561f.removeAllViews();
+                this.f69561f.addView(adView);
             }
         }
     }
 
-    @Override // a.a.a.a.r.b.a.b, android.view.View
+    @Override // a.a.a.a.s.b.a.b, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f32872f = (FrameLayout) findViewById(R.id.ad_video);
+            this.f69561f = (FrameLayout) findViewById(R.id.ad_video);
         }
     }
 }

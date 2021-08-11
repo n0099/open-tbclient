@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class c extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f33747a;
+    public final int f70477a;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class c extends Exception {
                 return;
             }
         }
-        this.f33747a = 1;
+        this.f70477a = 1;
     }
 
     @Override // java.lang.Throwable
@@ -36,7 +36,7 @@ public final class c extends Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f33747a;
+            int i2 = this.f70477a;
             String str = i2 != 1 ? i2 != 2 ? "Unknown error" : "Package obsolete" : "Package not available";
             StringBuilder sb = new StringBuilder(str.length() + 17);
             sb.append("LoaderException{");

@@ -19,9 +19,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMInviteRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BIMInviteRtcInfo> CREATOR;
@@ -224,7 +225,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "BIMInviteRtcInfo{" + super.toString() + ", mRtcRoomType=" + this.mRtcRoomType + ", mMediaType=" + this.mMediaType + '}';
+            return "BIMInviteRtcInfo{" + super.toString() + ", mRtcRoomType=" + this.mRtcRoomType + ", mMediaType=" + this.mMediaType + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -241,7 +242,7 @@ public class BIMInviteRtcInfo extends BIMRtcInfo {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class BIMInviteUser implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<BIMInviteUser> CREATOR;

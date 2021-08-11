@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class AnimeAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AnimeAR";
@@ -109,7 +109,7 @@ public class AnimeAR extends c {
             if (TextUtils.isEmpty(str2) && p.A(getContext())) {
                 aVar.an();
             }
-            aVar.a(new a.InterfaceC0066a(this, z, str2, aVar) { // from class: com.baidu.ar.anime.AnimeAR.3
+            aVar.a(new a.InterfaceC1613a(this, z, str2, aVar) { // from class: com.baidu.ar.anime.AnimeAR.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AnimeAR ce;
@@ -138,7 +138,7 @@ public class AnimeAR extends c {
                     this.ch = aVar;
                 }
 
-                @Override // com.baidu.ar.anime.a.InterfaceC0066a
+                @Override // com.baidu.ar.anime.a.InterfaceC1613a
                 public void b(FramePixels framePixels) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, framePixels) == null) {
@@ -308,17 +308,17 @@ public class AnimeAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j) {
+    public void a(long j2) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            super.a(j);
-            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != 21) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            super.a(j2);
+            if (j2 <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j2) != 21) {
                 return;
             }
             String str = TAG;
-            com.baidu.ar.h.b.b(str, "destroyHandle:" + j);
-            this.cb.destroyHandle(j);
+            com.baidu.ar.h.b.b(str, "destroyHandle:" + j2);
+            this.cb.destroyHandle(j2);
         }
     }
 
@@ -366,7 +366,7 @@ public class AnimeAR extends c {
                 com.baidu.ar.h.b.b(str2, "mAbilityName error: " + this.bD);
             }
             if (this.cd == null) {
-                b bVar = new b(new b.InterfaceC0068b(this) { // from class: com.baidu.ar.anime.AnimeAR.1
+                b bVar = new b(new b.InterfaceC1615b(this) { // from class: com.baidu.ar.anime.AnimeAR.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AnimeAR ce;
@@ -389,19 +389,19 @@ public class AnimeAR extends c {
                         this.ce = this;
                     }
 
-                    @Override // com.baidu.ar.anime.b.InterfaceC0068b
-                    public void a(int i2, String str3, long j) {
+                    @Override // com.baidu.ar.anime.b.InterfaceC1615b
+                    public void a(int i2, String str3, long j2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str3, Long.valueOf(j)}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str3, Long.valueOf(j2)}) == null) {
                             if (i2 == 200) {
                                 l r = this.ce.r();
-                                if (r == null || j <= 0) {
+                                if (r == null || j2 <= 0) {
                                     return;
                                 }
                                 String str4 = AnimeAR.TAG;
-                                com.baidu.ar.h.b.b(str4, "result setAlgoHandleData:" + j);
-                                r.a(j, this.ce.bD);
-                                this.ce.a(j);
+                                com.baidu.ar.h.b.b(str4, "result setAlgoHandleData:" + j2);
+                                r.a(j2, this.ce.bD);
+                                this.ce.a(j2);
                                 return;
                             }
                             String str5 = AnimeAR.TAG;

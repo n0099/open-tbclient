@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
-import h.j;
-import h.k;
-import h.o.a.a;
-import h.o.d.i.d;
+import i.f;
+import i.j;
+import i.k;
+import i.o.a.a;
+import i.o.d.i.d;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Queue;
@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.CompositeException;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends AtomicInteger implements f, k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object MISSING;
@@ -31,7 +31,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
     public final j<? super R> actual;
     public final int bufferSize;
     public volatile boolean cancelled;
-    public final h.n.j<? extends R> combiner;
+    public final i.n.j<? extends R> combiner;
     public int complete;
     public final boolean delayError;
     public volatile boolean done;
@@ -39,7 +39,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
     public final Object[] latest;
     public final d<Object> queue;
     public final AtomicLong requested;
-    public final h.o.a.d<T, R>[] subscribers;
+    public final i.o.a.d<T, R>[] subscribers;
 
     static {
         InterceptResult invokeClinit;
@@ -57,7 +57,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         MISSING = new Object();
     }
 
-    public OnSubscribeCombineLatest$LatestCoordinator(j<? super R> jVar, h.n.j<? extends R> jVar2, int i2, int i3, boolean z) {
+    public OnSubscribeCombineLatest$LatestCoordinator(j<? super R> jVar, i.n.j<? extends R> jVar2, int i2, int i3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         Object[] objArr2 = new Object[i2];
         this.latest = objArr2;
         Arrays.fill(objArr2, MISSING);
-        this.subscribers = new h.o.a.d[i2];
+        this.subscribers = new i.o.a.d[i2];
         this.queue = new d<>(i3);
         this.requested = new AtomicLong();
         this.error = new AtomicReference<>();
@@ -89,7 +89,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, queue) == null) {
             queue.clear();
-            for (h.o.a.d<T, R> dVar : this.subscribers) {
+            for (i.o.a.d<T, R> dVar : this.subscribers) {
                 dVar.unsubscribe();
             }
         }
@@ -137,7 +137,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, obj, i2) == null) {
-            h.o.a.d<T, R> dVar = this.subscribers[i2];
+            i.o.a.d<T, R> dVar = this.subscribers[i2];
             synchronized (this) {
                 int length = this.latest.length;
                 Object obj2 = this.latest[i2];
@@ -176,7 +176,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
 
     /* JADX DEBUG: Type inference failed for r1v13. Raw type applied. Possible types: R, ? super R */
     public void drain() {
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getAndIncrement() == 0) {
             d<Object> dVar = this.queue;
@@ -185,22 +185,22 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
             AtomicLong atomicLong = this.requested;
             int i2 = 1;
             while (!checkTerminated(this.done, dVar.isEmpty(), jVar, dVar, z)) {
-                long j2 = atomicLong.get();
-                long j3 = 0;
+                long j3 = atomicLong.get();
+                long j4 = 0;
                 while (true) {
-                    if (j3 == j2) {
-                        j = j3;
+                    if (j4 == j3) {
+                        j2 = j4;
                         break;
                     }
                     boolean z2 = this.done;
-                    h.o.a.d dVar2 = (h.o.a.d) dVar.peek();
+                    i.o.a.d dVar2 = (i.o.a.d) dVar.peek();
                     boolean z3 = dVar2 == null;
-                    long j4 = j3;
+                    long j5 = j4;
                     if (checkTerminated(z2, z3, jVar, dVar, z)) {
                         return;
                     }
                     if (z3) {
-                        j = j4;
+                        j2 = j5;
                         break;
                     }
                     dVar.poll();
@@ -214,7 +214,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
                     try {
                         jVar.onNext((R) this.combiner.call(objArr));
                         dVar2.b(1L);
-                        j3 = j4 + 1;
+                        j4 = j5 + 1;
                     } catch (Throwable th) {
                         this.cancelled = true;
                         cancel(dVar);
@@ -222,8 +222,8 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
                         return;
                     }
                 }
-                if (j != 0 && j2 != Long.MAX_VALUE) {
-                    a.g(atomicLong, j);
+                if (j2 != 0 && j3 != Long.MAX_VALUE) {
+                    a.g(atomicLong, j2);
                 }
                 i2 = addAndGet(-i2);
                 if (i2 == 0) {
@@ -233,7 +233,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         }
     }
 
-    @Override // h.k
+    @Override // i.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -261,27 +261,27 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         }
     }
 
-    @Override // h.f
-    public void request(long j) {
+    @Override // i.f
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
-                throw new IllegalArgumentException("n >= required but it was " + j);
+                throw new IllegalArgumentException("n >= required but it was " + j2);
             } else if (i2 != 0) {
-                a.b(this.requested, j);
+                a.b(this.requested, j2);
                 drain();
             }
         }
     }
 
-    public void subscribe(h.d<? extends T>[] dVarArr) {
+    public void subscribe(i.d<? extends T>[] dVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, dVarArr) == null) {
-            h.o.a.d<T, R>[] dVarArr2 = this.subscribers;
+            i.o.a.d<T, R>[] dVarArr2 = this.subscribers;
             int length = dVarArr2.length;
             for (int i2 = 0; i2 < length; i2++) {
-                dVarArr2[i2] = new h.o.a.d<>(this, i2);
+                dVarArr2[i2] = new i.o.a.d<>(this, i2);
             }
             lazySet(0);
             this.actual.add(this);
@@ -292,7 +292,7 @@ public final class OnSubscribeCombineLatest$LatestCoordinator<T, R> extends Atom
         }
     }
 
-    @Override // h.k
+    @Override // i.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.cancelled) {

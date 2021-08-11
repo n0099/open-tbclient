@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.f;
 import com.bytedance.sdk.openadsdk.preload.a.g;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static b f32375a;
+    public static b f68336a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f32376b;
+    public f f68337b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,7 @@ public class b {
                 return;
             }
         }
-        f32375a = new b();
+        f68336a = new b();
     }
 
     public b() {
@@ -49,13 +49,13 @@ public class b {
                 return;
             }
         }
-        this.f32376b = c();
+        this.f68337b = c();
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f32375a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f68336a : (b) invokeV.objValue;
     }
 
     public static f c() {
@@ -73,6 +73,6 @@ public class b {
     public f b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32376b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68337b : (f) invokeV.objValue;
     }
 }

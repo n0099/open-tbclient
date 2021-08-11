@@ -5,9 +5,9 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v.g.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
 import com.baidu.nps.main.invoke.IInvokeCallback;
@@ -33,12 +33,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import com.baidu.webkit.internal.ABTestConstants;
-import d.a.w.c.b.a;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Deprecated
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class YYLiveNPSPluginManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOAD_FROM_NPS_DOWNLOAD = "nps_download";
@@ -65,12 +64,12 @@ public class YYLiveNPSPluginManager {
     public ToastService toastService;
     public UBCManager ubcManager;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface PluginLoadCallback {
         void onResult(int i2, String str, Object obj, String str2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SingletonHolder {
         public static /* synthetic */ Interceptable $ic;
         public static YYLiveNPSPluginManager instance;
@@ -410,7 +409,7 @@ public class YYLiveNPSPluginManager {
             if (uBCManager2 != null && (flow = this.pageFlow) != null) {
                 uBCManager2.flowStartSlot(flow, "plugin_install", null);
             }
-            Log.d(TAG, "start install bundle t=" + System.currentTimeMillis());
+            String str2 = "start install bundle t=" + System.currentTimeMillis();
             this.fromDownLoad = false;
             NPSPackageManager.getInstance().installBundle(NPS_PLUGIN_PKG_NAME, new IInstallCallback(this, iInvokeCallback2, z, str) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.7
                 public static /* synthetic */ Interceptable $ic;
@@ -442,21 +441,21 @@ public class YYLiveNPSPluginManager {
                 }
 
                 @Override // com.baidu.nps.main.install.IInstallCallback
-                public void onProgress(long j, long j2) {
+                public void onProgress(long j2, long j3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
                         this.this$0.fromDownLoad = true;
                         if (this.this$0.loadingCallback == null || this.this$0.isLoadingCanceled) {
                             return;
                         }
-                        this.this$0.loadingCallback.onLoadingProgress(j, j2);
+                        this.this$0.loadingCallback.onLoadingProgress(j2, j3);
                     }
                 }
 
                 @Override // com.baidu.nps.main.install.IInstallCallback
-                public void onResult(int i2, String str2) {
+                public void onResult(int i2, String str3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
                         if (!this.this$0.isLoadingCanceled && i2 != 34) {
                             this.this$0.stopLoading(i2);
                         }
@@ -483,7 +482,7 @@ public class YYLiveNPSPluginManager {
                                 }
                             }
                             if (this.this$0.isDebug()) {
-                                Log.w(YYLiveNPSPluginManager.TAG, "install live nps plugin error=" + i2);
+                                String str4 = "install live nps plugin error=" + i2;
                             }
                             int pluginUpdateVersion = this.this$0.getPluginUpdateVersion();
                             if (pluginUpdateVersion == 0) {
@@ -494,8 +493,7 @@ public class YYLiveNPSPluginManager {
                                 this.this$0.ubcManager.flowEnd(this.this$0.pageFlow);
                                 this.this$0.pageFlow = null;
                             }
-                            YYLiveNPSPluginManager yYLiveNPSPluginManager = this.this$0;
-                            yYLiveNPSPluginManager.logPluginEnd(YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, i3, false, "install code" + i2, "nps_install", this.val$entry);
+                            this.this$0.logPluginEnd(YYLiveNPSPluginManager.NPS_PLUGIN_PKG_NAME, i3, false, "install code" + i2, "nps_install", this.val$entry);
                         }
                     }
                 }
@@ -1024,15 +1022,13 @@ public class YYLiveNPSPluginManager {
             int bundleStatus = NPSPackageManager.getInstance().getBundleStatus(NPS_PLUGIN_PKG_NAME);
             if (bundleStatus != 43) {
                 if (isDebug()) {
-                    Log.d(TAG, "isAvailable: bundle status=" + bundleStatus);
+                    String str = "isAvailable: bundle status=" + bundleStatus;
                 }
                 return false;
             }
             BundleInfoGroup bundleGroup = NPSPackageManager.getInstance().getBundleGroup(NPS_PLUGIN_PKG_NAME);
             if (bundleGroup == null) {
-                if (isDebug()) {
-                    Log.d(TAG, "isAvailable: top plugin is null");
-                }
+                isDebug();
                 return false;
             }
             BundleInfo bundleByType3 = bundleGroup.getBundleByType(3);
@@ -1040,43 +1036,29 @@ public class YYLiveNPSPluginManager {
             BundleInfo bundleInfo = NPSPackageManager.getInstance().getBundleInfo(NPS_PLUGIN_PKG_NAME2_1);
             BundleInfo bundleInfo2 = NPSPackageManager.getInstance().getBundleInfo(NPS_PLUGIN_PKG_NAME2_2);
             if (!z) {
-                if (isDebug()) {
-                    Log.d(TAG, "isAvailable: top plugin has no update");
-                }
+                isDebug();
                 return true;
             } else if (bundleByType3 == null) {
-                if (isDebug()) {
-                    Log.d(TAG, "isAvailable: top plugin not install");
-                }
+                isDebug();
                 return false;
             } else if (bundleInfo == null && bundleInfo2 == null) {
-                if (isDebug()) {
-                    Log.d(TAG, "isAvailable: sec plugin not exist");
-                }
+                isDebug();
                 return true;
             } else if (bundleInfo != null && compareVersion(bundleByType3.getVersionCode(), bundleInfo.getVersionCode()) < 0) {
-                if (isDebug()) {
-                    Log.d(TAG, "isAvailable: installed sec1 plugin too high");
-                }
+                isDebug();
                 return false;
             } else if (bundleInfo2 != null && compareVersion(bundleByType3.getVersionCode(), bundleInfo2.getVersionCode()) < 0) {
-                if (isDebug()) {
-                    Log.d(TAG, "isAvailable: installed sec2 plugin too high");
-                }
+                isDebug();
                 return false;
             } else {
                 BundleInfoGroup bundleGroup2 = NPSPackageManager.getInstance().getBundleGroup(NPS_PLUGIN_PKG_NAME2_1);
                 if (bundleGroup2 != null) {
                     BundleInfo bundleByType4 = bundleGroup2.getBundleByType(1);
                     if (bundleByType4 != null && bundleByType4.needForceUpdate() && compareVersion(bundleByType3.getVersionCode(), bundleByType4.getVersionCode()) < 0) {
-                        if (isDebug()) {
-                            Log.d(TAG, "isAvailable: sec1 plugin force update1");
-                        }
+                        isDebug();
                         return false;
                     } else if (bundleByType4 == null && (bundleByType2 = bundleGroup2.getBundleByType(2)) != null && bundleByType2.needForceUpdate() && compareVersion(bundleByType3.getVersionCode(), bundleByType2.getVersionCode()) < 0) {
-                        if (isDebug()) {
-                            Log.d(TAG, "isAvailable: sec1 plugin force update2");
-                        }
+                        isDebug();
                         return false;
                     }
                 }
@@ -1084,14 +1066,10 @@ public class YYLiveNPSPluginManager {
                 if (bundleGroup3 != null) {
                     BundleInfo bundleByType5 = bundleGroup3.getBundleByType(1);
                     if (bundleByType5 != null && bundleByType5.needForceUpdate() && compareVersion(bundleByType3.getVersionCode(), bundleByType5.getVersionCode()) < 0) {
-                        if (isDebug()) {
-                            Log.d(TAG, "isAvailable: sec2 plugin force update1");
-                        }
+                        isDebug();
                         return false;
                     } else if (bundleByType5 == null && (bundleByType = bundleGroup3.getBundleByType(2)) != null && bundleByType.needForceUpdate() && compareVersion(bundleByType3.getVersionCode(), bundleByType.getVersionCode()) < 0) {
-                        if (isDebug()) {
-                            Log.d(TAG, "isAvailable: sec2 plugin force update2");
-                        }
+                        isDebug();
                         return false;
                     }
                 }
@@ -1101,14 +1079,14 @@ public class YYLiveNPSPluginManager {
         return invokeV.booleanValue;
     }
 
-    public void onDiskClearCacheChange(long j, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback) {
+    public void onDiskClearCacheChange(long j2, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback}) == null) {
-            Log.d(TAG, "start DiskClearCacheChange t=" + System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback}) == null) {
+            String str = "start DiskClearCacheChange t=" + System.currentTimeMillis();
             checkHandler();
             IYYLiveNPSPlugin iYYLiveNPSPlugin = this.impl;
             if (iYYLiveNPSPlugin == null) {
-                loadNPSPluginImpl(false, "_diskCleaner", new PluginLoadCallback(this, j, i2, i3, iLiveDiskClearCacheCallback) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.9
+                loadNPSPluginImpl(false, "_diskCleaner", new PluginLoadCallback(this, j2, i2, i3, iLiveDiskClearCacheCallback) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ YYLiveNPSPluginManager this$0;
@@ -1122,7 +1100,7 @@ public class YYLiveNPSPluginManager {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback};
+                            Object[] objArr = {this, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), iLiveDiskClearCacheCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i4 = newInitContext.flag;
                             if ((i4 & 1) != 0) {
@@ -1133,17 +1111,17 @@ public class YYLiveNPSPluginManager {
                             }
                         }
                         this.this$0 = this;
-                        this.val$quota = j;
+                        this.val$quota = j2;
                         this.val$oldState = i2;
                         this.val$newState = i3;
                         this.val$callback = iLiveDiskClearCacheCallback;
                     }
 
                     @Override // com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.PluginLoadCallback
-                    public void onResult(int i4, String str, Object obj, String str2) {
+                    public void onResult(int i4, String str2, Object obj, String str3) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str, obj, str2}) == null) {
-                            Log.d(YYLiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str2, obj, str3}) == null) {
+                            String str4 = "finish load class t=" + System.currentTimeMillis();
                             this.this$0.mMainHandler.post(new Runnable(this, i4, obj) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.9.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -1194,7 +1172,7 @@ public class YYLiveNPSPluginManager {
                 return;
             }
             try {
-                iYYLiveNPSPlugin.onDiskClearCacheChange(j, i2, i3, iLiveDiskClearCacheCallback);
+                iYYLiveNPSPlugin.onDiskClearCacheChange(j2, i2, i3, iLiveDiskClearCacheCallback);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -1299,7 +1277,7 @@ public class YYLiveNPSPluginManager {
     public void startYYCustomerServiceActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
-            Log.d(TAG, "startYYFeedbackActivity t=" + System.currentTimeMillis());
+            String str2 = "startYYFeedbackActivity t=" + System.currentTimeMillis();
             checkHandler();
             IYYLiveNPSPlugin iYYLiveNPSPlugin = this.impl;
             if (iYYLiveNPSPlugin == null) {
@@ -1331,9 +1309,9 @@ public class YYLiveNPSPluginManager {
                     }
 
                     @Override // com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.PluginLoadCallback
-                    public void onResult(int i2, String str2, Object obj, String str3) {
+                    public void onResult(int i2, String str3, Object obj, String str4) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, obj, str3}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str3, obj, str4}) == null) {
                             this.this$0.mMainHandler.post(new Runnable(this, i2, obj) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.4.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -1365,7 +1343,7 @@ public class YYLiveNPSPluginManager {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        Log.d(YYLiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
+                                        String str5 = "finish load class t=" + System.currentTimeMillis();
                                         if (this.val$retCode != 14) {
                                             this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
@@ -1391,7 +1369,7 @@ public class YYLiveNPSPluginManager {
     public void startYYFeedbackActivity(@NonNull Context context, @NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, context, str) == null) {
-            Log.d(TAG, "startYYFeedbackActivity t=" + System.currentTimeMillis());
+            String str2 = "startYYFeedbackActivity t=" + System.currentTimeMillis();
             checkHandler();
             IYYLiveNPSPlugin iYYLiveNPSPlugin = this.impl;
             if (iYYLiveNPSPlugin == null) {
@@ -1423,9 +1401,9 @@ public class YYLiveNPSPluginManager {
                     }
 
                     @Override // com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.PluginLoadCallback
-                    public void onResult(int i2, String str2, Object obj, String str3) {
+                    public void onResult(int i2, String str3, Object obj, String str4) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, obj, str3}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str3, obj, str4}) == null) {
                             this.this$0.mMainHandler.post(new Runnable(this, i2, obj) { // from class: com.baidu.searchbox.live.nps.yy.YYLiveNPSPluginManager.3.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
@@ -1457,7 +1435,7 @@ public class YYLiveNPSPluginManager {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        Log.d(YYLiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
+                                        String str5 = "finish load class t=" + System.currentTimeMillis();
                                         if (this.val$retCode != 14) {
                                             this.this$1.this$0.showNormalToast(a.liveshow_plugin_yy_impl_load_fail, 0);
                                             return;
@@ -1554,7 +1532,7 @@ public class YYLiveNPSPluginManager {
                                 public void run() {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                        Log.d(YYLiveNPSPluginManager.TAG, "finish load class t=" + System.currentTimeMillis());
+                                        String str4 = "finish load class t=" + System.currentTimeMillis();
                                         if (this.val$retCode != 14) {
                                             if (this.this$1.this$0.ubcManager != null && this.this$1.this$0.pageFlow != null) {
                                                 this.this$1.this$0.ubcManager.flowEnd(this.this$1.this$0.pageFlow);

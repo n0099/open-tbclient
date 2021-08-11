@@ -5,17 +5,18 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f37336a;
+    public final String[] f74176a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<String> f37337a = new ArrayList(20);
+        public final List<String> f74177a = new ArrayList(20);
 
         private void c(String str, String str2) {
             if (str == null) {
@@ -53,18 +54,18 @@ public final class c {
         }
 
         public a b(String str, String str2) {
-            this.f37337a.add(str);
-            this.f37337a.add(str2.trim());
+            this.f74177a.add(str);
+            this.f74177a.add(str2.trim());
             return this;
         }
     }
 
     public c(a aVar) {
-        this.f37336a = (String[]) aVar.f37337a.toArray(new String[aVar.f37337a.size()]);
+        this.f74176a = (String[]) aVar.f74177a.toArray(new String[aVar.f74177a.size()]);
     }
 
     public c(String[] strArr) {
-        this.f37336a = strArr;
+        this.f74176a = strArr;
     }
 
     public static c a(String... strArr) {
@@ -98,19 +99,19 @@ public final class c {
     }
 
     public int a() {
-        return this.f37336a.length / 2;
+        return this.f74176a.length / 2;
     }
 
     public String a(int i2) {
-        return this.f37336a[i2 * 2];
+        return this.f74176a[i2 * 2];
     }
 
     public String a(String str) {
-        return a(this.f37336a, str);
+        return a(this.f74176a, str);
     }
 
     public String b(int i2) {
-        return this.f37336a[(i2 * 2) + 1];
+        return this.f74176a[(i2 * 2) + 1];
     }
 
     public Set<String> b() {
@@ -124,7 +125,7 @@ public final class c {
 
     public a c() {
         a aVar = new a();
-        Collections.addAll(aVar.f37337a, this.f37336a);
+        Collections.addAll(aVar.f74177a, this.f74176a);
         return aVar;
     }
 
@@ -135,7 +136,7 @@ public final class c {
             sb.append(a(i2));
             sb.append(": ");
             sb.append(b(i2));
-            sb.append("\n");
+            sb.append(StringUtils.LF);
         }
         return sb.toString();
     }

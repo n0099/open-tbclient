@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.model;
 
+import c.a.p0.j1.f.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -21,8 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.i1.f.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GroupMsglistModel extends CommonGroupMsglistModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_COUNT_PER = 20;
@@ -147,7 +147,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 return false;
             }
             LoadDraftMessage.a aVar = new LoadDraftMessage.a();
-            aVar.f17653a = this.mGroup.getGroupId() + "";
+            aVar.f52876a = this.mGroup.getGroupId() + "";
             super.sendMessage(new LoadGroupDraftMessage(aVar));
             return true;
         }
@@ -163,10 +163,10 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f17657c = 20;
-            aVar.f17655a = null;
-            aVar.f17656b = null;
-            aVar.f17658d = this.mGroup.getGroupId() + "";
+            aVar.f52880c = 20;
+            aVar.f52878a = null;
+            aVar.f52879b = null;
+            aVar.f52881d = this.mGroup.getGroupId() + "";
             LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(aVar);
             loadGroupHistoryMessage.setCallback(cVar);
             super.sendMessage(loadGroupHistoryMessage);
@@ -178,25 +178,25 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public boolean loadPrepage() {
         InterceptResult invokeV;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.mGroup == null) {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f17657c = 20;
+            aVar.f52880c = 20;
             MsgPageData msgPageData = this.mDatas;
-            long j2 = 0;
+            long j3 = 0;
             if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
-                j = 0;
+                j2 = 0;
             } else {
-                j2 = this.mDatas.getChatMessages().get(0).getMsgId();
-                j = this.mDatas.getChatMessages().get(0).getRecordId();
+                j3 = this.mDatas.getChatMessages().get(0).getMsgId();
+                j2 = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            aVar.f17655a = String.valueOf(j2);
-            aVar.f17656b = String.valueOf(j);
-            aVar.f17658d = this.mGroup.getGroupId() + "";
+            aVar.f52878a = String.valueOf(j3);
+            aVar.f52879b = String.valueOf(j2);
+            aVar.f52881d = this.mGroup.getGroupId() + "";
             super.sendMessage(new LoadGroupHistoryMessage(aVar));
             return false;
         }
@@ -222,8 +222,8 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             if (groupData == null || groupData.getGroupId() == 0) {
                 return false;
             }
-            aVar.f17681b = String.valueOf(this.mGroup.getGroupId());
-            aVar.f17680a = str;
+            aVar.f52904b = String.valueOf(this.mGroup.getGroupId());
+            aVar.f52903a = str;
             super.sendMessage(new GroupSaveDraftMessage(aVar));
             return true;
         }

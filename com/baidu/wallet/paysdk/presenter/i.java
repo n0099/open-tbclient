@@ -11,34 +11,23 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pay.PayCallBack;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
-import com.baidu.apollon.utils.ResUtils;
-import com.baidu.apollon.utils.support.Base64;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
-import com.baidu.wallet.api.BaiduWalletDelegate;
 import com.baidu.wallet.base.controllers.PayController;
 import com.baidu.wallet.base.datamodel.Authorize;
+import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.base.datamodel.PayData;
-import com.baidu.wallet.base.datamodel.UserData;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.base.widget.dialog.PromptDialog;
-import com.baidu.wallet.core.StatusCode;
-import com.baidu.wallet.core.beans.BeanManager;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.PayCallBackManager;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-import com.baidu.wallet.paysdk.beans.v;
+import com.baidu.wallet.paysdk.beans.r;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
 import com.baidu.wallet.paysdk.datamodel.DirectPayErrorContent;
@@ -52,22 +41,29 @@ import com.baidu.wallet.paysdk.ui.BindCardImplActivity;
 import com.baidu.wallet.paysdk.ui.H5PayWebViewActivity;
 import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
 import com.baidu.wallet.rnauth.RNAuthCallBack;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.apollon.utils.support.Base64;
+import com.dxmpay.wallet.api.BaiduWalletDelegate;
+import com.dxmpay.wallet.base.datamodel.UserData;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.base.widget.dialog.PromptDialog;
+import com.dxmpay.wallet.core.beans.BeanManager;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class i extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayRequest f26394a;
+    public PayRequest f62294a;
 
     /* renamed from: c  reason: collision with root package name */
-    public v f26395c;
+    public r f62295c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(PayBaseBeanActivity payBaseBeanActivity) {
@@ -87,105 +83,97 @@ public class i extends k {
                 return;
             }
         }
-        this.f26394a = null;
+        this.f62294a = null;
     }
 
     private void f() {
         Pair<Integer, Object> checkSecurityEvn;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && (checkSecurityEvn = BaiduWalletDelegate.getInstance().checkSecurityEvn()) != null && ((Integer) checkSecurityEvn.first).intValue() == 0) {
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && (checkSecurityEvn = BaiduWalletDelegate.getInstance().checkSecurityEvn()) != null && ((Integer) checkSecurityEvn.first).intValue() == 0) {
             Object obj = checkSecurityEvn.second;
             String str = null;
             if (obj != null && (obj instanceof String)) {
                 str = (String) obj;
             }
-            if (this.f26394a == null || TextUtils.isEmpty(str)) {
+            if (this.f62294a == null || TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f26394a.mSecurityParams = Base64.encodeBytes(str.getBytes());
+            this.f62294a.mSecurityParams = Base64.encodeBytes(str.getBytes());
         }
     }
 
     private void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             if (PayDataCache.getInstance().hasMobilePwd()) {
                 if (PayDataCache.getInstance().isFromPreCashier()) {
-                    PayController.getInstance().gotoPwdPay(this.f26406b);
-                } else if (this.f26394a.isWithHoldingValidity()) {
-                    PayController.getInstance().gotoWithholdPay(this.f26406b);
+                    PayController.getInstance().gotoPwdPay(this.f62306b);
+                    return;
+                } else if (this.f62294a.isWithHoldingValidity()) {
+                    PayController.getInstance().gotoWithholdPay(this.f62306b);
+                    return;
                 } else {
-                    if (PayDataCache.getInstance().isRemotePay()) {
-                        StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_ORDER_CONFIRM_ACTIVITY);
-                    } else {
-                        StatisticManager.onEvent(StatServiceEvent.ENTER_ORDER_CONFIRM_ACTIVITY);
-                    }
+                    StatHelper.statServiceEvent("enterOrderConfirmActivity");
                     PayController payController = PayController.getInstance();
-                    PayBaseBeanActivity payBaseBeanActivity = this.f26406b;
+                    PayBaseBeanActivity payBaseBeanActivity = this.f62306b;
                     payController.gotoOrderConfirm(payBaseBeanActivity, payBaseBeanActivity.getIntent());
+                    return;
                 }
-            } else if (PayDataCache.getInstance().hasBondCards()) {
-                if (PayDataCache.getInstance().isRemotePay()) {
-                    StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_SELECT_CARD_ACTIVITY);
-                } else {
-                    StatisticManager.onEvent(StatServiceEvent.ENTER_SELECT_CARD_ACTIVITY);
-                }
-                StatHelper.cachePayType(0);
-                StatHelper.cachePayWay(4);
-                PayController payController2 = PayController.getInstance();
-                PayBaseBeanActivity payBaseBeanActivity2 = this.f26406b;
-                payController2.selectCompletCards(payBaseBeanActivity2, payBaseBeanActivity2.getIntent());
-            } else {
-                if (PayDataCache.getInstance().isRemotePay()) {
-                    StatisticManager.onEvent(StatServiceEvent.REMOTE_ENTER_BIND_CARD_ACTIVITY);
-                } else {
-                    StatisticManager.onEvent(StatServiceEvent.ENTER_BIND_CARD_ACTIVITY);
-                }
-                PayController payController3 = PayController.getInstance();
-                PayBaseBeanActivity payBaseBeanActivity3 = this.f26406b;
-                payController3.bindCardPay(payBaseBeanActivity3, payBaseBeanActivity3.getIntent(), true);
             }
+            StatHelper.cachePayType(0);
+            StatHelper.cachePayWay(4);
+            if (PayDataCache.getInstance().hasBondCards()) {
+                StatHelper.statServiceEvent(StatServiceEvent.ENTER_SELECT_CARD_ACTIVITY);
+                PayController payController2 = PayController.getInstance();
+                PayBaseBeanActivity payBaseBeanActivity2 = this.f62306b;
+                payController2.selectCompletCards(payBaseBeanActivity2, payBaseBeanActivity2.getIntent());
+                return;
+            }
+            PayController payController3 = PayController.getInstance();
+            PayBaseBeanActivity payBaseBeanActivity3 = this.f62306b;
+            payController3.bindCardPay(payBaseBeanActivity3, payBaseBeanActivity3.getIntent(), true);
         }
     }
 
     private void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             PwdRequest pwdRequest = new PwdRequest();
             PayRequestCache.getInstance().addBeanRequestToCache(pwdRequest.getRequestId(), pwdRequest);
             if (PayDataCache.getInstance().hasBondCards()) {
-                Intent intent = new Intent(this.f26406b, AuthorizeSignActivity.class);
+                Intent intent = new Intent(this.f62306b, AuthorizeSignActivity.class);
                 if (com.baidu.wallet.paysdk.a.b.b()) {
                     intent.putExtra(AuthorizeSignActivity.AUTH_SIGN_TYPE, 2);
                 } else if (com.baidu.wallet.paysdk.a.b.c()) {
                     intent.putExtra(AuthorizeSignActivity.AUTH_SIGN_TYPE, 1);
                 }
-                this.f26406b.startActivity(intent);
-                this.f26406b.finishWithoutAnim();
+                this.f62306b.startActivity(intent);
+                this.f62306b.finishWithoutAnim();
                 return;
             }
-            StatisticManager.onEventWithValue(PayStatServiceEvent.PAY_BIND_CARD_ENTER, StatHelper.getOrderNo());
             StatHelper.cachePayType(0);
             StatHelper.cachePayWay(4);
-            BaiduPay.getInstance().bindCardAuth(this.f26406b, true);
+            StatHelper.statServiceEvent(PayStatServiceEvent.PAY_BIND_CARD_ENTER);
+            StatisticManager.onEventStart(PayStatServiceEvent.PAY_BIND_CARD_DURATION);
+            BaiduPay.getInstance().bindCardAuth(this.f62306b, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            PayRequest payRequest = this.f26394a;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            PayRequest payRequest = this.f62294a;
             String str = payRequest != null ? payRequest.mParams : "";
-            LogUtil.d("present", "doRePayOrder->orderinfo:" + str);
-            PayRequest payRequest2 = this.f26394a;
+            String str2 = "doRePayOrder->orderinfo:" + str;
+            PayRequest payRequest2 = this.f62294a;
             String payFrom = payRequest2 != null ? payRequest2.getPayFrom() : "";
             PayCallBack payBack = BaiduPay.getInstance().getPayBack();
             PayRequestCache.getInstance().clearPaySdkRequestCache();
             PayBaseBeanActivity.exitEbpay();
             HashMap hashMap = new HashMap();
             hashMap.put("pay_from", payFrom);
-            BaiduPay.getInstance().doPay(this.f26406b.getActivity(), str, payBack, hashMap);
+            BaiduPay.getInstance().doPay(this.f62306b.getActivity(), str, payBack, hashMap);
         }
     }
 
@@ -210,32 +198,25 @@ public class i extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
-            this.f26394a = payRequest;
+            this.f62294a = payRequest;
             if (payRequest != null && payRequest.checkRequestValidity()) {
-                if (this.f26395c == null) {
+                if (this.f62295c == null) {
                     PayBeanFactory payBeanFactory = PayBeanFactory.getInstance();
-                    PayBaseBeanActivity payBaseBeanActivity = this.f26406b;
-                    this.f26395c = (v) payBeanFactory.getBean((Context) payBaseBeanActivity, 1, "PayWelcomePresenter" + toString());
+                    PayBaseBeanActivity payBaseBeanActivity = this.f62306b;
+                    this.f62295c = (r) payBeanFactory.getBean((Context) payBaseBeanActivity, 1, "PayWelcomePresenter" + toString());
                 }
-                PayRequest payRequest2 = this.f26394a;
-                if (payRequest2 != null && BaiduPay.PAY_FROM_BIND_CARD.equals(payRequest2.getPayFrom())) {
-                    if (PayDataCache.getInstance().isRemotePay()) {
-                        PayStatisticsUtil.onEventStart(StatServiceEvent.REMOTE_ACTIVE_BIND);
-                    } else {
-                        PayStatisticsUtil.onEventStart(StatServiceEvent.ACTIVE_BIND);
-                    }
-                } else if (PayDataCache.getInstance().isRemotePay()) {
-                    StatisticManager.onEventStart(StatServiceEvent.REMOTE_CREATE_ORDER);
+                if (PayDataCache.getInstance().isRemotePay()) {
+                    StatisticManager.onEventStart("remoteCreateOrder");
                 } else {
-                    StatisticManager.onEventStart(StatServiceEvent.CREATE_ORDER);
+                    StatisticManager.onEventStart("createOrder");
                 }
-                this.f26395c.setResponseCallback(this);
-                this.f26395c.execBean();
+                this.f62295c.setResponseCallback(this);
+                this.f62295c.execBean();
             } else if (PayDataCache.getInstance().isRemotePay()) {
-                StatisticManager.onEvent(StatServiceEvent.REMOTE_PRE_CREATE_ORDER_PAY_REQ_INVALID);
-                PayCallBackManager.callBackClientCancel(this.f26406b, "PayWelcomePresenter.loadData().1 remotePay");
+                StatisticManager.onEvent("remotePreCreateOrderPayReqInvalid");
+                PayCallBackManager.callBackClientCancel(this.f62306b, "PayWelcomePresenter.loadData().1 remotePay");
             } else {
-                PayCallBackManager.callBackClientCancel(this.f26406b, "PayWelcomePresenter.loadData().1");
+                PayCallBackManager.callBackClientCancel(this.f62306b, "PayWelcomePresenter.loadData().1");
             }
         }
     }
@@ -253,7 +234,7 @@ public class i extends k {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            PayCallBackManager.callBackClientCancel(this.f26406b, "PayWelcomePresenter.callBackCancle().1");
+            PayCallBackManager.callBackClientCancel(this.f62306b, "PayWelcomePresenter.callBackCancel().1");
         }
     }
 
@@ -263,22 +244,22 @@ public class i extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
             if (bundle == null) {
-                this.f26394a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+                this.f62294a = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
             } else {
                 Serializable serializable = bundle.getSerializable("mPayRequest");
                 if (serializable != null && (serializable instanceof PayRequest)) {
-                    this.f26394a = (PayRequest) serializable;
+                    this.f62294a = (PayRequest) serializable;
                 }
                 Serializable serializable2 = bundle.getSerializable("mPayResponse");
                 if (serializable2 != null && (serializable2 instanceof DirectPayContentResponse)) {
                     PayDataCache.getInstance().setPayResponse((DirectPayContentResponse) serializable2);
                 }
             }
-            if (this.f26394a != null) {
-                PayRequestCache.getInstance().addBeanRequestToCache(this.f26394a.getRequestId(), this.f26394a);
+            if (this.f62294a != null) {
+                PayRequestCache.getInstance().addBeanRequestToCache(this.f62294a.getRequestId(), this.f62294a);
                 return true;
             }
-            PayCallBackManager.callBackClientCancel(this.f26406b, "PayWelcomePresenter.initSaveInstanceData().1");
+            PayCallBackManager.callBackClientCancel(this.f62306b, "PayWelcomePresenter.initSaveInstanceData().1");
             return false;
         }
         return invokeL.booleanValue;
@@ -287,13 +268,13 @@ public class i extends k {
     private void b(DirectPayContentResponse directPayContentResponse) {
         PayData.DirectPayPay directPayPay;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, this, directPayContentResponse) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, directPayContentResponse) == null) {
             if (directPayContentResponse != null && (directPayPay = directPayContentResponse.pay) != null && ((directPayPay.easypay != null || directPayPay.balance != null) && directPayContentResponse.user != null)) {
                 h();
                 return;
             }
-            StatisticManager.onEvent(StatServiceEvent.REMOTE_ORDER_INFO_INVALID);
-            PayCallBackManager.callBackClientCancel(this.f26406b, "PayWelcomePresenter.confirmRemotePayOrderInfo().1");
+            StatisticManager.onEvent("remoteOrderInfoInvalid");
+            PayCallBackManager.callBackClientCancel(this.f62306b, "PayWelcomePresenter.confirmRemotePayOrderInfo().1");
         }
     }
 
@@ -301,7 +282,7 @@ public class i extends k {
     public void a() {
         PayBaseBeanActivity payBaseBeanActivity;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (payBaseBeanActivity = this.f26406b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (payBaseBeanActivity = this.f62306b) == null) {
             return;
         }
         payBaseBeanActivity.setFlagPaySdk();
@@ -309,6 +290,7 @@ public class i extends k {
 
     @Override // com.baidu.wallet.paysdk.presenter.k
     public void a(int i2, Object obj, String str) {
+        UserData.Misc misc;
         PayData.EasyPay easyPay;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i2, obj, str) == null) {
@@ -322,151 +304,142 @@ public class i extends k {
                 if (directPayPay != null && (easyPay = directPayPay.easypay) != null) {
                     easyPay.decrypt();
                 }
-                if (this.f26394a == null) {
-                    PayCallBackManager.callBackClientCancel(this.f26406b, "PayWelcomePresenter.handleResponse().2");
+                if (this.f62294a == null) {
+                    PayCallBackManager.callBackClientCancel(this.f62306b, "PayWelcomePresenter.handleResponse().2");
                     return;
                 }
                 UserData.SP sp = directPayContentResponse.sp;
                 if (sp != null && !TextUtils.isEmpty(sp.goods_name)) {
-                    this.f26394a.mGoodName = directPayContentResponse.sp.goods_name;
+                    this.f62294a.mGoodName = directPayContentResponse.sp.goods_name;
                 }
-                directPayContentResponse.storeResponse(this.f26406b);
-                PayRequest payRequest = this.f26394a;
-                if (payRequest != null && BaiduPay.PAY_FROM_BIND_CARD.equals(payRequest.getPayFrom())) {
-                    if (PayDataCache.getInstance().isRemotePay()) {
-                        PayStatisticsUtil.onEventEnd(StatServiceEvent.REMOTE_ACTIVE_BIND, 0);
-                    } else {
-                        PayStatisticsUtil.onEventEnd(StatServiceEvent.ACTIVE_BIND, 0);
-                    }
-                } else {
-                    UserData.Misc misc = directPayContentResponse.misc;
-                    if (misc != null) {
-                        this.f26394a.title_url = misc.title_url;
-                        ArrayList<String> a2 = a(directPayContentResponse);
-                        if (!TextUtils.isEmpty(a2.get(0)) && !TextUtils.isEmpty(a2.get(1))) {
-                            if (PayDataCache.getInstance().isRemotePay()) {
-                                StatisticManager.onEventEndWithValues(StatServiceEvent.REMOTE_CREATE_ORDER, 0, a2);
-                            } else {
-                                StatisticManager.onEventEndWithValues(StatServiceEvent.CREATE_ORDER, 0, a2);
-                            }
+                directPayContentResponse.storeResponse(this.f62306b);
+                PayRequest payRequest = this.f62294a;
+                if (payRequest != null && (misc = directPayContentResponse.misc) != null) {
+                    payRequest.title_url = misc.title_url;
+                    ArrayList<String> a2 = a(directPayContentResponse);
+                    if (!TextUtils.isEmpty(a2.get(0)) && !TextUtils.isEmpty(a2.get(1))) {
+                        if (PayDataCache.getInstance().isRemotePay()) {
+                            StatisticManager.onEventEndWithValues("remoteCreateOrder", 0, a2);
+                        } else {
+                            StatisticManager.onEventEndWithValues("createOrder", 0, a2);
                         }
                     }
                 }
                 PayData.DirectPayPay directPayPay2 = directPayContentResponse.pay;
                 if (directPayPay2 != null) {
-                    this.f26394a.setCalcPayment(directPayPay2.composite);
-                    this.f26394a.setRandomDiscount(directPayContentResponse.pay.random_discount);
+                    this.f62294a.setCalcPayment(directPayPay2.composite);
+                    this.f62294a.setRandomDiscount(directPayContentResponse.pay.random_discount);
                 }
                 if (directPayContentResponse.isWithHoldingValidity()) {
-                    this.f26394a.withholding = directPayContentResponse.authorize_common_cashdesk;
+                    this.f62294a.withholding = directPayContentResponse.authorize_common_cashdesk;
                 }
-                StatHelper.cacheHasPwd(directPayContentResponse.hasPwd());
-                List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getHasPwd());
-                HashMap hashMap = new HashMap();
-                hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, StatHelper.getSpNo());
-                hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
-                if (StatHelper.isPrecashierPay(StatHelper.getOrderNo())) {
-                    hashMap.put("pay_category", "1");
-                }
-                StatisticManager.onEventWithValues(PayStatServiceEvent.STD_PAY_ORDER, collectData, hashMap);
-                if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f26394a.mPayFrom)) {
+                if (BaiduPay.PAY_FROM_BIND_CARD.equals(this.f62294a.mPayFrom)) {
+                    StatHelper.cachePayType(0);
+                    StatHelper.cachePayWay(4);
+                    a(directPayContentResponse.hasPwd(), directPayContentResponse.hasBindCards());
                     BindFastRequest bindFastRequest = new BindFastRequest();
                     bindFastRequest.mBindFrom = 1;
                     PayRequestCache.getInstance().addBeanRequestToCache(bindFastRequest.getRequestId(), bindFastRequest);
-                    this.f26406b.startActivity(new Intent(this.f26406b, BindCardImplActivity.class));
-                    this.f26406b.finishWithoutAnim();
+                    this.f62306b.startActivity(new Intent(this.f62306b, BindCardImplActivity.class));
+                    this.f62306b.finishWithoutAnim();
                     return;
-                } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f26394a.mPayFrom)) {
-                    this.f26394a.initPayStrategy(this.f26406b);
+                } else if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f62294a.mPayFrom)) {
+                    this.f62294a.initPayStrategy(this.f62306b);
+                    StatHelper.cachePayType(0);
+                    StatHelper.cachePayWay(3);
+                    a(directPayContentResponse.hasPwd(), directPayContentResponse.hasBindCards());
                     Authorize authorize = directPayContentResponse.authorize;
                     if (authorize != null) {
-                        this.f26394a.title_url = authorize.title_url;
+                        this.f62294a.title_url = authorize.title_url;
                     }
                     i();
                     return;
                 } else {
-                    this.f26394a.initPayStrategy(this.f26406b);
+                    this.f62294a.initPayStrategy(this.f62306b);
+                    if ("balance".equals(PayDataCache.getInstance().getDefaultPayType())) {
+                        StatHelper.cachePayType(1);
+                    } else {
+                        StatHelper.cachePayType(0);
+                    }
+                    if (this.f62294a.getPayWay() == 2) {
+                        StatHelper.cachePayWay(1);
+                    } else {
+                        StatHelper.cachePayWay(0);
+                    }
+                    a(directPayContentResponse.hasPwd(), directPayContentResponse.hasBindCards());
                     if (PayDataCache.getInstance().isRemotePay()) {
                         b(directPayContentResponse);
                     } else {
                         h();
                     }
-                    this.f26406b.finishWithoutAnim();
+                    this.f62306b.finishWithoutAnim();
                     return;
                 }
             }
-            PayCallBackManager.callBackClientCancel(this.f26406b, "PayWelcomePresenter.handleResponse().1");
+            PayCallBackManager.callBackClientCancel(this.f62306b, "PayWelcomePresenter.handleResponse().1");
         }
+    }
+
+    private void a(boolean z, boolean z2) {
+        CardData.BondCard bondCard;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.f62294a == null) {
+            return;
+        }
+        StatHelper.cacheHasPwd(z);
+        StatHelper.cacheHasBankCard(z2);
+        String str = "0";
+        String str2 = "-1";
+        if (BaiduPay.PAY_FROM_AUTHORIZE.equals(this.f62294a.mPayFrom)) {
+            if (this.f62294a.getDefaultBankCardIdx() != null) {
+                str2 = this.f62294a.getDefaultBankCardIdx().card_type + "";
+                str = this.f62294a.getDefaultBankCardIdx().bank_code;
+            } else {
+                str = "-1";
+            }
+            if (com.baidu.wallet.paysdk.a.b.c()) {
+                StatHelper.cacheSignPay("1");
+            } else {
+                StatHelper.cacheSignPay("2");
+            }
+        } else {
+            if (PayDataCache.getInstance().hasMobilePwd()) {
+                if (this.f62294a.getPayPrice() != null && this.f62294a.getPayPrice().payType == PayRequest.PayPrice.PayType.BANKCARD && (bondCard = this.f62294a.mBondCard) != null) {
+                    str = bondCard.bank_code;
+                    str2 = this.f62294a.mBondCard.card_type + "";
+                } else if (this.f62294a.getPayPrice() != null && this.f62294a.getPayPrice().payType == PayRequest.PayPrice.PayType.BALANCE) {
+                    str2 = "0";
+                }
+            }
+            str = "-1";
+        }
+        StatHelper.cacheBankCode(str);
+        StatHelper.cacheCardType(str2);
+        StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY_ORDER);
     }
 
     @Override // com.baidu.wallet.paysdk.presenter.k
     public void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
-            if (5170 == i3) {
-                HashMap<String, String> hashMap = new HashMap<>();
-                hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, "1150");
-                StatisticManager.onEventWithValue(PayStatServiceEvent.PAY_RNAUTH_ENTER, StatHelper.getOrderNo());
-                BaiduPayDelegate.getInstance().doPayRNAuth(this.f26406b, hashMap, new RNAuthCallBack(this) { // from class: com.baidu.wallet.paysdk.presenter.i.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ i f26396a;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f26396a = this;
-                    }
-
-                    @Override // com.baidu.wallet.rnauth.RNAuthCallBack
-                    public void onRNAuthResult(int i4, String str2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, str2) == null) {
-                            String orderNo = StatHelper.getOrderNo();
-                            StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_RNAUTH_RESULT, StatHelper.collectData(orderNo, i4 + "", str2));
-                            if (i4 == 0) {
-                                this.f26396a.j();
-                            } else {
-                                this.f26396a.e();
-                            }
-                        }
-                    }
-                });
-            } else if (i3 == 65340) {
-                PayStatisticsUtil.onEventEnd(StatServiceEvent.CREATE_ORDER, i3);
-                PayBaseBeanActivity payBaseBeanActivity = this.f26406b;
-                if (payBaseBeanActivity != null) {
-                    WalletGlobalUtils.safeShowDialog(payBaseBeanActivity, 55, str);
+            if (i3 == 65340) {
+                StatisticManager.onEventEnd("createOrder", i3);
+                if (this.f62306b != null) {
+                    StatisticManager.onEventWithValue(PayStatServiceEvent.PASS_NOT_MATCH_DIALOG, StatHelper.getOrderNo());
+                    WalletGlobalUtils.safeShowDialog(this.f62306b, 55, str);
+                    return;
                 }
-            } else {
-                PayRequest payRequest = this.f26394a;
-                if (payRequest != null && BaiduPay.PAY_FROM_BIND_CARD.equals(payRequest.getPayFrom())) {
-                    if (PayDataCache.getInstance().isRemotePay()) {
-                        PayStatisticsUtil.onEventEnd(StatServiceEvent.REMOTE_ACTIVE_BIND, i3);
-                    } else {
-                        PayStatisticsUtil.onEventEnd(StatServiceEvent.ACTIVE_BIND, i3);
-                    }
-                } else if (PayDataCache.getInstance().isRemotePay()) {
-                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.REMOTE_CREATE_ORDER, i3, a((DirectPayContentResponse) null));
-                } else {
-                    PayStatisticsUtil.onEventEndWithValues(StatServiceEvent.CREATE_ORDER, i3, a((DirectPayContentResponse) null));
-                }
-                super.a(i2, i3, str);
+                return;
             }
+            PayRequest payRequest = this.f62294a;
+            if (payRequest != null && !BaiduPay.PAY_FROM_BIND_CARD.equals(payRequest.getPayFrom())) {
+                if (PayDataCache.getInstance().isRemotePay()) {
+                    StatisticManager.onEventEndWithValues("remoteCreateOrder", i3, a((DirectPayContentResponse) null));
+                } else {
+                    StatisticManager.onEventEndWithValues("createOrder", i3, a((DirectPayContentResponse) null));
+                }
+            }
+            super.a(i2, i3, str);
         }
     }
 
@@ -476,9 +449,9 @@ public class i extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, directPayContentResponse)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            PayRequest payRequest = this.f26394a;
+            PayRequest payRequest = this.f62294a;
             String str = "\"\"";
-            String str2 = (payRequest == null || TextUtils.isEmpty(payRequest.mSpNO)) ? "\"\"" : this.f26394a.mSpNO;
+            String str2 = (payRequest == null || TextUtils.isEmpty(payRequest.mSpNO)) ? "\"\"" : this.f62294a.mSpNO;
             if (directPayContentResponse != null && (misc = directPayContentResponse.misc) != null) {
                 str = misc.getInsideTransOrder();
             }
@@ -495,7 +468,51 @@ public class i extends k {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, obj}) == null) {
             DirectPayErrorContent directPayErrorContent = (obj == null || !(obj instanceof DirectPayErrorContent)) ? null : (DirectPayErrorContent) obj;
             if (i3 == 65015 && directPayErrorContent != null && !TextUtils.isEmpty(directPayErrorContent.order_url)) {
-                BaiduPay.getInstance().jumpWapCashier(this.f26406b, directPayErrorContent.order_url, H5PayWebViewActivity.class.getName());
+                StatisticManager.onEventWithValue(PayStatServiceEvent.JUMP_WAPCASHIER, StatHelper.getOrderNo());
+                BaiduPay.getInstance().jumpWapCashier(this.f62306b, directPayErrorContent.order_url, H5PayWebViewActivity.class.getName());
+            } else if ((i3 == 5170 || i3 == 5177) && directPayErrorContent != null) {
+                if (TextUtils.isEmpty(directPayErrorContent.auth_url_sdk)) {
+                    e();
+                    return;
+                }
+                BaiduPayDelegate.getInstance().doPayRNAuth(this.f62306b, directPayErrorContent.auth_url_sdk, new RNAuthCallBack(this) { // from class: com.baidu.wallet.paysdk.presenter.i.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    /* renamed from: a  reason: collision with root package name */
+                    public final /* synthetic */ i f62296a;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.f62296a = this;
+                    }
+
+                    @Override // com.baidu.wallet.rnauth.RNAuthCallBack
+                    public void onRNAuthResult(int i4, String str2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, str2) == null) {
+                            if (i4 == 0) {
+                                this.f62296a.j();
+                            } else {
+                                this.f62296a.e();
+                            }
+                        }
+                    }
+                });
+                this.f62306b.finishWithoutAnim();
             } else {
                 super.a(i2, i3, str, obj);
             }
@@ -509,12 +526,12 @@ public class i extends k {
             PromptDialog promptDialog = (PromptDialog) dialog;
             promptDialog.hideTitle();
             promptDialog.setMessage(WalletGlobalUtils.showStr);
-            promptDialog.setPositiveBtn(ResUtils.string(this.f26406b, "wallet_base_to_rnauth_for_pay"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.i.2
+            promptDialog.setPositiveBtn(ResUtils.string(this.f62306b, "wallet_base_to_rnauth_for_pay"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.i.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ i f26397a;
+                public final /* synthetic */ i f62297a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -531,22 +548,22 @@ public class i extends k {
                             return;
                         }
                     }
-                    this.f26397a = this;
+                    this.f62297a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        PayStatisticsUtil.onEvent(StatServiceEvent.NAME_NOT_MATCH_TO_CONFIRM);
+                        StatisticManager.onEventWithValue("nameNotMatchToConfirm", StatHelper.getOrderNo());
                         HashMap hashMap = new HashMap();
                         hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, "1171");
-                        BaiduPayDelegate.getInstance().doRNAuth(this.f26397a.f26406b, hashMap, new RNAuthCallBack(this) { // from class: com.baidu.wallet.paysdk.presenter.i.2.1
+                        BaiduPayDelegate.getInstance().doRNAuth(this.f62297a.f62306b, hashMap, new RNAuthCallBack(this) { // from class: com.baidu.wallet.paysdk.presenter.i.2.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass2 f26398a;
+                            public final /* synthetic */ AnonymousClass2 f62298a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -563,32 +580,36 @@ public class i extends k {
                                         return;
                                     }
                                 }
-                                this.f26398a = this;
+                                this.f62298a = this;
                             }
 
                             @Override // com.baidu.wallet.rnauth.RNAuthCallBack
                             public void onRNAuthResult(int i3, String str) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i3, str) == null) {
+                                    ArrayList arrayList = new ArrayList();
+                                    arrayList.add(StatHelper.getOrderNo());
+                                    arrayList.add("" + i3);
+                                    StatisticManager.onEventWithValues(PayStatServiceEvent.PASS_NOT_MATCH_RESULT, arrayList);
                                     if (i3 == 0) {
-                                        this.f26398a.f26397a.j();
+                                        this.f62298a.f62297a.j();
                                     } else {
-                                        this.f26398a.f26397a.e();
+                                        this.f62298a.f62297a.e();
                                     }
                                 }
                             }
                         });
-                        WalletGlobalUtils.safeDismissDialog(this.f26397a.f26406b, 55);
-                        this.f26397a.f26406b.finish();
+                        WalletGlobalUtils.safeDismissDialog(this.f62297a.f62306b, 55);
+                        this.f62297a.f62306b.finish();
                     }
                 }
             });
-            promptDialog.setNegativeBtn(ResUtils.string(this.f26406b, "wallet_base_quit_pay"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.i.3
+            promptDialog.setNegativeBtn(ResUtils.string(this.f62306b, "wallet_base_quit_pay"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.presenter.i.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ i f26399a;
+                public final /* synthetic */ i f62299a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -605,17 +626,17 @@ public class i extends k {
                             return;
                         }
                     }
-                    this.f26399a = this;
+                    this.f62299a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        PayStatisticsUtil.onEvent(StatServiceEvent.NAME_NOT_MATCH_TO_CANCEL);
-                        this.f26399a.e();
-                        WalletGlobalUtils.safeDismissDialog(this.f26399a.f26406b, 55);
-                        this.f26399a.f26406b.finish();
+                        StatisticManager.onEventWithValue("nameNotMatchToCancel", StatHelper.getOrderNo());
+                        this.f62299a.e();
+                        WalletGlobalUtils.safeDismissDialog(this.f62299a.f62306b, 55);
+                        this.f62299a.f62306b.finish();
                     }
                 }
             });
@@ -628,83 +649,86 @@ public class i extends k {
         if (interceptable == null || interceptable.invokeL(1048581, this, precashierCreateOrderResponse) == null) {
             if (precashierCreateOrderResponse != null) {
                 if (TextUtils.equals(precashierCreateOrderResponse.ret, "0")) {
-                    PayStatisticsUtil.onEventStart(StatServiceEvent.CREATE_ORDER);
+                    StatisticManager.onEventStart("createOrder");
                     a(-1, precashierCreateOrderResponse.content, (String) null);
                     return;
                 } else if (Integer.parseInt(precashierCreateOrderResponse.ret) != 5173 && Integer.parseInt(precashierCreateOrderResponse.ret) != 5172 && (Integer.parseInt(precashierCreateOrderResponse.ret) != 5171 || TextUtils.isEmpty(precashierCreateOrderResponse.msg))) {
-                    if (TextUtils.equals(precashierCreateOrderResponse.ret, "5170")) {
-                        String str = ((PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)).mParams;
-                        HashMap<String, String> hashMap = new HashMap<>();
-                        hashMap.put(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, "1150");
-                        StatisticManager.onEventWithValue(PayStatServiceEvent.PAY_RNAUTH_ENTER, StatHelper.getOrderNo());
-                        BaiduPayDelegate.getInstance().doPayRNAuth(this.f26406b, hashMap, new RNAuthCallBack(this) { // from class: com.baidu.wallet.paysdk.presenter.i.4
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ i f26400a;
-
-                            {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 != null) {
-                                    InitContext newInitContext = TitanRuntime.newInitContext();
-                                    newInitContext.initArgs = r2;
-                                    Object[] objArr = {this};
-                                    interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
-                                        newInitContext.thisArg = this;
-                                        interceptable2.invokeInitBody(65536, newInitContext);
-                                        return;
-                                    }
-                                }
-                                this.f26400a = this;
-                            }
-
-                            @Override // com.baidu.wallet.rnauth.RNAuthCallBack
-                            public void onRNAuthResult(int i2, String str2) {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                                    String orderNo = StatHelper.getOrderNo();
-                                    StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_RNAUTH_RESULT, StatHelper.collectData(orderNo, i2 + "", str2));
-                                    this.f26400a.e();
-                                }
-                            }
-                        });
-                        return;
-                    } else if (TextUtils.equals(precashierCreateOrderResponse.ret, String.valueOf((int) StatusCode.ERROR_AUTH_INFO_NOT_MATCH))) {
-                        PayStatisticsUtil.onEventEnd(StatServiceEvent.PRE_CREATE_ORDER_FROM_TRANSFER, Integer.valueOf(precashierCreateOrderResponse.ret).intValue());
-                        PayBaseBeanActivity payBaseBeanActivity = this.f26406b;
+                    if (TextUtils.equals(precashierCreateOrderResponse.ret, String.valueOf(65340))) {
+                        StatisticManager.onEventEnd("preCreateOrderFromTransfer", Integer.valueOf(precashierCreateOrderResponse.ret).intValue());
+                        PayBaseBeanActivity payBaseBeanActivity = this.f62306b;
                         if (payBaseBeanActivity != null) {
                             WalletGlobalUtils.safeShowDialog(payBaseBeanActivity, 55, precashierCreateOrderResponse.msg);
                             return;
                         }
                         return;
-                    } else {
-                        DirectPayErrorContent directPayErrorContent = precashierCreateOrderResponse.errContent;
-                        if (directPayErrorContent != null) {
-                            try {
-                                if (Integer.parseInt(precashierCreateOrderResponse.ret) != 65015 || TextUtils.isEmpty(directPayErrorContent.order_url)) {
+                    }
+                    DirectPayErrorContent directPayErrorContent = precashierCreateOrderResponse.errContent;
+                    if (directPayErrorContent != null) {
+                        try {
+                            if (Integer.parseInt(precashierCreateOrderResponse.ret) == 65015 && !TextUtils.isEmpty(directPayErrorContent.order_url)) {
+                                BaiduPay.getInstance().jumpWapCashier(this.f62306b, directPayErrorContent.order_url, H5PayWebViewActivity.class.getName());
+                                return;
+                            } else if (Integer.parseInt(precashierCreateOrderResponse.ret) == 5170 || Integer.parseInt(precashierCreateOrderResponse.ret) == 5177) {
+                                if (TextUtils.isEmpty(directPayErrorContent.auth_url_sdk)) {
+                                    e();
                                     return;
                                 }
-                                BaiduPay.getInstance().jumpWapCashier(this.f26406b, directPayErrorContent.order_url, H5PayWebViewActivity.class.getName());
+                                this.f62306b.finishWithoutAnim();
+                                BaiduPayDelegate.getInstance().doPayRNAuth(this.f62306b, directPayErrorContent.auth_url_sdk, new RNAuthCallBack(this) { // from class: com.baidu.wallet.paysdk.presenter.i.4
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+
+                                    /* renamed from: a  reason: collision with root package name */
+                                    public final /* synthetic */ i f62300a;
+
+                                    {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = r2;
+                                            Object[] objArr = {this};
+                                            interceptable2.invokeUnInit(65536, newInitContext);
+                                            int i2 = newInitContext.flag;
+                                            if ((i2 & 1) != 0) {
+                                                int i3 = i2 & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable2.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.f62300a = this;
+                                    }
+
+                                    @Override // com.baidu.wallet.rnauth.RNAuthCallBack
+                                    public void onRNAuthResult(int i2, String str) {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                                            if (i2 == 0) {
+                                                this.f62300a.j();
+                                            } else {
+                                                this.f62300a.e();
+                                            }
+                                        }
+                                    }
+                                });
                                 return;
-                            } catch (Exception unused) {
-                                c();
+                            } else {
                                 return;
                             }
-                        }
-                        try {
-                            a(-1, Integer.parseInt(precashierCreateOrderResponse.ret), precashierCreateOrderResponse.msg);
-                            return;
-                        } catch (Exception unused2) {
+                        } catch (Exception unused) {
                             c();
                             return;
                         }
                     }
+                    try {
+                        a(-1, Integer.parseInt(precashierCreateOrderResponse.ret), precashierCreateOrderResponse.msg);
+                        return;
+                    } catch (Exception unused2) {
+                        c();
+                        return;
+                    }
                 } else {
-                    PayBaseBeanActivity payBaseBeanActivity2 = this.f26406b;
+                    PayBaseBeanActivity payBaseBeanActivity2 = this.f62306b;
                     if (payBaseBeanActivity2 != null) {
                         WalletGlobalUtils.safeShowDialog(payBaseBeanActivity2, 3, precashierCreateOrderResponse.msg);
                         return;

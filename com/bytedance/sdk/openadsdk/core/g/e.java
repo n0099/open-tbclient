@@ -2,7 +2,6 @@ package com.bytedance.sdk.openadsdk.core.g;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,27 +14,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f30310a = "e";
+    public static final String f66224a = "e";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Set<String> f30311b;
+    public final Set<String> f66225b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Looper f30312c;
+    public Looper f66226c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.g.e$5  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass5 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f30319a;
+        public static final /* synthetic */ int[] f66233a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -52,17 +51,17 @@ public abstract class e {
                 }
             }
             int[] iArr = new int[c.values().length];
-            f30319a = iArr;
+            f66233a = iArr;
             try {
-                iArr[c.f30300a.ordinal()] = 1;
+                iArr[c.f66214a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f30319a[c.f30301b.ordinal()] = 2;
+                f66233a[c.f66215b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f30319a[c.f30302c.ordinal()] = 3;
+                f66233a[c.f66216c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -96,8 +95,8 @@ public abstract class e {
                 return;
             }
         }
-        this.f30311b = new HashSet(1);
-        this.f30312c = Looper.getMainLooper();
+        this.f66225b = new HashSet(1);
+        this.f66226c = Looper.getMainLooper();
     }
 
     public abstract void a();
@@ -110,9 +109,9 @@ public abstract class e {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i2)) == null) {
             synchronized (this) {
                 if (i2 == 0) {
-                    return a(str, c.f30300a);
+                    return a(str, c.f66214a);
                 }
-                return a(str, c.f30301b);
+                return a(str, c.f66215b);
             }
         }
         return invokeLI.booleanValue;
@@ -123,8 +122,7 @@ public abstract class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             synchronized (this) {
-                String str2 = f30310a;
-                Log.d(str2, "Permission not found: " + str);
+                String str2 = "Permission not found: " + str;
             }
             return true;
         }
@@ -136,19 +134,19 @@ public abstract class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, cVar)) == null) {
             synchronized (this) {
-                this.f30311b.remove(str);
-                int i2 = AnonymousClass5.f30319a[cVar.ordinal()];
+                this.f66225b.remove(str);
+                int i2 = AnonymousClass5.f66233a[cVar.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2) {
-                        new Handler(this.f30312c).post(new Runnable(this, str) { // from class: com.bytedance.sdk.openadsdk.core.g.e.2
+                        new Handler(this.f66226c).post(new Runnable(this, str) { // from class: com.bytedance.sdk.openadsdk.core.g.e.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ String f30314a;
+                            public final /* synthetic */ String f66228a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ e f30315b;
+                            public final /* synthetic */ e f66229b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -165,28 +163,28 @@ public abstract class e {
                                         return;
                                     }
                                 }
-                                this.f30315b = this;
-                                this.f30314a = str;
+                                this.f66229b = this;
+                                this.f66228a = str;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    this.f30315b.a(this.f30314a);
+                                    this.f66229b.a(this.f66228a);
                                 }
                             }
                         });
                         return true;
                     } else if (i2 == 3) {
                         if (b(str)) {
-                            if (this.f30311b.isEmpty()) {
-                                new Handler(this.f30312c).post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.g.e.3
+                            if (this.f66225b.isEmpty()) {
+                                new Handler(this.f66226c).post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.g.e.3
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ e f30316a;
+                                    public final /* synthetic */ e f66230a;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -203,29 +201,29 @@ public abstract class e {
                                                 return;
                                             }
                                         }
-                                        this.f30316a = this;
+                                        this.f66230a = this;
                                     }
 
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                            this.f30316a.a();
+                                            this.f66230a.a();
                                         }
                                     }
                                 });
                                 return true;
                             }
                         } else {
-                            new Handler(this.f30312c).post(new Runnable(this, str) { // from class: com.bytedance.sdk.openadsdk.core.g.e.4
+                            new Handler(this.f66226c).post(new Runnable(this, str) { // from class: com.bytedance.sdk.openadsdk.core.g.e.4
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
                                 /* renamed from: a  reason: collision with root package name */
-                                public final /* synthetic */ String f30317a;
+                                public final /* synthetic */ String f66231a;
 
                                 /* renamed from: b  reason: collision with root package name */
-                                public final /* synthetic */ e f30318b;
+                                public final /* synthetic */ e f66232b;
 
                                 {
                                     Interceptable interceptable2 = $ic;
@@ -242,28 +240,28 @@ public abstract class e {
                                             return;
                                         }
                                     }
-                                    this.f30318b = this;
-                                    this.f30317a = str;
+                                    this.f66232b = this;
+                                    this.f66231a = str;
                                 }
 
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        this.f30318b.a(this.f30317a);
+                                        this.f66232b.a(this.f66231a);
                                     }
                                 }
                             });
                             return true;
                         }
                     }
-                } else if (this.f30311b.isEmpty()) {
-                    new Handler(this.f30312c).post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.g.e.1
+                } else if (this.f66225b.isEmpty()) {
+                    new Handler(this.f66226c).post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.core.g.e.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ e f30313a;
+                        public final /* synthetic */ e f66227a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -280,14 +278,14 @@ public abstract class e {
                                     return;
                                 }
                             }
-                            this.f30313a = this;
+                            this.f66227a = this;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.f30313a.a();
+                                this.f66227a.a();
                             }
                         }
                     });
@@ -303,7 +301,7 @@ public abstract class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr) == null) {
             synchronized (this) {
-                Collections.addAll(this.f30311b, strArr);
+                Collections.addAll(this.f66225b, strArr);
             }
         }
     }

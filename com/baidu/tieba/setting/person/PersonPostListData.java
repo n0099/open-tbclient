@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Abstract;
 import tbclient.PostInfoList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonPostListData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_IMAGE = 3;
@@ -24,7 +24,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
     public int hide_post;
     public List<PostList> post_list;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Abs implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class AnchorInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,7 +137,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Content implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class LbsInfo implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +201,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Media implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +250,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class PostList extends AbstractImageProvider implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -327,7 +327,7 @@ public class PersonPostListData extends OrmObject implements Serializable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Quote implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

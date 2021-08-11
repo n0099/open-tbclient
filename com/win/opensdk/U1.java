@@ -3,7 +3,6 @@ package com.win.opensdk;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -16,7 +15,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.StreamCorruptedException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class U1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -246,16 +245,15 @@ public class U1 {
                 edit.commit();
             } catch (IOException e2) {
                 e2.printStackTrace();
-                Log.e("", "保存obj失败");
             }
         }
     }
 
-    public static void b(Context context, long j) {
+    public static void b(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65547, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65547, null, context, j2) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putLong("draw_video_timeout", j);
+            edit.putLong("draw_video_timeout", j2);
             edit.apply();
         }
     }
@@ -320,20 +318,20 @@ public class U1 {
         }
     }
 
-    public static void d(Context context, long j) {
+    public static void d(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65554, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65554, null, context, j2) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putLong("spl_timeout", j);
+            edit.putLong("spl_timeout", j2);
             edit.apply();
         }
     }
 
-    public static void a(Context context, long j) {
+    public static void a(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65539, null, context, j2) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putLong("spl_dev_timeout", j);
+            edit.putLong("spl_dev_timeout", j2);
             edit.apply();
         }
     }
@@ -347,11 +345,11 @@ public class U1 {
         }
     }
 
-    public static void c(Context context, long j) {
+    public static void c(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65551, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65551, null, context, j2) == null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("_prefs", 0).edit();
-            edit.putLong("lu_date", j);
+            edit.putLong("lu_date", j2);
             edit.apply();
         }
     }

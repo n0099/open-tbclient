@@ -1,7 +1,6 @@
 package com.bun.miitmdid.core;
 
 import android.content.Context;
-import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,7 +16,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MdidSdkHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "MdidSdkHelper";
@@ -27,7 +26,7 @@ public class MdidSdkHelper {
     @Keep
     public String sdk_date;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a implements IdSupplier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,15 +154,14 @@ public class MdidSdkHelper {
 
     public static void logd(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(65539, null, z, str) == null) && z) {
-            Log.d(TAG, str);
+        if (interceptable == null || interceptable.invokeZL(65539, null, z, str) == null) {
         }
     }
 
     public static void loge(boolean z, Exception exc) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, exc) == null) && z) {
-            Log.e(TAG, exc.getClass().getSimpleName(), exc);
+            exc.getClass().getSimpleName();
         }
     }
 }

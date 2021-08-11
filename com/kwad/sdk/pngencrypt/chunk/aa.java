@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class aa extends PngChunk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,8 +40,8 @@ public abstract class aa extends PngChunk {
                 return true;
             }
             if (obj != null && getClass() == obj.getClass()) {
-                String str = this.f35955a;
-                String str2 = ((aa) obj).f35955a;
+                String str = this.f72735a;
+                String str2 = ((aa) obj).f72735a;
                 if (str == null) {
                     if (str2 != null) {
                         return false;
@@ -60,7 +60,7 @@ public abstract class aa extends PngChunk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String str = this.f35955a;
+            String str = this.f72735a;
             return 31 + (str == null ? 0 : str.hashCode());
         }
         return invokeV.intValue;

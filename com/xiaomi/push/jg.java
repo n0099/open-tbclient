@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class jg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f40791a;
+    public final String f77666a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public jg() {
@@ -45,6 +45,6 @@ public final class jg {
                 return;
             }
         }
-        this.f40791a = str;
+        this.f77666a = str;
     }
 }

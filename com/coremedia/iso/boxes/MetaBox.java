@@ -15,7 +15,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MetaBox extends AbstractContainerBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "meta";
@@ -77,13 +77,13 @@ public class MetaBox extends AbstractContainerBox {
     }
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(4);
             dataSource.read(allocate);
             parseVersionAndFlags((ByteBuffer) allocate.rewind());
-            parseContainer(dataSource, j - 4, boxParser);
+            parseContainer(dataSource, j2 - 4, boxParser);
         }
     }
 

@@ -1,9 +1,9 @@
 package com.baidu.android.imsdk.chatmessage;
 
 import com.baidu.android.imsdk.IMListener;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface IChatSessionChangeListener extends IMListener {
-    void onChatRecordDelete(int i2, long j);
+    void onChatRecordDelete(int i2, long j2);
 
     void onChatSessionUpdate(ChatSession chatSession, boolean z);
 }

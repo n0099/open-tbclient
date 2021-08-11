@@ -17,21 +17,22 @@ import java.util.ArrayList;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
 @JProtect
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class y1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static y1 f73604c;
+    public static y1 f78905c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f73605a;
+    public Context f78906a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Integer> f73606b;
+    public List<Integer> f78907b;
 
     public y1(Context context) {
         Interceptable interceptable = $ic;
@@ -48,23 +49,23 @@ public class y1 {
                 return;
             }
         }
-        this.f73605a = null;
-        this.f73606b = new ArrayList();
-        this.f73605a = context;
+        this.f78906a = null;
+        this.f78907b = new ArrayList();
+        this.f78906a = context;
     }
 
     public static y1 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f73604c == null) {
+            if (f78905c == null) {
                 synchronized (y1.class) {
-                    if (f73604c == null) {
-                        f73604c = new y1(context);
+                    if (f78905c == null) {
+                        f78905c = new y1(context);
                     }
                 }
             }
-            return f73604c;
+            return f78905c;
         }
         return (y1) invokeL.objValue;
     }
@@ -75,13 +76,13 @@ public class y1 {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (f2 = f()) == null) {
             return;
         }
-        this.f73606b.add(f2);
+        this.f78907b.add(f2);
         try {
-            int size = this.f73606b.size();
+            int size = this.f78907b.size();
             if (size > 20) {
-                ArrayList arrayList = new ArrayList(this.f73606b.subList(size - 10, size));
-                this.f73606b.clear();
-                this.f73606b = arrayList;
+                ArrayList arrayList = new ArrayList(this.f78907b.subList(size - 10, size));
+                this.f78907b.clear();
+                this.f78907b = arrayList;
             }
         } catch (Throwable unused) {
         }
@@ -91,7 +92,7 @@ public class y1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Intent registerReceiver = this.f73605a.registerReceiver(null, new IntentFilter((String) h.a(16777217, 0, 0L, "478272", new byte[]{36, 59, 79, 84, 7, 44, 51, 88, 96, 108, 49, 48, 69, 82, 70, 36, 52, 2, 96, 109, 43, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 105, 103, 60, 17, 18, 36, 80, 93, 6, 29, 106, 104, 47, 0, 19})));
+            Intent registerReceiver = this.f78906a.registerReceiver(null, new IntentFilter((String) h.a(16777217, 0, 0L, "478272", new byte[]{36, 59, 79, 84, 7, 44, 51, 88, 96, 108, 49, 48, 69, 82, 70, 36, 52, 2, 96, 109, 43, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 105, 103, 60, 17, 18, 36, 80, 93, 6, 29, 106, 104, 47, 0, 19})));
             if (registerReceiver == null) {
                 return -1;
             }
@@ -107,7 +108,7 @@ public class y1 {
         if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) != null) {
             return invokeV.intValue;
         }
-        Intent registerReceiver = this.f73605a.registerReceiver(null, new IntentFilter((String) h.a(16777217, 0, 0L, "4790d2", new byte[]{36, 59, 78, 86, 84, 44, 51, 88, 97, 110, 49, 48, 68, 80, 21, 36, 52, 2, 97, 111, 43, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 104, Constants.SHORT_PING_CMD_TYPE, 111, 17, 18, 36, 81, 95, 6, 29, 107, 106, 124, 0, 19})));
+        Intent registerReceiver = this.f78906a.registerReceiver(null, new IntentFilter((String) h.a(16777217, 0, 0L, "4790d2", new byte[]{36, 59, 78, 86, 84, 44, 51, 88, 97, 110, 49, 48, 68, 80, 21, 36, 52, 2, 97, 111, 43, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_2, 104, Constants.SHORT_PING_CMD_TYPE, 111, 17, 18, 36, 81, 95, 6, 29, 107, 106, 124, 0, 19})));
         if (registerReceiver == null) {
             return -1;
         }
@@ -133,7 +134,7 @@ public class y1 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Intent registerReceiver = this.f73605a.registerReceiver(null, new IntentFilter((String) h.a(16777217, 0, 0L, "e2156b", new byte[]{LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 62, 70, 83, 6, 124, 98, 93, 105, 107, 96, 53, 76, 85, 71, 116, Constants.SHORT_PING_CMD_TYPE, 7, 105, 106, 122, 126, 96, 96, 61, 65, 67, PublicSuffixDatabase.EXCEPTION_MARKER, 89, 90, 87, 24, 99, 111, 46, 80, 66})));
+            Intent registerReceiver = this.f78906a.registerReceiver(null, new IntentFilter((String) h.a(16777217, 0, 0L, "e2156b", new byte[]{LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 62, 70, 83, 6, 124, 98, 93, 105, 107, 96, 53, 76, 85, 71, 116, Constants.SHORT_PING_CMD_TYPE, 7, 105, 106, 122, 126, 96, 96, 61, 65, 67, PublicSuffixDatabase.EXCEPTION_MARKER, 89, 90, 87, 24, 99, 111, 46, 80, 66})));
             if (registerReceiver == null) {
                 return -1;
             }
@@ -147,14 +148,14 @@ public class y1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                int size = this.f73606b.size();
+                int size = this.f78907b.size();
                 if (size <= 0) {
                     return new int[0];
                 }
                 if (size == 1) {
-                    return new int[]{this.f73606b.get(0).intValue()};
+                    return new int[]{this.f78907b.get(0).intValue()};
                 }
-                List<Integer> list = this.f73606b;
+                List<Integer> list = this.f78907b;
                 int i2 = size - 10;
                 if (i2 <= 0) {
                     i2 = 0;
@@ -186,7 +187,7 @@ public class y1 {
         }
         while (true) {
             char c3 = '^';
-            char c4 = '}';
+            char c4 = ExtendedMessageFormat.END_FE;
             while (true) {
                 switch (c3) {
                     case '^':

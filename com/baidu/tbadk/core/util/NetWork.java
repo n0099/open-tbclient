@@ -3,6 +3,12 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.j.b.a;
+import c.a.e.e.p.q;
+import c.a.o0.h0.f;
+import c.a.o0.s.l.c;
+import c.a.o0.s.q.s0;
+import c.a.o0.t.a.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,18 +29,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.j.b.a;
-import d.a.d.e.p.q;
-import d.a.p0.h0.f;
-import d.a.p0.s.l.c;
-import d.a.p0.s.q.r0;
-import d.a.p0.t.a.b;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NetWork {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NET_TYPE_GET = 1;
@@ -130,13 +130,13 @@ public class NetWork {
         }
     }
 
-    private r0 login(String str, String str2, boolean z) {
+    private s0 login(String str, String str2, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(AdIconUtil.BAIDU_LOGO_ID, this, str, str2, z)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
-                    d.a.p0.s.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                    c.a.o0.s.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     StringBuilder sb = new StringBuilder(32);
                     sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -156,32 +156,32 @@ public class NetWork {
                     this.mNetLogin.getNetContext().getRequest().getNetWorkParam().mRequestGzip = true;
                     String postNetData = this.mNetLogin.postNetData();
                     if (this.mNetLogin.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        r0 r0Var = new r0();
-                        r0Var.c(postNetData);
-                        String userId = r0Var.b().getUserId();
+                        s0 s0Var = new s0();
+                        s0Var.c(postNetData);
+                        String userId = s0Var.b().getUserId();
                         if (userId != null && userId.length() > 0) {
                             AccountData accountData = new AccountData();
-                            accountData.setAccount(r0Var.b().getUserName());
-                            if (r0Var.b().getPassword() != null) {
-                                accountData.setPassword(r0Var.b().getPassword());
+                            accountData.setAccount(s0Var.b().getUserName());
+                            if (s0Var.b().getPassword() != null) {
+                                accountData.setPassword(s0Var.b().getPassword());
                             } else {
                                 accountData.setPassword(str2);
                             }
-                            accountData.setID(r0Var.b().getUserId());
-                            accountData.setBDUSS(r0Var.b().getBDUSS());
-                            accountData.setPortrait(r0Var.b().getPortrait());
-                            if (r0Var.b() != null && r0Var.b().getBaijiahaoInfo() != null && !StringUtils.isNull(r0Var.b().getBaijiahaoInfo().avatar)) {
-                                accountData.setBjhAvatar(r0Var.b().getBaijiahaoInfo().avatar);
+                            accountData.setID(s0Var.b().getUserId());
+                            accountData.setBDUSS(s0Var.b().getBDUSS());
+                            accountData.setPortrait(s0Var.b().getPortrait());
+                            if (s0Var.b() != null && s0Var.b().getBaijiahaoInfo() != null && !StringUtils.isNull(s0Var.b().getBaijiahaoInfo().avatar)) {
+                                accountData.setBjhAvatar(s0Var.b().getBaijiahaoInfo().avatar);
                             }
                             accountData.setIsActive(1);
-                            if (r0Var.a() != null) {
-                                accountData.setTbs(r0Var.a().getTbs());
+                            if (s0Var.a() != null) {
+                                accountData.setTbs(s0Var.a().getTbs());
                             }
                             c.g(accountData);
                             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                            d.a.p0.s.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                            c.a.o0.s.z.a.a("account", -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-                            return r0Var;
+                            return s0Var;
                         }
                         this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.neterror);
                         return null;
@@ -198,21 +198,21 @@ public class NetWork {
             }
             return null;
         }
-        return (r0) invokeLLZ.objValue;
+        return (s0) invokeLLZ.objValue;
     }
 
     private void modSessionData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             String currentBduss = TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getCurrentBduss() : f.b();
-            BasicNameValuePair basicNameValuePair = new BasicNameValuePair(HttpRequest.BDUSS, currentBduss);
+            BasicNameValuePair basicNameValuePair = new BasicNameValuePair("BDUSS", currentBduss);
             BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair(HttpRequest.TBS, TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : f.d());
             if (currentBduss != null) {
                 ArrayList<BasicNameValuePair> postData = this.mNet.getPostData();
                 int size = postData.size();
                 for (int i2 = 0; i2 < size; i2++) {
                     BasicNameValuePair basicNameValuePair3 = postData.get(i2);
-                    if (basicNameValuePair3.getName().equals(HttpRequest.BDUSS)) {
+                    if (basicNameValuePair3.getName().equals("BDUSS")) {
                         postData.set(i2, basicNameValuePair);
                     } else if (basicNameValuePair3.getName().equals(HttpRequest.TBS)) {
                         postData.set(i2, basicNameValuePair2);
@@ -276,7 +276,7 @@ public class NetWork {
                             ReloginManager.g().f(null);
                             return null;
                         }
-                        r0 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
+                        s0 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword(), true);
                         removeAccount(currentAccountObj);
                         if (login == null) {
                             if (this.mNetLogin != null) {
@@ -292,7 +292,7 @@ public class NetWork {
                         return null;
                     }
                 }
-                d.a.q0.b1.a.b(this);
+                c.a.p0.c1.a.b(this);
                 return netString;
             }
         }
@@ -328,7 +328,7 @@ public class NetWork {
     private void removeAccount(AccountData accountData) {
         b b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, this, accountData) == null) || TextUtils.isEmpty(accountData.getID()) || (b2 = d.a.p0.t.a.a.b()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65546, this, accountData) == null) || TextUtils.isEmpty(accountData.getID()) || (b2 = c.a.o0.t.a.a.b()) == null) {
             return;
         }
         b2.c(accountData);
@@ -396,7 +396,7 @@ public class NetWork {
     public long getNetDataSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f41707b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.netContext.getStat().stat.f2249b : invokeV.longValue;
     }
 
     public int getNetErrorCode() {

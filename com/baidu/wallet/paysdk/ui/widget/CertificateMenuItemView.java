@@ -5,23 +5,23 @@ import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.utils.ResUtils;
+/* loaded from: classes8.dex */
 public class CertificateMenuItemView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f27036a;
+    public TextView f62873a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GetCardInfoResponse.CertificateTypeInfo f27037b;
+    public GetCardInfoResponse.CertificateTypeInfo f62874b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CertificateMenuItemView(Context context) {
@@ -48,14 +48,14 @@ public class CertificateMenuItemView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_menu_cert_item_view"), this);
-            this.f27036a = (TextView) findViewById(ResUtils.id(getContext(), "certi_text"));
+            this.f62873a = (TextView) findViewById(ResUtils.id(getContext(), "certi_text"));
         }
     }
 
     public GetCardInfoResponse.CertificateTypeInfo getCertificateTypeInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27037b : (GetCardInfoResponse.CertificateTypeInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f62874b : (GetCardInfoResponse.CertificateTypeInfo) invokeV.objValue;
     }
 
     public void updateItem(GetCardInfoResponse.CertificateTypeInfo certificateTypeInfo) {
@@ -63,8 +63,8 @@ public class CertificateMenuItemView extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, certificateTypeInfo) == null) || certificateTypeInfo == null) {
             return;
         }
-        this.f27037b = certificateTypeInfo;
-        this.f27036a.setTextColor(ResUtils.getColor(getContext(), certificateTypeInfo.isDisplay() ? "wallet_base_mainColor" : "wallet_base_font_text2Color"));
-        this.f27036a.setText(certificateTypeInfo.description);
+        this.f62874b = certificateTypeInfo;
+        this.f62873a.setTextColor(ResUtils.getColor(getContext(), certificateTypeInfo.isDisplay() ? "dxm_wallet_base_mainColor" : "dxm_wallet_base_font_text2Color"));
+        this.f62873a.setText(certificateTypeInfo.description);
     }
 }

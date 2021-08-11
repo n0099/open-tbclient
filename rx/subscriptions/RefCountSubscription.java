@@ -8,25 +8,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.k;
-import h.u.e;
+import i.k;
+import i.u.e;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class RefCountSubscription implements k {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f73795g;
+    public static final a f79100g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final k f73796e;
+    public final k f79101e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicReference<a> f73797f;
+    public final AtomicReference<a> f79102f;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class InnerSubscription extends AtomicInteger implements k {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7005765588239987643L;
@@ -51,14 +51,14 @@ public final class RefCountSubscription implements k {
             this.parent = refCountSubscription;
         }
 
-        @Override // h.k
+        @Override // i.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() != 0 : invokeV.booleanValue;
         }
 
-        @Override // h.k
+        @Override // i.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && compareAndSet(0, 1)) {
@@ -67,16 +67,16 @@ public final class RefCountSubscription implements k {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f73798a;
+        public final boolean f79103a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f73799b;
+        public final int f79104b;
 
         public a(boolean z, int i2) {
             Interceptable interceptable = $ic;
@@ -93,26 +93,26 @@ public final class RefCountSubscription implements k {
                     return;
                 }
             }
-            this.f73798a = z;
-            this.f73799b = i2;
+            this.f79103a = z;
+            this.f79104b = i2;
         }
 
         public a a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f73798a, this.f73799b + 1) : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this.f79103a, this.f79104b + 1) : (a) invokeV.objValue;
         }
 
         public a b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.f73798a, this.f73799b - 1) : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.f79103a, this.f79104b - 1) : (a) invokeV.objValue;
         }
 
         public a c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(true, this.f73799b) : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new a(true, this.f79104b) : (a) invokeV.objValue;
         }
     }
 
@@ -129,7 +129,7 @@ public final class RefCountSubscription implements k {
                 return;
             }
         }
-        f73795g = new a(false, 0);
+        f79100g = new a(false, 0);
     }
 
     public RefCountSubscription(k kVar) {
@@ -147,9 +147,9 @@ public final class RefCountSubscription implements k {
                 return;
             }
         }
-        this.f73797f = new AtomicReference<>(f73795g);
+        this.f79102f = new AtomicReference<>(f79100g);
         if (kVar != null) {
-            this.f73796e = kVar;
+            this.f79101e = kVar;
             return;
         }
         throw new IllegalArgumentException("s");
@@ -160,10 +160,10 @@ public final class RefCountSubscription implements k {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            AtomicReference<a> atomicReference = this.f73797f;
+            AtomicReference<a> atomicReference = this.f79102f;
             do {
                 aVar = atomicReference.get();
-                if (aVar.f73798a) {
+                if (aVar.f79103a) {
                     return e.c();
                 }
             } while (!atomicReference.compareAndSet(aVar, aVar.a()));
@@ -177,7 +177,7 @@ public final class RefCountSubscription implements k {
         a b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            AtomicReference<a> atomicReference = this.f73797f;
+            AtomicReference<a> atomicReference = this.f79102f;
             do {
                 aVar = atomicReference.get();
                 b2 = aVar.b();
@@ -188,28 +188,28 @@ public final class RefCountSubscription implements k {
 
     public final void c(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && aVar.f73798a && aVar.f73799b == 0) {
-            this.f73796e.unsubscribe();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) && aVar.f79103a && aVar.f79104b == 0) {
+            this.f79101e.unsubscribe();
         }
     }
 
-    @Override // h.k
+    @Override // i.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f73797f.get().f73798a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f79102f.get().f79103a : invokeV.booleanValue;
     }
 
-    @Override // h.k
+    @Override // i.k
     public void unsubscribe() {
         a aVar;
         a c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            AtomicReference<a> atomicReference = this.f73797f;
+            AtomicReference<a> atomicReference = this.f79102f;
             do {
                 aVar = atomicReference.get();
-                if (aVar.f73798a) {
+                if (aVar.f79103a) {
                     return;
                 }
                 c2 = aVar.c();

@@ -2,7 +2,6 @@ package io.flutter.view;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.UiThread;
 import androidx.core.view.InputDeviceCompat;
@@ -20,7 +19,7 @@ import io.flutter.embedding.engine.dart.DartExecutor;
 import io.flutter.embedding.engine.renderer.FlutterUiDisplayListener;
 import io.flutter.plugin.common.BinaryMessenger;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterNativeView implements BinaryMessenger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterNativeView";
@@ -33,7 +32,7 @@ public class FlutterNativeView implements BinaryMessenger {
     public FlutterView mFlutterView;
     public final FlutterPluginRegistry mPluginRegistry;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class EngineLifecycleListenerImpl implements FlutterEngine.EngineLifecycleListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -279,7 +278,7 @@ public class FlutterNativeView implements BinaryMessenger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048587, this, str, byteBuffer, binaryReply) == null) {
             if (!isAttached()) {
-                Log.d(TAG, "FlutterView.send called on a detached view, channel=" + str);
+                String str2 = "FlutterView.send called on a detached view, channel=" + str;
                 return;
             }
             this.dartExecutor.getBinaryMessenger().send(str, byteBuffer, binaryReply);

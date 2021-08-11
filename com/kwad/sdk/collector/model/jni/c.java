@@ -12,8 +12,9 @@ import com.kwad.sdk.collector.AppStatusNative;
 import com.kwad.sdk.collector.model.e;
 import com.kwad.sdk.utils.n;
 import com.kwad.sdk.utils.q;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c extends NativeObject implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,12 +35,12 @@ public class c extends NativeObject implements e {
         this.mPtr = AppStatusNative.nativeCreateUploadEntry();
     }
 
-    public c(long j) {
+    public c(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -49,7 +50,7 @@ public class c extends NativeObject implements e {
                 return;
             }
         }
-        this.mPtr = j;
+        this.mPtr = j2;
     }
 
     public static String a(c cVar) {
@@ -97,9 +98,9 @@ public class c extends NativeObject implements e {
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.mPtr;
-            if (j != 0) {
-                AppStatusNative.nativeDeleteUploadEntry(j);
+            long j2 = this.mPtr;
+            if (j2 != 0) {
+                AppStatusNative.nativeDeleteUploadEntry(j2);
                 this.mPtr = 0L;
             }
         }
@@ -167,7 +168,7 @@ public class c extends NativeObject implements e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "UploadEntry{packageName='" + AppStatusNative.uploadEntryGetPackageName(this) + "', originFile=" + AppStatusNative.uploadEntryGetOriginFilePath(this) + '}';
+            return "UploadEntry{packageName='" + AppStatusNative.uploadEntryGetPackageName(this) + ExtendedMessageFormat.QUOTE + ", originFile=" + AppStatusNative.uploadEntryGetOriginFilePath(this) + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

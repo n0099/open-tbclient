@@ -1,5 +1,8 @@
 package com.opensource.svgaplayer.proto;
 
+import c.o.a.c;
+import c.o.a.d;
+import c.o.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,12 +15,10 @@ import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
-import d.k.a.c;
-import d.k.a.d;
-import d.k.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public final class Layout extends Message<Layout, Builder> {
     public static /* synthetic */ Interceptable $ic;
     public static final ProtoAdapter<Layout> ADAPTER;
@@ -36,7 +37,7 @@ public final class Layout extends Message<Layout, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
     public final Float y;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.a<Layout, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +110,7 @@ public final class Layout extends Message<Layout, Builder> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class ProtoAdapter_Layout extends ProtoAdapter<Layout> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -325,7 +326,7 @@ public final class Layout extends Message<Layout, Builder> {
                 sb.append(this.height);
             }
             StringBuilder replace = sb.replace(0, 2, "Layout{");
-            replace.append('}');
+            replace.append(ExtendedMessageFormat.END_FE);
             return replace.toString();
         }
         return (String) invokeV.objValue;

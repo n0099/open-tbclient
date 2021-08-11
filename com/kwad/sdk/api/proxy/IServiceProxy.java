@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import com.kwad.sdk.api.core.KsAdSdkDynamicApi;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface IServiceProxy extends IComponentProxy {
     @KsAdSdkDynamicApi
     @Keep

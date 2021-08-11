@@ -23,7 +23,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -48,7 +47,6 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.cursoradapter.widget.CursorAdapter;
 import androidx.customview.view.AbsSavedState;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -787,7 +785,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, uri, str2, str3, Integer.valueOf(i2), str4})) == null) {
             Intent intent = new Intent(str);
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
             if (uri != null) {
                 intent.setData(uri);
             }
@@ -819,29 +817,31 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, this, cursor, i2, str)) == null) {
             try {
-                String columnString2 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_action");
-                if (columnString2 == null) {
-                    columnString2 = this.mSearchable.getSuggestIntentAction();
-                }
-                if (columnString2 == null) {
-                    columnString2 = "android.intent.action.SEARCH";
-                }
-                String str2 = columnString2;
-                String columnString3 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data");
-                if (columnString3 == null) {
-                    columnString3 = this.mSearchable.getSuggestIntentData();
-                }
-                if (columnString3 != null && (columnString = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data_id")) != null) {
-                    columnString3 = columnString3 + "/" + Uri.encode(columnString);
-                }
-                return createIntent(str2, columnString3 == null ? null : Uri.parse(columnString3), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_extra_data"), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_query"), i2, str);
-            } catch (RuntimeException e2) {
                 try {
-                    i3 = cursor.getPosition();
+                    String columnString2 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_action");
+                    if (columnString2 == null) {
+                        columnString2 = this.mSearchable.getSuggestIntentAction();
+                    }
+                    if (columnString2 == null) {
+                        columnString2 = "android.intent.action.SEARCH";
+                    }
+                    String str2 = columnString2;
+                    String columnString3 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data");
+                    if (columnString3 == null) {
+                        columnString3 = this.mSearchable.getSuggestIntentData();
+                    }
+                    if (columnString3 != null && (columnString = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data_id")) != null) {
+                        columnString3 = columnString3 + "/" + Uri.encode(columnString);
+                    }
+                    return createIntent(str2, columnString3 == null ? null : Uri.parse(columnString3), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_extra_data"), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_query"), i2, str);
                 } catch (RuntimeException unused) {
-                    i3 = -1;
+                    i3 = cursor.getPosition();
+                    String str3 = "Search suggestions cursor at row " + i3 + " returned exception.";
+                    return null;
                 }
-                Log.w(LOG_TAG, "Search suggestions cursor at row " + i3 + " returned exception.", e2);
+            } catch (RuntimeException unused2) {
+                i3 = -1;
+                String str32 = "Search suggestions cursor at row " + i3 + " returned exception.";
                 return null;
             }
         }
@@ -979,8 +979,8 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
         try {
             getContext().startActivity(intent);
-        } catch (RuntimeException e2) {
-            Log.e(LOG_TAG, "Failed launch activity: " + intent, e2);
+        } catch (RuntimeException unused) {
+            String str = "Failed launch activity: " + intent;
         }
     }
 
@@ -1531,7 +1531,6 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 getContext().startActivity(createVoiceAppSearchIntent(this.mVoiceAppSearchIntent, searchableInfo));
             }
         } catch (ActivityNotFoundException unused) {
-            Log.w(LOG_TAG, "Could not find voice search activity");
         }
     }
 
@@ -1990,9 +1989,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
                     this.this$0.onItemClicked(i5, 0, null);
                 }
             }
@@ -2021,9 +2020,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
 
             @Override // android.widget.AdapterView.OnItemSelectedListener
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
                     this.this$0.onItemSelected(i5);
                 }
             }
@@ -2167,11 +2166,11 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         obtainStyledAttributes.recycle();
         Intent intent = new Intent("android.speech.action.WEB_SEARCH");
         this.mVoiceWebSearchIntent = intent;
-        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        intent.addFlags(268435456);
         this.mVoiceWebSearchIntent.putExtra("android.speech.extra.LANGUAGE_MODEL", "web_search");
         Intent intent2 = new Intent("android.speech.action.RECOGNIZE_SPEECH");
         this.mVoiceAppSearchIntent = intent2;
-        intent2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        intent2.addFlags(268435456);
         View findViewById = findViewById(this.mSearchSrcTextView.getDropDownAnchor());
         this.mDropDownAnchor = findViewById;
         if (findViewById != null) {

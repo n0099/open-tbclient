@@ -23,7 +23,7 @@ import io.reactivex.internal.util.AtomicThrowable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
     public final boolean delayErrors;
     public final Function<? super T, ? extends ObservableSource<? extends R>> mapper;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SwitchMapInnerObserver<T, R> extends AtomicReference<Disposable> implements Observer<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3837284832786408377L;
@@ -42,12 +42,12 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
         public final SwitchMapObserver<T, R> parent;
         public volatile SimpleQueue<R> queue;
 
-        public SwitchMapInnerObserver(SwitchMapObserver<T, R> switchMapObserver, long j, int i2) {
+        public SwitchMapInnerObserver(SwitchMapObserver<T, R> switchMapObserver, long j2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {switchMapObserver, Long.valueOf(j), Integer.valueOf(i2)};
+                Object[] objArr = {switchMapObserver, Long.valueOf(j2), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -58,7 +58,7 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
                 }
             }
             this.parent = switchMapObserver;
-            this.index = j;
+            this.index = j2;
             this.bufferSize = i2;
         }
 
@@ -119,7 +119,7 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SwitchMapObserver<T, R> extends AtomicInteger implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final SwitchMapInnerObserver<Object, Object> CANCELLED;
@@ -354,15 +354,15 @@ public final class ObservableSwitchMap<T, R> extends AbstractObservableWithUpstr
             SwitchMapInnerObserver<T, R> switchMapInnerObserver;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-                long j = this.unique + 1;
-                this.unique = j;
+                long j2 = this.unique + 1;
+                this.unique = j2;
                 SwitchMapInnerObserver<T, R> switchMapInnerObserver2 = this.active.get();
                 if (switchMapInnerObserver2 != null) {
                     switchMapInnerObserver2.cancel();
                 }
                 try {
                     ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.mapper.apply(t), "The ObservableSource returned is null");
-                    SwitchMapInnerObserver<T, R> switchMapInnerObserver3 = new SwitchMapInnerObserver<>(this, j, this.bufferSize);
+                    SwitchMapInnerObserver<T, R> switchMapInnerObserver3 = new SwitchMapInnerObserver<>(this, j2, this.bufferSize);
                     do {
                         switchMapInnerObserver = this.active.get();
                         if (switchMapInnerObserver == CANCELLED) {

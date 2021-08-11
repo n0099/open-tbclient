@@ -1,7 +1,7 @@
 package com.baidu.webkit.sdk;
 
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface IABTestInterface {
     JSONObject getRawSwitch();
 
@@ -9,7 +9,7 @@ public interface IABTestInterface {
 
     int getSwitch(String str, int i2);
 
-    long getSwitch(String str, long j);
+    long getSwitch(String str, long j2);
 
     String getSwitch(String str, String str2);
 

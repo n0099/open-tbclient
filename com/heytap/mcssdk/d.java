@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.utils.LogUtil;
 import com.mcs.aidl.IMcsSdkService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class d implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Intent f33763a;
+    public final /* synthetic */ Intent f70493a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PushManager f33764b;
+    public final /* synthetic */ PushManager f70494b;
 
     public d(PushManager pushManager, Intent intent) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public final class d implements ServiceConnection {
                 return;
             }
         }
-        this.f33764b = pushManager;
-        this.f33763a = intent;
+        this.f70494b = pushManager;
+        this.f70493a = intent;
     }
 
     @Override // android.content.ServiceConnection
@@ -49,13 +49,13 @@ public final class d implements ServiceConnection {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             Bundle bundle = new Bundle();
-            bundle.putAll(this.f33763a.getExtras());
+            bundle.putAll(this.f70493a.getExtras());
             try {
                 IMcsSdkService.Stub.asInterface(iBinder).process(bundle);
             } catch (Exception e2) {
                 LogUtil.d("bindMcsService exception:" + e2);
             }
-            context = this.f33764b.mContext;
+            context = this.f70494b.mContext;
             context.unbindService(this);
         }
     }

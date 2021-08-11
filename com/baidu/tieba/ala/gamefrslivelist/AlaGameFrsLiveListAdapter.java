@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<Fragment> f14295a;
+    public List<Fragment> f49434a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameFrsLiveListAdapter(FragmentManager fragmentManager) {
@@ -38,19 +38,12 @@ public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
         }
     }
 
-    public void b(List<Fragment> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f14295a = list;
-        }
-    }
-
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<Fragment> list = this.f14295a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<Fragment> list = this.f49434a;
             if (list != null) {
                 return list.size();
             }
@@ -63,12 +56,19 @@ public class AlaGameFrsLiveListAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (this.f14295a.size() > i2) {
-                return this.f14295a.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+            if (this.f49434a.size() > i2) {
+                return this.f49434a.get(i2);
             }
             return null;
         }
         return (Fragment) invokeI.objValue;
+    }
+
+    public void setFragments(List<Fragment> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.f49434a = list;
+        }
     }
 }

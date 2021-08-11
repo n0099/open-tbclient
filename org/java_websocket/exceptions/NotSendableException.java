@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class NotSendableException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6468967874576651628L;

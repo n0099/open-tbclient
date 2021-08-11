@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TbSettingTextNewDotView extends TbSettingTextTipView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,15 +36,15 @@ public class TbSettingTextNewDotView extends TbSettingTextTipView {
         }
     }
 
-    public void i() {
+    public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (PluginPackageManager.O().g0()) {
-                this.j.setVisibility(0);
-                SkinManager.setBackgroundResource(this.j, R.drawable.icon_news_head_new);
+                this.tipView.setVisibility(0);
+                SkinManager.setBackgroundResource(this.tipView, R.drawable.icon_news_head_new);
                 return;
             }
-            this.j.setVisibility(4);
+            this.tipView.setVisibility(4);
         }
     }
 

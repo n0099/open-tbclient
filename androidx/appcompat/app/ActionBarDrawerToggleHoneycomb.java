@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -124,8 +123,7 @@ public class ActionBarDrawerToggleHoneycomb {
                     if (Build.VERSION.SDK_INT <= 19) {
                         actionBar.setSubtitle(actionBar.getSubtitle());
                     }
-                } catch (Exception e2) {
-                    Log.w(TAG, "Couldn't set content description via JB-MR2 API", e2);
+                } catch (Exception unused) {
                 }
             }
             return setIndicatorInfo;
@@ -143,15 +141,12 @@ public class ActionBarDrawerToggleHoneycomb {
                     android.app.ActionBar actionBar = activity.getActionBar();
                     setIndicatorInfo.setHomeAsUpIndicator.invoke(actionBar, drawable);
                     setIndicatorInfo.setHomeActionContentDescription.invoke(actionBar, Integer.valueOf(i2));
-                } catch (Exception e2) {
-                    Log.w(TAG, "Couldn't set home-as-up indicator via JB-MR2 API", e2);
+                } catch (Exception unused) {
                 }
             } else {
                 ImageView imageView = setIndicatorInfo.upIndicatorView;
                 if (imageView != null) {
                     imageView.setImageDrawable(drawable);
-                } else {
-                    Log.w(TAG, "Couldn't set home-as-up indicator");
                 }
             }
             return setIndicatorInfo;

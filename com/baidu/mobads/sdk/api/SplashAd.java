@@ -8,6 +8,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e0.a.b.a;
+import c.a.h0.a.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.sdk.internal.AdElementInfo;
 import com.baidu.mobads.sdk.internal.ScreenUtils;
@@ -21,12 +23,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.f0.a.b.a;
-import d.a.i0.a.g.d;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SplashAd implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_BOTTOM_LOGO_HEIGHT = "bottomLogoHeight";
@@ -54,12 +54,12 @@ public class SplashAd implements d {
     public int mTimeout;
     public int mTipStyle;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnFinishListener {
         void onFinishActivity();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface SplashFocusAdListener {
         void onAdClick();
 
@@ -130,7 +130,7 @@ public class SplashAd implements d {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("place_id", this.mAdPlaceId);
-                jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f42713a.get().A()) ? "bes_cpc" : "gd");
+                jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f3041a.get().A()) ? "bes_cpc" : "gd");
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

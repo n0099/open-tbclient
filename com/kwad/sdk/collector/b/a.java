@@ -10,24 +10,24 @@ import com.kwad.sdk.core.network.d;
 import com.kwad.sdk.utils.q;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public C0406a f34206b;
+    public C1973a f70937b;
 
     /* renamed from: com.kwad.sdk.collector.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0406a {
+    /* loaded from: classes10.dex */
+    public static class C1973a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<String> f34207a;
+        public List<String> f70938a;
 
-        public C0406a(List<String> list) {
+        public C1973a(List<String> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -42,7 +42,7 @@ public class a extends d {
                     return;
                 }
             }
-            this.f34207a = list;
+            this.f70938a = list;
         }
 
         public JSONObject a() {
@@ -50,7 +50,7 @@ public class a extends d {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                q.a(jSONObject, "packageName", this.f34207a);
+                q.a(jSONObject, "packageName", this.f70938a);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -72,9 +72,9 @@ public class a extends d {
                 return;
             }
         }
-        C0406a c0406a = new C0406a(list);
-        this.f34206b = c0406a;
-        a("targetAppInfo", c0406a.a());
+        C1973a c1973a = new C1973a(list);
+        this.f70937b = c1973a;
+        a("targetAppInfo", c1973a.a());
         b(CommandMessage.SDK_VERSION, "3.3.11");
         a("sdkVersionCode", 3031100);
     }

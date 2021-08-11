@@ -20,12 +20,12 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class FileCopyUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5406a = 4096;
+    public static final int f39350a = 4096;
     public transient /* synthetic */ FieldHolder $fh;
 
     public FileCopyUtils() {
@@ -51,80 +51,6 @@ public abstract class FileCopyUtils {
             return copy(new BufferedInputStream(new FileInputStream(file)), new BufferedOutputStream(new FileOutputStream(file2)));
         }
         return invokeLL.intValue;
-    }
-
-    public static byte[] copyToByteArray(File file) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
-            Assert.notNull(file, "No input File specified");
-            return copyToByteArray(new BufferedInputStream(new FileInputStream(file)));
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static boolean copyToFile(InputStream inputStream, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, inputStream, file)) == null) {
-            try {
-                if (file.exists()) {
-                    file.delete();
-                }
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                byte[] bArr = new byte[4096];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read < 0) {
-                        break;
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                fileOutputStream.flush();
-                try {
-                    fileOutputStream.getFD().sync();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                fileOutputStream.close();
-                return true;
-            } catch (IOException e3) {
-                e3.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static String copyToString(Reader reader) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, reader)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            copy(reader, stringWriter);
-            return stringWriter.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static byte[] copyToByteArray(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, inputStream)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(4096);
-            copy(inputStream, byteArrayOutputStream);
-            return byteArrayOutputStream.toByteArray();
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static void copy(byte[] bArr, File file) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, file) == null) {
-            Assert.notNull(bArr, "No input byte array specified");
-            Assert.notNull(file, "No output File specified");
-            copy(new ByteArrayInputStream(bArr), new BufferedOutputStream(new FileOutputStream(file)));
-        }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -163,49 +89,6 @@ public abstract class FileCopyUtils {
             }
         }
         return invokeLL.intValue;
-    }
-
-    public static boolean copyToFile(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, file)) == null) {
-            try {
-                if (file.exists()) {
-                    file.delete();
-                }
-                FileOutputStream fileOutputStream = new FileOutputStream(file);
-                fileOutputStream.write(str.getBytes());
-                fileOutputStream.flush();
-                try {
-                    fileOutputStream.getFD().sync();
-                } catch (IOException e2) {
-                    e2.printStackTrace();
-                }
-                fileOutputStream.close();
-                return true;
-            } catch (IOException e3) {
-                e3.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    public static void copy(byte[] bArr, OutputStream outputStream) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, outputStream) == null) {
-            Assert.notNull(bArr, "No input byte array specified");
-            Assert.notNull(outputStream, "No OutputStream specified");
-            try {
-                outputStream.write(bArr);
-            } finally {
-                try {
-                    outputStream.close();
-                } catch (IOException unused) {
-                }
-            }
-        }
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
@@ -261,5 +144,122 @@ public abstract class FileCopyUtils {
                 }
             }
         }
+    }
+
+    public static void copy(byte[] bArr, File file) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, file) == null) {
+            Assert.notNull(bArr, "No input byte array specified");
+            Assert.notNull(file, "No output File specified");
+            copy(new ByteArrayInputStream(bArr), new BufferedOutputStream(new FileOutputStream(file)));
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    public static void copy(byte[] bArr, OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, bArr, outputStream) == null) {
+            Assert.notNull(bArr, "No input byte array specified");
+            Assert.notNull(outputStream, "No OutputStream specified");
+            try {
+                outputStream.write(bArr);
+            } finally {
+                try {
+                    outputStream.close();
+                } catch (IOException unused) {
+                }
+            }
+        }
+    }
+
+    public static byte[] copyToByteArray(File file) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            Assert.notNull(file, "No input File specified");
+            return copyToByteArray(new BufferedInputStream(new FileInputStream(file)));
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] copyToByteArray(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, inputStream)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(4096);
+            copy(inputStream, byteArrayOutputStream);
+            return byteArrayOutputStream.toByteArray();
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static boolean copyToFile(InputStream inputStream, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, inputStream, file)) == null) {
+            try {
+                if (file.exists()) {
+                    file.delete();
+                }
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                byte[] bArr = new byte[4096];
+                while (true) {
+                    int read = inputStream.read(bArr);
+                    if (read < 0) {
+                        break;
+                    }
+                    fileOutputStream.write(bArr, 0, read);
+                }
+                fileOutputStream.flush();
+                try {
+                    fileOutputStream.getFD().sync();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                fileOutputStream.close();
+                return true;
+            } catch (IOException e3) {
+                e3.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean copyToFile(String str, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, file)) == null) {
+            try {
+                if (file.exists()) {
+                    file.delete();
+                }
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                fileOutputStream.write(str.getBytes());
+                fileOutputStream.flush();
+                try {
+                    fileOutputStream.getFD().sync();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                fileOutputStream.close();
+                return true;
+            } catch (IOException e3) {
+                e3.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static String copyToString(Reader reader) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, reader)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            copy(reader, stringWriter);
+            return stringWriter.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

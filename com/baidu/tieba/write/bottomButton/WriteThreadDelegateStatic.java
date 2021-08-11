@@ -3,6 +3,8 @@ package com.baidu.tieba.write.bottomButton;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import c.a.o0.g0.b;
+import c.a.o0.g0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
@@ -12,9 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.g0.b;
-import d.a.p0.g0.c;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WriteThreadDelegateStatic extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,23 +33,23 @@ public class WriteThreadDelegateStatic extends b {
         }
     }
 
-    @Override // d.a.p0.g0.b
+    @Override // c.a.o0.g0.b
     public c createFragmentTabStructure() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c();
-            cVar.f52618a = new WriteThreadFragment();
-            cVar.f52622e = 9;
-            cVar.f52619b = R.string.send;
-            cVar.f52621d = R.drawable.icon_tabbar_add_n;
-            cVar.f52626i = c.j;
+            cVar.f13185a = new WriteThreadFragment();
+            cVar.f13189e = 9;
+            cVar.f13186b = R.string.send;
+            cVar.f13188d = R.drawable.icon_tabbar_add_n;
+            cVar.f13193i = c.f13184j;
             return cVar;
         }
         return (c) invokeV.objValue;
     }
 
-    @Override // d.a.p0.g0.b
+    @Override // c.a.o0.g0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class WriteThreadDelegateStatic extends b {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // d.a.p0.g0.b
+    @Override // c.a.o0.g0.b
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

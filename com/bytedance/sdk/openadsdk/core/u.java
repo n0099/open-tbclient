@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,16 +23,16 @@ import com.bytedance.sdk.openadsdk.TTSecAbs;
 import com.bytedance.sdk.openadsdk.activity.base.TTDelegateActivity;
 import com.bytedance.sdk.openadsdk.downloadnew.core.ExitInstallListener;
 import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class u implements TTAdManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30715a;
+    public String f66639a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30716b;
+    public String f66640b;
 
     public u() {
         Interceptable interceptable = $ic;
@@ -48,8 +47,8 @@ public class u implements TTAdManager {
                 return;
             }
         }
-        this.f30715a = "com.union_test.toutiao";
-        this.f30716b = "5001121";
+        this.f66639a = "com.union_test.toutiao";
+        this.f66640b = "5001121";
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -164,7 +163,7 @@ public class u implements TTAdManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{str, Integer.valueOf(i2), str2, str3, str4})) == null) {
-            if (this.f30715a.equals(o.a().getPackageName()) && this.f30716b.equals(h.d().h()) && !TextUtils.isEmpty(str)) {
+            if (this.f66639a.equals(o.a().getPackageName()) && this.f66640b.equals(h.d().h()) && !TextUtils.isEmpty(str)) {
                 try {
                     Method a2 = com.bytedance.sdk.component.utils.v.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "verityPlayable", String.class, Integer.TYPE, String.class, String.class, String.class);
                     if (a2 != null) {
@@ -209,7 +208,7 @@ public class u implements TTAdManager {
             }
         }
         Intent intent = new Intent(context, TTDelegateActivity.class);
-        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        intent.addFlags(268435456);
         intent.putExtra("type", 2);
         if (context != null) {
             com.bytedance.sdk.component.utils.b.a(context, intent, null);

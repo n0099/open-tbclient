@@ -15,40 +15,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ReverseGeoCodeResult extends SearchResult {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ReverseGeoCodeResult> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7326a;
+    public String f41585a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7327b;
+    public String f41586b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AddressComponent f7328c;
+    public AddressComponent f41587c;
 
     /* renamed from: d  reason: collision with root package name */
-    public LatLng f7329d;
+    public LatLng f41588d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7330e;
+    public int f41589e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<PoiInfo> f7331f;
+    public List<PoiInfo> f41590f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f7332g;
+    public String f41591g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<PoiRegionsInfo> f7333h;
+    public List<PoiRegionsInfo> f41592h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f7334i;
+    public int f41593i;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class AddressComponent implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<AddressComponent> CREATOR;
@@ -191,7 +191,7 @@ public class ReverseGeoCodeResult extends SearchResult {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class PoiRegionsInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<PoiRegionsInfo> CREATOR;
@@ -358,13 +358,13 @@ public class ReverseGeoCodeResult extends SearchResult {
                 return;
             }
         }
-        this.f7326a = parcel.readString();
-        this.f7327b = parcel.readString();
-        this.f7328c = (AddressComponent) parcel.readParcelable(AddressComponent.class.getClassLoader());
-        this.f7329d = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f7331f = parcel.createTypedArrayList(PoiInfo.CREATOR);
-        this.f7332g = parcel.readString();
-        this.f7333h = parcel.createTypedArrayList(PoiRegionsInfo.CREATOR);
+        this.f41585a = parcel.readString();
+        this.f41586b = parcel.readString();
+        this.f41587c = (AddressComponent) parcel.readParcelable(AddressComponent.class.getClassLoader());
+        this.f41588d = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f41590f = parcel.createTypedArrayList(PoiInfo.CREATOR);
+        this.f41591g = parcel.readString();
+        this.f41592h = parcel.createTypedArrayList(PoiRegionsInfo.CREATOR);
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -380,117 +380,117 @@ public class ReverseGeoCodeResult extends SearchResult {
     public int getAdcode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7334i : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41593i : invokeV.intValue;
     }
 
     public String getAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7327b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41586b : (String) invokeV.objValue;
     }
 
     public AddressComponent getAddressDetail() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7328c : (AddressComponent) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41587c : (AddressComponent) invokeV.objValue;
     }
 
     public String getBusinessCircle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7326a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41585a : (String) invokeV.objValue;
     }
 
     public int getCityCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7330e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41589e : invokeV.intValue;
     }
 
     public LatLng getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f7329d : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41588d : (LatLng) invokeV.objValue;
     }
 
     public List<PoiInfo> getPoiList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f7331f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41590f : (List) invokeV.objValue;
     }
 
     public List<PoiRegionsInfo> getPoiRegionsInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7333h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41592h : (List) invokeV.objValue;
     }
 
     public String getSematicDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f7332g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41591g : (String) invokeV.objValue;
     }
 
     public void setAdcode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f7334i = i2;
+            this.f41593i = i2;
         }
     }
 
     public void setAddress(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f7327b = str;
+            this.f41586b = str;
         }
     }
 
     public void setAddressDetail(AddressComponent addressComponent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, addressComponent) == null) {
-            this.f7328c = addressComponent;
+            this.f41587c = addressComponent;
         }
     }
 
     public void setBusinessCircle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f7326a = str;
+            this.f41585a = str;
         }
     }
 
     public void setCityCode(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f7330e = i2;
+            this.f41589e = i2;
         }
     }
 
     public void setLocation(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, latLng) == null) {
-            this.f7329d = latLng;
+            this.f41588d = latLng;
         }
     }
 
     public void setPoiList(List<PoiInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
-            this.f7331f = list;
+            this.f41590f = list;
         }
     }
 
     public void setPoiRegionsInfoList(List<PoiRegionsInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
-            this.f7333h = list;
+            this.f41592h = list;
         }
     }
 
     public void setSematicDescription(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f7332g = str;
+            this.f41591g = str;
         }
     }
 
@@ -500,44 +500,44 @@ public class ReverseGeoCodeResult extends SearchResult {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer("ReverseGeoCodeResult: \n");
             stringBuffer.append("businessCircle = ");
-            stringBuffer.append(this.f7326a);
+            stringBuffer.append(this.f41585a);
             stringBuffer.append("; address = ");
-            stringBuffer.append(this.f7327b);
+            stringBuffer.append(this.f41586b);
             stringBuffer.append("; location = ");
-            stringBuffer.append(this.f7329d);
+            stringBuffer.append(this.f41588d);
             stringBuffer.append("; sematicDescription = ");
-            stringBuffer.append(this.f7332g);
-            if (this.f7328c != null) {
+            stringBuffer.append(this.f41591g);
+            if (this.f41587c != null) {
                 stringBuffer.append("\n#AddressComponent Info BEGIN# \n");
                 stringBuffer.append("streetNumber = ");
-                stringBuffer.append(this.f7328c.streetNumber);
+                stringBuffer.append(this.f41587c.streetNumber);
                 stringBuffer.append("; street = ");
-                stringBuffer.append(this.f7328c.street);
+                stringBuffer.append(this.f41587c.street);
                 stringBuffer.append("; town = ");
-                stringBuffer.append(this.f7328c.town);
+                stringBuffer.append(this.f41587c.town);
                 stringBuffer.append("; district = ");
-                stringBuffer.append(this.f7328c.district);
+                stringBuffer.append(this.f41587c.district);
                 stringBuffer.append("; city = ");
-                stringBuffer.append(this.f7328c.city);
+                stringBuffer.append(this.f41587c.city);
                 stringBuffer.append("; province = ");
-                stringBuffer.append(this.f7328c.province);
+                stringBuffer.append(this.f41587c.province);
                 stringBuffer.append("; countryName = ");
-                stringBuffer.append(this.f7328c.countryName);
+                stringBuffer.append(this.f41587c.countryName);
                 stringBuffer.append("; countryCode = ");
-                stringBuffer.append(this.f7328c.countryCode);
+                stringBuffer.append(this.f41587c.countryCode);
                 stringBuffer.append("; adcode = ");
-                stringBuffer.append(this.f7328c.adcode);
+                stringBuffer.append(this.f41587c.adcode);
                 stringBuffer.append("; direction = ");
-                stringBuffer.append(this.f7328c.direction);
+                stringBuffer.append(this.f41587c.direction);
                 stringBuffer.append("; distance = ");
-                stringBuffer.append(this.f7328c.distance);
+                stringBuffer.append(this.f41587c.distance);
                 stringBuffer.append("\n#AddressComponent Info END# \n");
             }
-            List<PoiRegionsInfo> list = this.f7333h;
+            List<PoiRegionsInfo> list = this.f41592h;
             if (list != null && !list.isEmpty()) {
                 stringBuffer.append("\n#PoiRegions Info  BEGIN#");
-                for (int i2 = 0; i2 < this.f7333h.size(); i2++) {
-                    PoiRegionsInfo poiRegionsInfo = this.f7333h.get(i2);
+                for (int i2 = 0; i2 < this.f41592h.size(); i2++) {
+                    PoiRegionsInfo poiRegionsInfo = this.f41592h.get(i2);
                     if (poiRegionsInfo != null) {
                         stringBuffer.append("\ndirectionDesc = ");
                         stringBuffer.append(poiRegionsInfo.getDirectionDesc());
@@ -549,11 +549,11 @@ public class ReverseGeoCodeResult extends SearchResult {
                 }
                 stringBuffer.append("\n#PoiRegions Info  END# \n");
             }
-            List<PoiInfo> list2 = this.f7331f;
+            List<PoiInfo> list2 = this.f41590f;
             if (list2 != null && !list2.isEmpty()) {
                 stringBuffer.append("\n #PoiList Info  BEGIN#");
-                for (int i3 = 0; i3 < this.f7331f.size(); i3++) {
-                    PoiInfo poiInfo = this.f7331f.get(i3);
+                for (int i3 = 0; i3 < this.f41590f.size(); i3++) {
+                    PoiInfo poiInfo = this.f41590f.get(i3);
                     if (poiInfo != null) {
                         stringBuffer.append("\n address = ");
                         stringBuffer.append(poiInfo.getAddress());
@@ -603,13 +603,13 @@ public class ReverseGeoCodeResult extends SearchResult {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048596, this, parcel, i2) == null) {
             super.writeToParcel(parcel, i2);
-            parcel.writeString(this.f7326a);
-            parcel.writeString(this.f7327b);
-            parcel.writeParcelable(this.f7328c, 0);
-            parcel.writeValue(this.f7329d);
-            parcel.writeTypedList(this.f7331f);
-            parcel.writeString(this.f7332g);
-            parcel.writeTypedList(this.f7333h);
+            parcel.writeString(this.f41585a);
+            parcel.writeString(this.f41586b);
+            parcel.writeParcelable(this.f41587c, 0);
+            parcel.writeValue(this.f41588d);
+            parcel.writeTypedList(this.f41590f);
+            parcel.writeString(this.f41591g);
+            parcel.writeTypedList(this.f41592h);
         }
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AdditionData;
@@ -17,8 +18,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TransmitPostEditActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDITION_DATA = "addition_data";
@@ -27,6 +27,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
     public static final String CONTENT = "write_content";
     public static final String FORUM_ID = "forum_id";
     public static final String FORUM_NAME = "forum_name";
+    public static final String FROM_SHARE = "from_share";
     public static final String HOT_TOPIC = "hot_topic";
     public static final String HOT_TOPIC_POST_FORUM = "hot_topic_forum_list";
     public static final String IS_SAVE_DRAFTE = "need_save_draft";
@@ -135,9 +136,17 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
         getIntent().putExtra("tab_list", frsTabInfoData);
     }
 
+    public void setIsShare(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || getIntent() == null) {
+            return;
+        }
+        getIntent().putExtra("from_share", z);
+    }
+
     public void setPrivateThread(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra("private_thread", i2);
@@ -145,7 +154,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
 
     public void setTitleAndContent(String str, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048583, this, str, str2, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, z) == null) {
             getIntent().putExtra("write_title", str);
             getIntent().putExtra("write_content", str2);
             getIntent().putExtra("need_save_draft", z);
@@ -154,7 +163,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
 
     public void setTransmitOriginThreadComment(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TRANSMIT_ORIGIN_THREAD_CONTENT, str);
@@ -162,7 +171,7 @@ public class TransmitPostEditActivityConfig extends IntentConfig {
 
     public void setTransmitThreadAuthorNameShow(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || getIntent() == null) {
             return;
         }
         getIntent().putExtra(TRANSMIT_THREAD_AUTHOR_NAME_SHOW, str);

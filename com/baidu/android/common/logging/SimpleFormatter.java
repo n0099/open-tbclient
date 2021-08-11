@@ -14,7 +14,8 @@ import java.text.MessageFormat;
 import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes4.dex */
 public class SimpleFormatter extends Formatter {
     public static /* synthetic */ Interceptable $ic = null;
     public static String format = "{0,date} {0,time}";
@@ -116,7 +117,7 @@ public class SimpleFormatter extends Formatter {
                 stringBuffer2.append(logRecord.getLevel().getLocalizedName());
                 stringBuffer2.append(": ");
                 stringBuffer2.append(formatMessage);
-                stringBuffer2.append("\n");
+                stringBuffer2.append(StringUtils.LF);
                 if (logRecord.getThrown() != null) {
                     try {
                         StringWriter stringWriter = new StringWriter();

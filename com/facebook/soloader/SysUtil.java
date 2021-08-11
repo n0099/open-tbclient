@@ -21,7 +21,7 @@ import java.io.FileDescriptor;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class SysUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte APK_SIGNATURE_VERSION = 1;
@@ -29,7 +29,7 @@ public final class SysUtil {
 
     @DoNotOptimize
     @TargetApi(21)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class LollipopSysdeps {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,11 +49,11 @@ public final class SysUtil {
         }
 
         @DoNotOptimize
-        public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j) throws IOException {
+        public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j2) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(65537, null, fileDescriptor, j) == null) {
+            if (interceptable == null || interceptable.invokeLJ(65537, null, fileDescriptor, j2) == null) {
                 try {
-                    Os.posix_fallocate(fileDescriptor, 0L, j);
+                    Os.posix_fallocate(fileDescriptor, 0L, j2);
                 } catch (ErrnoException e2) {
                     int i2 = e2.errno;
                     if (i2 != OsConstants.EOPNOTSUPP && i2 != OsConstants.ENOSYS && i2 != OsConstants.EINVAL) {
@@ -130,12 +130,12 @@ public final class SysUtil {
         }
     }
 
-    public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j) throws IOException {
+    public static void fallocateIfSupported(FileDescriptor fileDescriptor, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, fileDescriptor, j) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, fileDescriptor, j2) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        LollipopSysdeps.fallocateIfSupported(fileDescriptor, j);
+        LollipopSysdeps.fallocateIfSupported(fileDescriptor, j2);
     }
 
     public static int findAbiScore(String[] strArr, String str) {
@@ -167,7 +167,7 @@ public final class SysUtil {
                 }
                 throw new IOException("cannot list directory " + file);
             } else if (!file.getPath().endsWith("_lock")) {
-                RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7788a);
+                RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f42062a);
                 try {
                     randomAccessFile.getFD().sync();
                     randomAccessFile.close();

@@ -9,30 +9,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class M {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final M f39596a;
+    public static final M f76432a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final M f39597b;
+    public static final M f76433b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final M f39598c;
+    public static final M f76434c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final M f39599d;
+    public static final M f76435d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final M f39600e;
+    public static final M f76436e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final M f39601f;
+    public static final M f76437f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ M[] f39602g;
+    public static final /* synthetic */ M[] f76438g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,14 +48,14 @@ public final class M {
                 return;
             }
         }
-        f39596a = new M("BANNER", 0);
-        f39597b = new M("INTERSTITIAL", 1);
-        f39598c = new M(Constant.TYPE_NATIVE, 2);
-        f39599d = new M("Video", 3);
-        f39600e = new M("SPLASH", 4);
+        f76432a = new M("BANNER", 0);
+        f76433b = new M("INTERSTITIAL", 1);
+        f76434c = new M(Constant.TYPE_NATIVE, 2);
+        f76435d = new M("Video", 3);
+        f76436e = new M("SPLASH", 4);
         M m = new M("DRAW_VIDEO", 5);
-        f39601f = m;
-        f39602g = new M[]{f39596a, f39597b, f39598c, f39599d, f39600e, m};
+        f76437f = m;
+        f76438g = new M[]{f76432a, f76433b, f76434c, f76435d, f76436e, m};
     }
 
     public M(String str, int i2) {
@@ -86,6 +86,6 @@ public final class M {
     public static M[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (M[]) f39602g.clone() : (M[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (M[]) f76438g.clone() : (M[]) invokeV.objValue;
     }
 }

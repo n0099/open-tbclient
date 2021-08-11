@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.heytap.mcssdk.mode.CommandMessage;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f3187b;
+    public static i f37077b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f3188a;
+    public final Context f37078a;
 
     public i(Context context) {
         Interceptable interceptable = $ic;
@@ -43,7 +43,7 @@ public class i {
                 return;
             }
         }
-        this.f3188a = context;
+        this.f37078a = context;
         com.baidu.android.pushservice.a.b.a(context);
         k.a(context);
         com.baidu.android.pushservice.h.d.a();
@@ -55,10 +55,10 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (i.class) {
-                if (f3187b == null) {
-                    f3187b = new i(context);
+                if (f37077b == null) {
+                    f37077b = new i(context);
                 }
-                iVar = f3187b;
+                iVar = f37077b;
             }
             return iVar;
         }
@@ -68,14 +68,14 @@ public class i {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            com.baidu.android.pushservice.i.a.c.a(this.f3188a.getApplicationContext());
+            com.baidu.android.pushservice.i.a.c.a(this.f37078a.getApplicationContext());
         }
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            PushSettings.a(this.f3188a, 0);
+            PushSettings.a(this.f37078a, 0);
         }
     }
 
@@ -87,35 +87,35 @@ public class i {
             com.baidu.android.pushservice.d.i iVar = new com.baidu.android.pushservice.d.i(intent);
             int intExtra = intent.getIntExtra("bind_status", 0);
             int intExtra2 = intent.getIntExtra("push_sdk_version", 0);
-            com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< METHOD_BIND ", this.f3188a);
-            m.a("RegistrationService#handleBind#METHOD_BIND request arrive at " + System.currentTimeMillis(), this.f3188a);
-            String d2 = com.baidu.android.pushservice.a.b.a(this.f3188a).d(iVar.f3060d);
-            if (!TextUtils.isEmpty(iVar.f3063g) && com.baidu.android.pushservice.a.b.a(this.f3188a).b(iVar.f3060d, iVar.f3063g) && !TextUtils.isEmpty(d2)) {
+            com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< METHOD_BIND ", this.f37078a);
+            m.a("RegistrationService#handleBind#METHOD_BIND request arrive at " + System.currentTimeMillis(), this.f37078a);
+            String d2 = com.baidu.android.pushservice.a.b.a(this.f37078a).d(iVar.f36945d);
+            if (!TextUtils.isEmpty(iVar.f36948g) && com.baidu.android.pushservice.a.b.a(this.f37078a).b(iVar.f36945d, iVar.f36948g) && !TextUtils.isEmpty(d2)) {
                 Intent intent2 = new Intent();
-                intent2.putExtra("method", iVar.f3057a);
+                intent2.putExtra("method", iVar.f36942a);
                 intent2.putExtra("error_msg", 0);
                 intent2.putExtra("content", d2.getBytes());
                 intent2.putExtra("bind_status", intExtra);
-                m.b(this.f3188a, intent2, "com.baidu.android.pushservice.action.RECEIVE", iVar.f3060d);
-                m.a("RegistrationService#handleBind#returned by cacheContent = " + d2, this.f3188a);
+                m.b(this.f37078a, intent2, "com.baidu.android.pushservice.action.RECEIVE", iVar.f36945d);
+                m.a("RegistrationService#handleBind#returned by cacheContent = " + d2, this.f37078a);
                 return;
             }
-            m.a("RegistrationService#handleBind#METHOD_BIND request start at " + System.currentTimeMillis(), this.f3188a);
+            m.a("RegistrationService#handleBind#METHOD_BIND request start at " + System.currentTimeMillis(), this.f37078a);
             if (intent.hasExtra("bind_notify_status")) {
-                a2 = a(new com.baidu.android.pushservice.d.e(iVar, this.f3188a, intExtra, intExtra2, intent.getStringExtra("bind_notify_status")));
+                a2 = a(new com.baidu.android.pushservice.d.e(iVar, this.f37078a, intExtra, intExtra2, intent.getStringExtra("bind_notify_status")));
                 sb = new StringBuilder();
             } else {
-                a2 = a(new com.baidu.android.pushservice.d.e(iVar, this.f3188a, intExtra, intExtra2));
+                a2 = a(new com.baidu.android.pushservice.d.e(iVar, this.f37078a, intExtra, intExtra2));
                 sb = new StringBuilder();
             }
             sb.append("submitApiProcessor for bind=");
             sb.append(iVar.toString());
-            m.a(sb.toString(), this.f3188a);
+            m.a(sb.toString(), this.f37078a);
             if (a2) {
                 return;
             }
-            new Thread(new com.baidu.android.pushservice.d.e(iVar, this.f3188a, intExtra, intExtra2)).start();
-            m.a("submitApiProcessor failed bind " + iVar.toString(), this.f3188a);
+            new Thread(new com.baidu.android.pushservice.d.e(iVar, this.f37078a, intExtra, intExtra2)).start();
+            m.a("submitApiProcessor failed bind " + iVar.toString(), this.f37078a);
         }
     }
 
@@ -123,15 +123,15 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, intent) == null) {
             com.baidu.android.pushservice.d.i iVar = new com.baidu.android.pushservice.d.i(intent);
-            com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< METHOD_UNBIND ", this.f3188a);
-            if (!TextUtils.isEmpty(iVar.f3060d) && !TextUtils.isEmpty(iVar.f3063g)) {
-                com.baidu.android.pushservice.a.e a2 = com.baidu.android.pushservice.a.b.a(this.f3188a).a(iVar.f3060d);
+            com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< METHOD_UNBIND ", this.f37078a);
+            if (!TextUtils.isEmpty(iVar.f36945d) && !TextUtils.isEmpty(iVar.f36948g)) {
+                com.baidu.android.pushservice.a.e a2 = com.baidu.android.pushservice.a.b.a(this.f37078a).a(iVar.f36945d);
                 if (a2 != null && !TextUtils.isEmpty(a2.a())) {
-                    iVar.f3061e = a2.a();
+                    iVar.f36946e = a2.a();
                 }
-                com.baidu.android.pushservice.a.b.a(this.f3188a).e(iVar.f3060d);
+                com.baidu.android.pushservice.a.b.a(this.f37078a).e(iVar.f36945d);
             }
-            a(new n(iVar, this.f3188a));
+            a(new n(iVar, this.f37078a));
         }
     }
 
@@ -140,8 +140,8 @@ public class i {
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, intent) == null) {
             com.baidu.android.pushservice.d.i iVar = new com.baidu.android.pushservice.d.i(intent);
             String stringExtra = intent.getStringExtra(CommandMessage.TYPE_TAGS);
-            com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< ACTION_SET_TAGS ", this.f3188a);
-            a(new com.baidu.android.pushservice.d.m(iVar, this.f3188a, stringExtra));
+            com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< ACTION_SET_TAGS ", this.f37078a);
+            a(new com.baidu.android.pushservice.d.m(iVar, this.f37078a, stringExtra));
         }
     }
 
@@ -150,8 +150,8 @@ public class i {
         if (interceptable == null || interceptable.invokeL(65543, this, intent) == null) {
             com.baidu.android.pushservice.d.i iVar = new com.baidu.android.pushservice.d.i(intent);
             String stringExtra = intent.getStringExtra(CommandMessage.TYPE_TAGS);
-            com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< ACTION_GBIND ", this.f3188a);
-            a(new com.baidu.android.pushservice.d.h(iVar, this.f3188a, stringExtra));
+            com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< ACTION_GBIND ", this.f37078a);
+            a(new com.baidu.android.pushservice.d.h(iVar, this.f37078a, stringExtra));
         }
     }
 
@@ -159,8 +159,8 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, intent) == null) {
             com.baidu.android.pushservice.d.i iVar = new com.baidu.android.pushservice.d.i(intent);
-            com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< METHOD_LISTTAGS ", this.f3188a);
-            a(new com.baidu.android.pushservice.d.k(iVar, this.f3188a));
+            com.baidu.android.pushservice.g.a.a("RegistrationService", "<<< METHOD_LISTTAGS ", this.f37078a);
+            a(new com.baidu.android.pushservice.d.k(iVar, this.f37078a));
         }
     }
 
@@ -172,18 +172,18 @@ public class i {
                 return false;
             }
             String action = intent.getAction();
-            m.a("handleIntent#action = " + action, this.f3188a);
+            m.a("handleIntent#action = " + action, this.f37078a);
             if ("com.baidu.pushservice.action.publicmsg.CLICK_V2".equals(action) || "com.baidu.pushservice.action.publicmsg.DELETE_V2".equals(action)) {
                 PublicMsg publicMsg = (PublicMsg) intent.getParcelableExtra("public_msg");
                 String host = intent.getData().getHost();
                 if (publicMsg != null) {
-                    publicMsg.handle(this.f3188a, action, host);
+                    publicMsg.handle(this.f37078a, action, host);
                 }
                 return true;
             } else if ("com.baidu.android.pushservice.action.privatenotification.CLICK".equals(action) || "com.baidu.android.pushservice.action.privatenotification.DELETE".equals(action)) {
                 PublicMsg publicMsg2 = (PublicMsg) intent.getParcelableExtra("public_msg");
-                if (m.b(this.f3188a, publicMsg2)) {
-                    publicMsg2.handlePrivateNotification(this.f3188a, action, intent.getStringExtra("msg_id"), intent.getStringExtra("app_id"), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
+                if (m.b(this.f37078a, publicMsg2)) {
+                    publicMsg2.handlePrivateNotification(this.f37078a, action, intent.getStringExtra("msg_id"), intent.getStringExtra("app_id"), intent.getByteArrayExtra("baidu_message_secur_info"), intent.getByteArrayExtra("baidu_message_body"));
                     return true;
                 }
                 return true;
@@ -222,8 +222,8 @@ public class i {
                 com.baidu.android.pushservice.h.d.a().a(aVar);
                 return true;
             } catch (Exception e2) {
-                com.baidu.android.pushservice.g.a.a("RegistrationService", e2, this.f3188a);
-                new b.c(this.f3188a.getApplicationContext()).a(Log.getStackTraceString(e2)).a();
+                com.baidu.android.pushservice.g.a.a("RegistrationService", e2, this.f37078a);
+                new b.c(this.f37078a.getApplicationContext()).a(Log.getStackTraceString(e2)).a();
                 return false;
             }
         }

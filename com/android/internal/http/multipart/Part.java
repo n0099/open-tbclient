@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class Part {
     public static /* synthetic */ Interceptable $ic = null;
     @Deprecated

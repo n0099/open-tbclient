@@ -3,7 +3,6 @@ package io.flutter.plugins.webviewflutter;
 import android.content.Context;
 import android.graphics.Rect;
 import android.os.Build;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebView;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class InputAwareWebView extends WebView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InputAwareWebView";
@@ -25,7 +24,7 @@ public final class InputAwareWebView extends WebView {
     public ThreadedInputConnectionProxyAdapterView proxyAdapterView;
     public View threadedInputConnectionProxyView;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnScrollChangedCallback {
         void onScroll(int i2, int i3, int i4, int i5);
     }
@@ -67,61 +66,54 @@ public final class InputAwareWebView extends WebView {
     }
 
     private void resetInputConnection() {
+        View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.proxyAdapterView == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || this.proxyAdapterView == null || (view = this.containerView) == null) {
             return;
         }
-        View view = this.containerView;
-        if (view == null) {
-            Log.e(TAG, "Can't reset the input connection to the container view because there is none.");
-        } else {
-            setInputConnectionTarget(view);
-        }
+        setInputConnectionTarget(view);
     }
 
     private void setInputConnectionTarget(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view) == null) {
-            if (this.containerView == null) {
-                Log.e(TAG, "Can't set the input connection target because there is no containerView to use as a handler.");
-                return;
-            }
-            view.requestFocus();
-            this.containerView.post(new Runnable(this, view) { // from class: io.flutter.plugins.webviewflutter.InputAwareWebView.1
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ InputAwareWebView this$0;
-                public final /* synthetic */ View val$targetView;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, view};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.this$0 = this;
-                    this.val$targetView = view;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.val$targetView.onWindowFocusChanged(true);
-                        ((InputMethodManager) this.this$0.getContext().getSystemService("input_method")).isActive(this.this$0.containerView);
-                    }
-                }
-            });
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, view) == null) || this.containerView == null) {
+            return;
         }
+        view.requestFocus();
+        this.containerView.post(new Runnable(this, view) { // from class: io.flutter.plugins.webviewflutter.InputAwareWebView.1
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ InputAwareWebView this$0;
+            public final /* synthetic */ View val$targetView;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {this, view};
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.this$0 = this;
+                this.val$targetView = view;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    this.val$targetView.onWindowFocusChanged(true);
+                    ((InputMethodManager) this.this$0.getContext().getSystemService("input_method")).isActive(this.this$0.containerView);
+                }
+            }
+        });
     }
 
     @Override // android.view.View
@@ -136,7 +128,6 @@ public final class InputAwareWebView extends WebView {
             }
             View view3 = this.containerView;
             if (view3 == null) {
-                Log.e(TAG, "Can't create a proxy view because there's no container view. Text input may not work.");
                 return super.checkInputConnectionProxy(view);
             }
             ThreadedInputConnectionProxyAdapterView threadedInputConnectionProxyAdapterView = new ThreadedInputConnectionProxyAdapterView(view3, view, view.getHandler());
@@ -204,13 +195,10 @@ public final class InputAwareWebView extends WebView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
             this.containerView = view;
-            if (this.proxyAdapterView == null) {
+            if (this.proxyAdapterView == null || view == null) {
                 return;
             }
-            Log.w(TAG, "The containerView has changed while the proxyAdapterView exists.");
-            if (view != null) {
-                setInputConnectionTarget(this.proxyAdapterView);
-            }
+            setInputConnectionTarget(this.proxyAdapterView);
         }
     }
 

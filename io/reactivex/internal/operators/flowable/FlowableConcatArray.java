@@ -15,14 +15,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FlowableConcatArray<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayError;
     public final Publisher<? extends T>[] sources;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ConcatArraySubscriber<T> extends SubscriptionArbiter implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8158322871608889516L;
@@ -80,10 +80,10 @@ public final class FlowableConcatArray<T> extends Flowable<T> {
                             return;
                         }
                     } else {
-                        long j = this.produced;
-                        if (j != 0) {
+                        long j2 = this.produced;
+                        if (j2 != 0) {
                             this.produced = 0L;
-                            produced(j);
+                            produced(j2);
                         }
                         publisher.subscribe(this);
                         i2++;

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public abstract class a extends j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,13 +94,13 @@ public abstract class a extends j {
         c.cd().c((com.baidu.ar.c.a) at);
     }
 
-    public void b(long j) {
+    public void b(long j2) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) || (algoHandleController = this.cb) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) || (algoHandleController = this.cb) == null) {
             return;
         }
-        algoHandleController.destroyHandle(j);
+        algoHandleController.destroyHandle(j2);
     }
 
     public final void b(Bundle bundle) {

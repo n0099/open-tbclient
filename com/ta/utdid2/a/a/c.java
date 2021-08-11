@@ -1,22 +1,23 @@
 package com.ta.utdid2.a.a;
 
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] getBytes(int i2) {
-        InterceptResult invokeI;
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
-            byte[] bArr = {(byte) ((r4 >> 8) % 256), (byte) (r4 % 256), (byte) (r4 % 256), (byte) (i2 % 256)};
-            int i3 = i2 >> 8;
-            int i4 = i3 >> 8;
-            return bArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (Build.VERSION.SDK_INT < 29) {
+                return Build.VERSION.CODENAME.length() == 1 && Build.VERSION.CODENAME.charAt(0) >= 'Q' && Build.VERSION.CODENAME.charAt(0) <= 'Z';
+            }
+            return true;
         }
-        return (byte[]) invokeI.objValue;
+        return invokeV.booleanValue;
     }
 }

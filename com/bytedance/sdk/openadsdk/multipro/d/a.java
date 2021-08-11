@@ -18,19 +18,19 @@ import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.multipro.e;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f31803a;
+    public static Context f67748a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            if (f31803a == null || o.a() == null) {
+            if (f67748a == null || o.a() == null) {
                 k.c("The context of SPHelper is null, please initialize sdk in main process");
                 return false;
             }
@@ -59,7 +59,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            Context context = f31803a;
+            Context context = f67748a;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -69,7 +69,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            return e.f31807b + "/t_sp/";
+            return e.f67752b + "/t_sp/";
         }
         return (String) invokeV.objValue;
     }
@@ -90,7 +90,7 @@ public class a {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
-            f31803a = context == null ? o.a() : context.getApplicationContext();
+            f67748a = context == null ? o.a() : context.getApplicationContext();
         }
     }
 
@@ -397,16 +397,16 @@ public class a {
         return invokeLLZ.booleanValue;
     }
 
-    public static long a(String str, long j) {
+    public static long a(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) ? a((String) null, str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j2)) == null) ? a((String) null, str, j2) : invokeLJ.longValue;
     }
 
-    public static long a(String str, String str2, long j) {
+    public static long a(String str, String str2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, Long.valueOf(j2)})) == null) {
             if (a()) {
                 try {
                     ContentResolver b2 = b();
@@ -418,9 +418,9 @@ public class a {
                     }
                 } catch (Throwable unused) {
                 }
-                return j;
+                return j2;
             }
-            return j;
+            return j2;
         }
         return invokeCommon.longValue;
     }

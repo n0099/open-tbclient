@@ -3,7 +3,6 @@ package com.airbnb.lottie.parser;
 import com.airbnb.lottie.model.DocumentData;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,8 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.paysdk.b.j;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class DocumentDataParser implements ValueParser<DocumentData> {
     public static /* synthetic */ Interceptable $ic;
     public static final DocumentDataParser INSTANCE;
@@ -33,7 +33,7 @@ public class DocumentDataParser implements ValueParser<DocumentData> {
             }
         }
         INSTANCE = new DocumentDataParser();
-        NAMES = JsonReader.Options.of("t", "f", "s", "j", "tr", IAdRequestParam.QUERY_HEIGHT, "ls", "fc", Config.STAT_SDK_CHANNEL, "sw", "of");
+        NAMES = JsonReader.Options.of("t", "f", "s", j.q, "tr", IAdRequestParam.QUERY_HEIGHT, "ls", "fc", "sc", "sw", "of");
     }
 
     public DocumentDataParser() {

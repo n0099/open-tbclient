@@ -4,8 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
+import com.baidu.wallet.lightapp.business.LangbridgeBarParams;
 import com.baidu.wallet.lightapp.business.LightappBrowserWebView;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface c {
     View a();
 
@@ -15,7 +16,7 @@ public interface c {
 
     void a(d dVar, Bundle bundle, String str);
 
-    void a(String str, b bVar);
+    void a(String str, b bVar, boolean z);
 
     LightappBrowserWebView b();
 
@@ -34,4 +35,8 @@ public interface c {
     void i();
 
     void j();
+
+    String k();
+
+    LangbridgeBarParams l();
 }

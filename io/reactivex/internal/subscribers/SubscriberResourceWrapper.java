@@ -14,7 +14,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class SubscriberResourceWrapper<T> extends AtomicReference<Disposable> implements FlowableSubscriber<T>, Disposable, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -8612022020200669122L;
@@ -100,10 +100,10 @@ public final class SubscriberResourceWrapper<T> extends AtomicReference<Disposab
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j) {
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
-            this.subscription.get().request(j);
+        if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+            this.subscription.get().request(j2);
         }
     }
 

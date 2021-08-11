@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GroupCardActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static String GROUP_PORTRAIT = "groupportrait";
@@ -31,13 +31,13 @@ public class GroupCardActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupCardActivityConfig(Context context, long j, String str, String str2) {
+    public GroupCardActivityConfig(Context context, long j2, String str, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, str2};
+            Object[] objArr = {context, Long.valueOf(j2), str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -48,7 +48,7 @@ public class GroupCardActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("group_id", j);
+        getIntent().putExtra("group_id", j2);
         getIntent().putExtra("group_name", str);
         getIntent().putExtra(GROUP_PORTRAIT, str2);
     }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.video.localvideo;
 
+import c.a.p0.e0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -16,13 +17,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.e0.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LocalVideoActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,10 +46,10 @@ public class LocalVideoActivityStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || !(customMessage.getData() instanceof d.a.q0.v3.b)) {
+                if (customMessage == null || !(customMessage.getData() instanceof c.a.p0.w3.b)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921466, new d.a.q0.v3.i.h.b((d.a.q0.v3.b) customMessage.getData()));
+                return new CustomResponsedMessage<>(2921466, new c.a.p0.w3.i.h.b((c.a.p0.w3.b) customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ForumLikeBotton extends CommonLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,10 +36,10 @@ public class ForumLikeBotton extends CommonLikeButton {
     }
 
     @Override // com.baidu.tbadk.core.view.commonLike.CommonLikeButton
-    public void e(int i2) {
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if (this.f12743g) {
+            if (this.mCurrentIsLike) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.btn_forum_focus_gray_color);
                 SkinManager.setBackgroundResource(this, R.drawable.btn_transparent_gray_border);

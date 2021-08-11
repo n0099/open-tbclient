@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import androidx.annotation.Nullable;
+import c.a.n0.a.c1.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.database.SwanAppDbControl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,8 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.c1.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final String CONTENT_AUTHORITY;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class BaseActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseActivity";

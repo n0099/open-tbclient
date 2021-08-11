@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes5.dex */
 public class AddressSelectedBean implements Serializable, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String CITY_TYPE = "city";
@@ -75,7 +76,7 @@ public class AddressSelectedBean implements Serializable, NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "AddressSelectedBean{countryId='" + this.countryId + "', countryName='" + this.countryName + "', provinceId='" + this.provinceId + "', provinceName='" + this.provinceName + "', cityId='" + this.cityId + "', cityName='" + this.cityName + "', districtId='" + this.districtId + "', districtName='" + this.districtName + "'}";
+            return "AddressSelectedBean{countryId='" + this.countryId + ExtendedMessageFormat.QUOTE + ", countryName='" + this.countryName + ExtendedMessageFormat.QUOTE + ", provinceId='" + this.provinceId + ExtendedMessageFormat.QUOTE + ", provinceName='" + this.provinceName + ExtendedMessageFormat.QUOTE + ", cityId='" + this.cityId + ExtendedMessageFormat.QUOTE + ", cityName='" + this.cityName + ExtendedMessageFormat.QUOTE + ", districtId='" + this.districtId + ExtendedMessageFormat.QUOTE + ", districtName='" + this.districtName + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

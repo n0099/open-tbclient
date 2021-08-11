@@ -10,19 +10,19 @@ import com.sina.weibo.sdk.network.exception.RequestException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class WbResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public InputStream inputStream;
     public long length;
 
-    public WbResponseBody(InputStream inputStream, long j) {
+    public WbResponseBody(InputStream inputStream, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Long.valueOf(j)};
+            Object[] objArr = {inputStream, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -33,7 +33,7 @@ public class WbResponseBody {
             }
         }
         this.inputStream = inputStream;
-        this.length = j;
+        this.length = j2;
     }
 
     public InputStream byteStream() {

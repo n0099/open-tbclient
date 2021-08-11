@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.AddTaskScores.AddTaskScoresResIdl;
 import tbclient.AddTaskScores.DataRes;
 import tbclient.Error;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GetTaskScoreHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,10 +73,10 @@ public class GetTaskScoreHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public void setUserId(long j) {
+    public void setUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.userId = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.userId = j2;
         }
     }
 

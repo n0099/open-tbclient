@@ -2,7 +2,6 @@ package com.baidu.searchbox.anr.upload;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.searchbox.anr.impl.ANRInfo;
@@ -19,7 +18,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ANRBOSRegister implements IANRRegister {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +64,6 @@ public class ANRBOSRegister implements IANRRegister {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aNRInfo) == null) && checkEnable()) {
             AppConfig.isDebug();
-            Log.d("Ruka", "onANR  at ANRBOSRegister");
             this.uploadFiles.clear();
             if (!TextUtils.isEmpty(aNRInfo.getLogcatPath())) {
                 File file = new File(aNRInfo.getLogcatPath());

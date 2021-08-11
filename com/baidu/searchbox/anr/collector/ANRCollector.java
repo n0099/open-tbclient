@@ -14,7 +14,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes5.dex */
 public class ANRCollector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_TRACE_PATH = "/data/anr/traces.txt";
@@ -91,9 +92,9 @@ public class ANRCollector {
                             return sb2;
                         } else if (readLine3.contains("----- pid ") && (readLine = bufferedReader.readLine()) != null && readLine.equals(str2)) {
                             sb.append(readLine3);
-                            sb.append("\n");
+                            sb.append(StringUtils.LF);
                             sb.append(readLine);
-                            sb.append("\n");
+                            sb.append(StringUtils.LF);
                             do {
                                 readLine2 = bufferedReader.readLine();
                                 if (readLine2 == null) {
@@ -105,7 +106,7 @@ public class ANRCollector {
                                     return sb3;
                                 }
                                 sb.append(readLine2);
-                                sb.append("\n");
+                                sb.append(StringUtils.LF);
                             } while (!readLine2.contains("----- end "));
                         }
                     }
@@ -216,7 +217,7 @@ public class ANRCollector {
                                 }
                             } while (!readLine2.contains("\"main\" prio="));
                             sb.append(readLine2);
-                            sb.append("\n");
+                            sb.append(StringUtils.LF);
                             do {
                                 readLine3 = bufferedReader.readLine();
                                 if (readLine3 == null) {
@@ -228,7 +229,7 @@ public class ANRCollector {
                                     return sb4;
                                 } else if (readLine3.startsWith("  at ")) {
                                     sb.append(readLine3.replace("  at ", ""));
-                                    sb.append("\n");
+                                    sb.append(StringUtils.LF);
                                 }
                             } while (!readLine3.equals(""));
                         }

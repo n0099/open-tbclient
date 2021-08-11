@@ -1,7 +1,6 @@
 package com.baidu.searchbox.ruka;
 
 import android.content.Context;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.config.AppConfig;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class Ruka {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BLOCK_THRESHOLD = 2000;
@@ -71,10 +70,10 @@ public final class Ruka {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? LooperProvider.getLooperMonitor().isMonitorStarted() : invokeV.booleanValue;
     }
 
-    public static void setProcessLaunchTime(long j) {
+    public static void setProcessLaunchTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j) == null) {
-            sProcessLaunchTime = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2) == null) {
+            sProcessLaunchTime = j2;
         }
     }
 
@@ -83,12 +82,10 @@ public final class Ruka {
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context) == null) {
             if (AppConfig.isDebug()) {
                 IANRMonitor aNRMonitor = ANRProvider.getANRMonitor();
-                Log.d("Ruka", "IANRMonitor = " + aNRMonitor.getClass().getSimpleName());
+                String str = "IANRMonitor = " + aNRMonitor.getClass().getSimpleName();
             }
             if (ANRProvider.getANRMonitor() == ANRProvider.EMPTY) {
-                if (AppConfig.isDebug()) {
-                    Log.d("Ruka", "IANRMonitor = ANRProvider.EMPTY");
-                }
+                AppConfig.isDebug();
             } else if (!sANRInited.get() && ANRProvider.getANRMonitor().enableMonitor()) {
                 sANRInited.set(true);
                 ANRProvider.getANRMonitor().startANRMonitor();
@@ -102,12 +99,10 @@ public final class Ruka {
         if (interceptable == null || interceptable.invokeLI(65543, null, context, i2) == null) {
             if (AppConfig.isDebug()) {
                 ILooperMonitor looperMonitor = LooperProvider.getLooperMonitor();
-                Log.d("Ruka", "iLooperMonitor = " + looperMonitor.getClass().getSimpleName());
+                String str = "iLooperMonitor = " + looperMonitor.getClass().getSimpleName();
             }
             if (LooperProvider.getLooperMonitor() == LooperProvider.EMPTY) {
-                if (AppConfig.isDebug()) {
-                    Log.d("Ruka", "iLooperMonitor = LooperProvider.EMPTY");
-                }
+                AppConfig.isDebug();
             } else if (!sLooperInited.get() && LooperProvider.getLooperMonitor().enableMonitor()) {
                 sLooperInited.set(true);
                 LooperProvider.getLooperMonitor().startLooperMonitor(context, i2);

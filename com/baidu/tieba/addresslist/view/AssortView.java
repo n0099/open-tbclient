@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import c.a.o0.t.f.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -15,26 +16,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.t.f.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AssortView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f13940e;
+    public Paint f49069e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13941f;
+    public int f49070f;
 
     /* renamed from: g  reason: collision with root package name */
-    public a f13942g;
+    public a f49071g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void I0();
+        void onTouchDown(String str);
 
-        void w0(String str);
+        void onTouchUP();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,14 +55,14 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f13941f = -1;
+        this.f49070f = -1;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f13940e = new Paint();
+            this.f49069e = new Paint();
         }
     }
 
@@ -81,16 +81,16 @@ public class AssortView extends View {
             int height = getHeight();
             int width = getWidth();
             float f2 = (float) (width / 48.0d);
-            String[] strArr = c.f53979a;
+            String[] strArr = c.f14586a;
             int length = height / strArr.length;
             int length2 = strArr.length;
             for (int i2 = 0; i2 < length2; i2++) {
-                this.f13940e.setAntiAlias(true);
-                this.f13940e.setTypeface(Typeface.DEFAULT_BOLD);
-                this.f13940e.setColor(SkinManager.getColor(R.color.CAM_X0108));
-                this.f13940e.setTextSize(26.0f * f2);
-                canvas.drawText(c.f53979a[i2], (width / 2.0f) - (this.f13940e.measureText(c.f53979a[i2]) / 2.0f), (length * i2) + length, this.f13940e);
-                this.f13940e.reset();
+                this.f49069e.setAntiAlias(true);
+                this.f49069e.setTypeface(Typeface.DEFAULT_BOLD);
+                this.f49069e.setColor(SkinManager.getColor(R.color.CAM_X0108));
+                this.f49069e.setTextSize(26.0f * f2);
+                canvas.drawText(c.f14586a[i2], (width / 2.0f) - (this.f49069e.measureText(c.f14586a[i2]) / 2.0f), (length * i2) + length, this.f49069e);
+                this.f49069e.reset();
             }
         }
     }
@@ -102,36 +102,36 @@ public class AssortView extends View {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             super.onTouchEvent(motionEvent);
             float y = motionEvent.getY() / getHeight();
-            String[] strArr = c.f53979a;
+            String[] strArr = c.f14586a;
             int length = (int) (y * strArr.length);
             if (length >= 0 && length < strArr.length) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
-                    this.f13941f = length;
-                    a aVar = this.f13942g;
+                    this.f49070f = length;
+                    a aVar = this.f49071g;
                     if (aVar != null) {
-                        aVar.w0(c.f53979a[length]);
+                        aVar.onTouchDown(c.f14586a[length]);
                     }
                 } else if (action != 1) {
-                    if (action == 2 && this.f13941f != length) {
-                        this.f13941f = length;
-                        a aVar2 = this.f13942g;
+                    if (action == 2 && this.f49070f != length) {
+                        this.f49070f = length;
+                        a aVar2 = this.f49071g;
                         if (aVar2 != null) {
-                            aVar2.w0(c.f53979a[length]);
+                            aVar2.onTouchDown(c.f14586a[length]);
                         }
                     }
                 } else {
-                    a aVar3 = this.f13942g;
+                    a aVar3 = this.f49071g;
                     if (aVar3 != null) {
-                        aVar3.I0();
+                        aVar3.onTouchUP();
                     }
-                    this.f13941f = -1;
+                    this.f49070f = -1;
                 }
             } else {
-                this.f13941f = -1;
-                a aVar4 = this.f13942g;
+                this.f49070f = -1;
+                a aVar4 = this.f49071g;
                 if (aVar4 != null) {
-                    aVar4.I0();
+                    aVar4.onTouchUP();
                 }
             }
             return true;
@@ -142,7 +142,7 @@ public class AssortView extends View {
     public void setOnTouchListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f13942g = aVar;
+            this.f49071g = aVar;
         }
     }
 
@@ -165,7 +165,7 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f13941f = -1;
+        this.f49070f = -1;
         a();
     }
 
@@ -188,7 +188,7 @@ public class AssortView extends View {
                 return;
             }
         }
-        this.f13941f = -1;
+        this.f49070f = -1;
         a();
     }
 }

@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class QuickReply implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<QuickReply> CREATOR;
@@ -35,7 +35,7 @@ public class QuickReply implements Parcelable {
     public long mType;
     public long mVersionId;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Act implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Act> CREATOR;
@@ -205,7 +205,7 @@ public class QuickReply implements Parcelable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class ReplyContent implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<ReplyContent> CREATOR;
@@ -531,10 +531,10 @@ public class QuickReply implements Parcelable {
         }
     }
 
-    public void setPaId(long j) {
+    public void setPaId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.mPaId = j;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            this.mPaId = j2;
         }
     }
 
@@ -545,38 +545,38 @@ public class QuickReply implements Parcelable {
         }
     }
 
-    public void setRefreshTime(long j) {
+    public void setRefreshTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.mRefreshTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.mRefreshTime = j2;
         }
     }
 
-    public void setStatus(long j) {
+    public void setStatus(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.mStatus = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.mStatus = j2;
         }
     }
 
-    public void setTimeStamp(long j) {
+    public void setTimeStamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.mTimeStamp = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.mTimeStamp = j2;
         }
     }
 
-    public void setType(long j) {
+    public void setType(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.mType = j;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.mType = j2;
         }
     }
 
-    public void setVersionId(long j) {
+    public void setVersionId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.mVersionId = j;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            this.mVersionId = j2;
         }
     }
 

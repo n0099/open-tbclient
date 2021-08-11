@@ -13,7 +13,7 @@ import com.facebook.drawee.backends.pipeline.info.ImagePerfState;
 import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.imagepipeline.image.ImageInfo;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ImagePerfControllerListener extends BaseControllerListener<ImageInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,11 +42,11 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
     }
 
     @VisibleForTesting
-    private void reportViewInvisible(long j) {
+    private void reportViewInvisible(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65537, this, j2) == null) {
             this.mImagePerfState.setVisible(false);
-            this.mImagePerfState.setInvisibilityEventTimeMs(j);
+            this.mImagePerfState.setInvisibilityEventTimeMs(j2);
             this.mImagePerfMonitor.notifyListenersOfVisibilityStateUpdate(this.mImagePerfState, 2);
         }
     }
@@ -93,11 +93,11 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
     }
 
     @VisibleForTesting
-    public void reportViewVisible(long j) {
+    public void reportViewVisible(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
             this.mImagePerfState.setVisible(true);
-            this.mImagePerfState.setVisibilityEventTimeMs(j);
+            this.mImagePerfState.setVisibilityEventTimeMs(j2);
             this.mImagePerfMonitor.notifyListenersOfVisibilityStateUpdate(this.mImagePerfState, 1);
         }
     }

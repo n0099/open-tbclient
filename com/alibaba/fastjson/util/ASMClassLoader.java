@@ -63,7 +63,7 @@ import java.security.PrivilegedAction;
 import java.security.ProtectionDomain;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ASMClassLoader extends ClassLoader {
     public static /* synthetic */ Interceptable $ic;
     public static ProtectionDomain DOMAIN;

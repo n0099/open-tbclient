@@ -1,7 +1,7 @@
 package com.baidu.ar.steploading;
 
 import com.baidu.ar.callback.ICallbackWith;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public interface IStepLoading {
     void cancel();
 

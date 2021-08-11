@@ -14,7 +14,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes7.dex */
 public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,14 +23,14 @@ public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
     public PostCallback callback;
     public String url;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface PostCallback {
         void onFailure(ResultData resultData);
 
         void onSuccess(ResultData resultData);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ResultData extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +60,7 @@ public class PostAsyncTask extends BdAsyncTask<String, Object, ResultData> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "ResultData{error_code=" + this.error_code + ", error_msg='" + this.error_msg + "'}";
+                return "ResultData{error_code=" + this.error_code + ", error_msg='" + this.error_msg + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }

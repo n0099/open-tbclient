@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Base64OutputStream extends FilterOutputStream {
     public static /* synthetic */ Interceptable $ic;
     public static byte[] EMPTY;

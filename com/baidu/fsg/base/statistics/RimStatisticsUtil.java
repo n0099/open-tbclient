@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class RimStatisticsUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "logsender";
@@ -26,14 +26,21 @@ public final class RimStatisticsUtil {
     public static Context sAppContext;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasInit;
-    public r mHttpImpl;
+    public k mHttpImpl;
 
-    /* loaded from: classes2.dex */
+    /* renamed from: com.baidu.fsg.base.statistics.RimStatisticsUtil$1  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static RimStatisticsUtil f5302a;
+        public static RimStatisticsUtil f39243a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +56,7 @@ public final class RimStatisticsUtil {
                     return;
                 }
             }
-            f5302a = new RimStatisticsUtil(null);
+            f39243a = new RimStatisticsUtil(null);
         }
 
         public a() {
@@ -82,7 +89,21 @@ public final class RimStatisticsUtil {
         }
     }
 
-    public /* synthetic */ RimStatisticsUtil(p pVar) {
+    public RimStatisticsUtil() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public /* synthetic */ RimStatisticsUtil(AnonymousClass1 anonymousClass1) {
         this();
     }
 
@@ -107,13 +128,13 @@ public final class RimStatisticsUtil {
     public static RimStatisticsUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f5302a : (RimStatisticsUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f39243a : (RimStatisticsUtil) invokeV.objValue;
     }
 
     private String getSignKey1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? com.baidu.fsg.base.a.f5146h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? com.baidu.fsg.base.a.f39084h : (String) invokeV.objValue;
     }
 
     private String getSignKey2() {
@@ -136,7 +157,7 @@ public final class RimStatisticsUtil {
                 return false;
             }
             mInited = true;
-            f.a().b();
+            e.a().b();
             return true;
         }
         return invokeV.booleanValue;
@@ -238,13 +259,13 @@ public final class RimStatisticsUtil {
         }
     }
 
-    public static void onIn(String str, long j) {
+    public static void onIn(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j2) == null) {
             try {
-                if (0 < j) {
+                if (0 < j2) {
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(Long.toString(j));
+                    arrayList.add(Long.toString(j2));
                     StatService.a(str, StatService.ETag.in, arrayList);
                 } else {
                     StatService.a(str, StatService.ETag.in, (Collection<String>) null);
@@ -300,22 +321,8 @@ public final class RimStatisticsUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LogUtil.d("logsender", "=====triggerSending====");
-            l.a().a("normal_log");
-            l.a().a(b.o);
-        }
-    }
-
-    public RimStatisticsUtil() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            i.a().a("normal_log");
+            i.a().a(b.o);
         }
     }
 }

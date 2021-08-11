@@ -3,9 +3,10 @@ package com.baidu.tieba.ad.asyncpv;
 import android.os.Build;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
+import c.a.e.e.p.j;
+import c.a.p0.o1.o.k.a;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,13 +20,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.q0.n1.o.k.a;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AdAsyncRequestData extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +56,7 @@ public class AdAsyncRequestData extends HttpMessage {
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("fc", 1);
         addParam("ft", 3);
-        addParam(Config.EXCEPTION_CRASH_TYPE, "2");
+        addParam("ct", "2");
         addParam("pid", placeId.value);
         String ext = getExt(map);
         if (!TextUtils.isEmpty(ext)) {
@@ -90,7 +89,7 @@ public class AdAsyncRequestData extends HttpMessage {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(Config.APP_KEY, str);
+                jSONObject.put("k", str);
                 jSONObject.put("v", str2);
                 return jSONObject;
             } catch (JSONException unused) {

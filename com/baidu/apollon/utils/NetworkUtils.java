@@ -4,10 +4,11 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.ApollonConstants;
+import com.baidu.apollon.permission.PermissionManager;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,9 +17,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
-import java.net.SocketException;
 import java.util.Enumeration;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class NetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_2G = 2;
@@ -31,7 +31,7 @@ public final class NetworkUtils {
     public static final int NETWORK_WIFI = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4108a = "NetworkUtils";
+    public static final String f38033a = "NetworkUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     public NetworkUtils() {
@@ -64,7 +64,7 @@ public final class NetworkUtils {
                     }
                 }
                 return null;
-            } catch (SocketException e2) {
+            } catch (Exception e2) {
                 LogUtil.e("", "NetworkStatus", e2);
                 return null;
             }
@@ -91,13 +91,13 @@ public final class NetworkUtils {
 
     public static int getNetworkType(Context context) {
         InterceptResult invokeL;
+        TelephonyManager telephonyManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             if (isWifiNetworkAvailable(context)) {
                 return 1;
             }
-            TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager != null) {
+            if ((Build.VERSION.SDK_INT < 30 || PermissionManager.checkCallingPermission(context, "android.permission.READ_PHONE_STATE")) && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
                 switch (telephonyManager.getNetworkType()) {
                     case 1:
                     case 2:
@@ -168,22 +168,15 @@ public final class NetworkUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
-                if (ApollonConstants.DEBUG) {
-                    Log.d("NetworkUtils", "couldn't get connectivity manager");
-                }
+                boolean z = ApollonConstants.DEBUG;
                 return false;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                if (ApollonConstants.DEBUG) {
-                    Log.d("NetworkUtils", "network is available");
-                    return true;
-                }
+                boolean z2 = ApollonConstants.DEBUG;
                 return true;
             }
-            if (ApollonConstants.DEBUG) {
-                Log.d("NetworkUtils", "network is not available");
-            }
+            boolean z3 = ApollonConstants.DEBUG;
             return false;
         }
         return invokeL.booleanValue;

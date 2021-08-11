@@ -2,6 +2,8 @@ package com.baidu.ala.downloader;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.m;
+import c.a.e.e.p.q;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaSharedPrefHelper;
@@ -13,8 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.m;
-import d.a.d.e.p.q;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -28,7 +28,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class DownloaderHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

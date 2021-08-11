@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!str.contains(com.alipay.sdk.app.statistic.c.ad) || str.startsWith(com.alipay.sdk.app.statistic.c.ac)) {
+            if (!str.contains(com.alipay.sdk.app.statistic.b.ar) || str.startsWith(com.alipay.sdk.app.statistic.b.aq)) {
                 return null;
             }
             return e(str);

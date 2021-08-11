@@ -1,5 +1,7 @@
 package com.google.common.util.concurrent;
 
+import c.i.d.a.g;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,19 +10,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.util.concurrent.AbstractFuture;
 import com.google.common.util.concurrent.Partially;
-import d.f.d.a.g;
-import d.f.d.a.n;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class FluentFuture<V> extends GwtFluentFutureCatchingSpecialization<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class TrustedFuture<V> extends FluentFuture<V> implements AbstractFuture.Trusted<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,10 +76,10 @@ public abstract class FluentFuture<V> extends GwtFluentFutureCatchingSpecializat
         }
 
         @Override // com.google.common.util.concurrent.AbstractFuture, java.util.concurrent.Future
-        public final V get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+        public final V get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) ? (V) super.get(j, timeUnit) : (V) invokeJL.objValue;
+            return (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j2, timeUnit)) == null) ? (V) super.get(j2, timeUnit) : (V) invokeJL.objValue;
         }
     }
 
@@ -136,10 +136,10 @@ public abstract class FluentFuture<V> extends GwtFluentFutureCatchingSpecializat
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, asyncFunction, executor)) == null) ? (FluentFuture) Futures.transformAsync(this, asyncFunction, executor) : (FluentFuture) invokeLL.objValue;
     }
 
-    public final FluentFuture<V> withTimeout(long j, TimeUnit timeUnit, ScheduledExecutorService scheduledExecutorService) {
+    public final FluentFuture<V> withTimeout(long j2, TimeUnit timeUnit, ScheduledExecutorService scheduledExecutorService) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), timeUnit, scheduledExecutorService})) == null) ? (FluentFuture) Futures.withTimeout(this, j, timeUnit, scheduledExecutorService) : (FluentFuture) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), timeUnit, scheduledExecutorService})) == null) ? (FluentFuture) Futures.withTimeout(this, j2, timeUnit, scheduledExecutorService) : (FluentFuture) invokeCommon.objValue;
     }
 
     @Deprecated

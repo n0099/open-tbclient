@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import c.a.o0.d1.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,23 +21,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.d1.h.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RefreshView extends FrameLayout implements a {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int NORMAL = 1;
+    public static final int RELEASE = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f13409e;
+    public ImageView f48442e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f13410f;
+    public TextView f48443f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13411g;
+    public int f48444g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13412h;
+    public int f48445h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RefreshView(@NonNull Context context) {
@@ -59,53 +61,53 @@ public class RefreshView extends FrameLayout implements a {
         }
     }
 
-    @Override // d.a.p0.d1.h.a
-    public void a(View view) {
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13412h == 2) {
-            return;
-        }
-        this.f13412h = 2;
-        this.f13410f.setText("释放跳转");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f13409e, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, null);
-    }
-
-    @Override // d.a.p0.d1.h.a
-    public void b(View view) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f13412h == 1) {
-            return;
-        }
-        this.f13412h = 1;
-        this.f13410f.setText("查看更多");
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f13409e, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, null);
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.pull_left_item_view, (ViewGroup) this, true);
-            this.f13409e = (ImageView) findViewById(R.id.arrow_icon);
-            this.f13410f = (TextView) findViewById(R.id.text);
+            this.f48442e = (ImageView) findViewById(R.id.arrow_icon);
+            this.f48443f = (TextView) findViewById(R.id.text);
         }
     }
 
-    public void d() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f13411g) {
-            return;
-        }
-        this.f13412h = 0;
-        this.f13411g = skinType;
-        SkinManager.setViewTextColor(this.f13410f, R.color.CAM_X0109);
-    }
-
-    @Override // d.a.p0.d1.h.a
+    @Override // c.a.o0.d1.h.a
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this : (View) invokeV.objValue;
+    }
+
+    public void onChangeSkinType() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f48444g) {
+            return;
+        }
+        this.f48445h = 0;
+        this.f48444g = skinType;
+        SkinManager.setViewTextColor(this.f48443f, R.color.CAM_X0109);
+    }
+
+    @Override // c.a.o0.d1.h.a
+    public void onNormal(View view) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f48445h == 1) {
+            return;
+        }
+        this.f48445h = 1;
+        this.f48443f.setText("查看更多");
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48442e, R.drawable.ic_icon_pure_jump_more24, R.color.CAM_X0109, null);
+    }
+
+    @Override // c.a.o0.d1.h.a
+    public void onRedayToRelease(View view) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || this.f48445h == 2) {
+            return;
+        }
+        this.f48445h = 2;
+        this.f48443f.setText("释放跳转");
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48442e, R.drawable.ic_icon_pure_jump24, R.color.CAM_X0109, null);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -148,7 +150,7 @@ public class RefreshView extends FrameLayout implements a {
                 return;
             }
         }
-        this.f13411g = 3;
-        c(context);
+        this.f48444g = 3;
+        a(context);
     }
 }

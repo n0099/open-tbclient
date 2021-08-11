@@ -4,9 +4,10 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MessageV4 extends MessageV3 {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV4.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,10 +47,10 @@ public class MessageV4 extends MessageV3 {
                     }
                 }
             } catch (JSONException e2) {
-                d.h.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
+                c.l.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
             }
         }
-        d.h.a.a.a.d(TAG, "MessageV4 " + messageV4);
+        c.l.a.a.a.d(TAG, "MessageV4 " + messageV4);
         return messageV4;
     }
 
@@ -63,7 +64,7 @@ public class MessageV4 extends MessageV3 {
 
     @Override // com.meizu.cloud.pushsdk.handler.MessageV3
     public String toString() {
-        return "MessageV4{actVideoSetting=" + this.actVideoSetting + '}' + super.toString();
+        return "MessageV4{actVideoSetting=" + this.actVideoSetting + ExtendedMessageFormat.END_FE + super.toString();
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.MessageV3, android.os.Parcelable

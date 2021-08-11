@@ -17,24 +17,24 @@ import java.security.PublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
 import javax.crypto.Cipher;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PublicKey f38258a;
+    public PublicKey f75041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f38259b;
+    public final boolean f75042b;
 
     /* renamed from: com.qq.e.comm.util.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static final class C0482a {
+    /* loaded from: classes10.dex */
+    public static final class C2041a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f38260a;
+        public static final a f75043a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -50,7 +50,7 @@ public class a {
                     return;
                 }
             }
-            f38260a = new a((byte) 0);
+            f75043a = new a((byte) 0);
         }
     }
 
@@ -69,12 +69,12 @@ public class a {
             }
         }
         try {
-            this.f38258a = b("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
+            this.f75041a = b("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDKta2b5Vw5YkWHCAj4rJCwS227\r/35FZ29e4I6pS2B8zSq2RgBpXUuMg7oZF1Qt3x0iyg8PeyblyNeCRB6gIMehFThe\r1Y7m1FaQyaZp+CJYOTLM4/THKp9UndrEgJ/5a83vP1375YCV2lMvWARrNlBep4RN\rnESUJhQz58Gr/F39TwIDAQAB");
             z = true;
         } catch (Throwable unused) {
             z = false;
         }
-        this.f38259b = z;
+        this.f75042b = z;
     }
 
     public /* synthetic */ a(byte b2) {
@@ -84,21 +84,21 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0482a.f38260a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2041a.f75043a : (a) invokeV.objValue;
     }
 
     private String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            if (this.f38258a != null) {
+            if (this.f75041a != null) {
                 byte[] decode = Base64.decode(str, 0);
                 try {
                     Cipher cipher = Cipher.getInstance(RsaCipher.RSA_PADDING);
-                    cipher.init(2, this.f38258a);
+                    cipher.init(2, this.f75041a);
                     return new String(cipher.doFinal(decode), "UTF-8").trim();
-                } catch (Throwable th) {
-                    GDTLogger.e("ErrorWhileVerifySigNature", th);
+                } catch (Throwable unused) {
+                    GDTLogger.d("ErrorWhileVerifySigNature");
                     return null;
                 }
             }
@@ -137,7 +137,7 @@ public class a {
             if (StringUtil.isEmpty(str2)) {
                 return false;
             }
-            if (this.f38259b) {
+            if (this.f75042b) {
                 String a2 = a(str);
                 boolean equals = str2.equals(a2);
                 GDTLogger.d("Verify Result" + equals + "src=" + str2 + " & target=" + a2);

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.ProtocolException;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class FieldEncoding {
     public static final /* synthetic */ FieldEncoding[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -22,12 +22,12 @@ public final class FieldEncoding {
     public transient /* synthetic */ FieldHolder $fh;
     public final int value;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f38473a;
+        public static final /* synthetic */ int[] f75259a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,21 +44,21 @@ public final class FieldEncoding {
                 }
             }
             int[] iArr = new int[FieldEncoding.values().length];
-            f38473a = iArr;
+            f75259a = iArr;
             try {
                 iArr[FieldEncoding.VARINT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f38473a[FieldEncoding.FIXED32.ordinal()] = 2;
+                f75259a[FieldEncoding.FIXED32.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f38473a[FieldEncoding.FIXED64.ordinal()] = 3;
+                f75259a[FieldEncoding.FIXED64.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f38473a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
+                f75259a[FieldEncoding.LENGTH_DELIMITED.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -143,7 +143,7 @@ public final class FieldEncoding {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = a.f38473a[ordinal()];
+            int i2 = a.f75259a[ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

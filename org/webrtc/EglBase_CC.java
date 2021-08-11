@@ -10,7 +10,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase10;
 import org.webrtc.EglBase14;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final /* synthetic */ class EglBase_CC {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

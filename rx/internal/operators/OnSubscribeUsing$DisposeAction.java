@@ -6,11 +6,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.k;
-import h.n.a;
-import h.n.b;
+import i.k;
+import i.n.a;
+import i.n.b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolean implements a, k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4262875056400218316L;
@@ -39,8 +39,8 @@ public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolea
     }
 
     /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: Resource, ? super Resource */
-    /* JADX WARN: Type inference failed for: r0v4, types: [Resource, h.n.b<? super Resource>] */
-    @Override // h.n.a
+    /* JADX WARN: Type inference failed for: r0v4, types: [Resource, i.n.b<? super Resource>] */
+    @Override // i.n.a
     public void call() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && compareAndSet(false, true)) {
@@ -54,14 +54,14 @@ public final class OnSubscribeUsing$DisposeAction<Resource> extends AtomicBoolea
         }
     }
 
-    @Override // h.k
+    @Override // i.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get() : invokeV.booleanValue;
     }
 
-    @Override // h.k
+    @Override // i.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {

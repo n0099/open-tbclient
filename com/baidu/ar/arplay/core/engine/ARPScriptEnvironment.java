@@ -1,7 +1,6 @@
 package com.baidu.ar.arplay.core.engine;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ARPScriptEnvironment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AR_KEY = "ar_key";
@@ -203,9 +202,8 @@ public class ARPScriptEnvironment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             nativeGetSharedEnvironment();
-            Log.e("ARPScriptEnvironment", "getSharedEnvironmentValue(KEY_AR_KEY) :" + getSharedEnvironmentValue("ar_key"));
+            String str = "getSharedEnvironmentValue(KEY_AR_KEY) :" + getSharedEnvironmentValue("ar_key");
             getSharedEnvironmentValue("test");
-            Log.e("ARPScriptEnvironment", "end");
         }
     }
 }

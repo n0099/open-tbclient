@@ -15,6 +15,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewConfigurationCompat;
+import c.a.e.e.p.l;
 import com.baidu.adp.widget.SwipeBackLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,57 +23,58 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
 import java.util.LinkedList;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class HorizontalListView extends AdapterView<ListAdapter> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwipeBackLayout.c A;
-    public boolean B;
-    public DataSetObserver C;
-    public GestureDetector.OnGestureListener D;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12460e;
+    public int f47423e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ListAdapter f12461f;
+    public int f47424f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12462g;
+    public int f47425g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f12463h;
+    public int f47426h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12464i;
-    public int j;
-    public int k;
-    public int l;
-    public Scroller m;
-    public GestureDetector n;
-    public Queue<View> o;
-    public AdapterView.OnItemSelectedListener p;
-    public AdapterView.OnItemClickListener q;
-    public AdapterView.OnItemLongClickListener r;
-    public d s;
-    public boolean t;
+    public int f47427i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public GestureDetector f47428j;
+    public Queue<View> k;
+    public AdapterView.OnItemSelectedListener l;
+    public AdapterView.OnItemClickListener m;
+    public ListAdapter mAdapter;
+    public int mCurrentX;
+    public int mNextX;
+    public Scroller mScroller;
+    public AdapterView.OnItemLongClickListener n;
+    public d o;
+    public boolean p;
+    public int q;
+    public boolean r;
+    public float s;
+    public float t;
     public int u;
     public boolean v;
-    public float w;
-    public float x;
-    public int y;
-    public boolean z;
+    public SwipeBackLayout.c w;
+    public boolean x;
+    public DataSetObserver y;
+    public GestureDetector.OnGestureListener z;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HorizontalListView f12465a;
+        public final /* synthetic */ HorizontalListView f47429a;
 
         public a(HorizontalListView horizontalListView) {
             Interceptable interceptable = $ic;
@@ -89,18 +91,18 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     return;
                 }
             }
-            this.f12465a = horizontalListView;
+            this.f47429a = horizontalListView;
         }
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.f12465a) {
-                    this.f12465a.t = true;
+                synchronized (this.f47429a) {
+                    this.f47429a.p = true;
                 }
-                this.f12465a.invalidate();
-                this.f12465a.requestLayout();
+                this.f47429a.invalidate();
+                this.f47429a.requestLayout();
             }
         }
 
@@ -108,20 +110,20 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         public void onInvalidated() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f12465a.u();
-                this.f12465a.invalidate();
-                this.f12465a.requestLayout();
+                this.f47429a.s();
+                this.f47429a.invalidate();
+                this.f47429a.requestLayout();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorizontalListView f12466e;
+        public final /* synthetic */ HorizontalListView f47430e;
 
         public b(HorizontalListView horizontalListView) {
             Interceptable interceptable = $ic;
@@ -138,25 +140,25 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     return;
                 }
             }
-            this.f12466e = horizontalListView;
+            this.f47430e = horizontalListView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f12466e.requestLayout();
+                this.f47430e.requestLayout();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class c extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HorizontalListView f12467e;
+        public final /* synthetic */ HorizontalListView f47431e;
 
         public c(HorizontalListView horizontalListView) {
             Interceptable interceptable = $ic;
@@ -173,7 +175,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     return;
                 }
             }
-            this.f12467e = horizontalListView;
+            this.f47431e = horizontalListView;
         }
 
         public final boolean a(MotionEvent motionEvent, View view) {
@@ -195,31 +197,31 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         public boolean onDown(MotionEvent motionEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.f12467e.q(motionEvent) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) ? this.f47431e.onDown(motionEvent) : invokeL.booleanValue;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.f12467e.r(motionEvent, motionEvent2, f2, f3) : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.f47431e.onFling(motionEvent, motionEvent2, f2, f3) : invokeCommon.booleanValue;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public void onLongPress(MotionEvent motionEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, motionEvent) == null) {
-                int childCount = this.f12467e.getChildCount();
+                int childCount = this.f47431e.getChildCount();
                 for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = this.f12467e.getChildAt(i2);
+                    View childAt = this.f47431e.getChildAt(i2);
                     if (a(motionEvent, childAt)) {
-                        if (this.f12467e.r != null) {
-                            this.f12467e.B = true;
-                            AdapterView.OnItemLongClickListener onItemLongClickListener = this.f12467e.r;
-                            HorizontalListView horizontalListView = this.f12467e;
-                            int i3 = horizontalListView.f12462g + 1 + i2;
-                            HorizontalListView horizontalListView2 = this.f12467e;
-                            onItemLongClickListener.onItemLongClick(horizontalListView, childAt, i3, horizontalListView2.f12461f.getItemId(horizontalListView2.f12462g + 1 + i2));
+                        if (this.f47431e.n != null) {
+                            this.f47431e.x = true;
+                            AdapterView.OnItemLongClickListener onItemLongClickListener = this.f47431e.n;
+                            HorizontalListView horizontalListView = this.f47431e;
+                            int i3 = horizontalListView.f47424f + 1 + i2;
+                            HorizontalListView horizontalListView2 = this.f47431e;
+                            onItemLongClickListener.onItemLongClick(horizontalListView, childAt, i3, horizontalListView2.mAdapter.getItemId(horizontalListView2.f47424f + 1 + i2));
                             return;
                         }
                         return;
@@ -233,13 +235,13 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (this.f12467e.B) {
+                if (this.f47431e.x) {
                     return true;
                 }
-                synchronized (this.f12467e) {
-                    this.f12467e.j += (int) f2;
+                synchronized (this.f47431e) {
+                    this.f47431e.mNextX += (int) f2;
                 }
-                this.f12467e.requestLayout();
+                this.f47431e.requestLayout();
                 return true;
             }
             return invokeCommon.booleanValue;
@@ -252,24 +254,24 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
                 int i2 = 0;
                 while (true) {
-                    if (i2 >= this.f12467e.getChildCount()) {
+                    if (i2 >= this.f47431e.getChildCount()) {
                         break;
                     }
-                    View childAt = this.f12467e.getChildAt(i2);
+                    View childAt = this.f47431e.getChildAt(i2);
                     if (a(motionEvent, childAt)) {
-                        if (this.f12467e.q != null) {
-                            AdapterView.OnItemClickListener onItemClickListener = this.f12467e.q;
-                            HorizontalListView horizontalListView = this.f12467e;
-                            int i3 = horizontalListView.f12462g + 1 + i2;
-                            HorizontalListView horizontalListView2 = this.f12467e;
-                            onItemClickListener.onItemClick(horizontalListView, childAt, i3, horizontalListView2.f12461f.getItemId(horizontalListView2.f12462g + 1 + i2));
+                        if (this.f47431e.m != null) {
+                            AdapterView.OnItemClickListener onItemClickListener = this.f47431e.m;
+                            HorizontalListView horizontalListView = this.f47431e;
+                            int i3 = horizontalListView.f47424f + 1 + i2;
+                            HorizontalListView horizontalListView2 = this.f47431e;
+                            onItemClickListener.onItemClick(horizontalListView, childAt, i3, horizontalListView2.mAdapter.getItemId(horizontalListView2.f47424f + 1 + i2));
                         }
-                        if (this.f12467e.p != null) {
-                            AdapterView.OnItemSelectedListener onItemSelectedListener = this.f12467e.p;
-                            HorizontalListView horizontalListView3 = this.f12467e;
-                            int i4 = horizontalListView3.f12462g + 1 + i2;
-                            HorizontalListView horizontalListView4 = this.f12467e;
-                            onItemSelectedListener.onItemSelected(horizontalListView3, childAt, i4, horizontalListView4.f12461f.getItemId(horizontalListView4.f12462g + 1 + i2));
+                        if (this.f47431e.l != null) {
+                            AdapterView.OnItemSelectedListener onItemSelectedListener = this.f47431e.l;
+                            HorizontalListView horizontalListView3 = this.f47431e;
+                            int i4 = horizontalListView3.f47424f + 1 + i2;
+                            HorizontalListView horizontalListView4 = this.f47431e;
+                            onItemSelectedListener.onItemSelected(horizontalListView3, childAt, i4, horizontalListView4.mAdapter.getItemId(horizontalListView4.f47424f + 1 + i2));
                         }
                     } else {
                         i2++;
@@ -281,7 +283,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface d {
         void a(int i2);
     }
@@ -305,19 +307,19 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                 return;
             }
         }
-        this.f12462g = -1;
-        this.f12463h = 0;
-        this.k = Integer.MAX_VALUE;
-        this.l = 0;
-        this.o = new LinkedList();
-        this.t = false;
-        this.u = 0;
-        this.v = true;
-        this.y = -1;
-        this.z = false;
-        this.B = false;
-        this.C = new a(this);
-        this.D = new c(this);
+        this.f47424f = -1;
+        this.f47425g = 0;
+        this.f47426h = Integer.MAX_VALUE;
+        this.f47427i = 0;
+        this.k = new LinkedList();
+        this.p = false;
+        this.q = 0;
+        this.r = true;
+        this.u = -1;
+        this.v = false;
+        this.x = false;
+        this.y = new a(this);
+        this.z = new c(this);
         o();
     }
 
@@ -329,8 +331,8 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             if (childCount > 0) {
                 for (int i2 = 0; i2 < childCount; i2++) {
                     View childAt = getChildAt(i2);
-                    if (childAt.getLeft() + childAt.getWidth() >= this.u) {
-                        return i2 + 1 + this.f12462g;
+                    if (childAt.getLeft() + childAt.getWidth() >= this.q) {
+                        return i2 + 1 + this.f47424f;
                     }
                 }
             }
@@ -347,9 +349,9 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
             int action = motionEvent.getAction();
             if (action == 1 || action == 3) {
-                this.B = false;
+                this.x = false;
             }
-            return this.n.onTouchEvent(motionEvent) | dispatchTouchEvent;
+            return this.f47428j.onTouchEvent(motionEvent) | dispatchTouchEvent;
         }
         return invokeL.booleanValue;
     }
@@ -379,7 +381,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     public final void j(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) {
-            int i2 = this.y;
+            int i2 = this.u;
             int n = n(motionEvent, i2);
             if (i2 == -1) {
                 return;
@@ -387,12 +389,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             try {
                 float x = MotionEventCompat.getX(motionEvent, n);
                 float y = MotionEventCompat.getY(motionEvent, n);
-                float abs = Math.abs(x - this.w);
-                float abs2 = Math.abs(y - this.x);
-                if (abs <= this.f12460e || abs <= abs2) {
+                float abs = Math.abs(x - this.s);
+                float abs2 = Math.abs(y - this.t);
+                if (abs <= this.f47423e || abs <= abs2) {
                     return;
                 }
-                this.z = true;
+                this.v = true;
             } catch (IllegalArgumentException e2) {
                 e2.printStackTrace();
             }
@@ -413,12 +415,12 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            while (i2 + i3 > 0 && (i4 = this.f12462g) >= 0) {
-                View view = this.f12461f.getView(i4, this.o.poll(), this);
+            while (i2 + i3 > 0 && (i4 = this.f47424f) >= 0) {
+                View view = this.mAdapter.getView(i4, this.k.poll(), this);
                 i(view, 0);
                 i2 -= view.getMeasuredWidth();
-                this.f12462g--;
-                this.l -= view.getMeasuredWidth();
+                this.f47424f--;
+                this.f47427i -= view.getMeasuredWidth();
             }
         }
     }
@@ -426,17 +428,17 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     public final void m(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            while (i2 + i3 < getWidth() && this.f12463h < this.f12461f.getCount()) {
-                View view = this.f12461f.getView(this.f12463h, this.o.poll(), this);
+            while (i2 + i3 < getWidth() && this.f47425g < this.mAdapter.getCount()) {
+                View view = this.mAdapter.getView(this.f47425g, this.k.poll(), this);
                 i(view, -1);
                 i2 += view.getMeasuredWidth();
-                if (this.f12463h == this.f12461f.getCount() - 1) {
-                    this.k = (this.f12464i + i2) - getWidth();
+                if (this.f47425g == this.mAdapter.getCount() - 1) {
+                    this.f47426h = (this.mCurrentX + i2) - getWidth();
                 }
-                if (this.k < 0) {
-                    this.k = 0;
+                if (this.f47426h < 0) {
+                    this.f47426h = 0;
                 }
-                this.f12463h++;
+                this.f47425g++;
             }
         }
     }
@@ -447,7 +449,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, motionEvent, i2)) == null) {
             int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i2);
             if (findPointerIndex == -1) {
-                this.y = -1;
+                this.u = -1;
             }
             return findPointerIndex;
         }
@@ -458,31 +460,54 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             synchronized (this) {
-                this.f12462g = -1;
-                this.f12463h = 0;
-                this.l = 0;
-                this.f12464i = 0;
-                this.j = 0;
-                this.k = Integer.MAX_VALUE;
-                this.m = new Scroller(getContext());
-                this.n = new GestureDetector(getContext(), this.D);
-                this.u = l.k(getContext()) / 2;
-                this.f12460e = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
+                this.f47424f = -1;
+                this.f47425g = 0;
+                this.f47427i = 0;
+                this.mCurrentX = 0;
+                this.mNextX = 0;
+                this.f47426h = Integer.MAX_VALUE;
+                this.mScroller = new Scroller(getContext());
+                this.f47428j = new GestureDetector(getContext(), this.z);
+                this.q = l.k(getContext()) / 2;
+                this.f47423e = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(getContext()));
             }
         }
+    }
+
+    public boolean onDown(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
+            this.mScroller.forceFinished(true);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            synchronized (this) {
+                this.mScroller.fling(this.mNextX, 0, (int) (-f2), 0, 0, this.f47426h, 0, 0);
+            }
+            requestLayout();
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
-            if (this.v) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, motionEvent)) == null) {
+            if (this.r) {
                 if (getParent() != null) {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
                 return super.onInterceptTouchEvent(motionEvent);
-            } else if (this.z) {
+            } else if (this.v) {
                 return true;
             } else {
                 int action = motionEvent.getAction();
@@ -490,34 +515,34 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
                     if (action == 0) {
                         int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                         int pointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
-                        this.y = pointerId;
+                        this.u = pointerId;
                         if (pointerId != -1) {
-                            this.w = MotionEventCompat.getX(motionEvent, actionIndex);
-                            this.x = MotionEventCompat.getY(motionEvent, actionIndex);
-                            SwipeBackLayout.c cVar = this.A;
+                            this.s = MotionEventCompat.getX(motionEvent, actionIndex);
+                            this.t = MotionEventCompat.getY(motionEvent, actionIndex);
+                            SwipeBackLayout.c cVar = this.w;
                             if (cVar != null) {
                                 cVar.disableSwipeBack();
                             }
                         }
                     } else if (action != 2) {
-                        SwipeBackLayout.c cVar2 = this.A;
+                        SwipeBackLayout.c cVar2 = this.w;
                         if (cVar2 != null) {
                             cVar2.enableSwipeBack();
                         }
                     } else {
-                        SwipeBackLayout.c cVar3 = this.A;
+                        SwipeBackLayout.c cVar3 = this.w;
                         if (cVar3 != null) {
                             cVar3.disableSwipeBack();
                         }
                         j(motionEvent);
-                        if (this.z) {
+                        if (this.v) {
                             return true;
                         }
                     }
                     return super.onInterceptTouchEvent(motionEvent);
                 }
-                this.z = false;
-                SwipeBackLayout.c cVar4 = this.A;
+                this.v = false;
+                SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
                     cVar4.enableSwipeBack();
                 }
@@ -530,39 +555,39 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     @Override // android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public synchronized void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             synchronized (this) {
                 super.onLayout(z, i2, i3, i4, i5);
-                if (this.f12461f == null) {
+                if (this.mAdapter == null) {
                     return;
                 }
-                if (this.t) {
-                    int i6 = this.f12464i;
+                if (this.p) {
+                    int i6 = this.mCurrentX;
                     o();
                     removeAllViewsInLayout();
-                    this.j = i6;
-                    this.t = false;
+                    this.mNextX = i6;
+                    this.p = false;
                 }
-                if (this.m.computeScrollOffset()) {
-                    this.j = this.m.getCurrX();
+                if (this.mScroller.computeScrollOffset()) {
+                    this.mNextX = this.mScroller.getCurrX();
                 }
-                if (this.j <= 0) {
-                    this.j = 0;
-                    this.m.forceFinished(true);
+                if (this.mNextX <= 0) {
+                    this.mNextX = 0;
+                    this.mScroller.forceFinished(true);
                 }
-                if (this.j >= this.k) {
-                    this.j = this.k;
-                    this.m.forceFinished(true);
+                if (this.mNextX >= this.f47426h) {
+                    this.mNextX = this.f47426h;
+                    this.mScroller.forceFinished(true);
                 }
-                int i7 = this.f12464i - this.j;
-                t(i7);
+                int i7 = this.mCurrentX - this.mNextX;
+                r(i7);
                 k(i7);
-                s(i7);
-                if (this.s != null) {
-                    this.s.a(getMiddleViewPosition());
+                q(i7);
+                if (this.o != null) {
+                    this.o.a(getMiddleViewPosition());
                 }
-                this.f12464i = this.j;
-                if (!this.m.isFinished()) {
+                this.mCurrentX = this.mNextX;
+                if (!this.mScroller.isFinished()) {
                     post(new b(this));
                 }
             }
@@ -572,7 +597,7 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048591, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
             int mode = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i2);
@@ -588,8 +613,8 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, motionEvent)) == null) {
-            if (this.v) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, motionEvent)) == null) {
+            if (this.r) {
                 if (getParent() != null) {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
@@ -597,31 +622,31 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
             }
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.y = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
-                SwipeBackLayout.c cVar = this.A;
+                this.u = MotionEventCompat.getPointerId(motionEvent, MotionEventCompat.getActionIndex(motionEvent));
+                SwipeBackLayout.c cVar = this.w;
                 if (cVar != null) {
                     cVar.disableSwipeBack();
                 }
             } else if (action == 1) {
-                this.z = false;
-                SwipeBackLayout.c cVar2 = this.A;
+                this.v = false;
+                SwipeBackLayout.c cVar2 = this.w;
                 if (cVar2 != null) {
                     cVar2.enableSwipeBack();
                 }
             } else if (action != 2) {
-                SwipeBackLayout.c cVar3 = this.A;
+                SwipeBackLayout.c cVar3 = this.w;
                 if (cVar3 != null) {
                     cVar3.enableSwipeBack();
                 }
             } else {
-                SwipeBackLayout.c cVar4 = this.A;
+                SwipeBackLayout.c cVar4 = this.w;
                 if (cVar4 != null) {
                     cVar4.disableSwipeBack();
                 }
-                if (!this.z) {
+                if (!this.v) {
                     j(motionEvent);
                 }
-                if (this.z && getParent() != null) {
+                if (this.v && getParent() != null) {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
             }
@@ -634,58 +659,35 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         InterceptResult invokeII;
         View view;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048591, this, i2, i3)) == null) {
-            if (this.f12461f == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048593, this, i2, i3)) == null) {
+            if (this.mAdapter == null) {
                 return getPaddingLeft() + getPaddingRight();
             }
             int paddingLeft = getPaddingLeft() + getPaddingRight();
-            int count = this.f12461f.getCount();
+            int count = this.mAdapter.getCount();
             for (int i4 = 0; i4 < count; i4++) {
-                View poll = this.o.poll();
+                View poll = this.k.poll();
                 if (poll == null) {
-                    view = this.f12461f.getView(i4, null, this);
+                    view = this.mAdapter.getView(i4, null, this);
                 } else {
-                    view = this.f12461f.getView(i4, poll, this);
+                    view = this.mAdapter.getView(i4, poll, this);
                 }
                 view.measure(i2, 0);
                 paddingLeft += view.getMeasuredWidth();
-                this.o.add(view);
+                this.k.add(view);
             }
             return Math.min(paddingLeft, i3);
         }
         return invokeII.intValue;
     }
 
-    public boolean q(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, motionEvent)) == null) {
-            this.m.forceFinished(true);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean r(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            synchronized (this) {
-                this.m.fling(this.j, 0, (int) (-f2), 0, 0, this.k, 0, 0);
-            }
-            requestLayout();
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void s(int i2) {
+    public final void q(int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || getChildCount() <= 0) {
             return;
         }
-        int i3 = this.l + i2;
-        this.l = i3;
+        int i3 = this.f47427i + i2;
+        this.f47427i = i3;
         for (int i4 = 0; i4 < getChildCount(); i4++) {
             View childAt = getChildAt(i4);
             int measuredWidth = childAt.getMeasuredWidth();
@@ -694,91 +696,30 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    public void setDisableParentEvent(boolean z) {
+    public final void r(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.v = z;
-        }
-    }
-
-    @Override // android.widget.AdapterView
-    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, onItemClickListener) == null) {
-            this.q = onItemClickListener;
-        }
-    }
-
-    @Override // android.widget.AdapterView
-    public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, onItemLongClickListener) == null) {
-            this.r = onItemLongClickListener;
-        }
-    }
-
-    @Override // android.widget.AdapterView
-    public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, onItemSelectedListener) == null) {
-            this.p = onItemSelectedListener;
-        }
-    }
-
-    public void setOnScrollChangedListener(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, dVar) == null) {
-            this.s = dVar;
-        }
-    }
-
-    @Override // android.widget.AdapterView
-    public void setSelection(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            int width = i2 * getWidth();
-            int childCount = getChildCount() * getWidth();
-            if (width <= 0) {
-                width = 0;
-            }
-            if (width <= childCount) {
-                childCount = width;
-            }
-            v(childCount);
-        }
-    }
-
-    public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, cVar) == null) {
-            this.A = cVar;
-        }
-    }
-
-    public final void t(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
             View childAt = getChildAt(0);
             while (childAt != null && childAt.getRight() + i2 <= 0) {
-                this.l += childAt.getMeasuredWidth();
-                this.o.offer(childAt);
+                this.f47427i += childAt.getMeasuredWidth();
+                this.k.offer(childAt);
                 removeViewInLayout(childAt);
-                this.f12462g++;
+                this.f47424f++;
                 childAt = getChildAt(0);
             }
             View childAt2 = getChildAt(getChildCount() - 1);
             while (childAt2 != null && childAt2.getLeft() + i2 >= getWidth()) {
-                this.o.offer(childAt2);
+                this.k.offer(childAt2);
                 removeViewInLayout(childAt2);
-                this.f12463h--;
+                this.f47425g--;
                 childAt2 = getChildAt(getChildCount() - 1);
             }
         }
     }
 
-    public final synchronized void u() {
+    public final synchronized void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             synchronized (this) {
                 o();
                 removeAllViewsInLayout();
@@ -787,13 +728,74 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
         }
     }
 
-    public synchronized void v(int i2) {
+    public synchronized void scrollTo(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
             synchronized (this) {
-                this.m.startScroll(this.j, 0, i2 - this.j, 0);
+                this.mScroller.startScroll(this.mNextX, 0, i2 - this.mNextX, 0);
                 requestLayout();
             }
+        }
+    }
+
+    public void setDisableParentEvent(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            this.r = z;
+        }
+    }
+
+    @Override // android.widget.AdapterView
+    public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, onItemClickListener) == null) {
+            this.m = onItemClickListener;
+        }
+    }
+
+    @Override // android.widget.AdapterView
+    public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, onItemLongClickListener) == null) {
+            this.n = onItemLongClickListener;
+        }
+    }
+
+    @Override // android.widget.AdapterView
+    public void setOnItemSelectedListener(AdapterView.OnItemSelectedListener onItemSelectedListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048603, this, onItemSelectedListener) == null) {
+            this.l = onItemSelectedListener;
+        }
+    }
+
+    public void setOnScrollChangedListener(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048604, this, dVar) == null) {
+            this.o = dVar;
+        }
+    }
+
+    @Override // android.widget.AdapterView
+    public void setSelection(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
+            int width = i2 * getWidth();
+            int childCount = getChildCount() * getWidth();
+            if (width <= 0) {
+                width = 0;
+            }
+            if (width <= childCount) {
+                childCount = width;
+            }
+            scrollTo(childCount);
+        }
+    }
+
+    public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, cVar) == null) {
+            this.w = cVar;
         }
     }
 
@@ -802,21 +804,21 @@ public class HorizontalListView extends AdapterView<ListAdapter> {
     public ListAdapter getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12461f : (ListAdapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mAdapter : (ListAdapter) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.AdapterView
     public void setAdapter(ListAdapter listAdapter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, listAdapter) == null) {
-            ListAdapter listAdapter2 = this.f12461f;
+        if (interceptable == null || interceptable.invokeL(1048599, this, listAdapter) == null) {
+            ListAdapter listAdapter2 = this.mAdapter;
             if (listAdapter2 != null) {
-                listAdapter2.unregisterDataSetObserver(this.C);
+                listAdapter2.unregisterDataSetObserver(this.y);
             }
-            this.f12461f = listAdapter;
-            listAdapter.registerDataSetObserver(this.C);
-            u();
+            this.mAdapter = listAdapter;
+            listAdapter.registerDataSetObserver(this.y);
+            s();
         }
     }
 }

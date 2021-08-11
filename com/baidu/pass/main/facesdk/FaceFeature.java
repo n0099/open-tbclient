@@ -1,7 +1,6 @@
 package com.baidu.pass.main.facesdk;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FaceFeature {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceFeature";
@@ -61,18 +60,18 @@ public class FaceFeature {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native float nativeFeature(long j, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, byte[] bArr);
+    private native float nativeFeature(long j2, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, byte[] bArr);
 
-    private native float nativeFeatureCompare(long j, int i2, byte[] bArr, byte[] bArr2, int i3);
+    private native float nativeFeatureCompare(long j2, int i2, byte[] bArr, byte[] bArr2, int i3);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeFeatureModelInit(long j, byte[] bArr, int i2);
+    public native int nativeFeatureModelInit(long j2, byte[] bArr, int i2);
 
-    private native ArrayList<Feature> nativeFeatureSearch(long j, byte[] bArr, int i2, int i3, int i4);
+    private native ArrayList<Feature> nativeFeatureSearch(long j2, byte[] bArr, int i2, int i3, int i4);
 
-    private native float nativeRGBDFeature(long j, int i2, BDFaceImageInstance bDFaceImageInstance, BDFaceImageInstance bDFaceImageInstance2, float[] fArr, byte[] bArr);
+    private native float nativeRGBDFeature(long j2, int i2, BDFaceImageInstance bDFaceImageInstance, BDFaceImageInstance bDFaceImageInstance2, float[] fArr, byte[] bArr);
 
-    private native int nativeUninitModel(long j);
+    private native int nativeUninitModel(long j2);
 
     private native int nativefeaturePush(List<? extends Feature> list);
 
@@ -80,15 +79,14 @@ public class FaceFeature {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, featureType, bDFaceImageInstance, fArr, bArr)) == null) {
-            if (featureType != null && fArr != null && bArr != null && bDFaceImageInstance != null && fArr.length >= 0) {
-                long index = this.bdFaceInstance.getIndex();
-                if (index == 0) {
-                    return -1.0f;
-                }
-                return nativeFeature(index, featureType.ordinal(), bDFaceImageInstance, fArr, bArr);
+            if (featureType == null || fArr == null || bArr == null || bDFaceImageInstance == null || fArr.length < 0) {
+                return -1.0f;
             }
-            Log.v(TAG, "Parameter is null");
-            return -1.0f;
+            long index = this.bdFaceInstance.getIndex();
+            if (index == 0) {
+                return -1.0f;
+            }
+            return nativeFeature(index, featureType.ordinal(), bDFaceImageInstance, fArr, bArr);
         }
         return invokeLLLL.floatValue;
     }
@@ -97,15 +95,14 @@ public class FaceFeature {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{featureType, bArr, bArr2, Boolean.valueOf(z)})) == null) {
-            if (featureType != null && bArr != null && bArr2 != null) {
-                long index = this.bdFaceInstance.getIndex();
-                if (index == 0) {
-                    return -1.0f;
-                }
-                return nativeFeatureCompare(index, featureType.ordinal(), bArr, bArr2, z ? 1 : 0);
+            if (featureType == null || bArr == null || bArr2 == null) {
+                return -1.0f;
             }
-            Log.v(TAG, "Parameter is null");
-            return -1.0f;
+            long index = this.bdFaceInstance.getIndex();
+            if (index == 0) {
+                return -1.0f;
+            }
+            return nativeFeatureCompare(index, featureType.ordinal(), bArr, bArr2, z ? 1 : 0);
         }
         return invokeCommon.floatValue;
     }
@@ -123,15 +120,14 @@ public class FaceFeature {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, featureType, bDFaceImageInstance, bDFaceImageInstance2, fArr, bArr)) == null) {
-            if (featureType != null && fArr != null && bArr != null && bDFaceImageInstance != null && bDFaceImageInstance2 != null && fArr.length >= 0) {
-                long index = this.bdFaceInstance.getIndex();
-                if (index == 0) {
-                    return -1.0f;
-                }
-                return nativeRGBDFeature(index, featureType.ordinal(), bDFaceImageInstance, bDFaceImageInstance2, fArr, bArr);
+            if (featureType == null || fArr == null || bArr == null || bDFaceImageInstance == null || bDFaceImageInstance2 == null || fArr.length < 0) {
+                return -1.0f;
             }
-            Log.v(TAG, "Parameter is null");
-            return -1.0f;
+            long index = this.bdFaceInstance.getIndex();
+            if (index == 0) {
+                return -1.0f;
+            }
+            return nativeRGBDFeature(index, featureType.ordinal(), bDFaceImageInstance, bDFaceImageInstance2, fArr, bArr);
         }
         return invokeLLLLL.floatValue;
     }
@@ -207,7 +203,7 @@ public class FaceFeature {
                                 } else {
                                     this.val$callback.onResponse(0, "识别模型加载成功");
                                 }
-                                Log.v(FaceFeature.TAG, "FaceFeature initModel");
+                                String unused = FaceFeature.TAG;
                                 return;
                             }
                             this.val$callback.onResponse(i3, "Vis 识别模型加载失败");
@@ -294,7 +290,7 @@ public class FaceFeature {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (this.val$idPhotoModel.length() == 0 && this.val$visModel.length() == 0 && this.val$nirModel.length() == 0 && this.val$rgbdModel.length() == 0) {
-                            Log.v(FaceFeature.TAG, "FaceFeature未设置模型路径");
+                            String unused = FaceFeature.TAG;
                             this.val$callback.onResponse(1, "FaceFeature未设置模型路径");
                         } else if (this.val$context != null) {
                             long index = this.this$0.bdFaceInstance.getIndex();
@@ -304,14 +300,14 @@ public class FaceFeature {
                             if (this.val$idPhotoModel.length() != 0) {
                                 byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$idPhotoModel);
                                 if (modelContent.length == 0) {
-                                    Log.v(FaceFeature.TAG, "证件照识别模型读取失败");
+                                    String unused2 = FaceFeature.TAG;
                                     this.val$callback.onResponse(-1, "证件照识别模型读取失败");
                                     return;
                                 }
                                 int nativeFeatureModelInit = this.this$0.nativeFeatureModelInit(index, modelContent, BDFaceSDKCommon.FeatureType.BDFACE_FEATURE_TYPE_ID_PHOTO.ordinal());
                                 if (nativeFeatureModelInit != 0) {
-                                    String str5 = FaceFeature.TAG;
-                                    Log.v(str5, "证件照识别模型加载失败: " + nativeFeatureModelInit);
+                                    String unused3 = FaceFeature.TAG;
+                                    String str5 = "证件照识别模型加载失败: " + nativeFeatureModelInit;
                                     this.val$callback.onResponse(nativeFeatureModelInit, "证件照识别模型加载失败");
                                     return;
                                 }
@@ -319,14 +315,14 @@ public class FaceFeature {
                             if (this.val$visModel.length() != 0) {
                                 byte[] modelContent2 = FileUitls.getModelContent(this.val$context, this.val$visModel);
                                 if (modelContent2.length == 0) {
-                                    Log.v(FaceFeature.TAG, "生活照识别模型读取失败");
+                                    String unused4 = FaceFeature.TAG;
                                     this.val$callback.onResponse(-1, "生活照识别模型读取失败");
                                     return;
                                 }
                                 int nativeFeatureModelInit2 = this.this$0.nativeFeatureModelInit(index, modelContent2, BDFaceSDKCommon.FeatureType.BDFACE_FEATURE_TYPE_LIVE_PHOTO.ordinal());
                                 if (nativeFeatureModelInit2 != 0) {
-                                    String str6 = FaceFeature.TAG;
-                                    Log.v(str6, "生活照识别模型加载失败: " + nativeFeatureModelInit2);
+                                    String unused5 = FaceFeature.TAG;
+                                    String str6 = "生活照识别模型加载失败: " + nativeFeatureModelInit2;
                                     this.val$callback.onResponse(nativeFeatureModelInit2, "生活照识别模型加载失败");
                                     return;
                                 }
@@ -334,14 +330,14 @@ public class FaceFeature {
                             if (this.val$nirModel.length() != 0) {
                                 byte[] modelContent3 = FileUitls.getModelContent(this.val$context, this.val$nirModel);
                                 if (modelContent3.length == 0) {
-                                    Log.v(FaceFeature.TAG, "Nir识别模型读取失败");
+                                    String unused6 = FaceFeature.TAG;
                                     this.val$callback.onResponse(-1, "Nir识别模型读取失败");
                                     return;
                                 }
                                 int nativeFeatureModelInit3 = this.this$0.nativeFeatureModelInit(index, modelContent3, BDFaceSDKCommon.FeatureType.BDFACE_FEATURE_TYPE_NIR.ordinal());
                                 if (nativeFeatureModelInit3 != 0) {
-                                    String str7 = FaceFeature.TAG;
-                                    Log.v(str7, "Nir识别模型加载失败: " + nativeFeatureModelInit3);
+                                    String unused7 = FaceFeature.TAG;
+                                    String str7 = "Nir识别模型加载失败: " + nativeFeatureModelInit3;
                                     this.val$callback.onResponse(nativeFeatureModelInit3, "Nir识别模型加载失败");
                                     return;
                                 }
@@ -349,19 +345,19 @@ public class FaceFeature {
                             if (this.val$rgbdModel.length() != 0) {
                                 byte[] modelContent4 = FileUitls.getModelContent(this.val$context, this.val$rgbdModel);
                                 if (modelContent4.length == 0) {
-                                    Log.v(FaceFeature.TAG, "rgbd识别模型读取失败");
+                                    String unused8 = FaceFeature.TAG;
                                     this.val$callback.onResponse(-1, "rgbd识别模型读取失败");
                                     return;
                                 }
                                 int nativeFeatureModelInit4 = this.this$0.nativeFeatureModelInit(index, modelContent4, BDFaceSDKCommon.FeatureType.BDFACE_FEATURE_TYPE_RGBD.ordinal());
                                 if (nativeFeatureModelInit4 != 0) {
-                                    String str8 = FaceFeature.TAG;
-                                    Log.v(str8, "rgbd识别模型加载失败: " + nativeFeatureModelInit4);
+                                    String unused9 = FaceFeature.TAG;
+                                    String str8 = "rgbd识别模型加载失败: " + nativeFeatureModelInit4;
                                     this.val$callback.onResponse(nativeFeatureModelInit4, "rgbd识别模型加载失败");
                                     return;
                                 }
                             }
-                            Log.v(FaceFeature.TAG, "FaceFeature initModel");
+                            String unused10 = FaceFeature.TAG;
                             this.val$callback.onResponse(0, "识别模型加载成功");
                         } else {
                             this.val$callback.onResponse(1, "没有初始化上下文");

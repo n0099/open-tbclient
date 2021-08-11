@@ -16,15 +16,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static ArrayList<Pair<String, byte[]>> f40972a;
+    public static ArrayList<Pair<String, byte[]>> f77848a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Map<String, byte[]> f968a;
+    public static final Map<String, byte[]> f972a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,18 +40,18 @@ public class p {
                 return;
             }
         }
-        f968a = new HashMap();
-        f40972a = new ArrayList<>();
+        f972a = new HashMap();
+        f77848a = new ArrayList<>();
     }
 
     public static void a(Context context, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(65537, null, context, i2, str) == null) {
-            synchronized (f968a) {
-                for (String str2 : f968a.keySet()) {
-                    a(context, str2, f968a.get(str2), i2, str);
+            synchronized (f972a) {
+                for (String str2 : f972a.keySet()) {
+                    a(context, str2, f972a.get(str2), i2, str);
                 }
-                f968a.clear();
+                f972a.clear();
             }
         }
     }
@@ -72,11 +72,11 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, xMPushService) == null) {
             try {
-                synchronized (f968a) {
-                    for (String str : f968a.keySet()) {
-                        y.a(xMPushService, str, f968a.get(str));
+                synchronized (f972a) {
+                    for (String str : f972a.keySet()) {
+                        y.a(xMPushService, str, f972a.get(str));
                     }
-                    f968a.clear();
+                    f972a.clear();
                 }
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("fail to deal with pending register request. " + e2);
@@ -88,8 +88,8 @@ public class p {
     public static void a(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr) == null) {
-            synchronized (f968a) {
-                f968a.put(str, bArr);
+            synchronized (f972a) {
+                f972a.put(str, bArr);
             }
         }
     }
@@ -99,9 +99,9 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, xMPushService) == null) {
             try {
-                synchronized (f40972a) {
-                    arrayList = f40972a;
-                    f40972a = new ArrayList<>();
+                synchronized (f77848a) {
+                    arrayList = f77848a;
+                    f77848a = new ArrayList<>();
                 }
                 boolean z = Thread.currentThread() == Looper.getMainLooper().getThread();
                 Iterator<Pair<String, byte[]>> it = arrayList.iterator();
@@ -125,10 +125,10 @@ public class p {
     public static void b(String str, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, bArr) == null) {
-            synchronized (f40972a) {
-                f40972a.add(new Pair<>(str, bArr));
-                if (f40972a.size() > 50) {
-                    f40972a.remove(0);
+            synchronized (f77848a) {
+                f77848a.add(new Pair<>(str, bArr));
+                if (f77848a.size() > 50) {
+                    f77848a.remove(0);
                 }
             }
         }

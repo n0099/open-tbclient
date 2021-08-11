@@ -4,11 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.paysdk.datamodel.Compliance;
 import com.baidu.wallet.paysdk.datamodel.FeedbackInfo;
+import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PayResultContent implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NOT_ENTER_PAYRESULT_PAGE = "0";
@@ -46,7 +46,7 @@ public class PayResultContent implements Serializable {
     public String total_amount;
     public String trans_no;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class CrossMarket implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -11,7 +11,7 @@ import org.apache.http.HeaderElement;
 import org.apache.http.HeaderElementIterator;
 import org.apache.http.HeaderIterator;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class BasicHeaderElementIterator implements HeaderElementIterator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,6 +1,5 @@
 package com.baidu.wallet.paysdk.ui;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +13,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.eventbus.EventBus;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,20 +20,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
-import com.baidu.wallet.api.BaiduWalletDelegate;
 import com.baidu.wallet.base.controllers.PasswordController;
 import com.baidu.wallet.base.controllers.PayController;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.base.widget.SafeKeyBoardEditText;
-import com.baidu.wallet.base.widget.SafeScrollView;
-import com.baidu.wallet.base.widget.SixNumberPwdView;
-import com.baidu.wallet.base.widget.dialog.PromptDialog;
-import com.baidu.wallet.core.BaseActivity;
-import com.baidu.wallet.core.beans.BeanManager;
-import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.core.lollipop.json.JSONObject;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.PayCallBackManager;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.contract.PwdPayContract;
@@ -53,54 +37,74 @@ import com.baidu.wallet.paysdk.presenter.PwdPayPresenterForScancode;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.widget.PayLoadingImageViewNew;
 import com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew;
-import com.baidu.wallet.personal.ui.BankCardListActivity;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.eventbus.EventBus;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.api.BaiduWalletDelegate;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.base.widget.SafeKeyBoardEditText;
+import com.dxmpay.wallet.base.widget.SafeScrollView;
+import com.dxmpay.wallet.base.widget.SixNumberPwdView;
+import com.dxmpay.wallet.base.widget.dialog.PromptDialog;
+import com.dxmpay.wallet.core.BaseActivity;
+import com.dxmpay.wallet.core.beans.BeanManager;
+import com.dxmpay.wallet.core.lollipop.json.JSONObject;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
+import com.dxmpay.wallet.paysdk.datamodel.SdkInitResponse;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnClickListener, SixNumberPwdView.OnPwdChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PwdPayActivity";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public RelativeLayout f26827a;
+    public RelativeLayout f62679a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f26828b;
+    public View f62680b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f26829c;
+    public TextView f62681c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f62682d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f26830e;
+    public SafeScrollView f62683e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SafeScrollView f26831f;
+    public SafeKeyBoardEditText f62684f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SafeKeyBoardEditText f26832g;
+    public TextView f62685g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f26833h;
+    public TextView f62686h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f26834i;
-    public TextView j;
-    public SixNumberPwdView k;
-    public PayLoadingImageViewNew l;
-    public View m;
+    public TextView f62687i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public SixNumberPwdView f62688j;
+    public PayLoadingImageViewNew k;
+    public View l;
+    public SuccessImageViewNew m;
     public PwdPayContract.Presenter mPresenter;
-    public SuccessImageViewNew n;
-    public PwdRequest o;
+    public PwdRequest n;
+    public boolean o;
     public boolean p;
     public boolean q;
-    public boolean r;
-    public AtomicBoolean s;
-    public boolean t;
-    public View u;
-    public CheckBox v;
-    public TextView w;
+    public AtomicBoolean r;
+    public boolean s;
+    public View t;
+    public CheckBox u;
+    public TextView v;
+    public boolean w;
     public int x;
 
     public PwdPayActivity() {
@@ -116,8 +120,9 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                 return;
             }
         }
-        this.s = new AtomicBoolean(false);
-        this.t = false;
+        this.r = new AtomicBoolean(false);
+        this.s = false;
+        this.w = true;
         this.x = 4;
     }
 
@@ -135,11 +140,11 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             this.mActionBar.setVisibility(0);
-            this.p = false;
-            this.f26831f.setVisibility(0);
-            this.f26831f.dismissKeyBoard(this.f26832g);
-            this.l.stopAnimation();
-            this.l.setVisibility(8);
+            this.o = false;
+            this.f62683e.setVisibility(0);
+            this.f62683e.dismissKeyBoard(this.f62684f);
+            this.k.stopAnimation();
+            this.k.setVisibility(8);
         }
     }
 
@@ -157,76 +162,86 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     public void doVerifyFingerprint(IFingerprintPay iFingerprintPay) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iFingerprintPay) == null) {
-            this.k.resetPwd();
+            this.f62688j.resetPwd();
             PwdRequest pwdRequest = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
-            this.o = pwdRequest;
+            this.n = pwdRequest;
             if (pwdRequest != null) {
                 pwdRequest.mPayPass = null;
                 pwdRequest.mConfirmPayPass = null;
             }
-            if (this.s.compareAndSet(false, true)) {
+            if (this.r.compareAndSet(false, true)) {
                 setPageTransparent(true);
             }
             if (iFingerprintPay == null) {
                 GlobalUtils.toast(this.mAct, "手机不支持指纹支付", 1);
-            } else {
-                iFingerprintPay.verify(getActivity(), new FingerprintCallback(this, iFingerprintPay) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ PwdPayActivity this$0;
-                    public final /* synthetic */ IFingerprintPay val$mFingerprintPay;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, iFingerprintPay};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$mFingerprintPay = iFingerprintPay;
-                    }
-
-                    @Override // com.baidu.wallet.paysdk.fingerprint.FingerprintCallback
-                    public void onAuthorizeResult(IFingerprintPay.Action action, int i2, String str) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, action, i2, str) == null) {
-                            this.this$0.s.set(false);
-                            if (action == IFingerprintPay.Action.VERIFY) {
-                                if (i2 == 0) {
-                                    this.this$0.mPresenter.onFPCheckOK(str);
-                                } else if (i2 == 1) {
-                                    this.this$0.mPresenter.onFPCheckCancel();
-                                } else if (i2 == 3) {
-                                    this.this$0.turntoPwdPay(false, null);
-                                } else {
-                                    this.this$0.turntoPwdPay(true, str);
-                                }
-                            }
-                            this.val$mFingerprintPay.destory();
-                        }
-                    }
-                });
+                return;
             }
+            StatisticManager.onEventStart(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION);
+            iFingerprintPay.verify(getActivity(), new FingerprintCallback(this, iFingerprintPay) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ PwdPayActivity this$0;
+                public final /* synthetic */ IFingerprintPay val$mFingerprintPay;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, iFingerprintPay};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$mFingerprintPay = iFingerprintPay;
+                }
+
+                @Override // com.baidu.wallet.paysdk.fingerprint.FingerprintCallback
+                public void onAuthorizeResult(IFingerprintPay.Action action, int i2, String str) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, action, i2, str) == null) {
+                        this.this$0.r.set(false);
+                        if (action == IFingerprintPay.Action.VERIFY) {
+                            if (i2 == 0) {
+                                StatHelper.cacheCodeAndMsg(i2 + "", StatHelper.SENSOR_OK);
+                            } else {
+                                StatHelper.cacheCodeAndMsg(i2 + "", str);
+                            }
+                            if (i2 == 0) {
+                                StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
+                                this.this$0.mPresenter.onFPCheckOK(str);
+                            } else if (i2 == 1) {
+                                StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
+                                this.this$0.mPresenter.onFPCheckCancel();
+                            } else if (i2 == 3) {
+                                this.this$0.turntoPwdPay(false, null);
+                            } else {
+                                this.this$0.turntoPwdPay(true, str);
+                            }
+                        }
+                        this.val$mFingerprintPay.destory();
+                    }
+                }
+            });
         }
     }
 
     public void forgetPassword() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.k.resetPwd();
-            BaiduWalletDelegate baiduWalletDelegate = BaiduWalletDelegate.getInstance();
-            Activity activity = getActivity();
-            baiduWalletDelegate.openH5Module(activity, DomainConfig.getInstance().getMHost() + BeanConstants.API_FIND_PASS, false);
-            this.t = true;
+            this.f62688j.resetPwd();
+            String findPayPwdUrl = SdkInitResponse.getInstance().getFindPayPwdUrl(getActivity());
+            if (TextUtils.isEmpty(findPayPwdUrl)) {
+                findPayPwdUrl = BeanConstants.API_FIND_PAY_PWD_URL;
+            }
+            BaiduWalletDelegate.getInstance().openH5Module(getActivity(), findPayPwdUrl, false);
+            this.s = true;
         }
     }
 
@@ -238,7 +253,7 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.dxmpay.wallet.core.beans.BeanActivity
     public void handleFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, str) == null) {
@@ -249,7 +264,7 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.core.beans.BeanActivity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.dxmpay.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048583, this, i2, obj, str) == null) {
@@ -275,28 +290,33 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     public boolean isGatewaySignPay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.r : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.q : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.p && this.mPresenter.directQuit()) {
-            if (this.q) {
-                StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_BIND_CARD_FAILED, StatHelper.collectData(StatHelper.getOrderNo(), "-2", "payBindCardCancel"));
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.o && this.mPresenter.directQuit()) {
+            StatHelper.cacheCodeAndMsg(StatHelper.SENSOR_ERR_2, "pwdPayCancel");
+            if (this.p) {
+                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_BIND_CARD_FAILED, null, StatHelper.SENSOR_ERR_2, "payBindCardCancel");
+                StatHelper.cacheCodeAndMsg(StatHelper.SENSOR_ERR_2, "payBindCardCancel");
+                StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_BIND_CARD_DURATION, null, new String[0]);
             } else if (com.baidu.wallet.paysdk.a.b.a()) {
-                StatisticManager.onEventWithValues(PayStatServiceEvent.PAY_BIND_CARD_FAILED, StatHelper.collectData(StatHelper.getOrderNo(), "-2", "authorizeBindCardCancel"));
+                StatHelper.statServiceEvent(PayStatServiceEvent.PAY_BIND_CARD_FAILED, null, StatHelper.SENSOR_ERR_2, "authorizeBindCardCancel");
+                StatHelper.cacheCodeAndMsg(StatHelper.SENSOR_ERR_2, "authorizeBindCardCancel");
+                StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_BIND_CARD_DURATION, null, new String[0]);
             }
             super.onBackPressed();
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity
     public void onBeanExecFailureWithErrContent(int i2, int i3, String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), str, obj}) == null) {
             dismissLoading(-1);
-            this.k.resetPwd();
+            this.f62688j.resetPwd();
             if (this.mPresenter.onBeanExecFailureWithErrContent(i2, i3, str, obj)) {
                 return;
             }
@@ -308,8 +328,8 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view) == null) {
-            if (view == this.f26830e) {
-                PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_CLICK_FORGET_PWD_IN_CASHDESK);
+            if (view == this.f62682d) {
+                StatisticManager.onEvent(StatServiceEvent.EVENT_CLICK_FORGET_PWD_IN_CASHDESK);
                 forgetPassword();
             } else if (view == this.mLeftImg) {
                 onBackPressed();
@@ -319,7 +339,7 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
@@ -330,13 +350,13 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                 Intent intent = this.mAct.getIntent();
                 if (intent != null) {
                     this.x = intent.getIntExtra(PwdPayPresenterFactory.PWDPAYACTIVITY_FROM_KEY, -1);
-                    this.r = intent.getBooleanExtra("gatewaySign", false);
-                    this.q = intent.getBooleanExtra("IS_FOR_BIND_CARD_PAY", false);
+                    this.q = intent.getBooleanExtra("gatewaySign", false);
+                    this.p = intent.getBooleanExtra("IS_FOR_BIND_CARD_PAY", false);
                 }
             } else {
                 this.x = bundle.getInt("forwhat");
-                this.r = bundle.getBoolean("gatewaySign", false);
-                this.q = bundle.getBoolean("isforBindCardPay", false);
+                this.q = bundle.getBoolean("gatewaySign", false);
+                this.p = bundle.getBoolean("isforBindCardPay", false);
             }
             b();
             PwdPayContract.Presenter a2 = PwdPayPresenterFactory.a(this.x, this);
@@ -347,21 +367,36 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
             }
             a2.onCreate(bundle);
             if (bundle != null) {
-                this.p = bundle.getBoolean("isloading");
-                this.q = bundle.getBoolean("isforBindCardPay");
+                this.o = bundle.getBoolean("isloading");
+                this.p = bundle.getBoolean("isforBindCardPay");
             }
-            EventBus.getInstance().register(this, BankCardListActivity.EVT_PAY_PWD_CHANGE, 0, EventBus.ThreadMode.MainThread);
+            EventBus.getInstance().register(this, BeanConstants.EVT_PAY_PWD_CHANGE, 0, EventBus.ThreadMode.MainThread);
+            StatHelper.statServiceEvent(PayStatServiceEvent.ENTER_PWD_PAY_ACTIVITY);
+            if (PayRequestCache.getInstance().isPaying()) {
+                PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
+                if (payRequest != null && payRequest.getPayWay() == 3) {
+                    this.w = true;
+                } else {
+                    this.w = false;
+                }
+                if (this.w) {
+                    StatisticManager.onEventStart(PayStatServiceEvent.PAY_CHECK_PWD_DURATION);
+                }
+            }
             a();
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.HalfScreenBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDestroy();
+            if (this.w) {
+                StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_PWD_DURATION, null, new String[0]);
+            }
             BeanManager.getInstance().removeAllBeans(TAG);
-            if (this.t) {
+            if (this.s) {
                 PasswordController.getPassWordInstance().clearForgetPasswdCallback();
             }
             PwdPayContract.Presenter presenter = this.mPresenter;
@@ -377,16 +412,16 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     public void onModuleEvent(EventBus.Event event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, event) == null) {
-            if (event != null && BankCardListActivity.EVT_PAY_PWD_CHANGE.equals(event.mEventKey)) {
+            if (event != null && BeanConstants.EVT_PAY_PWD_CHANGE.equals(event.mEventKey)) {
                 if (event.mEventObj != null) {
                     try {
                         JSONObject jSONObject = new JSONObject((String) event.mEventObj);
                         if (jSONObject.has("is_succeed") && 1 == jSONObject.getInt("is_succeed")) {
-                            if (this.o != null) {
-                                PayRequestCache.getInstance().addBeanRequestToCache(this.o.getRequestId(), this.o);
+                            if (this.n != null) {
+                                PayRequestCache.getInstance().addBeanRequestToCache(this.n.getRequestId(), this.n);
                             }
-                            if (this.f26829c != null) {
-                                this.f26829c.setVisibility(8);
+                            if (this.f62681c != null) {
+                                this.f62681c.setVisibility(8);
                             }
                             int i2 = 0;
                             try {
@@ -394,13 +429,13 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
-                            if (1 == i2 && PayRequestCache.getInstance().isPaying() && this.f26829c != null) {
-                                this.f26829c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.6
+                            if (1 == i2 && PayRequestCache.getInstance().isPaying() && this.f62681c != null) {
+                                this.f62681c.postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.6
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ PwdPayActivity f26847a;
+                                    public final /* synthetic */ PwdPayActivity f62701a;
 
                                     {
                                         Interceptable interceptable2 = $ic;
@@ -417,15 +452,15 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                                 return;
                                             }
                                         }
-                                        this.f26847a = this;
+                                        this.f62701a = this;
                                     }
 
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable2 = $ic;
                                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                            BaseActivity.clearTasksTopOf(this.f26847a);
-                                            BaiduPayDelegate.getInstance().reOrderPay(this.f26847a.getActivity());
+                                            BaseActivity.clearTasksTopOf(this.f62701a);
+                                            BaiduPayDelegate.getInstance().reOrderPay(this.f62701a.getActivity());
                                         }
                                     }
                                 }, 1000L);
@@ -449,15 +484,20 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     public void onNegativeBtnClick() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            if (this.mPresenter.dialogNevigateOper_QuitCashDesk()) {
+            PwdPayContract.Presenter presenter = this.mPresenter;
+            if (presenter != null && presenter.dialogNevigateOper_QuitCashDesk()) {
                 PayCallBackManager.callBackClientCancel(this, "PwdPayActivityonNegativeBtnClick().1");
-            } else if (this.mPresenter.dialogNevigateOper_QuitCurrentPage()) {
-                finishWithoutAnim();
+                return;
             }
+            PwdPayContract.Presenter presenter2 = this.mPresenter;
+            if (presenter2 == null || !presenter2.dialogNevigateOper_QuitCurrentPage()) {
+                return;
+            }
+            finishWithoutAnim();
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.BaseActivity, android.app.Activity
     public void onPrepareDialog(int i2, Dialog dialog) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048593, this, i2, dialog) == null) {
@@ -465,12 +505,12 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                 PromptDialog promptDialog = (PromptDialog) dialog;
                 promptDialog.setMessage(this.mDialogMsg);
                 promptDialog.setCanceledOnTouchOutside(false);
-                promptDialog.setPositiveBtn(ResUtils.string(getActivity(), "ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.9
+                promptDialog.setPositiveBtn(ResUtils.string(getActivity(), "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.9
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayActivity f26851a;
+                    public final /* synthetic */ PwdPayActivity f62705a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -487,15 +527,15 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                 return;
                             }
                         }
-                        this.f26851a = this;
+                        this.f62705a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f26851a, 12);
-                            this.f26851a.onNegativeBtnClick();
+                            WalletGlobalUtils.safeDismissDialog(this.f62705a, 12);
+                            this.f62705a.onNegativeBtnClick();
                         }
                     }
                 });
@@ -509,7 +549,7 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayActivity f26841a;
+                    public final /* synthetic */ PwdPayActivity f62695a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -526,28 +566,28 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                 return;
                             }
                         }
-                        this.f26841a = this;
+                        this.f62695a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PwdPayActivity pwdPayActivity = this.f26841a;
+                            PwdPayActivity pwdPayActivity = this.f62695a;
                             pwdPayActivity.addDoPayorCheckCardStatistics(ResUtils.getString(pwdPayActivity.getActivity(), "ebpay_find_password"));
-                            PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_FIND_PWD_FROM_PWD_OVER_LIMIT);
-                            WalletGlobalUtils.safeDismissDialog(this.f26841a, 17);
-                            this.f26841a.d();
-                            this.f26841a.forgetPassword();
+                            StatisticManager.onEvent(StatServiceEvent.EVENT_FIND_PWD_FROM_PWD_OVER_LIMIT);
+                            WalletGlobalUtils.safeDismissDialog(this.f62695a, 17);
+                            this.f62695a.d();
+                            this.f62695a.forgetPassword();
                         }
                     }
                 });
-                promptDialog2.setNegativeBtn(ResUtils.getString(getActivity(), "ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.3
+                promptDialog2.setNegativeBtn(ResUtils.getString(getActivity(), "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayActivity f26842a;
+                    public final /* synthetic */ PwdPayActivity f62696a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -564,30 +604,30 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                 return;
                             }
                         }
-                        this.f26842a = this;
+                        this.f62696a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PwdPayActivity pwdPayActivity = this.f26842a;
-                            pwdPayActivity.addDoPayorCheckCardStatistics(ResUtils.getString(pwdPayActivity.getActivity(), "ebpay_know"));
-                            PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_IGNOREPWD_OVER_LIMIT);
-                            WalletGlobalUtils.safeDismissDialog(this.f26842a, 17);
-                            this.f26842a.d();
+                            PwdPayActivity pwdPayActivity = this.f62696a;
+                            pwdPayActivity.addDoPayorCheckCardStatistics(ResUtils.getString(pwdPayActivity.getActivity(), "dxm_ebpay_know"));
+                            StatisticManager.onEvent(StatServiceEvent.EVENT_IGNOREPWD_OVER_LIMIT);
+                            WalletGlobalUtils.safeDismissDialog(this.f62696a, 17);
+                            this.f62696a.d();
                         }
                     }
                 });
             } else if (i2 == 36) {
                 PromptDialog promptDialog3 = (PromptDialog) dialog;
                 promptDialog3.setMessage(this.mDialogMsg);
-                promptDialog3.setNegativeBtn(ResUtils.getString(this, "ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.12
+                promptDialog3.setNegativeBtn(ResUtils.getString(this, "dxm_ebpay_cancel"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.12
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayActivity f26839a;
+                    public final /* synthetic */ PwdPayActivity f62693a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -604,15 +644,15 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                 return;
                             }
                         }
-                        this.f26839a = this;
+                        this.f62693a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f26839a, 36);
-                            this.f26839a.onNegativeBtnClick();
+                            WalletGlobalUtils.safeDismissDialog(this.f62693a, 36);
+                            this.f62693a.onNegativeBtnClick();
                         }
                     }
                 });
@@ -621,7 +661,7 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayActivity f26840a;
+                    public final /* synthetic */ PwdPayActivity f62694a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -638,16 +678,16 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                 return;
                             }
                         }
-                        this.f26840a = this;
+                        this.f62694a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f26840a, 36);
-                            PayController.getInstance().gotoPayTypePage(this.f26840a, false);
-                            this.f26840a.finishWithoutAnim();
+                            WalletGlobalUtils.safeDismissDialog(this.f62694a, 36);
+                            PayController.getInstance().gotoPayTypePage(this.f62694a, false);
+                            this.f62694a.finishWithoutAnim();
                         }
                     }
                 });
@@ -656,12 +696,12 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
             } else {
                 PromptDialog promptDialog4 = (PromptDialog) dialog;
                 promptDialog4.setMessage(this.mDialogMsg);
-                promptDialog4.setNegativeBtn(ResUtils.getString(getActivity(), "ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.10
+                promptDialog4.setNegativeBtn(ResUtils.getString(getActivity(), "dxm_ebpay_know"), new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayActivity f26837a;
+                    public final /* synthetic */ PwdPayActivity f62691a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -678,17 +718,17 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                 return;
                             }
                         }
-                        this.f26837a = this;
+                        this.f62691a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PwdPayActivity pwdPayActivity = this.f26837a;
-                            pwdPayActivity.addDoPayorCheckCardStatistics(ResUtils.getString(pwdPayActivity.getActivity(), "ebpay_know"));
-                            WalletGlobalUtils.safeDismissDialog(this.f26837a, 37);
-                            this.f26837a.onNegativeBtnClick();
+                            PwdPayActivity pwdPayActivity = this.f62691a;
+                            pwdPayActivity.addDoPayorCheckCardStatistics(ResUtils.getString(pwdPayActivity.getActivity(), "dxm_ebpay_know"));
+                            WalletGlobalUtils.safeDismissDialog(this.f62691a, 37);
+                            this.f62691a.onNegativeBtnClick();
                         }
                     }
                 });
@@ -697,7 +737,7 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayActivity f26838a;
+                    public final /* synthetic */ PwdPayActivity f62692a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -714,22 +754,22 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                 return;
                             }
                         }
-                        this.f26838a = this;
+                        this.f62692a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            PwdPayActivity pwdPayActivity = this.f26838a;
+                            PwdPayActivity pwdPayActivity = this.f62692a;
                             pwdPayActivity.addDoPayorCheckCardStatistics(ResUtils.getString(pwdPayActivity.getActivity(), "ebpay_use_other_paytype"));
-                            WalletGlobalUtils.safeDismissDialog(this.f26838a, 37);
+                            WalletGlobalUtils.safeDismissDialog(this.f62692a, 37);
                             PayRequest payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY);
                             if (payRequest != null) {
                                 payRequest.clearMktSolution();
                             }
-                            PayController.getInstance().gotoPayTypePage(this.f26838a, false);
-                            this.f26838a.finishWithoutAnim();
+                            PayController.getInstance().gotoPayTypePage(this.f62692a, false);
+                            this.f62692a.finishWithoutAnim();
                         }
                     }
                 });
@@ -737,27 +777,27 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         }
     }
 
-    @Override // com.baidu.wallet.base.widget.SixNumberPwdView.OnPwdChangedListener
+    @Override // com.dxmpay.wallet.base.widget.SixNumberPwdView.OnPwdChangedListener
     public void onPwdChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
             if (i2 == 6) {
-                PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_FINISH_INPUTPWD_IN_CASHDESK);
-                this.mPresenter.onPwdChanged(this.k.getPwd());
+                StatHelper.statServiceEvent(StatServiceEvent.EVENT_FINISH_INPUTPWD_IN_CASHDESK);
+                this.mPresenter.onPwdChanged(this.f62688j.getPwd());
                 return;
             }
-            this.f26829c.setVisibility(8);
+            this.f62681c.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseActivity, com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
-            bundle.putSerializable("isloading", Boolean.valueOf(this.p));
-            bundle.putSerializable("pwdrequest", this.o);
-            bundle.putSerializable("isforBindCardPay", Boolean.valueOf(this.q));
-            bundle.putSerializable("gatewaySign", Boolean.valueOf(this.r));
+            bundle.putSerializable("isloading", Boolean.valueOf(this.o));
+            bundle.putSerializable("pwdrequest", this.n);
+            bundle.putSerializable("isforBindCardPay", Boolean.valueOf(this.p));
+            bundle.putSerializable("gatewaySign", Boolean.valueOf(this.q));
             bundle.putSerializable("forwhat", Integer.valueOf(this.x));
             this.mPresenter.onSaveInstanceState(bundle);
             super.onSaveInstanceState(bundle);
@@ -767,14 +807,16 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     @Override // android.app.Activity, android.view.Window.Callback
     public void onWindowFocusChanged(boolean z) {
         PayRequest payRequest;
-        SafeKeyBoardEditText safeKeyBoardEditText;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
             super.onWindowFocusChanged(z);
-            if (!z || (payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)) == null || payRequest.getPayWay() != 3 || (safeKeyBoardEditText = this.f26832g) == null) {
+            if (!z || (payRequest = (PayRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PAY)) == null || payRequest.getPayWay() != 3 || this.f62684f == null || payRequest.isPayByMktSolution) {
                 return;
             }
-            safeKeyBoardEditText.requestFocus();
+            PayLoadingImageViewNew payLoadingImageViewNew = this.k;
+            if (payLoadingImageViewNew == null || payLoadingImageViewNew.getVisibility() != 0) {
+                this.f62684f.requestFocus();
+            }
         }
     }
 
@@ -803,16 +845,16 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     public void setErrorArea(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.f26828b.setVisibility(z ? 0 : 8);
+            this.f62680b.setVisibility(z ? 0 : 8);
         }
     }
 
     public void setErrorTips(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048600, this, z, str) == null) {
-            this.f26829c.setVisibility(z ? 0 : 8);
+            this.f62681c.setVisibility(z ? 0 : 8);
             if (str != null) {
-                this.f26829c.setText(str);
+                this.f62681c.setText(str);
             }
         }
     }
@@ -829,18 +871,18 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         if (!(interceptable == null || interceptable.invokeL(1048603, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f26833h.setText(str);
+        this.f62685g.setText(str);
     }
 
     public void showLoading(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
             this.mActionBar.setVisibility(4);
-            this.p = true;
-            this.f26831f.setVisibility(8);
-            this.f26831f.dismissKeyBoard(this.f26832g);
-            this.l.setVisibility(0);
-            this.l.startAnimation();
+            this.o = true;
+            this.f62683e.setVisibility(8);
+            this.f62683e.dismissKeyBoard(this.f62684f);
+            this.k.setVisibility(0);
+            this.k.startAnimation();
         }
     }
 
@@ -848,29 +890,29 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
             if (z) {
-                this.f26831f.setVisibility(0);
-                this.k.resetPwd();
+                this.f62683e.setVisibility(0);
+                this.f62688j.resetPwd();
                 return;
             }
-            this.f26831f.setVisibility(8);
-            this.f26831f.dismissKeyBoard(this.f26832g);
+            this.f62683e.setVisibility(8);
+            this.f62683e.dismissKeyBoard(this.f62684f);
         }
     }
 
     public void showPassError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.f26828b.setVisibility(0);
+            this.f62680b.setVisibility(0);
             if (!TextUtils.isEmpty(str)) {
-                this.f26829c.setText(str);
+                this.f62681c.setText(str);
             }
             if (!TextUtils.isEmpty(str)) {
-                this.f26829c.setVisibility(0);
+                this.f62681c.setVisibility(0);
             } else {
-                this.f26829c.setVisibility(8);
+                this.f62681c.setVisibility(8);
             }
-            this.f26830e.setVisibility(0);
-            this.f26832g.initSafeKeyBoardParams(this.f26827a, this.f26831f, this.k, true);
+            this.f62682d.setVisibility(0);
+            this.f62684f.initSafeKeyBoardParams(this.f62679a, this.f62683e, this.f62688j, true);
         }
     }
 
@@ -889,25 +931,25 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                 }
             }
             dismissLoading(-1);
-            this.p = true;
+            this.o = true;
             this.mActionBar.setVisibility(4);
-            this.f26831f.setVisibility(8);
-            this.m.setVisibility(0);
-            this.n.startAnimation(new SuccessImageViewNew.a(this, z, payResultContent, i2) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.5
+            this.f62683e.setVisibility(8);
+            this.l.setVisibility(0);
+            this.m.startAnimation(new SuccessImageViewNew.a(this, z, payResultContent, i2) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ boolean f26843a;
+                public final /* synthetic */ boolean f62697a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ PayResultContent f26844b;
+                public final /* synthetic */ PayResultContent f62698b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ int f26845c;
+                public final /* synthetic */ int f62699c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ PwdPayActivity f26846d;
+                public final /* synthetic */ PwdPayActivity f62700d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -924,20 +966,20 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                             return;
                         }
                     }
-                    this.f26846d = this;
-                    this.f26843a = z;
-                    this.f26844b = payResultContent;
-                    this.f26845c = i2;
+                    this.f62700d = this;
+                    this.f62697a = z;
+                    this.f62698b = payResultContent;
+                    this.f62699c = i2;
                 }
 
                 @Override // com.baidu.wallet.paysdk.ui.widget.SuccessImageViewNew.a
                 public void a() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f26843a) {
-                            PayController.getInstance().paySucess(this.f26846d, this.f26844b, this.f26845c);
+                        if (this.f62697a) {
+                            PayController.getInstance().paySucess(this.f62700d, this.f62698b, this.f62699c);
                         } else {
-                            PayController.getInstance().payPaying(this.f26846d, this.f26844b, this.f26845c);
+                            PayController.getInstance().payPaying(this.f62700d, this.f62698b, this.f62699c);
                         }
                     }
                 }
@@ -950,13 +992,20 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         if (!(interceptable == null || interceptable.invokeL(1048608, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f26834i.setText(str);
-        this.f26834i.setVisibility(0);
+        this.f62686h.setText(str);
+        this.f62686h.setVisibility(0);
     }
 
     public void turntoPwdPay(boolean z, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(1048609, this, z, str) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("pay_from", StatHelper.getPayFrom());
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(StatHelper.getOrderNo());
+            hashMap.put(StatHelper.PAY_WAY, "0");
+            StatisticManager.onEventWithValues(PayStatServiceEvent.CHANGE_PAY_WAY, arrayList, hashMap);
+            StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
             this.mPresenter.onTurntoPwdPay(z);
             showLikeLoadingPage(false);
             showWarningTips(str);
@@ -968,46 +1017,46 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             this.mActionBar.setVisibility(0);
-            this.f26827a = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "ebpay_pwdpay_layout"));
+            this.f62679a = (RelativeLayout) findViewById(ResUtils.id(getActivity(), "ebpay_pwdpay_layout"));
             SafeScrollView safeScrollView = (SafeScrollView) findViewById(ResUtils.id(getActivity(), "scrollview"));
-            this.f26831f = safeScrollView;
+            this.f62683e = safeScrollView;
             safeScrollView.setVisibility(0);
-            setSafeScrollView(this.f26831f);
-            this.f26833h = (TextView) findViewById(ResUtils.id(this, "ebpay_pwd_title"));
+            setSafeScrollView(this.f62683e);
+            this.f62685g = (TextView) findViewById(ResUtils.id(this, "ebpay_pwd_title"));
             TextView textView = (TextView) findViewById(ResUtils.id(this, "warning_tips"));
-            this.f26834i = textView;
+            this.f62686h = textView;
             textView.setVisibility(4);
             SixNumberPwdView sixNumberPwdView = (SixNumberPwdView) findViewById(ResUtils.id(this, "pwd_input_box"));
-            this.k = sixNumberPwdView;
+            this.f62688j = sixNumberPwdView;
             sixNumberPwdView.setShowInputMethod(true);
-            this.k.addSixNumberPwdChangedListenter(this);
-            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.k.findViewById(ResUtils.id(getActivity(), "pwd_input"));
-            this.f26832g = safeKeyBoardEditText;
-            safeKeyBoardEditText.initSafeKeyBoardParams(this.f26827a, this.f26831f, this.k, false);
-            this.f26832g.setDisablePast(true);
-            this.f26832g.setGap(20);
+            this.f62688j.addSixNumberPwdChangedListenter(this);
+            SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f62688j.findViewById(ResUtils.id(getActivity(), "pwd_input"));
+            this.f62684f = safeKeyBoardEditText;
+            safeKeyBoardEditText.initSafeKeyBoardParams(this.f62679a, this.f62683e, this.f62688j, false);
+            this.f62684f.setDisablePast(true);
+            this.f62684f.setGap(20);
             View findViewById = findViewById(ResUtils.id(this, "bd_wallet_pwd_error_layout"));
-            this.f26828b = findViewById;
+            this.f62680b = findViewById;
             findViewById.setVisibility(0);
             TextView textView2 = (TextView) findViewById(ResUtils.id(this, "error_tip"));
-            this.f26829c = textView2;
+            this.f62681c = textView2;
             textView2.setVisibility(8);
             View findViewById2 = findViewById(ResUtils.id(this, "forget_pwd"));
-            this.f26830e = findViewById2;
+            this.f62682d = findViewById2;
             findViewById2.setVisibility(0);
-            this.f26830e.setOnClickListener(this);
+            this.f62682d.setOnClickListener(this);
             PayLoadingImageViewNew payLoadingImageViewNew = (PayLoadingImageViewNew) findViewById(ResUtils.id(this, "bd_wallet_cashier_loading_view"));
-            this.l = payLoadingImageViewNew;
+            this.k = payLoadingImageViewNew;
             payLoadingImageViewNew.setVisibility(8);
             View findViewById3 = findViewById(ResUtils.id(this, "bd_wallet_success_logo"));
-            this.m = findViewById3;
+            this.l = findViewById3;
             findViewById3.setVisibility(8);
-            this.n = (SuccessImageViewNew) findViewById(ResUtils.id(this, "bd_wallet_success_logo"));
+            this.m = (SuccessImageViewNew) findViewById(ResUtils.id(this, "bd_wallet_success_logo"));
             this.mLeftImg.setOnClickListener(this);
-            this.u = findViewById(ResUtils.id(this, "protocol_display_area"));
-            this.v = (CheckBox) findViewById(ResUtils.id(this, "ebpay_protocol"));
-            this.w = (TextView) findViewById(ResUtils.id(this, "ebpay_protocol_text"));
-            this.j = (TextView) findViewById(ResUtils.id(this, "ebpay_protocol_msg"));
+            this.t = findViewById(ResUtils.id(this, "protocol_display_area"));
+            this.u = (CheckBox) findViewById(ResUtils.id(this, "ebpay_protocol"));
+            this.v = (TextView) findViewById(ResUtils.id(this, "ebpay_protocol_text"));
+            this.f62687i = (TextView) findViewById(ResUtils.id(this, "ebpay_protocol_msg"));
         }
     }
 
@@ -1016,17 +1065,17 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             PwdPayContract.protocolModel needshowProtocolContainer = this.mPresenter.needshowProtocolContainer();
             if (needshowProtocolContainer != null && !TextUtils.isEmpty(needshowProtocolContainer.passfree_protocol_msg) && !TextUtils.isEmpty(needshowProtocolContainer.passfree_protocol_prefix) && !TextUtils.isEmpty(needshowProtocolContainer.passfree_protocol_url)) {
-                this.w.setText(needshowProtocolContainer.passfree_protocol_prefix);
-                this.j.setText(needshowProtocolContainer.passfree_protocol_msg);
-                this.j.setOnClickListener(new View.OnClickListener(this, needshowProtocolContainer) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.1
+                this.v.setText(needshowProtocolContainer.passfree_protocol_prefix);
+                this.f62687i.setText(needshowProtocolContainer.passfree_protocol_msg);
+                this.f62687i.setOnClickListener(new View.OnClickListener(this, needshowProtocolContainer) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayContract.protocolModel f26835a;
+                    public final /* synthetic */ PwdPayContract.protocolModel f62689a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayActivity f26836b;
+                    public final /* synthetic */ PwdPayActivity f62690b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1043,27 +1092,27 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                 return;
                             }
                         }
-                        this.f26836b = this;
-                        this.f26835a = needshowProtocolContainer;
+                        this.f62690b = this;
+                        this.f62689a = needshowProtocolContainer;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            BaiduWalletDelegate.getInstance().openH5Module(this.f26836b, this.f26835a.passfree_protocol_url, false);
+                            BaiduWalletDelegate.getInstance().openH5Module(this.f62690b, this.f62689a.passfree_protocol_url, false);
                         }
                     }
                 });
-                this.v.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(this, needshowProtocolContainer) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.7
+                this.u.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener(this, needshowProtocolContainer) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayContract.protocolModel f26848a;
+                    public final /* synthetic */ PwdPayContract.protocolModel f62702a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayActivity f26849b;
+                    public final /* synthetic */ PwdPayActivity f62703b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1080,25 +1129,25 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                 return;
                             }
                         }
-                        this.f26849b = this;
-                        this.f26848a = needshowProtocolContainer;
+                        this.f62703b = this;
+                        this.f62702a = needshowProtocolContainer;
                     }
 
                     @Override // android.widget.CompoundButton.OnCheckedChangeListener
                     public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLZ(1048576, this, compoundButton, z) == null) {
-                            this.f26848a.iClickCallback.onProtocolClicked(z);
+                            this.f62702a.iClickCallback.onProtocolClicked(z);
                         }
                     }
                 });
-                this.v.setChecked(needshowProtocolContainer.checked);
-                this.f26829c.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.8
+                this.u.setChecked(needshowProtocolContainer.checked);
+                this.f62681c.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.baidu.wallet.paysdk.ui.PwdPayActivity.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PwdPayActivity f26850a;
+                    public final /* synthetic */ PwdPayActivity f62704a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1115,25 +1164,25 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
                                 return;
                             }
                         }
-                        this.f26850a = this;
+                        this.f62704a = this;
                     }
 
                     @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                     public void onGlobalLayout() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (this.f26850a.f26829c.getVisibility() == 0) {
-                                this.f26850a.u.setVisibility(8);
+                            if (this.f62704a.f62681c.getVisibility() == 0) {
+                                this.f62704a.t.setVisibility(8);
                             } else {
-                                this.f26850a.u.setVisibility(0);
+                                this.f62704a.t.setVisibility(0);
                             }
                         }
                     }
                 });
-                this.u.setVisibility(0);
+                this.t.setVisibility(0);
                 return;
             }
-            this.u.setVisibility(8);
+            this.t.setVisibility(8);
         }
     }
 
@@ -1141,9 +1190,9 @@ public class PwdPayActivity extends HalfScreenBaseActivity implements View.OnCli
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.f26828b.setVisibility(0);
-            this.f26829c.setVisibility(8);
-            this.f26830e.setVisibility(0);
+            this.f62680b.setVisibility(0);
+            this.f62681c.setVisibility(8);
+            this.f62682d.setVisibility(0);
         }
     }
 

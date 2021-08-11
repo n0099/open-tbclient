@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.bg;
 import com.xiaomi.push.service.bc;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class aq extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ an f40054a;
+    public final /* synthetic */ an f76905a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aq(an anVar, Handler handler) {
@@ -35,7 +35,7 @@ public class aq extends ContentObserver {
                 return;
             }
         }
-        this.f40054a = anVar;
+        this.f76905a = anVar;
     }
 
     @Override // android.database.ContentObserver
@@ -46,16 +46,16 @@ public class aq extends ContentObserver {
         Context context3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            an anVar = this.f40054a;
-            context = anVar.f67a;
-            anVar.f71a = Integer.valueOf(bc.a(context).a());
-            num = this.f40054a.f71a;
+            an anVar = this.f76905a;
+            context = anVar.f71a;
+            anVar.f75a = Integer.valueOf(bc.a(context).a());
+            num = this.f76905a.f75a;
             if (num.intValue() != 0) {
-                context2 = this.f40054a.f67a;
+                context2 = this.f76905a.f71a;
                 context2.getContentResolver().unregisterContentObserver(this);
-                context3 = this.f40054a.f67a;
+                context3 = this.f76905a.f71a;
                 if (bg.b(context3)) {
-                    this.f40054a.m108c();
+                    this.f76905a.m111c();
                 }
             }
         }

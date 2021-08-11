@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7858a;
+    public int f42135a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7859b;
+    public int f42136b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f7860c;
+    public ExecutorService f42137c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public static abstract class AbstractRunnableC0119a implements Runnable {
+    /* loaded from: classes5.dex */
+    public static abstract class AbstractRunnableC1667a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractRunnableC0119a() {
+        public AbstractRunnableC1667a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,7 +45,7 @@ public class a {
             }
         }
 
-        public /* synthetic */ AbstractRunnableC0119a(b bVar) {
+        public /* synthetic */ AbstractRunnableC1667a(b bVar) {
             this();
         }
 
@@ -91,9 +91,9 @@ public class a {
                 return;
             }
         }
-        this.f7858a = 4000;
-        this.f7859b = 4000;
-        this.f7860c = Executors.newCachedThreadPool();
+        this.f42135a = 4000;
+        this.f42136b = 4000;
+        this.f42137c = Executors.newCachedThreadPool();
     }
 
     public void a(String str, e eVar) {
@@ -102,7 +102,7 @@ public class a {
             if (str == null || str.isEmpty()) {
                 throw new IllegalArgumentException("Request URL cannot be null");
             }
-            this.f7860c.submit(new b(this, eVar, str));
+            this.f42137c.submit(new b(this, eVar, str));
         }
     }
 }

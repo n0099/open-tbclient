@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.l.d;
+import c.a.e.e.p.l;
+import c.a.o0.a.t;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -22,27 +25,24 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.l.d;
-import d.a.d.e.p.l;
-import d.a.p0.a.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class NewUserRedPackageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageView mBgImage;
     public ImageView mCloseBtnImage;
     public NewUserRedPackageData mData;
-    public u mGetMoneyModel;
+    public t mGetMoneyModel;
     public View.OnClickListener mOnClickListener;
     public RoundRelativeLayout mRoundCornerLayout;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserRedPackageActivity f20791e;
+        public final /* synthetic */ NewUserRedPackageActivity f56262e;
 
         public a(NewUserRedPackageActivity newUserRedPackageActivity) {
             Interceptable interceptable = $ic;
@@ -59,31 +59,31 @@ public class NewUserRedPackageActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f20791e = newUserRedPackageActivity;
+            this.f56262e = newUserRedPackageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view.getId() != this.f20791e.mCloseBtnImage.getId()) {
-                    if (view.getId() == this.f20791e.mBgImage.getId()) {
+                if (view.getId() != this.f56262e.mCloseBtnImage.getId()) {
+                    if (view.getId() == this.f56262e.mBgImage.getId()) {
                         TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 2));
                         if (TbadkCoreApplication.isLogin()) {
-                            if (this.f20791e.mData != null) {
-                                UrlManager.getInstance().dealOneLink(this.f20791e.getPageContext(), new String[]{this.f20791e.mData.clickUrl});
-                                this.f20791e.finish();
+                            if (this.f56262e.mData != null) {
+                                UrlManager.getInstance().dealOneLink(this.f56262e.getPageContext(), new String[]{this.f56262e.mData.clickUrl});
+                                this.f56262e.finish();
                                 return;
                             }
                             return;
                         }
-                        this.f20791e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f20791e.getActivity(), true, 25046)));
+                        this.f56262e.sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.f56262e.getActivity(), true, 25046)));
                         return;
                     }
                     return;
                 }
                 TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 3));
-                this.f20791e.finish();
+                this.f56262e.finish();
             }
         }
     }
@@ -105,14 +105,14 @@ public class NewUserRedPackageActivity extends BaseActivity {
     }
 
     private void setData() {
-        d.a.d.k.d.a aVar;
+        c.a.e.k.d.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || getIntent() == null) {
             return;
         }
         NewUserRedPackageData newUserRedPackageData = (NewUserRedPackageData) getIntent().getSerializableExtra("key_data");
         this.mData = newUserRedPackageData;
-        if (newUserRedPackageData == null || (aVar = (d.a.d.k.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
+        if (newUserRedPackageData == null || (aVar = (c.a.e.k.d.a) d.h().n(this.mData.topPicUrl, 10, new Object[0])) == null) {
             return;
         }
         this.mBgImage.setImageBitmap(aVar.p());
@@ -173,7 +173,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
             this.mCloseBtnImage.setOnClickListener(this.mOnClickListener);
             setData();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.mGetMoneyModel = new u();
+            this.mGetMoneyModel = new t();
         }
     }
 }

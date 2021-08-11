@@ -16,12 +16,12 @@ import com.bytedance.sdk.openadsdk.core.j;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.q.q;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29369a;
+    public static String f65246a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -65,8 +65,8 @@ public class a {
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "getApplicationName:", th);
             }
-            if (f29369a != null) {
-                return f29369a;
+            if (f65246a != null) {
+                return f65246a;
             }
             ApplicationInfo applicationInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), 128);
             if (applicationInfo == null) {
@@ -81,8 +81,8 @@ public class a {
                     }
                 }
             }
-            f29369a = jSONObject.toString();
-            return f29369a;
+            f65246a = jSONObject.toString();
+            return f65246a;
         }
         return (String) invokeL.objValue;
     }

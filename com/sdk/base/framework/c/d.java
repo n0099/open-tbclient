@@ -6,16 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f38381a;
+    public String f75166a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f38382b;
+    public long f75167b;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -30,40 +31,40 @@ public final class d {
                 return;
             }
         }
-        this.f38381a = "";
+        this.f75166a = "";
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38381a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75166a : (String) invokeV.objValue;
     }
 
-    public final void a(long j) {
+    public final void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f38382b = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.f75167b = j2;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f38381a = str;
+            this.f75166a = str;
         }
     }
 
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38382b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f75167b : invokeV.longValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "_$101005Bean{url='" + this.f38381a + "', time=" + this.f38382b + '}';
+            return "_$101005Bean{url='" + this.f75166a + ExtendedMessageFormat.QUOTE + ", time=" + this.f75167b + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

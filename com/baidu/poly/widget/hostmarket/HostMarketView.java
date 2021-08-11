@@ -11,6 +11,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import c.a.d0.f;
+import c.a.d0.g;
+import c.a.d0.h;
+import c.a.d0.k.j.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.poly.widget.o;
@@ -19,48 +23,46 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.e0.f;
-import d.a.e0.g;
-import d.a.e0.h;
-import d.a.e0.k.j.a;
 import java.text.DecimalFormat;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class HostMarketView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9519e;
+    public ImageView f44172e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9520f;
+    public TextView f44173f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f9521g;
+    public TextView f44174g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f9522h;
+    public TextView f44175h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwitchButton f9523i;
-    public o j;
+    public SwitchButton f44176i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public o f44177j;
     public a k;
     public boolean l;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface a {
-        void a(boolean z, o oVar, d.a.e0.k.j.a aVar);
+        void a(boolean z, o oVar, c.a.d0.k.j.a aVar);
 
-        void b(a.C0591a c0591a);
+        void b(a.C0033a c0033a);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class b implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HostMarketView f9524e;
+        public final /* synthetic */ HostMarketView f44178e;
 
         public b(HostMarketView hostMarketView) {
             Interceptable interceptable = $ic;
@@ -77,25 +79,25 @@ public class HostMarketView extends FrameLayout {
                     return;
                 }
             }
-            this.f9524e = hostMarketView;
+            this.f44178e = hostMarketView;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) {
-                this.f9524e.h(z);
+                this.f44178e.g(z);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
-    public class c implements d.a.e0.k.j.a {
+    /* loaded from: classes5.dex */
+    public class c implements c.a.d0.k.j.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ HostMarketView f9525a;
+        public final /* synthetic */ HostMarketView f44179a;
 
         public c(HostMarketView hostMarketView) {
             Interceptable interceptable = $ic;
@@ -112,28 +114,28 @@ public class HostMarketView extends FrameLayout {
                     return;
                 }
             }
-            this.f9525a = hostMarketView;
+            this.f44179a = hostMarketView;
         }
 
-        @Override // d.a.e0.k.j.a
-        public void a(a.C0591a c0591a) {
+        @Override // c.a.d0.k.j.a
+        public void a(a.C0033a c0033a) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, c0591a) == null) {
-                this.f9525a.k.b(c0591a);
-                if (c0591a == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, c0033a) == null) {
+                this.f44179a.k.b(c0033a);
+                if (c0033a == null) {
                     return;
                 }
-                if (c0591a.f42667a == 0) {
-                    if (this.f9525a.f9523i.isChecked()) {
-                        this.f9525a.f9522h.setVisibility(0);
+                if (c0033a.f1869a == 0) {
+                    if (this.f44179a.f44176i.isChecked()) {
+                        this.f44179a.f44175h.setVisibility(0);
                     } else {
-                        this.f9525a.f9522h.setVisibility(4);
+                        this.f44179a.f44175h.setVisibility(4);
                     }
                 } else {
-                    this.f9525a.f9523i.j();
-                    Toast.makeText(this.f9525a.getContext(), this.f9525a.getResources().getString(h.host_market_calculate_error), 0).show();
+                    this.f44179a.f44176i.o();
+                    Toast.makeText(this.f44179a.getContext(), this.f44179a.getResources().getString(h.host_market_calculate_error), 0).show();
                 }
-                this.f9525a.j.i(this.f9525a.f9523i.isChecked() ? 1 : 0);
+                this.f44179a.f44177j.i(this.f44179a.f44176i.isChecked() ? 1 : 0);
             }
         }
     }
@@ -159,76 +161,65 @@ public class HostMarketView extends FrameLayout {
         }
     }
 
-    public final String b(long j) {
+    public final String b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? new DecimalFormat("0.00").format((j * 1.0d) / 100.0d) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? new DecimalFormat("0.00").format((j2 * 1.0d) / 100.0d) : (String) invokeJ.objValue;
     }
 
-    public void d(o oVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oVar) == null) {
-            this.j = oVar;
-            if (oVar != null) {
-                this.l = oVar.P() == 1;
-            }
-            j();
-        }
-    }
-
-    public final void g(Context context) {
+    public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             LayoutInflater.from(context).inflate(g.hostmarket_item, (ViewGroup) this, true);
-            this.f9519e = (ImageView) findViewById(f.icon);
-            this.f9520f = (TextView) findViewById(f.title);
-            this.f9521g = (TextView) findViewById(f.subtitle);
-            this.f9522h = (TextView) findViewById(f.cut_text);
+            this.f44172e = (ImageView) findViewById(f.icon);
+            this.f44173f = (TextView) findViewById(f.title);
+            this.f44174g = (TextView) findViewById(f.subtitle);
+            this.f44175h = (TextView) findViewById(f.cut_text);
             SwitchButton switchButton = (SwitchButton) findViewById(f.switch_button);
-            this.f9523i = switchButton;
+            this.f44176i = switchButton;
             switchButton.setOnCheckedChangeListener(new b(this));
         }
     }
 
-    public final void h(boolean z) {
+    public final void g(boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || this.k == null) {
             return;
         }
-        this.j.i(this.f9523i.isChecked() ? 1 : 0);
-        this.k.a(z, this.j, new c(this));
+        this.f44177j.i(this.f44176i.isChecked() ? 1 : 0);
+        this.k.a(z, this.f44177j, new c(this));
     }
 
-    public final void j() {
+    public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.j == null) {
+            if (this.f44177j == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            d.a.e0.k.d.b.c().b(this.f9519e, this.j.getIcon());
-            this.f9520f.setText(this.j.getDisplayName());
-            this.f9521g.setText(this.j.S());
-            if (!TextUtils.isEmpty(this.j.M())) {
+            c.a.d0.k.d.b.c().b(this.f44172e, this.f44177j.getIcon());
+            this.f44173f.setText(this.f44177j.getDisplayName());
+            this.f44174g.setText(this.f44177j.S());
+            if (!TextUtils.isEmpty(this.f44177j.M())) {
                 try {
-                    this.f9521g.setTextColor(Color.parseColor(this.j.M()));
+                    this.f44174g.setTextColor(Color.parseColor(this.f44177j.M()));
                 } catch (Exception unused) {
                 }
             }
             if (this.l) {
-                this.f9523i.setVisibility(4);
-                this.f9522h.setVisibility(0);
-                TextView textView = this.f9522h;
-                textView.setText("-" + b(this.j.L()) + "元");
+                this.f44176i.setVisibility(4);
+                this.f44175h.setVisibility(0);
+                TextView textView = this.f44175h;
+                textView.setText("-" + b(this.f44177j.L()) + "元");
                 return;
             }
-            this.f9523i.setVisibility(0);
-            this.f9522h.setVisibility(4);
-            if (this.j.P() == 1) {
-                this.f9523i.setChecked(true);
+            this.f44176i.setVisibility(0);
+            this.f44175h.setVisibility(4);
+            if (this.f44177j.P() == 1) {
+                this.f44176i.setChecked(true);
             } else {
-                this.f9523i.setChecked(false);
+                this.f44176i.setChecked(false);
             }
         }
     }
@@ -261,6 +252,17 @@ public class HostMarketView extends FrameLayout {
         }
     }
 
+    public void a(o oVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, oVar) == null) {
+            this.f44177j = oVar;
+            if (oVar != null) {
+                this.l = oVar.P() == 1;
+            }
+            i();
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HostMarketView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
@@ -281,6 +283,6 @@ public class HostMarketView extends FrameLayout {
             }
         }
         this.l = false;
-        g(context);
+        f(context);
     }
 }

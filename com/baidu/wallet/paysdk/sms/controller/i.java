@@ -1,73 +1,90 @@
 package com.baidu.wallet.paysdk.sms.controller;
 
-import android.app.Dialog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.utils.StringUtils;
-import com.baidu.wallet.paysdk.datamodel.PayRequest;
-import com.baidu.wallet.paysdk.ui.widget.IdentifyCodeGetFailDialog;
-/* loaded from: classes5.dex */
-public class i extends f {
+import com.baidu.wallet.router.LocalRouter;
+import com.baidu.wallet.router.RouterCallback;
+import com.baidu.wallet.router.RouterRequest;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import java.util.HashMap;
+/* loaded from: classes8.dex */
+public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public i() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.wallet.paysdk.sms.controller.f, com.baidu.wallet.paysdk.sms.controller.ISmsController
-    public Dialog doOnCreateDialog(int i2) {
+    public static ISmsController a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 == 23) {
-                return new IdentifyCodeGetFailDialog(this.f26459c, IdentifyCodeGetFailDialog.VerifyCodeType.VOICE);
-            }
-            return super.doOnCreateDialog(i2);
-        }
-        return (Dialog) invokeI.objValue;
-    }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
+            if (i2 != 0) {
+                if (i2 == 1) {
+                    return new e();
+                }
+                if (i2 == 2) {
+                    return new d();
+                }
+                if (i2 == 5) {
+                    return new f();
+                }
+                if (i2 == 6) {
+                    ISmsController[] iSmsControllerArr = {null};
+                    LocalRouter.getInstance(null).route(null, new RouterRequest().provider("hce").action("getsmscontroller"), new RouterCallback(iSmsControllerArr) { // from class: com.baidu.wallet.paysdk.sms.controller.i.1
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.wallet.paysdk.sms.controller.f, com.baidu.wallet.paysdk.sms.controller.ISmsController
-    public void initSmsActivityView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String string = ResUtils.getString(this.f26459c, "ebpay_submit_pay");
-            PayRequest payRequest = this.f26458b;
-            if (payRequest != null) {
-                if (payRequest.mMktSolution != null) {
-                    string = String.format(ResUtils.getString(this.f26459c, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f26458b.mMktSolution.easypay_amount));
-                } else {
-                    string = String.format(ResUtils.getString(this.f26459c, "wallet_base_confirm_pay"), StringUtils.fen2Yuan(this.f26458b.getFinalPayAmount()));
+                        /* renamed from: a  reason: collision with root package name */
+                        public final /* synthetic */ ISmsController[] f62376a;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {iSmsControllerArr};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.f62376a = iSmsControllerArr;
+                        }
+
+                        @Override // com.baidu.wallet.router.RouterCallback
+                        public void onResult(int i3, HashMap hashMap) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, hashMap) == null) {
+                                if (i3 == 0 || hashMap != null) {
+                                    Object obj = hashMap.get("value");
+                                    if (obj == null || !(obj instanceof ISmsController)) {
+                                        return;
+                                    }
+                                    this.f62376a[0] = (ISmsController) obj;
+                                } else if (i3 == 5) {
+                                    HashMap hashMap2 = new HashMap();
+                                    hashMap2.put("provider", "hce");
+                                    hashMap2.put("action", "getsmscontroller");
+                                    StatisticManager.onEventEndWithValues("sdk_router_error", i3, hashMap2.values());
+                                }
+                            }
+                        }
+                    });
+                    return iSmsControllerArr[0];
+                } else if (i2 != 7) {
+                    if (i2 == 8 || i2 == 10) {
+                        return new b();
+                    }
+                    return null;
                 }
             }
-            this.f26460d.initSMSActivityView("ebpay_sms_top_tip_voice_verify", "", string, SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.f26462f)), true);
+            return new c();
         }
-    }
-
-    @Override // com.baidu.wallet.paysdk.sms.controller.f, com.baidu.wallet.paysdk.sms.controller.ISmsController
-    public boolean isSendSmsOnCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (ISmsController) invokeI.objValue;
     }
 }

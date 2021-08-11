@@ -9,19 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GodReplyMoreViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f19773a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f19774b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public int f19775c;
+    public View dividerLine;
+    public TextView moreView;
+    public int skinType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GodReplyMoreViewHolder(View view) {
@@ -41,11 +35,11 @@ public class GodReplyMoreViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f19775c = 3;
-        this.f19773a = (TextView) view.findViewById(R.id.look_more_view);
-        this.f19774b = view.findViewById(R.id.divider_line_above_more_god_replays);
-        SkinManager.setViewTextColor(this.f19773a, R.color.CAM_X0106);
-        SkinManager.setBackgroundResource(this.f19773a, R.drawable.more_all);
-        SkinManager.setBackgroundResource(this.f19774b, R.color.CAM_X0204);
+        this.skinType = 3;
+        this.moreView = (TextView) view.findViewById(R.id.look_more_view);
+        this.dividerLine = view.findViewById(R.id.divider_line_above_more_god_replays);
+        SkinManager.setViewTextColor(this.moreView, R.color.CAM_X0106);
+        SkinManager.setBackgroundResource(this.moreView, R.drawable.more_all);
+        SkinManager.setBackgroundResource(this.dividerLine, R.color.CAM_X0204);
     }
 }

@@ -45,7 +45,7 @@ import io.flutter.view.AccessibilityBridge;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterView";
@@ -75,7 +75,7 @@ public class FlutterView extends FrameLayout {
     public final FlutterRenderer.ViewportMetrics viewportMetrics;
 
     @VisibleForTesting
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface FlutterEngineAttachmentListener {
         void onFlutterEngineAttachedToFlutterView(@NonNull FlutterEngine flutterEngine);
 
@@ -84,7 +84,7 @@ public class FlutterView extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class RenderMode {
         public static final /* synthetic */ RenderMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -145,7 +145,7 @@ public class FlutterView extends FrameLayout {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class TransparencyMode {
         public static final /* synthetic */ TransparencyMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -468,10 +468,11 @@ public class FlutterView extends FrameLayout {
             this.viewportMetrics.viewInsetLeft = 0;
             if (Build.VERSION.SDK_INT >= 29) {
                 Insets systemGestureInsets = windowInsets.getSystemGestureInsets();
-                this.viewportMetrics.systemGestureInsetTop = systemGestureInsets.top;
-                this.viewportMetrics.systemGestureInsetRight = systemGestureInsets.right;
-                this.viewportMetrics.systemGestureInsetBottom = systemGestureInsets.bottom;
-                this.viewportMetrics.systemGestureInsetLeft = systemGestureInsets.left;
+                FlutterRenderer.ViewportMetrics viewportMetrics3 = this.viewportMetrics;
+                viewportMetrics3.systemGestureInsetTop = systemGestureInsets.top;
+                viewportMetrics3.systemGestureInsetRight = systemGestureInsets.right;
+                viewportMetrics3.systemGestureInsetBottom = systemGestureInsets.bottom;
+                viewportMetrics3.systemGestureInsetLeft = systemGestureInsets.left;
             }
             Log.v("FlutterView", "Updating window insets (onApplyWindowInsets()):\nStatus bar insets: Top: " + this.viewportMetrics.paddingTop + ", Left: " + this.viewportMetrics.paddingLeft + ", Right: " + this.viewportMetrics.paddingRight + "\nKeyboard insets: Bottom: " + this.viewportMetrics.viewInsetBottom + ", Left: " + this.viewportMetrics.viewInsetLeft + ", Right: " + this.viewportMetrics.viewInsetRight + "System Gesture Insets - Left: " + this.viewportMetrics.systemGestureInsetLeft + ", Top: " + this.viewportMetrics.systemGestureInsetTop + ", Right: " + this.viewportMetrics.systemGestureInsetRight + ", Bottom: " + this.viewportMetrics.viewInsetBottom);
             sendViewportMetricsToFlutter();

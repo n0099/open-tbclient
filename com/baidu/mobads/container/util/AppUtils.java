@@ -10,7 +10,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,17 +19,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AppUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean mIsHideInstallComplete = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class ApkInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -322,7 +320,7 @@ public class AppUtils {
         if (interceptable == null || interceptable.invokeLL(65554, null, context, str) == null) {
             try {
                 Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(str);
-                launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                launchIntentForPackage.addFlags(268435456);
                 context.startActivity(launchIntentForPackage);
             } catch (Exception unused) {
             }
@@ -375,7 +373,7 @@ public class AppUtils {
         InterceptResult invokeL;
         File externalStorageDirectory;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) ? Build.VERSION.SDK_INT <= 28 && PermissionUtils.checkPermission(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) && PermissionUtils.hasPermission("permission_storage") && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null && supportInstallApk(context, SdcardUtils.getApkDlPath(externalStorageDirectory.getPath())) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, null, context)) == null) ? Build.VERSION.SDK_INT <= 28 && PermissionUtils.checkPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE") && PermissionUtils.hasPermission("permission_storage") && (externalStorageDirectory = Environment.getExternalStorageDirectory()) != null && supportInstallApk(context, SdcardUtils.getApkDlPath(externalStorageDirectory.getPath())) : invokeL.booleanValue;
     }
 
     public static Intent getInstallIntent(Context context, File file) {
@@ -389,7 +387,7 @@ public class AppUtils {
                         Intent intent = new Intent("android.intent.action.VIEW");
                         intent.addCategory("android.intent.category.DEFAULT");
                         if (!needProviderForDl(context)) {
-                            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                            intent.addFlags(268435456);
                             uriForFileByProvider = Uri.fromFile(file);
                         } else {
                             intent.addFlags(RouterCallback.CODE_ERROR);

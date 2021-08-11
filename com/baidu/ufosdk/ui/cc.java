@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class cc implements AbsListView.RecyclerListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23657a;
+    public final /* synthetic */ FeedbackInputActivity f59393a;
 
     public cc(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class cc implements AbsListView.RecyclerListener {
                 return;
             }
         }
-        this.f23657a = feedbackInputActivity;
+        this.f59393a = feedbackInputActivity;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

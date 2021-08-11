@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PermissionsHelperActivity f9393a;
+    public final /* synthetic */ PermissionsHelperActivity f44040a;
 
     public a(PermissionsHelperActivity permissionsHelperActivity) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class a implements View.OnClickListener {
                 return;
             }
         }
-        this.f9393a = permissionsHelperActivity;
+        this.f44040a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -36,9 +36,9 @@ public class a implements View.OnClickListener {
         PermissionsCallback permissionsCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            permissionsCallback = this.f9393a.f9390d;
+            permissionsCallback = this.f44040a.f44037d;
             permissionsCallback.onFailure(-2);
-            this.f9393a.finish();
+            this.f44040a.finish();
         }
     }
 }

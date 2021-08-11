@@ -12,7 +12,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +35,7 @@ import com.kwad.sdk.utils.s;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(AdWebViewActivity.class)
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LANDING_PAGE_TYPE = "key_landing_page_type";
@@ -69,7 +68,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
         InterceptResult invokeV;
         AdTemplate adTemplate;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? d.f35582a == 2 && c.p() && !TextUtils.isEmpty(com.kwad.sdk.core.response.b.c.s(this.mAdTemplate)) && (adTemplate = this.mAdTemplate) != null && adTemplate.mIsFromContent : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? d.f72343a == 2 && c.p() && !TextUtils.isEmpty(com.kwad.sdk.core.response.b.c.s(this.mAdTemplate)) && (adTemplate = this.mAdTemplate) != null && adTemplate.mIsFromContent : invokeV.booleanValue;
     }
 
     private boolean isFormAdExitInterceptEnable() {
@@ -105,7 +104,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
         }
         KsAdSDKImpl.putComponentProxy(AdWebViewActivity.class, AdWebViewActivityProxy.class);
         Intent intent = new Intent(context, AdWebViewActivity.class);
-        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        intent.addFlags(268435456);
         intent.putExtra("key_template_json", adTemplate.toJson().toString());
         intent.putExtra(KEY_LANDING_PAGE_TYPE, i2);
         String str = adTemplate.mMiniWindowId;
@@ -133,10 +132,10 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f34887a;
+                public final /* synthetic */ String f71631a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AdWebViewActivityProxy f34888b;
+                public final /* synthetic */ AdWebViewActivityProxy f71632b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -153,8 +152,8 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                             return;
                         }
                     }
-                    this.f34888b = this;
-                    this.f34887a = stringExtra;
+                    this.f71632b = this;
+                    this.f71631a = stringExtra;
                 }
 
                 @Override // java.lang.Runnable
@@ -162,14 +161,14 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         Rect rect = new Rect();
-                        DisplayMetrics displayMetrics = this.f34888b.getActivity().getResources().getDisplayMetrics();
+                        DisplayMetrics displayMetrics = this.f71632b.getActivity().getResources().getDisplayMetrics();
                         int i2 = displayMetrics.widthPixels;
                         rect.right = i2;
                         rect.left = i2 - (i2 / 4);
                         int i3 = (int) (displayMetrics.heightPixels * 0.83f);
                         rect.bottom = i3;
                         rect.top = i3 - (((i2 / 4) * 16) / 9);
-                        new com.kwad.sdk.splashscreen.a(this.f34888b.getActivity(), this.f34887a, false, null).a(rect);
+                        new com.kwad.sdk.splashscreen.a(this.f71632b.getActivity(), this.f71631a, false, null).a(rect);
                     }
                 }
             });
@@ -209,7 +208,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdWebViewActivityProxy f34889a;
+                    public final /* synthetic */ AdWebViewActivityProxy f71633a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -226,14 +225,14 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                                 return;
                             }
                         }
-                        this.f34889a = this;
+                        this.f71633a = this;
                     }
 
                     @Override // com.kwad.sdk.core.page.widget.b.a
                     public void a(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            com.kwad.sdk.core.report.a.e(this.f34889a.mAdTemplate, 104);
+                            com.kwad.sdk.core.report.a.e(this.f71633a.mAdTemplate, 104);
                             dialogInterface.dismiss();
                         }
                     }
@@ -243,7 +242,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
                             AdWebViewActivityProxy.super.onBackPressed();
-                            com.kwad.sdk.core.report.a.e(this.f34889a.mAdTemplate, 105);
+                            com.kwad.sdk.core.report.a.e(this.f71633a.mAdTemplate, 105);
                         }
                     }
 
@@ -251,7 +250,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                     public void c(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
-                            com.kwad.sdk.core.report.a.e(this.f34889a.mAdTemplate, 106);
+                            com.kwad.sdk.core.report.a.e(this.f71633a.mAdTemplate, 106);
                             dialogInterface.dismiss();
                         }
                     }
@@ -277,7 +276,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ AdWebViewActivityProxy f34890a;
+                    public final /* synthetic */ AdWebViewActivityProxy f71634a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -294,14 +293,14 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                                 return;
                             }
                         }
-                        this.f34890a = this;
+                        this.f71634a = this;
                     }
 
                     @Override // com.kwad.sdk.core.page.widget.b.a
                     public void a(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            com.kwad.sdk.core.report.a.e(this.f34890a.mAdTemplate, 104);
+                            com.kwad.sdk.core.report.a.e(this.f71634a.mAdTemplate, 104);
                             dialogInterface.dismiss();
                         }
                     }
@@ -310,8 +309,8 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                     public void b(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
-                            this.f34890a.finish();
-                            com.kwad.sdk.core.report.a.e(this.f34890a.mAdTemplate, 105);
+                            this.f71634a.finish();
+                            com.kwad.sdk.core.report.a.e(this.f71634a.mAdTemplate, 105);
                         }
                     }
 
@@ -319,7 +318,7 @@ public class AdWebViewActivityProxy extends com.kwad.sdk.c.a implements b.a {
                     public void c(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {
-                            com.kwad.sdk.core.report.a.e(this.f34890a.mAdTemplate, 106);
+                            com.kwad.sdk.core.report.a.e(this.f71634a.mAdTemplate, 106);
                             dialogInterface.dismiss();
                         }
                     }

@@ -7,21 +7,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.UnknownHostException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class gv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ew f40504a;
+        public ew f77363a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f455a;
+        public String f459a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public final class gv {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, exc)) == null) {
-            m361a(exc);
+            m364a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -60,13 +60,13 @@ public final class gv {
             String str = exc2.getClass().getSimpleName() + ":" + message;
             int a2 = fn.a(exc2);
             if (a2 != 0) {
-                aVar.f40504a = ew.a(ew.l.a() + a2);
+                aVar.f77363a = ew.a(ew.l.a() + a2);
             }
-            if (aVar.f40504a == null) {
-                aVar.f40504a = ew.t;
+            if (aVar.f77363a == null) {
+                aVar.f77363a = ew.t;
             }
-            if (aVar.f40504a == ew.t) {
-                aVar.f455a = str;
+            if (aVar.f77363a == ew.t) {
+                aVar.f459a = str;
             }
             return aVar;
         }
@@ -74,7 +74,7 @@ public final class gv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m361a(Exception exc) {
+    public static void m364a(Exception exc) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, exc) == null) && exc == null) {
             throw null;
@@ -88,7 +88,7 @@ public final class gv {
         Throwable cause;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) {
-            m361a(exc);
+            m364a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -107,22 +107,22 @@ public final class gv {
             String str = exc2.getClass().getSimpleName() + ":" + message;
             if (a2 != 0) {
                 ew a3 = ew.a(ew.v.a() + a2);
-                aVar.f40504a = a3;
+                aVar.f77363a = a3;
                 if (a3 == ew.G && (cause = exc2.getCause()) != null && (cause instanceof UnknownHostException)) {
                     ewVar = ew.F;
                 }
-                ewVar2 = aVar.f40504a;
+                ewVar2 = aVar.f77363a;
                 if (ewVar2 != ew.D || ewVar2 == ew.E || ewVar2 == ew.G) {
-                    aVar.f455a = str;
+                    aVar.f459a = str;
                 }
                 return aVar;
             }
             ewVar = ew.E;
-            aVar.f40504a = ewVar;
-            ewVar2 = aVar.f40504a;
+            aVar.f77363a = ewVar;
+            ewVar2 = aVar.f77363a;
             if (ewVar2 != ew.D) {
             }
-            aVar.f455a = str;
+            aVar.f459a = str;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -134,7 +134,7 @@ public final class gv {
         ew ewVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) {
-            m361a(exc);
+            m364a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -156,23 +156,23 @@ public final class gv {
             } else if (a2 == 199) {
                 ewVar = ew.O;
             } else if (a2 == 499) {
-                aVar.f40504a = ew.R;
+                aVar.f77363a = ew.R;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
                     ewVar = ew.Q;
                 }
-                ewVar2 = aVar.f40504a;
+                ewVar2 = aVar.f77363a;
                 if (ewVar2 != ew.O || ewVar2 == ew.P || ewVar2 == ew.R) {
-                    aVar.f455a = str;
+                    aVar.f459a = str;
                 }
                 return aVar;
             } else {
                 ewVar = a2 != 109 ? a2 != 110 ? ew.P : ew.N : ew.M;
             }
-            aVar.f40504a = ewVar;
-            ewVar2 = aVar.f40504a;
+            aVar.f77363a = ewVar;
+            ewVar2 = aVar.f77363a;
             if (ewVar2 != ew.O) {
             }
-            aVar.f455a = str;
+            aVar.f459a = str;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -184,7 +184,7 @@ public final class gv {
         ew ewVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, exc)) == null) {
-            m361a(exc);
+            m364a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -203,23 +203,23 @@ public final class gv {
             } else if (a2 == 199) {
                 ewVar = ew.aa;
             } else if (a2 == 499) {
-                aVar.f40504a = ew.ad;
+                aVar.f77363a = ew.ad;
                 if (message.startsWith("Terminal binding condition encountered: item-not-found")) {
                     ewVar = ew.ac;
                 }
-                ewVar2 = aVar.f40504a;
+                ewVar2 = aVar.f77363a;
                 if (ewVar2 != ew.aa || ewVar2 == ew.ab || ewVar2 == ew.ad) {
-                    aVar.f455a = str;
+                    aVar.f459a = str;
                 }
                 return aVar;
             } else {
                 ewVar = a2 != 109 ? a2 != 110 ? ew.ab : ew.Z : ew.Y;
             }
-            aVar.f40504a = ewVar;
-            ewVar2 = aVar.f40504a;
+            aVar.f77363a = ewVar;
+            ewVar2 = aVar.f77363a;
             if (ewVar2 != ew.aa) {
             }
-            aVar.f455a = str;
+            aVar.f459a = str;
             return aVar;
         }
         return (a) invokeL.objValue;

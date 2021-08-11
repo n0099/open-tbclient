@@ -17,7 +17,7 @@ import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.util.LogTime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SourceGenerator implements DataFetcherGenerator, DataFetcher.DataCallback<Object>, DataFetcherGenerator.FetcherReadyCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SourceGenerator";
@@ -59,7 +59,7 @@ public class SourceGenerator implements DataFetcherGenerator, DataFetcher.DataCa
                 this.originalKey = new DataCacheKey(this.loadData.sourceKey, this.helper.getSignature());
                 this.helper.getDiskCache().put(this.originalKey, dataCacheWriter);
                 if (Log.isLoggable(TAG, 2)) {
-                    Log.v(TAG, "Finished encoding source to cache, key: " + this.originalKey + ", data: " + obj + ", encoder: " + sourceEncoder + ", duration: " + LogTime.getElapsedMillis(logTime));
+                    String str = "Finished encoding source to cache, key: " + this.originalKey + ", data: " + obj + ", encoder: " + sourceEncoder + ", duration: " + LogTime.getElapsedMillis(logTime);
                 }
                 this.loadData.fetcher.cleanup();
                 this.sourceCacheGenerator = new DataCacheGenerator(Collections.singletonList(this.loadData.sourceKey), this.helper, this);

@@ -9,21 +9,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f3563a;
+    public Context f37465a;
 
     /* renamed from: com.baidu.android.pushservice.message.a.k$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3564a;
+        public static final /* synthetic */ int[] f37466a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -40,41 +40,41 @@ public class k {
                 }
             }
             int[] iArr = new int[l.a().length];
-            f3564a = iArr;
+            f37466a = iArr;
             try {
-                iArr[l.f3566b.ordinal()] = 1;
+                iArr[l.f37468b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f3564a[l.f3567c.ordinal()] = 2;
+                f37466a[l.f37469c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f3564a[l.f3571g.ordinal()] = 3;
+                f37466a[l.f37473g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f3564a[l.f3568d.ordinal()] = 4;
+                f37466a[l.f37470d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f3564a[l.f3569e.ordinal()] = 5;
+                f37466a[l.f37471e.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f3564a[l.f3570f.ordinal()] = 6;
+                f37466a[l.f37472f.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f3564a[l.f3572h.ordinal()] = 7;
+                f37466a[l.f37474h.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f3564a[l.f3573i.ordinal()] = 8;
+                f37466a[l.f37475i.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f3564a[l.j.ordinal()] = 9;
+                f37466a[l.f37476j.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
         }
@@ -95,32 +95,32 @@ public class k {
                 return;
             }
         }
-        this.f3563a = context;
+        this.f37465a = context;
     }
 
     public d a(l lVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lVar)) == null) {
-            switch (AnonymousClass1.f3564a[lVar.ordinal()]) {
+            switch (AnonymousClass1.f37466a[lVar.ordinal()]) {
                 case 1:
                 case 2:
-                    return new g(this.f3563a);
+                    return new g(this.f37465a);
                 case 3:
-                    return new h(this.f3563a);
+                    return new h(this.f37465a);
                 case 4:
                 case 5:
-                    return new i(this.f3563a);
+                    return new i(this.f37465a);
                 case 6:
-                    return new e(this.f3563a);
+                    return new e(this.f37465a);
                 case 7:
-                    return new b(this.f3563a);
+                    return new b(this.f37465a);
                 case 8:
-                    return new c(this.f3563a);
+                    return new c(this.f37465a);
                 case 9:
-                    return new a(this.f3563a);
+                    return new a(this.f37465a);
                 default:
-                    m.a(">>> Unknown msg_type : " + lVar, this.f3563a);
+                    m.a(">>> Unknown msg_type : " + lVar, this.f37465a);
                     return null;
             }
         }

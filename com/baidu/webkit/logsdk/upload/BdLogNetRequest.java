@@ -14,11 +14,12 @@ import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.WebKitFactory;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BdLogNetRequest implements INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMEOUT = 30000;
@@ -157,7 +158,7 @@ public class BdLogNetRequest implements INetListener {
                 return;
             }
             c.e("BdLogSDK", "onNetTaskComplete2  " + bdNetTask.getUrl());
-            this.mCallback.a(new String("OK").getBytes());
+            this.mCallback.a(new String(StatHelper.SENSOR_OK).getBytes());
         }
     }
 

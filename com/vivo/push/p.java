@@ -28,38 +28,40 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f39414a;
+    public static final Object f76246a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile p f39415b;
+    public static volatile p f76247b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f39416c;
+    public long f76248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f39417d;
+    public long f76249d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f39418e;
+    public long f76250e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39419f;
+    public long f76251f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f39420g;
+    public long f76252g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f39421h;
+    public long f76253h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Context f39422i;
-    public boolean j;
+    public Context f76254i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f76255j;
     public com.vivo.push.util.a k;
     public String l;
     public String m;
@@ -84,7 +86,7 @@ public final class p {
                 return;
             }
         }
-        f39414a = new Object();
+        f76246a = new Object();
     }
 
     public p() {
@@ -100,13 +102,13 @@ public final class p {
                 return;
             }
         }
-        this.f39416c = -1L;
-        this.f39417d = -1L;
-        this.f39418e = -1L;
-        this.f39419f = -1L;
-        this.f39420g = -1L;
-        this.f39421h = -1L;
-        this.j = true;
+        this.f76248c = -1L;
+        this.f76249d = -1L;
+        this.f76250e = -1L;
+        this.f76251f = -1L;
+        this.f76252g = -1L;
+        this.f76253h = -1L;
+        this.f76255j = true;
         this.n = new SparseArray<>();
         this.o = 0;
         this.s = new o();
@@ -125,7 +127,7 @@ public final class p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
-            Context context = this.f39422i;
+            Context context = this.f76254i;
             if (context == null) {
                 return -1L;
             }
@@ -142,7 +144,7 @@ public final class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
             if (this.p == null) {
-                this.p = Boolean.valueOf(u() >= 1230 && com.vivo.push.util.z.e(this.f39422i));
+                this.p = Boolean.valueOf(u() >= 1230 && com.vivo.push.util.z.e(this.f76254i));
             }
             return this.p.booleanValue();
         }
@@ -153,7 +155,7 @@ public final class p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            if (this.f39422i == null) {
+            if (this.f76254i == null) {
                 com.vivo.push.util.p.d("PushClientManager", "support:context is null");
                 return false;
             }
@@ -178,7 +180,7 @@ public final class p {
             if (TextUtils.isEmpty(a2)) {
                 return a2;
             }
-            Context context = this.f39422i;
+            Context context = this.f76254i;
             if (com.vivo.push.util.z.a(context, context.getPackageName(), a2)) {
                 this.k.a();
                 return null;
@@ -191,13 +193,13 @@ public final class p {
     public final boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.f76255j : invokeV.booleanValue;
     }
 
     public final Context h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f39422i : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.f76254i : (Context) invokeV.objValue;
     }
 
     public final void i() {
@@ -251,7 +253,7 @@ public final class p {
     public final boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f39422i.getPackageManager().getComponentEnabledSetting(new ComponentName(this.f39422i, "com.vivo.push.sdk.service.PushService")) != 2 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? this.f76254i.getPackageManager().getComponentEnabledSetting(new ComponentName(this.f76254i, "com.vivo.push.sdk.service.PushService")) != 2 : invokeV.booleanValue;
     }
 
     public final void q() {
@@ -270,7 +272,7 @@ public final class p {
     public final Map<String, String> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? com.vivo.push.util.z.f(this.f39422i) : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) ? com.vivo.push.util.z.f(this.f76254i) : (Map) invokeV.objValue;
     }
 
     public final List<String> c() {
@@ -301,14 +303,14 @@ public final class p {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f39415b == null) {
-                synchronized (f39414a) {
-                    if (f39415b == null) {
-                        f39415b = new p();
+            if (f76247b == null) {
+                synchronized (f76246a) {
+                    if (f76247b == null) {
+                        f76247b = new p();
                     }
                 }
             }
-            return f39415b;
+            return f76247b;
         }
         return (p) invokeV.objValue;
     }
@@ -316,31 +318,31 @@ public final class p {
     public final void b() throws VivoPushException {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (context = this.f39422i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (context = this.f76254i) == null) {
             return;
         }
         com.vivo.push.util.z.c(context);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public IPushActionListener f39423a;
+        public IPushActionListener f76256a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.vivo.push.b.c f39424b;
+        public com.vivo.push.b.c f76257b;
 
         /* renamed from: c  reason: collision with root package name */
-        public IPushActionListener f39425c;
+        public IPushActionListener f76258c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Runnable f39426d;
+        public Runnable f76259d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object[] f39427e;
+        public Object[] f76260e;
 
         public a(com.vivo.push.b.c cVar, IPushActionListener iPushActionListener) {
             Interceptable interceptable = $ic;
@@ -357,19 +359,19 @@ public final class p {
                     return;
                 }
             }
-            this.f39424b = cVar;
-            this.f39423a = iPushActionListener;
+            this.f76257b = cVar;
+            this.f76256a = iPushActionListener;
         }
 
         public final void a(int i2, Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, objArr) == null) {
-                this.f39427e = objArr;
-                IPushActionListener iPushActionListener = this.f39425c;
+                this.f76260e = objArr;
+                IPushActionListener iPushActionListener = this.f76258c;
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(i2);
                 }
-                IPushActionListener iPushActionListener2 = this.f39423a;
+                IPushActionListener iPushActionListener2 = this.f76256a;
                 if (iPushActionListener2 != null) {
                     iPushActionListener2.onStateChanged(i2);
                 }
@@ -379,20 +381,20 @@ public final class p {
         public final Object[] b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39427e : (Object[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f76260e : (Object[]) invokeV.objValue;
         }
 
         public final void a(Runnable runnable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) {
-                this.f39426d = runnable;
+                this.f76259d = runnable;
             }
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Runnable runnable = this.f39426d;
+                Runnable runnable = this.f76259d;
                 if (runnable == null) {
                     com.vivo.push.util.p.a("PushClientManager", "task is null");
                 } else {
@@ -404,7 +406,7 @@ public final class p {
         public final void a(IPushActionListener iPushActionListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iPushActionListener) == null) {
-                this.f39425c = iPushActionListener;
+                this.f76258c = iPushActionListener;
             }
         }
     }
@@ -451,10 +453,10 @@ public final class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             synchronized (this) {
-                if (this.f39422i == null) {
-                    this.f39422i = context.getApplicationContext();
+                if (this.f76254i == null) {
+                    this.f76254i = context.getApplicationContext();
                     this.r = com.vivo.push.util.s.b(context, context.getPackageName());
-                    com.vivo.push.util.w.b().a(this.f39422i);
+                    com.vivo.push.util.w.b().a(this.f76254i);
                     a(new com.vivo.push.b.h());
                     com.vivo.push.util.a aVar = new com.vivo.push.util.a();
                     this.k = aVar;
@@ -497,21 +499,21 @@ public final class p {
     public final void b(IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, iPushActionListener) == null) {
-            if (this.f39422i == null) {
+            if (this.f76254i == null) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(102);
                 }
             } else if ("".equals(this.l)) {
                 iPushActionListener.onStateChanged(0);
-            } else if (!a(this.f39417d)) {
+            } else if (!a(this.f76249d)) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(1002);
                 }
             } else {
-                this.f39417d = SystemClock.elapsedRealtime();
-                String packageName = this.f39422i.getPackageName();
+                this.f76249d = SystemClock.elapsedRealtime();
+                String packageName = this.f76254i.getPackageName();
                 a aVar = null;
-                if (this.f39422i != null) {
+                if (this.f76254i != null) {
                     com.vivo.push.b.b bVar = new com.vivo.push.b.b(false, packageName);
                     bVar.d();
                     bVar.e();
@@ -592,14 +594,14 @@ public final class p {
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.j = z;
+            this.f76255j = z;
         }
     }
 
     public final void a(IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, iPushActionListener) == null) {
-            if (this.f39422i == null) {
+            if (this.f76254i == null) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(102);
                     return;
@@ -612,15 +614,15 @@ public final class p {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(0);
                 }
-            } else if (!a(this.f39416c)) {
+            } else if (!a(this.f76248c)) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(1002);
                 }
             } else {
-                this.f39416c = SystemClock.elapsedRealtime();
-                String packageName = this.f39422i.getPackageName();
+                this.f76248c = SystemClock.elapsedRealtime();
+                String packageName = this.f76254i.getPackageName();
                 a aVar = null;
-                if (this.f39422i != null) {
+                if (this.f76254i != null) {
                     com.vivo.push.b.b bVar = new com.vivo.push.b.b(true, packageName);
                     bVar.g();
                     bVar.d();
@@ -655,12 +657,12 @@ public final class p {
 
     public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) || this.f39422i == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) || this.f76254i == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(str2);
-        com.vivo.push.b.a aVar = new com.vivo.push.b.a(false, str, this.f39422i.getPackageName(), arrayList);
+        com.vivo.push.b.a aVar = new com.vivo.push.b.a(false, str, this.f76254i.getPackageName(), arrayList);
         aVar.a(100);
         a(aVar);
     }
@@ -668,7 +670,7 @@ public final class p {
     public final void b(String str, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048594, this, str, iPushActionListener) == null) {
-            if (this.f39422i == null) {
+            if (this.f76254i == null) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(102);
                 }
@@ -679,7 +681,7 @@ public final class p {
             } else {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str);
-                com.vivo.push.b.a aVar = new com.vivo.push.b.a(false, null, this.f39422i.getPackageName(), arrayList);
+                com.vivo.push.b.a aVar = new com.vivo.push.b.a(false, null, this.f76254i.getPackageName(), arrayList);
                 aVar.a(100);
                 if (this.r) {
                     if (!v()) {
@@ -688,14 +690,14 @@ public final class p {
                             return;
                         }
                         return;
-                    } else if (!a(this.f39419f)) {
+                    } else if (!a(this.f76251f)) {
                         if (iPushActionListener != null) {
                             iPushActionListener.onStateChanged(1002);
                             return;
                         }
                         return;
                     } else {
-                        this.f39419f = SystemClock.elapsedRealtime();
+                        this.f76251f = SystemClock.elapsedRealtime();
                         String a2 = a(new a(aVar, iPushActionListener));
                         aVar.b(a2);
                         if (TextUtils.isEmpty(this.l)) {
@@ -736,12 +738,12 @@ public final class p {
 
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) || this.f39422i == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, str2) == null) || this.f76254i == null) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         arrayList.add(str2);
-        com.vivo.push.b.a aVar = new com.vivo.push.b.a(true, str, this.f39422i.getPackageName(), arrayList);
+        com.vivo.push.b.a aVar = new com.vivo.push.b.a(true, str, this.f76254i.getPackageName(), arrayList);
         aVar.a(100);
         a(aVar);
     }
@@ -749,7 +751,7 @@ public final class p {
     public final void a(String str, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, iPushActionListener) == null) {
-            if (this.f39422i == null) {
+            if (this.f76254i == null) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(102);
                 }
@@ -760,7 +762,7 @@ public final class p {
             } else {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(str);
-                com.vivo.push.b.a aVar = new com.vivo.push.b.a(true, null, this.f39422i.getPackageName(), arrayList);
+                com.vivo.push.b.a aVar = new com.vivo.push.b.a(true, null, this.f76254i.getPackageName(), arrayList);
                 aVar.a(100);
                 if (this.r) {
                     if (!v()) {
@@ -769,14 +771,14 @@ public final class p {
                             return;
                         }
                         return;
-                    } else if (!a(this.f39418e)) {
+                    } else if (!a(this.f76250e)) {
                         if (iPushActionListener != null) {
                             iPushActionListener.onStateChanged(1002);
                             return;
                         }
                         return;
                     } else {
-                        this.f39418e = SystemClock.elapsedRealtime();
+                        this.f76250e = SystemClock.elapsedRealtime();
                         String a2 = a(new a(aVar, iPushActionListener));
                         aVar.b(a2);
                         if (TextUtils.isEmpty(this.l)) {
@@ -814,7 +816,7 @@ public final class p {
     public final void b(String str, ArrayList<String> arrayList) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048596, this, str, arrayList) == null) || (context = this.f39422i) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048596, this, str, arrayList) == null) || (context = this.f76254i) == null) {
             return;
         }
         ad adVar = new ad(false, str, context.getPackageName(), arrayList);
@@ -825,7 +827,7 @@ public final class p {
     public final void b(ArrayList<String> arrayList, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048597, this, arrayList, iPushActionListener) == null) {
-            Context context = this.f39422i;
+            Context context = this.f76254i;
             if (context == null) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(102);
@@ -842,14 +844,14 @@ public final class p {
                         return;
                     }
                     return;
-                } else if (!a(this.f39421h)) {
+                } else if (!a(this.f76253h)) {
                     if (iPushActionListener != null) {
                         iPushActionListener.onStateChanged(1002);
                         return;
                     }
                     return;
                 } else {
-                    this.f39421h = SystemClock.elapsedRealtime();
+                    this.f76253h = SystemClock.elapsedRealtime();
                     String a2 = a(new a(adVar, iPushActionListener));
                     adVar.b(a2);
                     if (TextUtils.isEmpty(this.l)) {
@@ -882,12 +884,12 @@ public final class p {
         }
     }
 
-    public static boolean a(long j) {
+    public static boolean a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.BAIDU_LOGO_ID, null, j2)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            return j == -1 || elapsedRealtime <= j || elapsedRealtime >= j + 2000;
+            return j2 == -1 || elapsedRealtime <= j2 || elapsedRealtime >= j2 + 2000;
         }
         return invokeJ.booleanValue;
     }
@@ -925,7 +927,7 @@ public final class p {
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             if (!com.vivo.push.b.g.a(i2)) {
                 com.vivo.push.util.p.d("PushClientManager", "切换环境失败，非法的环境：" + i2);
-                Context context = this.f39422i;
+                Context context = this.f76254i;
                 com.vivo.push.util.p.a(context, "切换环境失败，非法的环境：" + i2);
                 return;
             }
@@ -963,7 +965,7 @@ public final class p {
     public final void a(ArrayList<String> arrayList, IPushActionListener iPushActionListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048587, this, arrayList, iPushActionListener) == null) {
-            Context context = this.f39422i;
+            Context context = this.f76254i;
             if (context == null) {
                 if (iPushActionListener != null) {
                     iPushActionListener.onStateChanged(102);
@@ -980,14 +982,14 @@ public final class p {
                         return;
                     }
                     return;
-                } else if (!a(this.f39420g)) {
+                } else if (!a(this.f76252g)) {
                     if (iPushActionListener != null) {
                         iPushActionListener.onStateChanged(1002);
                         return;
                     }
                     return;
                 } else {
-                    this.f39420g = SystemClock.elapsedRealtime();
+                    this.f76252g = SystemClock.elapsedRealtime();
                     String a2 = a(new a(adVar, iPushActionListener));
                     adVar.b(a2);
                     if (TextUtils.isEmpty(this.l)) {
@@ -1024,7 +1026,7 @@ public final class p {
     public final void a(String str, ArrayList<String> arrayList) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048586, this, str, arrayList) == null) || (context = this.f39422i) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048586, this, str, arrayList) == null) || (context = this.f76254i) == null) {
             return;
         }
         ad adVar = new ad(true, str, context.getPackageName(), arrayList);
@@ -1036,7 +1038,7 @@ public final class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, intent, pushMessageCallback) == null) {
             y createReceiverCommand = this.s.createReceiverCommand(intent);
-            Context context = a().f39422i;
+            Context context = a().f76254i;
             if (createReceiverCommand == null) {
                 com.vivo.push.util.p.a("PushClientManager", "sendCommand, null command!");
                 if (context != null) {
@@ -1065,7 +1067,7 @@ public final class p {
     public final void a(y yVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, yVar) == null) {
-            Context context = a().f39422i;
+            Context context = a().f76254i;
             if (yVar == null) {
                 com.vivo.push.util.p.a("PushClientManager", "sendCommand, null command!");
                 if (context != null) {

@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMJoinGroupRequest";
@@ -36,7 +36,7 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
     public String mKey;
     public String mWhy;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,12 +103,12 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
         }
     }
 
-    public IMJoinGroupRequest(Context context, String str, boolean z, String str2, long j, int i2, String str3) {
+    public IMJoinGroupRequest(Context context, String str, boolean z, String str2, long j2, int i2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Boolean.valueOf(z), str2, Long.valueOf(j), Integer.valueOf(i2), str3};
+            Object[] objArr = {context, str, Boolean.valueOf(z), str2, Long.valueOf(j2), Integer.valueOf(i2), str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -121,7 +121,7 @@ public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
         this.mContext = context;
         this.mKey = str;
         this.mIsFansGroup = z;
-        this.mInviterbuid = j;
+        this.mInviterbuid = j2;
         this.mGroupId = str2;
         this.mChannel = i2;
         this.mWhy = str3;

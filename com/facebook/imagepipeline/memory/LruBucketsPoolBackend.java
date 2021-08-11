@@ -10,7 +10,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class LruBucketsPoolBackend<T> implements PoolBackend<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

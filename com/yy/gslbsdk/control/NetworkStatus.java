@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class NetworkStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IP_V4 = 1;
@@ -73,7 +73,7 @@ public class NetworkStatus {
     public static NetworkStatus getInstanceClone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getInstance().m644clone() : (NetworkStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? getInstance().m647clone() : (NetworkStatus) invokeV.objValue;
     }
 
     public static void updateEnableV6(boolean z) {
@@ -139,7 +139,7 @@ public class NetworkStatus {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m644clone() {
+    public NetworkStatus m647clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

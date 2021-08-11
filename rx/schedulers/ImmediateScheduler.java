@@ -5,9 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.g;
+import i.g;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ImmediateScheduler extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class ImmediateScheduler extends g {
         throw new IllegalStateException("No instances!");
     }
 
-    @Override // h.g
+    @Override // i.g
     public g.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

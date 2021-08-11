@@ -1,13 +1,13 @@
 package com.baidu.ubc;
 
+import c.a.r0.m;
+import c.a.r0.s;
+import c.a.r0.w;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import d.a.s0.n;
-import d.a.s0.t;
-import d.a.s0.x;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface UBCManager {
     public static final String CONTENT_KEY_DURATION = "duration";
     public static final String CONTENT_KEY_EXT = "ext";
@@ -38,7 +38,7 @@ public interface UBCManager {
 
     void flowAddEvent(Flow flow, String str, String str2);
 
-    void flowAddEventWithDate(Flow flow, String str, String str2, long j);
+    void flowAddEventWithDate(Flow flow, String str, String str2, long j2);
 
     void flowCancel(Flow flow);
 
@@ -78,11 +78,11 @@ public interface UBCManager {
 
     void onEvent(String str, JSONObject jSONObject, int i2);
 
-    void registerConfig(x xVar);
+    void registerConfig(w wVar);
 
-    void registerConfig(x xVar, boolean z, t tVar);
+    void registerConfig(w wVar, boolean z, s sVar);
 
-    void setDefaultConfig(n nVar);
+    void setDefaultConfig(m mVar);
 
     void setUBCDebug(boolean z);
 

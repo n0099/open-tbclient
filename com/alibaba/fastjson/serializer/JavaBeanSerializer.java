@@ -25,7 +25,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class JavaBeanSerializer extends SerializeFilterable implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -397,7 +397,7 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:430:0x05da
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:430:0x05dc
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -406,7 +406,7 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         /*
             r35 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.alibaba.fastjson.serializer.JavaBeanSerializer.$ic
-            if (r0 != 0) goto L5e0
+            if (r0 != 0) goto L5e2
         L4:
             r8 = r35
             r9 = r36
@@ -467,49 +467,49 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         L60:
             r17 = 0
             if (r41 != 0) goto L6e
-            r15.append(r1)     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
+            r15.append(r1)     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
             goto L6e
         L68:
             r0 = move-exception
             r3 = r0
             r1 = r10
             r2 = r11
-            goto L527
+            goto L528
         L6e:
-            int r1 = r7.length     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
+            int r1 = r7.length     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
             if (r1 <= 0) goto L7f
-            com.alibaba.fastjson.serializer.SerializerFeature r1 = com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
-            boolean r1 = r15.isEnabled(r1)     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
+            com.alibaba.fastjson.serializer.SerializerFeature r1 = com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
+            boolean r1 = r15.isEnabled(r1)     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
             if (r1 == 0) goto L7f
-            r36.incrementIndent()     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
-            r36.println()     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
+            r36.incrementIndent()     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
+            r36.println()     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
         L7f:
-            com.alibaba.fastjson.serializer.SerializeBeanInfo r1 = r8.beanInfo     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
-            int r1 = r1.features     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
-            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.WriteClassName     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
-            int r2 = r2.mask     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r1 = r8.beanInfo     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
+            int r1 = r1.features     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.WriteClassName     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
+            int r2 = r2.mask     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
             r1 = r1 & r2
             if (r1 != 0) goto L97
-            com.alibaba.fastjson.serializer.SerializerFeature r1 = com.alibaba.fastjson.serializer.SerializerFeature.WriteClassName     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
-            int r1 = r1.mask     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
+            com.alibaba.fastjson.serializer.SerializerFeature r1 = com.alibaba.fastjson.serializer.SerializerFeature.WriteClassName     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
+            int r1 = r1.mask     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
             r1 = r1 & r13
             if (r1 != 0) goto L97
-            boolean r1 = r9.isWriteClassName(r12, r10)     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
+            boolean r1 = r9.isWriteClassName(r12, r10)     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
             if (r1 == 0) goto Lb2
         L97:
-            java.lang.Class r1 = r37.getClass()     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
+            java.lang.Class r1 = r37.getClass()     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
             if (r1 == r12) goto La6
-            boolean r2 = r12 instanceof java.lang.reflect.WildcardType     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
+            boolean r2 = r12 instanceof java.lang.reflect.WildcardType     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
             if (r2 == 0) goto La6
-            java.lang.Class r2 = com.alibaba.fastjson.util.TypeUtils.getClass(r39)     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
+            java.lang.Class r2 = com.alibaba.fastjson.util.TypeUtils.getClass(r39)     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
             goto La7
         La6:
             r2 = r12
         La7:
             if (r1 == r2) goto Lb2
-            com.alibaba.fastjson.serializer.SerializeBeanInfo r1 = r8.beanInfo     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
-            java.lang.String r1 = r1.typeKey     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
-            r8.writeClassName(r9, r1, r10)     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51e
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r1 = r8.beanInfo     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
+            java.lang.String r1 = r1.typeKey     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
+            r8.writeClassName(r9, r1, r10)     // Catch: java.lang.Exception -> L68 java.lang.Throwable -> L51f
             r1 = 1
             goto Lb3
         Lb2:
@@ -522,40 +522,40 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         Lba:
             r1 = 0
         Lbb:
-            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.WriteClassName     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
-            boolean r18 = r15.isEnabled(r2)     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
-            char r1 = r8.writeBefore(r9, r10, r1)     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.WriteClassName     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
+            boolean r18 = r15.isEnabled(r2)     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
+            char r1 = r8.writeBefore(r9, r10, r1)     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
             if (r1 != r3) goto Lc9
             r1 = 1
             goto Lca
         Lc9:
             r1 = 0
         Lca:
-            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.SkipTransientField     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
-            boolean r19 = r15.isEnabled(r2)     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
-            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.IgnoreNonFieldGetter     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
-            boolean r20 = r15.isEnabled(r2)     // Catch: java.lang.Throwable -> L51e java.lang.Exception -> L523
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.SkipTransientField     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
+            boolean r19 = r15.isEnabled(r2)     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.IgnoreNonFieldGetter     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
+            boolean r20 = r15.isEnabled(r2)     // Catch: java.lang.Throwable -> L51f java.lang.Exception -> L524
             r21 = r1
             r1 = r17
             r2 = 0
         Ldb:
-            int r3 = r7.length     // Catch: java.lang.Exception -> L515 java.lang.Throwable -> L51e
-            if (r2 >= r3) goto L4d3
-            r3 = r7[r2]     // Catch: java.lang.Exception -> L4cb java.lang.Throwable -> L51e
-            com.alibaba.fastjson.util.FieldInfo r4 = r3.fieldInfo     // Catch: java.lang.Exception -> L4cb java.lang.Throwable -> L51e
-            java.lang.reflect.Field r4 = r4.field     // Catch: java.lang.Exception -> L4cb java.lang.Throwable -> L51e
-            com.alibaba.fastjson.util.FieldInfo r13 = r3.fieldInfo     // Catch: java.lang.Exception -> L4cb java.lang.Throwable -> L51e
+            int r3 = r7.length     // Catch: java.lang.Exception -> L516 java.lang.Throwable -> L51f
+            if (r2 >= r3) goto L4d4
+            r3 = r7[r2]     // Catch: java.lang.Exception -> L4cc java.lang.Throwable -> L51f
+            com.alibaba.fastjson.util.FieldInfo r4 = r3.fieldInfo     // Catch: java.lang.Exception -> L4cc java.lang.Throwable -> L51f
+            java.lang.reflect.Field r4 = r4.field     // Catch: java.lang.Exception -> L4cc java.lang.Throwable -> L51f
+            com.alibaba.fastjson.util.FieldInfo r13 = r3.fieldInfo     // Catch: java.lang.Exception -> L4cc java.lang.Throwable -> L51f
             r24 = r11
-            java.lang.String r11 = r13.name     // Catch: java.lang.Exception -> L4c2 java.lang.Throwable -> L50b
+            java.lang.String r11 = r13.name     // Catch: java.lang.Exception -> L4c3 java.lang.Throwable -> L50c
             r25 = r7
-            java.lang.Class<?> r7 = r13.fieldClass     // Catch: java.lang.Exception -> L4c2 java.lang.Throwable -> L50b
-            int r5 = r15.features     // Catch: java.lang.Exception -> L4c2 java.lang.Throwable -> L50b
+            java.lang.Class<?> r7 = r13.fieldClass     // Catch: java.lang.Exception -> L4c3 java.lang.Throwable -> L50c
+            int r5 = r15.features     // Catch: java.lang.Exception -> L4c3 java.lang.Throwable -> L50c
             r27 = r1
-            int r1 = r13.serialzeFeatures     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            int r1 = r13.serialzeFeatures     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r28 = r2
-            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.UseSingleQuotes     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            boolean r29 = com.alibaba.fastjson.serializer.SerializerFeature.isEnabled(r5, r1, r2)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            boolean r1 = r15.quoteFieldNames     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.UseSingleQuotes     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            boolean r29 = com.alibaba.fastjson.serializer.SerializerFeature.isEnabled(r5, r1, r2)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            boolean r1 = r15.quoteFieldNames     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             if (r1 == 0) goto L105
             if (r29 != 0) goto L105
             r30 = 1
@@ -565,14 +565,14 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         L107:
             if (r19 == 0) goto L115
             if (r13 == 0) goto L115
-            boolean r1 = r13.fieldTransient     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
+            boolean r1 = r13.fieldTransient     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
             if (r1 == 0) goto L115
             goto L119
         L110:
             r0 = move-exception
             r3 = r0
             r1 = r10
-            goto L4c8
+            goto L4c9
         L115:
             if (r20 == 0) goto L123
             if (r4 != 0) goto L123
@@ -583,12 +583,12 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             r3 = 44
             r5 = 1
             r7 = 0
-            goto L4ae
+            goto L4af
         L123:
-            boolean r1 = r8.applyName(r9, r10, r11)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            boolean r1 = r8.applyName(r9, r10, r11)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             if (r1 == 0) goto L134
-            java.lang.String r1 = r13.label     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
-            boolean r1 = r8.applyLabel(r9, r1)     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
+            java.lang.String r1 = r13.label     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
+            boolean r1 = r8.applyLabel(r9, r1)     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
             if (r1 != 0) goto L132
             goto L134
         L132:
@@ -598,14 +598,14 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             if (r16 == 0) goto L119
             r1 = 1
         L137:
-            com.alibaba.fastjson.serializer.SerializeBeanInfo r2 = r8.beanInfo     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            java.lang.String r2 = r2.typeKey     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r2 = r8.beanInfo     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            java.lang.String r2 = r2.typeKey     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             if (r2 == 0) goto L14e
-            com.alibaba.fastjson.serializer.SerializeBeanInfo r2 = r8.beanInfo     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
-            java.lang.String r2 = r2.typeKey     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
-            boolean r2 = r11.equals(r2)     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r2 = r8.beanInfo     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
+            java.lang.String r2 = r2.typeKey     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
+            boolean r2 = r11.equals(r2)     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
             if (r2 == 0) goto L14e
-            boolean r2 = r9.isWriteClassName(r12, r10)     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
+            boolean r2 = r9.isWriteClassName(r12, r10)     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
             if (r2 == 0) goto L14e
             goto L119
         L14e:
@@ -614,35 +614,35 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             r1 = r17
             goto L165
         L153:
-            java.lang.Object r1 = r3.getPropertyValueDirect(r10)     // Catch: java.lang.Exception -> L110 java.lang.reflect.InvocationTargetException -> L158 java.lang.Throwable -> L50b
+            java.lang.Object r1 = r3.getPropertyValueDirect(r10)     // Catch: java.lang.Exception -> L110 java.lang.reflect.InvocationTargetException -> L158 java.lang.Throwable -> L50c
             goto L165
         L158:
             r0 = move-exception
             r1 = r0
-            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.IgnoreErrorGetter     // Catch: java.lang.Exception -> L4a5 java.lang.Throwable -> L50b
-            boolean r2 = r15.isEnabled(r2)     // Catch: java.lang.Exception -> L4a5 java.lang.Throwable -> L50b
-            if (r2 == 0) goto L4a1
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.IgnoreErrorGetter     // Catch: java.lang.Exception -> L4a6 java.lang.Throwable -> L50c
+            boolean r2 = r15.isEnabled(r2)     // Catch: java.lang.Exception -> L4a6 java.lang.Throwable -> L50c
+            if (r2 == 0) goto L4a2
             r27 = r3
             goto L150
         L165:
-            boolean r2 = r8.apply(r9, r10, r11, r1)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            boolean r2 = r8.apply(r9, r10, r11, r1)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             if (r2 != 0) goto L170
             r33 = r6
             r34 = r25
             goto L11d
         L170:
-            if (r7 != r14) goto L184
+            if (r7 != r14) goto L185
             java.lang.String r2 = "trim"
-            java.lang.String r4 = r13.format     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
-            boolean r2 = r2.equals(r4)     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
-            if (r2 == 0) goto L184
-            if (r1 == 0) goto L184
-            java.lang.String r1 = (java.lang.String) r1     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
-            java.lang.String r1 = r1.trim()     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50b
-        L184:
+            java.lang.String r4 = r13.format     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
+            boolean r2 = r2.equals(r4)     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
+            if (r2 == 0) goto L185
+            if (r1 == 0) goto L185
+            java.lang.String r1 = (java.lang.String) r1     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
+            java.lang.String r1 = r1.trim()     // Catch: java.lang.Exception -> L110 java.lang.Throwable -> L50c
+        L185:
             r5 = r1
-            java.lang.String r4 = r8.processKey(r9, r10, r11, r5)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.BeanContext r2 = r3.fieldContext     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            java.lang.String r4 = r8.processKey(r9, r10, r11, r5)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.BeanContext r2 = r3.fieldContext     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r1 = r35
             r31 = r2
             r2 = r36
@@ -659,455 +659,455 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             r10 = r7
             r34 = r25
             r7 = r40
-            java.lang.Object r1 = r1.processValue(r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            java.lang.Object r1 = r1.processValue(r2, r3, r4, r5, r6, r7)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             java.lang.String r2 = ""
-            if (r1 != 0) goto L2c2
-            int r3 = r13.serialzeFeatures     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.annotation.JSONField r4 = r13.getAnnotation()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializeBeanInfo r5 = r8.beanInfo     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.annotation.JSONType r5 = r5.jsonType     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r5 == 0) goto L1c9
-            com.alibaba.fastjson.serializer.SerializeBeanInfo r5 = r8.beanInfo     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.annotation.JSONType r5 = r5.jsonType     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializerFeature[] r5 = r5.serialzeFeatures()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r5 = com.alibaba.fastjson.serializer.SerializerFeature.of(r5)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r1 != 0) goto L2c3
+            int r3 = r13.serialzeFeatures     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.annotation.JSONField r4 = r13.getAnnotation()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r5 = r8.beanInfo     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.annotation.JSONType r5 = r5.jsonType     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r5 == 0) goto L1ca
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r5 = r8.beanInfo     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.annotation.JSONType r5 = r5.jsonType     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializerFeature[] r5 = r5.serialzeFeatures()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r5 = com.alibaba.fastjson.serializer.SerializerFeature.of(r5)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r3 = r3 | r5
-        L1c9:
-            if (r4 == 0) goto L1db
-            java.lang.String r5 = r4.defaultValue()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            boolean r5 = r2.equals(r5)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r5 != 0) goto L1db
-            java.lang.String r1 = r4.defaultValue()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L2c2
-        L1db:
+        L1ca:
+            if (r4 == 0) goto L1dc
+            java.lang.String r5 = r4.defaultValue()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            boolean r5 = r2.equals(r5)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r5 != 0) goto L1dc
+            java.lang.String r1 = r4.defaultValue()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L2c3
+        L1dc:
             java.lang.Class<java.lang.Boolean> r4 = java.lang.Boolean.class
-            if (r10 != r4) goto L20d
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullBooleanAsFalse     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r5 = r5.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r10 != r4) goto L20e
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullBooleanAsFalse     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r5 = r5.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r5 = r5 | r4
-            if (r16 != 0) goto L1f5
+            if (r16 != 0) goto L1f6
             r6 = r3 & r5
-            if (r6 != 0) goto L1f5
-            int r6 = r15.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r6 != 0) goto L1f6
+            int r6 = r15.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r5 = r5 & r6
-            if (r5 != 0) goto L1f5
-            goto L37d
-        L1f5:
+            if (r5 != 0) goto L1f6
+            goto L37e
+        L1f6:
             r5 = r3 & r4
-            if (r5 == 0) goto L1fd
-            java.lang.Boolean r1 = java.lang.Boolean.FALSE     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L2c2
-        L1fd:
-            int r5 = r15.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r5 == 0) goto L1fe
+            java.lang.Boolean r1 = java.lang.Boolean.FALSE     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L2c3
+        L1fe:
+            int r5 = r15.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r4 = r4 & r5
-            if (r4 == 0) goto L2c2
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r4 == 0) goto L2c3
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r3 = r3 & r4
-            if (r3 != 0) goto L2c2
-            java.lang.Boolean r1 = java.lang.Boolean.FALSE     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L2c2
-        L20d:
-            if (r10 != r14) goto L239
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r5 = r5.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r3 != 0) goto L2c3
+            java.lang.Boolean r1 = java.lang.Boolean.FALSE     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L2c3
+        L20e:
+            if (r10 != r14) goto L23a
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r5 = r5.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r5 = r5 | r4
-            if (r16 != 0) goto L225
+            if (r16 != 0) goto L226
             r6 = r3 & r5
-            if (r6 != 0) goto L225
-            int r6 = r15.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r6 != 0) goto L226
+            int r6 = r15.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r5 = r5 & r6
-            if (r5 != 0) goto L225
-            goto L37d
-        L225:
+            if (r5 != 0) goto L226
+            goto L37e
+        L226:
             r5 = r3 & r4
-            if (r5 == 0) goto L22c
-        L229:
+            if (r5 == 0) goto L22d
+        L22a:
             r1 = r2
-            goto L2c2
-        L22c:
-            int r5 = r15.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            goto L2c3
+        L22d:
+            int r5 = r15.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r4 = r4 & r5
-            if (r4 == 0) goto L2c2
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r4 == 0) goto L2c3
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r3 = r3 & r4
-            if (r3 != 0) goto L2c2
-            goto L229
-        L239:
+            if (r3 != 0) goto L2c3
+            goto L22a
+        L23a:
             java.lang.Class<java.lang.Number> r4 = java.lang.Number.class
-            boolean r4 = r4.isAssignableFrom(r10)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 == 0) goto L271
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullNumberAsZero     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r5 = r5.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            boolean r4 = r4.isAssignableFrom(r10)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 == 0) goto L272
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullNumberAsZero     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r5 = r5.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r5 = r5 | r4
-            if (r16 != 0) goto L257
+            if (r16 != 0) goto L258
             r6 = r3 & r5
-            if (r6 != 0) goto L257
-            int r6 = r15.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r6 != 0) goto L258
+            int r6 = r15.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r5 = r5 & r6
-            if (r5 != 0) goto L257
-            goto L37d
-        L257:
+            if (r5 != 0) goto L258
+            goto L37e
+        L258:
             r5 = r3 & r4
-            if (r5 == 0) goto L260
-            java.lang.Integer r1 = java.lang.Integer.valueOf(r22)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L2c2
-        L260:
-            int r5 = r15.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r5 == 0) goto L261
+            java.lang.Integer r1 = java.lang.Integer.valueOf(r22)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L2c3
+        L261:
+            int r5 = r15.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r4 = r4 & r5
-            if (r4 == 0) goto L2c2
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r4 == 0) goto L2c3
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r3 = r3 & r4
-            if (r3 != 0) goto L2c2
-            java.lang.Integer r1 = java.lang.Integer.valueOf(r22)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L2c2
-        L271:
+            if (r3 != 0) goto L2c3
+            java.lang.Integer r1 = java.lang.Integer.valueOf(r22)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L2c3
+        L272:
             java.lang.Class<java.util.Collection> r4 = java.util.Collection.class
-            boolean r4 = r4.isAssignableFrom(r10)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 == 0) goto L2a9
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullListAsEmpty     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r5 = r5.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            boolean r4 = r4.isAssignableFrom(r10)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 == 0) goto L2aa
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullListAsEmpty     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializerFeature r5 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r5 = r5.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r5 = r5 | r4
-            if (r16 != 0) goto L28f
+            if (r16 != 0) goto L290
             r6 = r3 & r5
-            if (r6 != 0) goto L28f
-            int r6 = r15.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r6 != 0) goto L290
+            int r6 = r15.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r5 = r5 & r6
-            if (r5 != 0) goto L28f
-            goto L37d
-        L28f:
+            if (r5 != 0) goto L290
+            goto L37e
+        L290:
             r5 = r3 & r4
-            if (r5 == 0) goto L298
-            java.util.List r1 = java.util.Collections.emptyList()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L2c2
-        L298:
-            int r5 = r15.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r5 == 0) goto L299
+            java.util.List r1 = java.util.Collections.emptyList()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L2c3
+        L299:
+            int r5 = r15.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r4 = r4 & r5
-            if (r4 == 0) goto L2c2
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r4 == 0) goto L2c3
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r3 = r3 & r4
-            if (r3 != 0) goto L2c2
-            java.util.List r1 = java.util.Collections.emptyList()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L2c2
-        L2a9:
-            if (r16 != 0) goto L2c2
-            boolean r4 = r12.writeNull     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 != 0) goto L2c2
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            boolean r4 = r15.isEnabled(r4)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 != 0) goto L2c2
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r3 != 0) goto L2c3
+            java.util.List r1 = java.util.Collections.emptyList()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L2c3
+        L2aa:
+            if (r16 != 0) goto L2c3
+            boolean r4 = r12.writeNull     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 != 0) goto L2c3
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            boolean r4 = r15.isEnabled(r4)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 != 0) goto L2c3
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r3 = r3 & r4
-            if (r3 != 0) goto L2c2
-            goto L37d
-        L2c2:
-            if (r1 == 0) goto L36a
-            boolean r3 = r15.notWriteDefaultValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 != 0) goto L2dc
-            int r3 = r13.serialzeFeatures     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.NotWriteDefaultValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r3 != 0) goto L2c3
+            goto L37e
+        L2c3:
+            if (r1 == 0) goto L36b
+            boolean r3 = r15.notWriteDefaultValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 != 0) goto L2dd
+            int r3 = r13.serialzeFeatures     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.NotWriteDefaultValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r3 = r3 & r4
-            if (r3 != 0) goto L2dc
-            com.alibaba.fastjson.serializer.SerializeBeanInfo r3 = r8.beanInfo     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r3 = r3.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.NotWriteDefaultValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r3 != 0) goto L2dd
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r3 = r8.beanInfo     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r3 = r3.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.NotWriteDefaultValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r3 = r3 & r4
-            if (r3 == 0) goto L36a
-        L2dc:
-            java.lang.Class<?> r3 = r13.fieldClass     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            java.lang.Class r4 = java.lang.Byte.TYPE     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 != r4) goto L2f1
-            boolean r4 = r1 instanceof java.lang.Byte     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 == 0) goto L2f1
+            if (r3 == 0) goto L36b
+        L2dd:
+            java.lang.Class<?> r3 = r13.fieldClass     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            java.lang.Class r4 = java.lang.Byte.TYPE     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 != r4) goto L2f2
+            boolean r4 = r1 instanceof java.lang.Byte     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 == 0) goto L2f2
             r4 = r1
-            java.lang.Byte r4 = (java.lang.Byte) r4     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            byte r4 = r4.byteValue()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 != 0) goto L2f1
-            goto L37d
-        L2f1:
-            java.lang.Class r4 = java.lang.Short.TYPE     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 != r4) goto L304
-            boolean r4 = r1 instanceof java.lang.Short     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 == 0) goto L304
+            java.lang.Byte r4 = (java.lang.Byte) r4     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            byte r4 = r4.byteValue()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 != 0) goto L2f2
+            goto L37e
+        L2f2:
+            java.lang.Class r4 = java.lang.Short.TYPE     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 != r4) goto L305
+            boolean r4 = r1 instanceof java.lang.Short     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 == 0) goto L305
             r4 = r1
-            java.lang.Short r4 = (java.lang.Short) r4     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            short r4 = r4.shortValue()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 != 0) goto L304
-            goto L37d
-        L304:
-            java.lang.Class r4 = java.lang.Integer.TYPE     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 != r4) goto L317
-            boolean r4 = r1 instanceof java.lang.Integer     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 == 0) goto L317
+            java.lang.Short r4 = (java.lang.Short) r4     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            short r4 = r4.shortValue()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 != 0) goto L305
+            goto L37e
+        L305:
+            java.lang.Class r4 = java.lang.Integer.TYPE     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 != r4) goto L318
+            boolean r4 = r1 instanceof java.lang.Integer     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 == 0) goto L318
             r4 = r1
-            java.lang.Integer r4 = (java.lang.Integer) r4     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r4 = r4.intValue()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 != 0) goto L317
-            goto L37d
-        L317:
-            java.lang.Class r4 = java.lang.Long.TYPE     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 != r4) goto L32d
-            boolean r4 = r1 instanceof java.lang.Long     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 == 0) goto L32d
+            java.lang.Integer r4 = (java.lang.Integer) r4     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r4 = r4.intValue()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 != 0) goto L318
+            goto L37e
+        L318:
+            java.lang.Class r4 = java.lang.Long.TYPE     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 != r4) goto L32e
+            boolean r4 = r1 instanceof java.lang.Long     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 == 0) goto L32e
             r4 = r1
-            java.lang.Long r4 = (java.lang.Long) r4     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            long r4 = r4.longValue()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            java.lang.Long r4 = (java.lang.Long) r4     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            long r4 = r4.longValue()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r6 = 0
             int r26 = (r4 > r6 ? 1 : (r4 == r6 ? 0 : -1))
-            if (r26 != 0) goto L32d
-            goto L37d
-        L32d:
-            java.lang.Class r4 = java.lang.Float.TYPE     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 != r4) goto L342
-            boolean r4 = r1 instanceof java.lang.Float     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 == 0) goto L342
+            if (r26 != 0) goto L32e
+            goto L37e
+        L32e:
+            java.lang.Class r4 = java.lang.Float.TYPE     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 != r4) goto L343
+            boolean r4 = r1 instanceof java.lang.Float     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 == 0) goto L343
             r4 = r1
-            java.lang.Float r4 = (java.lang.Float) r4     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            float r4 = r4.floatValue()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            java.lang.Float r4 = (java.lang.Float) r4     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            float r4 = r4.floatValue()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r5 = 0
             int r4 = (r4 > r5 ? 1 : (r4 == r5 ? 0 : -1))
-            if (r4 != 0) goto L342
-            goto L37d
-        L342:
-            java.lang.Class r4 = java.lang.Double.TYPE     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 != r4) goto L358
-            boolean r4 = r1 instanceof java.lang.Double     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 == 0) goto L358
+            if (r4 != 0) goto L343
+            goto L37e
+        L343:
+            java.lang.Class r4 = java.lang.Double.TYPE     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 != r4) goto L359
+            boolean r4 = r1 instanceof java.lang.Double     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 == 0) goto L359
             r4 = r1
-            java.lang.Double r4 = (java.lang.Double) r4     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            double r4 = r4.doubleValue()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            java.lang.Double r4 = (java.lang.Double) r4     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            double r4 = r4.doubleValue()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r6 = 0
             int r26 = (r4 > r6 ? 1 : (r4 == r6 ? 0 : -1))
-            if (r26 != 0) goto L358
-            goto L37d
-        L358:
-            java.lang.Class r4 = java.lang.Boolean.TYPE     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 != r4) goto L36a
-            boolean r3 = r1 instanceof java.lang.Boolean     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 == 0) goto L36a
+            if (r26 != 0) goto L359
+            goto L37e
+        L359:
+            java.lang.Class r4 = java.lang.Boolean.TYPE     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 != r4) goto L36b
+            boolean r3 = r1 instanceof java.lang.Boolean     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 == 0) goto L36b
             r3 = r1
-            java.lang.Boolean r3 = (java.lang.Boolean) r3     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            boolean r3 = r3.booleanValue()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 != 0) goto L36a
-            goto L37d
-        L36a:
-            if (r21 == 0) goto L390
-            boolean r3 = r13.unwrapped     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 == 0) goto L37f
-            boolean r3 = r1 instanceof java.util.Map     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 == 0) goto L37f
+            java.lang.Boolean r3 = (java.lang.Boolean) r3     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            boolean r3 = r3.booleanValue()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 != 0) goto L36b
+            goto L37e
+        L36b:
+            if (r21 == 0) goto L391
+            boolean r3 = r13.unwrapped     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 == 0) goto L380
+            boolean r3 = r1 instanceof java.util.Map     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 == 0) goto L380
             r3 = r1
-            java.util.Map r3 = (java.util.Map) r3     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r3 = r3.size()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r3 != 0) goto L37f
-        L37d:
+            java.util.Map r3 = (java.util.Map) r3     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r3 = r3.size()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r3 != 0) goto L380
+        L37e:
             goto L11d
-        L37f:
+        L380:
             r3 = 44
-            r15.write(r3)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            boolean r4 = r15.isEnabled(r4)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r4 == 0) goto L392
-            r36.println()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L392
-        L390:
+            r15.write(r3)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializerFeature r4 = com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            boolean r4 = r15.isEnabled(r4)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r4 == 0) goto L393
+            r36.println()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L393
+        L391:
             r3 = 44
-        L392:
+        L393:
             r4 = r32
-            if (r4 == r11) goto L3a4
-            if (r16 != 0) goto L39d
+            if (r4 == r11) goto L3a5
+            if (r16 != 0) goto L39e
             r5 = 1
-            r15.writeFieldName(r4, r5)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L39e
-        L39d:
-            r5 = 1
+            r15.writeFieldName(r4, r5)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L39f
         L39e:
-            r9.write(r1)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-        L3a1:
+            r5 = 1
+        L39f:
+            r9.write(r1)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+        L3a2:
             r7 = 0
-            goto L465
-        L3a4:
+            goto L466
+        L3a5:
             r4 = r23
             r5 = 1
-            if (r4 == r1) goto L3b2
-            if (r16 != 0) goto L3ae
-            r12.writePrefix(r9)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-        L3ae:
-            r9.write(r1)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L3a1
-        L3b2:
-            if (r16 != 0) goto L3ee
+            if (r4 == r1) goto L3b3
+            if (r16 != 0) goto L3af
+            r12.writePrefix(r9)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+        L3af:
+            r9.write(r1)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L3a2
+        L3b3:
+            if (r16 != 0) goto L3ef
             java.lang.Class<java.util.Map> r4 = java.util.Map.class
-            boolean r4 = r4.isAssignableFrom(r10)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            boolean r6 = r10.isPrimitive()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r6 != 0) goto L3cc
-            java.lang.String r6 = r10.getName()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            boolean r4 = r4.isAssignableFrom(r10)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            boolean r6 = r10.isPrimitive()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r6 != 0) goto L3cd
+            java.lang.String r6 = r10.getName()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             java.lang.String r7 = "java."
-            boolean r6 = r6.startsWith(r7)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r6 == 0) goto L3d0
-        L3cc:
+            boolean r6 = r6.startsWith(r7)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r6 == 0) goto L3d1
+        L3cd:
             java.lang.Class<java.lang.Object> r6 = java.lang.Object.class
-            if (r10 != r6) goto L3d2
-        L3d0:
+            if (r10 != r6) goto L3d3
+        L3d1:
             r6 = 1
-            goto L3d3
-        L3d2:
-            r6 = 0
+            goto L3d4
         L3d3:
-            if (r18 != 0) goto L3dd
-            boolean r7 = r13.unwrapped     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r7 == 0) goto L3dd
-            if (r4 != 0) goto L3ee
-            if (r6 != 0) goto L3ee
-        L3dd:
-            if (r30 == 0) goto L3e9
-            char[] r4 = r13.name_chars     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            char[] r6 = r13.name_chars     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r6 = r6.length     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            r6 = 0
+        L3d4:
+            if (r18 != 0) goto L3de
+            boolean r7 = r13.unwrapped     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r7 == 0) goto L3de
+            if (r4 != 0) goto L3ef
+            if (r6 != 0) goto L3ef
+        L3de:
+            if (r30 == 0) goto L3ea
+            char[] r4 = r13.name_chars     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            char[] r6 = r13.name_chars     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r6 = r6.length     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r7 = 0
-            r15.write(r4, r7, r6)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L3ef
-        L3e9:
+            r15.write(r4, r7, r6)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L3f0
+        L3ea:
             r7 = 0
-            r12.writePrefix(r9)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L3ef
-        L3ee:
-            r7 = 0
+            r12.writePrefix(r9)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L3f0
         L3ef:
-            if (r16 != 0) goto L462
-            com.alibaba.fastjson.annotation.JSONField r4 = r13.getAnnotation()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r10 != r14) goto L448
-            if (r4 == 0) goto L401
-            java.lang.Class r4 = r4.serializeUsing()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            r7 = 0
+        L3f0:
+            if (r16 != 0) goto L463
+            com.alibaba.fastjson.annotation.JSONField r4 = r13.getAnnotation()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r10 != r14) goto L449
+            if (r4 == 0) goto L402
+            java.lang.Class r4 = r4.serializeUsing()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             java.lang.Class<java.lang.Void> r6 = java.lang.Void.class
-            if (r4 != r6) goto L448
-        L401:
-            if (r1 != 0) goto L43b
-            int r4 = r12.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializeBeanInfo r6 = r8.beanInfo     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.annotation.JSONType r6 = r6.jsonType     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r6 == 0) goto L418
-            com.alibaba.fastjson.serializer.SerializeBeanInfo r6 = r8.beanInfo     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.annotation.JSONType r6 = r6.jsonType     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializerFeature[] r6 = r6.serialzeFeatures()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r6 = com.alibaba.fastjson.serializer.SerializerFeature.of(r6)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r4 != r6) goto L449
+        L402:
+            if (r1 != 0) goto L43c
+            int r4 = r12.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r6 = r8.beanInfo     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.annotation.JSONType r6 = r6.jsonType     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r6 == 0) goto L419
+            com.alibaba.fastjson.serializer.SerializeBeanInfo r6 = r8.beanInfo     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.annotation.JSONType r6 = r6.jsonType     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializerFeature[] r6 = r6.serialzeFeatures()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r6 = com.alibaba.fastjson.serializer.SerializerFeature.of(r6)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r4 = r4 | r6
-        L418:
-            int r6 = r15.features     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            com.alibaba.fastjson.serializer.SerializerFeature r10 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r10 = r10.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+        L419:
+            int r6 = r15.features     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            com.alibaba.fastjson.serializer.SerializerFeature r10 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r10 = r10.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r6 = r6 & r10
-            if (r6 == 0) goto L42c
-            com.alibaba.fastjson.serializer.SerializerFeature r6 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r6 = r6.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r6 == 0) goto L42d
+            com.alibaba.fastjson.serializer.SerializerFeature r6 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r6 = r6.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r6 = r6 & r4
-            if (r6 != 0) goto L42c
-            r15.writeString(r2)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L465
-        L42c:
-            com.alibaba.fastjson.serializer.SerializerFeature r6 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r6 = r6.mask     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
+            if (r6 != 0) goto L42d
+            r15.writeString(r2)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L466
+        L42d:
+            com.alibaba.fastjson.serializer.SerializerFeature r6 = com.alibaba.fastjson.serializer.SerializerFeature.WriteNullStringAsEmpty     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r6 = r6.mask     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
             r4 = r4 & r6
-            if (r4 == 0) goto L437
-            r15.writeString(r2)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L465
-        L437:
-            r15.writeNull()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L465
-        L43b:
+            if (r4 == 0) goto L438
+            r15.writeString(r2)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L466
+        L438:
+            r15.writeNull()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L466
+        L43c:
             r2 = r1
-            java.lang.String r2 = (java.lang.String) r2     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r29 == 0) goto L444
-            r15.writeStringWithSingleQuote(r2)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L465
-        L444:
-            r15.writeStringWithDoubleQuote(r2, r7)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L465
-        L448:
-            boolean r2 = r13.unwrapped     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r2 == 0) goto L45e
-            boolean r2 = r1 instanceof java.util.Map     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r2 == 0) goto L45e
+            java.lang.String r2 = (java.lang.String) r2     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r29 == 0) goto L445
+            r15.writeStringWithSingleQuote(r2)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L466
+        L445:
+            r15.writeStringWithDoubleQuote(r2, r7)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L466
+        L449:
+            boolean r2 = r13.unwrapped     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r2 == 0) goto L45f
+            boolean r2 = r1 instanceof java.util.Map     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r2 == 0) goto L45f
             r2 = r1
-            java.util.Map r2 = (java.util.Map) r2     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r2 = r2.size()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r2 != 0) goto L45e
+            java.util.Map r2 = (java.util.Map) r2     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r2 = r2.size()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r2 != 0) goto L45f
             r1 = r27
             r21 = 0
-            goto L4b0
-        L45e:
-            r12.writeValue(r9, r1)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            goto L465
-        L462:
-            r12.writeValue(r9, r1)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-        L465:
-            boolean r2 = r13.unwrapped     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r2 == 0) goto L499
-            boolean r2 = r1 instanceof java.util.Map     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r2 == 0) goto L499
-            java.util.Map r1 = (java.util.Map) r1     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            int r2 = r1.size()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r2 != 0) goto L477
-        L475:
+            goto L4b1
+        L45f:
+            r12.writeValue(r9, r1)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            goto L466
+        L463:
+            r12.writeValue(r9, r1)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+        L466:
+            boolean r2 = r13.unwrapped     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r2 == 0) goto L49a
+            boolean r2 = r1 instanceof java.util.Map     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r2 == 0) goto L49a
+            java.util.Map r1 = (java.util.Map) r1     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            int r2 = r1.size()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r2 != 0) goto L478
+        L476:
             r1 = 1
-            goto L49a
-        L477:
-            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            boolean r2 = r9.isEnabled(r2)     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r2 != 0) goto L499
-            java.util.Collection r1 = r1.values()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            java.util.Iterator r1 = r1.iterator()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-        L487:
-            boolean r2 = r1.hasNext()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r2 == 0) goto L495
-            java.lang.Object r2 = r1.next()     // Catch: java.lang.Exception -> L4c0 java.lang.Throwable -> L50b
-            if (r2 == 0) goto L487
+            goto L49b
+        L478:
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.WriteMapNullValue     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            boolean r2 = r9.isEnabled(r2)     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r2 != 0) goto L49a
+            java.util.Collection r1 = r1.values()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            java.util.Iterator r1 = r1.iterator()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+        L488:
+            boolean r2 = r1.hasNext()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r2 == 0) goto L496
+            java.lang.Object r2 = r1.next()     // Catch: java.lang.Exception -> L4c1 java.lang.Throwable -> L50c
+            if (r2 == 0) goto L488
             r1 = 1
-            goto L496
-        L495:
-            r1 = 0
+            goto L497
         L496:
-            if (r1 != 0) goto L499
-            goto L475
-        L499:
             r1 = 0
+        L497:
+            if (r1 != 0) goto L49a
+            goto L476
         L49a:
-            if (r1 != 0) goto L4ae
+            r1 = 0
+        L49b:
+            if (r1 != 0) goto L4af
             r1 = r27
             r21 = 1
-            goto L4b0
-        L4a1:
+            goto L4b1
+        L4a2:
             r12 = r3
-            throw r1     // Catch: java.lang.Exception -> L4a3 java.lang.Throwable -> L50b
-        L4a3:
+            throw r1     // Catch: java.lang.Exception -> L4a4 java.lang.Throwable -> L50c
+        L4a4:
             r0 = move-exception
-            goto L4a7
-        L4a5:
+            goto L4a8
+        L4a6:
             r0 = move-exception
             r12 = r3
-        L4a7:
+        L4a8:
             r1 = r37
             r3 = r0
             r2 = r24
-            goto L529
-        L4ae:
+            goto L52a
+        L4af:
             r1 = r27
-        L4b0:
+        L4b1:
             int r2 = r28 + 1
             r10 = r37
             r12 = r39
@@ -1116,27 +1116,27 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             r6 = r33
             r7 = r34
             goto Ldb
-        L4c0:
+        L4c1:
             r0 = move-exception
-            goto L4c5
-        L4c2:
+            goto L4c6
+        L4c3:
             r0 = move-exception
             r27 = r1
-        L4c5:
+        L4c6:
             r1 = r37
-        L4c7:
-            r3 = r0
         L4c8:
+            r3 = r0
+        L4c9:
             r2 = r24
-            goto L51b
-        L4cb:
+            goto L51c
+        L4cc:
             r0 = move-exception
             r27 = r1
             r1 = r37
             r3 = r0
             r2 = r11
-            goto L51b
-        L4d3:
+            goto L51c
+        L4d4:
             r27 = r1
             r33 = r6
             r34 = r7
@@ -1144,156 +1144,156 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             r3 = 44
             r7 = 0
             r1 = r37
-            if (r21 == 0) goto L4e5
+            if (r21 == 0) goto L4e6
             r4 = 44
-            goto L4e6
-        L4e5:
-            r4 = 0
+            goto L4e7
         L4e6:
-            r8.writeAfter(r9, r1, r4)     // Catch: java.lang.Throwable -> L50b java.lang.Exception -> L511
+            r4 = 0
+        L4e7:
+            r8.writeAfter(r9, r1, r4)     // Catch: java.lang.Throwable -> L50c java.lang.Exception -> L512
             r2 = r34
-            int r2 = r2.length     // Catch: java.lang.Throwable -> L50b java.lang.Exception -> L511
-            if (r2 <= 0) goto L4ff
-            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat     // Catch: java.lang.Exception -> L4fd java.lang.Throwable -> L50b
-            boolean r2 = r15.isEnabled(r2)     // Catch: java.lang.Exception -> L4fd java.lang.Throwable -> L50b
-            if (r2 == 0) goto L4ff
-            r36.decrementIdent()     // Catch: java.lang.Exception -> L4fd java.lang.Throwable -> L50b
-            r36.println()     // Catch: java.lang.Exception -> L4fd java.lang.Throwable -> L50b
-            goto L4ff
-        L4fd:
+            int r2 = r2.length     // Catch: java.lang.Throwable -> L50c java.lang.Exception -> L512
+            if (r2 <= 0) goto L500
+            com.alibaba.fastjson.serializer.SerializerFeature r2 = com.alibaba.fastjson.serializer.SerializerFeature.PrettyFormat     // Catch: java.lang.Exception -> L4fe java.lang.Throwable -> L50c
+            boolean r2 = r15.isEnabled(r2)     // Catch: java.lang.Exception -> L4fe java.lang.Throwable -> L50c
+            if (r2 == 0) goto L500
+            r36.decrementIdent()     // Catch: java.lang.Exception -> L4fe java.lang.Throwable -> L50c
+            r36.println()     // Catch: java.lang.Exception -> L4fe java.lang.Throwable -> L50c
+            goto L500
+        L4fe:
             r0 = move-exception
-            goto L4c7
-        L4ff:
-            if (r41 != 0) goto L506
+            goto L4c8
+        L500:
+            if (r41 != 0) goto L507
             r2 = r33
-            r15.append(r2)     // Catch: java.lang.Exception -> L4fd java.lang.Throwable -> L50b
-        L506:
+            r15.append(r2)     // Catch: java.lang.Exception -> L4fe java.lang.Throwable -> L50c
+        L507:
             r2 = r24
             r9.context = r2
             return
-        L50b:
+        L50c:
             r0 = move-exception
             r1 = r0
             r5 = r24
-            goto L5dd
-        L511:
+            goto L5df
+        L512:
             r0 = move-exception
             r2 = r24
-            goto L51a
-        L515:
+            goto L51b
+        L516:
             r0 = move-exception
             r27 = r1
             r1 = r10
             r2 = r11
-        L51a:
-            r3 = r0
         L51b:
+            r3 = r0
+        L51c:
             r12 = r27
-            goto L529
-        L51e:
+            goto L52a
+        L51f:
             r0 = move-exception
             r1 = r0
             r5 = r11
-            goto L5dd
-        L523:
+            goto L5df
+        L524:
             r0 = move-exception
             r1 = r10
             r2 = r11
             r3 = r0
-        L527:
+        L528:
             r12 = r17
-        L529:
+        L52a:
             java.lang.String r4 = "write javaBean error, fastjson version 1.2.75"
-            if (r1 == 0) goto L54f
-            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L54a
-            r5.<init>()     // Catch: java.lang.Throwable -> L54a
-            r5.append(r4)     // Catch: java.lang.Throwable -> L54a
+            if (r1 == 0) goto L551
+            java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L54c
+            r5.<init>()     // Catch: java.lang.Throwable -> L54c
+            r5.append(r4)     // Catch: java.lang.Throwable -> L54c
             java.lang.String r4 = ", class "
-            r5.append(r4)     // Catch: java.lang.Throwable -> L54a
-            java.lang.Class r1 = r37.getClass()     // Catch: java.lang.Throwable -> L54a
-            java.lang.String r1 = r1.getName()     // Catch: java.lang.Throwable -> L54a
-            r5.append(r1)     // Catch: java.lang.Throwable -> L54a
-            java.lang.String r4 = r5.toString()     // Catch: java.lang.Throwable -> L54a
-            goto L54f
-        L54a:
+            r5.append(r4)     // Catch: java.lang.Throwable -> L54c
+            java.lang.Class r1 = r37.getClass()     // Catch: java.lang.Throwable -> L54c
+            java.lang.String r1 = r1.getName()     // Catch: java.lang.Throwable -> L54c
+            r5.append(r1)     // Catch: java.lang.Throwable -> L54c
+            java.lang.String r4 = r5.toString()     // Catch: java.lang.Throwable -> L54c
+            goto L551
+        L54c:
             r0 = move-exception
             r1 = r0
             r5 = r2
-            goto L5dd
-        L54f:
+            goto L5df
+        L551:
             java.lang.String r1 = ", fieldName : "
             r5 = r2
             r2 = r38
-            if (r2 == 0) goto L56c
-            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L569
-            r6.<init>()     // Catch: java.lang.Throwable -> L569
-            r6.append(r4)     // Catch: java.lang.Throwable -> L569
-            r6.append(r1)     // Catch: java.lang.Throwable -> L569
-            r6.append(r2)     // Catch: java.lang.Throwable -> L569
-            java.lang.String r4 = r6.toString()     // Catch: java.lang.Throwable -> L569
-            goto L5a9
-        L569:
+            if (r2 == 0) goto L56e
+            java.lang.StringBuilder r6 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L56b
+            r6.<init>()     // Catch: java.lang.Throwable -> L56b
+            r6.append(r4)     // Catch: java.lang.Throwable -> L56b
+            r6.append(r1)     // Catch: java.lang.Throwable -> L56b
+            r6.append(r2)     // Catch: java.lang.Throwable -> L56b
+            java.lang.String r4 = r6.toString()     // Catch: java.lang.Throwable -> L56b
+            goto L5ab
+        L56b:
             r0 = move-exception
-            goto L5dc
-        L56c:
-            if (r12 == 0) goto L5a9
-            com.alibaba.fastjson.util.FieldInfo r2 = r12.fieldInfo     // Catch: java.lang.Throwable -> L569
-            if (r2 == 0) goto L5a9
-            com.alibaba.fastjson.util.FieldInfo r2 = r12.fieldInfo     // Catch: java.lang.Throwable -> L569
-            java.lang.reflect.Method r6 = r2.method     // Catch: java.lang.Throwable -> L569
-            if (r6 == 0) goto L593
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L569
-            r1.<init>()     // Catch: java.lang.Throwable -> L569
-            r1.append(r4)     // Catch: java.lang.Throwable -> L569
+            goto L5de
+        L56e:
+            if (r12 == 0) goto L5ab
+            com.alibaba.fastjson.util.FieldInfo r2 = r12.fieldInfo     // Catch: java.lang.Throwable -> L56b
+            if (r2 == 0) goto L5ab
+            com.alibaba.fastjson.util.FieldInfo r2 = r12.fieldInfo     // Catch: java.lang.Throwable -> L56b
+            java.lang.reflect.Method r6 = r2.method     // Catch: java.lang.Throwable -> L56b
+            if (r6 == 0) goto L595
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L56b
+            r1.<init>()     // Catch: java.lang.Throwable -> L56b
+            r1.append(r4)     // Catch: java.lang.Throwable -> L56b
             java.lang.String r4 = ", method : "
-            r1.append(r4)     // Catch: java.lang.Throwable -> L569
-            java.lang.reflect.Method r2 = r2.method     // Catch: java.lang.Throwable -> L569
-            java.lang.String r2 = r2.getName()     // Catch: java.lang.Throwable -> L569
-            r1.append(r2)     // Catch: java.lang.Throwable -> L569
-            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L569
-            goto L5a9
-        L593:
-            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L569
-            r2.<init>()     // Catch: java.lang.Throwable -> L569
-            r2.append(r4)     // Catch: java.lang.Throwable -> L569
-            r2.append(r1)     // Catch: java.lang.Throwable -> L569
-            com.alibaba.fastjson.util.FieldInfo r1 = r12.fieldInfo     // Catch: java.lang.Throwable -> L569
-            java.lang.String r1 = r1.name     // Catch: java.lang.Throwable -> L569
-            r2.append(r1)     // Catch: java.lang.Throwable -> L569
-            java.lang.String r4 = r2.toString()     // Catch: java.lang.Throwable -> L569
-        L5a9:
-            java.lang.String r1 = r3.getMessage()     // Catch: java.lang.Throwable -> L569
-            if (r1 == 0) goto L5c7
-            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L569
-            r1.<init>()     // Catch: java.lang.Throwable -> L569
-            r1.append(r4)     // Catch: java.lang.Throwable -> L569
+            r1.append(r4)     // Catch: java.lang.Throwable -> L56b
+            java.lang.reflect.Method r2 = r2.method     // Catch: java.lang.Throwable -> L56b
+            java.lang.String r2 = r2.getName()     // Catch: java.lang.Throwable -> L56b
+            r1.append(r2)     // Catch: java.lang.Throwable -> L56b
+            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L56b
+            goto L5ab
+        L595:
+            java.lang.StringBuilder r2 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L56b
+            r2.<init>()     // Catch: java.lang.Throwable -> L56b
+            r2.append(r4)     // Catch: java.lang.Throwable -> L56b
+            r2.append(r1)     // Catch: java.lang.Throwable -> L56b
+            com.alibaba.fastjson.util.FieldInfo r1 = r12.fieldInfo     // Catch: java.lang.Throwable -> L56b
+            java.lang.String r1 = r1.name     // Catch: java.lang.Throwable -> L56b
+            r2.append(r1)     // Catch: java.lang.Throwable -> L56b
+            java.lang.String r4 = r2.toString()     // Catch: java.lang.Throwable -> L56b
+        L5ab:
+            java.lang.String r1 = r3.getMessage()     // Catch: java.lang.Throwable -> L56b
+            if (r1 == 0) goto L5c9
+            java.lang.StringBuilder r1 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L56b
+            r1.<init>()     // Catch: java.lang.Throwable -> L56b
+            r1.append(r4)     // Catch: java.lang.Throwable -> L56b
             java.lang.String r2 = ", "
-            r1.append(r2)     // Catch: java.lang.Throwable -> L569
-            java.lang.String r2 = r3.getMessage()     // Catch: java.lang.Throwable -> L569
-            r1.append(r2)     // Catch: java.lang.Throwable -> L569
-            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L569
-        L5c7:
-            boolean r1 = r3 instanceof java.lang.reflect.InvocationTargetException     // Catch: java.lang.Throwable -> L569
-            if (r1 == 0) goto L5cf
-            java.lang.Throwable r17 = r3.getCause()     // Catch: java.lang.Throwable -> L569
-        L5cf:
-            if (r17 != 0) goto L5d2
-            goto L5d4
-        L5d2:
-            r3 = r17
+            r1.append(r2)     // Catch: java.lang.Throwable -> L56b
+            java.lang.String r2 = r3.getMessage()     // Catch: java.lang.Throwable -> L56b
+            r1.append(r2)     // Catch: java.lang.Throwable -> L56b
+            java.lang.String r4 = r1.toString()     // Catch: java.lang.Throwable -> L56b
+        L5c9:
+            boolean r1 = r3 instanceof java.lang.reflect.InvocationTargetException     // Catch: java.lang.Throwable -> L56b
+            if (r1 == 0) goto L5d1
+            java.lang.Throwable r17 = r3.getCause()     // Catch: java.lang.Throwable -> L56b
+        L5d1:
+            if (r17 != 0) goto L5d4
+            goto L5d6
         L5d4:
-            com.alibaba.fastjson.JSONException r1 = new com.alibaba.fastjson.JSONException     // Catch: java.lang.Throwable -> L569
-            r1.<init>(r4, r3)     // Catch: java.lang.Throwable -> L569
-            throw r1     // Catch: java.lang.Throwable -> L569
-        L5da:
+            r3 = r17
+        L5d6:
+            com.alibaba.fastjson.JSONException r1 = new com.alibaba.fastjson.JSONException     // Catch: java.lang.Throwable -> L56b
+            r1.<init>(r4, r3)     // Catch: java.lang.Throwable -> L56b
+            throw r1     // Catch: java.lang.Throwable -> L56b
+        L5dc:
             r0 = move-exception
             r5 = r2
-        L5dc:
+        L5de:
             r1 = r0
-        L5dd:
+        L5df:
             r9.context = r5
             throw r1
-        L5e0:
+        L5e2:
             r3 = 6
             java.lang.Object[] r3 = new java.lang.Object[r3]
             r1 = 0
@@ -1403,12 +1403,12 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         }
     }
 
-    public FieldSerializer getFieldSerializer(long j) {
+    public FieldSerializer getFieldSerializer(long j2) {
         InterceptResult invokeJ;
         PropertyNamingStrategy[] propertyNamingStrategyArr;
         int binarySearch;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
             if (this.hashArray == null) {
                 propertyNamingStrategyArr = PropertyNamingStrategy.values();
                 long[] jArr = new long[this.sortedGetters.length * propertyNamingStrategyArr.length];
@@ -1437,7 +1437,7 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
             } else {
                 propertyNamingStrategyArr = null;
             }
-            int binarySearch2 = Arrays.binarySearch(this.hashArray, j);
+            int binarySearch2 = Arrays.binarySearch(this.hashArray, j2);
             if (binarySearch2 < 0) {
                 return null;
             }
@@ -1477,11 +1477,11 @@ public class JavaBeanSerializer extends SerializeFilterable implements ObjectSer
         return (FieldSerializer) invokeJ.objValue;
     }
 
-    public Object getFieldValue(Object obj, String str, long j, boolean z) {
+    public Object getFieldValue(Object obj, String str, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{obj, str, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            FieldSerializer fieldSerializer = getFieldSerializer(j);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{obj, str, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+            FieldSerializer fieldSerializer = getFieldSerializer(j2);
             if (fieldSerializer == null) {
                 if (z) {
                     throw new JSONException("field not found. " + str);

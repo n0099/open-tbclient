@@ -1,7 +1,5 @@
 package com.alibaba.fastjson.util;
 
-import com.alibaba.fastjson.asm.Label;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class RyuFloat {
     public static /* synthetic */ Interceptable $ic;
     public static final int[][] POW5_INV_SPLIT;
@@ -30,8 +28,8 @@ public final class RyuFloat {
                 return;
             }
         }
-        POW5_SPLIT = new int[][]{new int[]{536870912, 0}, new int[]{671088640, 0}, new int[]{838860800, 0}, new int[]{1048576000, 0}, new int[]{655360000, 0}, new int[]{819200000, 0}, new int[]{1024000000, 0}, new int[]{640000000, 0}, new int[]{800000000, 0}, new int[]{1000000000, 0}, new int[]{625000000, 0}, new int[]{781250000, 0}, new int[]{976562500, 0}, new int[]{610351562, 1073741824}, new int[]{762939453, Label.FORWARD_REFERENCE_TYPE_SHORT}, new int[]{953674316, 872415232}, new int[]{596046447, 1619001344}, new int[]{745058059, 1486880768}, new int[]{931322574, 1321730048}, new int[]{582076609, 289210368}, new int[]{727595761, 898383872}, new int[]{909494701, 1659850752}, new int[]{568434188, 1305842176}, new int[]{710542735, 1632302720}, new int[]{888178419, 1503507488}, new int[]{555111512, 671256724}, new int[]{693889390, 839070905}, new int[]{867361737, 2122580455}, new int[]{542101086, 521306416}, new int[]{677626357, 1725374844}, new int[]{847032947, 546105819}, new int[]{1058791184, 145761362}, new int[]{661744490, 91100851}, new int[]{827180612, 1187617888}, new int[]{1033975765, 1484522360}, new int[]{646234853, 1196261931}, new int[]{807793566, 2032198326}, new int[]{1009741958, 1466506084}, new int[]{631088724, 379695390}, new int[]{788860905, 474619238}, new int[]{986076131, 1130144959}, new int[]{616297582, 437905143}, new int[]{770371977, 1621123253}, new int[]{962964972, 415791331}, new int[]{601853107, 1333611405}, new int[]{752316384, 1130143345}, new int[]{940395480, 1412679181}};
-        POW5_INV_SPLIT = new int[][]{new int[]{Label.FORWARD_REFERENCE_TYPE_SHORT, 1}, new int[]{214748364, 1717986919}, new int[]{171798691, 1803886265}, new int[]{137438953, 1013612282}, new int[]{219902325, 1192282922}, new int[]{175921860, 953826338}, new int[]{140737488, 763061070}, new int[]{225179981, 791400982}, new int[]{180143985, 203624056}, new int[]{144115188, 162899245}, new int[]{230584300, 1978625710}, new int[]{184467440, 1582900568}, new int[]{147573952, 1266320455}, new int[]{236118324, 308125809}, new int[]{188894659, 675997377}, new int[]{151115727, 970294631}, new int[]{241785163, 1981968139}, new int[]{193428131, 297084323}, new int[]{154742504, 1955654377}, new int[]{247588007, 1840556814}, new int[]{198070406, 613451992}, new int[]{158456325, 61264864}, new int[]{253530120, 98023782}, new int[]{202824096, 78419026}, new int[]{162259276, 1780722139}, new int[]{259614842, 1990161963}, new int[]{207691874, 733136111}, new int[]{166153499, 1016005619}, new int[]{265845599, 337118801}, new int[]{212676479, 699191770}, new int[]{170141183, 988850146}};
+        POW5_SPLIT = new int[][]{new int[]{536870912, 0}, new int[]{671088640, 0}, new int[]{838860800, 0}, new int[]{1048576000, 0}, new int[]{655360000, 0}, new int[]{819200000, 0}, new int[]{1024000000, 0}, new int[]{640000000, 0}, new int[]{800000000, 0}, new int[]{1000000000, 0}, new int[]{625000000, 0}, new int[]{781250000, 0}, new int[]{976562500, 0}, new int[]{610351562, 1073741824}, new int[]{762939453, 268435456}, new int[]{953674316, 872415232}, new int[]{596046447, 1619001344}, new int[]{745058059, 1486880768}, new int[]{931322574, 1321730048}, new int[]{582076609, 289210368}, new int[]{727595761, 898383872}, new int[]{909494701, 1659850752}, new int[]{568434188, 1305842176}, new int[]{710542735, 1632302720}, new int[]{888178419, 1503507488}, new int[]{555111512, 671256724}, new int[]{693889390, 839070905}, new int[]{867361737, 2122580455}, new int[]{542101086, 521306416}, new int[]{677626357, 1725374844}, new int[]{847032947, 546105819}, new int[]{1058791184, 145761362}, new int[]{661744490, 91100851}, new int[]{827180612, 1187617888}, new int[]{1033975765, 1484522360}, new int[]{646234853, 1196261931}, new int[]{807793566, 2032198326}, new int[]{1009741958, 1466506084}, new int[]{631088724, 379695390}, new int[]{788860905, 474619238}, new int[]{986076131, 1130144959}, new int[]{616297582, 437905143}, new int[]{770371977, 1621123253}, new int[]{962964972, 415791331}, new int[]{601853107, 1333611405}, new int[]{752316384, 1130143345}, new int[]{940395480, 1412679181}};
+        POW5_INV_SPLIT = new int[][]{new int[]{268435456, 1}, new int[]{214748364, 1717986919}, new int[]{171798691, 1803886265}, new int[]{137438953, 1013612282}, new int[]{219902325, 1192282922}, new int[]{175921860, 953826338}, new int[]{140737488, 763061070}, new int[]{225179981, 791400982}, new int[]{180143985, 203624056}, new int[]{144115188, 162899245}, new int[]{230584300, 1978625710}, new int[]{184467440, 1582900568}, new int[]{147573952, 1266320455}, new int[]{236118324, 308125809}, new int[]{188894659, 675997377}, new int[]{151115727, 970294631}, new int[]{241785163, 1981968139}, new int[]{193428131, 297084323}, new int[]{154742504, 1955654377}, new int[]{247588007, 1840556814}, new int[]{198070406, 613451992}, new int[]{158456325, 61264864}, new int[]{253530120, 98023782}, new int[]{202824096, 78419026}, new int[]{162259276, 1780722139}, new int[]{259614842, 1990161963}, new int[]{207691874, 733136111}, new int[]{166153499, 1016005619}, new int[]{265845599, 337118801}, new int[]{212676479, 699191770}, new int[]{170141183, 988850146}};
     }
 
     public RyuFloat() {
@@ -130,7 +128,7 @@ public final class RyuFloat {
                         int i33 = i32 + 1;
                         cArr[i32] = '0';
                         int i34 = i33 + 1;
-                        cArr[i33] = IStringUtil.EXTENSION_SEPARATOR;
+                        cArr[i33] = '.';
                         cArr[i34] = '0';
                         return (i34 + 1) - i2;
                     }
@@ -153,23 +151,23 @@ public final class RyuFloat {
                         int i41 = i6 == 0 ? 1 : (int) ((((i6 * 23219280) + 10000000) - 1) / 10000000);
                         int i42 = (-i40) + i6;
                         int[][] iArr = POW5_INV_SPLIT;
-                        long j = iArr[i6][0];
+                        long j2 = iArr[i6][0];
                         z = z6;
-                        long j2 = iArr[i6][1];
-                        long j3 = i37;
+                        long j3 = iArr[i6][1];
+                        long j4 = i37;
                         int i43 = (((i41 + 59) - 1) + i42) - 31;
-                        i7 = (int) (((j3 * j) + ((j3 * j2) >> 31)) >> i43);
-                        long j4 = i38;
-                        i8 = (int) (((j4 * j) + ((j4 * j2) >> 31)) >> i43);
-                        long j5 = i39;
-                        i9 = (int) (((j * j5) + ((j5 * j2) >> 31)) >> i43);
+                        i7 = (int) (((j4 * j2) + ((j4 * j3) >> 31)) >> i43);
+                        long j5 = i38;
+                        i8 = (int) (((j5 * j2) + ((j5 * j3) >> 31)) >> i43);
+                        long j6 = i39;
+                        i9 = (int) (((j2 * j6) + ((j6 * j3) >> 31)) >> i43);
                         if (i6 == 0 || (i8 - 1) / 10 > i9 / 10) {
                             i5 = 0;
                         } else {
                             int i44 = i6 - 1;
                             int i45 = (i42 - 1) + (((i44 == 0 ? 1 : (int) ((((i44 * 23219280) + 10000000) - 1) / 10000000)) + 59) - 1);
                             int[][] iArr2 = POW5_INV_SPLIT;
-                            i5 = (int) ((((iArr2[i44][0] * j3) + ((iArr2[i44][1] * j3) >> 31)) >> (i45 - 31)) % 10);
+                            i5 = (int) ((((iArr2[i44][0] * j4) + ((iArr2[i44][1] * j4) >> 31)) >> (i45 - 31)) % 10);
                         }
                         int i46 = 0;
                         while (i38 > 0 && i38 % 5 == 0) {
@@ -195,22 +193,22 @@ public final class RyuFloat {
                         int i50 = (int) ((i49 * 6989700) / 10000000);
                         int i51 = i49 - i50;
                         int[][] iArr3 = POW5_SPLIT;
-                        long j6 = iArr3[i51][0];
-                        long j7 = iArr3[i51][1];
+                        long j7 = iArr3[i51][0];
+                        long j8 = iArr3[i51][1];
                         int i52 = (i50 - ((i51 == 0 ? 1 : (int) ((((i51 * 23219280) + 10000000) - 1) / 10000000)) - 61)) - 31;
-                        long j8 = i37;
-                        int i53 = (int) (((j8 * j6) + ((j8 * j7) >> 31)) >> i52);
-                        long j9 = i38;
-                        int i54 = (int) (((j9 * j6) + ((j9 * j7) >> 31)) >> i52);
-                        long j10 = i39;
-                        int i55 = (int) (((j10 * j6) + ((j10 * j7) >> 31)) >> i52);
+                        long j9 = i37;
+                        int i53 = (int) (((j9 * j7) + ((j9 * j8) >> 31)) >> i52);
+                        long j10 = i38;
+                        int i54 = (int) (((j10 * j7) + ((j10 * j8) >> 31)) >> i52);
+                        long j11 = i39;
+                        int i55 = (int) (((j11 * j7) + ((j11 * j8) >> 31)) >> i52);
                         if (i50 == 0 || (i54 - 1) / 10 > i55 / 10) {
                             i4 = i54;
                             i5 = 0;
                         } else {
                             int[][] iArr4 = POW5_SPLIT;
                             i4 = i54;
-                            i5 = (int) ((((iArr4[i10][0] * j8) + ((j8 * iArr4[i10][1]) >> 31)) >> (((i50 - 1) - ((i51 + 1 == 0 ? 1 : (int) ((((i10 * 23219280) + 10000000) - 1) / 10000000)) - 61)) - 31)) % 10);
+                            i5 = (int) ((((iArr4[i10][0] * j9) + ((j9 * iArr4[i10][1]) >> 31)) >> (((i50 - 1) - ((i51 + 1 == 0 ? 1 : (int) ((((i10 * 23219280) + 10000000) - 1) / 10000000)) - 61)) - 31)) % 10);
                         }
                         i6 = i50 + i40;
                         boolean z7 = 1 >= i50;
@@ -276,7 +274,7 @@ public final class RyuFloat {
                             cArr[(i11 + i63) - i64] = (char) (i65 + 48);
                         }
                         cArr[i11] = (char) ((i62 % 10) + 48);
-                        cArr[i11 + 1] = IStringUtil.EXTENSION_SEPARATOR;
+                        cArr[i11 + 1] = '.';
                         int i66 = i11 + i63 + 1;
                         if (i63 == 1) {
                             cArr[i66] = '0';
@@ -304,7 +302,7 @@ public final class RyuFloat {
                             int i69 = i11 + 1;
                             cArr[i11] = '0';
                             int i70 = i69 + 1;
-                            cArr[i69] = IStringUtil.EXTENSION_SEPARATOR;
+                            cArr[i69] = '.';
                             int i71 = -1;
                             while (i71 > i58) {
                                 cArr[i70] = '0';
@@ -335,14 +333,14 @@ public final class RyuFloat {
                                     i76++;
                                 }
                                 int i77 = i76 + 1;
-                                cArr[i76] = IStringUtil.EXTENSION_SEPARATOR;
+                                cArr[i76] = '.';
                                 i12 = i77 + 1;
                                 cArr[i77] = '0';
                             } else {
                                 int i78 = i11 + 1;
                                 for (int i79 = 0; i79 < i63; i79++) {
                                     if ((i63 - i79) - 1 == i58) {
-                                        cArr[((i78 + i63) - i79) - 1] = IStringUtil.EXTENSION_SEPARATOR;
+                                        cArr[((i78 + i63) - i79) - 1] = '.';
                                         i78--;
                                     }
                                     cArr[((i78 + i63) - i79) - 1] = (char) ((i62 % 10) + 48);
@@ -357,7 +355,7 @@ public final class RyuFloat {
                 int i80 = i2 + 1;
                 cArr[i2] = '0';
                 int i81 = i80 + 1;
-                cArr[i80] = IStringUtil.EXTENSION_SEPARATOR;
+                cArr[i80] = '.';
                 i14 = i81 + 1;
                 cArr[i81] = '0';
             }

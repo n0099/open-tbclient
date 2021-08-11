@@ -23,7 +23,6 @@ import android.print.PrintDocumentAdapter;
 import android.print.PrintDocumentInfo;
 import android.print.PrintManager;
 import android.print.pdf.PrintedPdfDocument;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -458,42 +457,40 @@ public final class PrintHelper {
     private Bitmap loadBitmap(Uri uri, BitmapFactory.Options options) throws FileNotFoundException {
         InterceptResult invokeLL;
         Context context;
+        InputStream openInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, uri, options)) != null) {
-            return (Bitmap) invokeLL.objValue;
-        }
-        if (uri != null && (context = this.mContext) != null) {
-            InputStream inputStream = null;
-            try {
-                InputStream openInputStream = context.getContentResolver().openInputStream(uri);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, uri, options)) == null) {
+            if (uri != null && (context = this.mContext) != null) {
+                InputStream inputStream = null;
+                try {
+                    openInputStream = context.getContentResolver().openInputStream(uri);
+                } catch (Throwable th) {
+                    th = th;
+                }
                 try {
                     Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
                     if (openInputStream != null) {
                         try {
                             openInputStream.close();
-                        } catch (IOException e2) {
-                            Log.w(LOG_TAG, "close fail ", e2);
+                        } catch (IOException unused) {
                         }
                     }
                     return decodeStream;
-                } catch (Throwable th) {
-                    th = th;
+                } catch (Throwable th2) {
+                    th = th2;
                     inputStream = openInputStream;
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException e3) {
-                            Log.w(LOG_TAG, "close fail ", e3);
+                        } catch (IOException unused2) {
                         }
                     }
                     throw th;
                 }
-            } catch (Throwable th2) {
-                th = th2;
             }
-        } else {
             throw new IllegalArgumentException("bad argument to loadBitmap");
         }
+        return (Bitmap) invokeLL.objValue;
     }
 
     public static boolean systemSupportsPrint() {
@@ -718,7 +715,6 @@ public final class PrintHelper {
                         } else if (th == null) {
                             this.val$writeResultCallback.onWriteFinished(new PageRange[]{PageRange.ALL_PAGES});
                         } else {
-                            Log.e(PrintHelper.LOG_TAG, "Error writing printed content", th);
                             this.val$writeResultCallback.onWriteFailed(null);
                         }
                     }

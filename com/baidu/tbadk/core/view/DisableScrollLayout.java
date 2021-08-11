@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DisableScrollLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12446e;
+    public int f47408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f12447f;
+    public double f47409f;
 
     /* renamed from: g  reason: collision with root package name */
-    public double f12448g;
+    public double f47410g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12449h;
+    public boolean f47411h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DisableScrollLayout(Context context) {
@@ -45,31 +45,24 @@ public class DisableScrollLayout extends FrameLayout {
                 return;
             }
         }
-        this.f12447f = 0.0d;
-        this.f12448g = 0.0d;
-        this.f12449h = true;
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f12449h = z;
-        }
+        this.f47409f = 0.0d;
+        this.f47410g = 0.0d;
+        this.f47411h = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.f12447f = motionEvent.getX();
-                this.f12448g = motionEvent.getY();
+                this.f47409f = motionEvent.getX();
+                this.f47410g = motionEvent.getY();
             }
-            if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.f12446e) {
+            if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.f47408e) {
                 double y = motionEvent.getY();
-                if (Math.abs(motionEvent.getX() - this.f12447f) <= Math.abs(y - this.f12448g)) {
-                    if (y <= this.f12448g || this.f12449h) {
+                if (Math.abs(motionEvent.getX() - this.f47409f) <= Math.abs(y - this.f47410g)) {
+                    if (y <= this.f47410g || this.f47411h) {
                         return super.dispatchTouchEvent(motionEvent);
                     }
                     return true;
@@ -81,10 +74,17 @@ public class DisableScrollLayout extends FrameLayout {
         return invokeL.booleanValue;
     }
 
+    public void enableHeaderMoveDown(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f47411h = z;
+        }
+    }
+
     public void setHeaderViewHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f12446e = i2;
+            this.f47408e = i2;
         }
     }
 
@@ -107,8 +107,8 @@ public class DisableScrollLayout extends FrameLayout {
                 return;
             }
         }
-        this.f12447f = 0.0d;
-        this.f12448g = 0.0d;
-        this.f12449h = true;
+        this.f47409f = 0.0d;
+        this.f47410g = 0.0d;
+        this.f47411h = true;
     }
 }

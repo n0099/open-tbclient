@@ -1,5 +1,5 @@
 package com.baidu.location;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface BDLocationListener {
     void onReceiveLocation(BDLocation bDLocation);
 }

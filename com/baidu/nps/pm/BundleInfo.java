@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BundleInfo implements IBundleInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -640,10 +640,10 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setSize(long j) {
+    public void setSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
-            this.size = j;
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) {
+            this.size = j2;
         }
     }
 
@@ -656,10 +656,10 @@ public class BundleInfo implements IBundleInfo {
     }
 
     @Override // com.baidu.nps.pm.IBundleInfo
-    public void setUpdateV(long j) {
+    public void setUpdateV(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
-            this.updateV = j;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
+            this.updateV = j2;
         }
     }
 
@@ -687,10 +687,10 @@ public class BundleInfo implements IBundleInfo {
         }
     }
 
-    public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
+    public Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048626, this, list, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048626, this, list, j2)) == null) {
             HashMap hashMap = new HashMap();
             if (list == null) {
                 return null;
@@ -698,7 +698,7 @@ public class BundleInfo implements IBundleInfo {
             for (BundleInfo bundleInfo : list) {
                 BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
                 if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j);
+                    bundleInfoGroup = new BundleInfoGroup(j2);
                     hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
                 }
                 bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);

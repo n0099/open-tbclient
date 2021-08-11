@@ -13,7 +13,6 @@ import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class KeyframeParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Interpolator LINEAR_INTERPOLATOR;
@@ -46,7 +45,7 @@ public class KeyframeParser {
             }
         }
         LINEAR_INTERPOLATOR = new LinearInterpolator();
-        NAMES = JsonReader.Options.of("t", "s", "e", Config.OS, "i", "h", "to", Config.FEED_LIST_PART);
+        NAMES = JsonReader.Options.of("t", "s", "e", "o", "i", "h", "to", "ti");
     }
 
     public KeyframeParser() {

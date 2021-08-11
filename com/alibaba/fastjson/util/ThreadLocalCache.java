@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.nio.charset.CharsetDecoder;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ThreadLocalCache {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;

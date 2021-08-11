@@ -10,7 +10,7 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, str)) == null) {
             try {
-                return new String(b(a(), m57a(str)));
+                return new String(b(a(), m62a(str)));
             } catch (Exception unused) {
                 return null;
             }
@@ -49,16 +49,16 @@ public class a {
     public static byte[] a() throws Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? e.a(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 83, -50, -89, -84, -114, 80, 99, 10, 63, 22, -65, -11, 30, Constants.SHORT_PING_CMD_TYPE, -118}) : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f.a(new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 83, -50, -89, -84, -114, 80, 99, 10, 63, 22, -65, -11, 30, Constants.SHORT_PING_CMD_TYPE, -118}) : (byte[]) invokeV.objValue;
     }
 
     public static byte[] b(byte[] bArr, byte[] bArr2) throws Exception {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, bArr, bArr2)) == null) {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKeySpec, new IvParameterSpec(new byte[cipher.getBlockSize()]));
+            cipher.init(2, secretKeySpec, new IvParameterSpec(b()));
             return cipher.doFinal(bArr2);
         }
         return (byte[]) invokeLL.objValue;
@@ -70,14 +70,30 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, bArr, bArr2)) == null) {
             SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(1, secretKeySpec, new IvParameterSpec(new byte[cipher.getBlockSize()]));
+            cipher.init(1, secretKeySpec, new IvParameterSpec(b()));
             return cipher.doFinal(bArr2);
         }
         return (byte[]) invokeLL.objValue;
     }
 
+    public static byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            try {
+                byte[] decode = b.decode("IUQSvE6r1TfFPdPEjfklLw==".getBytes("UTF-8"), 2);
+                if (decode != null) {
+                    return f.a(decode);
+                }
+            } catch (Exception unused) {
+            }
+            return new byte[16];
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
     /* renamed from: a  reason: collision with other method in class */
-    public static byte[] m57a(String str) {
+    public static byte[] m62a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {

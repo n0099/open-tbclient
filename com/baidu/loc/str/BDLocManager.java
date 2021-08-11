@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BDLocManager implements Debug {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "loc tiny String";
@@ -53,13 +53,13 @@ public class BDLocManager implements Debug {
     public long time;
 
     /* renamed from: com.baidu.loc.str.BDLocManager$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class BDCellInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +125,7 @@ public class BDLocManager implements Debug {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class CellStateListener extends PhoneStateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -162,7 +162,7 @@ public class BDLocManager implements Debug {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class WifiList {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

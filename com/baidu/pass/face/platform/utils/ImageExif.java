@@ -1,12 +1,11 @@
 package com.baidu.pass.face.platform.utils;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ImageExif {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CameraExif";
@@ -26,88 +25,135 @@ public class ImageExif {
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x0060, code lost:
+        r1 = r2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x0061, code lost:
+        r3 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x0062, code lost:
+        if (r3 <= 8) goto L70;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x0064, code lost:
+        r2 = pack(r10, r1, 4, false);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x006b, code lost:
+        if (r2 == 1229531648) goto L45;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x0070, code lost:
+        if (r2 == 1296891946) goto L45;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x0072, code lost:
+        return 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x0073, code lost:
+        if (r2 != 1229531648) goto L46;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0076, code lost:
+        r5 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x0077, code lost:
+        r2 = pack(r10, r1 + 4, 4, r5) + 2;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x0080, code lost:
+        if (r2 < 10) goto L70;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0082, code lost:
+        if (r2 <= r3) goto L50;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:52:0x0085, code lost:
+        r1 = r1 + r2;
+        r3 = r3 - r2;
+        r2 = pack(r10, r1 - 2, 2, r5);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x008d, code lost:
+        r4 = r2 - 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x008f, code lost:
+        if (r2 <= 0) goto L69;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0093, code lost:
+        if (r3 < 12) goto L68;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x009b, code lost:
+        if (pack(r10, r1, 2, r5) != 274) goto L57;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x009d, code lost:
+        r10 = pack(r10, r1 + 8, 2, r5);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x00a3, code lost:
+        if (r10 == 3) goto L67;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x00a6, code lost:
+        if (r10 == 6) goto L66;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x00a8, code lost:
+        if (r10 == 8) goto L65;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x00aa, code lost:
+        return 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x00ab, code lost:
+        return 270;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x00ae, code lost:
+        return 90;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x00b1, code lost:
+        return 180;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x00b4, code lost:
+        r1 = r1 + 12;
+        r3 = r3 - 12;
+        r2 = r4;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:72:0x00ba, code lost:
+        return 0;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static int getOrientation(byte[] bArr) {
         InterceptResult invokeL;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
             if (bArr == null) {
                 return 0;
             }
-            int i4 = 0;
-            while (i4 + 3 < bArr.length) {
-                int i5 = i4 + 1;
-                if ((bArr[i4] & 255) == 255) {
-                    int i6 = bArr[i5] & 255;
-                    if (i6 != 255) {
-                        i5++;
-                        if (i6 != 216 && i6 != 1) {
-                            if (i6 != 217 && i6 != 218) {
-                                int pack = pack(bArr, i5, 2, false);
-                                if (pack >= 2 && (i3 = i5 + pack) <= bArr.length) {
-                                    if (i6 == 225 && pack >= 8 && pack(bArr, i5 + 2, 4, false) == 1165519206 && pack(bArr, i5 + 6, 2, false) == 0) {
-                                        i4 = i5 + 8;
-                                        i2 = pack - 8;
-                                        break;
-                                    }
-                                    i4 = i3;
-                                } else {
-                                    Log.e("CameraExif", "Invalid length");
-                                    return 0;
-                                }
-                            }
-                        }
-                    }
-                    i4 = i5;
+            int i3 = 0;
+            while (true) {
+                boolean z = true;
+                if (i3 + 3 >= bArr.length) {
+                    break;
                 }
-                i4 = i5;
-            }
-            i2 = 0;
-            if (i2 > 8) {
-                int pack2 = pack(bArr, i4, 4, false);
-                if (pack2 != 1229531648 && pack2 != 1296891946) {
-                    Log.e("CameraExif", "Invalid byte order");
-                    return 0;
+                int i4 = i3 + 1;
+                if ((bArr[i3] & 255) != 255) {
+                    break;
                 }
-                boolean z = pack2 == 1229531648;
-                int pack3 = pack(bArr, i4 + 4, 4, z) + 2;
-                if (pack3 >= 10 && pack3 <= i2) {
-                    int i7 = i4 + pack3;
-                    int i8 = i2 - pack3;
-                    int pack4 = pack(bArr, i7 - 2, 2, z);
-                    while (true) {
-                        int i9 = pack4 - 1;
-                        if (pack4 <= 0 || i8 < 12) {
-                            break;
-                        } else if (pack(bArr, i7, 2, z) == 274) {
-                            int pack5 = pack(bArr, i7 + 8, 2, z);
-                            if (pack5 != 1) {
-                                if (pack5 != 3) {
-                                    if (pack5 != 6) {
-                                        if (pack5 != 8) {
-                                            Log.i("CameraExif", "Unsupported orientation");
-                                            return 0;
-                                        }
-                                        return 270;
-                                    }
-                                    return 90;
+                int i5 = bArr[i4] & 255;
+                if (i5 != 255) {
+                    i4++;
+                    if (i5 != 216 && i5 != 1) {
+                        if (i5 != 217 && i5 != 218) {
+                            int pack = pack(bArr, i4, 2, false);
+                            if (pack >= 2 && (i2 = i4 + pack) <= bArr.length) {
+                                if (i5 == 225 && pack >= 8 && pack(bArr, i4 + 2, 4, false) == 1165519206 && pack(bArr, i4 + 6, 2, false) == 0) {
+                                    i3 = i4 + 8;
+                                    int i6 = pack - 8;
+                                    break;
                                 }
-                                return 180;
+                                i3 = i2;
+                            } else {
+                                break;
                             }
-                            return 0;
                         } else {
-                            i7 += 12;
-                            i8 -= 12;
-                            pack4 = i9;
+                            break;
                         }
                     }
-                } else {
-                    Log.e("CameraExif", "Invalid offset");
-                    return 0;
                 }
+                i3 = i4;
             }
-            Log.i("CameraExif", "Orientation not found");
             return 0;
         }
         return invokeL.intValue;

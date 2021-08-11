@@ -6,36 +6,32 @@ import android.database.DataSetObserver;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import c.a.o0.n.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.n.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AdapterLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.p0.d1.f.a.b f13361e;
+    public boolean f48395e;
+    public c.a.o0.d1.f.a.b mAdapter;
+    public DataSetObserver mObserver;
 
-    /* renamed from: f  reason: collision with root package name */
-    public DataSetObserver f13362f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f13363g;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f13364e;
+        public final /* synthetic */ Context f48396e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdapterLayout f13365f;
+        public final /* synthetic */ AdapterLayout f48397f;
 
         public a(AdapterLayout adapterLayout, Context context) {
             Interceptable interceptable = $ic;
@@ -52,35 +48,35 @@ public abstract class AdapterLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f13365f = adapterLayout;
-            this.f13364e = context;
+            this.f48397f = adapterLayout;
+            this.f48396e = context;
         }
 
-        @Override // d.a.p0.n.g, android.app.Application.ActivityLifecycleCallbacks
+        @Override // c.a.o0.n.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             DataSetObserver dataSetObserver;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f13364e) {
-                AdapterLayout adapterLayout = this.f13365f;
-                d.a.p0.d1.f.a.b bVar = adapterLayout.f13361e;
-                if (bVar != null && (dataSetObserver = adapterLayout.f13362f) != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity == this.f48396e) {
+                AdapterLayout adapterLayout = this.f48397f;
+                c.a.o0.d1.f.a.b bVar = adapterLayout.mAdapter;
+                if (bVar != null && (dataSetObserver = adapterLayout.mObserver) != null) {
                     bVar.e(dataSetObserver);
-                    AdapterLayout adapterLayout2 = this.f13365f;
-                    adapterLayout2.f13361e = null;
-                    adapterLayout2.f13362f = null;
+                    AdapterLayout adapterLayout2 = this.f48397f;
+                    adapterLayout2.mAdapter = null;
+                    adapterLayout2.mObserver = null;
                 }
-                ((Activity) this.f13364e).getApplication().unregisterActivityLifecycleCallbacks(this);
+                ((Activity) this.f48396e).getApplication().unregisterActivityLifecycleCallbacks(this);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b extends DataSetObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AdapterLayout f13366a;
+        public final /* synthetic */ AdapterLayout f48398a;
 
         public b(AdapterLayout adapterLayout) {
             Interceptable interceptable = $ic;
@@ -97,14 +93,14 @@ public abstract class AdapterLayout extends ViewGroup {
                     return;
                 }
             }
-            this.f13366a = adapterLayout;
+            this.f48398a = adapterLayout;
         }
 
         @Override // android.database.DataSetObserver
         public void onChanged() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13366a.b();
+                this.f48398a.resetLayout();
             }
         }
     }
@@ -131,45 +127,31 @@ public abstract class AdapterLayout extends ViewGroup {
     }
 
     public final void a() {
-        d.a.p0.d1.f.a.b bVar;
+        c.a.o0.d1.f.a.b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f13361e) == null || (dataSetObserver = this.f13362f) == null || this.f13363g) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || this.f48395e) {
             return;
         }
         bVar.d(dataSetObserver);
-        this.f13363g = true;
+        this.f48395e = true;
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f13361e == null) {
-            return;
-        }
-        removeAllViews();
-        int a2 = this.f13361e.a();
-        for (int i2 = 0; i2 < a2; i2++) {
-            View b2 = this.f13361e.b(i2, this);
-            b2.setFocusable(true);
-            addView(b2);
-        }
-    }
-
-    public final void c() {
-        d.a.p0.d1.f.a.b bVar;
+    public final void b() {
+        c.a.o0.d1.f.a.b bVar;
         DataSetObserver dataSetObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bVar = this.f13361e) == null || (dataSetObserver = this.f13362f) == null || !this.f13363g) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.mAdapter) == null || (dataSetObserver = this.mObserver) == null || !this.f48395e) {
             return;
         }
-        this.f13363g = false;
+        this.f48395e = false;
         bVar.e(dataSetObserver);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onAttachedToWindow();
             a();
         }
@@ -178,21 +160,35 @@ public abstract class AdapterLayout extends ViewGroup {
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b();
             super.onDetachedFromWindow();
         }
     }
 
-    public void setAdapter(d.a.p0.d1.f.a.b bVar) {
+    public void resetLayout() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.mAdapter == null) {
+            return;
+        }
+        removeAllViews();
+        int a2 = this.mAdapter.a();
+        for (int i2 = 0; i2 < a2; i2++) {
+            View b2 = this.mAdapter.b(i2, this);
+            b2.setFocusable(true);
+            addView(b2);
+        }
+    }
+
+    public void setAdapter(c.a.o0.d1.f.a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            c();
+            b();
             if (bVar != null) {
-                this.f13361e = bVar;
-                this.f13362f = new b(this);
+                this.mAdapter = bVar;
+                this.mObserver = new b(this);
                 a();
-                b();
+                resetLayout();
                 return;
             }
             throw new NullPointerException("FlowBaseAdapter is null");
@@ -239,7 +235,7 @@ public abstract class AdapterLayout extends ViewGroup {
                 return;
             }
         }
-        this.f13363g = false;
+        this.f48395e = false;
         if (context instanceof Activity) {
             ((Activity) context).getApplication().registerActivityLifecycleCallbacks(new a(this, context));
         }

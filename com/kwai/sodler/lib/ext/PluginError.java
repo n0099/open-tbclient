@@ -6,7 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public abstract class PluginError extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_INS_CAPACITY = 3005;
@@ -36,7 +37,7 @@ public abstract class PluginError extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
     public final int mCode;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class CancelError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +64,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class InstallError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +112,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class LoadError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +161,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class NotWifiDownloadError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +210,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class RetryError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +235,7 @@ public abstract class PluginError extends Exception {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class UpdateError extends PluginError {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -357,7 +358,7 @@ public abstract class PluginError extends Exception {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "PluginError{code=" + this.mCode + ", msg = " + super.toString() + '}';
+            return "PluginError{code=" + this.mCode + ", msg = " + super.toString() + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

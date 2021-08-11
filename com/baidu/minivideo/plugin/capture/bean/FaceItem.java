@@ -7,7 +7,6 @@ import com.baidu.minivideo.plugin.capture.Application;
 import com.baidu.minivideo.plugin.capture.utils.FileUtils;
 import com.baidu.minivideo.plugin.capture.utils.StringUtils;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
-import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FaceItem implements Jsonable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIR_STICKER = "sticker";
@@ -217,7 +216,7 @@ public class FaceItem implements Jsonable {
                 this.bgurl = jSONObject.optString("bgurl");
                 this.file = jSONObject.optString("file");
                 this.sk = jSONObject.optString(ContentUtil.RESULT_KEY_SK);
-                this.musicId = jSONObject.optString(CloudMusicActivityConfig.MUSIC_ID);
+                this.musicId = jSONObject.optString("music_id");
                 this.tip = jSONObject.optString("tip");
                 this.filterId = jSONObject.optString("filter_id");
                 this.mResFile = jSONObject.optString("mResFile");

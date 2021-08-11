@@ -11,20 +11,20 @@ import io.reactivex.SingleObserver;
 import io.reactivex.SingleSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class SingleHide<T> extends Single<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SingleSource<? extends T> source;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class HideSingleObserver<T> implements SingleObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73517d;
+        public Disposable f78577d;
 
         public HideSingleObserver(SingleObserver<? super T> singleObserver) {
             Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public final class SingleHide<T> extends Single<T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f73517d.dispose();
+                this.f78577d.dispose();
             }
         }
 
@@ -56,7 +56,7 @@ public final class SingleHide<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73517d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78577d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -70,8 +70,8 @@ public final class SingleHide<T> extends Single<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f73517d, disposable)) {
-                this.f73517d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f78577d, disposable)) {
+                this.f78577d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

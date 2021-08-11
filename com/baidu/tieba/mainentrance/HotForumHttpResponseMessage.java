@@ -1,5 +1,7 @@
 package com.baidu.tieba.mainentrance;
 
+import c.a.p0.t1.b;
+import c.a.p0.t1.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,15 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.s1.b;
-import d.a.q0.s1.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
 import tbclient.HotForum.ForumInfo;
 import tbclient.HotForum.HotForumResIdl;
 import tbclient.HotForum.HotTopicList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HotForumHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

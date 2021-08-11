@@ -13,15 +13,15 @@ import com.baidu.android.lbspay.channelpay.PayDataBean;
 import com.baidu.android.lbspay.channelpay.alipay.LBSPayAli;
 import com.baidu.android.lbspay.network.GetPayContent;
 import com.baidu.android.lbspay.statistics.LbsStatistics;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.statistics.api.StatisticManager;
-/* loaded from: classes.dex */
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+/* loaded from: classes4.dex */
 public class ChannelAliPay extends AbstractChannelPay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MSG_AILI_PAY = 100;
@@ -50,7 +50,7 @@ public class ChannelAliPay extends AbstractChannelPay {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ChannelAliPay f2681a;
+            public final /* synthetic */ ChannelAliPay f36556a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -67,7 +67,7 @@ public class ChannelAliPay extends AbstractChannelPay {
                         return;
                     }
                 }
-                this.f2681a = this;
+                this.f36556a = this;
             }
 
             @Override // android.os.Handler
@@ -77,15 +77,15 @@ public class ChannelAliPay extends AbstractChannelPay {
                     Object obj = message.obj;
                     Result result = new Result((obj == null || !(obj instanceof String)) ? "" : (String) obj);
                     if (Result.RESULT_SUCCESS.equals(result.resultStatus)) {
-                        this.f2681a.paySuccess(result.result);
+                        this.f36556a.paySuccess(result.result);
                     } else if (Result.RESULT_CANCLE.equals(result.resultStatus)) {
-                        this.f2681a.payCancel();
+                        this.f36556a.payCancel();
                     } else if ("8000".equals(result.resultStatus)) {
-                        this.f2681a.paying();
+                        this.f36556a.paying();
                     } else if (Result.RESULT_NETWROK_ERROR.equals(result.resultStatus)) {
-                        this.f2681a.payError(Result.RESULT_NETWROK_ERROR, "网络连接出错");
+                        this.f36556a.payError(Result.RESULT_NETWROK_ERROR, "网络连接出错");
                     } else {
-                        this.f2681a.payError(Result.RESULT_FAILED, result.memo);
+                        this.f36556a.payError(Result.RESULT_FAILED, result.memo);
                     }
                 }
             }
@@ -132,13 +132,13 @@ public class ChannelAliPay extends AbstractChannelPay {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f2682a;
+                public final /* synthetic */ Activity f36557a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f2683b;
+                public final /* synthetic */ String f36558b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ChannelAliPay f2684c;
+                public final /* synthetic */ ChannelAliPay f36559c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -155,9 +155,9 @@ public class ChannelAliPay extends AbstractChannelPay {
                             return;
                         }
                     }
-                    this.f2684c = this;
-                    this.f2682a = activity;
-                    this.f2683b = str;
+                    this.f36559c = this;
+                    this.f36557a = activity;
+                    this.f36558b = str;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -165,11 +165,11 @@ public class ChannelAliPay extends AbstractChannelPay {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         StatisticManager.onEventStart(StatServiceEvent.LBS_ALIPAY);
-                        String pay = new PayTask(this.f2682a).pay(this.f2683b, true);
+                        String pay = new PayTask(this.f36557a).pay(this.f36558b, true);
                         Message message = new Message();
                         message.what = 100;
                         message.obj = pay;
-                        this.f2684c.mAliPayChannelHandler.sendMessage(message);
+                        this.f36559c.mAliPayChannelHandler.sendMessage(message);
                     }
                 }
             }.start();
@@ -205,13 +205,13 @@ public class ChannelAliPay extends AbstractChannelPay {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f2685a;
+                public final /* synthetic */ Activity f36560a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f2686b;
+                public final /* synthetic */ String f36561b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ ChannelAliPay f2687c;
+                public final /* synthetic */ ChannelAliPay f36562c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -228,9 +228,9 @@ public class ChannelAliPay extends AbstractChannelPay {
                             return;
                         }
                     }
-                    this.f2687c = this;
-                    this.f2685a = activity2;
-                    this.f2686b = str;
+                    this.f36562c = this;
+                    this.f36560a = activity2;
+                    this.f36561b = str;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -238,11 +238,11 @@ public class ChannelAliPay extends AbstractChannelPay {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         StatisticManager.onEventStart(LbsStatistics.LBS_ALIPAY);
-                        String pay = new PayTask(this.f2685a).pay(this.f2686b, true);
+                        String pay = new PayTask(this.f36560a).pay(this.f36561b, true);
                         Message message = new Message();
                         message.what = 100;
                         message.obj = pay;
-                        this.f2687c.mAliPayChannelHandler.sendMessage(message);
+                        this.f36562c.mAliPayChannelHandler.sendMessage(message);
                     }
                 }
             }.start();

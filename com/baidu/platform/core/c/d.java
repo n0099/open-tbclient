@@ -1,6 +1,5 @@
 package com.baidu.platform.core.c;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.CoordType;
@@ -26,16 +25,16 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class d extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9456b = "d";
+    public static final String f44105b = "d";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9457c;
+    public boolean f44106c;
 
     static {
         InterceptResult invokeClinit;
@@ -65,7 +64,7 @@ public class d extends com.baidu.platform.base.d {
                 return;
             }
         }
-        this.f9457c = false;
+        this.f44106c = false;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -89,14 +88,12 @@ public class d extends com.baidu.platform.base.d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, searchResult)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray("result")) == null || optJSONArray.length() == 0) {
-                    return false;
+                if (jSONObject.length() != 0 && jSONObject.optInt("status") == 0 && (optJSONArray = jSONObject.optJSONArray("result")) != null && optJSONArray.length() != 0) {
+                    return this.f44106c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
                 }
-                return this.f9457c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
-            } catch (JSONException e2) {
-                Log.e(f9456b, "Parse detail search result error", e2);
-                return false;
+            } catch (JSONException unused) {
             }
+            return false;
         }
         return invokeLL.booleanValue;
     }
@@ -199,12 +196,11 @@ public class d extends com.baidu.platform.base.d {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SearchResult poiDetailSearchResult = this.f9457c ? new PoiDetailSearchResult() : new PoiDetailResult();
+            SearchResult poiDetailSearchResult = this.f44106c ? new PoiDetailSearchResult() : new PoiDetailResult();
             if (str != null && !str.isEmpty()) {
                 try {
                     jSONObject = new JSONObject(str);
-                } catch (JSONException e2) {
-                    Log.e(f9456b, "Parse detail search result failed", e2);
+                } catch (JSONException unused) {
                 }
                 if (jSONObject.length() == 0) {
                     poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -251,7 +247,7 @@ public class d extends com.baidu.platform.base.d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetPoiSearchResultListener)) {
             OnGetPoiSearchResultListener onGetPoiSearchResultListener = (OnGetPoiSearchResultListener) obj;
-            if (this.f9457c) {
+            if (this.f44106c) {
                 onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailSearchResult) searchResult);
             } else {
                 onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailResult) searchResult);
@@ -262,7 +258,7 @@ public class d extends com.baidu.platform.base.d {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f9457c = z;
+            this.f44106c = z;
         }
     }
 }

@@ -13,14 +13,14 @@ import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.internal.util.BackpressureHelper;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableRange extends Flowable<Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int end;
     public final int start;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class BaseRangeSubscription extends BasicQueueSubscription<Integer> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2252972430506210021L;
@@ -74,13 +74,13 @@ public final class FlowableRange extends Flowable<Integer> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j) {
+        public final void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j) && BackpressureHelper.add(this, j) == 0) {
-                if (j == Long.MAX_VALUE) {
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2) && BackpressureHelper.add(this, j2) == 0) {
+                if (j2 == Long.MAX_VALUE) {
                     fastPath();
                 } else {
-                    slowPath(j);
+                    slowPath(j2);
                 }
             }
         }
@@ -92,7 +92,7 @@ public final class FlowableRange extends Flowable<Integer> {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? i2 & 1 : invokeI.intValue;
         }
 
-        public abstract void slowPath(long j);
+        public abstract void slowPath(long j2);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -112,7 +112,7 @@ public final class FlowableRange extends Flowable<Integer> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class RangeConditionalSubscription extends BaseRangeSubscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2587302975077663557L;
@@ -161,16 +161,16 @@ public final class FlowableRange extends Flowable<Integer> {
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableRange.BaseRangeSubscription
-        public void slowPath(long j) {
+        public void slowPath(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
                 int i2 = this.end;
                 int i3 = this.index;
                 ConditionalSubscriber<? super Integer> conditionalSubscriber = this.actual;
                 do {
-                    long j2 = 0;
+                    long j3 = 0;
                     while (true) {
-                        if (j2 == j || i3 == i2) {
+                        if (j3 == j2 || i3 == i2) {
                             if (i3 == i2) {
                                 if (this.cancelled) {
                                     return;
@@ -178,26 +178,26 @@ public final class FlowableRange extends Flowable<Integer> {
                                 conditionalSubscriber.onComplete();
                                 return;
                             }
-                            j = get();
-                            if (j2 == j) {
+                            j2 = get();
+                            if (j3 == j2) {
                                 this.index = i3;
-                                j = addAndGet(-j2);
+                                j2 = addAndGet(-j3);
                             }
                         } else if (this.cancelled) {
                             return;
                         } else {
                             if (conditionalSubscriber.tryOnNext(Integer.valueOf(i3))) {
-                                j2++;
+                                j3++;
                             }
                             i3++;
                         }
                     }
-                } while (j != 0);
+                } while (j2 != 0);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class RangeSubscription extends BaseRangeSubscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2587302975077663557L;
@@ -246,16 +246,16 @@ public final class FlowableRange extends Flowable<Integer> {
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableRange.BaseRangeSubscription
-        public void slowPath(long j) {
+        public void slowPath(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
                 int i2 = this.end;
                 int i3 = this.index;
                 Subscriber<? super Integer> subscriber = this.actual;
                 do {
-                    long j2 = 0;
+                    long j3 = 0;
                     while (true) {
-                        if (j2 == j || i3 == i2) {
+                        if (j3 == j2 || i3 == i2) {
                             if (i3 == i2) {
                                 if (this.cancelled) {
                                     return;
@@ -263,20 +263,20 @@ public final class FlowableRange extends Flowable<Integer> {
                                 subscriber.onComplete();
                                 return;
                             }
-                            j = get();
-                            if (j2 == j) {
+                            j2 = get();
+                            if (j3 == j2) {
                                 this.index = i3;
-                                j = addAndGet(-j2);
+                                j2 = addAndGet(-j3);
                             }
                         } else if (this.cancelled) {
                             return;
                         } else {
                             subscriber.onNext(Integer.valueOf(i3));
-                            j2++;
+                            j3++;
                             i3++;
                         }
                     }
-                } while (j != 0);
+                } while (j2 != 0);
             }
         }
     }

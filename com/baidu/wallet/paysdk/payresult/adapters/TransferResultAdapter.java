@@ -2,18 +2,18 @@ package com.baidu.wallet.paysdk.payresult.adapters;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.datamodel.TransferRequest;
-import com.baidu.wallet.core.BaseActivity;
 import com.baidu.wallet.paysdk.payresult.datamodel.PayResultContent;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.datamodel.TransferRequest;
+import com.dxmpay.wallet.core.BaseActivity;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class TransferResultAdapter extends PayResultAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,18 +45,18 @@ public class TransferResultAdapter extends PayResultAdapter {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             TransferRequest transferRequest = (TransferRequest) PayRequestCache.getInstance().getBeanRequestFromCache("request_id_transfer");
             if (transferRequest != null && transferRequest.mTransferType == 1) {
-                PayResultContent payResultContent = this.f26306c;
+                PayResultContent payResultContent = this.f62206c;
                 if (payResultContent != null && !TextUtils.isEmpty(payResultContent.expected_time)) {
-                    return this.f26306c.expected_time;
+                    return this.f62206c.expected_time;
                 }
             } else if (transferRequest != null && transferRequest.mTransferType == 2) {
                 if (!"3".equals(transferRequest.mPayee_type) && !"2".equals(transferRequest.mPayee_type)) {
-                    PayResultContent payResultContent2 = this.f26306c;
+                    PayResultContent payResultContent2 = this.f62206c;
                     if (payResultContent2 != null && !TextUtils.isEmpty(payResultContent2.expected_time)) {
-                        return this.f26306c.expected_time;
+                        return this.f62206c.expected_time;
                     }
                 } else {
-                    return ResUtils.getString(this.f26304a.get(), "ebpay_none_passid_tips");
+                    return ResUtils.getString(this.f62204a.get(), "ebpay_none_passid_tips");
                 }
             }
             return "";

@@ -9,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMKickResponseRtcInfo extends BIMKickRequestRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMKickResponseRtcInfo";
@@ -87,7 +88,7 @@ public class BIMKickResponseRtcInfo extends BIMKickRequestRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BIMKickResponseRtcInfo{" + super.toString() + ", status" + this.mKickedStatus + '}';
+            return "BIMKickResponseRtcInfo{" + super.toString() + ", status" + this.mKickedStatus + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

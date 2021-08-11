@@ -1,8 +1,10 @@
 package com.baidu.swan.apps.jsbridge;
 
-import android.util.Log;
 import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
+import c.a.n0.a.h0.f.a;
+import c.a.n0.a.k;
+import c.a.n0.a.v1.c.f.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.h0.f.a;
-import d.a.o0.a.k;
-import d.a.o0.a.v1.c.f.b;
 @Keep
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwanAppPreloadJsBridge {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -36,7 +35,7 @@ public class SwanAppPreloadJsBridge {
                 return;
             }
         }
-        DEBUG = k.f46335a;
+        DEBUG = k.f6803a;
     }
 
     public SwanAppPreloadJsBridge(a aVar) {
@@ -63,9 +62,7 @@ public class SwanAppPreloadJsBridge {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             this.mJSContainer.onJSLoaded();
-            if (DEBUG) {
-                Log.d(TAG, "onJsLoaded");
-            }
+            boolean z = DEBUG;
             return b.f();
         }
         return (String) invokeV.objValue;

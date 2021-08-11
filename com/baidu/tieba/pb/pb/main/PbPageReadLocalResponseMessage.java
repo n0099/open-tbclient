@@ -2,6 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.i2.h.e;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,9 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.h2.h.e;
 import tbclient.PbPage.PbPageResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,10 +50,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         if (getError() == 0 && pbPageResIdl.data != null) {
             e eVar = new e();
             this.pbData = eVar;
-            eVar.q0(1);
+            eVar.v0(1);
             try {
-                this.pbData.p0(pbPageResIdl.data, this.context);
-                if (!this.pbData.k0()) {
+                this.pbData.u0(pbPageResIdl.data, this.context);
+                if (!this.pbData.o0()) {
                     this.pbData = null;
                 } else if (!isMarkCache() || this.pbData.u() == null || this.pbData.u().equals(this.postId)) {
                 } else {

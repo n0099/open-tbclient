@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FileUitls {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,13 +104,9 @@ public class FileUitls {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
-                if (new File(str).exists()) {
-                    return true;
-                }
-                Log.i("wtf", "file_state->file not exits");
-                return false;
+                return new File(str).exists();
             } catch (Exception e2) {
-                Log.i("wtf", "file_state->" + e2.getMessage());
+                String str2 = "file_state->" + e2.getMessage();
                 return false;
             }
         }
@@ -208,7 +203,7 @@ public class FileUitls {
                 open.close();
                 return bArr;
             } catch (IOException e2) {
-                Log.e("zq", "e-->" + e2.getMessage());
+                String str2 = "e-->" + e2.getMessage();
                 e2.printStackTrace();
                 return bArr;
             }
@@ -359,9 +354,7 @@ public class FileUitls {
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             File file = new File(str);
             String str2 = "";
-            if (file.isDirectory()) {
-                Log.d("TestFile", "The File doesn't not exist.");
-            } else {
+            if (!file.isDirectory()) {
                 try {
                     FileInputStream fileInputStream = new FileInputStream(file);
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
@@ -374,9 +367,8 @@ public class FileUitls {
                     }
                     fileInputStream.close();
                 } catch (FileNotFoundException unused) {
-                    Log.d("TestFile", "The File doesn't not exist.");
                 } catch (IOException e2) {
-                    Log.d("TestFile", e2.getMessage());
+                    e2.getMessage();
                 }
             }
             return str2;
@@ -390,9 +382,7 @@ public class FileUitls {
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
             File file = new File(str);
-            if (file.isDirectory()) {
-                Log.d("TestFile", "The File doesn't not exist.");
-            } else {
+            if (!file.isDirectory()) {
                 try {
                     FileInputStream fileInputStream = new FileInputStream(file);
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
@@ -405,9 +395,8 @@ public class FileUitls {
                     }
                     fileInputStream.close();
                 } catch (FileNotFoundException unused) {
-                    Log.d("TestFile", "The File doesn't not exist.");
                 } catch (IOException e2) {
-                    Log.d("TestFile", e2.getMessage());
+                    e2.getMessage();
                 }
             }
             return arrayList;

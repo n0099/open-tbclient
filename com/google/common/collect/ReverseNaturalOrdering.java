@@ -1,5 +1,6 @@
 package com.google.common.collect;
 
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.n;
 import java.io.Serializable;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ReverseNaturalOrdering extends Ordering<Comparable> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ReverseNaturalOrdering INSTANCE;

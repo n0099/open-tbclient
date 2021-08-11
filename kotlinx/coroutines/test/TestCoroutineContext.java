@@ -29,7 +29,7 @@ import kotlinx.coroutines.internal.ThreadSafeHeap;
 import kotlinx.coroutines.test.TestCoroutineContext;
 @Deprecated(level = DeprecationLevel.WARNING, message = "This API has been deprecated to integrate with Structured Concurrency.", replaceWith = @ReplaceWith(expression = "TestCoroutineScope", imports = {"kotlin.coroutines.test"}))
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0084\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0003\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\n\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010!\n\u0002\b\u0006\b\u0007\u0018\u00002\u00020\u0001:\u0001NB\u0013\u0012\n\b\u0002\u0010C\u001a\u0004\u0018\u00010\f¢\u0006\u0004\bL\u0010MJ\u001f\u0010\u0006\u001a\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u00022\b\b\u0002\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J\u001f\u0010\n\u001a\u00020\t2\u0006\u0010\b\u001a\u00020\u00022\b\b\u0002\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\n\u0010\u000bJ+\u0010\u0012\u001a\u00020\t2\b\b\u0002\u0010\r\u001a\u00020\f2\u0012\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u00100\u000e¢\u0006\u0004\b\u0012\u0010\u0013J+\u0010\u0014\u001a\u00020\t2\b\b\u0002\u0010\r\u001a\u00020\f2\u0012\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u00100\u000e¢\u0006\u0004\b\u0014\u0010\u0013J1\u0010\u0016\u001a\u00020\t2\b\b\u0002\u0010\r\u001a\u00020\f2\u0018\u0010\u0011\u001a\u0014\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u000f0\u0015\u0012\u0004\u0012\u00020\u00100\u000e¢\u0006\u0004\b\u0016\u0010\u0013J+\u0010\u0017\u001a\u00020\t2\b\b\u0002\u0010\r\u001a\u00020\f2\u0012\u0010\u0011\u001a\u000e\u0012\u0004\u0012\u00020\u000f\u0012\u0004\u0012\u00020\u00100\u000e¢\u0006\u0004\b\u0017\u0010\u0013J\r\u0010\u0018\u001a\u00020\t¢\u0006\u0004\b\u0018\u0010\u0019J\u001b\u0010\u001d\u001a\u00020\t2\n\u0010\u001c\u001a\u00060\u001aj\u0002`\u001bH\u0002¢\u0006\u0004\b\u001d\u0010\u001eJ7\u0010$\u001a\u00028\u0000\"\u0004\b\u0000\u0010\u001f2\u0006\u0010 \u001a\u00028\u00002\u0018\u0010#\u001a\u0014\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\"\u0012\u0004\u0012\u00028\u00000!H\u0016¢\u0006\u0004\b$\u0010%J*\u0010)\u001a\u0004\u0018\u00018\u0000\"\b\b\u0000\u0010&*\u00020\"2\f\u0010(\u001a\b\u0012\u0004\u0012\u00028\u00000'H\u0096\u0002¢\u0006\u0004\b)\u0010*J\u001b\u0010+\u001a\u00020\u00012\n\u0010(\u001a\u0006\u0012\u0002\b\u00030'H\u0016¢\u0006\u0004\b+\u0010,J\u0017\u0010-\u001a\u00020\u00022\b\b\u0002\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b-\u0010.J#\u00100\u001a\u00020/2\n\u0010\u001c\u001a\u00060\u001aj\u0002`\u001b2\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b0\u00101J\u000f\u00102\u001a\u00020\u0002H\u0002¢\u0006\u0004\b2\u00103J\u000f\u00104\u001a\u00020\fH\u0016¢\u0006\u0004\b4\u00105J\r\u00106\u001a\u00020\t¢\u0006\u0004\b6\u0010\u0019J\u0017\u00106\u001a\u00020\t2\u0006\u0010\b\u001a\u00020\u0002H\u0002¢\u0006\u0004\b6\u00107R\u0016\u00108\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b8\u00109R\u001a\u0010;\u001a\u00060:R\u00020\u00008\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b;\u0010<R\u0016\u0010>\u001a\u00020=8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b>\u0010?R\u0019\u0010B\u001a\b\u0012\u0004\u0012\u00020\u000f0\u00158F@\u0006¢\u0006\u0006\u001a\u0004\b@\u0010AR\u0018\u0010C\u001a\u0004\u0018\u00010\f8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bC\u0010DR\u001c\u0010F\u001a\b\u0012\u0004\u0012\u00020/0E8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bF\u0010GR\u0016\u0010H\u001a\u00020\u00028\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\bH\u00109R\u001c\u0010J\u001a\b\u0012\u0004\u0012\u00020\u000f0I8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bJ\u0010K¨\u0006O"}, d2 = {"Lkotlinx/coroutines/test/TestCoroutineContext;", "Lkotlin/coroutines/CoroutineContext;", "", "delayTime", "Ljava/util/concurrent/TimeUnit;", "unit", "advanceTimeBy", "(JLjava/util/concurrent/TimeUnit;)J", "targetTime", "", "advanceTimeTo", "(JLjava/util/concurrent/TimeUnit;)V", "", "message", "Lkotlin/Function1;", "", "", "predicate", "assertAllUnhandledExceptions", "(Ljava/lang/String;Lkotlin/Function1;)V", "assertAnyUnhandledException", "", "assertExceptions", "assertUnhandledException", "cancelAllActions", "()V", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "enqueue", "(Ljava/lang/Runnable;)V", "R", "initial", "Lkotlin/Function2;", "Lkotlin/coroutines/CoroutineContext$Element;", AppDownloadNetworkStateReceiver.KEY_OPERATION, "fold", "(Ljava/lang/Object;Lkotlin/jvm/functions/Function2;)Ljava/lang/Object;", "E", "Lkotlin/coroutines/CoroutineContext$Key;", "key", "get", "(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext$Element;", "minusKey", "(Lkotlin/coroutines/CoroutineContext$Key;)Lkotlin/coroutines/CoroutineContext;", "now", "(Ljava/util/concurrent/TimeUnit;)J", "Lkotlinx/coroutines/test/TimedRunnableObsolete;", "postDelayed", "(Ljava/lang/Runnable;J)Lkotlinx/coroutines/test/TimedRunnableObsolete;", "processNextEvent", "()J", "toString", "()Ljava/lang/String;", "triggerActions", "(J)V", "counter", "J", "Lkotlinx/coroutines/test/TestCoroutineContext$Dispatcher;", "ctxDispatcher", "Lkotlinx/coroutines/test/TestCoroutineContext$Dispatcher;", "Lkotlinx/coroutines/CoroutineExceptionHandler;", "ctxHandler", "Lkotlinx/coroutines/CoroutineExceptionHandler;", "getExceptions", "()Ljava/util/List;", "exceptions", "name", "Ljava/lang/String;", "Lkotlinx/coroutines/internal/ThreadSafeHeap;", "queue", "Lkotlinx/coroutines/internal/ThreadSafeHeap;", "time", "", "uncaughtExceptions", "Ljava/util/List;", "<init>", "(Ljava/lang/String;)V", com.baidu.android.imsdk.internal.Dispatcher.TAG, "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class TestCoroutineContext implements CoroutineContext {
     public long counter;
     public final Dispatcher ctxDispatcher;
@@ -40,7 +40,7 @@ public final class TestCoroutineContext implements CoroutineContext {
     public final List<Throwable> uncaughtExceptions;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0082\u0004\u0018\u00002\u00020\u00012\u00020\u0002B\u0007¢\u0006\u0004\b\u001c\u0010\u001dJ#\u0010\t\u001a\u00020\b2\u0006\u0010\u0004\u001a\u00020\u00032\n\u0010\u0007\u001a\u00060\u0005j\u0002`\u0006H\u0016¢\u0006\u0004\b\t\u0010\nJ#\u0010\u000e\u001a\u00020\r2\u0006\u0010\f\u001a\u00020\u000b2\n\u0010\u0007\u001a\u00060\u0005j\u0002`\u0006H\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u000f\u0010\u0010\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\u0010\u0010\u0011J%\u0010\u0014\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\u000b2\f\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\b0\u0012H\u0016¢\u0006\u0004\b\u0014\u0010\u0015J\u000f\u0010\u0017\u001a\u00020\u0016H\u0016¢\u0006\u0004\b\u0017\u0010\u0018J\u000f\u0010\u001a\u001a\u00020\u0019H\u0016¢\u0006\u0004\b\u001a\u0010\u001b¨\u0006\u001e"}, d2 = {"Lkotlinx/coroutines/test/TestCoroutineContext$Dispatcher;", "Lkotlinx/coroutines/Delay;", "Lkotlinx/coroutines/EventLoop;", "Lkotlin/coroutines/CoroutineContext;", "context", "Ljava/lang/Runnable;", "Lkotlinx/coroutines/Runnable;", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "", "dispatch", "(Lkotlin/coroutines/CoroutineContext;Ljava/lang/Runnable;)V", "", "timeMillis", "Lkotlinx/coroutines/DisposableHandle;", "invokeOnTimeout", "(JLjava/lang/Runnable;)Lkotlinx/coroutines/DisposableHandle;", "processNextEvent", "()J", "Lkotlinx/coroutines/CancellableContinuation;", "continuation", "scheduleResumeAfterDelay", "(JLkotlinx/coroutines/CancellableContinuation;)V", "", "shouldBeProcessedFromContext", "()Z", "", "toString", "()Ljava/lang/String;", "<init>", "(Lkotlinx/coroutines/test/TestCoroutineContext;)V", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class Dispatcher extends EventLoop implements Delay {
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public Dispatcher() {
@@ -48,8 +48,8 @@ public final class TestCoroutineContext implements CoroutineContext {
         }
 
         @Override // kotlinx.coroutines.Delay
-        public Object delay(long j, Continuation<? super Unit> continuation) {
-            return Delay.DefaultImpls.delay(this, j, continuation);
+        public Object delay(long j2, Continuation<? super Unit> continuation) {
+            return Delay.DefaultImpls.delay(this, j2, continuation);
         }
 
         @Override // kotlinx.coroutines.CoroutineDispatcher
@@ -58,8 +58,8 @@ public final class TestCoroutineContext implements CoroutineContext {
         }
 
         @Override // kotlinx.coroutines.Delay
-        public DisposableHandle invokeOnTimeout(long j, Runnable runnable) {
-            final TimedRunnableObsolete postDelayed = TestCoroutineContext.this.postDelayed(runnable, j);
+        public DisposableHandle invokeOnTimeout(long j2, Runnable runnable) {
+            final TimedRunnableObsolete postDelayed = TestCoroutineContext.this.postDelayed(runnable, j2);
             return new DisposableHandle() { // from class: kotlinx.coroutines.test.TestCoroutineContext$Dispatcher$invokeOnTimeout$1
                 @Override // kotlinx.coroutines.DisposableHandle
                 public void dispose() {
@@ -76,13 +76,13 @@ public final class TestCoroutineContext implements CoroutineContext {
         }
 
         @Override // kotlinx.coroutines.Delay
-        public void scheduleResumeAfterDelay(long j, final CancellableContinuation<? super Unit> cancellableContinuation) {
+        public void scheduleResumeAfterDelay(long j2, final CancellableContinuation<? super Unit> cancellableContinuation) {
             TestCoroutineContext.this.postDelayed(new Runnable() { // from class: kotlinx.coroutines.test.TestCoroutineContext$Dispatcher$scheduleResumeAfterDelay$$inlined$Runnable$1
                 @Override // java.lang.Runnable
                 public final void run() {
                     cancellableContinuation.resumeUndispatched(TestCoroutineContext.Dispatcher.this, Unit.INSTANCE);
                 }
-            }, j);
+            }, j2);
         }
 
         @Override // kotlinx.coroutines.EventLoop
@@ -108,18 +108,18 @@ public final class TestCoroutineContext implements CoroutineContext {
         this.queue = new ThreadSafeHeap<>();
     }
 
-    public static /* synthetic */ long advanceTimeBy$default(TestCoroutineContext testCoroutineContext, long j, TimeUnit timeUnit, int i2, Object obj) {
+    public static /* synthetic */ long advanceTimeBy$default(TestCoroutineContext testCoroutineContext, long j2, TimeUnit timeUnit, int i2, Object obj) {
         if ((i2 & 2) != 0) {
             timeUnit = TimeUnit.MILLISECONDS;
         }
-        return testCoroutineContext.advanceTimeBy(j, timeUnit);
+        return testCoroutineContext.advanceTimeBy(j2, timeUnit);
     }
 
-    public static /* synthetic */ void advanceTimeTo$default(TestCoroutineContext testCoroutineContext, long j, TimeUnit timeUnit, int i2, Object obj) {
+    public static /* synthetic */ void advanceTimeTo$default(TestCoroutineContext testCoroutineContext, long j2, TimeUnit timeUnit, int i2, Object obj) {
         if ((i2 & 2) != 0) {
             timeUnit = TimeUnit.MILLISECONDS;
         }
-        testCoroutineContext.advanceTimeTo(j, timeUnit);
+        testCoroutineContext.advanceTimeTo(j2, timeUnit);
     }
 
     public static /* synthetic */ void assertAllUnhandledExceptions$default(TestCoroutineContext testCoroutineContext, String str, Function1 function1, int i2, Object obj) {
@@ -153,9 +153,9 @@ public final class TestCoroutineContext implements CoroutineContext {
     /* JADX INFO: Access modifiers changed from: private */
     public final void enqueue(Runnable runnable) {
         ThreadSafeHeap<TimedRunnableObsolete> threadSafeHeap = this.queue;
-        long j = this.counter;
-        this.counter = 1 + j;
-        threadSafeHeap.addLast(new TimedRunnableObsolete(runnable, j, 0L, 4, null));
+        long j2 = this.counter;
+        this.counter = 1 + j2;
+        threadSafeHeap.addLast(new TimedRunnableObsolete(runnable, j2, 0L, 4, null));
     }
 
     public static /* synthetic */ long now$default(TestCoroutineContext testCoroutineContext, TimeUnit timeUnit, int i2, Object obj) {
@@ -166,10 +166,10 @@ public final class TestCoroutineContext implements CoroutineContext {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final TimedRunnableObsolete postDelayed(Runnable runnable, long j) {
-        long j2 = this.counter;
-        this.counter = 1 + j2;
-        TimedRunnableObsolete timedRunnableObsolete = new TimedRunnableObsolete(runnable, j2, this.time + TimeUnit.MILLISECONDS.toNanos(j));
+    public final TimedRunnableObsolete postDelayed(Runnable runnable, long j2) {
+        long j3 = this.counter;
+        this.counter = 1 + j3;
+        TimedRunnableObsolete timedRunnableObsolete = new TimedRunnableObsolete(runnable, j3, this.time + TimeUnit.MILLISECONDS.toNanos(j2));
         this.queue.addLast(timedRunnableObsolete);
         return timedRunnableObsolete;
     }
@@ -183,14 +183,14 @@ public final class TestCoroutineContext implements CoroutineContext {
         return this.queue.isEmpty() ? Long.MAX_VALUE : 0L;
     }
 
-    public final long advanceTimeBy(long j, TimeUnit timeUnit) {
-        long j2 = this.time;
-        advanceTimeTo(timeUnit.toNanos(j) + j2, TimeUnit.NANOSECONDS);
-        return timeUnit.convert(this.time - j2, TimeUnit.NANOSECONDS);
+    public final long advanceTimeBy(long j2, TimeUnit timeUnit) {
+        long j3 = this.time;
+        advanceTimeTo(timeUnit.toNanos(j2) + j3, TimeUnit.NANOSECONDS);
+        return timeUnit.convert(this.time - j3, TimeUnit.NANOSECONDS);
     }
 
-    public final void advanceTimeTo(long j, TimeUnit timeUnit) {
-        long nanos = timeUnit.toNanos(j);
+    public final void advanceTimeTo(long j2, TimeUnit timeUnit) {
+        long nanos = timeUnit.toNanos(j2);
         triggerActions(nanos);
         if (nanos > this.time) {
             this.time = nanos;
@@ -321,23 +321,23 @@ public final class TestCoroutineContext implements CoroutineContext {
         triggerActions(this.time);
     }
 
-    private final void triggerActions(long j) {
+    private final void triggerActions(long j2) {
         TimedRunnableObsolete timedRunnableObsolete;
         while (true) {
             ThreadSafeHeap<TimedRunnableObsolete> threadSafeHeap = this.queue;
             synchronized (threadSafeHeap) {
                 TimedRunnableObsolete firstImpl = threadSafeHeap.firstImpl();
                 if (firstImpl != null) {
-                    timedRunnableObsolete = (firstImpl.time > j ? 1 : (firstImpl.time == j ? 0 : -1)) <= 0 ? threadSafeHeap.removeAtImpl(0) : null;
+                    timedRunnableObsolete = (firstImpl.time > j2 ? 1 : (firstImpl.time == j2 ? 0 : -1)) <= 0 ? threadSafeHeap.removeAtImpl(0) : null;
                 }
             }
             TimedRunnableObsolete timedRunnableObsolete2 = timedRunnableObsolete;
             if (timedRunnableObsolete2 == null) {
                 return;
             }
-            long j2 = timedRunnableObsolete2.time;
-            if (j2 != 0) {
-                this.time = j2;
+            long j3 = timedRunnableObsolete2.time;
+            if (j3 != 0) {
+                this.time = j3;
             }
             timedRunnableObsolete2.run();
         }

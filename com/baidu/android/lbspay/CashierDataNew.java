@@ -2,7 +2,6 @@ package com.baidu.android.lbspay;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +9,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class CashierDataNew implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORIZE_DATA_ID = "authorizeData";
     public static final String CUSTOMER_ID = "customerId";
+    public static final String CUSTOMER_UID = "customerUid";
     public static final String DEFAULT_RES_PAGE = "defaultResPage";
     public static String DELIVERY_CASHIER_CONTENT = "delivery_cashier_content";
     public static String DELIVERY_CASHIER_DATA = "delivery_cashier_data";
@@ -177,7 +178,7 @@ public class CashierDataNew implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             Map<String, String[]> map = this.mExtraData;
             if (map != null) {
-                return map.get(com.baidu.wallet.api.Constants.KEY_ORDERINFO_DESCARRAY);
+                return map.get("orderInfoDescArray");
             }
             return null;
         }
@@ -194,26 +195,16 @@ public class CashierDataNew implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Map<String, String> map = this.mData;
-            return map != null ? map.get("passuid") : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
     public boolean isShowAllPayType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.showAllPayType : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.showAllPayType : invokeV.booleanValue;
     }
 
     public String originAmount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Map<String, String> map = this.mData;
             return map != null ? map.get("originalAmount") : "";
         }
@@ -222,21 +213,21 @@ public class CashierDataNew implements Serializable {
 
     public void setData(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
             this.mData = map;
         }
     }
 
     public void setExtraData(Map<String, String[]> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, map) == null) {
             this.mExtraData = map;
         }
     }
 
     public void setShowAllPayType(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.showAllPayType = z;
         }
     }

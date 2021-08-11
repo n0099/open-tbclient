@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.TimerTask;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public CircleProgressView f9289a;
+    public CircleProgressView f43934a;
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.enums.a$a  reason: collision with other inner class name */
-    /* loaded from: classes2.dex */
-    public class RunnableC0134a implements Runnable {
+    /* loaded from: classes5.dex */
+    public class RunnableC1683a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ a f9290a;
+        public final /* synthetic */ a f43935a;
 
-        public RunnableC0134a(a aVar) {
+        public RunnableC1683a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,17 +40,17 @@ public class a extends TimerTask {
                     return;
                 }
             }
-            this.f9290a = aVar;
+            this.f43935a = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             int progress;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f9290a.f9289a == null || (progress = this.f9290a.f9289a.getProgress()) <= 0) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f43935a.f43934a == null || (progress = this.f43935a.f43934a.getProgress()) <= 0) {
                 return;
             }
-            this.f9290a.f9289a.setProgress(progress - 1);
+            this.f43935a.f43934a.setProgress(progress - 1);
         }
     }
 
@@ -69,7 +69,7 @@ public class a extends TimerTask {
                 return;
             }
         }
-        this.f9289a = circleProgressView;
+        this.f43934a = circleProgressView;
     }
 
     @Override // java.util.TimerTask
@@ -77,7 +77,7 @@ public class a extends TimerTask {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.f9289a = null;
+            this.f43934a = null;
             return super.cancel();
         }
         return invokeV.booleanValue;
@@ -87,9 +87,9 @@ public class a extends TimerTask {
     public void run() {
         CircleProgressView circleProgressView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (circleProgressView = this.f9289a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (circleProgressView = this.f43934a) == null) {
             return;
         }
-        circleProgressView.post(new RunnableC0134a(this));
+        circleProgressView.post(new RunnableC1683a(this));
     }
 }

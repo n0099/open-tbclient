@@ -7,11 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.beans.BeanRequestBase;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
+import com.dxmpay.wallet.core.beans.BeanRequestBase;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PwdRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FROM_CHECK = 1;
@@ -50,7 +50,7 @@ public class PwdRequest extends BeanRequestBase implements Serializable {
         this.mRequestType = 1;
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanRequestBase
+    @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class PwdRequest extends BeanRequestBase implements Serializable {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanRequestBase
+    @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public String getRequestId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

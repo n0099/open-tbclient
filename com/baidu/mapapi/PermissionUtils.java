@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PermissionUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final PermissionUtils f6849a;
+        public static final PermissionUtils f41089a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -34,7 +34,7 @@ public class PermissionUtils {
                     return;
                 }
             }
-            f6849a = new PermissionUtils(null);
+            f41089a = new PermissionUtils(null);
         }
     }
 
@@ -59,7 +59,7 @@ public class PermissionUtils {
     public static PermissionUtils getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f6849a : (PermissionUtils) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f41089a : (PermissionUtils) invokeV.objValue;
     }
 
     public boolean isIndoorNaviAuthorized() {

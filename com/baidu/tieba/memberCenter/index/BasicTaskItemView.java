@@ -6,33 +6,40 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import c.a.e.a.j;
+import c.a.o0.u0.a;
+import c.a.p0.w1.c.k.o;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BasicTaskItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18617e;
+    public Context f53917e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18618f;
+    public View f53918f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18619g;
+    public TbImageView f53919g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f18620h;
+    public TextView f53920h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18621i;
-    public TextView j;
+    public TextView f53921i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f53922j;
     public View k;
     public View l;
     public View.OnClickListener m;
@@ -55,32 +62,90 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18617e = context;
+        this.f53917e = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f18617e).inflate(R.layout.index_task_item, this);
-            this.f18618f = inflate;
+            View inflate = LayoutInflater.from(this.f53917e).inflate(R.layout.index_task_item, this);
+            this.f53918f = inflate;
             this.l = inflate.findViewById(R.id.ly_desc);
-            this.f18619g = (TbImageView) this.f18618f.findViewById(R.id.task_icon);
-            this.f18620h = (TextView) this.f18618f.findViewById(R.id.txt_title);
-            this.f18621i = (TextView) this.f18618f.findViewById(R.id.txt_desc);
-            TextView textView = (TextView) this.f18618f.findViewById(R.id.txt_status);
-            this.j = textView;
+            this.f53919g = (TbImageView) this.f53918f.findViewById(R.id.task_icon);
+            this.f53920h = (TextView) this.f53918f.findViewById(R.id.txt_title);
+            this.f53921i = (TextView) this.f53918f.findViewById(R.id.txt_desc);
+            TextView textView = (TextView) this.f53918f.findViewById(R.id.txt_status);
+            this.f53922j = textView;
             textView.setOnClickListener(this.m);
             this.l.setOnClickListener(this.m);
-            this.k = this.f18618f.findViewById(R.id.divider_line);
+            this.k = this.f53918f.findViewById(R.id.divider_line);
         }
+    }
+
+    public void hideDivideLine() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.k.setVisibility(8);
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a.a((TbPageContext) j.a(this.f53917e), this.f53918f);
+        }
+    }
+
+    public void renderView(o oVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, oVar) == null) || oVar == null) {
+            return;
+        }
+        this.l.setTag(oVar);
+        this.f53922j.setTag(oVar);
+        this.f53919g.startLoad(oVar.b(), 10, false);
+        this.f53920h.setText(oVar.f());
+        this.f53921i.setText(oVar.a());
+        if (oVar.c()) {
+            this.f53922j.setText(this.f53917e.getString(R.string.index_task_finish), TextView.BufferType.EDITABLE);
+            this.f53922j.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.f53922j.setBackgroundDrawable(null);
+            return;
+        }
+        this.f53922j.setText(this.f53917e.getString(R.string.default_get_gift), TextView.BufferType.EDITABLE);
+        this.f53922j.setTextColor(SkinManager.getColor(R.color.member_center_task_btn_textcolor));
+        this.f53922j.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.item_blue_btn_selector));
     }
 
     public void setOnCommenClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
             this.m = onClickListener;
         }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public BasicTaskItemView(Context context, View.OnClickListener onClickListener) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, onClickListener};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.f53917e = context;
+        this.m = onClickListener;
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,7 +167,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18617e = context;
+        this.f53917e = context;
         a();
     }
 
@@ -125,7 +190,7 @@ public class BasicTaskItemView extends LinearLayout {
                 return;
             }
         }
-        this.f18617e = context;
+        this.f53917e = context;
         a();
     }
 }

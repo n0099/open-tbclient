@@ -5,50 +5,50 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import c.a.j.j;
+import c.a.j.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.i.j;
-import d.a.i.k;
 import java.net.DatagramSocket;
 import java.net.InetSocketAddress;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f4316a;
+    public boolean f38256a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4317b;
+    public boolean f38257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4318c;
+    public boolean f38258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4319d;
+    public String f38259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f4320e;
+    public boolean f38260e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f4321f;
+    public boolean f38261f;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public class a implements Callable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BDNetworkStateChangeReceiver f4322e;
+        public final /* synthetic */ BDNetworkStateChangeReceiver f38262e;
 
         public a(BDNetworkStateChangeReceiver bDNetworkStateChangeReceiver) {
             Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                     return;
                 }
             }
-            this.f4322e = bDNetworkStateChangeReceiver;
+            this.f38262e = bDNetworkStateChangeReceiver;
         }
 
         @Override // java.util.concurrent.Callable
@@ -77,14 +77,14 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                 try {
                     new DatagramSocket().connect(new InetSocketAddress("180.76.76.76", 80));
                 } catch (SocketException unused) {
-                    this.f4322e.f4321f = false;
+                    this.f38262e.f38261f = false;
                 }
                 try {
                     new DatagramSocket().connect(inetSocketAddress);
                 } catch (SocketException unused2) {
-                    this.f4322e.f4320e = false;
+                    this.f38262e.f38260e = false;
                 }
-                k.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(this.f4322e.f4321f), Boolean.valueOf(this.f4322e.f4320e));
+                k.a("isIPv4Reachable(%s), isIPv6Reachable(%s)", Boolean.valueOf(this.f38262e.f38261f), Boolean.valueOf(this.f38262e.f38260e));
                 return null;
             }
             return invokeV.objValue;
@@ -104,28 +104,28 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        this.f4316a = false;
-        this.f4317b = true;
-        this.f4318c = true;
-        this.f4319d = "";
-        this.f4320e = true;
-        this.f4321f = true;
+        this.f38256a = false;
+        this.f38257b = true;
+        this.f38258c = true;
+        this.f38259d = "";
+        this.f38260e = true;
+        this.f38261f = true;
     }
 
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, context) == null) {
-            k.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.f4317b), Boolean.valueOf(this.f4318c));
+            k.a("Network change, clearCache(%b) httpDnsPrefetch(%b)", Boolean.valueOf(this.f38257b), Boolean.valueOf(this.f38258c));
             i b2 = i.b();
             b2.r();
-            BDHttpDns j = BDHttpDns.j(context);
+            BDHttpDns j2 = BDHttpDns.j(context);
             refreshIpReachable();
-            ArrayList<String> e2 = j.a().e();
-            if (this.f4317b) {
-                j.a().b();
-                j.d().b();
+            ArrayList<String> e2 = j2.a().e();
+            if (this.f38257b) {
+                j2.a().b();
+                j2.d().b();
             }
-            if (this.f4318c) {
+            if (this.f38258c) {
                 if (isIPv6Only()) {
                     k.a("Now the network is Ipv6 Only, Will not send prefetch request. ", new Object[0]);
                 } else if (e2 == null || e2.isEmpty()) {
@@ -139,21 +139,21 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f4317b = z;
+            this.f38257b = z;
         }
     }
 
     public void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f4318c = z;
+            this.f38258c = z;
         }
     }
 
     public boolean isIPv6Only() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f4321f && this.f4320e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !this.f38261f && this.f38260e : invokeV.booleanValue;
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(8:13|(1:(6:40|19|20|(1:23)|25|26)(1:39))(1:17)|18|19|20|(1:23)|25|26) */
@@ -191,8 +191,8 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, intent) == null) {
             String str2 = "";
-            if (!this.f4316a) {
-                this.f4316a = true;
+            if (!this.f38256a) {
+                this.f38256a = true;
                 return;
             }
             try {
@@ -210,20 +210,20 @@ public class BDNetworkStateChangeReceiver extends BroadcastReceiver {
                 extraInfo = networkInfo.getExtraInfo();
             } else if (networkInfo2 == null || networkInfo2.getState() != NetworkInfo.State.CONNECTED) {
                 str = "";
-                if (!this.f4319d.equals(str) && str != "") {
+                if (!this.f38259d.equals(str) && str != "") {
                     k.a("Current net type: %s.", str);
                     a(context);
                 }
-                this.f4319d = str;
+                this.f38259d = str;
             } else {
                 extraInfo = networkInfo2.getExtraInfo();
             }
             str = extraInfo.toString();
-            if (!this.f4319d.equals(str)) {
+            if (!this.f38259d.equals(str)) {
                 k.a("Current net type: %s.", str);
                 a(context);
             }
-            this.f4319d = str;
+            this.f38259d = str;
         }
     }
 

@@ -19,9 +19,10 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SampleDependencyTypeBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "sdtp";
@@ -31,7 +32,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +130,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                return "Entry{reserved=" + getReserved() + ", sampleDependsOn=" + getSampleDependsOn() + ", sampleIsDependentOn=" + getSampleIsDependentOn() + ", sampleHasRedundancy=" + getSampleHasRedundancy() + '}';
+                return "Entry{reserved=" + getReserved() + ", sampleDependsOn=" + getSampleDependsOn() + ", sampleIsDependentOn=" + getSampleIsDependentOn() + ", sampleHasRedundancy=" + getSampleHasRedundancy() + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -229,7 +230,7 @@ public class SampleDependencyTypeBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "SampleDependencyTypeBox{entries=" + this.entries + '}';
+            return "SampleDependencyTypeBox{entries=" + this.entries + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -27,7 +27,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,32 +38,34 @@ public class f {
     public ViewTreeObserver.OnGlobalLayoutListener E;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Handler f31690a;
+    public final Handler f67634a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f31691b;
+    public String f67635b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f31692c;
+    public long f67636c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f31693d;
+    public long f67637d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f31694e;
+    public long f67638e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f31695f;
+    public long f67639f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f31696g;
+    public long f67640g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f31697h;
+    public int f67641h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f31698i;
-    public a j;
+    public int f67642i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public a f67643j;
     public Context k;
     public WeakReference<View> l;
     public d m;
@@ -82,18 +84,18 @@ public class f {
     public String z;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f31702a;
+        public static final a f67647a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f31703b;
+        public static final a f67648b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final /* synthetic */ a[] f31704c;
+        public static final /* synthetic */ a[] f67649c;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -109,10 +111,10 @@ public class f {
                     return;
                 }
             }
-            f31702a = new a("MAIN", 0);
+            f67647a = new a("MAIN", 0);
             a aVar = new a("RIFLE", 1);
-            f31703b = aVar;
-            f31704c = new a[]{f31702a, aVar};
+            f67648b = aVar;
+            f67649c = new a[]{f67647a, aVar};
         }
 
         public a(String str, int i2) {
@@ -143,7 +145,7 @@ public class f {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f31704c.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f67649c.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -162,15 +164,15 @@ public class f {
                 return;
             }
         }
-        this.f31690a = new Handler(Looper.getMainLooper());
-        this.f31691b = null;
-        this.f31692c = 0L;
-        this.f31693d = -1L;
-        this.f31694e = -1L;
-        this.f31695f = -1L;
-        this.f31696g = -1L;
-        this.f31697h = 0;
-        this.f31698i = 0;
+        this.f67634a = new Handler(Looper.getMainLooper());
+        this.f67635b = null;
+        this.f67636c = 0L;
+        this.f67637d = -1L;
+        this.f67638e = -1L;
+        this.f67639f = -1L;
+        this.f67640g = -1L;
+        this.f67641h = 0;
+        this.f67642i = 0;
         this.p = 0;
         this.q = 0;
         this.r = new JSONObject();
@@ -181,7 +183,7 @@ public class f {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ f f31699a;
+            public final /* synthetic */ f f67644a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -198,7 +200,7 @@ public class f {
                         return;
                     }
                 }
-                this.f31699a = this;
+                this.f67644a = this;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -206,32 +208,32 @@ public class f {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     try {
-                        View view = (View) this.f31699a.l.get();
+                        View view = (View) this.f67644a.l.get();
                         if (view == null) {
                             return;
                         }
-                        this.f31699a.b(view);
+                        this.f67644a.b(view);
                     } catch (Throwable th) {
                         e.a("PlayablePlugin", "onSizeChanged error", th);
                     }
                 }
             }
         };
-        this.j = a.f31702a;
+        this.f67643j = a.f67647a;
         g.a(webView);
         a(webView);
         a(context, bVar, aVar);
     }
 
     public static /* synthetic */ int b(f fVar) {
-        int i2 = fVar.f31697h;
-        fVar.f31697h = i2 + 1;
+        int i2 = fVar.f67641h;
+        fVar.f67641h = i2 + 1;
         return i2;
     }
 
     public static /* synthetic */ int c(f fVar) {
-        int i2 = fVar.f31698i;
-        fVar.f31698i = i2 + 1;
+        int i2 = fVar.f67642i;
+        fVar.f67642i = i2 + 1;
         return i2;
     }
 
@@ -344,20 +346,20 @@ public class f {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("playable_all_times", this.f31697h);
-            jSONObject.put("playable_hit_times", this.f31698i);
+            jSONObject.put("playable_all_times", this.f67641h);
+            jSONObject.put("playable_hit_times", this.f67642i);
             d("PL_sdk_preload_times", jSONObject);
         } catch (Throwable unused3) {
         }
         try {
-            if (this.f31693d != -1) {
-                long currentTimeMillis = System.currentTimeMillis() - this.f31693d;
+            if (this.f67637d != -1) {
+                long currentTimeMillis = System.currentTimeMillis() - this.f67637d;
                 e.a("PlayablePlugin", "playable show time +" + currentTimeMillis);
-                this.f31692c = this.f31692c + currentTimeMillis;
-                this.f31693d = -1L;
+                this.f67636c = this.f67636c + currentTimeMillis;
+                this.f67637d = -1L;
             }
             JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("playable_user_play_duration", this.f31692c);
+            jSONObject2.put("playable_user_play_duration", this.f67636c);
             d("PL_sdk_user_play_duration", jSONObject2);
         } catch (Throwable unused4) {
         }
@@ -435,9 +437,9 @@ public class f {
         if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                this.f31695f = System.currentTimeMillis();
+                this.f67639f = System.currentTimeMillis();
                 jSONObject.put("playable_full_url", str);
-                jSONObject.put("playable_page_show_duration", this.f31694e != -1 ? this.f31695f - this.f31694e : 0L);
+                jSONObject.put("playable_page_show_duration", this.f67638e != -1 ? this.f67639f - this.f67638e : 0L);
             } catch (Throwable th) {
                 e.a("PlayablePlugin", "reportUrlLoadStart error", th);
             }
@@ -450,9 +452,9 @@ public class f {
         if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                this.f31696g = System.currentTimeMillis();
+                this.f67640g = System.currentTimeMillis();
                 jSONObject.put("playable_full_url", str);
-                jSONObject.put("playable_html_load_start_duration", this.f31695f != -1 ? this.f31696g - this.f31695f : 0L);
+                jSONObject.put("playable_html_load_start_duration", this.f67639f != -1 ? this.f67640g - this.f67639f : 0L);
             } catch (Throwable th) {
                 e.a("PlayablePlugin", "reportUrlLoadFinish error", th);
             }
@@ -463,12 +465,12 @@ public class f {
     public void i(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.f31690a.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.l.f.2
+            this.f67634a.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.l.f.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ f f31700a;
+                public final /* synthetic */ f f67645a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -485,14 +487,14 @@ public class f {
                             return;
                         }
                     }
-                    this.f31700a = this;
+                    this.f67645a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        f.b(this.f31700a);
+                        f.b(this.f67645a);
                     }
                 }
             });
@@ -502,12 +504,12 @@ public class f {
     public void j(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.f31690a.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.l.f.3
+            this.f67634a.post(new Runnable(this) { // from class: com.bytedance.sdk.openadsdk.l.f.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ f f31701a;
+                public final /* synthetic */ f f67646a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -524,14 +526,14 @@ public class f {
                             return;
                         }
                     }
-                    this.f31701a = this;
+                    this.f67646a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        f.c(this.f31701a);
+                        f.c(this.f67646a);
                     }
                 }
             });
@@ -541,7 +543,7 @@ public class f {
     private void a(Context context, b bVar, com.bytedance.sdk.openadsdk.l.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65539, this, context, bVar, aVar) == null) {
-            this.f31691b = UUID.randomUUID().toString();
+            this.f67635b = UUID.randomUUID().toString();
             this.k = context;
             this.m = new d(this);
             this.n = aVar;
@@ -561,7 +563,7 @@ public class f {
             jSONObject.put("playable_event", str);
             jSONObject.put("playable_ts", System.currentTimeMillis());
             jSONObject.put("playable_viewable", this.B);
-            jSONObject.put("playable_session_id", this.f31691b);
+            jSONObject.put("playable_session_id", this.f67635b);
             jSONObject.put("playable_url", this.x);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("ad_extra_data", jSONObject);
@@ -701,17 +703,17 @@ public class f {
             }
             this.B = z;
             d(z ? "PL_sdk_viewable_true" : "PL_sdk_viewable_false", null);
-            if (this.f31694e == -1 && this.B) {
-                this.f31694e = System.currentTimeMillis();
+            if (this.f67638e == -1 && this.B) {
+                this.f67638e = System.currentTimeMillis();
                 d("PL_sdk_page_show", null);
             }
             if (this.B) {
-                this.f31693d = System.currentTimeMillis();
-            } else if (this.f31693d != -1) {
-                long currentTimeMillis = System.currentTimeMillis() - this.f31693d;
+                this.f67637d = System.currentTimeMillis();
+            } else if (this.f67637d != -1) {
+                long currentTimeMillis = System.currentTimeMillis() - this.f67637d;
                 e.a("PlayablePlugin", "playable show time +" + currentTimeMillis);
-                this.f31692c = this.f31692c + currentTimeMillis;
-                this.f31693d = -1L;
+                this.f67636c = this.f67636c + currentTimeMillis;
+                this.f67637d = -1L;
             }
             try {
                 JSONObject jSONObject = new JSONObject();

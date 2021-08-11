@@ -29,7 +29,7 @@ import kotlin.text.Typography;
 import okhttp3.internal.Util;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import okio.Buffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class HttpUrl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORM_ENCODE_SET = " \"':;<=>@[]^`{}|/\\?#&!$(),~";
@@ -156,7 +156,7 @@ public final class HttpUrl {
                 }
                 sb.append(str);
                 if (str2 != null) {
-                    sb.append(a.f1923h);
+                    sb.append(a.f35773h);
                     sb.append(str2);
                 }
             }
@@ -580,7 +580,7 @@ public final class HttpUrl {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.username : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String INVALID_HOST = "Invalid URL host";
@@ -1130,14 +1130,14 @@ public final class HttpUrl {
                         int parsePort = parsePort(str, i4, delimiterOffset);
                         this.port = parsePort;
                         if (parsePort == -1) {
-                            throw new IllegalArgumentException("Invalid URL port: \"" + str.substring(i4, delimiterOffset) + Typography.quote);
+                            throw new IllegalArgumentException("Invalid URL port: \"" + str.substring(i4, delimiterOffset) + '\"');
                         }
                     } else {
                         this.host = canonicalizeHost(str, i3, portColonOffset);
                         this.port = HttpUrl.defaultPort(this.scheme);
                     }
                     if (this.host == null) {
-                        throw new IllegalArgumentException("Invalid URL host: \"" + str.substring(i3, portColonOffset) + Typography.quote);
+                        throw new IllegalArgumentException("Invalid URL host: \"" + str.substring(i3, portColonOffset) + '\"');
                     }
                     skipLeadingAsciiWhitespace = delimiterOffset;
                 }

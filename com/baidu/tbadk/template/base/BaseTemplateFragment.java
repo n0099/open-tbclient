@@ -5,38 +5,38 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseTemplateFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.p0.z0.a f13240e;
+    public c.a.o0.z0.a f48257e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f13241f;
+    public ViewGroup f48258f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final CustomMessageListener f13242g;
+    public final CustomMessageListener f48259g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseTemplateFragment f13243a;
+        public final /* synthetic */ BaseTemplateFragment f48260a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BaseTemplateFragment baseTemplateFragment, int i2) {
@@ -56,7 +56,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
                     return;
                 }
             }
-            this.f13243a = baseTemplateFragment;
+            this.f48260a = baseTemplateFragment;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,15 +65,15 @@ public abstract class BaseTemplateFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001453) {
                 Object data = customResponsedMessage.getData();
-                if (data instanceof d.a.p0.z0.b.a.a) {
-                    d.a.p0.z0.b.a.a aVar = (d.a.p0.z0.b.a.a) data;
-                    if (aVar.a() != this.f13243a.getUniqueId()) {
+                if (data instanceof c.a.o0.z0.b.a.a) {
+                    c.a.o0.z0.b.a.a aVar = (c.a.o0.z0.b.a.a) data;
+                    if (aVar.a() != this.f48260a.getUniqueId()) {
                         return;
                     }
                     if (aVar.c()) {
-                        this.f13243a.Q0(aVar);
+                        this.f48260a.onItemShowLog(aVar);
                     } else if (aVar.b()) {
-                        this.f13243a.P0(aVar);
+                        this.f48260a.onItemClickLog(aVar);
                     }
                 }
             }
@@ -93,50 +93,23 @@ public abstract class BaseTemplateFragment extends BaseFragment {
                 return;
             }
         }
-        this.f13242g = new a(this, 2001453);
+        this.f48259g = new a(this, 2001453);
     }
 
-    public final String M0(Object obj) {
+    public final String a(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null ? obj.getClass().getSimpleName() : StringUtil.NULL_STRING : (String) invokeL.objValue;
     }
 
-    public abstract d.a.p0.z0.a N0(ViewGroup viewGroup);
-
-    public abstract ViewGroup O0();
-
-    public void P0(d.a.p0.z0.b.a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-        }
-    }
-
-    public void Q0(d.a.p0.z0.b.a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-        }
-    }
-
-    public void R0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->sendReq----");
-            d.a.p0.z0.a aVar = this.f13240e;
-            if (aVar != null) {
-                aVar.e();
-            }
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onActivityCreated---- ");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onActivityCreated---- ");
             super.onActivityCreated(bundle);
             if (isPrimary()) {
-                R0();
+                sendReq();
             }
         }
     }
@@ -144,8 +117,8 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // androidx.fragment.app.Fragment
     public void onAttach(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onAttach---- ");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onAttach---- ");
             super.onAttach(context);
         }
     }
@@ -153,10 +126,10 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // androidx.fragment.app.Fragment
     public void onAttachFragment(Fragment fragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fragment) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onAttachFragment----parentFragment=" + M0(getParentFragment()));
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onAttachFragment----currentFragment=" + M0(this));
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onAttachFragment----childFragment=" + M0(fragment));
+        if (interceptable == null || interceptable.invokeL(1048579, this, fragment) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onAttachFragment----parentFragment=" + a(getParentFragment()));
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onAttachFragment----currentFragment=" + a(this));
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onAttachFragment----childFragment=" + a(fragment));
             super.onAttachFragment(fragment);
         }
     }
@@ -164,10 +137,10 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onChangeSkinType---- ");
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onChangeSkinType---- ");
             super.onChangeSkinType(i2);
-            d.a.p0.z0.a aVar = this.f13240e;
+            c.a.o0.z0.a aVar = this.f48257e;
             if (aVar != null) {
                 aVar.a(i2);
             }
@@ -177,43 +150,47 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onCreate---- ");
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onCreate---- ");
             super.onCreate(bundle);
             getArguments();
         }
     }
 
+    public abstract c.a.o0.z0.a onCreatePageLoader(ViewGroup viewGroup);
+
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public final View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, layoutInflater, viewGroup, bundle)) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onCreateView---- ");
-            ViewGroup viewGroup2 = this.f13241f;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onCreateView---- ");
+            ViewGroup viewGroup2 = this.f48258f;
             if (viewGroup2 != null && (viewGroup2.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) this.f13241f.getParent()).removeView(this.f13241f);
+                ((ViewGroup) this.f48258f.getParent()).removeView(this.f48258f);
             }
-            if (this.f13241f == null) {
-                this.f13241f = O0();
+            if (this.f48258f == null) {
+                this.f48258f = onCreateView();
             }
-            if (this.f13240e == null) {
-                this.f13240e = N0(this.f13241f);
+            if (this.f48257e == null) {
+                this.f48257e = onCreatePageLoader(this.f48258f);
             }
-            this.f13240e.f(getUniqueId());
-            registerListener(this.f13242g);
-            return this.f13241f;
+            this.f48257e.f(getUniqueId());
+            registerListener(this.f48259g);
+            return this.f48258f;
         }
         return (View) invokeLLL.objValue;
     }
 
+    public abstract ViewGroup onCreateView();
+
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onDestroy---- ");
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onDestroy---- ");
             super.onDestroy();
-            d.a.p0.z0.a aVar = this.f13240e;
+            c.a.o0.z0.a aVar = this.f48257e;
             if (aVar != null) {
                 aVar.b();
             }
@@ -223,8 +200,8 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onDetach---- ");
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onDetach---- ");
             super.onDetach();
         }
     }
@@ -232,27 +209,39 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onHiddenChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onHiddenChanged----hidden=" + z);
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onHiddenChanged----hidden=" + z);
             super.onHiddenChanged(z);
+        }
+    }
+
+    public void onItemClickLog(c.a.o0.z0.b.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+        }
+    }
+
+    public void onItemShowLog(c.a.o0.z0.b.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, aVar) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onLazyLoad---- ");
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onLazyLoad---- ");
             super.onLazyLoad();
-            R0();
+            sendReq();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onLazyLoad---- ");
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onLazyLoad---- ");
             super.onLoad();
         }
     }
@@ -260,10 +249,10 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onPause---- ");
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onPause---- ");
             super.onPause();
-            d.a.p0.z0.a aVar = this.f13240e;
+            c.a.o0.z0.a aVar = this.f48257e;
             if (aVar != null) {
                 aVar.c();
             }
@@ -273,18 +262,18 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onPrimary----isPrimary =" + isPrimary());
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onPrimary----isPrimary =" + isPrimary());
             super.onPrimary();
             if (isAdded() && isPrimary()) {
-                d.a.p0.z0.a aVar = this.f13240e;
+                c.a.o0.z0.a aVar = this.f48257e;
                 if (aVar != null) {
                     aVar.d();
                     return;
                 }
                 return;
             }
-            d.a.p0.z0.a aVar2 = this.f13240e;
+            c.a.o0.z0.a aVar2 = this.f48257e;
             if (aVar2 != null) {
                 aVar2.c();
             }
@@ -294,9 +283,20 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onViewCreated(View view, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, view, bundle) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->onViewCreated---- ");
+        if (interceptable == null || interceptable.invokeLL(1048594, this, view, bundle) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->onViewCreated---- ");
             super.onViewCreated(view, bundle);
+        }
+    }
+
+    public void sendReq() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->sendReq----");
+            c.a.o0.z0.a aVar = this.f48257e;
+            if (aVar != null) {
+                aVar.e();
+            }
         }
     }
 
@@ -304,7 +304,7 @@ public abstract class BaseTemplateFragment extends BaseFragment {
     public void setUserVisibleHint(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            d.a.p0.z0.d.a.b("BaseTemplateFragment-->setUserVisibleHint----isVisibleToUser=" + z);
+            c.a.o0.z0.d.a.b("BaseTemplateFragment-->setUserVisibleHint----isVisibleToUser=" + z);
             super.setUserVisibleHint(z);
         }
     }

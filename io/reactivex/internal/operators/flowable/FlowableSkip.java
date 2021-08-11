@@ -10,13 +10,13 @@ import io.reactivex.FlowableSubscriber;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableSkip<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long n;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SkipSubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -24,12 +24,12 @@ public final class FlowableSkip<T> extends AbstractFlowableWithUpstream<T, T> {
         public long remaining;
         public Subscription s;
 
-        public SkipSubscriber(Subscriber<? super T> subscriber, long j) {
+        public SkipSubscriber(Subscriber<? super T> subscriber, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j)};
+                Object[] objArr = {subscriber, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -40,7 +40,7 @@ public final class FlowableSkip<T> extends AbstractFlowableWithUpstream<T, T> {
                 }
             }
             this.actual = subscriber;
-            this.remaining = j;
+            this.remaining = j2;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -71,9 +71,9 @@ public final class FlowableSkip<T> extends AbstractFlowableWithUpstream<T, T> {
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                long j = this.remaining;
-                if (j != 0) {
-                    this.remaining = j - 1;
+                long j2 = this.remaining;
+                if (j2 != 0) {
+                    this.remaining = j2 - 1;
                 } else {
                     this.actual.onNext(t);
                 }
@@ -84,30 +84,30 @@ public final class FlowableSkip<T> extends AbstractFlowableWithUpstream<T, T> {
         public void onSubscribe(Subscription subscription) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048580, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
-                long j = this.remaining;
+                long j2 = this.remaining;
                 this.s = subscription;
                 this.actual.onSubscribe(this);
-                subscription.request(j);
+                subscription.request(j2);
             }
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                this.s.request(j);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                this.s.request(j2);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSkip(Flowable<T> flowable, long j) {
+    public FlowableSkip(Flowable<T> flowable, long j2) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j)};
+            Object[] objArr = {flowable, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -118,7 +118,7 @@ public final class FlowableSkip<T> extends AbstractFlowableWithUpstream<T, T> {
                 return;
             }
         }
-        this.n = j;
+        this.n = j2;
     }
 
     @Override // io.reactivex.Flowable

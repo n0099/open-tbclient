@@ -9,12 +9,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f34056a;
+    public static final char[] f70784a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class p {
                 return;
             }
         }
-        f34056a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f70784a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public static String a(File file) {

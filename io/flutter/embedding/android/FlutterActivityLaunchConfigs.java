@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterActivityLaunchConfigs {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DART_ENTRYPOINT_META_DATA_KEY = "io.flutter.Entrypoint";
@@ -25,7 +25,7 @@ public class FlutterActivityLaunchConfigs {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BackgroundMode {
         public static final /* synthetic */ BackgroundMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

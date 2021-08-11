@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class DelegateOnDismissListener implements DialogInterface.OnDismissListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public DialogInterface.OnDismissListener f24661a;
+    public DialogInterface.OnDismissListener f60368a;
 
     public DelegateOnDismissListener(DialogInterface.OnDismissListener onDismissListener) {
         Interceptable interceptable = $ic;
@@ -28,17 +28,17 @@ public class DelegateOnDismissListener implements DialogInterface.OnDismissListe
                 return;
             }
         }
-        this.f24661a = onDismissListener;
+        this.f60368a = onDismissListener;
     }
 
     @Override // android.content.DialogInterface.OnDismissListener
     public void onDismiss(DialogInterface dialogInterface) {
         DialogInterface.OnDismissListener onDismissListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (onDismissListener = this.f24661a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) || (onDismissListener = this.f60368a) == null) {
             return;
         }
         onDismissListener.onDismiss(dialogInterface);
-        this.f24661a = null;
+        this.f60368a = null;
     }
 }

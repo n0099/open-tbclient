@@ -3,6 +3,7 @@ package com.baidu.tieba.im.chat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import c.a.o0.s.d0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,20 +16,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.d0.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GroupChatView extends CommonGroupMsglistView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17352e;
+    public TextView f52562e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f17353f;
+    public ImageView f52563f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GroupChatActivity f17354g;
+    public GroupChatActivity f52564g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GroupChatView(MsglistActivity msglistActivity, boolean z) {
@@ -51,20 +51,20 @@ public class GroupChatView extends CommonGroupMsglistView {
         }
     }
 
-    public void d() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f17353f.setVisibility(8);
+            this.f52563f.setVisibility(8);
             b.j().t("has_shown_group_btn_dot", true);
         }
     }
 
-    public void e() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || b.j().g("has_shown_group_btn_dot", false)) {
             return;
         }
-        this.f17353f.setVisibility(0);
+        this.f52563f.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
@@ -72,20 +72,20 @@ public class GroupChatView extends CommonGroupMsglistView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, talkableActivity, z) == null) {
             super.initHeader(talkableActivity, z);
-            this.f17354g = (GroupChatActivity) talkableActivity;
+            this.f52564g = (GroupChatActivity) talkableActivity;
             String string = talkableActivity.getPageContext().getString(R.string.msglist_groupinfo);
             if (string != null) {
                 String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
                 View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.group_info_btn, talkableActivity);
                 this.mBtnGroupInfo = addCustomView;
                 TextView textView = (TextView) addCustomView.findViewById(R.id.group_info_btn_txt);
-                this.f17352e = textView;
+                this.f52562e = textView;
                 textView.setText(string);
                 ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.red_dot);
-                this.f17353f = imageView;
+                this.f52563f = imageView;
                 imageView.setVisibility(8);
                 if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {
-                    e();
+                    d();
                 }
                 if (MessageManager.getInstance().findTask(2008011) == null) {
                     this.mBtnGroupInfo.setVisibility(4);
@@ -101,7 +101,7 @@ public class GroupChatView extends CommonGroupMsglistView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            TextView textView = this.f17352e;
+            TextView textView = this.f52562e;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
             }

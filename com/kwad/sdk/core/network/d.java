@@ -11,7 +11,7 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.core.g.a.m;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class d extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public abstract class d extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String a2 = a();
-            if (!com.kwad.sdk.b.f34059b.booleanValue() || a2 == null || a2.contains(com.kwad.sdk.d.c())) {
+            if (!com.kwad.sdk.b.f70787b.booleanValue() || a2 == null || a2.contains(com.kwad.sdk.d.c())) {
                 return;
             }
             DevelopMangerPlugin.DevelopValue a3 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_AD_UNIVERSE");
@@ -84,7 +84,7 @@ public abstract class d extends b {
             a("SDKVersionCode", 3031100);
             b("sdkApiVersion", KsAdSDKImpl.get().getApiVersion());
             a("sdkApiVersionCode", KsAdSDKImpl.get().getApiVersionCode());
-            a("sdkType", com.kwad.sdk.d.f35582a);
+            a("sdkType", com.kwad.sdk.d.f72343a);
             a(DI.APP_INFO_NAME, com.kwad.sdk.core.g.a.b.a());
             a("networkInfo", com.kwad.sdk.core.g.a.i.a());
             a("geoInfo", com.kwad.sdk.core.g.a.e.a());

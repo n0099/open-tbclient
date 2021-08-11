@@ -15,7 +15,7 @@ import org.apache.http.conn.routing.RouteTracker;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractPoolEntry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

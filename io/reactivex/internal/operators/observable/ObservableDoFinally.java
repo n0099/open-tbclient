@@ -19,13 +19,13 @@ import io.reactivex.internal.fuseable.QueueDisposable;
 import io.reactivex.internal.observers.BasicIntQueueDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 @Experimental
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Action onFinally;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class DoFinallyObserver<T> extends BasicIntQueueDisposable<T> implements Observer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4109457741734051389L;
@@ -33,7 +33,7 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73492d;
+        public Disposable f78551d;
         public final Action onFinally;
         public QueueDisposable<T> qd;
         public boolean syncFused;
@@ -69,7 +69,7 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f73492d.dispose();
+                this.f78551d.dispose();
                 runFinally();
             }
         }
@@ -78,7 +78,7 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f73492d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f78551d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -117,8 +117,8 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f73492d, disposable)) {
-                this.f73492d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f78551d, disposable)) {
+                this.f78551d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     this.qd = (QueueDisposable) disposable;
                 }

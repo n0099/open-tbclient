@@ -20,26 +20,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BannerDownloadProgressBar extends AppCompatTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13793e;
+    public int f48920e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13794f;
+    public int f48921f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13795g;
+    public float f48922g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13796h;
+    public int f48923h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13797i;
-    public String j;
+    public int f48924i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f48925j;
     public int k;
     public int l;
     public int m;
@@ -69,9 +71,9 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
                 return;
             }
         }
-        this.f13793e = 0;
-        this.f13794f = -1;
-        this.f13795g = 10.0f;
+        this.f48920e = 0;
+        this.f48921f = -1;
+        this.f48922g = 10.0f;
         this.k = 100;
         this.l = 0;
         this.m = 0;
@@ -80,10 +82,10 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         this.p = new Paint();
         this.q = new RectF();
         this.r = new RectF();
-        g(context, attributeSet);
+        d(context, attributeSet);
     }
 
-    public final void d(Canvas canvas) {
+    public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             this.l = getMeasuredHeight() / 2;
@@ -100,11 +102,11 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         }
     }
 
-    public final void e(Canvas canvas) {
+    public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             this.l = getMeasuredHeight() / 2;
-            float f2 = this.f13793e / (this.k + 0.0f);
+            float f2 = this.f48920e / (this.k + 0.0f);
             RectF rectF = this.q;
             int i2 = this.m;
             rectF.left = i2;
@@ -117,7 +119,7 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             if (f3 < i3 * 2) {
                 rectF2.right = i3 * 2;
             }
-            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, this.q.right, 0.0f, new int[]{this.f13796h, this.f13797i}, (float[]) null, Shader.TileMode.CLAMP);
+            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, this.q.right, 0.0f, new int[]{this.f48923h, this.f48924i}, (float[]) null, Shader.TileMode.CLAMP);
             this.s = linearGradient;
             this.n.setShader(linearGradient);
             RectF rectF3 = this.q;
@@ -126,17 +128,17 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         }
     }
 
-    public final void f(Canvas canvas) {
+    public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             Paint.FontMetrics fontMetrics = this.p.getFontMetrics();
             float f2 = fontMetrics.descent;
-            float measuredWidth = (getMeasuredWidth() - this.p.measureText(this.j)) / 2.0f;
-            canvas.drawText(this.j, measuredWidth, (float) (((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f) + 0.5d), this.p);
+            float measuredWidth = (getMeasuredWidth() - this.p.measureText(this.f48925j)) / 2.0f;
+            canvas.drawText(this.f48925j, measuredWidth, (float) (((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f) + 0.5d), this.p);
         }
     }
 
-    public final void g(Context context, AttributeSet attributeSet) {
+    public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ad_progress);
@@ -145,37 +147,25 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             int parseColor2 = Color.parseColor("#2BBCFF");
             int parseColor3 = Color.parseColor("#2B87FF");
             this.m = getResources().getDimensionPixelSize(R.dimen.progress_button_frame);
-            this.f13796h = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_foreground_start, parseColor2);
-            this.f13797i = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_foreground_end, parseColor3);
-            this.f13794f = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_textColor, parseColor);
+            this.f48923h = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_foreground_start, parseColor2);
+            this.f48924i = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_foreground_end, parseColor3);
+            this.f48921f = obtainStyledAttributes.getColor(R$styleable.ad_progress_ad_btn_textColor, parseColor);
             this.k = obtainStyledAttributes.getInteger(R$styleable.ad_progress_ad_btn_max, this.k);
-            this.f13793e = obtainStyledAttributes.getInteger(R$styleable.ad_progress_ad_btn_progress, 0);
-            this.j = obtainStyledAttributes.getString(R$styleable.ad_progress_ad_btn_text);
-            this.f13795g = obtainStyledAttributes.getDimension(R$styleable.ad_progress_ad_btn_textSize, (int) getResources().getDimension(R.dimen.progress_button_font_size));
+            this.f48920e = obtainStyledAttributes.getInteger(R$styleable.ad_progress_ad_btn_progress, 0);
+            this.f48925j = obtainStyledAttributes.getString(R$styleable.ad_progress_ad_btn_text);
+            this.f48922g = obtainStyledAttributes.getDimension(R$styleable.ad_progress_ad_btn_textSize, (int) getResources().getDimension(R.dimen.progress_button_font_size));
             this.l = obtainStyledAttributes.getDimensionPixelSize(R$styleable.ad_progress_ad_btn_radius, dimensionPixelSize);
             obtainStyledAttributes.recycle();
-            h();
+            e();
         }
     }
 
-    public int getMaxProgress() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public int getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f13793e : invokeV.intValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.p.setAntiAlias(true);
-            this.p.setTextSize(this.f13795g);
-            this.p.setColor(this.f13794f);
+            this.p.setTextSize(this.f48922g);
+            this.p.setColor(this.f48921f);
             this.n.setAntiAlias(true);
             this.n.setStyle(Paint.Style.FILL);
             this.o.setAntiAlias(true);
@@ -184,31 +174,43 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         }
     }
 
+    public int getMaxProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : invokeV.intValue;
+    }
+
+    public int getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f48920e : invokeV.intValue;
+    }
+
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f13793e > 0) {
-                e(canvas);
+            if (this.f48920e > 0) {
+                b(canvas);
             }
-            d(canvas);
-            if (TextUtils.isEmpty(this.j)) {
+            a(canvas);
+            if (TextUtils.isEmpty(this.f48925j)) {
                 return;
             }
-            f(canvas);
+            c(canvas);
         }
     }
 
     public void setForeground(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            if (i2 == this.f13796h && i3 == this.f13797i) {
+            if (i2 == this.f48923h && i3 == this.f48924i) {
                 return;
             }
-            this.f13796h = i2;
-            this.f13797i = i3;
-            h();
+            this.f48923h = i2;
+            this.f48924i = i3;
+            e();
             postInvalidate();
         }
     }
@@ -222,35 +224,35 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 < 0 || i2 > this.k || i2 == this.f13793e) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 < 0 || i2 > this.k || i2 == this.f48920e) {
             return;
         }
-        this.f13793e = i2;
-        this.j = getResources().getString(R.string.ad_button_already_download) + this.f13793e + "%";
-        if (this.f13793e == this.k) {
-            this.j = "";
+        this.f48920e = i2;
+        this.f48925j = getResources().getString(R.string.ad_button_already_download) + this.f48920e + "%";
+        if (this.f48920e == this.k) {
+            this.f48925j = "";
         }
         postInvalidate();
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || str == null || str.equals(this.j)) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || str == null || str.equals(this.f48925j)) {
             return;
         }
-        this.j = str;
-        this.f13793e = 0;
+        this.f48925j = str;
+        this.f48920e = 0;
         postInvalidate();
     }
 
     @Override // android.widget.TextView
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || i2 == this.f13794f) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || i2 == this.f48921f) {
             return;
         }
-        this.f13794f = i2;
-        h();
+        this.f48921f = i2;
+        e();
         postInvalidate();
     }
 
@@ -258,10 +260,10 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
             float f2 = i2;
-            if (f2 == this.f13795g) {
+            if (f2 == this.f48922g) {
                 return;
             }
-            this.f13795g = f2;
+            this.f48922g = f2;
             postInvalidate();
         }
     }
@@ -285,9 +287,9 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
                 return;
             }
         }
-        this.f13793e = 0;
-        this.f13794f = -1;
-        this.f13795g = 10.0f;
+        this.f48920e = 0;
+        this.f48921f = -1;
+        this.f48922g = 10.0f;
         this.k = 100;
         this.l = 0;
         this.m = 0;
@@ -296,6 +298,6 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         this.p = new Paint();
         this.q = new RectF();
         this.r = new RectF();
-        g(context, attributeSet);
+        d(context, attributeSet);
     }
 }

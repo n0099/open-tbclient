@@ -1,15 +1,15 @@
 package com.baidu.tieba.im.message.chat;
 
+import c.a.e.e.m.b;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
 import protobuf.CommitPersonalMsg.CommitPersonalMsgReqIdl;
 import protobuf.CommitPersonalMsg.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OfficialChatMessage extends ChatMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

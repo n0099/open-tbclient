@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import c.a.o0.s.q.c2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaInfoData;
@@ -22,27 +23,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaSquareLiveVideoMask extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f14003e;
+    public Context f49136e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f14004f;
+    public View f49137f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f14005g;
+    public TbImageView f49138g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f14006h;
+    public View f49139h;
 
     /* renamed from: i  reason: collision with root package name */
-    public HeadImageView f14007i;
-    public TextView j;
+    public HeadImageView f49140i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f49141j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -78,58 +80,93 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f14003e = context;
+            this.f49136e = context;
             this.r = AnimationUtils.loadAnimation(context, R.anim.video_cover_fade_out);
             View inflate = LayoutInflater.from(context).inflate(R.layout.new_square_top_live_card_mask, this);
-            this.f14004f = inflate;
+            this.f49137f = inflate;
             this.q = (FrameLayout) inflate.findViewById(R.id.fade_out_view_root);
-            TbImageView tbImageView = (TbImageView) this.f14004f.findViewById(R.id.live_cover);
-            this.f14005g = tbImageView;
+            TbImageView tbImageView = (TbImageView) this.f49137f.findViewById(R.id.live_cover);
+            this.f49138g = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.f14005g.setAutoChangeStyle(false);
-            View findViewById = this.f14004f.findViewById(R.id.head_root_view);
-            this.f14006h = findViewById;
+            this.f49138g.setAutoChangeStyle(false);
+            View findViewById = this.f49137f.findViewById(R.id.head_root_view);
+            this.f49139h = findViewById;
             findViewById.setBackgroundResource(R.drawable.round_host_header_bg_n);
-            this.f14007i = (HeadImageView) this.f14004f.findViewById(R.id.hostheader_image);
-            this.j = (TextView) this.f14004f.findViewById(R.id.hostheader_name);
-            this.k = (TextView) this.f14004f.findViewById(R.id.hostheader_id);
-            this.f14007i.setIsRound(true);
-            this.f14007i.setAutoChangeStyle(false);
-            this.l = (TextView) this.f14004f.findViewById(R.id.tvSquareTitle);
-            this.m = (TextView) this.f14004f.findViewById(R.id.tvLiveCount);
-            this.n = (ImageView) this.f14004f.findViewById(R.id.image_video_play);
-            NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.f14004f.findViewById(R.id.ala_play);
+            this.f49140i = (HeadImageView) this.f49137f.findViewById(R.id.hostheader_image);
+            this.f49141j = (TextView) this.f49137f.findViewById(R.id.hostheader_name);
+            this.k = (TextView) this.f49137f.findViewById(R.id.hostheader_id);
+            this.f49140i.setIsRound(true);
+            this.f49140i.setAutoChangeStyle(false);
+            this.l = (TextView) this.f49137f.findViewById(R.id.tvSquareTitle);
+            this.m = (TextView) this.f49137f.findViewById(R.id.tvLiveCount);
+            this.n = (ImageView) this.f49137f.findViewById(R.id.image_video_play);
+            NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.f49137f.findViewById(R.id.ala_play);
             this.o = noActiveStopAlaPlayAnimationView;
             noActiveStopAlaPlayAnimationView.setFromSpecialForum(this.s);
             SkinManager.setImageResource(this.n, R.drawable.btn_icon_play_live_on_n);
-            this.p = (ProgressBar) this.f14004f.findViewById(R.id.auto_video_loading_progress);
-            b();
+            this.p = (ProgressBar) this.f49137f.findViewById(R.id.auto_video_loading_progress);
+            onChangeSkin();
         }
     }
 
-    public void b() {
+    public void onChangeSkin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setViewTextColor(this.m, R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f49141j, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.k, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.l, R.color.CAM_X0101);
         }
     }
 
-    public void c() {
+    public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (!this.s) {
-                this.o.c();
+                this.o.stopPlayAnimation();
             }
             this.q.clearAnimation();
         }
     }
 
-    public void d() {
+    public void setData(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, c2Var) == null) || c2Var == null || c2Var.j1() == null || c2Var.J() == null) {
+            return;
+        }
+        AlaInfoData j1 = c2Var.j1();
+        this.f49138g.startLoad(j1.cover, 10, false);
+        AlaUserInfoData alaUserInfoData = j1.user_info;
+        if (alaUserInfoData != null && !StringUtils.isNull(alaUserInfoData.portrait) && alaUserInfoData.ala_id > 0) {
+            this.f49139h.setVisibility(0);
+            this.f49140i.startLoad(alaUserInfoData.portrait, 10, false);
+            this.f49141j.setText(c2Var.J().getName_show());
+            this.k.setText(String.format(this.f49136e.getString(R.string.square_recommend_top_card_ala_host_id), String.valueOf(alaUserInfoData.ala_id)));
+        } else {
+            this.f49139h.setVisibility(8);
+        }
+        this.l.setText(c2Var.getTitle());
+        this.m.setText(this.f49136e.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(j1.audience_count)));
+        if (this.s) {
+            return;
+        }
+        this.o.startPlayAnimation();
+    }
+
+    public void setFromSpecialForum(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.s = z;
+            this.n.setVisibility(8);
+            this.p.setVisibility(8);
+            this.o.setVisibility(8);
+            this.o.setFromSpecialForum(this.s);
+        }
+    }
+
+    public void startFadeAnim() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.s) {
                 this.n.setVisibility(8);
                 this.p.setVisibility(8);
@@ -139,53 +176,18 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
         }
     }
 
-    public void e() {
+    public void startIconAnim() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.s) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.s) {
             return;
         }
-        this.o.b();
+        this.o.startPlayAnimation();
     }
 
-    public void f() {
+    public void stopFadeAnim() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.q.clearAnimation();
-        }
-    }
-
-    public void setData(b2 b2Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, b2Var) == null) || b2Var == null || b2Var.h1() == null || b2Var.H() == null) {
-            return;
-        }
-        AlaInfoData h1 = b2Var.h1();
-        this.f14005g.M(h1.cover, 10, false);
-        AlaUserInfoData alaUserInfoData = h1.user_info;
-        if (alaUserInfoData != null && !StringUtils.isNull(alaUserInfoData.portrait) && alaUserInfoData.ala_id > 0) {
-            this.f14006h.setVisibility(0);
-            this.f14007i.M(alaUserInfoData.portrait, 10, false);
-            this.j.setText(b2Var.H().getName_show());
-            this.k.setText(String.format(this.f14003e.getString(R.string.square_recommend_top_card_ala_host_id), String.valueOf(alaUserInfoData.ala_id)));
-        } else {
-            this.f14006h.setVisibility(8);
-        }
-        this.l.setText(b2Var.getTitle());
-        this.m.setText(this.f14003e.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(h1.audience_count)));
-        if (this.s) {
-            return;
-        }
-        this.o.b();
-    }
-
-    public void setFromSpecialForum(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.s = z;
-            this.n.setVisibility(8);
-            this.p.setVisibility(8);
-            this.o.setVisibility(8);
-            this.o.setFromSpecialForum(this.s);
         }
     }
 

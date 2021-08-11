@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +20,7 @@ public final class k {
     public List<String> wN;
     public a wO;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void R(int i2);
     }

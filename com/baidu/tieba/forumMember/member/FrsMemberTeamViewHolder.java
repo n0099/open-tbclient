@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import c.a.e.e.p.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -16,45 +17,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
 import tbclient.BaijiahaoInfo;
 import tbclient.BawuRoleInfoPub;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f15296a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f15297b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f15298c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f15299d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f15300e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f15301f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public HeadImageView f15302g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public HeadImageView f15303h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public HeadImageView f15304i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public NoPressedLinearLayout n;
+    public NoPressedLinearLayout forumMemberTeamItemView;
+    public HeadImageView headView1;
+    public HeadImageView headView2;
+    public HeadImageView headView3;
+    public HeadImageView headView4;
+    public TextView mTitleView;
+    public LinearLayout memberView1;
+    public LinearLayout memberView2;
+    public LinearLayout memberView3;
+    public LinearLayout memberView4;
+    public TextView nameView1;
+    public TextView nameView2;
+    public TextView nameView3;
+    public TextView nameView4;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsMemberTeamViewHolder(View view, View.OnClickListener onClickListener) {
@@ -77,40 +59,40 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
         int g2 = l.g(BdBaseApplication.getInst().getApp(), R.dimen.ds1);
         int color = SkinManager.getColor(R.color.black_alpha10);
         TextView textView = (TextView) view.findViewById(R.id.title_text_view);
-        this.f15296a = textView;
+        this.mTitleView = textView;
         textView.setOnClickListener(onClickListener);
-        this.f15297b = (LinearLayout) view.findViewById(R.id.member1);
-        this.f15301f = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
-        this.j = (TextView) view.findViewById(R.id.textview_user_name1);
-        this.f15301f.setIsRound(true);
-        this.f15301f.setBorderColor(color);
-        this.f15301f.setBorderWidth(g2);
-        this.f15301f.setOnClickListener(onClickListener);
-        this.f15298c = (LinearLayout) view.findViewById(R.id.member2);
-        this.f15302g = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
-        this.k = (TextView) view.findViewById(R.id.textview_user_name2);
-        this.f15302g.setIsRound(true);
-        this.f15302g.setBorderColor(color);
-        this.f15302g.setBorderWidth(g2);
-        this.f15302g.setOnClickListener(onClickListener);
-        this.f15299d = (LinearLayout) view.findViewById(R.id.member3);
-        this.f15303h = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
-        this.l = (TextView) view.findViewById(R.id.textview_user_name3);
-        this.f15303h.setIsRound(true);
-        this.f15303h.setBorderColor(color);
-        this.f15303h.setBorderWidth(g2);
-        this.f15303h.setOnClickListener(onClickListener);
-        this.f15300e = (LinearLayout) view.findViewById(R.id.member4);
-        this.f15304i = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
-        this.m = (TextView) view.findViewById(R.id.textview_user_name4);
-        this.f15304i.setIsRound(true);
-        this.f15304i.setBorderColor(color);
-        this.f15304i.setBorderWidth(g2);
-        this.f15304i.setOnClickListener(onClickListener);
-        this.n = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
+        this.memberView1 = (LinearLayout) view.findViewById(R.id.member1);
+        this.headView1 = (HeadImageView) view.findViewById(R.id.imageview_user_photo1);
+        this.nameView1 = (TextView) view.findViewById(R.id.textview_user_name1);
+        this.headView1.setIsRound(true);
+        this.headView1.setBorderColor(color);
+        this.headView1.setBorderWidth(g2);
+        this.headView1.setOnClickListener(onClickListener);
+        this.memberView2 = (LinearLayout) view.findViewById(R.id.member2);
+        this.headView2 = (HeadImageView) view.findViewById(R.id.imageview_user_photo2);
+        this.nameView2 = (TextView) view.findViewById(R.id.textview_user_name2);
+        this.headView2.setIsRound(true);
+        this.headView2.setBorderColor(color);
+        this.headView2.setBorderWidth(g2);
+        this.headView2.setOnClickListener(onClickListener);
+        this.memberView3 = (LinearLayout) view.findViewById(R.id.member3);
+        this.headView3 = (HeadImageView) view.findViewById(R.id.imageview_user_photo3);
+        this.nameView3 = (TextView) view.findViewById(R.id.textview_user_name3);
+        this.headView3.setIsRound(true);
+        this.headView3.setBorderColor(color);
+        this.headView3.setBorderWidth(g2);
+        this.headView3.setOnClickListener(onClickListener);
+        this.memberView4 = (LinearLayout) view.findViewById(R.id.member4);
+        this.headView4 = (HeadImageView) view.findViewById(R.id.imageview_user_photo4);
+        this.nameView4 = (TextView) view.findViewById(R.id.textview_user_name4);
+        this.headView4.setIsRound(true);
+        this.headView4.setBorderColor(color);
+        this.headView4.setBorderWidth(g2);
+        this.headView4.setOnClickListener(onClickListener);
+        this.forumMemberTeamItemView = (NoPressedLinearLayout) view.findViewById(R.id.forum_member_team_item_view);
     }
 
-    public void b(BawuRoleInfoPub bawuRoleInfoPub, int i2) {
+    public void fillMemberView(BawuRoleInfoPub bawuRoleInfoPub, int i2) {
         String str;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(1048576, this, bawuRoleInfoPub, i2) == null) || bawuRoleInfoPub == null || i2 < 0 || i2 > 3) {
@@ -123,51 +105,51 @@ public class FrsMemberTeamViewHolder extends TypeAdapter.ViewHolder {
             str = bawuRoleInfoPub.portrait;
         }
         if (i2 == 0) {
-            this.f15301f.M(str, 12, false);
-            this.f15301f.setTag(bawuRoleInfoPub);
-            this.f15301f.setContentDescription(bawuRoleInfoPub.user_name);
-            this.j.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.f15297b.setVisibility(0);
+            this.headView1.startLoad(str, 12, false);
+            this.headView1.setTag(bawuRoleInfoPub);
+            this.headView1.setContentDescription(bawuRoleInfoPub.user_name);
+            this.nameView1.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+            this.memberView1.setVisibility(0);
         } else if (i2 == 1) {
-            this.f15302g.M(str, 12, false);
-            this.f15302g.setTag(bawuRoleInfoPub);
-            this.f15302g.setContentDescription(bawuRoleInfoPub.user_name);
-            this.k.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.f15298c.setVisibility(0);
+            this.headView2.startLoad(str, 12, false);
+            this.headView2.setTag(bawuRoleInfoPub);
+            this.headView2.setContentDescription(bawuRoleInfoPub.user_name);
+            this.nameView2.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+            this.memberView2.setVisibility(0);
         } else if (i2 == 2) {
-            this.f15303h.M(str, 12, false);
-            this.f15303h.setTag(bawuRoleInfoPub);
-            this.f15303h.setContentDescription(bawuRoleInfoPub.user_name);
-            this.l.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.f15299d.setVisibility(0);
+            this.headView3.startLoad(str, 12, false);
+            this.headView3.setTag(bawuRoleInfoPub);
+            this.headView3.setContentDescription(bawuRoleInfoPub.user_name);
+            this.nameView3.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+            this.memberView3.setVisibility(0);
         } else if (i2 != 3) {
         } else {
-            this.f15304i.M(str, 12, false);
-            this.f15304i.setTag(bawuRoleInfoPub);
-            this.f15304i.setContentDescription(bawuRoleInfoPub.user_name);
-            this.m.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
-            this.f15300e.setVisibility(0);
+            this.headView4.startLoad(str, 12, false);
+            this.headView4.setTag(bawuRoleInfoPub);
+            this.headView4.setContentDescription(bawuRoleInfoPub.user_name);
+            this.nameView4.setText(StringUtils.isNull(bawuRoleInfoPub.name_show) ? bawuRoleInfoPub.user_name : bawuRoleInfoPub.name_show);
+            this.memberView4.setVisibility(0);
         }
     }
 
-    public void c(boolean z) {
+    public void onChangeSkine(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (this.f15301f.getVisibility() == 0) {
-                this.f15301f.setIsNight(z);
-                this.f15301f.refresh();
+            if (this.headView1.getVisibility() == 0) {
+                this.headView1.setIsNight(z);
+                this.headView1.refresh();
             }
-            if (this.f15302g.getVisibility() == 0) {
-                this.f15302g.setIsNight(z);
-                this.f15302g.refresh();
+            if (this.headView2.getVisibility() == 0) {
+                this.headView2.setIsNight(z);
+                this.headView2.refresh();
             }
-            if (this.f15303h.getVisibility() == 0) {
-                this.f15303h.setIsNight(z);
-                this.f15303h.refresh();
+            if (this.headView3.getVisibility() == 0) {
+                this.headView3.setIsNight(z);
+                this.headView3.refresh();
             }
-            if (this.f15304i.getVisibility() == 0) {
-                this.f15304i.setIsNight(z);
-                this.f15304i.refresh();
+            if (this.headView4.getVisibility() == 0) {
+                this.headView4.setIsNight(z);
+                this.headView4.refresh();
             }
         }
     }

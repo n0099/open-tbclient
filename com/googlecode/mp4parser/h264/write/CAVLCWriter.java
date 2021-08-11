@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.h264.Debug;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class CAVLCWriter extends BitstreamWriter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,14 +44,14 @@ public class CAVLCWriter extends BitstreamWriter {
         }
     }
 
-    public void writeNBit(long j, int i2, String str) throws IOException {
+    public void writeNBit(long j2, int i2, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str}) == null) {
             Debug.print(String.valueOf(str) + TrackUI.SEPERATOR);
             for (int i3 = 0; i3 < i2; i3++) {
-                write1Bit(((int) (j >> ((i2 - i3) - 1))) & 1);
+                write1Bit(((int) (j2 >> ((i2 - i3) - 1))) & 1);
             }
-            Debug.println(TrackUI.SEPERATOR + j);
+            Debug.println(TrackUI.SEPERATOR + j2);
         }
     }
 

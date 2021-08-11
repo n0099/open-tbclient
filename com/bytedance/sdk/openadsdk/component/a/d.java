@@ -24,38 +24,40 @@ import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.q.r;
 import com.bytedance.sdk.openadsdk.q.s;
 import com.google.android.material.badge.BadgeDrawable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f29389a;
+    public final Context f65266a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f29390b;
+    public c f65267b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f29391c;
+    public c f65268c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f29392d;
+    public ImageView f65269d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f29393e;
+    public ImageView f65270e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.ui.a f29394f;
+    public com.bytedance.sdk.openadsdk.dislike.ui.a f65271f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29395g;
+    public int f65272g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29396h;
+    public boolean f65273h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f29397i;
-    public boolean j;
+    public boolean f65274i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f65275j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(@NonNull Context context) {
@@ -75,17 +77,17 @@ public class d extends FrameLayout {
                 return;
             }
         }
-        this.f29397i = false;
-        this.j = false;
-        this.f29389a = context;
+        this.f65274i = false;
+        this.f65275j = false;
+        this.f65266a = context;
         g();
     }
 
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            c cVar = new c(this.f29389a);
-            this.f29390b = cVar;
+            c cVar = new c(this.f65266a);
+            this.f65267b = cVar;
             addView(cVar, new FrameLayout.LayoutParams(-1, -1));
             i();
             h();
@@ -94,20 +96,20 @@ public class d extends FrameLayout {
 
     private void h() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.j) {
+        if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.f65275j) {
             return;
         }
-        this.j = true;
-        ImageView imageView = new ImageView(this.f29389a);
-        this.f29392d = imageView;
+        this.f65275j = true;
+        ImageView imageView = new ImageView(this.f65266a);
+        this.f65269d = imageView;
         imageView.setImageResource(t.d(o.a(), "tt_dislike_icon"));
-        this.f29392d.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.f29392d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.a.d.1
+        this.f65269d.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f65269d.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.component.a.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d f29398a;
+            public final /* synthetic */ d f65276a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -124,51 +126,51 @@ public class d extends FrameLayout {
                         return;
                     }
                 }
-                this.f29398a = this;
+                this.f65276a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f29398a.f29394f == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f65276a.f65271f == null) {
                     return;
                 }
-                this.f29398a.f29394f.showDislikeDialog();
+                this.f65276a.f65271f.showDislikeDialog();
             }
         });
-        int b2 = (int) s.b(this.f29389a, 15.0f);
-        int b3 = (int) s.b(this.f29389a, 10.0f);
+        int b2 = (int) s.b(this.f65266a, 15.0f);
+        int b3 = (int) s.b(this.f65266a, 10.0f);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b2, b2);
         layoutParams.gravity = BadgeDrawable.TOP_END;
         layoutParams.topMargin = b3;
         layoutParams.rightMargin = b3;
-        addView(this.f29392d, layoutParams);
-        s.a(this.f29392d, b2, b2, b2, b2);
+        addView(this.f65269d, layoutParams);
+        s.a(this.f65269d, b2, b2, b2, b2);
     }
 
     private void i() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || this.f29397i) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || this.f65274i) {
             return;
         }
-        this.f29397i = true;
-        ImageView imageView = new ImageView(this.f29389a);
-        this.f29393e = imageView;
+        this.f65274i = true;
+        ImageView imageView = new ImageView(this.f65266a);
+        this.f65270e = imageView;
         imageView.setImageResource(t.d(o.a(), "tt_ad_logo_new"));
-        this.f29393e.setScaleType(ImageView.ScaleType.FIT_XY);
+        this.f65270e.setScaleType(ImageView.ScaleType.FIT_XY);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(20, 20);
         layoutParams.gravity = BadgeDrawable.BOTTOM_END;
-        addView(this.f29393e, layoutParams);
+        addView(this.f65270e, layoutParams);
     }
 
     private void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            ImageView imageView = this.f29393e;
+            ImageView imageView = this.f65270e;
             if (imageView != null) {
                 bringChildToFront(imageView);
             }
-            ImageView imageView2 = this.f29392d;
+            ImageView imageView2 = this.f65269d;
             if (imageView2 != null) {
                 bringChildToFront(imageView2);
             }
@@ -179,9 +181,9 @@ public class d extends FrameLayout {
     public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            c cVar = this.f29390b;
-            this.f29390b = this.f29391c;
-            this.f29391c = cVar;
+            c cVar = this.f65267b;
+            this.f65267b = this.f65268c;
+            this.f65268c = cVar;
             cVar.b();
         }
     }
@@ -198,32 +200,32 @@ public class d extends FrameLayout {
     public c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29391c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f65268c : (c) invokeV.objValue;
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29392d : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f65269d : (View) invokeV.objValue;
     }
 
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f29396h) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.f65273h) {
             return;
         }
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.play(a(this.f29390b)).with(b(this.f29391c));
-        animatorSet.setDuration(this.f29395g).start();
-        this.f29391c.setVisibility(0);
-        this.f29396h = true;
+        animatorSet.play(a(this.f65267b)).with(b(this.f65268c));
+        animatorSet.setDuration(this.f65272g).start();
+        this.f65268c.setVisibility(0);
+        this.f65273h = true;
     }
 
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            c cVar = this.f29391c;
+            c cVar = this.f65268c;
             return (cVar == null || cVar.a() == null) ? false : true;
         }
         return invokeV.booleanValue;
@@ -234,15 +236,15 @@ public class d extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onDetachedFromWindow();
-            this.f29397i = false;
-            this.j = false;
+            this.f65274i = false;
+            this.f65275j = false;
         }
     }
 
     public c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29390b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f65267b : (c) invokeV.objValue;
     }
 
     private ObjectAnimator b(c cVar) {
@@ -255,10 +257,10 @@ public class d extends FrameLayout {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f29399a;
+                public final /* synthetic */ c f65277a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ d f29400b;
+                public final /* synthetic */ d f65278b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -275,8 +277,8 @@ public class d extends FrameLayout {
                             return;
                         }
                     }
-                    this.f29400b = this;
-                    this.f29399a = cVar;
+                    this.f65278b = this;
+                    this.f65277a = cVar;
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
@@ -290,11 +292,11 @@ public class d extends FrameLayout {
                 public void onAnimationEnd(Animator animator) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                        this.f29400b.f29396h = false;
-                        this.f29400b.k();
-                        c cVar2 = this.f29399a;
+                        this.f65278b.f65273h = false;
+                        this.f65278b.k();
+                        c cVar2 = this.f65277a;
                         if (cVar2 != null) {
-                            this.f29400b.a(cVar2.a());
+                            this.f65278b.a(cVar2.a());
                         }
                         k.b("TTBannerAd", "SLIDE END");
                     }
@@ -332,10 +334,10 @@ public class d extends FrameLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c cVar = new c(this.f29389a);
-            this.f29391c = cVar;
+            c cVar = new c(this.f65266a);
+            this.f65268c = cVar;
             cVar.setVisibility(8);
-            addView(this.f29391c, new FrameLayout.LayoutParams(-1, -1));
+            addView(this.f65268c, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
@@ -351,7 +353,7 @@ public class d extends FrameLayout {
     public void a(com.bytedance.sdk.openadsdk.dislike.ui.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f29394f = aVar;
+            this.f65271f = aVar;
         }
     }
 
@@ -367,7 +369,7 @@ public class d extends FrameLayout {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f29395g = i2;
+            this.f65272g = i2;
         }
     }
 
@@ -390,7 +392,7 @@ public class d extends FrameLayout {
     public void a(m mVar) {
         com.bytedance.sdk.openadsdk.dislike.ui.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, mVar) == null) || (aVar = this.f29394f) == null || mVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, mVar) == null) || (aVar = this.f65271f) == null || mVar == null) {
             return;
         }
         aVar.a(mVar.aG());
@@ -399,7 +401,7 @@ public class d extends FrameLayout {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            r.a(this.f29393e, str);
+            r.a(this.f65270e, str);
         }
     }
 }

@@ -3,6 +3,10 @@ package com.baidu.tieba.im.model;
 import android.text.TextUtils;
 import androidx.core.util.Pair;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.f;
+import c.a.p0.j1.f.i.a;
+import c.a.p0.j1.f.i.b;
+import c.a.p0.j1.h.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -15,17 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.f;
-import d.a.q0.i1.f.i.a;
-import d.a.q0.i1.f.i.b;
-import d.a.q0.i1.h.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -171,14 +171,14 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                         if (this.this$0.isEmpty()) {
                             this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                         } else {
-                            d.a.q0.i1.k.b.o().Q();
+                            c.a.p0.j1.k.b.o().Q();
                         }
                         return true;
                     } else if (i2 == -8) {
                         if (this.this$0.isEmpty()) {
                             this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                         } else {
-                            d.a.q0.i1.k.b.o().N();
+                            c.a.p0.j1.k.b.o().N();
                         }
                         return true;
                     } else {
@@ -200,7 +200,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // d.a.q0.i1.f.i.b
+            @Override // c.a.p0.j1.f.i.b
             public void onCanceled() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -213,7 +213,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // d.a.q0.i1.f.i.b
+            @Override // c.a.p0.j1.f.i.b
             public void onPostExecute() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -229,7 +229,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 }
             }
 
-            @Override // d.a.q0.i1.f.i.b
+            @Override // c.a.p0.j1.f.i.b
             public void onPreExecute() {
                 b bVar2;
                 Interceptable interceptable2 = $ic;
@@ -239,7 +239,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                 bVar2.onPreExecute();
             }
 
-            @Override // d.a.q0.i1.f.i.b
+            @Override // c.a.p0.j1.f.i.b
             public void onProgressUpdate(int i2, String str, int i3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
@@ -298,13 +298,13 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                             if (this.this$0.isEmpty()) {
                                 this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.STRANGE_MERGE, -7);
                             } else {
-                                d.a.q0.i1.k.b.o().Q();
+                                c.a.p0.j1.k.b.o().Q();
                             }
                         } else if (i3 == 4) {
                             if (this.this$0.isEmpty()) {
                                 this.this$0.removeByKeyMemoryChangedWithBroadcast(TbEnum.CustomGroupId.OFFICIAL_MERGE, -8);
                             } else {
-                                d.a.q0.i1.k.b.o().N();
+                                c.a.p0.j1.k.b.o().N();
                             }
                         }
                     }
@@ -323,7 +323,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
 
-                @Override // d.a.q0.i1.f.i.b
+                @Override // c.a.p0.j1.f.i.b
                 public void onCanceled() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -336,7 +336,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
 
-                @Override // d.a.q0.i1.f.i.b
+                @Override // c.a.p0.j1.f.i.b
                 public void onPostExecute() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -349,7 +349,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     }
                 }
 
-                @Override // d.a.q0.i1.f.i.b
+                @Override // c.a.p0.j1.f.i.b
                 public void onPreExecute() {
                     b bVar2;
                     Interceptable interceptable2 = $ic;
@@ -359,7 +359,7 @@ public abstract class ImBaseMessageCenterModel extends BdBaseModel<Object> {
                     bVar2.onPreExecute();
                 }
 
-                @Override // d.a.q0.i1.f.i.b
+                @Override // c.a.p0.j1.f.i.b
                 public void onProgressUpdate(int i3, String str, int i4) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i3), str, Integer.valueOf(i4)}) == null) {

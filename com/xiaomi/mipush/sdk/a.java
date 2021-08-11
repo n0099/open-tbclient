@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,13 +17,13 @@ import com.xiaomi.push.el;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Set<String> f40032a;
+    public Set<String> f76883a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -37,7 +38,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f40032a = new HashSet();
+        this.f76883a = new HashSet();
     }
 
     public static void a(Application application) {
@@ -80,7 +81,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
         Intent intent;
         el a2;
         String packageName;
-        String m286a;
+        String m289a;
         int i2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (intent = activity.getIntent()) == null) {
@@ -88,24 +89,24 @@ public class a implements Application.ActivityLifecycleCallbacks {
         }
         String stringExtra = intent.getStringExtra(MiPushMessage.KEY_MESSAGE_ID);
         int intExtra = intent.getIntExtra("eventMessageType", -1);
-        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f40032a.contains(stringExtra)) {
+        if (TextUtils.isEmpty(stringExtra) || intExtra <= 0 || this.f76883a.contains(stringExtra)) {
             return;
         }
-        this.f40032a.add(stringExtra);
+        this.f76883a.add(stringExtra);
         if (intExtra == 3000) {
             a2 = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m286a = ek.m286a(intExtra);
-            i2 = 3008;
+            m289a = ek.m289a(intExtra);
+            i2 = SpeedStatsStampTable.REG_RECEIVER_START_STAMP_KEY;
         } else if (intExtra != 1000) {
             return;
         } else {
             a2 = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m286a = ek.m286a(intExtra);
+            m289a = ek.m289a(intExtra);
             i2 = 1008;
         }
-        a2.a(packageName, m286a, stringExtra, i2, null);
+        a2.a(packageName, m289a, stringExtra, i2, null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

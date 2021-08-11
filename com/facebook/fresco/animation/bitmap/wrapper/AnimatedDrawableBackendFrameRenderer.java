@@ -17,7 +17,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameRenderer;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;

@@ -9,6 +9,7 @@ import android.graphics.RectF;
 import android.text.TextPaint;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
+import c.a.h0.a.k.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sdk.container.widget.AbsCountDownView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,31 +19,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.i0.a.k.h;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CircleTextProgressbar extends AbsCountDownView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* renamed from: f  reason: collision with root package name */
+    public int f44876f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f44877g;
+
     /* renamed from: h  reason: collision with root package name */
-    public int f10204h;
+    public ColorStateList f44878h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f10205i;
-    public ColorStateList j;
+    public int f44879i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f44880j;
     public int k;
-    public int l;
-    public int m;
-    public Paint n;
-    public RectF o;
-    public int p;
-    public int q;
-    public ProgressType r;
-    public long s;
-    public final Rect t;
+    public Paint l;
+    public RectF m;
+    public int n;
+    public int o;
+    public ProgressType p;
+    public long q;
+    public final Rect r;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class ProgressType {
         public static final /* synthetic */ ProgressType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -101,12 +107,12 @@ public class CircleTextProgressbar extends AbsCountDownView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f10206a;
+        public static final /* synthetic */ int[] f44881a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -123,13 +129,13 @@ public class CircleTextProgressbar extends AbsCountDownView {
                 }
             }
             int[] iArr = new int[ProgressType.values().length];
-            f10206a = iArr;
+            f44881a = iArr;
             try {
                 iArr[ProgressType.COUNT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f10206a[ProgressType.COUNT_BACK.ordinal()] = 2;
+                f44881a[ProgressType.COUNT_BACK.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -156,134 +162,35 @@ public class CircleTextProgressbar extends AbsCountDownView {
         }
     }
 
-    @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void b() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setTaskPeriod(this.s / this.p);
-            super.b();
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.c();
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = a.f10206a[this.r.ordinal()];
+            int i2 = a.f44881a[this.p.ordinal()];
             if (i2 == 1) {
-                this.q++;
-            } else if (i2 == 2) {
-                this.q--;
-            }
-            int i3 = this.q;
-            if (i3 >= 0 && i3 <= this.p) {
-                AbsCountDownView.b bVar = this.f10187f;
-                if (bVar != null) {
-                    bVar.onProgress(i3);
-                }
-                postInvalidate();
-                return;
-            }
-            this.q = i(this.q);
-            AbsCountDownView.b bVar2 = this.f10187f;
-            if (bVar2 != null) {
-                bVar2.onEnd();
-            }
-            c();
-        }
-    }
-
-    @Override // android.widget.TextView, android.view.View
-    public void drawableStateChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.drawableStateChanged();
-            h();
-        }
-    }
-
-    @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void e(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.q = (this.p * i3) / i2;
-            invalidate();
-        }
-    }
-
-    public void f(Context context, AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, attributeSet) == null) {
-            this.n.setAntiAlias(true);
-            ColorStateList valueOf = ColorStateList.valueOf(0);
-            this.j = valueOf;
-            this.k = valueOf.getColorForState(getDrawableState(), 0);
-            setWidth(h.a(context, 40.0f));
-            setHeight(h.a(context, 40.0f));
-            setOutLineColor(-7697782);
-            setProgressColor(-12956454);
-            setProgressLineWidth(h.a(context, 2.0f));
-            setTextSize(1, 10.0f);
-            setTextColor(-1);
-            setText("跳过");
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int i2 = a.f10206a[this.r.ordinal()];
-            if (i2 == 1) {
-                this.q = 0;
+                this.o = 0;
             } else if (i2 != 2) {
-                this.q = 0;
+                this.o = 0;
             } else {
-                this.q = this.p;
+                this.o = this.n;
             }
         }
     }
 
-    public int getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.q : invokeV.intValue;
-    }
-
-    public ProgressType getProgressType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.r : (ProgressType) invokeV.objValue;
-    }
-
-    public long getTimeMillis() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.s : invokeV.longValue;
-    }
-
-    public final void h() {
+    public final void c() {
         int colorForState;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.k == (colorForState = this.j.getColorForState(getDrawableState(), 0))) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f44879i == (colorForState = this.f44878h.getColorForState(getDrawableState(), 0))) {
             return;
         }
-        this.k = colorForState;
+        this.f44879i = colorForState;
         invalidate();
     }
 
-    public final int i(int i2) {
+    public final int d(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            int i3 = this.p;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+            int i3 = this.n;
             if (i2 > i3) {
                 return i3;
             }
@@ -296,110 +203,217 @@ public class CircleTextProgressbar extends AbsCountDownView {
     }
 
     @Override // android.widget.TextView, android.view.View
+    public void drawableStateChanged() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.drawableStateChanged();
+            c();
+        }
+    }
+
+    public int getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.o : invokeV.intValue;
+    }
+
+    public ProgressType getProgressType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.p : (ProgressType) invokeV.objValue;
+    }
+
+    public long getTimeMillis() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.q : invokeV.longValue;
+    }
+
+    public void initialize(Context context, AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, attributeSet) == null) {
+            this.l.setAntiAlias(true);
+            ColorStateList valueOf = ColorStateList.valueOf(0);
+            this.f44878h = valueOf;
+            this.f44879i = valueOf.getColorForState(getDrawableState(), 0);
+            setWidth(h.a(context, 40.0f));
+            setHeight(h.a(context, 40.0f));
+            setOutLineColor(-7697782);
+            setProgressColor(-12956454);
+            setProgressLineWidth(h.a(context, 2.0f));
+            setTextSize(1, 10.0f);
+            setTextColor(-1);
+            setText("跳过");
+        }
+    }
+
+    @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         Rect rect;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, canvas) == null) {
-            getDrawingRect(this.t);
-            float width = (this.t.height() > this.t.width() ? this.t.width() : this.t.height()) / 2;
-            this.n.setStyle(Paint.Style.FILL);
-            this.n.setColor(this.f10204h);
-            this.n.setAlpha(127);
-            canvas.drawCircle(this.t.centerX(), this.t.centerY(), width - this.f10205i, this.n);
-            this.n.setStyle(Paint.Style.STROKE);
-            this.n.setColor(this.f10204h);
-            this.n.setStrokeWidth(this.m);
-            this.n.setStrokeCap(Paint.Cap.ROUND);
-            this.n.setAlpha(204);
-            canvas.drawCircle(this.t.centerX(), this.t.centerY(), width - (this.m / 2), this.n);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
+            getDrawingRect(this.r);
+            float width = (this.r.height() > this.r.width() ? this.r.width() : this.r.height()) / 2;
+            this.l.setStyle(Paint.Style.FILL);
+            this.l.setColor(this.f44876f);
+            this.l.setAlpha(127);
+            canvas.drawCircle(this.r.centerX(), this.r.centerY(), width - this.f44877g, this.l);
+            this.l.setStyle(Paint.Style.STROKE);
+            this.l.setColor(this.f44876f);
+            this.l.setStrokeWidth(this.k);
+            this.l.setStrokeCap(Paint.Cap.ROUND);
+            this.l.setAlpha(204);
+            canvas.drawCircle(this.r.centerX(), this.r.centerY(), width - (this.k / 2), this.l);
             TextPaint paint = getPaint();
             paint.setColor(getCurrentTextColor());
             paint.setAntiAlias(true);
             paint.setTextAlign(Paint.Align.CENTER);
-            canvas.drawText(getText().toString(), this.t.centerX(), this.t.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
-            this.n.setColor(this.l);
-            this.n.setStyle(Paint.Style.STROKE);
-            this.n.setStrokeWidth(this.m);
-            this.n.setStrokeCap(Paint.Cap.ROUND);
-            this.n.setAlpha(204);
-            RectF rectF = this.o;
-            int i2 = this.t.left;
-            int i3 = this.m;
+            canvas.drawText(getText().toString(), this.r.centerX(), this.r.centerY() - ((paint.descent() + paint.ascent()) / 2.0f), paint);
+            this.l.setColor(this.f44880j);
+            this.l.setStyle(Paint.Style.STROKE);
+            this.l.setStrokeWidth(this.k);
+            this.l.setStrokeCap(Paint.Cap.ROUND);
+            this.l.setAlpha(204);
+            RectF rectF = this.m;
+            int i2 = this.r.left;
+            int i3 = this.k;
             rectF.set(i2 + (i3 / 2), rect.top + (i3 / 2), rect.right - (i3 / 2), rect.bottom - (i3 / 2));
-            canvas.drawArc(this.o, 270.0f, (this.q * 360) / this.p, false, this.n);
+            canvas.drawArc(this.m, 270.0f, (this.o * 360) / this.n, false, this.l);
+        }
+    }
+
+    public void reStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            b();
+            start();
         }
     }
 
     public void setInCircleColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.j = ColorStateList.valueOf(i2);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+            this.f44878h = ColorStateList.valueOf(i2);
             invalidate();
         }
     }
 
     public void setOutLineColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f10204h = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            this.f44876f = i2;
             invalidate();
         }
     }
 
     public void setOutLineWidth(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f10205i = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.f44877g = i2;
             invalidate();
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.q = i(i2);
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            this.o = d(i2);
             invalidate();
         }
     }
 
     public void setProgressColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.l = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+            this.f44880j = i2;
             invalidate();
         }
     }
 
     public void setProgressLineWidth(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.m = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.k = i2;
             invalidate();
         }
     }
 
     public void setProgressTotalPart(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.p = i2;
-            g();
+        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+            this.n = i2;
+            b();
         }
     }
 
     public void setProgressType(ProgressType progressType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, progressType) == null) {
-            this.r = progressType;
-            g();
+        if (interceptable == null || interceptable.invokeL(1048593, this, progressType) == null) {
+            this.p = progressType;
+            b();
             invalidate();
         }
     }
 
     @Override // com.baidu.sdk.container.widget.AbsCountDownView
-    public void setTimeMillis(long j) {
+    public void setTimeMillis(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.s = j;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            this.q = j2;
+            invalidate();
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AbsCountDownView
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            setTaskPeriod(this.q / this.n);
+            super.start();
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AbsCountDownView
+    public void stop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            super.stop();
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AbsCountDownView
+    public void updateProTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            int i2 = a.f44881a[this.p.ordinal()];
+            if (i2 == 1) {
+                this.o++;
+            } else if (i2 == 2) {
+                this.o--;
+            }
+            int i3 = this.o;
+            if (i3 >= 0 && i3 <= this.n) {
+                AbsCountDownView.b bVar = this.mCountdownProgressListener;
+                if (bVar != null) {
+                    bVar.onProgress(i3);
+                }
+                postInvalidate();
+                return;
+            }
+            this.o = d(this.o);
+            AbsCountDownView.b bVar2 = this.mCountdownProgressListener;
+            if (bVar2 != null) {
+                bVar2.onEnd();
+            }
+            stop();
+        }
+    }
+
+    @Override // com.baidu.sdk.container.widget.AbsCountDownView
+    public void updateProgres(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048598, this, i2, i3) == null) {
+            this.o = (this.n * i3) / i2;
             invalidate();
         }
     }
@@ -444,18 +458,18 @@ public class CircleTextProgressbar extends AbsCountDownView {
                 return;
             }
         }
-        this.f10204h = -16777216;
-        this.f10205i = 2;
-        this.j = ColorStateList.valueOf(0);
-        this.l = -16776961;
-        this.m = 8;
-        this.n = new Paint();
-        this.o = new RectF();
-        this.p = 100;
-        this.q = 100;
-        this.r = ProgressType.COUNT_BACK;
-        this.s = 3000L;
-        this.t = new Rect();
-        f(context, attributeSet);
+        this.f44876f = -16777216;
+        this.f44877g = 2;
+        this.f44878h = ColorStateList.valueOf(0);
+        this.f44880j = -16776961;
+        this.k = 8;
+        this.l = new Paint();
+        this.m = new RectF();
+        this.n = 100;
+        this.o = 100;
+        this.p = ProgressType.COUNT_BACK;
+        this.q = 3000L;
+        this.r = new Rect();
+        initialize(context, attributeSet);
     }
 }

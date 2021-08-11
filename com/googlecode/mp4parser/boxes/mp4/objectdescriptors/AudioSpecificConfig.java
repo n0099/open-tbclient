@@ -19,8 +19,9 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(objectTypeIndication = 64, tags = {5})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
     public static /* synthetic */ Interceptable $ic;
     public static Map<Integer, String> audioObjectTypeMap;
@@ -668,7 +669,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 sb.append(", hilnEnhaQuantMode=");
                 sb.append(this.hilnEnhaQuantMode);
             }
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;

@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SampleDescriptionBox extends AbstractContainerBox implements FullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "stsd";
@@ -95,15 +95,15 @@ public class SampleDescriptionBox extends AbstractContainerBox implements FullBo
     }
 
     @Override // com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(8);
             dataSource.read(allocate);
             allocate.rewind();
             this.version = IsoTypeReader.readUInt8(allocate);
             this.flags = IsoTypeReader.readUInt24(allocate);
-            parseContainer(dataSource, j - 8, boxParser);
+            parseContainer(dataSource, j2 - 8, boxParser);
         }
     }
 

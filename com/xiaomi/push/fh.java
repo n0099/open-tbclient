@@ -13,22 +13,22 @@ import com.xiaomi.push.du;
 import com.xiaomi.push.fl;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class fh extends fs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public fc f40393a;
+    public fc f77250a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fd f381a;
+    public fd f385a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Thread f382a;
+    public Thread f386a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f383a;
+    public byte[] f387a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fh(XMPushService xMPushService, fm fmVar) {
@@ -59,11 +59,11 @@ public class fh extends fs {
             if (z) {
                 fgVar.a("1");
             }
-            byte[] m369a = gz.m369a();
-            if (m369a != null) {
+            byte[] m372a = gz.m372a();
+            if (m372a != null) {
                 du.j jVar = new du.j();
-                jVar.a(a.a(m369a));
-                fgVar.a(jVar.m281a(), (String) null);
+                jVar.a(a.a(m372a));
+                fgVar.a(jVar.m284a(), (String) null);
             }
             return fgVar;
         }
@@ -74,10 +74,10 @@ public class fh extends fs {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             try {
-                this.f40393a = new fc(((fs) this).f411a.getInputStream(), this);
-                this.f381a = new fd(((fs) this).f411a.getOutputStream(), this);
-                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f40400b + SmallTailInfo.EMOTION_SUFFIX);
-                this.f382a = fiVar;
+                this.f77250a = new fc(((fs) this).f415a.getInputStream(), this);
+                this.f385a = new fd(((fs) this).f415a.getOutputStream(), this);
+                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f77257b + SmallTailInfo.EMOTION_SUFFIX);
+                this.f386a = fiVar;
                 fiVar.start();
             } catch (Exception e2) {
                 throw new fw("Error to init reader and writer", e2);
@@ -91,7 +91,7 @@ public class fh extends fs {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
                 h();
-                this.f381a.a();
+                this.f385a.a();
             }
         }
     }
@@ -101,19 +101,19 @@ public class fh extends fs {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, exc) == null) {
             synchronized (this) {
-                if (this.f40393a != null) {
-                    this.f40393a.b();
-                    this.f40393a = null;
+                if (this.f77250a != null) {
+                    this.f77250a.b();
+                    this.f77250a = null;
                 }
-                if (this.f381a != null) {
+                if (this.f385a != null) {
                     try {
-                        this.f381a.b();
+                        this.f385a.b();
                     } catch (Exception e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
-                    this.f381a = null;
+                    this.f385a = null;
                 }
-                this.f383a = null;
+                this.f387a = null;
                 super.a(i2, exc);
             }
         }
@@ -124,18 +124,18 @@ public class fh extends fs {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faVar) == null) || faVar == null) {
             return;
         }
-        if (faVar.m305a()) {
-            com.xiaomi.channel.commonutils.logger.b.m70a("[Slim] RCV blob chid=" + faVar.a() + "; id=" + faVar.e() + "; errCode=" + faVar.b() + "; err=" + faVar.m309c());
+        if (faVar.m308a()) {
+            com.xiaomi.channel.commonutils.logger.b.m73a("[Slim] RCV blob chid=" + faVar.a() + "; id=" + faVar.e() + "; errCode=" + faVar.b() + "; err=" + faVar.m312c());
         }
         if (faVar.a() == 0) {
-            if ("PING".equals(faVar.m302a())) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("[Slim] RCV ping id=" + faVar.e());
+            if ("PING".equals(faVar.m305a())) {
+                com.xiaomi.channel.commonutils.logger.b.m73a("[Slim] RCV ping id=" + faVar.e());
                 g();
-            } else if ("CLOSE".equals(faVar.m302a())) {
+            } else if ("CLOSE".equals(faVar.m305a())) {
                 c(13, null);
             }
         }
-        for (fl.a aVar : ((fl) this).f400a.values()) {
+        for (fl.a aVar : ((fl) this).f404a.values()) {
             aVar.a(faVar);
         }
     }
@@ -171,14 +171,14 @@ public class fh extends fs {
 
     @Override // com.xiaomi.push.fs
     /* renamed from: a  reason: collision with other method in class */
-    public void mo315a(boolean z) {
+    public void mo318a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (this.f381a == null) {
+            if (this.f385a == null) {
                 throw new fw("The BlobWriter is null.");
             }
             fa a2 = a(z);
-            com.xiaomi.channel.commonutils.logger.b.m70a("[Slim] SND ping id=" + a2.e());
+            com.xiaomi.channel.commonutils.logger.b.m73a("[Slim] SND ping id=" + a2.e());
             b(a2);
             f();
         }
@@ -211,11 +211,11 @@ public class fh extends fs {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
-                if (this.f383a == null && !TextUtils.isEmpty(((fl) this).f397a)) {
-                    String m612a = com.xiaomi.push.service.bi.m612a();
-                    this.f383a = com.xiaomi.push.service.be.a(((fl) this).f397a.getBytes(), (((fl) this).f397a.substring(((fl) this).f397a.length() / 2) + m612a.substring(m612a.length() / 2)).getBytes());
+                if (this.f387a == null && !TextUtils.isEmpty(((fl) this).f401a)) {
+                    String m615a = com.xiaomi.push.service.bi.m615a();
+                    this.f387a = com.xiaomi.push.service.be.a(((fl) this).f401a.getBytes(), (((fl) this).f401a.substring(((fl) this).f401a.length() / 2) + m615a.substring(m615a.length() / 2)).getBytes());
                 }
-                bArr = this.f383a;
+                bArr = this.f387a;
             }
             return bArr;
         }
@@ -226,18 +226,18 @@ public class fh extends fs {
     public void b(fa faVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, faVar) == null) {
-            fd fdVar = this.f381a;
+            fd fdVar = this.f385a;
             if (fdVar == null) {
                 throw new fw("the writer is null.");
             }
             try {
                 int a2 = fdVar.a(faVar);
-                ((fl) this).f40402d = System.currentTimeMillis();
+                ((fl) this).f77259d = System.currentTimeMillis();
                 String f2 = faVar.f();
                 if (!TextUtils.isEmpty(f2)) {
-                    gq.a(((fl) this).f396a, f2, a2, false, true, System.currentTimeMillis());
+                    gq.a(((fl) this).f400a, f2, a2, false, true, System.currentTimeMillis());
                 }
-                for (fl.a aVar : ((fl) this).f403b.values()) {
+                for (fl.a aVar : ((fl) this).f407b.values()) {
                     aVar.a(faVar);
                 }
             } catch (Exception e2) {
@@ -251,7 +251,7 @@ public class fh extends fs {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, gcVar) == null) || gcVar == null) {
             return;
         }
-        for (fl.a aVar : ((fl) this).f400a.values()) {
+        for (fl.a aVar : ((fl) this).f404a.values()) {
             aVar.a(gcVar);
         }
     }

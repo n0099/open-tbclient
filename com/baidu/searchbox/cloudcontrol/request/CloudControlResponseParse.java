@@ -1,7 +1,6 @@
 package com.baidu.searchbox.cloudcontrol.request;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CloudControlResponseParse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FAIL_VALID = "0";
@@ -82,9 +81,7 @@ public class CloudControlResponseParse {
             try {
                 return Long.parseLong(str);
             } catch (Exception unused) {
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "parse version is not long");
-                }
+                AppConfig.isDebug();
                 return 0L;
             }
         }

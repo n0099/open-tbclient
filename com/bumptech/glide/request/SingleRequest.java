@@ -34,7 +34,7 @@ import com.bumptech.glide.util.Util;
 import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class SingleRequest<R> implements Request, SizeReadyCallback, ResourceCallback, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GLIDE_TAG = "Glide";
@@ -74,7 +74,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
     public int width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -355,7 +355,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
     private void logV(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, this, str) == null) {
-            Log.v(TAG, str + " this: " + this.tag);
+            String str2 = str + " this: " + this.tag;
         }
     }
 
@@ -651,7 +651,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
             this.stateVerifier.throwIfRecycled();
             int logLevel = this.glideContext.getLogLevel();
             if (logLevel <= i2) {
-                Log.w("Glide", "Load failed for " + this.model + " with size [" + this.width + "x" + this.height + PreferencesUtil.RIGHT_MOUNT, glideException);
+                String str = "Load failed for " + this.model + " with size [" + this.width + "x" + this.height + PreferencesUtil.RIGHT_MOUNT;
                 if (logLevel <= 4) {
                     glideException.logRootCauses("Glide");
                 }
@@ -692,7 +692,7 @@ public final class SingleRequest<R> implements Request, SizeReadyCallback, Resou
             this.status = Status.COMPLETE;
             this.resource = resource;
             if (this.glideContext.getLogLevel() <= 3) {
-                Log.d("Glide", "Finished loading " + r.getClass().getSimpleName() + " from " + dataSource + " for " + this.model + " with size [" + this.width + "x" + this.height + "] in " + LogTime.getElapsedMillis(this.startTime) + " ms");
+                String str = "Finished loading " + r.getClass().getSimpleName() + " from " + dataSource + " for " + this.model + " with size [" + this.width + "x" + this.height + "] in " + LogTime.getElapsedMillis(this.startTime) + " ms";
             }
             boolean z2 = true;
             this.isCallingCallbacks = true;

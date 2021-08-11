@@ -3,6 +3,8 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import c.a.p0.a0.b;
+import c.a.p0.v.d.g.c.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -14,27 +16,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a0.b;
-import d.a.q0.v.d.f.c.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ConcernTabEmptyView extends b<e> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public View f14186a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f14187b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public View f14188c;
+        public View divider;
+        public View root;
+        public TextView textView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -54,9 +48,9 @@ public class ConcernTabEmptyView extends b<e> {
                     return;
                 }
             }
-            this.f14186a = view;
-            this.f14187b = (TextView) view.findViewById(R.id.tv_empty);
-            this.f14188c = this.f14186a.findViewById(R.id.devider_line);
+            this.root = view;
+            this.textView = (TextView) view.findViewById(R.id.tv_empty);
+            this.divider = this.root.findViewById(R.id.devider_line);
         }
     }
 
@@ -79,23 +73,23 @@ public class ConcernTabEmptyView extends b<e> {
                 return;
             }
         }
-        this.m = new ViewHolder(k());
-        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.m = new ViewHolder(j());
+        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.q0.a0.b
-    public int g() {
+    @Override // c.a.p0.a0.b
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.special_bar_concern_empty : invokeV.intValue;
     }
 
-    @Override // d.a.q0.a0.b
-    public void m(TbPageContext<?> tbPageContext, int i2) {
+    @Override // c.a.p0.a0.b
+    public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            SkinManager.setViewTextColor(this.m.f14187b, R.color.CAM_X0109);
-            SkinManager.setBackgroundColor(this.m.f14188c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.m.textView, R.color.CAM_X0109);
+            SkinManager.setBackgroundColor(this.m.divider, R.color.CAM_X0204);
         }
     }
 
@@ -107,9 +101,9 @@ public class ConcernTabEmptyView extends b<e> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.q0.a0.b
-    /* renamed from: q */
-    public void l(e eVar) {
+    @Override // c.a.p0.a0.b
+    /* renamed from: p */
+    public void k(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
         }

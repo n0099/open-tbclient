@@ -10,7 +10,7 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class o implements com.kwad.sdk.core.d<AdInfo.AdTrackInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IPmsManager {
     public static final IPmsManager EMPTY = new IPmsManager() { // from class: com.baidu.searchbox.pms.init.IPmsManager.1
         public static /* synthetic */ Interceptable $ic;

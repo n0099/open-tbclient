@@ -11,24 +11,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static abstract class a extends Binder implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.mapframework.open.aidl.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes2.dex */
-        public static class C0116a implements b {
+        /* loaded from: classes5.dex */
+        public static class C1664a implements b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f7557a;
+            public IBinder f41825a;
 
-            public C0116a(IBinder iBinder) {
+            public C1664a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,7 +43,7 @@ public interface b extends IInterface {
                         return;
                     }
                 }
-                this.f7557a = iBinder;
+                this.f41825a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.b
@@ -55,7 +55,7 @@ public interface b extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IOpenClientCallback");
                         obtain.writeStrongBinder(iBinder);
-                        this.f7557a.transact(1, obtain, obtain2, 0);
+                        this.f41825a.transact(1, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
                         obtain2.recycle();
@@ -68,7 +68,7 @@ public interface b extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7557a : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41825a : (IBinder) invokeV.objValue;
             }
         }
 
@@ -96,7 +96,7 @@ public interface b extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.mapframework.open.aidl.IOpenClientCallback");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C0116a(iBinder) : (b) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C1664a(iBinder) : (b) queryLocalInterface;
             }
             return (b) invokeL.objValue;
         }

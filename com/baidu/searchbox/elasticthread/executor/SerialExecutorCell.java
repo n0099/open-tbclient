@@ -1,6 +1,5 @@
 package com.baidu.searchbox.elasticthread.executor;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.ElasticConfig;
 import com.baidu.searchbox.elasticthread.ElasticDataUploader;
@@ -17,7 +16,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SerialExecutorCell extends BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SERIAL_MAX_THREAD_NUM = 1;
@@ -44,8 +43,8 @@ public class SerialExecutorCell extends BaseExecutorCell {
         }
         this.dredgeCountInRecordLifeCycle = 0;
         if (i2 != 1) {
-            String tag = getTag();
-            Log.w(tag, "You are creating a SerialExecutorCell with maxThreadNum " + i2 + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.");
+            getTag();
+            String str = "You are creating a SerialExecutorCell with maxThreadNum " + i2 + ". For SerialExecutorCell, maxThreadNum must be 1. So it will be forced to set to 1.";
             this.maxThreadNum = 1;
         }
         this.mExecutor = new ThreadPoolExecutor(1, 1, ElasticConfig.EXECUTOR_CONFIG_KEEP_ALIVE_TIME, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());

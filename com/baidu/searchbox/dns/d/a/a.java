@@ -1,7 +1,6 @@
 package com.baidu.searchbox.dns.d.a;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.tbadk.core.atomData.CreateGroupActivityActivityConfig;
@@ -19,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,12 +30,12 @@ public class a {
     public String T;
     public List<String> m;
 
-    public a(String str, int i2, String str2, long j, List<String> list, List<String> list2) {
+    public a(String str, int i2, String str2, long j2, List<String> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, Long.valueOf(j), list, list2};
+            Object[] objArr = {str, Integer.valueOf(i2), str2, Long.valueOf(j2), list, list2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -49,7 +48,7 @@ public class a {
         this.C = str;
         this.B = i2;
         this.R = str2;
-        this.D = j;
+        this.D = j2;
         this.m = list;
         this.S = list2;
         this.T = z();
@@ -106,7 +105,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.m != null) {
                 if (DnsUtil.DEBUG) {
-                    Log.i(DnsUtil.TAG, " getIp v4 List: " + b(this.m));
+                    String str = " getIp v4 List: " + b(this.m);
                 }
                 return Collections.unmodifiableList(this.m);
             }

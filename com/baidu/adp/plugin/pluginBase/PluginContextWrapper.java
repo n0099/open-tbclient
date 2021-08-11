@@ -6,6 +6,8 @@ import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.h;
+import c.a.e.h.j.g.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -17,9 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.h;
-import d.a.d.h.j.g.d;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PluginContextWrapper extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

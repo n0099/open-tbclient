@@ -1,7 +1,6 @@
 package com.baidu.pass.main.facesdk;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FaceLive {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceLive";
@@ -58,12 +57,12 @@ public class FaceLive {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native float nativeSilentLive(long j, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr);
+    private native float nativeSilentLive(long j2, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeSilentLiveModelInit(long j, byte[] bArr, int i2);
+    public native int nativeSilentLiveModelInit(long j2, byte[] bArr, int i2);
 
-    private native int nativeUninitModel(long j);
+    private native int nativeUninitModel(long j2);
 
     public void initModel(Context context, String str, String str2, String str3, Callback callback) {
         Interceptable interceptable = $ic;
@@ -137,14 +136,13 @@ public class FaceLive {
                             if (modelContent3.length != 0 && (i4 = this.this$0.nativeSilentLiveModelInit(index, modelContent3, BDFaceSDKCommon.LiveType.BDFACE_SILENT_LIVE_TYPE_DEPTH.ordinal())) != 0) {
                                 this.val$callback.onResponse(i4, "Deep 活体模型加载失败");
                                 return;
-                            }
-                            if (i2 != 0 && i3 != 0 && i4 != 0) {
+                            } else if (i2 != 0 && i3 != 0 && i4 != 0) {
                                 this.val$callback.onResponse(1, "活体模型加载失败");
+                                return;
                             } else {
                                 this.val$callback.onResponse(0, "活体模型加载成功");
+                                return;
                             }
-                            Log.e("bdface", "FaceLive initModel");
-                            return;
                         }
                         this.val$callback.onResponse(1, "没有初始化上下文");
                     }
@@ -157,15 +155,14 @@ public class FaceLive {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveType, bDFaceImageInstance, fArr)) == null) {
-            if (liveType != null && bDFaceImageInstance != null && fArr != null) {
-                long index = this.bdFaceInstance.getIndex();
-                if (index == 0) {
-                    return -1.0f;
-                }
-                return nativeSilentLive(index, liveType.ordinal(), bDFaceImageInstance, fArr);
+            if (liveType == null || bDFaceImageInstance == null || fArr == null) {
+                return -1.0f;
             }
-            Log.v(TAG, "Parameter is null");
-            return -1.0f;
+            long index = this.bdFaceInstance.getIndex();
+            if (index == 0) {
+                return -1.0f;
+            }
+            return nativeSilentLive(index, liveType.ordinal(), bDFaceImageInstance, fArr);
         }
         return invokeLLL.floatValue;
     }

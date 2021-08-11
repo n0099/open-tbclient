@@ -14,37 +14,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a extends t {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f28169a;
+    public static a f64012a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f28170b;
+    public static final long f64013b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final long f28171d;
+    public static final long f64014d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28172e;
+    public boolean f64015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f28173f;
+    public a f64016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f28174g;
+    public long f64017g;
 
     /* renamed from: com.bytedance.sdk.component.b.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0319a extends Thread {
+    /* loaded from: classes9.dex */
+    public static final class C1879a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0319a() {
+        public C1879a() {
             super("Okio Watchdog");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -78,8 +78,8 @@ public class a extends t {
                 synchronized (a.class) {
                     a d2 = a.d();
                     if (d2 != null) {
-                        if (d2 == a.f28169a) {
-                            a.f28169a = null;
+                        if (d2 == a.f64012a) {
+                            a.f64012a = null;
                             return;
                         }
                     }
@@ -101,8 +101,8 @@ public class a extends t {
                 return;
             }
         }
-        f28170b = TimeUnit.SECONDS.toMillis(60L);
-        f28171d = TimeUnit.MILLISECONDS.toNanos(f28170b);
+        f64013b = TimeUnit.SECONDS.toMillis(60L);
+        f64014d = TimeUnit.MILLISECONDS.toNanos(f64013b);
     }
 
     public a() {
@@ -123,23 +123,23 @@ public class a extends t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            a aVar = f28169a.f28173f;
+            a aVar = f64012a.f64016f;
             if (aVar == null) {
                 long nanoTime = System.nanoTime();
-                a.class.wait(f28170b);
-                if (f28169a.f28173f != null || System.nanoTime() - nanoTime < f28171d) {
+                a.class.wait(f64013b);
+                if (f64012a.f64016f != null || System.nanoTime() - nanoTime < f64014d) {
                     return null;
                 }
-                return f28169a;
+                return f64012a;
             }
             long b2 = aVar.b(System.nanoTime());
             if (b2 > 0) {
-                long j = b2 / 1000000;
-                a.class.wait(j, (int) (b2 - (1000000 * j)));
+                long j2 = b2 / 1000000;
+                a.class.wait(j2, (int) (b2 - (1000000 * j2)));
                 return null;
             }
-            f28169a.f28173f = aVar.f28173f;
-            aVar.f28173f = null;
+            f64012a.f64016f = aVar.f64016f;
+            aVar.f64016f = null;
             return aVar;
         }
         return (a) invokeV.objValue;
@@ -148,11 +148,11 @@ public class a extends t {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.f28172e) {
+            if (!this.f64015e) {
                 long b_ = b_();
                 boolean c2 = c();
                 if (b_ != 0 || c2) {
-                    this.f28172e = true;
+                    this.f64015e = true;
                     a(this, b_, c2);
                     return;
                 }
@@ -172,8 +172,8 @@ public class a extends t {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f28172e) {
-                this.f28172e = false;
+            if (this.f64015e) {
+                this.f64015e = false;
                 return a(this);
             }
             return false;
@@ -181,10 +181,10 @@ public class a extends t {
         return invokeV.booleanValue;
     }
 
-    private long b(long j) {
+    private long b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) ? this.f28174g - j : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2)) == null) ? this.f64017g - j2 : invokeJ.longValue;
     }
 
     public IOException b(IOException iOException) {
@@ -200,35 +200,35 @@ public class a extends t {
         return (IOException) invokeL.objValue;
     }
 
-    public static synchronized void a(a aVar, long j, boolean z) {
+    public static synchronized void a(a aVar, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{aVar, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{aVar, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
             synchronized (a.class) {
-                if (f28169a == null) {
-                    f28169a = new a();
-                    C0319a c0319a = new C0319a();
-                    c0319a.setName("tt_pangle_thread_watch_dog");
-                    c0319a.start();
+                if (f64012a == null) {
+                    f64012a = new a();
+                    C1879a c1879a = new C1879a();
+                    c1879a.setName("tt_pangle_thread_watch_dog");
+                    c1879a.start();
                 }
                 long nanoTime = System.nanoTime();
-                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i2 != 0 && z) {
-                    aVar.f28174g = Math.min(j, aVar.c_() - nanoTime) + nanoTime;
+                    aVar.f64017g = Math.min(j2, aVar.c_() - nanoTime) + nanoTime;
                 } else if (i2 != 0) {
-                    aVar.f28174g = j + nanoTime;
+                    aVar.f64017g = j2 + nanoTime;
                 } else if (z) {
-                    aVar.f28174g = aVar.c_();
+                    aVar.f64017g = aVar.c_();
                 } else {
                     throw new AssertionError();
                 }
                 long b2 = aVar.b(nanoTime);
-                a aVar2 = f28169a;
-                while (aVar2.f28173f != null && b2 >= aVar2.f28173f.b(nanoTime)) {
-                    aVar2 = aVar2.f28173f;
+                a aVar2 = f64012a;
+                while (aVar2.f64016f != null && b2 >= aVar2.f64016f.b(nanoTime)) {
+                    aVar2 = aVar2.f64016f;
                 }
-                aVar.f28173f = aVar2.f28173f;
-                aVar2.f28173f = aVar;
-                if (aVar2 == f28169a) {
+                aVar.f64016f = aVar2.f64016f;
+                aVar2.f64016f = aVar;
+                if (aVar2 == f64012a) {
                     a.class.notify();
                 }
             }
@@ -240,10 +240,10 @@ public class a extends t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aVar)) == null) {
             synchronized (a.class) {
-                for (a aVar2 = f28169a; aVar2 != null; aVar2 = aVar2.f28173f) {
-                    if (aVar2.f28173f == aVar) {
-                        aVar2.f28173f = aVar.f28173f;
-                        aVar.f28173f = null;
+                for (a aVar2 = f64012a; aVar2 != null; aVar2 = aVar2.f64016f) {
+                    if (aVar2.f64016f == aVar) {
+                        aVar2.f64016f = aVar.f64016f;
+                        aVar.f64016f = null;
                         return false;
                     }
                 }
@@ -261,10 +261,10 @@ public class a extends t {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ r f28175a;
+            public final /* synthetic */ r f64018a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f28176b;
+            public final /* synthetic */ a f64019b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -281,52 +281,52 @@ public class a extends t {
                         return;
                     }
                 }
-                this.f28176b = this;
-                this.f28175a = rVar;
+                this.f64019b = this;
+                this.f64018a = rVar;
             }
 
             @Override // com.bytedance.sdk.component.b.a.r
             public t a() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f28176b : (t) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f64019b : (t) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.component.b.a.r
-            public void a_(c cVar, long j) throws IOException {
+            public void a_(c cVar, long j2) throws IOException {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 != null && interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, j) != null) {
+                if (interceptable2 != null && interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, j2) != null) {
                     return;
                 }
-                u.a(cVar.f28183b, 0L, j);
+                u.a(cVar.f64026b, 0L, j2);
                 while (true) {
-                    long j2 = 0;
-                    if (j <= 0) {
+                    long j3 = 0;
+                    if (j2 <= 0) {
                         return;
                     }
-                    o oVar = cVar.f28182a;
+                    o oVar = cVar.f64025a;
                     while (true) {
-                        if (j2 >= 65536) {
+                        if (j3 >= 65536) {
                             break;
                         }
-                        j2 += oVar.f28217c - oVar.f28216b;
-                        if (j2 >= j) {
-                            j2 = j;
+                        j3 += oVar.f64060c - oVar.f64059b;
+                        if (j3 >= j2) {
+                            j3 = j2;
                             break;
                         }
-                        oVar = oVar.f28220f;
+                        oVar = oVar.f64063f;
                     }
-                    this.f28176b.a();
+                    this.f64019b.a();
                     try {
                         try {
-                            this.f28175a.a_(cVar, j2);
-                            j -= j2;
-                            this.f28176b.a(true);
+                            this.f64018a.a_(cVar, j3);
+                            j2 -= j3;
+                            this.f64019b.a(true);
                         } catch (IOException e2) {
-                            throw this.f28176b.a(e2);
+                            throw this.f64019b.a(e2);
                         }
                     } catch (Throwable th) {
-                        this.f28176b.a(false);
+                        this.f64019b.a(false);
                         throw th;
                     }
                 }
@@ -336,16 +336,16 @@ public class a extends t {
             public void close() throws IOException {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f28176b.a();
+                    this.f64019b.a();
                     try {
                         try {
-                            this.f28175a.close();
-                            this.f28176b.a(true);
+                            this.f64018a.close();
+                            this.f64019b.a(true);
                         } catch (IOException e2) {
-                            throw this.f28176b.a(e2);
+                            throw this.f64019b.a(e2);
                         }
                     } catch (Throwable th) {
-                        this.f28176b.a(false);
+                        this.f64019b.a(false);
                         throw th;
                     }
                 }
@@ -355,16 +355,16 @@ public class a extends t {
             public void flush() throws IOException {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                    this.f28176b.a();
+                    this.f64019b.a();
                     try {
                         try {
-                            this.f28175a.flush();
-                            this.f28176b.a(true);
+                            this.f64018a.flush();
+                            this.f64019b.a(true);
                         } catch (IOException e2) {
-                            throw this.f28176b.a(e2);
+                            throw this.f64019b.a(e2);
                         }
                     } catch (Throwable th) {
-                        this.f28176b.a(false);
+                        this.f64019b.a(false);
                         throw th;
                     }
                 }
@@ -374,7 +374,7 @@ public class a extends t {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048580, this)) == null) {
-                    return "AsyncTimeout.sink(" + this.f28175a + SmallTailInfo.EMOTION_SUFFIX;
+                    return "AsyncTimeout.sink(" + this.f64018a + SmallTailInfo.EMOTION_SUFFIX;
                 }
                 return (String) invokeV.objValue;
             }
@@ -389,10 +389,10 @@ public class a extends t {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ s f28177a;
+            public final /* synthetic */ s f64020a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f28178b;
+            public final /* synthetic */ a f64021b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -409,26 +409,26 @@ public class a extends t {
                         return;
                     }
                 }
-                this.f28178b = this;
-                this.f28177a = sVar;
+                this.f64021b = this;
+                this.f64020a = sVar;
             }
 
             @Override // com.bytedance.sdk.component.b.a.s
-            public long a(c cVar, long j) throws IOException {
+            public long a(c cVar, long j2) throws IOException {
                 InterceptResult invokeLJ;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(1048576, this, cVar, j)) == null) {
-                    this.f28178b.a();
+                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(1048576, this, cVar, j2)) == null) {
+                    this.f64021b.a();
                     try {
                         try {
-                            long a2 = this.f28177a.a(cVar, j);
-                            this.f28178b.a(true);
+                            long a2 = this.f64020a.a(cVar, j2);
+                            this.f64021b.a(true);
                             return a2;
                         } catch (IOException e2) {
-                            throw this.f28178b.a(e2);
+                            throw this.f64021b.a(e2);
                         }
                     } catch (Throwable th) {
-                        this.f28178b.a(false);
+                        this.f64021b.a(false);
                         throw th;
                     }
                 }
@@ -439,16 +439,16 @@ public class a extends t {
             public void close() throws IOException {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    this.f28178b.a();
+                    this.f64021b.a();
                     try {
                         try {
-                            this.f28177a.close();
-                            this.f28178b.a(true);
+                            this.f64020a.close();
+                            this.f64021b.a(true);
                         } catch (IOException e2) {
-                            throw this.f28178b.a(e2);
+                            throw this.f64021b.a(e2);
                         }
                     } catch (Throwable th) {
-                        this.f28178b.a(false);
+                        this.f64021b.a(false);
                         throw th;
                     }
                 }
@@ -458,7 +458,7 @@ public class a extends t {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048579, this)) == null) {
-                    return "AsyncTimeout.source(" + this.f28177a + SmallTailInfo.EMOTION_SUFFIX;
+                    return "AsyncTimeout.source(" + this.f64020a + SmallTailInfo.EMOTION_SUFFIX;
                 }
                 return (String) invokeV.objValue;
             }
@@ -467,7 +467,7 @@ public class a extends t {
             public t a() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28178b : (t) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64021b : (t) invokeV.objValue;
             }
         } : (s) invokeL.objValue;
     }

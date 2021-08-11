@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import c.a.o0.b1.q;
+import c.a.p0.r0.a.d.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -33,12 +35,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.p0.b1.q;
-import d.a.q0.q0.a.d.e;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostImagePicker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION = "com.tieba.action.ImagePickerPlugin";
@@ -52,7 +51,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
     public PostAsyncTask.PostCallback callback;
     public CustomMessageListener mAlbumResultListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class BroadcastReciver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -256,7 +255,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 this.this$0 = this;
             }
 
-            @Override // d.a.p0.b1.q.a
+            @Override // c.a.o0.b1.q.a
             public void onError(int i2, String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
@@ -264,7 +263,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
                 }
             }
 
-            @Override // d.a.p0.b1.q.a
+            @Override // c.a.o0.b1.q.a
             public void onSuccess(String str2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
@@ -340,7 +339,7 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
             currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(currentActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            permissionJudgePolicy.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (permissionJudgePolicy.startRequestPermission(currentActivity)) {
                 return;
             }
@@ -360,9 +359,9 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
             currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(currentActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            permissionJudgePolicy.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (permissionJudgePolicy.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
-                if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !ActivityCompat.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+                if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !ActivityCompat.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
                     BdToast.c(currentActivity, "请到设置-隐私-照片开启照片权限").q();
                 }
                 PreferenceUtils.setBoolean("imagepicker_tost_show", true);
@@ -418,9 +417,9 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
             currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
             permissionJudgePolicy.clearRequestPermissionList();
-            permissionJudgePolicy.appendRequestPermission(currentActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            permissionJudgePolicy.appendRequestPermission(currentActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (permissionJudgePolicy.startRequestPermission(TbadkCoreApplication.getInst().getCurrentActivity())) {
-                if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !ActivityCompat.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+                if (PreferenceUtils.getBoolean("imagepicker_tost_show", false) && !ActivityCompat.shouldShowRequestPermissionRationale(TbadkCoreApplication.getInst().getCurrentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE")) {
                     BdToast.c(currentActivity, "请到设置-隐私-照片开启照片权限").q();
                 }
                 PreferenceUtils.setBoolean("imagepicker_tost_show", true);

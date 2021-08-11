@@ -17,18 +17,16 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.widget.j;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.statusbar.ImmersiveKeyboardAdjust;
 import com.baidu.apollon.utils.DisplayUtils;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.apollon.utils.ResUtils;
@@ -42,8 +40,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.base.statistics.StatSettings;
-import com.baidu.wallet.base.statistics.SyncHttpImpl;
 import com.baidu.wallet.base.widget.LoadingDialog;
 import com.baidu.wallet.base.widget.SafeScrollView;
 import com.baidu.wallet.base.widget.dialog.PromptDialog;
@@ -64,7 +60,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BaseActivity extends SDKBaseActivity implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -78,9 +74,6 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     public static final int DIALOG_WAIT_S1 = -1;
     public static final int DIALOG_WAIT_S2 = -2;
     public static final String TAG = "BaseActivity";
-    public static final String TOA_BEGIN = "TOA_BeginToAdapt";
-    public static final String TOA_EXCEPTION = "TOA_Exception";
-    public static final String TOA_TARGET = "TOA_InTranslucentActivity";
     public static final String WITH_ANIM = "with_anim";
     public static LinkedList<BaseActivity> mActivityStack;
     public static int mLiveActivityNum;
@@ -104,7 +97,6 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     public long mTimeVal;
     public boolean mWindowNightMode;
     public b myOrientoinListener;
-    public PayStatisticsUtil payStatisticsUtil;
 
     static {
         InterceptResult invokeClinit;
@@ -251,9 +243,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(getActivity(), new Object[0]);
-            } catch (Throwable th) {
-                DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
-                PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
+            } catch (Throwable unused) {
             }
         }
     }
@@ -286,7 +276,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ BaseActivity f24803a;
+                        public final /* synthetic */ BaseActivity f60515a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -303,7 +293,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                     return;
                                 }
                             }
-                            this.f24803a = this;
+                            this.f60515a = this;
                         }
 
                         @Override // java.lang.reflect.InvocationHandler
@@ -324,9 +314,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                         Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
                         declaredMethod.setAccessible(true);
                         obj = declaredMethod.invoke(this, new Object[0]);
-                    } catch (Exception e2) {
-                        DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
-                        PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
+                    } catch (Exception unused) {
                     }
                     Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
                     declaredMethod2.setAccessible(true);
@@ -336,9 +324,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 Method declaredMethod3 = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
                 declaredMethod3.setAccessible(true);
                 declaredMethod3.invoke(getActivity(), obj2);
-            } catch (Throwable th) {
-                DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
-                PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(th.toString()));
+            } catch (Throwable unused2) {
             }
         }
     }
@@ -389,8 +375,6 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 return obtainStyledAttributes.getBoolean(((Integer) declaredField4.get(null)).intValue(), false) || obtainStyledAttributes.getBoolean(((Integer) declaredField2.get(null)).intValue(), false) || (!obtainStyledAttributes.hasValue(((Integer) declaredField2.get(null)).intValue()) && obtainStyledAttributes.getBoolean(((Integer) declaredField3.get(null)).intValue(), false));
             } catch (Exception e2) {
                 e2.printStackTrace();
-                DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
-                PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
                 return false;
             }
         }
@@ -419,7 +403,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Application f24812a;
+                    public final /* synthetic */ Application f60524a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -436,7 +420,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f24812a = application;
+                        this.f60524a = application;
                     }
 
                     @Override // android.content.ComponentCallbacks
@@ -445,7 +429,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                         if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, configuration) == null) || configuration == null || configuration.fontScale <= 0.0f) {
                             return;
                         }
-                        float unused = BaseActivity.sNocompatScaleDensity = this.f24812a.getResources().getDisplayMetrics().scaledDensity;
+                        float unused = BaseActivity.sNocompatScaleDensity = this.f60524a.getResources().getDisplayMetrics().scaledDensity;
                     }
 
                     @Override // android.content.ComponentCallbacks
@@ -669,21 +653,14 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
-        Serializable serializable;
         ActivityInfo activityInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
             this.mTimeVal = System.currentTimeMillis();
-            PayStatisticsUtil.initStatisticsModule(this, StatSettings.getInstance(this));
-            PayStatisticsUtil.setHttpImpl(new SyncHttpImpl());
             if (getApplicationInfo().targetSdkVersion > 26 && Build.VERSION.SDK_INT == 26) {
-                DXMSdkSAUtils.onEvent(TOA_BEGIN);
-                PayStatisticsUtil.onEvent(TOA_BEGIN);
                 boolean isTranslucentOrFloating = isTranslucentOrFloating();
                 this.isTranslucentOrFloating = isTranslucentOrFloating;
                 if (isTranslucentOrFloating) {
-                    DXMSdkSAUtils.onEvent(TOA_TARGET);
-                    PayStatisticsUtil.onEvent(TOA_TARGET);
                     convertFromTranslucent();
                 }
             }
@@ -692,12 +669,9 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     setRequestedOrientation(1);
                 }
             } catch (Exception unused) {
-                Log.i("BaseActivity", "setRequestedOrientation throw exception");
-                DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList("setRequestedOrientation throw exception"));
-                PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList("setRequestedOrientation throw exception"));
             }
             if (getApplicationInfo().targetSdkVersion > 26 && Build.VERSION.SDK_INT == 26) {
-                if (BeanConstants.CHANNEL_ID_IQIYI.equals(BeanConstants.CHANNEL_ID)) {
+                if ("iqiyi".equals(BeanConstants.CHANNEL_ID)) {
                     try {
                         Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
                         declaredField.setAccessible(true);
@@ -705,12 +679,8 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                             activityInfo = (ActivityInfo) declaredField.get(getActivity());
                         }
                     } catch (IllegalAccessException e2) {
-                        DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
-                        PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e2.toString()));
                         e2.printStackTrace();
                     } catch (NoSuchFieldException e3) {
-                        DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e3.toString()));
-                        PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e3.toString()));
                         e3.printStackTrace();
                     }
                     activityInfo = null;
@@ -718,8 +688,6 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     try {
                         activityInfo = getPackageManager().getActivityInfo(getComponentName(), 0);
                     } catch (PackageManager.NameNotFoundException e4) {
-                        DXMSdkSAUtils.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e4.toString()));
-                        PayStatisticsUtil.onEventWithValues(TOA_EXCEPTION, Arrays.asList(e4.toString()));
                         e4.printStackTrace();
                     }
                 }
@@ -746,8 +714,6 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 }
             }
             super.onCreate(bundle);
-            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "push"));
-            PayStatisticsUtil.onPush(getClass().getSimpleName());
             LogUtil.e("debug_msg", "onCreate-----" + getClass().getName(), null);
             addToTask(this);
             if (Build.VERSION.SDK_INT >= 27) {
@@ -757,8 +723,13 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     bVar.enable();
                 }
             }
-            if (bundle != null && (serializable = bundle.getSerializable("cashdeskcommondata")) != null && (serializable instanceof NetworkBean.SessionCache)) {
-                NetworkBean.SessionCache.sync((NetworkBean.SessionCache) serializable);
+            if (bundle != null) {
+                Bundle bundle2 = bundle.getBundle("saveInfo");
+                bundle2.setClassLoader(getClassLoader());
+                Serializable serializable = bundle2.getSerializable("cashdeskcommondata");
+                if (serializable != null && (serializable instanceof NetworkBean.SessionCache)) {
+                    NetworkBean.SessionCache.sync((NetworkBean.SessionCache) serializable);
+                }
             }
             setImmersiveStatusBar(getActivity());
             if (this.isSupportUIAdapatation) {
@@ -789,8 +760,6 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), j.j));
-            PayStatisticsUtil.onBack(getClass().getSimpleName());
             keyBoardAdjustDetach();
             closeNightMode();
             super.onDestroy();
@@ -847,7 +816,6 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
             decLiveActivityNum();
             this.mIsActivityInForeground = false;
             DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "out"));
-            PayStatisticsUtil.onOut(getClass().getSimpleName());
         }
     }
 
@@ -864,7 +832,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f24805a;
+                    public final /* synthetic */ BaseActivity f60517a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -881,14 +849,14 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f24805a = this;
+                        this.f60517a = this;
                     }
 
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            this.f24805a.cancleRequest();
+                            this.f60517a.cancleRequest();
                         }
                     }
                 }, loadingDialog));
@@ -900,7 +868,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f24804a;
+                    public final /* synthetic */ BaseActivity f60516a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -917,14 +885,14 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f24804a = this;
+                        this.f60516a = this;
                     }
 
                     @Override // android.content.DialogInterface.OnCancelListener
                     public void onCancel(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            this.f24804a.onBackPressed();
+                            this.f60516a.onBackPressed();
                         }
                     }
                 }, loadingDialog2));
@@ -944,7 +912,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f24806a;
+                    public final /* synthetic */ BaseActivity f60518a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -961,14 +929,14 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f24806a = this;
+                        this.f60518a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f24806a, 11);
+                            WalletGlobalUtils.safeDismissDialog(this.f60518a, 11);
                         }
                     }
                 });
@@ -977,7 +945,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f24807a;
+                    public final /* synthetic */ BaseActivity f60519a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -994,16 +962,16 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f24807a = this;
+                        this.f60519a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            WalletGlobalUtils.safeDismissDialog(this.f24807a, 11);
+                            WalletGlobalUtils.safeDismissDialog(this.f60519a, 11);
                             try {
-                                this.f24807a.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
+                                this.f60519a.startActivityForResult(new Intent("android.settings.SETTINGS"), 0);
                             } catch (Exception e2) {
                                 LogUtil.e("BaseActivity", "onPrepareDialog. DIALOG_NO_NETWORK. onClick", e2);
                             }
@@ -1021,10 +989,10 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PromptDialog f24808a;
+                    public final /* synthetic */ PromptDialog f60520a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f24809b;
+                    public final /* synthetic */ BaseActivity f60521b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1041,18 +1009,18 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f24809b = this;
-                        this.f24808a = promptDialog3;
+                        this.f60521b = this;
+                        this.f60520a = promptDialog3;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f24808a.dismiss();
+                            this.f60520a.dismiss();
                             try {
-                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f24809b.getActivity());
-                                PhoneUtils.showInstalledAppOrDetails(this.f24809b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
+                                ApplicationInfo applicationInfo = PhoneUtils.getApplicationInfo(this.f60521b.getActivity());
+                                PhoneUtils.showInstalledAppOrDetails(this.f60521b.getActivity(), applicationInfo != null ? applicationInfo.packageName : "");
                             } catch (Throwable unused) {
                             }
                         }
@@ -1063,10 +1031,10 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ PromptDialog f24810a;
+                    public final /* synthetic */ PromptDialog f60522a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ BaseActivity f24811b;
+                    public final /* synthetic */ BaseActivity f60523b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -1083,15 +1051,15 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                                 return;
                             }
                         }
-                        this.f24811b = this;
-                        this.f24810a = promptDialog3;
+                        this.f60523b = this;
+                        this.f60522a = promptDialog3;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            this.f24810a.dismiss();
+                            this.f60522a.dismiss();
                         }
                     }
                 });
@@ -1108,14 +1076,11 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
             this.mIsActivityInForeground = true;
             showMultiWindowTips();
             if (0 != this.mTimeVal) {
-                long currentTimeMillis = System.currentTimeMillis() - this.mTimeVal;
-                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(currentTimeMillis)));
-                PayStatisticsUtil.onIn(getClass().getSimpleName(), currentTimeMillis);
+                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(System.currentTimeMillis() - this.mTimeVal)));
                 this.mTimeVal = 0L;
                 return;
             }
             DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(0)));
-            PayStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
         }
     }
 
@@ -1123,9 +1088,11 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
+            Bundle bundle2 = new Bundle();
             NetworkBean.SessionCache sessionCache = NetworkBean.SessionCache.getInstance();
             if (sessionCache != null) {
-                bundle.putSerializable("cashdeskcommondata", sessionCache);
+                bundle2.putSerializable("cashdeskcommondata", sessionCache);
+                bundle.putBundle("saveInfo", bundle2);
             }
             super.onSaveInstanceState(bundle);
         }
@@ -1262,7 +1229,9 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 if (this.mNightModeView != null) {
                     return;
                 }
-                WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, getBottomBarType() == SDKBaseActivity.BottomBarType.NONE ? -1 : DisplayUtils.getDisplayHeight(this) - DisplayUtils.dip2px(this, 42.0f), 1002, 24, -2);
+                WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(-1, getBottomBarType() == SDKBaseActivity.BottomBarType.NONE ? -1 : DisplayUtils.getDisplayHeight(this) - DisplayUtils.dip2px(DxmApplicationContextImpl.getApplicationContext(this), 42.0f), 1002, 24, -2);
+                LogUtil.d("baseActivity", "this.displayMetrics.density = " + getResources().getDisplayMetrics().density + " \n applicationCon.density = " + DxmApplicationContextImpl.getApplicationContext(this).getResources().getDisplayMetrics().density);
+                LogUtil.d("baseActivity", "height = " + DisplayUtils.getDisplayHeight(this) + " \n bottomBarh = " + DisplayUtils.dip2px(this, 42.0f));
                 layoutParams.gravity = 48;
                 View view = new View(this);
                 this.mNightModeView = view;
@@ -1270,7 +1239,7 @@ public class BaseActivity extends SDKBaseActivity implements NoProguard {
                 getWindowManager().addView(this.mNightModeView, layoutParams);
                 return;
             }
-            View findViewById = findViewById(ResUtils.id(getApplicationContext(), "night_mode_view"));
+            View findViewById = findViewById(ResUtils.id(DxmApplicationContextImpl.getApplicationContext(this), "night_mode_view"));
             if (findViewById != null) {
                 findViewById.setBackgroundColor(ResUtils.getColor(this, "ebpay_black_transparent"));
             }

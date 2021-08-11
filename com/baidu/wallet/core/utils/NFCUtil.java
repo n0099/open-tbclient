@@ -14,38 +14,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.BaiduWalletServiceProviderMap;
 import com.baidu.wallet.router.LocalRouter;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class NFCUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static NFCUtil f24907a;
+    public static NFCUtil f60625a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public NfcAdapter f24908b;
+    public NfcAdapter f60626b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PendingIntent f24909c;
+    public PendingIntent f60627c;
     public IntentFilter[] mFilters;
     public String[][] mTechlist;
 
     /* renamed from: com.baidu.wallet.core.utils.NFCUtil$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static NFCUtil f24910a;
+        public static NFCUtil f60628a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,7 +60,7 @@ public final class NFCUtil {
                     return;
                 }
             }
-            f24910a = new NFCUtil(null);
+            f60628a = new NFCUtil(null);
         }
 
         public a() {
@@ -98,7 +97,7 @@ public final class NFCUtil {
     public static NFCUtil getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f24910a : (NFCUtil) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f60628a : (NFCUtil) invokeV.objValue;
     }
 
     public void disableForegroundDispatch(Activity activity, boolean z) {
@@ -152,7 +151,7 @@ public final class NFCUtil {
     public boolean isWalletNFCSurport(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) ? LocalRouter.getInstance(activity).isProviderExisted(BaiduWalletServiceProviderMap.PLUGIN_NFC) && isPhoneSurportNFC(activity) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) ? LocalRouter.getInstance(activity).isProviderExisted("nfc") && isPhoneSurportNFC(activity) : invokeL.booleanValue;
     }
 
     public void setWalletNFCEnable(Activity activity, boolean z) {

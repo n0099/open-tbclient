@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f39223a;
+    public static Context f76054a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static final Context a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context context = f39223a;
+            Context context = f76054a;
             if (context == null) {
                 return null;
             }
@@ -68,7 +68,7 @@ public final class f {
     public static final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            f39223a = context;
+            f76054a = context;
         }
     }
 

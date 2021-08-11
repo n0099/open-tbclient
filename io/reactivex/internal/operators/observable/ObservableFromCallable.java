@@ -13,7 +13,7 @@ import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.DeferredScalarDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableFromCallable<T> extends Observable<T> implements Callable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

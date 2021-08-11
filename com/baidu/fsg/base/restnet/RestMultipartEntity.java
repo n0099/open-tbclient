@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RestMultipartEntity {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] MULTIPART_CHARS;
@@ -29,9 +29,69 @@ public class RestMultipartEntity {
     public boolean mIsSetLast;
     public ByteArrayOutputStream mOut;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
+    public static class CountingOutputStream extends FilterOutputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final long length;
+        public final ProgressListener listener;
+        public long transferred;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public CountingOutputStream(long j2, OutputStream outputStream, ProgressListener progressListener) {
+            super(outputStream);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Long.valueOf(j2), outputStream, progressListener};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super((OutputStream) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.length = j2;
+            this.transferred = 0L;
+            this.listener = progressListener;
+        }
+
+        @Override // java.io.FilterOutputStream, java.io.OutputStream
+        public void write(int i2) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+                ((FilterOutputStream) this).out.write(i2);
+                long j2 = this.transferred + 1;
+                this.transferred = j2;
+                ProgressListener progressListener = this.listener;
+                if (progressListener != null) {
+                    progressListener.transferred(j2, this.length);
+                }
+            }
+        }
+
+        @Override // java.io.FilterOutputStream, java.io.OutputStream
+        public void write(byte[] bArr, int i2, int i3) throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) {
+                ((FilterOutputStream) this).out.write(bArr, i2, i3);
+                long j2 = this.transferred + i3;
+                this.transferred = j2;
+                ProgressListener progressListener = this.listener;
+                if (progressListener != null) {
+                    progressListener.transferred(j2, this.length);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
     public interface ProgressListener {
-        void transferred(long j, long j2);
+        void transferred(long j2, long j3);
     }
 
     static {
@@ -79,13 +139,13 @@ public class RestMultipartEntity {
     private void writeBoundaryLine() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            if (!this.mIsSetFirst) {
-                this.mIsSetFirst = true;
-                ByteArrayOutputStream byteArrayOutputStream = this.mOut;
-                byteArrayOutputStream.write(("--" + this.mBoundary + Part.CRLF).getBytes());
+            if (this.mIsSetFirst) {
+                this.mOut.write(this.mBoundaryLineBytes);
                 return;
             }
-            this.mOut.write(this.mBoundaryLineBytes);
+            this.mIsSetFirst = true;
+            ByteArrayOutputStream byteArrayOutputStream = this.mOut;
+            byteArrayOutputStream.write(("--" + this.mBoundary + Part.CRLF).getBytes());
         }
     }
 
@@ -107,6 +167,76 @@ public class RestMultipartEntity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
             addPart(str, str2, false);
+        }
+    }
+
+    public void addPart(String str, String str2, InputStream inputStream, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, inputStream, str3) == null) {
+            addPart(str, str2, inputStream, str3, false);
+        }
+    }
+
+    public void addPart(String str, String str2, InputStream inputStream, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, inputStream, str3, Boolean.valueOf(z)}) == null) {
+            try {
+                try {
+                    try {
+                        writeBoundaryLine();
+                        ByteArrayOutputStream byteArrayOutputStream = this.mOut;
+                        byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + str2 + "\"\r\n").getBytes());
+                        if (str3 != null) {
+                            ByteArrayOutputStream byteArrayOutputStream2 = this.mOut;
+                            byteArrayOutputStream2.write((Part.CONTENT_TYPE + str3 + "\r\n\r\n").getBytes());
+                        } else {
+                            this.mOut.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
+                        }
+                        byte[] bArr = new byte[4096];
+                        while (true) {
+                            int read = inputStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            this.mOut.write(bArr, 0, read);
+                        }
+                        if (z) {
+                            writeLastBoundaryIfNeeds();
+                        }
+                        this.mOut.flush();
+                        inputStream.close();
+                    } catch (IOException e2) {
+                        e2.printStackTrace();
+                    }
+                } catch (Throwable th) {
+                    try {
+                        inputStream.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                    throw th;
+                }
+            } catch (IOException e4) {
+                e4.printStackTrace();
+                inputStream.close();
+            }
+        }
+    }
+
+    public void addPart(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048579, this, str, str2, z) == null) {
+            try {
+                writeBoundaryLine();
+                ByteArrayOutputStream byteArrayOutputStream = this.mOut;
+                byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"\r\n\r\n").getBytes());
+                this.mOut.write(str2.getBytes());
+                if (z) {
+                    writeLastBoundaryIfNeeds();
+                }
+            } catch (IOException e2) {
+                e2.printStackTrace();
+            }
         }
     }
 
@@ -168,143 +298,12 @@ public class RestMultipartEntity {
         byte[] bArr = new byte[8192];
         while (true) {
             int read = byteArrayInputStream.read(bArr);
-            if (read != -1) {
-                countingOutputStream.write(bArr, 0, read);
-            } else {
+            if (read == -1) {
                 countingOutputStream.close();
                 byteArrayInputStream.close();
                 return;
             }
-        }
-    }
-
-    public void addPart(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048579, this, str, str2, z) == null) {
-            try {
-                writeBoundaryLine();
-                ByteArrayOutputStream byteArrayOutputStream = this.mOut;
-                byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"\r\n\r\n").getBytes());
-                this.mOut.write(str2.getBytes());
-                if (z) {
-                    writeLastBoundaryIfNeeds();
-                }
-            } catch (IOException e2) {
-                e2.printStackTrace();
-            }
-        }
-    }
-
-    /* loaded from: classes2.dex */
-    public static class CountingOutputStream extends FilterOutputStream {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long length;
-        public final ProgressListener listener;
-        public long transferred;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CountingOutputStream(long j, OutputStream outputStream, ProgressListener progressListener) {
-            super(outputStream);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), outputStream, progressListener};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super((OutputStream) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.length = j;
-            this.transferred = 0L;
-            this.listener = progressListener;
-        }
-
-        @Override // java.io.FilterOutputStream, java.io.OutputStream
-        public void write(byte[] bArr, int i2, int i3) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) {
-                ((FilterOutputStream) this).out.write(bArr, i2, i3);
-                long j = this.transferred + i3;
-                this.transferred = j;
-                ProgressListener progressListener = this.listener;
-                if (progressListener != null) {
-                    progressListener.transferred(j, this.length);
-                }
-            }
-        }
-
-        @Override // java.io.FilterOutputStream, java.io.OutputStream
-        public void write(int i2) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                ((FilterOutputStream) this).out.write(i2);
-                long j = this.transferred + 1;
-                this.transferred = j;
-                ProgressListener progressListener = this.listener;
-                if (progressListener != null) {
-                    progressListener.transferred(j, this.length);
-                }
-            }
-        }
-    }
-
-    public void addPart(String str, String str2, InputStream inputStream, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, inputStream, str3) == null) {
-            addPart(str, str2, inputStream, str3, false);
-        }
-    }
-
-    public void addPart(String str, String str2, InputStream inputStream, String str3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, inputStream, str3, Boolean.valueOf(z)}) == null) {
-            try {
-                try {
-                    try {
-                        writeBoundaryLine();
-                        ByteArrayOutputStream byteArrayOutputStream = this.mOut;
-                        byteArrayOutputStream.write(("Content-Disposition: form-data; name=\"" + str + "\"; filename=\"" + str2 + "\"\r\n").getBytes());
-                        if (str3 != null) {
-                            ByteArrayOutputStream byteArrayOutputStream2 = this.mOut;
-                            byteArrayOutputStream2.write((Part.CONTENT_TYPE + str3 + "\r\n\r\n").getBytes());
-                        } else {
-                            this.mOut.write("Content-Type: application/octet-stream\r\n\r\n".getBytes());
-                        }
-                        byte[] bArr = new byte[4096];
-                        while (true) {
-                            int read = inputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            this.mOut.write(bArr, 0, read);
-                        }
-                        if (z) {
-                            writeLastBoundaryIfNeeds();
-                        }
-                        this.mOut.flush();
-                        inputStream.close();
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                } catch (Throwable th) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
-                    }
-                    throw th;
-                }
-            } catch (IOException e4) {
-                e4.printStackTrace();
-                inputStream.close();
-            }
+            countingOutputStream.write(bArr, 0, read);
         }
     }
 }

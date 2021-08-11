@@ -1,5 +1,6 @@
 package com.baidu.tbadk.BdToken.activeConfig;
 
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import tbclient.ActiveConfig.ActiveConfigReqIdl;
 import tbclient.ActiveConfig.DataReq;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ActiveConfigReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LAUNTCH_FROM_HOME_PAGE = 1;

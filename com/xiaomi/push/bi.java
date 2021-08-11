@@ -9,30 +9,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LinkedList<a> f40170a;
+    public LinkedList<a> f77021a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final bi f40171a;
+        public static final bi f77022a;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public int f153a;
+        public int f157a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Object f154a;
+        public Object f158a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f155a;
+        public String f159a;
 
         static {
             InterceptResult invokeClinit;
@@ -47,7 +47,7 @@ public class bi {
                     return;
                 }
             }
-            f40171a = new bi();
+            f77022a = new bi();
         }
 
         public a(int i2, Object obj) {
@@ -65,8 +65,8 @@ public class bi {
                     return;
                 }
             }
-            this.f153a = i2;
-            this.f154a = obj;
+            this.f157a = i2;
+            this.f158a = obj;
         }
     }
 
@@ -83,32 +83,32 @@ public class bi {
                 return;
             }
         }
-        this.f40170a = new LinkedList<>();
+        this.f77021a = new LinkedList<>();
     }
 
     public static bi a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f40171a : (bi) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f77022a : (bi) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m177a() {
+    private void m180a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f40170a.size() <= 100) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || this.f77021a.size() <= 100) {
             return;
         }
-        this.f40170a.removeFirst();
+        this.f77021a.removeFirst();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized int m178a() {
+    public synchronized int m181a() {
         InterceptResult invokeV;
         int size;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                size = this.f40170a.size();
+                size = this.f77021a.size();
             }
             return size;
         }
@@ -116,14 +116,14 @@ public class bi {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized LinkedList<a> m179a() {
+    public synchronized LinkedList<a> m182a() {
         InterceptResult invokeV;
         LinkedList<a> linkedList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                linkedList = this.f40170a;
-                this.f40170a = new LinkedList<>();
+                linkedList = this.f77021a;
+                this.f77021a = new LinkedList<>();
             }
             return linkedList;
         }
@@ -134,8 +134,8 @@ public class bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             synchronized (this) {
-                this.f40170a.add(new a(0, obj));
-                m177a();
+                this.f77021a.add(new a(0, obj));
+                m180a();
             }
         }
     }

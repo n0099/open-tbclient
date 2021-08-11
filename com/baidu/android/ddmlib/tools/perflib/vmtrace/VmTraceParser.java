@@ -24,7 +24,8 @@ import java.io.InputStreamReader;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes4.dex */
 public class VmTraceParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HEADER_END = "*end";
@@ -45,7 +46,7 @@ public class VmTraceParser {
     public VmClockType mVmClockType;
 
     /* renamed from: com.baidu.android.ddmlib.tools.perflib.vmtrace.VmTraceParser$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$android$ddmlib$tools$perflib$vmtrace$VmClockType;
         public static /* synthetic */ Interceptable $ic;
@@ -81,7 +82,7 @@ public class VmTraceParser {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class StreamingTraceParser {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;
@@ -192,7 +193,7 @@ public class VmTraceParser {
         private void processSummary(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, str) == null) {
-                String[] split = str.split("\n");
+                String[] split = str.split(StringUtils.LF);
                 String str2 = split[2];
                 for (int i2 = 2; i2 < split.length && !str2.equals("*threads\n"); i2++) {
                     this.this$0.parseOption(split[i2]);
@@ -495,7 +496,7 @@ public class VmTraceParser {
         BufferedReader bufferedReader = null;
         try {
             BufferedReader bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream(file), Charset.forName("UTF-8")));
-            long j = 0;
+            long j2 = 0;
             loop0: while (true) {
                 char c2 = 0;
                 while (true) {
@@ -504,7 +505,7 @@ public class VmTraceParser {
                         if (readLine == null) {
                             break loop0;
                         }
-                        j += readLine.getBytes(Charset.forName("UTF-8")).length + 1;
+                        j2 += readLine.getBytes(Charset.forName("UTF-8")).length + 1;
                         if (readLine.startsWith("*")) {
                             if (readLine.equals(HEADER_SECTION_VERSION)) {
                                 break;
@@ -517,7 +518,7 @@ public class VmTraceParser {
                                     bufferedReader2.close();
                                 } catch (IOException unused) {
                                 }
-                                return j;
+                                return j2;
                             }
                         }
                         if (c2 == 0) {

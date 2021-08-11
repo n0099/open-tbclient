@@ -13,7 +13,7 @@ import com.xiaomi.push.er;
 import com.xiaomi.push.service.ServiceClient;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.az;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PingReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class PingReceiver extends BroadcastReceiver {
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
             b.c(intent.getPackage() + " is the package name");
             if (!az.o.equals(intent.getAction())) {
-                b.m70a("cancel the old ping timer");
+                b.m73a("cancel the old ping timer");
                 er.a();
             } else if (TextUtils.equals(context.getPackageName(), intent.getPackage())) {
                 b.c("Ping XMChannelService on timer");

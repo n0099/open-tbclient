@@ -1,5 +1,7 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
+import c.a.e.k.e.n;
+import c.a.p0.f1.k.a.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -10,14 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.d.k.e.n;
-import d.a.q0.e1.k.a.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicThread.DataRes;
 import tbclient.NewTopicThread.NewTopicThreadResIdl;
 import tbclient.NewTopicThread.TopicThread;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
         for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
             if (topicThread != null) {
                 c cVar = new c();
-                cVar.d(topicThread);
+                cVar.i(topicThread);
                 this.mDataList.add(cVar);
             }
         }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.JProtect;
 @Keep
 @JProtect
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,11 +28,11 @@ public class h {
         }
     }
 
-    public static native Object a(int i2, int i3, long j, String str, Object obj);
+    public static native Object a(int i2, int i3, long j2, String str, Object obj);
 
-    public static Object b(int i2, int i3, long j, String str, Object obj) {
+    public static Object b(int i2, int i3, long j2, String str, Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), str, obj})) == null) ? b.b(i2, i3, j, str, obj) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str, obj})) == null) ? b.b(i2, i3, j2, str, obj) : invokeCommon.objValue;
     }
 }

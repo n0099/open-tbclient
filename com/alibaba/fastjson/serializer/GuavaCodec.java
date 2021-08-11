@@ -1,5 +1,6 @@
 package com.alibaba.fastjson.serializer;
 
+import c.i.d.c.q0;
 import com.alibaba.fastjson.parser.DefaultJSONParser;
 import com.alibaba.fastjson.parser.deserializer.ObjectDeserializer;
 import com.baidu.android.imsdk.internal.Constants;
@@ -11,14 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ArrayListMultimap;
-import d.f.d.c.q0;
 import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GuavaCodec implements ObjectSerializer, ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static GuavaCodec instance;

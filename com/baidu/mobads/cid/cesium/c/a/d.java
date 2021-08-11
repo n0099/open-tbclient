@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.InvalidKeyException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class d extends f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f8316a;
+    public byte[] f42607a;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f8317e;
+    public byte[] f42608e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f8318f;
+    public byte[] f42609f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar) {
@@ -38,17 +38,17 @@ public class d extends f {
                 return;
             }
         }
-        this.f8318f = null;
-        int i4 = this.f8329c;
-        this.f8317e = new byte[i4];
-        this.f8316a = new byte[i4];
+        this.f42609f = null;
+        int i4 = this.f42621c;
+        this.f42608e = new byte[i4];
+        this.f42607a = new byte[i4];
     }
 
     @Override // com.baidu.mobads.cid.cesium.c.a.f
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            System.arraycopy(this.f8330d, 0, this.f8316a, 0, this.f8329c);
+            System.arraycopy(this.f42622d, 0, this.f42607a, 0, this.f42621c);
         }
     }
 
@@ -56,12 +56,12 @@ public class d extends f {
     public void a(boolean z, String str, byte[] bArr, byte[] bArr2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, bArr, bArr2}) == null) {
-            if (bArr == null || bArr2 == null || bArr2.length != this.f8329c) {
+            if (bArr == null || bArr2 == null || bArr2.length != this.f42621c) {
                 throw new InvalidKeyException("Internal error");
             }
-            this.f8330d = bArr2;
+            this.f42622d = bArr2;
             a();
-            this.f8328b.a(z, str, bArr);
+            this.f42620b.a(z, str, bArr);
         }
     }
 
@@ -71,12 +71,12 @@ public class d extends f {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2, Integer.valueOf(i4)}) == null) {
             int i5 = i3 + i2;
             while (i2 < i5) {
-                for (int i6 = 0; i6 < this.f8329c; i6++) {
-                    this.f8317e[i6] = (byte) (bArr[i6 + i2] ^ this.f8316a[i6]);
+                for (int i6 = 0; i6 < this.f42621c; i6++) {
+                    this.f42608e[i6] = (byte) (bArr[i6 + i2] ^ this.f42607a[i6]);
                 }
-                this.f8328b.a(this.f8317e, 0, bArr2, i4);
-                System.arraycopy(bArr2, i4, this.f8316a, 0, this.f8329c);
-                int i7 = this.f8329c;
+                this.f42620b.a(this.f42608e, 0, bArr2, i4);
+                System.arraycopy(bArr2, i4, this.f42607a, 0, this.f42621c);
+                int i7 = this.f42621c;
                 i2 += i7;
                 i4 += i7;
             }
@@ -87,10 +87,10 @@ public class d extends f {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f8318f == null) {
-                this.f8318f = new byte[this.f8329c];
+            if (this.f42609f == null) {
+                this.f42609f = new byte[this.f42621c];
             }
-            System.arraycopy(this.f8316a, 0, this.f8318f, 0, this.f8329c);
+            System.arraycopy(this.f42607a, 0, this.f42609f, 0, this.f42621c);
         }
     }
 
@@ -100,25 +100,25 @@ public class d extends f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2, Integer.valueOf(i4)}) == null) {
             int i6 = i3 + i2;
-            byte[] bArr3 = (bArr != bArr2 || i2 < i4 || i2 - i4 >= this.f8329c) ? null : (byte[]) bArr.clone();
+            byte[] bArr3 = (bArr != bArr2 || i2 < i4 || i2 - i4 >= this.f42621c) ? null : (byte[]) bArr.clone();
             while (i2 < i6) {
-                this.f8328b.b(bArr, i2, this.f8317e, 0);
+                this.f42620b.b(bArr, i2, this.f42608e, 0);
                 int i7 = 0;
                 while (true) {
-                    i5 = this.f8329c;
+                    i5 = this.f42621c;
                     if (i7 >= i5) {
                         break;
                     }
-                    bArr2[i7 + i4] = (byte) (this.f8317e[i7] ^ this.f8316a[i7]);
+                    bArr2[i7 + i4] = (byte) (this.f42608e[i7] ^ this.f42607a[i7]);
                     i7++;
                 }
-                byte[] bArr4 = this.f8316a;
+                byte[] bArr4 = this.f42607a;
                 if (bArr3 == null) {
                     System.arraycopy(bArr, i2, bArr4, 0, i5);
                 } else {
                     System.arraycopy(bArr3, i2, bArr4, 0, i5);
                 }
-                int i8 = this.f8329c;
+                int i8 = this.f42621c;
                 i2 += i8;
                 i4 += i8;
             }
@@ -129,7 +129,7 @@ public class d extends f {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            System.arraycopy(this.f8318f, 0, this.f8316a, 0, this.f8329c);
+            System.arraycopy(this.f42609f, 0, this.f42607a, 0, this.f42621c);
         }
     }
 }

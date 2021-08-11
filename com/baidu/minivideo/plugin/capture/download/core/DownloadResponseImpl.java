@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadResponseImpl implements DownloadResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,10 +59,10 @@ public class DownloadResponseImpl implements DownloadResponse {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onConnected(long j, long j2, boolean z) {
+    public void onConnected(long j2, long j3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.mDownloadStatus.setTime(j);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
+            this.mDownloadStatus.setTime(j2);
             this.mDownloadStatus.setAcceptRanges(z);
             this.mDownloadStatus.setStatus(103);
             this.mDelivery.post(this.mDownloadStatus);
@@ -117,11 +117,11 @@ public class DownloadResponseImpl implements DownloadResponse {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadResponse
-    public void onDownloadProgress(long j, long j2, int i2) {
+    public void onDownloadProgress(long j2, long j3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            this.mDownloadStatus.setFinished(j);
-            this.mDownloadStatus.setLength(j2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
+            this.mDownloadStatus.setFinished(j2);
+            this.mDownloadStatus.setLength(j3);
             this.mDownloadStatus.setPercent(i2);
             this.mDownloadStatus.setStatus(104);
             this.mDelivery.post(this.mDownloadStatus);

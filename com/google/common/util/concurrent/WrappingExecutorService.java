@@ -1,6 +1,8 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.n;
+import c.i.d.a.s;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,8 +10,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableList;
-import d.f.d.a.n;
-import d.f.d.a.s;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -19,7 +19,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class WrappingExecutorService implements ExecutorService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,10 +58,10 @@ public abstract class WrappingExecutorService implements ExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public final boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
+    public final boolean awaitTermination(long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) ? this.delegate.awaitTermination(j, timeUnit) : invokeJL.booleanValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) ? this.delegate.awaitTermination(j2, timeUnit) : invokeJL.booleanValue;
     }
 
     @Override // java.util.concurrent.Executor
@@ -173,17 +173,17 @@ public abstract class WrappingExecutorService implements ExecutorService {
     public abstract <T> Callable<T> wrapTask(Callable<T> callable);
 
     @Override // java.util.concurrent.ExecutorService
-    public final <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> collection, long j, TimeUnit timeUnit) throws InterruptedException {
+    public final <T> List<Future<T>> invokeAll(Collection<? extends Callable<T>> collection, long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{collection, Long.valueOf(j), timeUnit})) == null) ? this.delegate.invokeAll(wrapTasks(collection), j, timeUnit) : (List) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{collection, Long.valueOf(j2), timeUnit})) == null) ? this.delegate.invokeAll(wrapTasks(collection), j2, timeUnit) : (List) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public final <T> T invokeAny(Collection<? extends Callable<T>> collection, long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public final <T> T invokeAny(Collection<? extends Callable<T>> collection, long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{collection, Long.valueOf(j), timeUnit})) == null) ? (T) this.delegate.invokeAny(wrapTasks(collection), j, timeUnit) : (T) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{collection, Long.valueOf(j2), timeUnit})) == null) ? (T) this.delegate.invokeAny(wrapTasks(collection), j2, timeUnit) : (T) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ExecutorService

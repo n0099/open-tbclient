@@ -21,7 +21,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T
     public final ConnectableFlowable<T> source;
     public final AtomicInteger subscriptionCount;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class ConnectionSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 152064694420235350L;
@@ -126,15 +126,15 @@ public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-                SubscriptionHelper.deferredRequest(this, this.requested, j);
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+                SubscriptionHelper.deferredRequest(this, this.requested, j2);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class DisposeConsumer implements Consumer<Disposable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -178,7 +178,7 @@ public final class FlowableRefCount<T> extends AbstractFlowableWithUpstream<T, T
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class DisposeTask implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

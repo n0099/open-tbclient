@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.multipro.e;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f31802a;
+    public Context f67747a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -117,7 +117,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            return e.f31807b + "/t_frequent/";
+            return e.f67752b + "/t_frequent/";
         }
         return (String) invokeV.objValue;
     }
@@ -181,7 +181,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.f31802a = context;
+            this.f67747a = context;
         }
     }
 

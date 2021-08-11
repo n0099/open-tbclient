@@ -1,6 +1,8 @@
 package com.baidu.sapi2.activity;
 
 import android.os.Bundle;
+import c.a.b0.a.f;
+import c.a.b0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
@@ -10,9 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.c0.a.f;
-import d.a.c0.a.g;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ForgetPwdActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class ForgetPwdActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ForgetPwdActivity f9785a;
+                public final /* synthetic */ ForgetPwdActivity f44445a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -120,14 +120,14 @@ public class ForgetPwdActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9785a = this;
+                    this.f44445a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnBackCallback
                 public void onBack() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f9785a.a();
+                        this.f44445a.a();
                     }
                 }
             });
@@ -136,7 +136,7 @@ public class ForgetPwdActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ForgetPwdActivity f9786a;
+                public final /* synthetic */ ForgetPwdActivity f44446a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -153,14 +153,14 @@ public class ForgetPwdActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9786a = this;
+                    this.f44446a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
                 public void onFinish() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f9786a.finish();
+                        this.f44446a.finish();
                     }
                 }
             });
@@ -169,7 +169,7 @@ public class ForgetPwdActivity extends BaseActivity {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ForgetPwdActivity f9787a;
+                public final /* synthetic */ ForgetPwdActivity f44447a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -186,14 +186,14 @@ public class ForgetPwdActivity extends BaseActivity {
                             return;
                         }
                     }
-                    this.f9787a = this;
+                    this.f44447a = this;
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.ChangePwdCallback
                 public void onSuccess() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f9787a.finish();
+                        this.f44447a.finish();
                     }
                 }
             });

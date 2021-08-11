@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Amf0Track extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

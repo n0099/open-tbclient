@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile Executor f36760a;
+    public static volatile Executor f73583a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile ScheduledExecutorService f36761b;
+    public static volatile ScheduledExecutorService f73584b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,23 +32,23 @@ public class g {
                 return;
             }
         }
-        f36760a = com.kwad.sdk.core.i.b.n();
+        f73583a = com.kwad.sdk.core.i.b.n();
     }
 
     public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, runnable) == null) {
-            f36760a.execute(runnable);
+            f73583a.execute(runnable);
         }
     }
 
-    public static void a(Runnable runnable, long j, TimeUnit timeUnit) {
+    public static void a(Runnable runnable, long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j), timeUnit}) == null) {
-            if (f36761b == null) {
-                f36761b = com.kwad.sdk.core.i.b.o();
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{runnable, Long.valueOf(j2), timeUnit}) == null) {
+            if (f73584b == null) {
+                f73584b = com.kwad.sdk.core.i.b.o();
             }
-            f36761b.schedule(runnable, j, timeUnit);
+            f73584b.schedule(runnable, j2, timeUnit);
         }
     }
 }

@@ -26,7 +26,6 @@ import android.util.DisplayMetrics;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.apollon.statusbar.ImmersiveOSUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.network.NetworkInfoUtils;
 import com.baidu.mobstat.bm;
@@ -56,21 +55,21 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class bw {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f8904a;
+    public static String f43213a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f8905b;
+    public static String f43214b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f8906c;
+    public static String f43215c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f8907d;
+    public static final Pattern f43216d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -86,7 +85,7 @@ public class bw {
                 return;
             }
         }
-        f8907d = Pattern.compile("\\s*|\t|\r|\n");
+        f43216d = Pattern.compile("\\s*|\t|\r|\n");
     }
 
     public static String a(Context context, String str) {
@@ -542,7 +541,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
-            String str = f8905b;
+            String str = f43214b;
             if (str == null) {
                 String y = y(context);
                 String b2 = b(context, y);
@@ -550,7 +549,7 @@ public class bw {
                     b2 = c(context, y);
                 }
                 str = b2 == null ? "" : b2;
-                f8905b = str;
+                f43214b = str;
             }
             return str;
         }
@@ -610,7 +609,7 @@ public class bw {
         return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003c: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x003b: INVOKE  (r1v3 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
     public static String x(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -647,7 +646,7 @@ public class bw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            String str = f8904a;
+            String str = f43213a;
             if (str == null) {
                 try {
                     List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
@@ -667,7 +666,7 @@ public class bw {
                 if (str == null) {
                     str = "";
                 }
-                f8904a = str;
+                f43213a = str;
             }
             return str;
         }
@@ -837,7 +836,7 @@ public class bw {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            String str2 = f8906c;
+            String str2 = f43215c;
             if (str2 != null) {
                 return str2;
             }
@@ -855,10 +854,10 @@ public class bw {
             if (TextUtils.isEmpty(str)) {
                 String a2 = a("ro.build.display.id");
                 if (!TextUtils.isEmpty(a2) && a2.contains("Flyme")) {
-                    str = ImmersiveOSUtils.FLYME;
+                    str = "flyme";
                 }
             }
-            f8906c = str;
+            f43215c = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -884,7 +883,7 @@ public class bw {
     public static String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f8907d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? f43216d.matcher(bx.a(context)).replaceAll("") : (String) invokeL.objValue;
     }
 
     public static Boolean c() {

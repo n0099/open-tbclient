@@ -1,6 +1,8 @@
 package com.baidu.tieba.setting.privacy;
 
 import android.os.Bundle;
+import c.a.e.e.p.j;
+import c.a.o0.s.d0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -16,22 +18,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.p0.s.d0.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d.a.q0.z2.e.a privacyMarkView;
+    public c.a.p0.a3.e.a privacyMarkView;
     public HttpMessageListener setPrivateHttpListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PrivacyMarkActivity f20963a;
+        public final /* synthetic */ PrivacyMarkActivity f56439a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PrivacyMarkActivity privacyMarkActivity, int i2, boolean z) {
@@ -52,7 +52,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     return;
                 }
             }
-            this.f20963a = privacyMarkActivity;
+            this.f56439a = privacyMarkActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -65,20 +65,20 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                 int type = privacySettingMessage.getType();
                 if (httpResponsedMessage.getError() == 0 && !httpResponsedMessage.hasError()) {
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                    b j = b.j();
-                    j.v(operation + currentAccount, type);
+                    b j2 = b.j();
+                    j2.v(operation + currentAccount, type);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921499, null));
                     return;
                 }
                 if (PrivacyMarkActivityConfig.BAZHU_SHOW_INSIDE.equals(operation)) {
-                    this.f20963a.privacyMarkView.m();
+                    this.f56439a.privacyMarkView.k();
                 } else if (PrivacyMarkActivityConfig.BAZHU_SHOW_OUTSIDE.equals(operation)) {
-                    this.f20963a.privacyMarkView.n();
+                    this.f56439a.privacyMarkView.l();
                 }
                 if (httpResponsedMessage.getError() != -1 && j.z()) {
-                    this.f20963a.showToast(R.string.privacy_setting_failed);
+                    this.f56439a.showToast(R.string.privacy_setting_failed);
                 } else {
-                    this.f20963a.showToast(R.string.neterror);
+                    this.f56439a.showToast(R.string.neterror);
                 }
             }
         }
@@ -105,7 +105,7 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.privacyMarkView.l();
+            this.privacyMarkView.j();
         }
     }
 
@@ -122,9 +122,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            d.a.q0.z2.e.a aVar = new d.a.q0.z2.e.a(getPageContext(), (intExtra << 2) | intExtra2);
+            c.a.p0.a3.e.a aVar = new c.a.p0.a3.e.a(getPageContext(), (intExtra << 2) | intExtra2);
             this.privacyMarkView = aVar;
-            setContentView(aVar.j());
+            setContentView(aVar.h());
             registerListener(this.setPrivateHttpListener);
         }
     }

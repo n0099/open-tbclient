@@ -4,36 +4,36 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f1774a = false;
+    public static final boolean f35610a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1775b = "com.alipay.sdk";
+    public static final String f35611b = "com.alipay.sdk";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f1776c = "release";
+    public static final String f35612c = "release";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f1777d = "utdidSec";
+    public static final String f35613d = "utdidSec";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f1778e = 1;
+    public static final int f35614e = 1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f1779f = "1.0";
+    public static final String f35615f = "15.7.7";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f1780g = "2fd7d18-clean";
+    public static final String f35616g = "726a7a5-clean";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f1781h = "15.6.5";
+    public static final String f35617h = "15.7.7";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f1782i = "h.a.3.6.5";
+    public static final String f35618i = "h.a.3.7.7";
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {

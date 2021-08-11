@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class MultiplexProducer<K, T extends Closeable> implements Producer<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,14 +35,14 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
     public final Map<K, MultiplexProducer<K, T>.Multiplexer> mMultiplexers;
 
     /* renamed from: com.facebook.imagepipeline.producers.MultiplexProducer$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class Multiplexer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,7 +63,7 @@ public abstract class MultiplexProducer<K, T extends Closeable> implements Produ
         public BaseProducerContext mMultiplexProducerContext;
         public final /* synthetic */ MultiplexProducer this$0;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public class ForwardingConsumer extends BaseConsumer<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

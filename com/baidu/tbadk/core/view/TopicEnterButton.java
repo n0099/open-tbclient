@@ -7,6 +7,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
+import c.a.e.e.p.k;
+import c.a.e.e.p.l;
+import c.a.o0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
@@ -20,25 +23,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.d.e.p.l;
-import d.a.p0.s.u.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TopicEnterButton extends AppCompatTextView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f12672f;
+    public static final int f47654f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f12673g;
+    public static final int f47655g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f12674h;
+    public static final int f47656h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecommendTopicData.RecommendTopicListData f12675e;
+    public RecommendTopicData.RecommendTopicListData f47657e;
 
     static {
         InterceptResult invokeClinit;
@@ -53,9 +53,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        f12672f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        f12673g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        f12674h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f12672f) - f12673g;
+        f47654f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        f47655g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        f47656h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f47654f) - f47655g;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,29 +76,29 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        e();
+        init();
     }
 
-    public void d(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
+    public void bindData(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, recommendTopicListData) == null) {
-            this.f12675e = recommendTopicListData;
+            this.f47657e = recommendTopicListData;
             if (recommendTopicListData != null) {
                 String topicName = recommendTopicListData.getTopicName();
                 if (k.isEmpty(topicName)) {
                     setVisibility(8);
                     return;
                 }
-                setText(TextUtils.ellipsize(topicName, getPaint(), f12674h, TextUtils.TruncateAt.END));
+                setText(TextUtils.ellipsize(topicName, getPaint(), f47656h, TextUtils.TruncateAt.END));
                 setVisibility(0);
-                f();
+                onChangeSkinType();
                 return;
             }
             setVisibility(8);
         }
     }
 
-    public void e() {
+    public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setHeight((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds62));
@@ -106,11 +106,11 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             setGravity(17);
             setPadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0);
             setOnClickListener(this);
-            f();
+            onChangeSkinType();
         }
     }
 
-    public void f() {
+    public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             c d2 = c.d(this);
@@ -122,9 +122,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
             Drawable maskDrawable = WebPManager.getMaskDrawable(R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
-            setCompoundDrawablePadding(f12672f);
+            setCompoundDrawablePadding(f47654f);
             if (maskDrawable != null) {
-                int i2 = f12673g;
+                int i2 = f47655g;
                 maskDrawable.setBounds(0, 0, i2, i2);
             }
             setCompoundDrawables(maskDrawable, null, null, null);
@@ -135,10 +135,10 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void onClick(View view) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (recommendTopicListData = this.f12675e) == null || k.isEmpty(recommendTopicListData.getTopicName())) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (recommendTopicListData = this.f47657e) == null || k.isEmpty(recommendTopicListData.getTopicName())) {
             return;
         }
-        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f12675e.getTopicName(), "2").start();
+        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f47657e.getTopicName(), "2").start();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -160,7 +160,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        e();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -182,6 +182,6 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        e();
+        init();
     }
 }

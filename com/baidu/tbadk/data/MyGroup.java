@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.MyGroupInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MyGroup extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3454151897639902332L;
@@ -81,10 +81,10 @@ public class MyGroup extends OrmObject implements Serializable {
         this.mGroupMemberNum = myGroupInfo.member_num;
     }
 
-    public void setGroupId(long j) {
+    public void setGroupId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.mGroupId = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.mGroupId = j2;
         }
     }
 

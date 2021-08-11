@@ -3,12 +3,12 @@ package com.bytedance.sdk.openadsdk.preload.geckox.utils;
 import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f32477a;
+    public static Context f68439a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static void a(Context context) {
@@ -16,7 +16,7 @@ public class g {
         if (!(interceptable == null || interceptable.invokeL(65536, null, context) == null) || context == null) {
             return;
         }
-        f32477a = context;
+        f68439a = context;
     }
 
     public static void a(String str) {

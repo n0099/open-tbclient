@@ -23,7 +23,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.PriorityQueue;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LruDiskCache extends LruCache<String, CacheResource<File>> {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -37,7 +37,7 @@ public class LruDiskCache extends LruCache<String, CacheResource<File>> {
     public volatile boolean restoreCompleted;
     public long tailModifiedTime;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnCacheListener {
         void onCacheComplete(String str, CacheResource<File> cacheResource);
 
@@ -248,9 +248,9 @@ public class LruDiskCache extends LruCache<String, CacheResource<File>> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void restoreCacheWithQueue(File[] fileArr, long j) {
+    public void restoreCacheWithQueue(File[] fileArr, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65548, this, fileArr, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65548, this, fileArr, j2) == null) {
             if (fileArr != null && fileArr.length > 0) {
                 PriorityQueue priorityQueue = new PriorityQueue(11, new Comparator<File>(this) { // from class: com.baidu.mobads.container.util.cache.LruDiskCache.4
                     public static /* synthetic */ Interceptable $ic;
@@ -294,7 +294,7 @@ public class LruDiskCache extends LruCache<String, CacheResource<File>> {
                     put(file.getName(), file);
                 }
             }
-            logWhenDebug("Complete restore cache using " + (System.currentTimeMillis() - j) + "ms: ");
+            logWhenDebug("Complete restore cache using " + (System.currentTimeMillis() - j2) + "ms: ");
             onRestoreComplete();
         }
     }
@@ -462,10 +462,10 @@ public class LruDiskCache extends LruCache<String, CacheResource<File>> {
         }
     }
 
-    public void setExpireTime(long j) {
+    public void setExpireTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.expireTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            this.expireTime = j2;
         }
     }
 

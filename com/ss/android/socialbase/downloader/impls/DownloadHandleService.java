@@ -4,6 +4,8 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
+import c.p.a.e.b.g.e;
+import c.p.a.e.b.g.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,26 +14,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.l.a.e.b.g.e;
-import d.l.a.e.b.g.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DownloadHandleService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38776a;
+    public static final String f75590a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f38777e;
+        public final /* synthetic */ int f75591e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ DownloadHandleService f38778f;
+        public final /* synthetic */ DownloadHandleService f75592f;
 
         public a(DownloadHandleService downloadHandleService, int i2) {
             Interceptable interceptable = $ic;
@@ -48,8 +48,8 @@ public class DownloadHandleService extends Service {
                     return;
                 }
             }
-            this.f38778f = downloadHandleService;
-            this.f38777e = i2;
+            this.f75592f = downloadHandleService;
+            this.f75591e = i2;
         }
 
         @Override // java.lang.Runnable
@@ -57,7 +57,7 @@ public class DownloadHandleService extends Service {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    f.c().J(this.f38777e);
+                    f.c().J(this.f75591e);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -78,7 +78,7 @@ public class DownloadHandleService extends Service {
                 return;
             }
         }
-        f38776a = DownloadHandleService.class.getSimpleName();
+        f75590a = DownloadHandleService.class.getSimpleName();
     }
 
     public DownloadHandleService() {

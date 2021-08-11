@@ -16,6 +16,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,7 +29,7 @@ import com.yy.hiidostatis.inner.util.UiThreadExecutor;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class FloatingService {
     public static final /* synthetic */ FloatingService[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -47,7 +48,7 @@ public final class FloatingService {
     public boolean movingState;
     public WindowManager windowManager;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class FloatingOnTouchListener implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -131,7 +132,7 @@ public final class FloatingService {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class LogAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +258,7 @@ public final class FloatingService {
             listView.setPadding(10, 10, 10, 10);
             this.listView = listView;
             if (Build.VERSION.SDK_INT >= 26) {
-                this.layoutParams.type = 2038;
+                this.layoutParams.type = SpeedStatsStampTable.INIT_MSG_SIX_STAMP_KEY;
             } else {
                 this.layoutParams.type = 2002;
             }

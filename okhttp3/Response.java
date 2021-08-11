@@ -16,8 +16,9 @@ import okhttp3.Headers;
 import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.auth.AUTH;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class Response implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -204,16 +205,16 @@ public final class Response implements Closeable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? new Builder(this) : (Builder) invokeV.objValue;
     }
 
-    public ResponseBody peekBody(long j) throws IOException {
+    public ResponseBody peekBody(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j2)) == null) {
             BufferedSource source = this.body.source();
-            source.request(j);
+            source.request(j2);
             Buffer clone = source.buffer().clone();
-            if (clone.size() > j) {
+            if (clone.size() > j2) {
                 Buffer buffer = new Buffer();
-                buffer.write(clone, j);
+                buffer.write(clone, j2);
                 clone.clear();
                 clone = buffer;
             }
@@ -257,7 +258,7 @@ public final class Response implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "Response{protocol=" + this.protocol + ", code=" + this.code + ", message=" + this.message + ", url=" + this.request.url() + '}';
+            return "Response{protocol=" + this.protocol + ", code=" + this.code + ", message=" + this.message + ", url=" + this.request.url() + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
@@ -279,7 +280,7 @@ public final class Response implements Closeable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.headers : (Headers) invokeV.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -480,11 +481,11 @@ public final class Response implements Closeable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder receivedResponseAtMillis(long j) {
+        public Builder receivedResponseAtMillis(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) {
-                this.receivedResponseAtMillis = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j2)) == null) {
+                this.receivedResponseAtMillis = j2;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -510,11 +511,11 @@ public final class Response implements Closeable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder sentRequestAtMillis(long j) {
+        public Builder sentRequestAtMillis(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
-                this.sentRequestAtMillis = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j2)) == null) {
+                this.sentRequestAtMillis = j2;
                 return this;
             }
             return (Builder) invokeJ.objValue;

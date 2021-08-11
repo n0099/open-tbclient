@@ -1,6 +1,14 @@
 package com.baidu.tbadk.core.util;
 
 import android.text.TextUtils;
+import c.a.e.e.l.d;
+import c.a.e.e.p.j;
+import c.a.e.k.c.c;
+import c.a.e.k.e.a;
+import c.a.e.k.e.n;
+import c.a.e.k.e.o;
+import c.a.e.k.e.q;
+import c.a.e.k.e.r;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.BdRecyclerAdapter;
@@ -12,17 +20,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.l.d;
-import d.a.d.e.p.j;
-import d.a.d.k.c.c;
-import d.a.d.k.e.a;
-import d.a.d.k.e.n;
-import d.a.d.k.e.o;
-import d.a.d.k.e.q;
-import d.a.d.k.e.r;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PreLoadImageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_MAX_CACHE_SIZE_PERCENT = 0.8f;
@@ -43,8 +43,8 @@ public class PreLoadImageHelper {
     }
 
     public static void addPreloadSuggestSize(o oVar, Object obj, PreLoadImageInfo preLoadImageInfo) {
-        a<n, TypeAdapter.ViewHolder> c2;
-        c G;
+        a<n, TypeAdapter.ViewHolder> adapterByData;
+        c J;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLL(65537, null, oVar, obj, preLoadImageInfo) == null) || oVar == null || obj == null || preLoadImageInfo == null) {
             return;
@@ -55,15 +55,15 @@ public class PreLoadImageHelper {
                 rVar = (r) oVar;
             } else if (oVar instanceof BdRecyclerAdapter) {
                 BdRecyclerAdapter bdRecyclerAdapter = (BdRecyclerAdapter) oVar;
-                if (bdRecyclerAdapter.p() instanceof r) {
-                    rVar = (r) bdRecyclerAdapter.p();
+                if (bdRecyclerAdapter.getWrappedAdapter() instanceof r) {
+                    rVar = (r) bdRecyclerAdapter.getWrappedAdapter();
                 }
             }
-            if (rVar == null || !(obj instanceof n) || (c2 = rVar.c((n) obj)) == null || (G = c2.G(preLoadImageInfo.preloadType)) == null || G.b() <= 0 || G.a() <= 0) {
+            if (rVar == null || !(obj instanceof n) || (adapterByData = rVar.getAdapterByData((n) obj)) == null || (J = adapterByData.J(preLoadImageInfo.preloadType)) == null || J.b() <= 0 || J.a() <= 0) {
                 return;
             }
-            preLoadImageInfo.width = G.b();
-            preLoadImageInfo.height = G.a();
+            preLoadImageInfo.width = J.b();
+            preLoadImageInfo.height = J.a();
         }
     }
 

@@ -4,10 +4,10 @@ import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import com.bytedance.sdk.openadsdk.c.b;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface TTAdNative {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface BannerAdListener extends b {
         @MainThread
         void onBannerAdLoad(TTBannerAd tTBannerAd);
@@ -17,7 +17,7 @@ public interface TTAdNative {
         void onError(int i2, String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface DrawFeedAdListener extends b {
         @MainThread
         void onDrawFeedAdLoad(List<TTDrawFeedAd> list);
@@ -27,7 +27,7 @@ public interface TTAdNative {
         void onError(int i2, String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface FeedAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.c.b
         @MainThread
@@ -37,7 +37,7 @@ public interface TTAdNative {
         void onFeedAdLoad(List<TTFeedAd> list);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface FullScreenVideoAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.c.b
         @MainThread
@@ -49,7 +49,7 @@ public interface TTAdNative {
         void onFullScreenVideoCached();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface InteractionAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.c.b
         @MainThread
@@ -59,7 +59,7 @@ public interface TTAdNative {
         void onInteractionAdLoad(TTInteractionAd tTInteractionAd);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface NativeAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.c.b
         @MainThread
@@ -69,7 +69,7 @@ public interface TTAdNative {
         void onNativeAdLoad(List<TTNativeAd> list);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface NativeExpressAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.c.b
         @MainThread
@@ -79,7 +79,7 @@ public interface TTAdNative {
         void onNativeExpressAdLoad(List<TTNativeExpressAd> list);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface RewardVideoAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.c.b
         @MainThread
@@ -91,7 +91,7 @@ public interface TTAdNative {
         void onRewardVideoCached();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface SplashAdListener extends b {
         @Override // com.bytedance.sdk.openadsdk.c.b
         @MainThread

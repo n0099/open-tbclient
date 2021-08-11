@@ -4,12 +4,11 @@ import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import com.qq.e.comm.adevent.ADListener;
-import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
-public interface NSPVI extends ApkDownloadComplianceInterface {
+/* loaded from: classes10.dex */
+public interface NSPVI extends LADI {
     public static final Map<String, String> ext = new HashMap();
 
     void fetchAdOnly();
@@ -21,10 +20,6 @@ public interface NSPVI extends ApkDownloadComplianceInterface {
     void fetchFullScreenAndShowIn(ViewGroup viewGroup);
 
     String getAdNetWorkName();
-
-    int getECPM();
-
-    String getECPMLevel();
 
     Bitmap getZoomOutBitmap();
 

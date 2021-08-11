@@ -2,7 +2,6 @@ package com.tencent.open.log;
 
 import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,21 +14,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.log.d;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SLog implements TraceLevel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "openSDK_LOG";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f39159c;
+    public static boolean f75987c;
     public static SLog instance;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f39160a;
+    public a f75988a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Tracer f39161b;
+    public Tracer f75989b;
 
     static {
         InterceptResult invokeClinit;
@@ -59,7 +58,7 @@ public class SLog implements TraceLevel {
                 return;
             }
         }
-        this.f39160a = new a(new b(a(), c.m, c.f39189g, c.f39190h, c.f39185c, c.f39191i, 10, c.f39187e, c.n));
+        this.f75988a = new a(new b(a(), c.m, c.f76019g, c.f76020h, c.f76015c, c.f76021i, 10, c.f76017e, c.n));
     }
 
     public static final void d(String str, String str2) {
@@ -91,7 +90,7 @@ public class SLog implements TraceLevel {
                 synchronized (SLog.class) {
                     if (instance == null) {
                         instance = new SLog();
-                        f39159c = true;
+                        f75987c = true;
                     }
                 }
             }
@@ -143,32 +142,31 @@ public class SLog implements TraceLevel {
     public void a(int i2, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, th}) == null) {
-            if (f39159c) {
+            if (f75987c) {
                 String b2 = com.tencent.open.utils.f.b();
                 if (!TextUtils.isEmpty(b2)) {
                     String str3 = b2 + " SDK_VERSION:" + Constants.SDK_VERSION;
-                    if (this.f39160a == null) {
+                    if (this.f75988a == null) {
                         return;
                     }
-                    e.f39195a.a(32, Thread.currentThread(), System.currentTimeMillis(), TAG, str3, null);
-                    this.f39160a.a(32, Thread.currentThread(), System.currentTimeMillis(), TAG, str3, null);
-                    f39159c = false;
+                    e.f76026a.a(32, Thread.currentThread(), System.currentTimeMillis(), TAG, str3, null);
+                    this.f75988a.a(32, Thread.currentThread(), System.currentTimeMillis(), TAG, str3, null);
+                    f75987c = false;
                 }
             }
-            e.f39195a.a(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
-            if (d.a.a(c.f39184b, i2)) {
-                a aVar = this.f39160a;
+            e.f76026a.a(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
+            if (d.a.a(c.f76014b, i2)) {
+                a aVar = this.f75988a;
                 if (aVar == null) {
                     return;
                 }
                 aVar.a(i2, Thread.currentThread(), System.currentTimeMillis(), str, str2, th);
             }
-            Tracer tracer = this.f39161b;
+            Tracer tracer = this.f75989b;
             if (tracer != null) {
                 try {
                     tracer.a(i2, Thread.currentThread(), System.currentTimeMillis(), str, a(str2), th);
-                } catch (Exception e2) {
-                    Log.e(str, "Exception", e2);
+                } catch (Exception unused) {
                 }
             }
         }
@@ -177,18 +175,18 @@ public class SLog implements TraceLevel {
     public void b() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f39160a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.f75988a) == null) {
             return;
         }
         aVar.a();
-        this.f39160a.b();
-        this.f39160a = null;
+        this.f75988a.b();
+        this.f75988a = null;
     }
 
     public void c() {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f39160a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.f75988a) == null) {
             return;
         }
         aVar.a();
@@ -197,7 +195,7 @@ public class SLog implements TraceLevel {
     public void setCustomLogger(Tracer tracer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tracer) == null) {
-            this.f39161b = tracer;
+            this.f75989b = tracer;
         }
     }
 
@@ -253,10 +251,10 @@ public class SLog implements TraceLevel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = c.f39186d;
+            String str = c.f76016d;
             try {
                 d.c b2 = d.b.b();
-                if (b2 != null && b2.c() > c.f39188f) {
+                if (b2 != null && b2.c() > c.f76018f) {
                     return new File(Environment.getExternalStorageDirectory(), str);
                 }
                 return new File(com.tencent.open.utils.f.c(), str);

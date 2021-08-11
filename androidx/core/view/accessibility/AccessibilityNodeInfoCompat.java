@@ -8,7 +8,6 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.ClickableSpan;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -295,18 +294,15 @@ public class AccessibilityNodeInfoCompat {
                     if (cls != null) {
                         try {
                             newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-                        } catch (Exception e2) {
-                            e = e2;
+                        } catch (Exception unused) {
                         }
                         try {
                             newInstance.setBundle(bundle);
                             commandArguments = newInstance;
-                        } catch (Exception e3) {
-                            e = e3;
+                        } catch (Exception unused2) {
                             commandArguments = newInstance;
                             Class<? extends AccessibilityViewCommand.CommandArguments> cls2 = this.mViewCommandArgumentClass;
-                            String name = cls2 == null ? StringUtil.NULL_STRING : cls2.getName();
-                            Log.e(TAG, "Failed to execute command with argument class ViewCommandArgument: " + name, e);
+                            String str = "Failed to execute command with argument class ViewCommandArgument: " + (cls2 == null ? StringUtil.NULL_STRING : cls2.getName());
                             return this.mCommand.perform(view, commandArguments);
                         }
                     }

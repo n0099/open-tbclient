@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static volatile Map<String, Integer> bv;
@@ -64,7 +64,7 @@ public class a {
             hashMap.put("ability_body_detect", valueOf);
             hashMap.put("ability_gesture", 1500);
             hashMap.put("ability_image_segmentation", Integer.valueOf((int) FeatureCodes.BODY_SEG));
-            hashMap.put("ability_sky_segmentation", Integer.valueOf((int) FeatureCodes.SKY_SEG));
+            hashMap.put("ability_sky_segmentation", 1900);
             hashMap.put("ability_hair_segmentation", 1800);
             hashMap.put("ability_object_detect", 2000);
             hashMap.put("ability_3d_track", Integer.valueOf((int) FeatureCodes.TRACK_3D));

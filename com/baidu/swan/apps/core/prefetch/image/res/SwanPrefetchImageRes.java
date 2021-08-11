@@ -2,9 +2,10 @@ package com.baidu.swan.apps.core.prefetch.image.res;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.r1.l.e;
+import c.a.n0.a.v2.q;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,35 +17,33 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
-import d.a.o0.a.r1.l.e;
-import d.a.o0.a.v2.q;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes3.dex */
-public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
+/* loaded from: classes6.dex */
+public class SwanPrefetchImageRes implements c.a.n0.a.f1.f.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final HashMap<String, List<String>> f10999b;
+    public static final HashMap<String, List<String>> f45698b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<String> f11000c;
+    public static final List<String> f45699c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ List f11001e;
+        public final /* synthetic */ List f45700e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f11002f;
+        public final /* synthetic */ String f45701f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SwanPrefetchImageRes f11003g;
+        public final /* synthetic */ SwanPrefetchImageRes f45702g;
 
         public a(SwanPrefetchImageRes swanPrefetchImageRes, List list, String str) {
             Interceptable interceptable = $ic;
@@ -61,9 +60,9 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     return;
                 }
             }
-            this.f11003g = swanPrefetchImageRes;
-            this.f11001e = list;
-            this.f11002f = str;
+            this.f45702g = swanPrefetchImageRes;
+            this.f45700e = list;
+            this.f45701f = str;
         }
 
         @Override // java.lang.Runnable
@@ -71,22 +70,22 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                for (String str : this.f11001e) {
-                    this.f11003g.f(str);
+                for (String str : this.f45700e) {
+                    this.f45702g.f(str);
                 }
-                if (d.a.o0.a.f1.f.a.f44988a) {
-                    Log.d("SwanPerformance", "start prefetch image appKey = " + this.f11002f + " ; cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
+                if (c.a.n0.a.f1.f.a.f5428a) {
+                    String str2 = "start prefetch image appKey = " + this.f45701f + " ; cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms";
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final SwanPrefetchImageRes f11004a;
+        public static final SwanPrefetchImageRes f45703a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -102,7 +101,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     return;
                 }
             }
-            f11004a = new SwanPrefetchImageRes();
+            f45703a = new SwanPrefetchImageRes();
         }
     }
 
@@ -119,14 +118,14 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                 return;
             }
         }
-        f10999b = new HashMap<>(10);
-        f11000c = new ArrayList();
+        f45698b = new HashMap<>(10);
+        f45699c = new ArrayList();
     }
 
     public static SwanPrefetchImageRes b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.f11004a : (SwanPrefetchImageRes) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? b.f45703a : (SwanPrefetchImageRes) invokeV.objValue;
     }
 
     @SuppressLint({"BDOfflineUrl"})
@@ -134,7 +133,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            f10999b.put("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m", new ArrayList<String>(this, 5) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.1
+            f45698b.put("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m", new ArrayList<String>(this, 5) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanPrefetchImageRes this$0;
@@ -164,7 +163,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     add("https://ggkkmuup9wuugp6ep8d.exp.bcevod.com/mda-kmnq7gvfeygk02md/mda-kmnq7gvfeygk02md00000000.jpg");
                 }
             });
-            f10999b.put("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD", new ArrayList<String>(this, 4) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.2
+            f45698b.put("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD", new ArrayList<String>(this, 4) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanPrefetchImageRes this$0;
@@ -193,7 +192,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     add("https://himg.bdimg.com/sys/portrait/item/507979756461766535303035a53e.jpg");
                 }
             });
-            f10999b.put("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.3
+            f45698b.put("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanPrefetchImageRes this$0;
@@ -222,7 +221,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     add("https://edu-tob.bdimg.com/v1/wap/1242-546-1612841825060.jpg");
                 }
             });
-            f10999b.put("flFqXclepWs7RdugAszy9eERL7G5dS0I", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.4
+            f45698b.put("flFqXclepWs7RdugAszy9eERL7G5dS0I", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanPrefetchImageRes this$0;
@@ -251,7 +250,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     add("https://gss0.bdstatic.com/7051cy89RcgCncy6lo7D0j9wexYrbOWh7c50/yt/bdsp/home-white.png");
                 }
             });
-            f10999b.put("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.5
+            f45698b.put("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanPrefetchImageRes this$0;
@@ -280,7 +279,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     add("https://pic3.zhimg.com/v2-3c4942f4bf79f8e5e09c9acb7e714b3f.jpg");
                 }
             });
-            f10999b.put("x0s1yYl7sOlmmtKUhZmZbEvaYTeUMbXk", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.6
+            f45698b.put("x0s1yYl7sOlmmtKUhZmZbEvaYTeUMbXk", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanPrefetchImageRes this$0;
@@ -309,7 +308,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     add("http://hiphotos.baidu.com/baidu/pic/item/eac4b74543a982263381ea0d8582b9014a90eb5d.png");
                 }
             });
-            f10999b.put("GeVyFwtN81ARbPF3GIbuaPlRPT3SfzYB", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.7
+            f45698b.put("GeVyFwtN81ARbPF3GIbuaPlRPT3SfzYB", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanPrefetchImageRes this$0;
@@ -338,7 +337,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     add("http://hiphotos.baidu.com/baidu/pic/item/eac4b74543a982263381ea0d8582b9014a90eb5d.png");
                 }
             });
-            f10999b.put("hZPrR8cXXYgGHX2eGYOASkdmRyPkKcyT", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.8
+            f45698b.put("hZPrR8cXXYgGHX2eGYOASkdmRyPkKcyT", new ArrayList<String>(this, 3) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanPrefetchImageRes this$0;
@@ -367,7 +366,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     add("https://static-d.iqiyi.com/mp/wx/icon-video-guide.png");
                 }
             });
-            f10999b.put("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk", new ArrayList<String>(this, 2) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.9
+            f45698b.put("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk", new ArrayList<String>(this, 2) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanPrefetchImageRes this$0;
@@ -396,7 +395,7 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     add("https://himg.baidu.com/sys/portrait/item/0e506357");
                 }
             });
-            f10999b.put("lUSdNPhcMS0ilYhpv0cKCksPgBcw6C3n", new ArrayList<String>(this, 1) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.10
+            f45698b.put("lUSdNPhcMS0ilYhpv0cKCksPgBcw6C3n", new ArrayList<String>(this, 1) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ SwanPrefetchImageRes this$0;
@@ -423,8 +422,8 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                     add("http://b.hiphotos.baidu.com/baike/whfpf%3D640%2C360%2C0/sign=f5fefd63a8cc7cd9fa7867995f3c170b/3c6d55fbb2fb431634739cf42ba4462308f7d3d4.jpg");
                 }
             });
-            if (d.a.o0.a.f1.f.a.f44988a) {
-                Log.d("SwanPerformance", "prefetch image init cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
+            if (c.a.n0.a.f1.f.a.f5428a) {
+                String str = "prefetch image init cost = " + (System.currentTimeMillis() - currentTimeMillis) + "ms";
             }
         }
     }
@@ -432,19 +431,19 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
     public void d(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str) && e.n()) {
-            if (f11000c.contains(str)) {
-                if (d.a.o0.a.f1.f.a.f44988a) {
-                    Log.d("SwanPerformance", "has prefetch this appKey = " + str);
+            if (f45699c.contains(str)) {
+                if (c.a.n0.a.f1.f.a.f5428a) {
+                    String str2 = "has prefetch this appKey = " + str;
                     return;
                 }
                 return;
             }
-            List<String> list = f10999b.get(str);
+            List<String> list = f45698b.get(str);
             if (list != null && !list.isEmpty()) {
-                f11000c.add(str);
+                f45699c.add(str);
                 q.j(new a(this, list, str), "PrefetchImageRes");
-            } else if (d.a.o0.a.f1.f.a.f44988a) {
-                Log.d("SwanPerformance", "can't find res, appKey = " + str);
+            } else if (c.a.n0.a.f1.f.a.f5428a) {
+                String str3 = "can't find res, appKey = " + str;
             }
         }
     }
@@ -452,14 +451,14 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f11000c.clear();
+            f45699c.clear();
         }
     }
 
     public final void f(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            BdNet bdNet = new BdNet(d.a.o0.a.c1.a.b());
+            BdNet bdNet = new BdNet(c.a.n0.a.c1.a.b());
             bdNet.setEventListener(new INetListener(this) { // from class: com.baidu.swan.apps.core.prefetch.image.res.SwanPrefetchImageRes.12
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -524,8 +523,8 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                 @Override // com.baidu.webkit.net.INetListener
                 public void onNetResponseCode(BdNet bdNet2, BdNetTask bdNetTask, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLLI(1048581, this, bdNet2, bdNetTask, i2) == null) && d.a.o0.a.f1.f.a.f44988a) {
-                        Log.d("SwanPerformance", "response code = " + i2);
+                    if ((interceptable2 == null || interceptable2.invokeLLI(1048581, this, bdNet2, bdNetTask, i2) == null) && c.a.n0.a.f1.f.a.f5428a) {
+                        String str2 = "response code = " + i2;
                     }
                 }
 
@@ -546,8 +545,8 @@ public class SwanPrefetchImageRes implements d.a.o0.a.f1.f.a {
                 @Override // com.baidu.webkit.net.INetListener
                 public void onNetTaskStart(BdNet bdNet2, BdNetTask bdNetTask) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet2, bdNetTask) == null) && d.a.o0.a.f1.f.a.f44988a) {
-                        Log.d("SwanPerformance", "start prefetch image = " + bdNetTask.getUrl());
+                    if ((interceptable2 == null || interceptable2.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet2, bdNetTask) == null) && c.a.n0.a.f1.f.a.f5428a) {
+                        String str2 = "start prefetch image = " + bdNetTask.getUrl();
                     }
                 }
 

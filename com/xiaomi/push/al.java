@@ -10,39 +10,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class al {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40112a;
+    public int f76963a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f112a;
+    public Handler f116a;
 
     /* renamed from: a  reason: collision with other field name */
-    public a f113a;
+    public a f117a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile b f114a;
+    public volatile b f118a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile boolean f115a;
+    public volatile boolean f119a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f40113b;
+    public final boolean f76964b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ al f40114a;
+        public final /* synthetic */ al f76965a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final LinkedBlockingQueue<b> f116a;
+        public final LinkedBlockingQueue<b> f120a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(al alVar) {
@@ -62,15 +62,15 @@ public class al {
                     return;
                 }
             }
-            this.f40114a = alVar;
-            this.f116a = new LinkedBlockingQueue<>();
+            this.f76965a = alVar;
+            this.f120a = new LinkedBlockingQueue<>();
         }
 
         private void a(int i2, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(65537, this, i2, bVar) == null) {
                 try {
-                    this.f40114a.f112a.sendMessage(this.f40114a.f112a.obtainMessage(i2, bVar));
+                    this.f76965a.f116a.sendMessage(this.f76965a.f116a.obtainMessage(i2, bVar));
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
                 }
@@ -81,7 +81,7 @@ public class al {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
                 try {
-                    this.f116a.add(bVar);
+                    this.f120a.add(bVar);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -92,17 +92,17 @@ public class al {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                long j = this.f40114a.f40112a > 0 ? this.f40114a.f40112a : Long.MAX_VALUE;
-                while (!this.f40114a.f115a) {
+                long j2 = this.f76965a.f76963a > 0 ? this.f76965a.f76963a : Long.MAX_VALUE;
+                while (!this.f76965a.f119a) {
                     try {
-                        b poll = this.f116a.poll(j, TimeUnit.SECONDS);
-                        this.f40114a.f114a = poll;
+                        b poll = this.f120a.poll(j2, TimeUnit.SECONDS);
+                        this.f76965a.f118a = poll;
                         if (poll != null) {
                             a(0, poll);
                             poll.b();
                             a(1, poll);
-                        } else if (this.f40114a.f40112a > 0) {
-                            this.f40114a.a();
+                        } else if (this.f76965a.f76963a > 0) {
+                            this.f76965a.a();
                         }
                     } catch (InterruptedException e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
@@ -112,7 +112,7 @@ public class al {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +140,7 @@ public class al {
         public abstract void b();
 
         /* renamed from: c */
-        public void mo242c() {
+        public void mo245c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             }
@@ -201,12 +201,12 @@ public class al {
                 return;
             }
         }
-        this.f112a = null;
-        this.f115a = false;
-        this.f40112a = 0;
-        this.f112a = new am(this, Looper.getMainLooper());
-        this.f40113b = z;
-        this.f40112a = i2;
+        this.f116a = null;
+        this.f119a = false;
+        this.f76963a = 0;
+        this.f116a = new am(this, Looper.getMainLooper());
+        this.f76964b = z;
+        this.f76963a = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -214,8 +214,8 @@ public class al {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
             synchronized (this) {
-                this.f113a = null;
-                this.f115a = true;
+                this.f117a = null;
+                this.f119a = true;
             }
         }
     }
@@ -224,22 +224,22 @@ public class al {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             synchronized (this) {
-                if (this.f113a == null) {
+                if (this.f117a == null) {
                     a aVar = new a(this);
-                    this.f113a = aVar;
-                    aVar.setDaemon(this.f40113b);
-                    this.f115a = false;
-                    this.f113a.start();
+                    this.f117a = aVar;
+                    aVar.setDaemon(this.f76964b);
+                    this.f119a = false;
+                    this.f117a.start();
                 }
-                this.f113a.a(bVar);
+                this.f117a.a(bVar);
             }
         }
     }
 
-    public void a(b bVar, long j) {
+    public void a(b bVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, j) == null) {
-            this.f112a.postDelayed(new an(this, bVar), j);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, j2) == null) {
+            this.f116a.postDelayed(new an(this, bVar), j2);
         }
     }
 }

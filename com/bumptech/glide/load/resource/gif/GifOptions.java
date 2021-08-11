@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.DecodeFormat;
 import com.bumptech.glide.load.Option;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class GifOptions {
     public static /* synthetic */ Interceptable $ic;
     public static final Option<DecodeFormat> DECODE_FORMAT;

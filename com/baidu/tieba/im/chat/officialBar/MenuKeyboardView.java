@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.x.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
@@ -13,25 +14,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.x.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MenuKeyboardView extends LinearLayout implements n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorTools f17387e;
+    public EditorTools f52597e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f17388f;
+    public int f52598f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MenuKeyboardView f17389e;
+        public final /* synthetic */ MenuKeyboardView f52599e;
 
         public a(MenuKeyboardView menuKeyboardView) {
             Interceptable interceptable = $ic;
@@ -48,14 +48,14 @@ public class MenuKeyboardView extends LinearLayout implements n {
                     return;
                 }
             }
-            this.f17389e = menuKeyboardView;
+            this.f52599e = menuKeyboardView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f17389e.d(new d.a.p0.x.a(30, 0, null));
+                this.f52599e.sendAction(new c.a.o0.x.a(30, 0, null));
             }
         }
     }
@@ -78,79 +78,79 @@ public class MenuKeyboardView extends LinearLayout implements n {
                 return;
             }
         }
-        this.f17388f = 0;
+        this.f52598f = 0;
         LinearLayout.inflate(context, R.layout.official_bar_menu_toggle, this);
         setLayoutParams(new RawLayout.LayoutParams(context.getResources().getDimensionPixelSize(R.dimen.ds100), -2));
         setOnClickListener(new a(this));
     }
 
-    @Override // d.a.p0.x.n
-    public void b() {
+    @Override // c.a.o0.x.n
+    public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setVisibility(0);
         }
     }
 
-    @Override // d.a.p0.x.n
-    public void d(d.a.p0.x.a aVar) {
-        EditorTools editorTools;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || (editorTools = this.f17387e) == null) {
-            return;
-        }
-        editorTools.A(aVar);
-    }
-
-    @Override // d.a.p0.x.n
+    @Override // c.a.o0.x.n
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17388f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52598f : invokeV.intValue;
     }
 
-    @Override // d.a.p0.x.n
+    @Override // c.a.o0.x.n
     public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setVisibility(8);
         }
     }
 
-    @Override // d.a.p0.x.n
+    @Override // c.a.o0.x.n
     public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    @Override // d.a.p0.x.b
-    public void onAction(d.a.p0.x.a aVar) {
+    @Override // c.a.o0.x.b
+    public void onAction(c.a.o0.x.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
         }
     }
 
-    @Override // d.a.p0.x.n
+    @Override // c.a.o0.x.n
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
         }
     }
 
-    @Override // d.a.p0.x.n
+    @Override // c.a.o0.x.n
+    public void sendAction(c.a.o0.x.a aVar) {
+        EditorTools editorTools;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) || (editorTools = this.f52597e) == null) {
+            return;
+        }
+        editorTools.sendAction(aVar);
+    }
+
+    @Override // c.a.o0.x.n
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
-            this.f17387e = editorTools;
+            this.f52597e = editorTools;
         }
     }
 
-    @Override // d.a.p0.x.n
+    @Override // c.a.o0.x.n
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f17388f = i2;
+            this.f52598f = i2;
         }
     }
 }

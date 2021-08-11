@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
+import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class Authorize implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 8230495073093947333L;
@@ -30,7 +30,7 @@ public class Authorize implements NoProguard, Serializable {
     public String title_url;
     public String top_title;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class AgreementInfo extends GetCardInfoResponse.ProtocolInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +58,7 @@ public class Authorize implements NoProguard, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class AuthDetailInfo implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class Authorize implements NoProguard, Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class Extra implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

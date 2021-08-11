@@ -1,10 +1,11 @@
 package com.baidu.tieba.ala.alasquare.subtablist.message;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.j;
+import c.a.e.e.p.l;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,9 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaNewSquareSubListRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +68,7 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
             int i2 = l.i(TbadkCoreApplication.getInst());
             float h2 = l.h(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
-            addParam(Config.PACKAGE_NAME, this.pn);
+            addParam("pn", this.pn);
             addParam("ps", this.ps);
             addParam("scr_w", k);
             addParam("scr_h", i2);

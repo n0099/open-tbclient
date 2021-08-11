@@ -17,7 +17,7 @@ import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AL = 28;
@@ -47,7 +47,7 @@ public final class DecodedBitStreamParser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.pdf417.decoder.DecodedBitStreamParser$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$pdf417$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -96,7 +96,7 @@ public final class DecodedBitStreamParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -221,7 +221,7 @@ public final class DecodedBitStreamParser {
             int i8 = 923;
             int i9 = 928;
             int i10 = 902;
-            long j = 900;
+            long j2 = 900;
             if (i2 == 901) {
                 int[] iArr2 = new int[6];
                 i4 = i3 + 1;
@@ -229,11 +229,11 @@ public final class DecodedBitStreamParser {
                 boolean z = false;
                 loop0: while (true) {
                     i5 = 0;
-                    long j2 = 0;
+                    long j3 = 0;
                     while (i4 < iArr[0] && !z) {
                         int i12 = i5 + 1;
                         iArr2[i5] = i11;
-                        j2 = (j2 * j) + i11;
+                        j3 = (j3 * j2) + i11;
                         int i13 = i4 + 1;
                         i11 = iArr[i4];
                         if (i11 == 900 || i11 == 901 || i11 == 902 || i11 == 924 || i11 == 928 || i11 == i8 || i11 == i7) {
@@ -241,24 +241,24 @@ public final class DecodedBitStreamParser {
                             i5 = i12;
                             i7 = 922;
                             i8 = 923;
-                            j = 900;
+                            j2 = 900;
                             z = true;
                         } else if (i12 % 5 != 0 || i12 <= 0) {
                             i4 = i13;
                             i5 = i12;
                             i7 = 922;
                             i8 = 923;
-                            j = 900;
+                            j2 = 900;
                         } else {
                             int i14 = 0;
                             while (i14 < 6) {
-                                byteArrayOutputStream.write((byte) (j2 >> ((5 - i14) * 8)));
+                                byteArrayOutputStream.write((byte) (j3 >> ((5 - i14) * 8)));
                                 i14++;
                                 i7 = 922;
                                 i8 = 923;
                             }
                             i4 = i13;
-                            j = 900;
+                            j2 = 900;
                         }
                     }
                 }
@@ -275,13 +275,13 @@ public final class DecodedBitStreamParser {
                 int i16 = i3;
                 boolean z2 = false;
                 int i17 = 0;
-                long j3 = 0;
+                long j4 = 0;
                 while (i16 < iArr[0] && !z2) {
                     int i18 = i16 + 1;
                     int i19 = iArr[i16];
                     if (i19 < 900) {
                         i17++;
-                        j3 = (j3 * 900) + i19;
+                        j4 = (j4 * 900) + i19;
                         i16 = i18;
                     } else {
                         if (i19 != 900 && i19 != 901 && i19 != i10 && i19 != 924 && i19 != i9) {
@@ -294,10 +294,10 @@ public final class DecodedBitStreamParser {
                     }
                     if (i17 % 5 == 0 && i17 > 0) {
                         for (int i20 = 0; i20 < 6; i20++) {
-                            byteArrayOutputStream.write((byte) (j3 >> ((5 - i20) * 8)));
+                            byteArrayOutputStream.write((byte) (j4 >> ((5 - i20) * 8)));
                         }
                         i17 = 0;
-                        j3 = 0;
+                        j4 = 0;
                     }
                     i9 = 928;
                     i10 = 902;

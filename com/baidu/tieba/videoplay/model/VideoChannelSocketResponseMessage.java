@@ -1,5 +1,6 @@
 package com.baidu.tieba.videoplay.model;
 
+import c.a.o0.s.q.c2;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.video.VideoItemData;
@@ -9,12 +10,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.s.q.b2;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Feed.FeedResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoChannelSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,9 +61,9 @@ public class VideoChannelSocketResponseMessage extends SocketResponsedMessage {
             }
             for (int i3 = 0; i3 < list.size(); i3++) {
                 VideoItemData videoItemData = new VideoItemData();
-                b2 b2Var = new b2();
-                b2Var.K2(list.get(i3));
-                videoItemData.parseProto(b2Var);
+                c2 c2Var = new c2();
+                c2Var.S2(list.get(i3));
+                videoItemData.parseProto(c2Var);
                 this.mVideoItemDatas.add(videoItemData);
             }
         }

@@ -6,7 +6,7 @@ import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.beans.IBeanResponseCallback;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.FileCopyUtils;
 import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.apollon.utils.support.Base64;
@@ -22,8 +22,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.ILoginBackListener;
 import com.baidu.wallet.api.WalletLoginHelper;
-import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
 import com.baidu.wallet.core.beans.BeanManager;
+import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.passport.LoginBackListenerProxy;
 import com.baidu.wallet.qrcodescanner.a.b;
 import com.baidu.wallet.qrcodescanner.beans.QRCodeScannerBeanFactory;
@@ -38,34 +38,34 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public QRCodeWhiteListResponse f27406a;
+    public QRCodeWhiteListResponse f63255a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f27407b;
+    public Handler f63256b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f27408c;
+    public b f63257c;
 
     /* renamed from: com.baidu.wallet.qrcodescanner.a.a$2  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass2 implements IBeanResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f27414a;
+        public final /* synthetic */ String f63263a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Context f27415b;
+        public final /* synthetic */ Context f63264b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ a f27416c;
+        public final /* synthetic */ a f63265c;
 
         public AnonymousClass2(a aVar, String str, Context context) {
             Interceptable interceptable = $ic;
@@ -82,29 +82,27 @@ public class a {
                     return;
                 }
             }
-            this.f27416c = aVar;
-            this.f27414a = str;
-            this.f27415b = context;
+            this.f63265c = aVar;
+            this.f63263a = str;
+            this.f63264b = context;
         }
 
         @Override // com.baidu.apollon.beans.IBeanResponseCallback
         public void onBeanExecFailure(int i2, int i3, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-                DXMSdkSAUtils.onEventEnd("@parseQRCodeScannerShortUrl", i3);
-                PayStatisticsUtil.onEventEnd("@parseQRCodeScannerShortUrl", i3);
-                if (this.f27416c.f27407b == null) {
-                    this.f27416c.f27407b = new Handler(Looper.getMainLooper());
+                if (this.f63265c.f63256b == null) {
+                    this.f63265c.f63256b = new Handler(Looper.getMainLooper());
                 }
-                this.f27416c.f27407b.post(new Runnable(this, i3) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2
+                this.f63265c.f63256b.post(new Runnable(this, i3) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ int f27419a;
+                    public final /* synthetic */ int f63268a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass2 f27420b;
+                    public final /* synthetic */ AnonymousClass2 f63269b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -121,21 +119,21 @@ public class a {
                                 return;
                             }
                         }
-                        this.f27420b = this;
-                        this.f27419a = i3;
+                        this.f63269b = this;
+                        this.f63268a = i3;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (this.f27419a == 5003) {
-                                WalletLoginHelper.getInstance().login(new LoginBackListenerProxy(this.f27420b.f27415b, new ILoginBackListener(this) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2.1
+                            if (this.f63268a == 5003) {
+                                WalletLoginHelper.getInstance().login(new LoginBackListenerProxy(this.f63269b.f63264b, new ILoginBackListener(this) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.2.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ RunnableC02992 f27421a;
+                                    public final /* synthetic */ RunnableC18622 f63270a;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -152,34 +150,34 @@ public class a {
                                                 return;
                                             }
                                         }
-                                        this.f27421a = this;
+                                        this.f63270a = this;
                                     }
 
                                     @Override // com.baidu.wallet.api.ILoginBackListener
                                     public void onFail(int i4, String str2) {
                                         Interceptable interceptable3 = $ic;
-                                        if (!(interceptable3 == null || interceptable3.invokeIL(1048576, this, i4, str2) == null) || this.f27421a.f27420b.f27416c.f27408c == null) {
+                                        if (!(interceptable3 == null || interceptable3.invokeIL(1048576, this, i4, str2) == null) || this.f63270a.f63269b.f63265c.f63257c == null) {
                                             return;
                                         }
-                                        this.f27421a.f27420b.f27416c.f27408c.onResultFail(this.f27421a.f27420b.f27414a, str2);
-                                        this.f27421a.f27420b.f27416c.f27408c = null;
+                                        this.f63270a.f63269b.f63265c.f63257c.onResultFail(this.f63270a.f63269b.f63263a, str2);
+                                        this.f63270a.f63269b.f63265c.f63257c = null;
                                     }
 
                                     @Override // com.baidu.wallet.api.ILoginBackListener
                                     public void onSuccess(int i4, String str2) {
                                         Interceptable interceptable3 = $ic;
-                                        if (!(interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, str2) == null) || this.f27421a.f27420b.f27416c.f27408c == null) {
+                                        if (!(interceptable3 == null || interceptable3.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, str2) == null) || this.f63270a.f63269b.f63265c.f63257c == null) {
                                             return;
                                         }
-                                        this.f27421a.f27420b.f27416c.f27408c.onResultFail(this.f27421a.f27420b.f27414a, "");
-                                        this.f27421a.f27420b.f27416c.f27408c = null;
+                                        this.f63270a.f63269b.f63265c.f63257c.onResultFail(this.f63270a.f63269b.f63263a, "");
+                                        this.f63270a.f63269b.f63265c.f63257c = null;
                                     }
                                 }));
                                 return;
                             }
-                            AnonymousClass2 anonymousClass2 = this.f27420b;
-                            a aVar = anonymousClass2.f27416c;
-                            aVar.a(anonymousClass2.f27415b, anonymousClass2.f27414a, aVar.f27408c, false, false);
+                            AnonymousClass2 anonymousClass2 = this.f63269b;
+                            a aVar = anonymousClass2.f63265c;
+                            aVar.a(anonymousClass2.f63264b, anonymousClass2.f63263a, aVar.f63257c, false, false);
                         }
                     }
                 });
@@ -190,24 +188,22 @@ public class a {
         public void onBeanExecSuccess(int i2, Object obj, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-                DXMSdkSAUtils.onEventEnd("@parseQRCodeScannerShortUrl", 0);
-                PayStatisticsUtil.onEventEnd("@parseQRCodeScannerShortUrl", 0);
                 QRCodeShortUrlResponse qRCodeShortUrlResponse = obj instanceof QRCodeShortUrlResponse ? (QRCodeShortUrlResponse) obj : null;
                 if (qRCodeShortUrlResponse == null || !qRCodeShortUrlResponse.checkResponseValidity()) {
                     return;
                 }
-                if (this.f27416c.f27407b == null) {
-                    this.f27416c.f27407b = new Handler(Looper.getMainLooper());
+                if (this.f63265c.f63256b == null) {
+                    this.f63265c.f63256b = new Handler(Looper.getMainLooper());
                 }
-                this.f27416c.f27407b.post(new Runnable(this, qRCodeShortUrlResponse) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.1
+                this.f63265c.f63256b.post(new Runnable(this, qRCodeShortUrlResponse) { // from class: com.baidu.wallet.qrcodescanner.a.a.2.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ QRCodeShortUrlResponse f27417a;
+                    public final /* synthetic */ QRCodeShortUrlResponse f63266a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ AnonymousClass2 f27418b;
+                    public final /* synthetic */ AnonymousClass2 f63267b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -224,31 +220,31 @@ public class a {
                                 return;
                             }
                         }
-                        this.f27418b = this;
-                        this.f27417a = qRCodeShortUrlResponse;
+                        this.f63267b = this;
+                        this.f63266a = qRCodeShortUrlResponse;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if ("500".equals(this.f27417a.type) || "3".equals(this.f27417a.type) || "501".equals(this.f27417a.type)) {
-                                if (this.f27418b.f27416c.f27408c != null) {
+                            if ("500".equals(this.f63266a.type) || "3".equals(this.f63266a.type) || "501".equals(this.f63266a.type)) {
+                                if (this.f63267b.f63265c.f63257c != null) {
                                     b.a aVar = new b.a();
-                                    QRCodeShortUrlResponse qRCodeShortUrlResponse2 = this.f27417a;
-                                    aVar.f27423a = qRCodeShortUrlResponse2.type;
-                                    aVar.f27424b = qRCodeShortUrlResponse2.link_addr;
-                                    aVar.f27425c = qRCodeShortUrlResponse2.params;
-                                    aVar.f27426d = qRCodeShortUrlResponse2.err;
-                                    this.f27418b.f27416c.f27408c.onResultSuccessCallBack(this.f27418b.f27414a, aVar, true);
-                                    this.f27418b.f27416c.f27408c = null;
+                                    QRCodeShortUrlResponse qRCodeShortUrlResponse2 = this.f63266a;
+                                    aVar.f63272a = qRCodeShortUrlResponse2.type;
+                                    aVar.f63273b = qRCodeShortUrlResponse2.link_addr;
+                                    aVar.f63274c = qRCodeShortUrlResponse2.params;
+                                    aVar.f63275d = qRCodeShortUrlResponse2.err;
+                                    this.f63267b.f63265c.f63257c.onResultSuccessCallBack(this.f63267b.f63263a, aVar, true);
+                                    this.f63267b.f63265c.f63257c = null;
                                     return;
                                 }
                                 return;
                             }
-                            AnonymousClass2 anonymousClass2 = this.f27418b;
-                            a aVar2 = anonymousClass2.f27416c;
-                            aVar2.a(anonymousClass2.f27415b, this.f27417a.link_addr, aVar2.f27408c, false, false);
+                            AnonymousClass2 anonymousClass2 = this.f63267b;
+                            a aVar2 = anonymousClass2.f63265c;
+                            aVar2.a(anonymousClass2.f63264b, this.f63266a.link_addr, aVar2.f63257c, false, false);
                         }
                     }
                 });
@@ -257,12 +253,12 @@ public class a {
     }
 
     /* renamed from: com.baidu.wallet.qrcodescanner.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0300a {
+    /* loaded from: classes8.dex */
+    public static class C1863a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f27422a;
+        public static a f63271a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -278,7 +274,7 @@ public class a {
                     return;
                 }
             }
-            f27422a = new a();
+            f63271a = new a();
         }
     }
 
@@ -286,10 +282,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, str)) == null) {
-            if (this.f27406a == null || TextUtils.isEmpty(str)) {
+            if (this.f63255a == null || TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (QRCodeWhiteListResponse.Group group : this.f27406a.getDataGroup()) {
+            for (QRCodeWhiteListResponse.Group group : this.f63255a.getDataGroup()) {
                 if (a(str, group.blacklist_preg)) {
                     return true;
                 }
@@ -312,14 +308,14 @@ public class a {
                 return;
             }
         }
-        this.f27407b = new Handler(Looper.getMainLooper());
+        this.f63256b = new Handler(Looper.getMainLooper());
     }
 
     private boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, this, str)) == null) {
-            for (QRCodeWhiteListResponse.Group group : this.f27406a.getDataGroup()) {
+            for (QRCodeWhiteListResponse.Group group : this.f63255a.getDataGroup()) {
                 if (a(str, group.lightapp_outer_open_preg)) {
                     return true;
                 }
@@ -333,10 +329,10 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (this.f27406a == null || TextUtils.isEmpty(str)) {
+            if (this.f63255a == null || TextUtils.isEmpty(str)) {
                 return false;
             }
-            for (QRCodeWhiteListResponse.Group group : this.f27406a.getDataGroup()) {
+            for (QRCodeWhiteListResponse.Group group : this.f63255a.getDataGroup()) {
                 if (a(str, group.url_preg)) {
                     return true;
                 }
@@ -349,7 +345,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0300a.f27422a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1863a.f63271a : (a) invokeV.objValue;
     }
 
     public void b() {
@@ -367,17 +363,15 @@ public class a {
             return;
         }
         BeanManager.getInstance().removeAllBeans("QRCodeScannerGetWhiteList");
-        DXMSdkSAUtils.onEventStart("@getQRCodeScannerWhiteList");
-        PayStatisticsUtil.onEventStart("@getQRCodeScannerWhiteList");
         com.baidu.wallet.qrcodescanner.beans.b bVar3 = (com.baidu.wallet.qrcodescanner.beans.b) QRCodeScannerBeanFactory.getInstance().getBean(context, QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, "QRCodeScannerGetWhiteList");
-        if (this.f27406a == null) {
-            this.f27406a = a(context);
+        if (this.f63255a == null) {
+            this.f63255a = a(context);
         }
-        QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f27406a;
+        QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f63255a;
         if (qRCodeWhiteListResponse != null) {
             a(qRCodeWhiteListResponse, bVar, bVar2);
         }
-        QRCodeWhiteListResponse qRCodeWhiteListResponse2 = this.f27406a;
+        QRCodeWhiteListResponse qRCodeWhiteListResponse2 = this.f63255a;
         if (qRCodeWhiteListResponse2 != null && (category = qRCodeWhiteListResponse2.whitelist) != null) {
             bVar3.a(category.fingerprint);
         }
@@ -386,16 +380,16 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f27409a;
+            public final /* synthetic */ Context f63258a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ b f27410b;
+            public final /* synthetic */ b f63259b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ b f27411c;
+            public final /* synthetic */ b f63260c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ a f27412d;
+            public final /* synthetic */ a f63261d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -412,18 +406,16 @@ public class a {
                         return;
                     }
                 }
-                this.f27412d = this;
-                this.f27409a = context;
-                this.f27410b = bVar;
-                this.f27411c = bVar2;
+                this.f63261d = this;
+                this.f63258a = context;
+                this.f63259b = bVar;
+                this.f63260c = bVar2;
             }
 
             @Override // com.baidu.apollon.beans.IBeanResponseCallback
             public void onBeanExecFailure(int i2, int i3, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, str) == null) {
-                    DXMSdkSAUtils.onEventEnd("@getQRCodeScannerWhiteList", i3);
-                    PayStatisticsUtil.onEventEnd("@getQRCodeScannerWhiteList", i3);
                 }
             }
 
@@ -431,18 +423,16 @@ public class a {
             public void onBeanExecSuccess(int i2, Object obj, String str) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, obj, str) == null) {
-                    DXMSdkSAUtils.onEventEnd("@getQRCodeScannerWhiteList", 0);
-                    PayStatisticsUtil.onEventEnd("@getQRCodeScannerWhiteList", 0);
                     QRCodeWhiteListResponse qRCodeWhiteListResponse3 = obj instanceof QRCodeWhiteListResponse ? (QRCodeWhiteListResponse) obj : null;
                     if (qRCodeWhiteListResponse3 != null && qRCodeWhiteListResponse3.checkResponseValidity() && qRCodeWhiteListResponse3.hasData()) {
-                        this.f27412d.f27406a = qRCodeWhiteListResponse3;
-                        this.f27412d.f27406a.doStoreResponse(this.f27409a);
-                        this.f27412d.f27407b.post(new Runnable(this) { // from class: com.baidu.wallet.qrcodescanner.a.a.1.1
+                        this.f63261d.f63255a = qRCodeWhiteListResponse3;
+                        this.f63261d.f63255a.doStoreResponse(this.f63258a);
+                        this.f63261d.f63256b.post(new Runnable(this) { // from class: com.baidu.wallet.qrcodescanner.a.a.1.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass1 f27413a;
+                            public final /* synthetic */ AnonymousClass1 f63262a;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -459,17 +449,17 @@ public class a {
                                         return;
                                     }
                                 }
-                                this.f27413a = this;
+                                this.f63262a = this;
                             }
 
                             @Override // java.lang.Runnable
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    a aVar = this.f27413a.f27412d;
-                                    QRCodeWhiteListResponse qRCodeWhiteListResponse4 = aVar.f27406a;
-                                    AnonymousClass1 anonymousClass1 = this.f27413a;
-                                    aVar.a(qRCodeWhiteListResponse4, anonymousClass1.f27410b, anonymousClass1.f27411c);
+                                    a aVar = this.f63262a.f63261d;
+                                    QRCodeWhiteListResponse qRCodeWhiteListResponse4 = aVar.f63255a;
+                                    AnonymousClass1 anonymousClass1 = this.f63262a;
+                                    aVar.a(qRCodeWhiteListResponse4, anonymousClass1.f63259b, anonymousClass1.f63260c);
                                 }
                             }
                         });
@@ -484,7 +474,7 @@ public class a {
     public void a(QRCodeWhiteListResponse qRCodeWhiteListResponse, b bVar, b bVar2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65546, this, qRCodeWhiteListResponse, bVar, bVar2) == null) && qRCodeWhiteListResponse != null && qRCodeWhiteListResponse.hasData()) {
-            QRCodeWhiteListResponse.Group group = this.f27406a.whitelist.data[0];
+            QRCodeWhiteListResponse.Group group = this.f63255a.whitelist.data[0];
             if (bVar2 != null) {
                 bVar2.onResultSuccessCallBack(group.title_value, null, false);
             }
@@ -492,8 +482,8 @@ public class a {
                 return;
             }
             b.a aVar = new b.a();
-            aVar.f27423a = group.title_type;
-            aVar.f27424b = group.title_link_addr;
+            aVar.f63272a = group.title_type;
+            aVar.f63273b = group.title_link_addr;
             String str = group.start_time;
             String str2 = group.end_time;
             try {
@@ -510,320 +500,369 @@ public class a {
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:103:0x0124 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:125:0x0026 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:140:? */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:32:0x0078 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:78:0x00f2 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:115:0x0184 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:135:0x002d */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:136:? */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:145:0x0028 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0092 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:89:0x013a */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0120 A[Catch: IOException -> 0x00da, TRY_ENTER, TRY_LEAVE, TryCatch #1 {IOException -> 0x00da, blocks: (B:79:0x00f4, B:90:0x010a, B:101:0x0120, B:64:0x00d6), top: B:122:0x0026 }] */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x0116 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x0131 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:134:0x00ea A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:136:0x0127 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x0100 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x005b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x00f4 A[Catch: IOException -> 0x00da, TRY_ENTER, TRY_LEAVE, TryCatch #1 {IOException -> 0x00da, blocks: (B:79:0x00f4, B:90:0x010a, B:101:0x0120, B:64:0x00d6), top: B:122:0x0026 }] */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x010a A[Catch: IOException -> 0x00da, TRY_ENTER, TRY_LEAVE, TryCatch #1 {IOException -> 0x00da, blocks: (B:79:0x00f4, B:90:0x010a, B:101:0x0120, B:64:0x00d6), top: B:122:0x0026 }] */
-    /* JADX WARN: Type inference failed for: r0v12 */
-    /* JADX WARN: Type inference failed for: r0v13 */
-    /* JADX WARN: Type inference failed for: r0v14, types: [java.io.InputStream] */
+    /* JADX WARN: Removed duplicated region for block: B:101:0x0152 A[Catch: IOException -> 0x0122, TRY_ENTER, TRY_LEAVE, TryCatch #26 {IOException -> 0x0122, blocks: (B:90:0x013c, B:101:0x0152, B:112:0x0168, B:75:0x011e), top: B:156:0x0028 }] */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x0168 A[Catch: IOException -> 0x0122, TRY_ENTER, TRY_LEAVE, TryCatch #26 {IOException -> 0x0122, blocks: (B:90:0x013c, B:101:0x0152, B:112:0x0168, B:75:0x011e), top: B:156:0x0028 }] */
+    /* JADX WARN: Removed duplicated region for block: B:133:0x0132 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:140:0x0114 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:142:0x0191 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:147:0x0187 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:149:0x0148 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:153:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0075 A[Catch: all -> 0x0101, JSONException -> 0x0106, IOException -> 0x010a, FileNotFoundException -> 0x010e, TryCatch #2 {JSONException -> 0x0106, blocks: (B:16:0x0055, B:25:0x0075, B:37:0x0094, B:28:0x007d, B:23:0x0070), top: B:135:0x002d }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0094 A[Catch: all -> 0x0101, JSONException -> 0x0106, IOException -> 0x010a, FileNotFoundException -> 0x010e, TRY_LEAVE, TryCatch #2 {JSONException -> 0x0106, blocks: (B:16:0x0055, B:25:0x0075, B:37:0x0094, B:28:0x007d, B:23:0x0070), top: B:135:0x002d }] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x011e A[Catch: IOException -> 0x0122, TRY_ENTER, TRY_LEAVE, TryCatch #26 {IOException -> 0x0122, blocks: (B:90:0x013c, B:101:0x0152, B:112:0x0168, B:75:0x011e), top: B:156:0x0028 }] */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x013c A[Catch: IOException -> 0x0122, TRY_ENTER, TRY_LEAVE, TryCatch #26 {IOException -> 0x0122, blocks: (B:90:0x013c, B:101:0x0152, B:112:0x0168, B:75:0x011e), top: B:156:0x0028 }] */
+    /* JADX WARN: Type inference failed for: r0v14 */
+    /* JADX WARN: Type inference failed for: r0v15, types: [java.io.InputStream] */
     /* JADX WARN: Type inference failed for: r0v2, types: [java.lang.Class<com.baidu.wallet.qrcodescanner.datamodel.QRCodeWhiteListResponse>, java.lang.Class] */
-    /* JADX WARN: Type inference failed for: r0v22 */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v30 */
-    /* JADX WARN: Type inference failed for: r0v32, types: [com.baidu.wallet.qrcodescanner.datamodel.QRCodeWhiteListResponse] */
-    /* JADX WARN: Type inference failed for: r0v36 */
-    /* JADX WARN: Type inference failed for: r0v37 */
-    /* JADX WARN: Type inference failed for: r0v38 */
+    /* JADX WARN: Type inference failed for: r0v28 */
+    /* JADX WARN: Type inference failed for: r0v35 */
     /* JADX WARN: Type inference failed for: r0v39 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v40 */
-    /* JADX WARN: Type inference failed for: r0v6 */
+    /* JADX WARN: Type inference failed for: r0v8 */
     /* JADX WARN: Type inference failed for: r0v9 */
-    /* JADX WARN: Type inference failed for: r2v20 */
-    /* JADX WARN: Type inference failed for: r2v24 */
-    /* JADX WARN: Type inference failed for: r2v36 */
-    /* JADX WARN: Type inference failed for: r9v23, types: [java.io.Reader, java.io.InputStreamReader] */
+    /* JADX WARN: Type inference failed for: r4v11 */
+    /* JADX WARN: Type inference failed for: r4v12 */
+    /* JADX WARN: Type inference failed for: r4v13, types: [java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r4v15 */
+    /* JADX WARN: Type inference failed for: r4v17 */
+    /* JADX WARN: Type inference failed for: r4v19, types: [java.io.FileReader, java.io.Reader] */
+    /* JADX WARN: Type inference failed for: r4v20 */
+    /* JADX WARN: Type inference failed for: r4v21 */
+    /* JADX WARN: Type inference failed for: r4v4 */
+    /* JADX WARN: Type inference failed for: r4v6 */
+    /* JADX WARN: Type inference failed for: r4v7 */
+    /* JADX WARN: Type inference failed for: r4v9 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private QRCodeWhiteListResponse a(Context context) {
         InterceptResult invokeL;
         QRCodeWhiteListResponse qRCodeWhiteListResponse;
-        FileReader fileReader;
         InputStream inputStream;
+        InputStreamReader inputStreamReader;
+        InputStreamReader inputStreamReader2;
         InputStream inputStream2;
+        InputStreamReader inputStreamReader3;
         InputStream inputStream3;
         byte[] decode;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) != null) {
-            return (QRCodeWhiteListResponse) invokeL.objValue;
-        }
-        InputStream inputStream4 = QRCodeWhiteListResponse.class;
-        File file = new File(context.getCacheDir() + "/qrcode_scanner_1.cfg");
-        FileReader fileReader2 = null;
-        r2 = null;
-        r2 = null;
-        r2 = null;
-        r2 = null;
-        InputStream inputStream5 = null;
-        fileReader2 = null;
-        fileReader2 = null;
-        fileReader2 = null;
-        fileReader2 = 0;
-        try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, context)) == null) {
+            InputStream inputStream4 = QRCodeWhiteListResponse.class;
+            File file = new File(context.getCacheDir() + "/qrcode_scanner_1.cfg");
+            InputStreamReader inputStreamReader4 = null;
+            r3 = null;
+            r3 = null;
+            r3 = null;
+            r3 = null;
+            InputStream inputStream5 = null;
+            inputStreamReader4 = null;
+            inputStreamReader4 = null;
+            inputStreamReader4 = null;
+            inputStreamReader4 = null;
             try {
                 try {
-                    boolean z = true;
-                    if (file.exists() && file.isFile()) {
-                        fileReader = new FileReader(file);
+                    try {
+                        boolean exists = file.exists();
+                        boolean z = true;
                         try {
-                            try {
+                            if (exists && file.isFile()) {
+                                exists = new FileReader(file);
                                 try {
                                     try {
-                                        decode = Base64.decode(FileCopyUtils.copyToString(fileReader));
-                                    } catch (IOException e2) {
-                                        e2.printStackTrace();
-                                    }
-                                    if (decode != null) {
-                                        String str = new String(decode);
-                                        if (!TextUtils.isEmpty(str)) {
-                                            qRCodeWhiteListResponse = (QRCodeWhiteListResponse) JsonUtils.fromJson(str, inputStream4);
-                                            if (qRCodeWhiteListResponse != null) {
-                                                try {
-                                                    if (qRCodeWhiteListResponse.checkResponseValidity()) {
+                                        try {
+                                            try {
+                                                decode = Base64.decode(FileCopyUtils.copyToString(exists));
+                                            } catch (IOException e2) {
+                                                e = e2;
+                                                qRCodeWhiteListResponse = null;
+                                            }
+                                            if (decode != null) {
+                                                String str = new String(decode);
+                                                if (!TextUtils.isEmpty(str)) {
+                                                    qRCodeWhiteListResponse = (QRCodeWhiteListResponse) JsonUtils.fromJson(str, inputStream4);
+                                                    try {
+                                                        LogUtil.d("qrcode_whitelist", "use cache data = " + str);
+                                                    } catch (IOException e3) {
+                                                        e = e3;
+                                                        try {
+                                                            e.printStackTrace();
+                                                            if (qRCodeWhiteListResponse == null) {
+                                                            }
+                                                            file.delete();
+                                                            exists = exists;
+                                                            if (z) {
+                                                            }
+                                                            if (exists != 0) {
+                                                            }
+                                                            if (inputStream5 != null) {
+                                                            }
+                                                        } catch (FileNotFoundException e4) {
+                                                            e = e4;
+                                                            inputStream3 = inputStream5;
+                                                            inputStreamReader3 = exists;
+                                                            inputStreamReader4 = inputStreamReader3;
+                                                            inputStream4 = inputStream3;
+                                                            e.printStackTrace();
+                                                            if (inputStreamReader4 != null) {
+                                                                try {
+                                                                    inputStreamReader4.close();
+                                                                } catch (IOException e5) {
+                                                                    e5.printStackTrace();
+                                                                }
+                                                            }
+                                                            if (inputStream4 != 0) {
+                                                                inputStream4.close();
+                                                            }
+                                                            LogUtil.d("qrcode_whitelist", "use server data = " + JsonUtils.toJson(qRCodeWhiteListResponse));
+                                                            return qRCodeWhiteListResponse;
+                                                        } catch (IOException e6) {
+                                                            e = e6;
+                                                            inputStream2 = inputStream5;
+                                                            inputStreamReader2 = exists;
+                                                            inputStreamReader4 = inputStreamReader2;
+                                                            inputStream4 = inputStream2;
+                                                            e.printStackTrace();
+                                                            if (inputStreamReader4 != null) {
+                                                                try {
+                                                                    inputStreamReader4.close();
+                                                                } catch (IOException e7) {
+                                                                    e7.printStackTrace();
+                                                                }
+                                                            }
+                                                            if (inputStream4 != null) {
+                                                                inputStream4.close();
+                                                            }
+                                                            LogUtil.d("qrcode_whitelist", "use server data = " + JsonUtils.toJson(qRCodeWhiteListResponse));
+                                                            return qRCodeWhiteListResponse;
+                                                        }
+                                                        LogUtil.d("qrcode_whitelist", "use server data = " + JsonUtils.toJson(qRCodeWhiteListResponse));
+                                                        return qRCodeWhiteListResponse;
+                                                    }
+                                                    if (qRCodeWhiteListResponse == null && qRCodeWhiteListResponse.checkResponseValidity()) {
                                                         z = false;
+                                                        exists = exists;
+                                                    } else {
+                                                        file.delete();
+                                                        exists = exists;
                                                     }
-                                                } catch (FileNotFoundException e3) {
-                                                    e = e3;
-                                                    inputStream3 = inputStream5;
-                                                    fileReader2 = fileReader;
-                                                    inputStream4 = inputStream3;
-                                                    e.printStackTrace();
-                                                    if (fileReader2 != null) {
-                                                    }
-                                                    if (inputStream4 != 0) {
-                                                    }
-                                                    return qRCodeWhiteListResponse;
-                                                } catch (IOException e4) {
-                                                    e = e4;
-                                                    inputStream2 = inputStream5;
-                                                    fileReader2 = fileReader;
-                                                    inputStream4 = inputStream2;
-                                                    e.printStackTrace();
-                                                    if (fileReader2 != null) {
-                                                    }
-                                                    if (inputStream4 != null) {
-                                                    }
-                                                    return qRCodeWhiteListResponse;
-                                                } catch (JSONException e5) {
-                                                    e = e5;
-                                                    inputStream = inputStream5;
-                                                    fileReader2 = fileReader;
-                                                    inputStream4 = inputStream;
-                                                    e.printStackTrace();
-                                                    if (fileReader2 != null) {
-                                                    }
-                                                    if (inputStream4 != null) {
-                                                    }
-                                                    return qRCodeWhiteListResponse;
                                                 }
                                             }
+                                            qRCodeWhiteListResponse = null;
+                                            if (qRCodeWhiteListResponse == null) {
+                                            }
                                             file.delete();
+                                            exists = exists;
+                                        } catch (JSONException e8) {
+                                            e = e8;
+                                            inputStream = null;
+                                            qRCodeWhiteListResponse = null;
+                                            inputStreamReader = exists;
+                                            inputStreamReader4 = inputStreamReader;
+                                            inputStream4 = inputStream;
+                                            e.printStackTrace();
+                                            if (inputStreamReader4 != null) {
+                                                try {
+                                                    inputStreamReader4.close();
+                                                } catch (IOException e9) {
+                                                    e9.printStackTrace();
+                                                }
+                                            }
+                                            if (inputStream4 != null) {
+                                                inputStream4.close();
+                                            }
+                                            LogUtil.d("qrcode_whitelist", "use server data = " + JsonUtils.toJson(qRCodeWhiteListResponse));
+                                            return qRCodeWhiteListResponse;
                                         }
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        inputStream4 = inputStream5;
+                                        inputStreamReader4 = exists;
+                                        if (inputStreamReader4 != null) {
+                                        }
+                                        if (inputStream4 != null) {
+                                        }
+                                        throw th;
                                     }
+                                } catch (FileNotFoundException e10) {
+                                    e = e10;
+                                    inputStream3 = null;
                                     qRCodeWhiteListResponse = null;
-                                    if (qRCodeWhiteListResponse != null) {
-                                    }
-                                    file.delete();
-                                } catch (JSONException e6) {
-                                    e = e6;
-                                    inputStream = null;
-                                    qRCodeWhiteListResponse = null;
-                                    fileReader2 = fileReader;
-                                    inputStream4 = inputStream;
+                                    inputStreamReader3 = exists;
+                                    inputStreamReader4 = inputStreamReader3;
+                                    inputStream4 = inputStream3;
                                     e.printStackTrace();
-                                    if (fileReader2 != null) {
-                                        try {
-                                            fileReader2.close();
-                                        } catch (IOException e7) {
-                                            e7.printStackTrace();
-                                        }
+                                    if (inputStreamReader4 != null) {
+                                    }
+                                    if (inputStream4 != 0) {
+                                    }
+                                    LogUtil.d("qrcode_whitelist", "use server data = " + JsonUtils.toJson(qRCodeWhiteListResponse));
+                                    return qRCodeWhiteListResponse;
+                                } catch (IOException e11) {
+                                    e = e11;
+                                    inputStream2 = null;
+                                    qRCodeWhiteListResponse = null;
+                                    inputStreamReader2 = exists;
+                                    inputStreamReader4 = inputStreamReader2;
+                                    inputStream4 = inputStream2;
+                                    e.printStackTrace();
+                                    if (inputStreamReader4 != null) {
                                     }
                                     if (inputStream4 != null) {
-                                        inputStream4.close();
-                                        inputStream4 = inputStream4;
-                                        fileReader2 = fileReader2;
                                     }
+                                    LogUtil.d("qrcode_whitelist", "use server data = " + JsonUtils.toJson(qRCodeWhiteListResponse));
                                     return qRCodeWhiteListResponse;
                                 }
-                            } catch (Throwable th) {
-                                th = th;
-                                inputStream4 = inputStream5;
-                                fileReader2 = fileReader;
-                                if (fileReader2 != null) {
-                                    try {
-                                        fileReader2.close();
-                                    } catch (IOException e8) {
-                                        e8.printStackTrace();
-                                    }
-                                }
-                                if (inputStream4 != 0) {
-                                    try {
-                                        inputStream4.close();
-                                    } catch (IOException e9) {
-                                        e9.printStackTrace();
-                                    }
-                                }
-                                throw th;
-                            }
-                        } catch (FileNotFoundException e10) {
-                            e = e10;
-                            inputStream3 = null;
-                            qRCodeWhiteListResponse = null;
-                            fileReader2 = fileReader;
-                            inputStream4 = inputStream3;
-                            e.printStackTrace();
-                            if (fileReader2 != null) {
-                                try {
-                                    fileReader2.close();
-                                } catch (IOException e11) {
-                                    e11.printStackTrace();
-                                }
-                            }
-                            if (inputStream4 != 0) {
-                                inputStream4.close();
-                                inputStream4 = inputStream4;
-                                fileReader2 = fileReader2;
-                            }
-                            return qRCodeWhiteListResponse;
-                        } catch (IOException e12) {
-                            e = e12;
-                            inputStream2 = null;
-                            qRCodeWhiteListResponse = null;
-                            fileReader2 = fileReader;
-                            inputStream4 = inputStream2;
-                            e.printStackTrace();
-                            if (fileReader2 != null) {
-                                try {
-                                    fileReader2.close();
-                                } catch (IOException e13) {
-                                    e13.printStackTrace();
-                                }
-                            }
-                            if (inputStream4 != null) {
-                                inputStream4.close();
-                                inputStream4 = inputStream4;
-                                fileReader2 = fileReader2;
-                            }
-                            return qRCodeWhiteListResponse;
-                        }
-                    } else {
-                        fileReader = null;
-                        qRCodeWhiteListResponse = null;
-                    }
-                    if (z) {
-                        inputStream5 = context.getAssets().open("qrcode_scanner.cfg");
-                        ?? inputStreamReader = new InputStreamReader(inputStream5);
-                        try {
-                            String copyToString = FileCopyUtils.copyToString(inputStreamReader);
-                            if (TextUtils.isEmpty(copyToString)) {
-                                fileReader = inputStreamReader;
                             } else {
-                                inputStream4 = (QRCodeWhiteListResponse) JsonUtils.fromJson(copyToString, inputStream4);
-                                fileReader = inputStreamReader;
-                                qRCodeWhiteListResponse = inputStream4;
+                                exists = 0;
+                                qRCodeWhiteListResponse = null;
                             }
-                        } catch (FileNotFoundException e14) {
-                            fileReader2 = inputStreamReader;
-                            e = e14;
-                            inputStream4 = inputStream5;
-                            e.printStackTrace();
-                            if (fileReader2 != null) {
+                            if (z) {
+                                inputStream5 = DxmApplicationContextImpl.getApplicationContext(context).getAssets().open("qrcode_scanner.cfg");
+                                InputStreamReader inputStreamReader5 = new InputStreamReader(inputStream5);
+                                try {
+                                    try {
+                                        String copyToString = FileCopyUtils.copyToString(inputStreamReader5);
+                                        if (TextUtils.isEmpty(copyToString)) {
+                                            exists = inputStreamReader5;
+                                        } else {
+                                            QRCodeWhiteListResponse qRCodeWhiteListResponse2 = (QRCodeWhiteListResponse) JsonUtils.fromJson(copyToString, inputStream4);
+                                            try {
+                                                LogUtil.d("qrcode_whitelist", "use default data = " + copyToString);
+                                                exists = inputStreamReader5;
+                                                qRCodeWhiteListResponse = qRCodeWhiteListResponse2;
+                                            } catch (FileNotFoundException e12) {
+                                                qRCodeWhiteListResponse = qRCodeWhiteListResponse2;
+                                                inputStream4 = inputStream5;
+                                                inputStreamReader4 = inputStreamReader5;
+                                                e = e12;
+                                                e.printStackTrace();
+                                                if (inputStreamReader4 != null) {
+                                                }
+                                                if (inputStream4 != 0) {
+                                                }
+                                                LogUtil.d("qrcode_whitelist", "use server data = " + JsonUtils.toJson(qRCodeWhiteListResponse));
+                                                return qRCodeWhiteListResponse;
+                                            } catch (IOException e13) {
+                                                qRCodeWhiteListResponse = qRCodeWhiteListResponse2;
+                                                inputStream4 = inputStream5;
+                                                inputStreamReader4 = inputStreamReader5;
+                                                e = e13;
+                                                e.printStackTrace();
+                                                if (inputStreamReader4 != null) {
+                                                }
+                                                if (inputStream4 != null) {
+                                                }
+                                                LogUtil.d("qrcode_whitelist", "use server data = " + JsonUtils.toJson(qRCodeWhiteListResponse));
+                                                return qRCodeWhiteListResponse;
+                                            } catch (JSONException e14) {
+                                                qRCodeWhiteListResponse = qRCodeWhiteListResponse2;
+                                                inputStream4 = inputStream5;
+                                                inputStreamReader4 = inputStreamReader5;
+                                                e = e14;
+                                                e.printStackTrace();
+                                                if (inputStreamReader4 != null) {
+                                                }
+                                                if (inputStream4 != null) {
+                                                }
+                                                LogUtil.d("qrcode_whitelist", "use server data = " + JsonUtils.toJson(qRCodeWhiteListResponse));
+                                                return qRCodeWhiteListResponse;
+                                            }
+                                        }
+                                    } catch (Throwable th2) {
+                                        inputStreamReader4 = inputStreamReader5;
+                                        th = th2;
+                                        inputStream4 = inputStream5;
+                                        if (inputStreamReader4 != null) {
+                                            try {
+                                                inputStreamReader4.close();
+                                            } catch (IOException e15) {
+                                                e15.printStackTrace();
+                                            }
+                                        }
+                                        if (inputStream4 != null) {
+                                            try {
+                                                inputStream4.close();
+                                            } catch (IOException e16) {
+                                                e16.printStackTrace();
+                                            }
+                                        }
+                                        throw th;
+                                    }
+                                } catch (FileNotFoundException e17) {
+                                    inputStreamReader4 = inputStreamReader5;
+                                    e = e17;
+                                    inputStream4 = inputStream5;
+                                } catch (IOException e18) {
+                                    inputStreamReader4 = inputStreamReader5;
+                                    e = e18;
+                                    inputStream4 = inputStream5;
+                                } catch (JSONException e19) {
+                                    inputStreamReader4 = inputStreamReader5;
+                                    e = e19;
+                                    inputStream4 = inputStream5;
+                                }
                             }
-                            if (inputStream4 != 0) {
+                            if (exists != 0) {
+                                try {
+                                    exists.close();
+                                } catch (IOException e20) {
+                                    e20.printStackTrace();
+                                }
                             }
-                            return qRCodeWhiteListResponse;
-                        } catch (IOException e15) {
-                            fileReader2 = inputStreamReader;
-                            e = e15;
-                            inputStream4 = inputStream5;
-                            e.printStackTrace();
-                            if (fileReader2 != null) {
-                            }
-                            if (inputStream4 != null) {
-                            }
-                            return qRCodeWhiteListResponse;
-                        } catch (JSONException e16) {
-                            fileReader2 = inputStreamReader;
-                            e = e16;
-                            inputStream4 = inputStream5;
-                            e.printStackTrace();
-                            if (fileReader2 != null) {
-                            }
-                            if (inputStream4 != null) {
-                            }
-                            return qRCodeWhiteListResponse;
-                        } catch (Throwable th2) {
-                            fileReader2 = inputStreamReader;
-                            th = th2;
-                            inputStream4 = inputStream5;
-                            if (fileReader2 != null) {
-                            }
-                            if (inputStream4 != 0) {
-                            }
-                            throw th;
+                        } catch (JSONException e21) {
+                            e = e21;
+                            inputStream = inputStream5;
+                            inputStreamReader = exists;
                         }
+                    } catch (Throwable th3) {
+                        th = th3;
                     }
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (IOException e17) {
-                            e17.printStackTrace();
-                        }
-                    }
-                } catch (IOException e18) {
-                    e18.printStackTrace();
+                } catch (FileNotFoundException e22) {
+                    e = e22;
+                    inputStream4 = 0;
+                    qRCodeWhiteListResponse = null;
+                } catch (IOException e23) {
+                    e = e23;
+                    inputStream4 = null;
+                    qRCodeWhiteListResponse = null;
+                } catch (JSONException e24) {
+                    e = e24;
+                    inputStream4 = null;
+                    qRCodeWhiteListResponse = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    inputStream4 = null;
                 }
-            } catch (FileNotFoundException e19) {
-                e = e19;
-                inputStream4 = 0;
-                qRCodeWhiteListResponse = null;
-            } catch (IOException e20) {
-                e = e20;
-                inputStream4 = null;
-                qRCodeWhiteListResponse = null;
-            } catch (JSONException e21) {
-                e = e21;
-                inputStream4 = null;
-                qRCodeWhiteListResponse = null;
-            } catch (Throwable th3) {
-                th = th3;
-                inputStream4 = 0;
+                if (inputStream5 != null) {
+                    inputStream5.close();
+                }
+            } catch (IOException e25) {
+                e25.printStackTrace();
             }
-            if (inputStream5 != null) {
-                inputStream5.close();
-                inputStream4 = inputStream4;
-                fileReader2 = inputStream5;
-            }
+            LogUtil.d("qrcode_whitelist", "use server data = " + JsonUtils.toJson(qRCodeWhiteListResponse));
             return qRCodeWhiteListResponse;
-        } catch (Throwable th4) {
-            th = th4;
         }
+        return (QRCodeWhiteListResponse) invokeL.objValue;
     }
 
     public void a(Context context, String str, b bVar, boolean z, boolean z2) {
         QRCodeWhiteListResponse qRCodeWhiteListResponse;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, bVar, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.f27408c = bVar;
-            if (this.f27406a == null) {
-                this.f27406a = a(context);
+            this.f63257c = bVar;
+            if (this.f63255a == null) {
+                this.f63255a = a(context);
             }
-            if (TextUtils.isEmpty(str) || (qRCodeWhiteListResponse = this.f27406a) == null) {
+            if (TextUtils.isEmpty(str) || (qRCodeWhiteListResponse = this.f63255a) == null) {
                 bVar.onResultFail(str, "");
-                this.f27408c = null;
+                this.f63257c = null;
             } else if (z) {
                 a(str, false);
             } else {
@@ -836,28 +875,28 @@ public class a {
                     }
                 }
                 if (d(str)) {
-                    if (this.f27408c != null) {
+                    if (this.f63257c != null) {
                         b.a aVar = new b.a();
-                        aVar.f27423a = "600";
-                        aVar.f27424b = str;
-                        this.f27408c.onResultSuccessCallBack(str, aVar, true);
+                        aVar.f63272a = "600";
+                        aVar.f63273b = str;
+                        this.f63257c.onResultSuccessCallBack(str, aVar, true);
                     }
                 } else if (b(str)) {
                     if (a(str)) {
                         a(str, true);
-                    } else if (this.f27408c != null) {
+                    } else if (this.f63257c != null) {
                         b.a aVar2 = new b.a();
-                        aVar2.f27423a = "300";
-                        aVar2.f27424b = str;
-                        this.f27408c.onResultSuccessCallBack(str, aVar2, true);
+                        aVar2.f63272a = "300";
+                        aVar2.f63273b = str;
+                        this.f63257c.onResultSuccessCallBack(str, aVar2, true);
                     }
-                } else if (this.f27408c != null) {
+                } else if (this.f63257c != null) {
                     b.a aVar3 = new b.a();
-                    aVar3.f27423a = "100";
-                    aVar3.f27424b = str;
-                    this.f27408c.onResultSuccessCallBack(str, aVar3, true);
+                    aVar3.f63272a = "100";
+                    aVar3.f63273b = str;
+                    this.f63257c.onResultSuccessCallBack(str, aVar3, true);
                 }
-                this.f27408c = null;
+                this.f63257c = null;
             }
         }
     }
@@ -866,19 +905,19 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
             if (c(str)) {
-                if (this.f27408c != null) {
+                if (this.f63257c != null) {
                     b.a aVar = new b.a();
-                    aVar.f27423a = "2";
-                    aVar.f27424b = str;
-                    this.f27408c.onResultSuccessCallBack(str, aVar, z);
+                    aVar.f63272a = "2";
+                    aVar.f63273b = str;
+                    this.f63257c.onResultSuccessCallBack(str, aVar, z);
                 }
-            } else if (this.f27408c != null) {
+            } else if (this.f63257c != null) {
                 b.a aVar2 = new b.a();
-                aVar2.f27423a = "1";
-                aVar2.f27424b = str;
-                this.f27408c.onResultSuccessCallBack(str, aVar2, z);
+                aVar2.f63272a = "1";
+                aVar2.f63273b = str;
+                this.f63257c.onResultSuccessCallBack(str, aVar2, z);
             }
-            this.f27408c = null;
+            this.f63257c = null;
         }
     }
 
@@ -886,7 +925,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f27406a;
+            QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f63255a;
             if (qRCodeWhiteListResponse != null) {
                 for (QRCodeWhiteListResponse.Item item : qRCodeWhiteListResponse.getWhiteLists()) {
                     if (a(str, item.whitelist_preg)) {
@@ -927,10 +966,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, context, str) == null) {
             BeanManager.getInstance().removeAllBeans("QRCodeScannerParseShortUrl");
-            DXMSdkSAUtils.onEventStart("@parseQRCodeScannerShortUrl");
-            PayStatisticsUtil.onEventStart("@parseQRCodeScannerShortUrl");
             com.baidu.wallet.qrcodescanner.beans.a aVar = (com.baidu.wallet.qrcodescanner.beans.a) QRCodeScannerBeanFactory.getInstance().getBean(context, QRCodeScannerBeanFactory.QRCODE_SHORT_URL, "QRCodeScannerParseShortUrl");
-            QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f27406a;
+            QRCodeWhiteListResponse qRCodeWhiteListResponse = this.f63255a;
             if (qRCodeWhiteListResponse != null) {
                 for (QRCodeWhiteListResponse.Group group : qRCodeWhiteListResponse.getDataGroup()) {
                     if (a(str, group.shorturl_preg_new)) {

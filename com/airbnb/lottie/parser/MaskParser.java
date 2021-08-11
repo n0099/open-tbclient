@@ -6,14 +6,13 @@ import com.airbnb.lottie.model.animatable.AnimatableShapeValue;
 import com.airbnb.lottie.model.content.Mask;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Logger;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MaskParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,12 +46,12 @@ public class MaskParser {
                 int hashCode = nextName.hashCode();
                 char c3 = 65535;
                 if (hashCode == 111) {
-                    if (nextName.equals(Config.OS)) {
+                    if (nextName.equals("o")) {
                         c2 = 2;
                     }
                     c2 = 65535;
                 } else if (hashCode == 3588) {
-                    if (nextName.equals(Config.PLATFORM_TYPE)) {
+                    if (nextName.equals("pt")) {
                         c2 = 1;
                     }
                     c2 = 65535;

@@ -3,41 +3,41 @@ package com.baidu.swan.apps.res.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import c.a.n0.a.a2.e;
+import c.a.n0.a.g1.f;
+import c.a.n0.a.h;
+import c.a.n0.a.j2.k;
+import c.a.n0.a.j2.p.d;
+import c.a.n0.a.m2.b;
+import c.a.n0.a.v2.n0;
+import c.a.n0.a.v2.o0;
+import c.a.n0.a.v2.q0;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.a2.e;
-import d.a.o0.a.g1.f;
-import d.a.o0.a.h;
-import d.a.o0.a.j2.k;
-import d.a.o0.a.j2.p.d;
-import d.a.o0.a.m2.b;
-import d.a.o0.a.v2.n0;
-import d.a.o0.a.v2.o0;
-import d.a.o0.a.v2.q0;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DomainErrorView extends CommonEmptyView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f11340e;
+        public final /* synthetic */ String f46047e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f11341f;
+        public final /* synthetic */ String f46048f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f11342g;
+        public final /* synthetic */ e f46049g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DomainErrorView f11343h;
+        public final /* synthetic */ DomainErrorView f46050h;
 
         public a(DomainErrorView domainErrorView, String str, String str2, e eVar) {
             Interceptable interceptable = $ic;
@@ -54,17 +54,17 @@ public class DomainErrorView extends CommonEmptyView {
                     return;
                 }
             }
-            this.f11343h = domainErrorView;
-            this.f11340e = str;
-            this.f11341f = str2;
-            this.f11342g = eVar;
+            this.f46050h = domainErrorView;
+            this.f46047e = str;
+            this.f46048f = str2;
+            this.f46049g = eVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d.a.o0.a.c1.a.t().b(this.f11342g.x(), this.f11342g.D(), this.f11342g.O(), o0.u(this.f11340e, this.f11341f));
+                c.a.n0.a.c1.a.t().b(this.f46049g.x(), this.f46049g.D(), this.f46049g.O(), o0.u(this.f46047e, this.f46048f));
             }
         }
     }
@@ -89,15 +89,15 @@ public class DomainErrorView extends CommonEmptyView {
         }
     }
 
-    public void b(String str) {
+    public void showError(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             boolean d2 = o0.d(str, stringBuffer);
             String stringBuffer2 = stringBuffer.toString();
-            setIcon(d.a.o0.a.e.aiapps_empty_icon_error);
+            setIcon(c.a.n0.a.e.aiapps_empty_icon_error);
             setTitle(h.aiapps_emptyview_domain_error_title);
-            d.a.o0.a.q2.a aVar = new d.a.o0.a.q2.a();
+            c.a.n0.a.q2.a aVar = new c.a.n0.a.q2.a();
             aVar.j(5L);
             aVar.h(41L);
             aVar.e("domain not in white list--" + stringBuffer2);
@@ -109,11 +109,11 @@ public class DomainErrorView extends CommonEmptyView {
                 sb.append(d2 ? stringBuffer2 : format);
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
                 setSubTitle(sb.toString());
-                this.k.setVisibility(0);
-                this.k.setOnClickListener(new a(this, format, stringBuffer2, Q));
+                this.mFeedbackBtn.setVisibility(0);
+                this.mFeedbackBtn.setOnClickListener(new a(this, format, stringBuffer2, Q));
             }
-            this.f11329f.setText(getResources().getText(h.swanapp_domain_error));
-            this.f11330g.setPadding(n0.g(70.0f), 0, n0.g(70.0f), 0);
+            this.mTitle.setText(getResources().getText(h.swanapp_domain_error));
+            this.mSubTitle.setPadding(n0.g(70.0f), 0, n0.g(70.0f), 0);
             String h2 = q0.n().h();
             String d3 = q0.v().d();
             d dVar = new d();

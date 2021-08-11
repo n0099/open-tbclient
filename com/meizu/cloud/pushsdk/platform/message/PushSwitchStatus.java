@@ -1,8 +1,9 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PushSwitchStatus extends BasicPushStatus {
     public String pushId;
     public boolean switchNotificationMessage;
@@ -55,6 +56,6 @@ public class PushSwitchStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public String toString() {
-        return super.toString() + "PushSwitchStatus{switchNotificationMessage=" + this.switchNotificationMessage + ", switchThroughMessage=" + this.switchThroughMessage + ", pushId='" + this.pushId + "'}";
+        return super.toString() + "PushSwitchStatus{switchNotificationMessage=" + this.switchNotificationMessage + ", switchThroughMessage=" + this.switchThroughMessage + ", pushId='" + this.pushId + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 }

@@ -32,7 +32,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class SingleDateSelector implements DateSelector<Long> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SingleDateSelector> CREATOR;
@@ -262,10 +262,10 @@ public class SingleDateSelector implements DateSelector<Long> {
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
-    public void select(long j) {
+    public void select(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
-            this.selectedItem = Long.valueOf(j);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+            this.selectedItem = Long.valueOf(j2);
         }
     }
 

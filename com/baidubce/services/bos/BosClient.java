@@ -107,7 +107,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BosClient extends AbstractBceClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String STORAGE_CLASS_COLD = "COLD";
@@ -420,7 +420,7 @@ public class BosClient extends AbstractBceClient {
         }
         ArrayList arrayList = new ArrayList();
         int streamBufferSize = getStreamBufferSize();
-        long j = 0;
+        long j2 = 0;
         while (true) {
             byte[] bArr = new byte[streamBufferSize];
             arrayList.add(bArr);
@@ -429,10 +429,10 @@ public class BosClient extends AbstractBceClient {
                 try {
                     int read = inputStream.read(bArr, i2, streamBufferSize - i2);
                     if (read < 0) {
-                        objectMetadata.setContentLength(j);
+                        objectMetadata.setContentLength(j2);
                         return arrayList;
                     }
-                    j += read;
+                    j2 += read;
                     i2 += read;
                 } catch (IOException e2) {
                     throw new BceClientException("Fail to read data:" + e2.getMessage(), e2);

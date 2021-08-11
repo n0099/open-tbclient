@@ -6,7 +6,6 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -372,7 +371,6 @@ public class ActionBarDrawerToggle implements DrawerLayout.DrawerListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048588, this, drawable, i2) == null) {
             if (!this.mWarnedForDisplayHomeAsUp && !this.mActivityImpl.isNavigationVisible()) {
-                Log.w(androidx.legacy.app.ActionBarDrawerToggle.TAG, "DrawerToggle may not show up because NavigationIcon is not visible. You may need to call actionbar.setDisplayHomeAsUpEnabled(true);");
                 this.mWarnedForDisplayHomeAsUp = true;
             }
             this.mActivityImpl.setActionBarUpIndicator(drawable, i2);

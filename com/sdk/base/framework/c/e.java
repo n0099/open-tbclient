@@ -1,4 +1,4 @@
 package com.sdk.base.framework.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface e {
 }

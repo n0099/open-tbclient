@@ -9,15 +9,15 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebViewFactory;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f27625a = false;
+    public static boolean f63453a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f27626b = -1;
+    public static int f63454b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -54,13 +54,13 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (b.class) {
-                if (!f27625a) {
+                if (!f63453a) {
                     File filesDir = WebViewFactory.getContext().getFilesDir();
                     StringBuilder sb = new StringBuilder();
                     sb.append(WebKitFactory.getProcessTypeString());
                     sb.append("zeus_init_model_opt");
-                    f27626b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
-                    f27625a = true;
+                    f63454b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
+                    f63453a = true;
                 }
             }
             return 1;

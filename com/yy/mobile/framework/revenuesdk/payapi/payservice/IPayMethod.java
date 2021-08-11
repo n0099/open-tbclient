@@ -12,6 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.utils.StatHelper;
 import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
@@ -19,11 +20,11 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.SkuDetailInfo;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface IPayMethod {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Status {
         public static final /* synthetic */ Status[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -48,7 +49,7 @@ public interface IPayMethod {
                     return;
                 }
             }
-            OK = new Status("OK", 0, 0, EventAlias.PayEventAlias.PAY_SUCCESS);
+            OK = new Status(StatHelper.SENSOR_OK, 0, 0, EventAlias.PayEventAlias.PAY_SUCCESS);
             NOT_SUPPORT = new Status("NOT_SUPPORT", 1, -101, "当前不支持该种支付方式");
             ERROR = new Status("ERROR", 2, -102, "支付错误");
             Status status = new Status(RomUtils.UNKNOWN, 3, -103, "未知错误");
@@ -146,11 +147,11 @@ public interface IPayMethod {
 
     boolean querySkuDetails(Activity activity, List<String> list, String str, IResult<List<SkuDetailInfo>> iResult);
 
-    void requestPay(Activity activity, long j, ProductInfo productInfo, String str, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+    void requestPay(Activity activity, long j2, ProductInfo productInfo, String str, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
 
-    void requestPay(Activity activity, long j, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+    void requestPay(Activity activity, long j2, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
 
-    void requestSubscription(Activity activity, long j, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+    void requestSubscription(Activity activity, long j2, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
 
-    void updateSubscription(Activity activity, long j, String str, String str2, int i2, String str3, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
+    void updateSubscription(Activity activity, long j2, String str, String str2, int i2, String str3, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
 }

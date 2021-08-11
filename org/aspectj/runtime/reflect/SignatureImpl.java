@@ -1,7 +1,6 @@
 package org.aspectj.runtime.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -15,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.util.StringTokenizer;
 import org.aspectj.lang.Signature;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public abstract class SignatureImpl implements Signature {
     public static /* synthetic */ Interceptable $ic = null;
     public static Class[] EMPTY_CLASS_ARRAY = null;
@@ -32,14 +31,14 @@ public abstract class SignatureImpl implements Signature {
     public Cache stringCache;
     public String stringRep;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface Cache {
         String get(int i2);
 
         void set(int i2, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class CacheImpl implements Cache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,7 +279,7 @@ public abstract class SignatureImpl implements Signature {
                 stringBuffer.append("[]");
                 return stringBuffer.toString();
             }
-            return cls.getName().replace('$', IStringUtil.EXTENSION_SEPARATOR);
+            return cls.getName().replace('$', '.');
         }
         return (String) invokeL.objValue;
     }
@@ -357,7 +356,7 @@ public abstract class SignatureImpl implements Signature {
                 stringBuffer.append("[]");
                 return stringBuffer.toString();
             }
-            return stripPackageName(cls.getName()).replace('$', IStringUtil.EXTENSION_SEPARATOR);
+            return stripPackageName(cls.getName()).replace('$', '.');
         }
         return (String) invokeL.objValue;
     }

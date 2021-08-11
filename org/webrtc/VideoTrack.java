@@ -7,20 +7,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.IdentityHashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class VideoTrack extends MediaStreamTrack {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final IdentityHashMap<VideoSink, Long> sinks;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoTrack(long j) {
-        super(j);
+    public VideoTrack(long j2) {
+        super(j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -34,11 +34,11 @@ public class VideoTrack extends MediaStreamTrack {
         this.sinks = new IdentityHashMap<>();
     }
 
-    public static native void nativeAddSink(long j, long j2);
+    public static native void nativeAddSink(long j2, long j3);
 
-    public static native void nativeFreeSink(long j);
+    public static native void nativeFreeSink(long j2);
 
-    public static native void nativeRemoveSink(long j, long j2);
+    public static native void nativeRemoveSink(long j2, long j3);
 
     public static native long nativeWrapSink(VideoSink videoSink);
 

@@ -1,6 +1,7 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
 import android.text.TextUtils;
+import c.a.e.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -16,28 +17,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ReplyMeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f17966e;
+    public TbPageContext f53229e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f17967f;
+    public b f53230f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.d.c.g.a f17968g;
+    public c.a.e.c.g.a f53231g;
 
-    /* loaded from: classes4.dex */
-    public class a extends d.a.d.c.g.a {
+    /* loaded from: classes7.dex */
+    public class a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ReplyMeModel f17969a;
+        public final /* synthetic */ ReplyMeModel f53232a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(ReplyMeModel replyMeModel, int i2, int i3) {
@@ -58,12 +58,12 @@ public class ReplyMeModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f17969a = replyMeModel;
+            this.f53232a = replyMeModel;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:37:0x00d0  */
         /* JADX WARN: Removed duplicated region for block: B:40:0x00e2  */
-        @Override // d.a.d.c.g.a
+        @Override // c.a.e.c.g.a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -73,7 +73,7 @@ public class ReplyMeModel extends BdBaseModel {
             long quoteId;
             long repostId;
             String forumName;
-            long j;
+            long j2;
             long tid;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -81,12 +81,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                this.f17969a.f17966e.showToast(R.string.neterror);
+                this.f53232a.f53229e.showToast(R.string.neterror);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                    this.f17969a.f17966e.showToast(responsedMessage.getErrorString());
+                    this.f53232a.f53229e.showToast(responsedMessage.getErrorString());
                 } else {
-                    this.f17969a.f17966e.showToast(R.string.neterror);
+                    this.f53232a.f53229e.showToast(R.string.neterror);
                 }
             } else {
                 if (z) {
@@ -105,22 +105,22 @@ public class ReplyMeModel extends BdBaseModel {
                     repostId = checkPostHttpResponseMessage.getRepostId();
                     forumName = checkPostHttpResponseMessage.getForumName();
                     if (responsedMessage.getOrginalMessage() == null || !(checkPostHttpResponseMessage.getOrginalMessage().getExtra() instanceof CheckPostRequestMessage)) {
-                        j = 0;
-                        long j2 = forumId;
-                        long j3 = quoteId;
-                        long j4 = repostId;
+                        j2 = 0;
+                        long j3 = forumId;
+                        long j4 = quoteId;
+                        long j5 = repostId;
                         String str = forumName;
                         if (postState != 1) {
-                            if (this.f17969a.f17967f != null) {
-                                this.f17969a.f17967f.a(j2, j3, j4, str, j);
+                            if (this.f53232a.f53230f != null) {
+                                this.f53232a.f53230f.a(j3, j4, j5, str, j2);
                                 return;
                             }
                             return;
                         } else if (postState == 0) {
-                            this.f17969a.f17966e.showToast(R.string.thread_delete_tip);
+                            this.f53232a.f53229e.showToast(R.string.thread_delete_tip);
                             return;
                         } else if (postState == -1) {
-                            this.f17969a.f17966e.showToast(R.string.thread_shield_tip);
+                            this.f53232a.f53229e.showToast(R.string.thread_shield_tip);
                             return;
                         } else {
                             return;
@@ -128,10 +128,10 @@ public class ReplyMeModel extends BdBaseModel {
                     }
                     tid = ((CheckPostRequestMessage) checkPostHttpResponseMessage.getOrginalMessage().getExtra()).getTid();
                 }
-                j = tid;
-                long j22 = forumId;
-                long j32 = quoteId;
-                long j42 = repostId;
+                j2 = tid;
+                long j32 = forumId;
+                long j42 = quoteId;
+                long j52 = repostId;
                 String str2 = forumName;
                 if (postState != 1) {
                 }
@@ -139,9 +139,9 @@ public class ReplyMeModel extends BdBaseModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface b {
-        void a(long j, long j2, long j3, String str, long j4);
+        void a(long j2, long j3, long j4, String str, long j5);
     }
 
     static {
@@ -157,8 +157,8 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        d.a.q0.h3.d0.a.f(303010, CheckPostResponseMessage.class, false);
-        d.a.q0.h3.d0.a.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        c.a.p0.i3.d0.a.f(303010, CheckPostResponseMessage.class, false);
+        c.a.p0.i3.d0.a.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -179,14 +179,14 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f17966e = tbPageContext;
+        this.f53229e = tbPageContext;
         y();
     }
 
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f17967f = bVar;
+            this.f53230f = bVar;
         }
     }
 
@@ -212,33 +212,33 @@ public class ReplyMeModel extends BdBaseModel {
 
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f17968g == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.f53231g == null) {
             return;
         }
-        MessageManager.getInstance().unRegisterListener(this.f17968g);
+        MessageManager.getInstance().unRegisterListener(this.f53231g);
     }
 
     public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             a aVar = new a(this, CmdConfigHttp.CMD_CHECK_POST, 303010);
-            this.f17968g = aVar;
-            aVar.setTag(this.f17966e.getUniqueId());
-            this.f17968g.getHttpMessageListener().setSelfListener(true);
-            this.f17968g.getSocketMessageListener().setSelfListener(true);
-            this.f17966e.registerListener(this.f17968g);
+            this.f53231g = aVar;
+            aVar.setTag(this.f53229e.getUniqueId());
+            this.f53231g.getHttpMessageListener().setSelfListener(true);
+            this.f53231g.getSocketMessageListener().setSelfListener(true);
+            this.f53229e.registerListener(this.f53231g);
         }
     }
 
-    public void z(long j, int i2, String str, String str2, BaijiahaoData baijiahaoData) {
+    public void z(long j2, int i2, String str, String str2, BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), str, str2, baijiahaoData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str, str2, baijiahaoData}) == null) {
             CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();
-            checkPostRequestMessage.setPid(j);
+            checkPostRequestMessage.setPid(j2);
             checkPostRequestMessage.setPostType(i2);
             checkPostRequestMessage.setForumName(str);
-            checkPostRequestMessage.setTid(d.a.d.e.m.b.f(str2, 0L));
-            checkPostRequestMessage.setTag(this.f17966e.getUniqueId());
+            checkPostRequestMessage.setTid(c.a.e.e.m.b.f(str2, 0L));
+            checkPostRequestMessage.setTag(this.f53229e.getUniqueId());
             if (baijiahaoData != null) {
                 checkPostRequestMessage.ori_ugc_type = baijiahaoData.oriUgcType;
                 checkPostRequestMessage.ori_ugc_tid = baijiahaoData.oriUgcTid;

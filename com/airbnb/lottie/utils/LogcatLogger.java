@@ -1,6 +1,5 @@
 package com.airbnb.lottie.utils;
 
-import android.util.Log;
 import com.airbnb.lottie.L;
 import com.airbnb.lottie.LottieLogger;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LogcatLogger implements LottieLogger {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> loggedMessages;
@@ -60,8 +59,8 @@ public class LogcatLogger implements LottieLogger {
     @Override // com.airbnb.lottie.LottieLogger
     public void error(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th) == null) && L.DBG) {
-            Log.d(L.TAG, str, th);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th) == null) {
+            boolean z = L.DBG;
         }
     }
 
@@ -76,8 +75,8 @@ public class LogcatLogger implements LottieLogger {
     @Override // com.airbnb.lottie.LottieLogger
     public void debug(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) && L.DBG) {
-            Log.d(L.TAG, str, th);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, th) == null) {
+            boolean z = L.DBG;
         }
     }
 
@@ -87,7 +86,6 @@ public class LogcatLogger implements LottieLogger {
         if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, th) == null) || loggedMessages.contains(str)) {
             return;
         }
-        Log.w(L.TAG, str, th);
         loggedMessages.add(str);
     }
 }

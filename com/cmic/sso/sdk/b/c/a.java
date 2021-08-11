@@ -26,12 +26,12 @@ import com.cmic.sso.sdk.d.s;
 import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f32796a;
+    public static a f68765a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -67,14 +67,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f32796a == null) {
+            if (f68765a == null) {
                 synchronized (a.class) {
-                    if (f32796a == null) {
-                        f32796a = new a();
+                    if (f68765a == null) {
+                        f68765a = new a();
                     }
                 }
             }
-            return f32796a;
+            return f68765a;
         }
         return (a) invokeV.objValue;
     }
@@ -139,7 +139,7 @@ public class a {
                 bVar.a("defendEOF", "0");
             } else {
                 e eVar = new e();
-                eVar.a(aVar.a(b.a.f32741a));
+                eVar.a(aVar.a(b.a.f68709a));
                 eVar.a(hVar);
                 eVar.a(false);
                 aVar.a("isCloseIpv4", q.b());
@@ -148,9 +148,9 @@ public class a {
                 if (aVar.b("use2048PublicKey", false)) {
                     com.cmic.sso.sdk.d.c.a(BaseRequest.TAG, "使用2对应的编码");
                     eVar.b("2");
-                    a2 = i.a().b(aVar.a(b.a.f32741a));
+                    a2 = i.a().b(aVar.a(b.a.f68709a));
                 } else {
-                    a2 = i.a().a(aVar.a(b.a.f32741a));
+                    a2 = i.a().a(aVar.a(b.a.f68709a));
                 }
                 eVar.c(a2);
                 bVar = new b(str, eVar, "POST", aVar.b("traceId"));
@@ -200,16 +200,16 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f32797a;
+                public final /* synthetic */ c f68766a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.cmic.sso.sdk.a f32798b;
+                public final /* synthetic */ com.cmic.sso.sdk.a f68767b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ d f32799c;
+                public final /* synthetic */ d f68768c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ a f32800d;
+                public final /* synthetic */ a f68769d;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -226,17 +226,17 @@ public class a {
                             return;
                         }
                     }
-                    this.f32800d = this;
-                    this.f32797a = cVar;
-                    this.f32798b = aVar;
-                    this.f32799c = dVar;
+                    this.f68769d = this;
+                    this.f68766a = cVar;
+                    this.f68767b = aVar;
+                    this.f68768c = dVar;
                 }
 
                 @Override // com.cmic.sso.sdk.b.d.c
                 public void a(com.cmic.sso.sdk.b.d.b bVar) {
                     String string;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && this.f32797a.g()) {
+                    if ((interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && this.f68766a.g()) {
                         try {
                             a();
                             JSONObject jSONObject = new JSONObject(bVar.c());
@@ -245,8 +245,8 @@ public class a {
                             } else {
                                 string = jSONObject.getString(MiPushCommandMessage.KEY_RESULT_CODE);
                             }
-                            s.b(this.f32798b, string);
-                            this.f32799c.a(string, jSONObject.optString("desc"), jSONObject);
+                            s.b(this.f68767b, string);
+                            this.f68768c.a(string, jSONObject.optString("desc"), jSONObject);
                         } catch (Exception e2) {
                             e2.printStackTrace();
                             a(com.cmic.sso.sdk.b.d.a.a(102223));
@@ -257,19 +257,19 @@ public class a {
                 @Override // com.cmic.sso.sdk.b.d.c
                 public void a(com.cmic.sso.sdk.b.d.a aVar3) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) && this.f32797a.g()) {
+                    if ((interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) && this.f68766a.g()) {
                         a();
-                        s.b(this.f32798b, String.valueOf(aVar3.a()));
-                        this.f32799c.a(String.valueOf(aVar3.a()), aVar3.b(), com.cmic.sso.sdk.auth.c.a(String.valueOf(aVar3.a()), aVar3.b()));
+                        s.b(this.f68767b, String.valueOf(aVar3.a()));
+                        this.f68768c.a(String.valueOf(aVar3.a()), aVar3.b(), com.cmic.sso.sdk.auth.c.a(String.valueOf(aVar3.a()), aVar3.b()));
                     }
                 }
 
                 private void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(65537, this) == null) || this.f32797a.a().contains("uniConfig")) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(65537, this) == null) || this.f68766a.a().contains("uniConfig")) {
                         return;
                     }
-                    s.c(this.f32798b, String.valueOf(SystemClock.elapsedRealtime() - this.f32797a.i()));
+                    s.c(this.f68767b, String.valueOf(SystemClock.elapsedRealtime() - this.f68766a.i()));
                 }
             }, aVar);
         }

@@ -10,23 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class CouponListResponse implements IBeanResponse, Serializable {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int NEED_SHOW_MORE_COUPON = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BannerCouponItemInfo[] banner_ad_info;
     public CodeCoupon code_equity;
     public CouponList[] coupon_list;
-    public CouponListPushed[] coupon_list_pushed;
-    public String empty_url;
-    public String expire_message;
-    public int is_need_load_more;
+    public String limit_desc;
     public int total_count;
-    public String txt_pushed_coupon_issued_over;
-    public String url_pushed_coupon_list;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class CodeCoupon implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,34 +27,6 @@ public class CouponListResponse implements IBeanResponse, Serializable {
         public String url;
 
         public CodeCoupon() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class CouponListPushed implements NoProguard, Serializable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int coupon_activity_id;
-        public int coupon_activity_type;
-        public int coupon_amount;
-        public String coupon_expire_time;
-        public String coupon_num;
-        public String coupon_rule;
-        public String sp_name;
-        public int template_type;
-
-        public CouponListPushed() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -86,10 +51,8 @@ public class CouponListResponse implements IBeanResponse, Serializable {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.is_need_load_more = 0;
     }
 
     @Override // com.baidu.apollon.beans.IBeanResponse

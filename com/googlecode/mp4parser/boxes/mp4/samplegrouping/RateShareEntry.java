@@ -13,7 +13,8 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class RateShareEntry extends GroupEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "rash";
@@ -25,7 +26,7 @@ public class RateShareEntry extends GroupEntry {
     public short operationPointCut;
     public short targetRateShare;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +104,7 @@ public class RateShareEntry extends GroupEntry {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return "{availableBitrate=" + this.availableBitrate + ", targetRateShare=" + ((int) this.targetRateShare) + '}';
+                return "{availableBitrate=" + this.availableBitrate + ", targetRateShare=" + ((int) this.targetRateShare) + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }

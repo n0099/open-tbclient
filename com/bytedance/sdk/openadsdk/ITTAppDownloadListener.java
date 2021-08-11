@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface ITTAppDownloadListener extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Default implements ITTAppDownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,30 +44,30 @@ public interface ITTAppDownloadListener extends IInterface {
         }
 
         @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
-        public void onDownloadActive(long j, long j2, String str, String str2) throws RemoteException {
+        public void onDownloadActive(long j2, long j3, String str, String str2) throws RemoteException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
-        public void onDownloadFailed(long j, long j2, String str, String str2) throws RemoteException {
+        public void onDownloadFailed(long j2, long j3, String str, String str2) throws RemoteException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
-        public void onDownloadFinished(long j, String str, String str2) throws RemoteException {
+        public void onDownloadFinished(long j2, String str, String str2) throws RemoteException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
-        public void onDownloadPaused(long j, long j2, String str, String str2) throws RemoteException {
+        public void onDownloadPaused(long j2, long j3, String str, String str2) throws RemoteException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) == null) {
             }
         }
 
@@ -86,21 +86,21 @@ public interface ITTAppDownloadListener extends IInterface {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static abstract class Stub extends Binder implements ITTAppDownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public static class a implements ITTAppDownloadListener {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static ITTAppDownloadListener f29115a;
+            public static ITTAppDownloadListener f64986a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f29116b;
+            public IBinder f64987b;
 
             public a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
@@ -117,33 +117,33 @@ public interface ITTAppDownloadListener extends IInterface {
                         return;
                     }
                 }
-                this.f29116b = iBinder;
+                this.f64987b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29116b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64987b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
-            public void onDownloadActive(long j, long j2, String str, String str2) throws RemoteException {
+            public void onDownloadActive(long j2, long j3, String str, String str2) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) != null) {
+                if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) != null) {
                     return;
                 }
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
-                    obtain.writeLong(j);
                     obtain.writeLong(j2);
+                    obtain.writeLong(j3);
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     try {
-                        if (!this.f29116b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().onDownloadActive(j, j2, str, str2);
+                        if (!this.f64987b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().onDownloadActive(j2, j3, str, str2);
                             obtain2.recycle();
                             obtain.recycle();
                             return;
@@ -163,22 +163,22 @@ public interface ITTAppDownloadListener extends IInterface {
             }
 
             @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
-            public void onDownloadFailed(long j, long j2, String str, String str2) throws RemoteException {
+            public void onDownloadFailed(long j2, long j3, String str, String str2) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) != null) {
+                if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) != null) {
                     return;
                 }
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
-                    obtain.writeLong(j);
                     obtain.writeLong(j2);
+                    obtain.writeLong(j3);
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     try {
-                        if (!this.f29116b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().onDownloadFailed(j, j2, str, str2);
+                        if (!this.f64987b.transact(4, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().onDownloadFailed(j2, j3, str, str2);
                             obtain2.recycle();
                             obtain.recycle();
                             return;
@@ -198,18 +198,18 @@ public interface ITTAppDownloadListener extends IInterface {
             }
 
             @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
-            public void onDownloadFinished(long j, String str, String str2) throws RemoteException {
+            public void onDownloadFinished(long j2, String str, String str2) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+                if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
-                        obtain.writeLong(j);
+                        obtain.writeLong(j2);
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        if (!this.f29116b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().onDownloadFinished(j, str, str2);
+                        if (!this.f64987b.transact(5, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().onDownloadFinished(j2, str, str2);
                         } else {
                             obtain2.readException();
                         }
@@ -221,22 +221,22 @@ public interface ITTAppDownloadListener extends IInterface {
             }
 
             @Override // com.bytedance.sdk.openadsdk.ITTAppDownloadListener
-            public void onDownloadPaused(long j, long j2, String str, String str2) throws RemoteException {
+            public void onDownloadPaused(long j2, long j3, String str, String str2) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2}) != null) {
+                if (interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2}) != null) {
                     return;
                 }
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
-                    obtain.writeLong(j);
                     obtain.writeLong(j2);
+                    obtain.writeLong(j3);
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     try {
-                        if (!this.f29116b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
-                            Stub.getDefaultImpl().onDownloadPaused(j, j2, str, str2);
+                        if (!this.f64987b.transact(3, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                            Stub.getDefaultImpl().onDownloadPaused(j2, j3, str, str2);
                             obtain2.recycle();
                             obtain.recycle();
                             return;
@@ -263,7 +263,7 @@ public interface ITTAppDownloadListener extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
-                        if (!this.f29116b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f64987b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onIdle();
                         } else {
                             obtain2.readException();
@@ -285,7 +285,7 @@ public interface ITTAppDownloadListener extends IInterface {
                         obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ITTAppDownloadListener");
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        if (!this.f29116b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                        if (!this.f64987b.transact(6, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                             Stub.getDefaultImpl().onInstalled(str, str2);
                         } else {
                             obtain2.readException();
@@ -333,17 +333,17 @@ public interface ITTAppDownloadListener extends IInterface {
         public static ITTAppDownloadListener getDefaultImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f29115a : (ITTAppDownloadListener) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f64986a : (ITTAppDownloadListener) invokeV.objValue;
         }
 
         public static boolean setDefaultImpl(ITTAppDownloadListener iTTAppDownloadListener) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iTTAppDownloadListener)) == null) {
-                if (a.f29115a != null || iTTAppDownloadListener == null) {
+                if (a.f64986a != null || iTTAppDownloadListener == null) {
                     return false;
                 }
-                a.f29115a = iTTAppDownloadListener;
+                a.f64986a = iTTAppDownloadListener;
                 return true;
             }
             return invokeL.booleanValue;
@@ -404,13 +404,13 @@ public interface ITTAppDownloadListener extends IInterface {
         }
     }
 
-    void onDownloadActive(long j, long j2, String str, String str2) throws RemoteException;
+    void onDownloadActive(long j2, long j3, String str, String str2) throws RemoteException;
 
-    void onDownloadFailed(long j, long j2, String str, String str2) throws RemoteException;
+    void onDownloadFailed(long j2, long j3, String str, String str2) throws RemoteException;
 
-    void onDownloadFinished(long j, String str, String str2) throws RemoteException;
+    void onDownloadFinished(long j2, String str, String str2) throws RemoteException;
 
-    void onDownloadPaused(long j, long j2, String str, String str2) throws RemoteException;
+    void onDownloadPaused(long j2, long j3, String str, String str2) throws RemoteException;
 
     void onIdle() throws RemoteException;
 

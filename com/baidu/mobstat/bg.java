@@ -16,18 +16,18 @@ import java.io.FileOutputStream;
 import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class bg {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f8864a;
+    public static volatile boolean f43173a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f8865b;
+    public static volatile boolean f43174b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f8866c;
+    public static volatile boolean f43175c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -45,11 +45,11 @@ public class bg {
                     if (i2 != 2) {
                         return false;
                     }
-                    return f8866c;
+                    return f43175c;
                 }
-                return f8865b;
+                return f43174b;
             }
-            return f8864a;
+            return f43173a;
         }
         return invokeI.booleanValue;
     }
@@ -64,12 +64,12 @@ public class bg {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (i2 == 0) {
-                f8864a = z;
+                f43173a = z;
             } else if (i2 == 1) {
-                f8865b = z;
+                f43174b = z;
             } else if (i2 != 2) {
             } else {
-                f8866c = z;
+                f43175c = z;
             }
         }
     }
@@ -123,10 +123,10 @@ public class bg {
             try {
                 httpURLConnection = bo.d(context, a2);
                 httpURLConnection.connect();
-                long j = 0;
+                long j2 = 0;
                 if (i2 == 1) {
                     try {
-                        j = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
+                        j2 = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
                     } catch (Exception unused) {
                     }
                 }
@@ -143,7 +143,7 @@ public class bg {
                 if (responseCode == 200) {
                     if (i2 == 1) {
                         bq.a().a(context, System.currentTimeMillis());
-                        bq.a().b(context, j);
+                        bq.a().b(context, j2);
                     } else if (i2 == 2) {
                         bq.a().c(context, System.currentTimeMillis());
                     }
@@ -232,7 +232,7 @@ public class bg {
             arrayList.add(new Pair(Constants.PARAM_PLATFORM, "Android"));
             arrayList.add(new Pair("model", android.os.Build.MODEL));
             arrayList.add(new Pair("s", Build.VERSION.SDK_INT + ""));
-            arrayList.add(new Pair(Config.OS, Build.VERSION.RELEASE));
+            arrayList.add(new Pair("o", Build.VERSION.RELEASE));
             StringBuilder sb = new StringBuilder();
             for (Pair pair : arrayList) {
                 try {

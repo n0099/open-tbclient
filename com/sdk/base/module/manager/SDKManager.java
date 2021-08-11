@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.module.a.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class SDKManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean closePermission = false;
@@ -127,14 +127,14 @@ public abstract class SDKManager {
     public static void setDebug(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            f.f38384b = z;
+            f.f75169b = z;
         }
     }
 
     public static void setDebugHead(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f.f38386d = z;
+            f.f75171d = z;
         }
     }
 

@@ -1,23 +1,21 @@
 package com.baidu.tieba.ala.alasquare.live_tab.my_concern.view;
 
 import android.view.View;
+import c.a.p0.v.d.c.f.d.f;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.v.d.c.f.d.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LiveTabConcernOfflineViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public f f14080a;
+    public f mView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LiveTabConcernOfflineViewHolder(f fVar) {
-        super(fVar.k());
+        super(fVar.j());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,6 +31,6 @@ public class LiveTabConcernOfflineViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f14080a = fVar;
+        this.mView = fVar;
     }
 }

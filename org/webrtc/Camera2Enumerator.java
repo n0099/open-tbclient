@@ -27,7 +27,7 @@ import java.util.List;
 import java.util.Map;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Camera2Enumerator implements CameraEnumerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double NANO_SECONDS_PER_SECOND = 1.0E9d;
@@ -134,7 +134,7 @@ public class Camera2Enumerator implements CameraEnumerator {
 
     public static List<CameraEnumerationAndroid.CaptureFormat> getSupportedFormats(CameraManager cameraManager, String str) {
         InterceptResult invokeLL;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, cameraManager, str)) == null) {
             synchronized (cachedSupportedFormats) {
@@ -156,11 +156,11 @@ public class Camera2Enumerator implements CameraEnumerator {
                     ArrayList arrayList = new ArrayList();
                     for (Size size : supportedSizes) {
                         try {
-                            j = streamConfigurationMap.getOutputMinFrameDuration(SurfaceTexture.class, new android.util.Size(size.width, size.height));
+                            j2 = streamConfigurationMap.getOutputMinFrameDuration(SurfaceTexture.class, new android.util.Size(size.width, size.height));
                         } catch (Exception unused) {
-                            j = 0;
+                            j2 = 0;
                         }
-                        int round = j == 0 ? i2 : ((int) Math.round(1.0E9d / j)) * 1000;
+                        int round = j2 == 0 ? i2 : ((int) Math.round(1.0E9d / j2)) * 1000;
                         arrayList.add(new CameraEnumerationAndroid.CaptureFormat(size.width, size.height, 0, round));
                         Logging.d(TAG, "Format: " + size.width + "x" + size.height + TNCManager.TNC_PROBE_HEADER_SECEPTOR + round);
                     }

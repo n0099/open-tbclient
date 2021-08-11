@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractHttpParams implements HttpParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,10 +60,10 @@ public abstract class AbstractHttpParams implements HttpParams {
     }
 
     @Override // org.apache.http.params.HttpParams
-    public long getLongParameter(String str, long j) {
+    public long getLongParameter(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeLJ.longValue;
@@ -120,10 +120,10 @@ public abstract class AbstractHttpParams implements HttpParams {
     }
 
     @Override // org.apache.http.params.HttpParams
-    public HttpParams setLongParameter(String str, long j) {
+    public HttpParams setLongParameter(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j2)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (HttpParams) invokeLJ.objValue;

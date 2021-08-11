@@ -1,6 +1,9 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
 import android.content.res.Resources;
+import c.a.e.a.h;
+import c.a.e.e.m.a;
+import c.a.e.e.p.k;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -11,13 +14,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.h;
-import d.a.d.e.m.a;
-import d.a.d.e.p.k;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UtilityData implements TiebaUtilityDataAuto.HostUtilityData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

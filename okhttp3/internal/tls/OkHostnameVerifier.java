@@ -23,7 +23,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
 import okhttp3.internal.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OkHostnameVerifier implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALT_DNS_NAME = 2;
@@ -163,10 +163,10 @@ public final class OkHostnameVerifier implements HostnameVerifier {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
             if (str != null && str.length() != 0 && !str.startsWith(".") && !str.endsWith(IStringUtil.TOP_PATH) && str2 != null && str2.length() != 0 && !str2.startsWith(".") && !str2.endsWith(IStringUtil.TOP_PATH)) {
                 if (!str.endsWith(".")) {
-                    str = str + IStringUtil.EXTENSION_SEPARATOR;
+                    str = str + '.';
                 }
                 if (!str2.endsWith(".")) {
-                    str2 = str2 + IStringUtil.EXTENSION_SEPARATOR;
+                    str2 = str2 + '.';
                 }
                 String lowerCase = str2.toLowerCase(Locale.US);
                 if (!lowerCase.contains("*")) {

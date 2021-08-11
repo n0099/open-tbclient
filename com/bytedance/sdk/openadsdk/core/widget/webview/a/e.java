@@ -6,6 +6,7 @@ import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,34 +15,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f31127a;
+        public static final a f67065a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f31128b;
+        public static final a f67066b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f31129c;
+        public static final a f67067c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f31130d;
+        public static final a f67068d;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f31131f;
+        public static final /* synthetic */ a[] f67069f;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f31132e;
+        public String f67070e;
 
         static {
             InterceptResult invokeClinit;
@@ -56,12 +57,12 @@ public class e {
                     return;
                 }
             }
-            f31127a = new a("HTML", 0, SapiWebView.DATA_MIME_TYPE);
-            f31128b = new a("CSS", 1, "text/css");
-            f31129c = new a("JS", 2, "application/x-javascript");
+            f67065a = new a("HTML", 0, SapiWebView.DATA_MIME_TYPE);
+            f67066b = new a("CSS", 1, "text/css");
+            f67067c = new a("JS", 2, "application/x-javascript");
             a aVar = new a("IMAGE", 3, BdUploadHandler.IMAGE_MIME_TYPE);
-            f31130d = aVar;
-            f31131f = new a[]{f31127a, f31128b, f31129c, aVar};
+            f67068d = aVar;
+            f67069f = new a[]{f67065a, f67066b, f67067c, aVar};
         }
 
         public a(String str, int i2, String str2) {
@@ -82,7 +83,7 @@ public class e {
                     return;
                 }
             }
-            this.f31132e = str2;
+            this.f67070e = str2;
         }
 
         public static a valueOf(String str) {
@@ -94,13 +95,13 @@ public class e {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f31131f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f67069f.clone() : (a[]) invokeV.objValue;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31132e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f67070e : (String) invokeV.objValue;
         }
     }
 
@@ -109,7 +110,7 @@ public class e {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            a aVar2 = a.f31130d;
+            a aVar2 = a.f67068d;
             if (TextUtils.isEmpty(str)) {
                 return aVar2;
             }
@@ -117,17 +118,17 @@ public class e {
                 String path = Uri.parse(str).getPath();
                 if (path != null) {
                     if (path.endsWith(FileHelper.FILE_CACHE_CSS)) {
-                        aVar = a.f31128b;
+                        aVar = a.f67066b;
                     } else if (path.endsWith(".js")) {
-                        aVar = a.f31129c;
+                        aVar = a.f67067c;
                     } else {
-                        if (!path.endsWith(".jpg") && !path.endsWith(".gif") && !path.endsWith(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) && !path.endsWith(".jpeg") && !path.endsWith(".webp") && !path.endsWith(".bmp") && !path.endsWith(".ico")) {
+                        if (!path.endsWith(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) && !path.endsWith(".gif") && !path.endsWith(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) && !path.endsWith(".jpeg") && !path.endsWith(".webp") && !path.endsWith(".bmp") && !path.endsWith(".ico")) {
                             if (!path.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
                                 return aVar2;
                             }
-                            aVar = a.f31127a;
+                            aVar = a.f67065a;
                         }
-                        aVar = a.f31130d;
+                        aVar = a.f67068d;
                     }
                     return aVar;
                 }

@@ -1,6 +1,9 @@
 package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
+import c.h.b.a.b;
+import c.h.b.a.c;
+import c.h.b.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -13,12 +16,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.e.b.a.b;
-import d.e.b.a.c;
-import d.e.b.a.d;
 @Singleton
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LooperMonitor implements ILooperMonitor {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean sIsStartTrack;

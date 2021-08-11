@@ -1,5 +1,9 @@
 package com.google.common.base;
 
+import c.i.d.a.g;
+import c.i.d.a.k;
+import c.i.d.a.n;
+import c.i.d.a.o;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,17 +13,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.g;
-import d.f.d.a.k;
-import d.f.d.a.n;
-import d.f.d.a.o;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class Equivalence<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Equals extends Equivalence<Object> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Equals INSTANCE;
@@ -77,7 +77,7 @@ public abstract class Equivalence<T> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class EquivalentToPredicate<T> implements o<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -105,14 +105,14 @@ public abstract class Equivalence<T> {
             this.target = t;
         }
 
-        @Override // d.f.d.a.o
+        @Override // c.i.d.a.o
         public boolean apply(T t) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) ? this.equivalence.equivalent(t, this.target) : invokeL.booleanValue;
         }
 
-        @Override // d.f.d.a.o
+        @Override // c.i.d.a.o
         public boolean equals(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -145,7 +145,7 @@ public abstract class Equivalence<T> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Identity extends Equivalence<Object> implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Identity INSTANCE;
@@ -206,7 +206,7 @@ public abstract class Equivalence<T> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Wrapper<T> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -282,7 +282,7 @@ public abstract class Equivalence<T> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

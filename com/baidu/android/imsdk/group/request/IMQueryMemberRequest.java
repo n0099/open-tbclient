@@ -28,7 +28,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMQueryMemberRequest extends GroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryMemberRequest";
@@ -39,7 +39,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
     public String mKey;
     public int mSaveToDB;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -158,12 +158,12 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMQueryMemberRequest(Context context, String str, long j, String str2, ArrayList<String> arrayList, int i2) {
+    public IMQueryMemberRequest(Context context, String str, long j2, String str2, ArrayList<String> arrayList, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j), str2, arrayList, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, Long.valueOf(j2), str2, arrayList, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -175,7 +175,7 @@ public class IMQueryMemberRequest extends GroupBaseHttpRequest {
         }
         this.mSaveToDB = 0;
         this.mContext = context;
-        this.mAppid = j;
+        this.mAppid = j2;
         this.mKey = str;
         this.mBuids = arrayList;
         this.mGroupId = str2;

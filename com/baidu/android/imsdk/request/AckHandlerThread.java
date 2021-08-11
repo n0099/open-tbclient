@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import androidx.annotation.NonNull;
+import c.a.t.a;
+import c.a.u.a.b.d.b;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -16,12 +18,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.u.a;
-import d.a.v.a.b.d.b;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AckHandlerThread extends HandlerThread {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ACK_DELAY = 1000;
@@ -126,15 +126,15 @@ public class AckHandlerThread extends HandlerThread {
     /* JADX INFO: Access modifiers changed from: private */
     public void retryAck(Context context, NewAckMessage newAckMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && a.f68193e && newAckMessage != null) {
+        if ((interceptable == null || interceptable.invokeLL(65543, this, context, newAckMessage) == null) && a.f29659e && newAckMessage != null) {
             BLCPRequest bLCPRequest = new BLCPRequest();
-            bLCPRequest.f6438a = 2L;
-            bLCPRequest.f6439b = 95L;
-            bLCPRequest.f6440c = newAckMessage.getBody().getBytes();
-            bLCPRequest.f6441d = System.nanoTime();
+            bLCPRequest.f40425a = 2L;
+            bLCPRequest.f40426b = 95L;
+            bLCPRequest.f40427c = newAckMessage.getBody().getBytes();
+            bLCPRequest.f40428d = System.nanoTime();
             String str = TAG;
-            LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f6441d);
-            d.a.v.a.b.a.c(bLCPRequest, new b(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
+            LogUtils.d(str, "ackRequest msgid:" + bLCPRequest.f40428d);
+            c.a.u.a.b.a.c(bLCPRequest, new b(this, newAckMessage, context) { // from class: com.baidu.android.imsdk.request.AckHandlerThread.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AckHandlerThread this$0;
@@ -161,17 +161,17 @@ public class AckHandlerThread extends HandlerThread {
                     this.val$context = context;
                 }
 
-                @Override // d.a.v.a.b.d.b
-                public void onResponse(int i2, String str2, long j, long j2, long j3, byte[] bArr) {
+                @Override // c.a.u.a.b.d.b
+                public void onResponse(int i2, String str2, long j2, long j3, long j4, byte[] bArr) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bArr}) == null) && i2 == 0) {
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) && i2 == 0) {
                         try {
                             JSONObject jSONObject = new JSONObject(new String(bArr));
                             int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
                             String optString = jSONObject.optString("msg", "");
-                            if (j2 == 95) {
+                            if (j3 == 95) {
                                 String str3 = AckHandlerThread.TAG;
-                                LogUtils.d(str3, "retry Ack Response err :" + optInt + ", methodId :" + j2 + ", data :" + bArr.length);
+                                LogUtils.d(str3, "retry Ack Response err :" + optInt + ", methodId :" + j3 + ", data :" + bArr.length);
                                 this.val$msg.handleMessageResult(this.val$context, new JSONObject(new String(bArr)), optInt, optString);
                                 if (optInt != 0) {
                                     if (this.this$0.mRetryCount.get() < 3) {

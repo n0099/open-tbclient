@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bt extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ XMPushService f40929a;
+    public final /* synthetic */ XMPushService f77805a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bt(XMPushService xMPushService, int i2) {
@@ -33,7 +33,7 @@ public class bt extends XMPushService.i {
                 return;
             }
         }
-        this.f40929a = xMPushService;
+        this.f77805a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -46,10 +46,10 @@ public class bt extends XMPushService.i {
     @Override // com.xiaomi.push.service.XMPushService.i
     public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f40929a.f843a == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f77805a.f847a == null) {
             return;
         }
-        this.f40929a.f843a.b(15, (Exception) null);
-        this.f40929a.f843a = null;
+        this.f77805a.f847a.b(15, (Exception) null);
+        this.f77805a.f847a = null;
     }
 }

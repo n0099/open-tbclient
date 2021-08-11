@@ -18,7 +18,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseDiskCache implements DiskCache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 32768;

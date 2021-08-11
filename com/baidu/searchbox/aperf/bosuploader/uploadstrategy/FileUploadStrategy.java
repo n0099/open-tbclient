@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import c.a.g0.b.a.a;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.ZipUtils;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.b.a.a;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FileUploadStrategy implements IUpload {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -34,7 +34,7 @@ public class FileUploadStrategy implements IUpload {
     public boolean mInvalidDirDeleted;
     public ThreadPoolExecutor mUploadExecutor;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class Constants {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_COUNT_ATTACHMENT = 100;
@@ -57,7 +57,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class FileEntity implements Comparable<FileEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class FileName {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FILE_ID_SEPARATOR = "_";
@@ -125,12 +125,12 @@ public class FileUploadStrategy implements IUpload {
         public String mProcessName;
         public Long mTimestamp;
 
-        public FileName(@NonNull String str, long j, @NonNull String str2, @NonNull String str3) {
+        public FileName(@NonNull String str, long j2, @NonNull String str2, @NonNull String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j), str2, str3};
+                Object[] objArr = {str, Long.valueOf(j2), str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -141,16 +141,16 @@ public class FileUploadStrategy implements IUpload {
                 }
             }
             this.mFileID = str;
-            this.mTimestamp = Long.valueOf(j);
+            this.mTimestamp = Long.valueOf(j2);
             this.mProcessName = str2;
             this.mFileType = str3;
         }
 
-        public static String createFileID(@NonNull String str, long j) {
+        public static String createFileID(@NonNull String str, long j2) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j)) == null) {
-                return str.replace("_", "").replace("#", "") + "_" + j;
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j2)) == null) {
+                return str.replace("_", "").replace("#", "") + "_" + j2;
             }
             return (String) invokeLJ.objValue;
         }
@@ -180,18 +180,18 @@ public class FileUploadStrategy implements IUpload {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, str, str2, str3)) == null) {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    long j = -1;
+                    long j2 = -1;
                     String[] split = str.split("_");
                     if (split != null && split.length == 2) {
                         try {
-                            j = Long.valueOf(split[1]).longValue();
+                            j2 = Long.valueOf(split[1]).longValue();
                         } catch (NumberFormatException unused) {
                             return null;
                         }
                     }
-                    long j2 = j;
-                    if (j2 > 0) {
-                        return new FileName(str, j2, str2, str3);
+                    long j3 = j2;
+                    if (j3 > 0) {
+                        return new FileName(str, j3, str2, str3);
                     }
                 }
                 return null;
@@ -206,13 +206,13 @@ public class FileUploadStrategy implements IUpload {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
                 if (!TextUtils.isEmpty(str) && (split = str.split("#")) != null && split.length == 3) {
-                    long j = -1;
+                    long j2 = -1;
                     String str2 = split[0];
                     if (!TextUtils.isEmpty(str2) && (split2 = str2.split("_")) != null && split2.length == 2) {
                         String str3 = split2[1];
                         if (!TextUtils.isEmpty(str3)) {
                             try {
-                                j = Long.valueOf(str3).longValue();
+                                j2 = Long.valueOf(str3).longValue();
                             } catch (NumberFormatException unused) {
                                 return null;
                             }
@@ -220,8 +220,8 @@ public class FileUploadStrategy implements IUpload {
                     }
                     String str4 = split[1];
                     String str5 = split[2];
-                    if (!TextUtils.isEmpty(str2) && j > 0 && !TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str5)) {
-                        return new FileName(str2, j, str4, str5);
+                    if (!TextUtils.isEmpty(str2) && j2 > 0 && !TextUtils.isEmpty(str4) && !TextUtils.isEmpty(str5)) {
+                        return new FileName(str2, j2, str4, str5);
                     }
                 }
                 return null;
@@ -230,7 +230,7 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class StoreUtil {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String BASE_ATTACHMENT_UPLOAD_FILE_PATH = "attachment_upload";
@@ -293,19 +293,19 @@ public class FileUploadStrategy implements IUpload {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class TrimConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long mLifeTime;
         public int mMaxCount;
 
-        public TrimConfig(int i2, long j) {
+        public TrimConfig(int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j)};
+                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -316,7 +316,7 @@ public class FileUploadStrategy implements IUpload {
                 }
             }
             this.mMaxCount = i2;
-            this.mLifeTime = j;
+            this.mLifeTime = j2;
         }
     }
 

@@ -1,18 +1,18 @@
 package com.baidu.wallet.paysdk.payresult.presenter;
 
 import android.content.Context;
-import com.baidu.apollon.restnet.RestNameValuePair;
-import com.baidu.apollon.restnet.rest.httpurlconnection.RestUrlConnectionRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.payresult.datamodel.H5ResultParams;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.apollon.restnet.rest.httpurlconnection.RestUrlConnectionRequest;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class H5PayResultProcess {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SendCell {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AES_KEY = "*&Hjkfa{{07";
@@ -29,13 +29,13 @@ public class SendCell {
     public long timestamp;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SendCell(String str, long j) {
-        this(0L, str, j, 0, System.currentTimeMillis());
+    public SendCell(String str, long j2) {
+        this(0L, str, j2, 0, System.currentTimeMillis());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j)};
+            Object[] objArr = {str, Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -67,8 +67,8 @@ public class SendCell {
             try {
                 byte[] readInputStream = Util.readInputStream(fileInputStream);
                 long parseId = parseId(file.getName());
-                long j = NumberUtil.getLong(readInputStream, 0);
-                SendCell sendCell = new SendCell(parseId, new String(new AesCipher((file.getName() + AES_KEY).getBytes()).decrypt(readInputStream, 20, readInputStream.length - 20), "utf-8").trim(), NumberUtil.getInt(readInputStream, 8), NumberUtil.getInt(readInputStream, 16), j);
+                long j2 = NumberUtil.getLong(readInputStream, 0);
+                SendCell sendCell = new SendCell(parseId, new String(new AesCipher((file.getName() + AES_KEY).getBytes()).decrypt(readInputStream, 20, readInputStream.length - 20), "utf-8").trim(), NumberUtil.getInt(readInputStream, 8), NumberUtil.getInt(readInputStream, 16), j2);
                 try {
                     fileInputStream.close();
                 } catch (IOException e2) {
@@ -240,12 +240,12 @@ public class SendCell {
         }
     }
 
-    public SendCell(long j, String str, long j2, int i2, long j3) {
+    public SendCell(long j2, String str, long j3, int i2, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j2), str, Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -257,8 +257,8 @@ public class SendCell {
         }
         this.content = str;
         this.retry = i2;
-        this.expire = j2;
-        this.timestamp = j3;
-        this.id = j == 0 ? createId() : j;
+        this.expire = j3;
+        this.timestamp = j4;
+        this.id = j2 == 0 ? createId() : j2;
     }
 }

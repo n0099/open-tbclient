@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.apache.commons.codec.digest4util.MD5Utils;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PMS_DIR = "pms";

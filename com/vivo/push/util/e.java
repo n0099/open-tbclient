@@ -9,21 +9,21 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f39459a;
+    public static final int f76292a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f39460b;
+    public static final int f76293b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f39461c;
+    public static final int f76294c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ExecutorService f39462d;
+    public static ExecutorService f76295d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,15 +40,15 @@ public final class e {
             }
         }
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f39459a = availableProcessors;
-        f39460b = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f39461c = (f39459a * 2) + 1;
-        f39462d = a("COMMON_THREAD");
+        f76292a = availableProcessors;
+        f76293b = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f76294c = (f76292a * 2) + 1;
+        f76295d = a("COMMON_THREAD");
     }
 
     public static ExecutorService a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new ThreadPoolExecutor(f39460b, f39461c, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(128), new f(str), new ThreadPoolExecutor.DiscardPolicy()) : (ExecutorService) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new ThreadPoolExecutor(f76293b, f76294c, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(128), new f(str), new ThreadPoolExecutor.DiscardPolicy()) : (ExecutorService) invokeL.objValue;
     }
 }

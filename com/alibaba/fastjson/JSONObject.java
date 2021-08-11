@@ -34,7 +34,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class JSONObject extends JSON implements Map<String, Object>, Cloneable, Serializable, InvocationHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_INITIAL_CAPACITY = 16;
@@ -42,7 +42,7 @@ public class JSONObject extends JSON implements Map<String, Object>, Cloneable, 
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, Object> map;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class SecureObjectInputStream extends ObjectInputStream {
         public static /* synthetic */ Interceptable $ic;
         public static Field[] fields;

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class OtherBean extends NetworkBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OtherBaseBean";
@@ -45,48 +45,45 @@ public abstract class OtherBean extends NetworkBean {
 
     @Override // com.baidu.fsg.base.restnet.beans.ApollonBean
     public <T, E> void executeAndHandleResponse(Class<T> cls, Class<E> cls2) {
-        RestResponseEntity<T> postForEntity;
+        IBeanResponseCallback iBeanResponseCallback;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cls, cls2) == null) {
-            if (getHttpMethod() == 0) {
-                postForEntity = this.mRestTemplate.getForEntity(getUrl(), getRequestParams(), getEncode(), cls);
-            } else {
-                postForEntity = getHttpMethod() == 1 ? this.mRestTemplate.postForEntity(getUrl(), getRequestParams(), getEncode(), cls) : null;
-            }
-            if (postForEntity != null && this.mRspCallback != null) {
-                T body = postForEntity.getBody();
-                if (body == null) {
-                    this.mRspCallback.onBeanExecFailure(getBeanId(), -4, BeanConstants.rim_resolve_error);
+            RestResponseEntity<T> forEntity = getHttpMethod() == 0 ? this.mRestTemplate.getForEntity(getUrl(), getRequestParams(), getEncode(), cls) : getHttpMethod() == 1 ? this.mRestTemplate.postForEntity(getUrl(), getRequestParams(), getEncode(), cls) : null;
+            if (forEntity == null || this.mRspCallback == null) {
+                iBeanResponseCallback = this.mRspCallback;
+                if (iBeanResponseCallback == null) {
                     return;
                 }
-                String str2 = (String) body;
-                try {
-                    JSONObject jSONObject = new JSONObject(str2);
-                    String optString = jSONObject.optString("csign");
-                    JSONObject jSONObject2 = jSONObject.getJSONObject("result");
-                    new ArrayList();
-                    String mds = Md5Utils.toMds(jSONObject2, this.reqId, "&");
-                    if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(mds) || !optString.equals(mds)) {
-                        this.mRspCallback.onBeanExecFailure(getBeanId(), -1, BeanConstants.ERROR_MSG_CHECKSIGN);
-                        return;
+            } else {
+                T body = forEntity.getBody();
+                if (body != null) {
+                    String str2 = (String) body;
+                    try {
+                        JSONObject jSONObject = new JSONObject(str2);
+                        String optString = jSONObject.optString("csign");
+                        JSONObject jSONObject2 = jSONObject.getJSONObject("result");
+                        new ArrayList();
+                        String mds = Md5Utils.toMds(jSONObject2, this.reqId, "&");
+                        if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(mds) || !optString.equals(mds)) {
+                            this.mRspCallback.onBeanExecFailure(getBeanId(), -1, BeanConstants.ERROR_MSG_CHECKSIGN);
+                            return;
+                        }
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
+                    try {
+                        str = new JSONObject(str2).optString("sign");
+                    } catch (JSONException e3) {
+                        e3.printStackTrace();
+                        str = null;
+                    }
+                    this.mRspCallback.onBeanExecSuccess(getBeanId(), body, null, str);
+                    return;
                 }
-                try {
-                    str = new JSONObject(str2).optString("sign");
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
-                    str = null;
-                }
-                this.mRspCallback.onBeanExecSuccess(getBeanId(), body, null, str);
-                return;
+                iBeanResponseCallback = this.mRspCallback;
             }
-            IBeanResponseCallback iBeanResponseCallback = this.mRspCallback;
-            if (iBeanResponseCallback != null) {
-                iBeanResponseCallback.onBeanExecFailure(getBeanId(), -4, BeanConstants.rim_resolve_error);
-            }
+            iBeanResponseCallback.onBeanExecFailure(getBeanId(), -4, BeanConstants.rim_resolve_error);
         }
     }
 

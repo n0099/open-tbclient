@@ -4,6 +4,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import c.a.o0.s.d0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.pushservice.PushMessageReceiver;
@@ -16,12 +17,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.d0.b;
 import java.net.URISyntaxException;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SHAREDPRE_PUSH_STARTWORK = "baidu_yunpush_start_work";
@@ -92,7 +92,7 @@ public class BaiduYunPushMessageReceiver extends PushMessageReceiver {
                     str4 = jSONObject3.getString("task_id");
                 }
             }
-            int d2 = d.a.d.e.m.b.d(str4, 2500);
+            int d2 = c.a.e.e.m.b.d(str4, 2500);
             if (d2 < 2500) {
                 d2 += 2500;
             }

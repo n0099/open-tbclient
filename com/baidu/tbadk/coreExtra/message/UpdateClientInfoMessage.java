@@ -1,6 +1,7 @@
 package com.baidu.tbadk.coreExtra.message;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -11,13 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.ByteString;
-import d.a.d.e.m.b;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
 import protobuf.UpdateClientInfo.DataReq;
 import protobuf.UpdateClientInfo.UpdateClientInfoReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class UpdateClientInfoMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,6 @@
 package com.baidu.tieba.hottopic.controller;
 
+import c.a.e.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -9,14 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BlessModel extends BdBaseModel<BaseActivity<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BaseActivity<?> f17120e;
+    public BaseActivity<?> f52363e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BlessModel(BaseActivity<?> baseActivity) {
@@ -36,7 +36,7 @@ public class BlessModel extends BdBaseModel<BaseActivity<?>> {
                 return;
             }
         }
-        this.f17120e = baseActivity;
+        this.f52363e = baseActivity;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -60,23 +60,23 @@ public class BlessModel extends BdBaseModel<BaseActivity<?>> {
         return invokeV.booleanValue;
     }
 
-    public void w(long j, long j2, int i2, int i3, int i4, long j3) {
+    public void w(long j2, long j3, int i2, int i3, int i4, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j3)}) == null) {
-            x(j, j2, i2, i3, i4, j3);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j4)}) == null) {
+            x(j2, j3, i2, i3, i4, j4);
         }
     }
 
-    public final void x(long j, long j2, int i2, int i3, int i4, long j3) {
+    public final void x(long j2, long j3, int i2, int i3, int i4, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j4)}) == null) {
             RequestBlessMessage requestBlessMessage = new RequestBlessMessage();
-            requestBlessMessage.setPkId(Long.valueOf(j));
-            requestBlessMessage.setTopicId(Long.valueOf(j2));
+            requestBlessMessage.setPkId(Long.valueOf(j2));
+            requestBlessMessage.setTopicId(Long.valueOf(j3));
             requestBlessMessage.setPkIndex(i2);
             requestBlessMessage.setClickType(i3);
             requestBlessMessage.setPkType(i4);
-            requestBlessMessage.setUserPkId(j3);
+            requestBlessMessage.setUserPkId(j4);
             sendMessage(requestBlessMessage);
         }
     }

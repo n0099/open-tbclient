@@ -1,5 +1,6 @@
 package com.baidu.tieba.addresslist.im.searchfriend;
 
+import c.a.p0.s.e.b.b.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -11,8 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.s.e.b.b.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SearchFriendActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

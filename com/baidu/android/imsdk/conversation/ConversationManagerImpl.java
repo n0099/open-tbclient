@@ -31,7 +31,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ConversationManagerImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ConversationManagerImpl";
@@ -105,10 +105,10 @@ public class ConversationManagerImpl {
             }
 
             @Override // com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener
-            public void onChatRecordDelete(int i4, long j) {
+            public void onChatRecordDelete(int i4, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Long.valueOf(j)}) == null) {
-                    this.this$0.deleteConversationInternal(i4, j);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
+                    this.this$0.deleteConversationInternal(i4, j2);
                     this.this$0.notifyConversationChange();
                 }
             }
@@ -141,10 +141,10 @@ public class ConversationManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deleteConversationInternal(int i2, long j) {
+    public void deleteConversationInternal(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            String str = i2 + "_" + j;
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            String str = i2 + "_" + j2;
             BIMConversation bIMConversation = this.mConversationsMaps.get(str);
             if (bIMConversation != null) {
                 this.mConversationsMaps.remove(str);
@@ -337,11 +337,11 @@ public class ConversationManagerImpl {
                             }
 
                             @Override // com.baidu.android.imsdk.chatuser.IGetUserListener
-                            public void onGetUserResult(int i2, long j, ChatUser chatUser) {
+                            public void onGetUserResult(int i2, long j2, ChatUser chatUser) {
                                 BIMConversation conversation;
                                 ChatSession chatSession2;
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), chatUser}) == null) || i2 != 0 || chatUser == null || (conversation = this.this$0.getConversation(this.val$categoryenum, this.val$id)) == null || (chatSession2 = conversation.getChatSession()) == null) {
+                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), chatUser}) == null) || i2 != 0 || chatUser == null || (conversation = this.this$0.getConversation(this.val$categoryenum, this.val$id)) == null || (chatSession2 = conversation.getChatSession()) == null) {
                                     return;
                                 }
                                 chatSession2.setName(chatUser.getUserName());

@@ -8,11 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f28534a = new a() { // from class: com.bytedance.sdk.component.b.b.a.f.a.1
+    public static final a f64388a = new a() { // from class: com.bytedance.sdk.component.b.b.a.f.a.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

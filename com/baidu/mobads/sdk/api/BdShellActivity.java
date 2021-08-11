@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BdShellActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public static boolean canShowWhenLock;
@@ -389,7 +389,7 @@ public class BdShellActivity extends Activity {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class ActionBarColorTheme implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final ActionBarColorTheme ACTION_BAR_BLACK_THEME;

@@ -15,7 +15,7 @@ import okio.Buffer;
 import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.ByteString;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class JsonReader implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] REPLACEMENT_CHARS;
@@ -27,7 +27,7 @@ public abstract class JsonReader implements Closeable {
     public int[] scopes;
     public int stackSize;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Options {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public abstract class JsonReader implements Closeable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Token {
         public static final /* synthetic */ Token[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

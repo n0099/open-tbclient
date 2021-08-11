@@ -16,16 +16,16 @@ import java.io.BufferedInputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public w f32426a;
+    public w f68387a;
 
     /* renamed from: b  reason: collision with root package name */
-    public w f32427b;
+    public w f68388b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class a implements b {
                 return;
             }
         }
-        this.f32426a = new w.a().a(10L, TimeUnit.SECONDS).b(10L, TimeUnit.SECONDS).c(10L, TimeUnit.SECONDS).a();
-        this.f32427b = new w.a().a(10L, TimeUnit.SECONDS).b(30L, TimeUnit.SECONDS).c(30L, TimeUnit.SECONDS).a();
+        this.f68387a = new w.a().a(10L, TimeUnit.SECONDS).b(10L, TimeUnit.SECONDS).c(10L, TimeUnit.SECONDS).a();
+        this.f68388b = new w.a().a(10L, TimeUnit.SECONDS).b(30L, TimeUnit.SECONDS).c(30L, TimeUnit.SECONDS).a();
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
@@ -49,25 +49,25 @@ public class a implements b {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            ab b2 = this.f32426a.a(new z.a().a(str).a(aa.a(v.a("application/json; charset=utf-8"), str2)).d()).b();
+            ab b2 = this.f68387a.a(new z.a().a(str).a(aa.a(v.a("application/json; charset=utf-8"), str2)).d()).b();
             return new c(a(b2.g()), b2.c() == 200 ? b2.h().f() : null, b2.c(), b2.e());
         }
         return (c) invokeLL.objValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
-    public void a(String str, long j, com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b bVar) throws Exception {
+    public void a(String str, long j2, com.bytedance.sdk.openadsdk.preload.geckox.buffer.a.b bVar) throws Exception {
         Exception e2;
         int i2;
         BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), bVar}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), bVar}) != null) {
             return;
         }
         BufferedInputStream bufferedInputStream2 = null;
         try {
             try {
-                ab b2 = this.f32427b.a(new z.a().a().a(str).d()).b();
+                ab b2 = this.f68388b.a(new z.a().a().a(str).d()).b();
                 i2 = b2.c();
                 try {
                     bufferedInputStream = new BufferedInputStream(b2.h().c());

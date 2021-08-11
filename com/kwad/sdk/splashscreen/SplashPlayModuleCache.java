@@ -10,23 +10,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SplashPlayModuleCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, WeakReference<com.kwad.sdk.splashscreen.b.a>> f36552a;
+    public HashMap<String, WeakReference<com.kwad.sdk.splashscreen.b.a>> f73368a;
 
     /* renamed from: com.kwad.sdk.splashscreen.SplashPlayModuleCache$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Holder {
         public static final /* synthetic */ Holder[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -105,7 +105,7 @@ public class SplashPlayModuleCache {
                 return;
             }
         }
-        this.f36552a = new HashMap<>(1);
+        this.f73368a = new HashMap<>(1);
     }
 
     public /* synthetic */ SplashPlayModuleCache(AnonymousClass1 anonymousClass1) {
@@ -122,13 +122,13 @@ public class SplashPlayModuleCache {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            WeakReference<com.kwad.sdk.splashscreen.b.a> weakReference = this.f36552a.get(str);
+            WeakReference<com.kwad.sdk.splashscreen.b.a> weakReference = this.f73368a.get(str);
             if (weakReference != null) {
                 com.kwad.sdk.splashscreen.b.a aVar = weakReference.get();
                 if (aVar != null) {
                     return aVar;
                 }
-                this.f36552a.remove(str);
+                this.f73368a.remove(str);
             }
             return null;
         }
@@ -138,7 +138,7 @@ public class SplashPlayModuleCache {
     public void a(String str, com.kwad.sdk.splashscreen.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) == null) {
-            this.f36552a.put(str, new WeakReference<>(aVar));
+            this.f73368a.put(str, new WeakReference<>(aVar));
         }
     }
 }

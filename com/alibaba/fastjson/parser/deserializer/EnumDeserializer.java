@@ -16,7 +16,7 @@ import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class EnumDeserializer implements ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,8 +35,8 @@ public class EnumDeserializer implements ObjectDeserializer {
     public EnumDeserializer(Class<?> cls) {
         JSONField jSONField;
         int i2;
-        long j;
         long j2;
+        long j3;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,12 +75,12 @@ public class EnumDeserializer implements ObjectDeserializer {
                         jSONField2 = jSONField;
                         jSONField = jSONField2;
                         i2 = 0;
-                        j = -3750763034362895579L;
                         j2 = -3750763034362895579L;
+                        j3 = -3750763034362895579L;
                         while (i2 < name.length()) {
                         }
-                        hashMap.put(Long.valueOf(j), r6);
-                        if (j != j2) {
+                        hashMap.put(Long.valueOf(j2), r6);
+                        if (j2 != j3) {
                         }
                         if (jSONField == null) {
                         }
@@ -90,21 +90,21 @@ public class EnumDeserializer implements ObjectDeserializer {
             } catch (Exception unused2) {
             }
             i2 = 0;
-            j = -3750763034362895579L;
             j2 = -3750763034362895579L;
+            j3 = -3750763034362895579L;
             while (i2 < name.length()) {
                 int charAt = name.charAt(i2);
-                long j3 = charAt ^ j;
+                long j4 = charAt ^ j2;
                 if (charAt >= 65 && charAt <= 90) {
                     charAt += 32;
                 }
-                j2 = (charAt ^ j2) * 1099511628211L;
+                j3 = (charAt ^ j3) * 1099511628211L;
                 i2++;
-                j = j3 * 1099511628211L;
+                j2 = j4 * 1099511628211L;
             }
-            hashMap.put(Long.valueOf(j), r6);
-            if (j != j2) {
-                hashMap.put(Long.valueOf(j2), r6);
+            hashMap.put(Long.valueOf(j2), r6);
+            if (j2 != j3) {
+                hashMap.put(Long.valueOf(j3), r6);
             }
             if (jSONField == null) {
                 String[] alternateNames = jSONField.alternateNames();
@@ -113,15 +113,15 @@ public class EnumDeserializer implements ObjectDeserializer {
                 while (i6 < length) {
                     String str = alternateNames[i6];
                     int i7 = 0;
-                    long j4 = -3750763034362895579L;
+                    long j5 = -3750763034362895579L;
                     while (i7 < str.length()) {
-                        j4 = (j4 ^ str.charAt(i7)) * 1099511628211L;
+                        j5 = (j5 ^ str.charAt(i7)) * 1099511628211L;
                         i7++;
                         i5 = i5;
                     }
                     int i8 = i5;
-                    if (j4 != j && j4 != j2) {
-                        hashMap.put(Long.valueOf(j4), r6);
+                    if (j5 != j2 && j5 != j3) {
+                        hashMap.put(Long.valueOf(j5), r6);
                     }
                     i6++;
                     i5 = i8;
@@ -169,20 +169,20 @@ public class EnumDeserializer implements ObjectDeserializer {
                     if (stringVal.length() == 0) {
                         return null;
                     }
-                    long j = -3750763034362895579L;
                     long j2 = -3750763034362895579L;
+                    long j3 = -3750763034362895579L;
                     for (int i3 = 0; i3 < stringVal.length(); i3++) {
                         int charAt = stringVal.charAt(i3);
-                        long j3 = j ^ charAt;
+                        long j4 = j2 ^ charAt;
                         if (charAt >= 65 && charAt <= 90) {
                             charAt += 32;
                         }
-                        j = j3 * 1099511628211L;
-                        j2 = (j2 ^ charAt) * 1099511628211L;
+                        j2 = j4 * 1099511628211L;
+                        j3 = (j3 ^ charAt) * 1099511628211L;
                     }
-                    T t = (T) getEnumByHashCode(j);
-                    if (t == null && j2 != j) {
-                        t = (T) getEnumByHashCode(j2);
+                    T t = (T) getEnumByHashCode(j2);
+                    if (t == null && j3 != j2) {
+                        t = (T) getEnumByHashCode(j3);
                     }
                     if (t == null && jSONLexer.isEnabled(Feature.ErrorOnEnumNotMatch)) {
                         throw new JSONException("not match enum value, " + this.enumClass.getName() + ZeusCrashHandler.NAME_SEPERATOR + stringVal);
@@ -204,12 +204,12 @@ public class EnumDeserializer implements ObjectDeserializer {
         return (T) invokeLLL.objValue;
     }
 
-    public Enum getEnumByHashCode(long j) {
+    public Enum getEnumByHashCode(long j2) {
         InterceptResult invokeJ;
         int binarySearch;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (this.enums != null && (binarySearch = Arrays.binarySearch(this.enumNameHashCodes, j)) >= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+            if (this.enums != null && (binarySearch = Arrays.binarySearch(this.enumNameHashCodes, j2)) >= 0) {
                 return this.enums[binarySearch];
             }
             return null;

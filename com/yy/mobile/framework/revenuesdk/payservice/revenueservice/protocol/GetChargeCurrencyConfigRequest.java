@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class GetChargeCurrencyConfigRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,13 +67,13 @@ public class GetChargeCurrencyConfigRequest implements IRequestProtocol {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GetChargeCurrencyConfigRequest(long j, int i2, int i3, String str) {
-        this(j, i2, 10002, i3, str, "");
+    public GetChargeCurrencyConfigRequest(long j2, int i2, int i3, String str) {
+        this(j2, i2, 10002, i3, str, "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), str};
+            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), str};
             interceptable.invokeUnInit(65539, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -88,13 +88,13 @@ public class GetChargeCurrencyConfigRequest implements IRequestProtocol {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GetChargeCurrencyConfigRequest(long j, int i2, int i3, int i4, String str, String str2) {
-        this(j, i2, 10002, i4, str, "", str2);
+    public GetChargeCurrencyConfigRequest(long j2, int i2, int i3, int i4, String str, String str2) {
+        this(j2, i2, 10002, i4, str, "", str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2};
+            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -108,12 +108,12 @@ public class GetChargeCurrencyConfigRequest implements IRequestProtocol {
         }
     }
 
-    public GetChargeCurrencyConfigRequest(long j, int i2, int i3, int i4, String str, String str2, String str3) {
+    public GetChargeCurrencyConfigRequest(long j2, int i2, int i3, int i4, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2, str3};
+            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2, str3};
             interceptable.invokeUnInit(65538, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -125,7 +125,7 @@ public class GetChargeCurrencyConfigRequest implements IRequestProtocol {
         }
         this.usedChannel = 10002;
         this.expand = "";
-        this.uid = j;
+        this.uid = j2;
         this.appId = i2;
         this.usedChannel = i3;
         this.currencyType = i4;

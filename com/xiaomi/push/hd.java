@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class hd {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile hd f40521a;
+    public static volatile hd f77380a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f469a;
+    public final Context f473a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, he> f470a;
+    public Map<String, he> f474a;
 
     public hd(Context context) {
         Interceptable interceptable = $ic;
@@ -39,8 +39,8 @@ public class hd {
                 return;
             }
         }
-        this.f470a = new HashMap();
-        this.f469a = context;
+        this.f474a = new HashMap();
+        this.f473a = context;
     }
 
     public static hd a(Context context) {
@@ -51,26 +51,26 @@ public class hd {
                 com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]:mContext is null, TinyDataManager.getInstance(Context) failed.");
                 return null;
             }
-            if (f40521a == null) {
+            if (f77380a == null) {
                 synchronized (hd.class) {
-                    if (f40521a == null) {
-                        f40521a = new hd(context);
+                    if (f77380a == null) {
+                        f77380a = new hd(context);
                     }
                 }
             }
-            return f40521a;
+            return f77380a;
         }
         return (hd) invokeL.objValue;
     }
 
-    private boolean a(String str, String str2, String str3, String str4, long j, String str5) {
+    private boolean a(String str, String str2, String str3, String str4, long j2, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2), str5})) == null) {
             hj hjVar = new hj();
             hjVar.d(str3);
             hjVar.c(str4);
-            hjVar.a(j);
+            hjVar.a(j2);
             hjVar.b(str5);
             hjVar.a(true);
             hjVar.a("push_sdk_channel");
@@ -84,11 +84,11 @@ public class hd {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            he heVar = this.f470a.get("UPLOADER_PUSH_CHANNEL");
+            he heVar = this.f474a.get("UPLOADER_PUSH_CHANNEL");
             if (heVar != null) {
                 return heVar;
             }
-            he heVar2 = this.f470a.get("UPLOADER_HTTP");
+            he heVar2 = this.f474a.get("UPLOADER_HTTP");
             if (heVar2 != null) {
                 return heVar2;
             }
@@ -98,10 +98,10 @@ public class hd {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, he> m371a() {
+    public Map<String, he> m374a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f470a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f474a : (Map) invokeV.objValue;
     }
 
     public void a(he heVar, String str) {
@@ -112,7 +112,7 @@ public class hd {
             } else if (TextUtils.isEmpty(str)) {
                 com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
             } else {
-                m371a().put(str, heVar);
+                m374a().put(str, heVar);
             }
         }
     }
@@ -122,7 +122,7 @@ public class hd {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, hjVar, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+                com.xiaomi.channel.commonutils.logger.b.m73a("pkgName is null or empty, upload ClientUploadDataItem failed.");
                 return false;
             } else if (com.xiaomi.push.service.bm.a(hjVar, false)) {
                 return false;
@@ -131,16 +131,16 @@ public class hd {
                     hjVar.f(com.xiaomi.push.service.bm.a());
                 }
                 hjVar.g(str);
-                com.xiaomi.push.service.bn.a(this.f469a, hjVar);
+                com.xiaomi.push.service.bn.a(this.f473a, hjVar);
                 return true;
             }
         }
         return invokeLL.booleanValue;
     }
 
-    public boolean a(String str, String str2, long j, String str3) {
+    public boolean a(String str, String str2, long j2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j), str3})) == null) ? a(this.f469a.getPackageName(), this.f469a.getPackageName(), str, str2, j, str3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j2), str3})) == null) ? a(this.f473a.getPackageName(), this.f473a.getPackageName(), str, str2, j2, str3) : invokeCommon.booleanValue;
     }
 }

@@ -18,13 +18,13 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableSkipUntil<T, U> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Publisher<U> other;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SkipUntilMainSubscriber<T> extends AtomicInteger implements ConditionalSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -6270983465606289181L;
@@ -36,7 +36,7 @@ public final class FlowableSkipUntil<T, U> extends AbstractFlowableWithUpstream<
         public final AtomicLong requested;
         public final AtomicReference<Subscription> s;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public final class OtherSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -5592042965931999169L;
@@ -164,10 +164,10 @@ public final class FlowableSkipUntil<T, U> extends AbstractFlowableWithUpstream<
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                SubscriptionHelper.deferredRequest(this.s, this.requested, j);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                SubscriptionHelper.deferredRequest(this.s, this.requested, j2);
             }
         }
 

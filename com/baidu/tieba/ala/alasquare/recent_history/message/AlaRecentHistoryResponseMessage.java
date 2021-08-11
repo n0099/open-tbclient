@@ -1,5 +1,7 @@
 package com.baidu.tieba.ala.alasquare.recent_history.message;
 
+import c.a.p0.v.d.f.b.a;
+import c.a.p0.v.d.f.b.b;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -8,12 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.v.d.e.b.a;
-import d.a.q0.v.d.e.b.b;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             }
             a aVar = new a();
             this.mHistoryData = aVar;
-            aVar.f65135a = jSONObject.optInt("has_more") == 1;
+            aVar.f24949a = jSONObject.optInt("has_more") == 1;
             ArrayList arrayList = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("host_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -60,7 +60,7 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
                 }
                 arrayList = arrayList2;
             }
-            this.mHistoryData.f65136b = arrayList;
+            this.mHistoryData.f24950b = arrayList;
         }
     }
 

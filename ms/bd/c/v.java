@@ -11,13 +11,13 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import kotlin.UShort;
 import ms.bd.c.t;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class v extends t.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public final w f73599g;
+    public final w f78900g;
 
     public v(boolean z, w wVar) throws IOException {
         Interceptable interceptable = $ic;
@@ -34,22 +34,22 @@ public class v extends t.b {
                 return;
             }
         }
-        this.f73585a = z;
-        this.f73599g = wVar;
+        this.f78886a = z;
+        this.f78900g = wVar;
         ByteBuffer allocate = ByteBuffer.allocate(8);
         allocate.order(z ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
         wVar.h(allocate, 16L, 2);
         allocate.getShort();
         wVar.h(allocate, 32L, 8);
-        this.f73586b = allocate.getLong();
+        this.f78887b = allocate.getLong();
         wVar.h(allocate, 40L, 8);
-        this.f73587c = allocate.getLong();
+        this.f78888c = allocate.getLong();
         wVar.h(allocate, 54L, 2);
-        this.f73588d = allocate.getShort() & UShort.MAX_VALUE;
+        this.f78889d = allocate.getShort() & UShort.MAX_VALUE;
         wVar.h(allocate, 56L, 2);
-        this.f73589e = allocate.getShort() & UShort.MAX_VALUE;
+        this.f78890e = allocate.getShort() & UShort.MAX_VALUE;
         wVar.h(allocate, 58L, 2);
-        this.f73590f = allocate.getShort() & UShort.MAX_VALUE;
+        this.f78891f = allocate.getShort() & UShort.MAX_VALUE;
         wVar.h(allocate, 60L, 2);
         allocate.getShort();
         wVar.h(allocate, 62L, 2);
@@ -57,23 +57,23 @@ public class v extends t.b {
     }
 
     @Override // ms.bd.c.t.b
-    public t.a a(long j, int i2) throws IOException {
+    public t.a a(long j2, int i2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? new s(this.f73599g, this, j, i2) : (t.a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? new s(this.f78900g, this, j2, i2) : (t.a) invokeCommon.objValue;
     }
 
     @Override // ms.bd.c.t.b
-    public t.c b(long j) throws IOException {
+    public t.c b(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? new y(this.f73599g, this, j) : (t.c) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? new y(this.f78900g, this, j2) : (t.c) invokeJ.objValue;
     }
 
     @Override // ms.bd.c.t.b
     public t.d c(int i2) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new a0(this.f73599g, this, i2) : (t.d) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new a0(this.f78900g, this, i2) : (t.d) invokeI.objValue;
     }
 }

@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedBlockingQueue<Runnable> f24166a;
+    public final LinkedBlockingQueue<Runnable> f59914a;
 
     public d(LinkedBlockingQueue<Runnable> linkedBlockingQueue) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public final class d implements Runnable {
                 return;
             }
         }
-        this.f24166a = linkedBlockingQueue;
+        this.f59914a = linkedBlockingQueue;
     }
 
     @Override // java.lang.Runnable
@@ -38,7 +38,7 @@ public final class d implements Runnable {
             Thread currentThread = Thread.currentThread();
             while (!currentThread.isInterrupted()) {
                 try {
-                    this.f24166a.take().run();
+                    this.f59914a.take().run();
                 } catch (InterruptedException unused) {
                     return;
                 }

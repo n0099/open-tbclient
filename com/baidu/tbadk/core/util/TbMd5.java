@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.q;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,12 +13,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.q;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbMd5 {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] HEX_DIGITS;
@@ -64,15 +64,15 @@ public class TbMd5 {
                 return "-1";
             }
             String substring = signMd5.substring(8, 24);
-            long j = 0;
             long j2 = 0;
+            long j3 = 0;
             for (int i4 = 0; i4 < 8; i4++) {
-                j2 = (j2 * 16) + Integer.parseInt(substring.substring(i4, i3), 16);
+                j3 = (j3 * 16) + Integer.parseInt(substring.substring(i4, i3), 16);
             }
             for (int i5 = 8; i5 < substring.length(); i5++) {
-                j = (j * 16) + Integer.parseInt(substring.substring(i5, i2), 16);
+                j2 = (j2 * 16) + Integer.parseInt(substring.substring(i5, i2), 16);
             }
-            return String.valueOf(4294967295L & (j + j2));
+            return String.valueOf(4294967295L & (j2 + j3));
         }
         return (String) invokeL.objValue;
     }

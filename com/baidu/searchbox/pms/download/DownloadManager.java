@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadManager {
     public static /* synthetic */ Interceptable $ic;
     public static IDownloadManager sDownloadManager;

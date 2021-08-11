@@ -18,24 +18,24 @@ import com.kwad.sdk.core.download.b.a;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f36437a;
+    public TextView f73246a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f36438b;
+    public TextView f73247b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f36439c;
+    public AdTemplate f73248c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f36440d;
+    public a f73249d;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a();
     }
@@ -109,19 +109,19 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             FrameLayout.inflate(context, R.layout.ksad_video_actionbar_h5, this);
-            this.f36437a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
-            this.f36438b = (TextView) findViewById(R.id.ksad_h5_open_btn);
+            this.f73246a = (TextView) findViewById(R.id.ksad_h5_ad_desc);
+            this.f73247b = (TextView) findViewById(R.id.ksad_h5_open_btn);
         }
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, adTemplate, aVar) == null) {
-            this.f36439c = adTemplate;
-            this.f36440d = aVar;
+            this.f73248c = adTemplate;
+            this.f73249d = aVar;
             AdInfo i2 = c.i(adTemplate);
-            this.f36437a.setText(com.kwad.sdk.core.response.b.a.m(i2));
-            this.f36438b.setText(com.kwad.sdk.core.response.b.a.u(i2));
+            this.f73246a.setText(com.kwad.sdk.core.response.b.a.m(i2));
+            this.f73247b.setText(com.kwad.sdk.core.response.b.a.u(i2));
             setOnClickListener(this);
         }
     }
@@ -130,12 +130,12 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f36439c, new a.InterfaceC0415a(this) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
+            com.kwad.sdk.core.download.b.a.a(view.getContext(), this.f73248c, new a.InterfaceC1982a(this) { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarH5.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ ActionBarH5 f36441a;
+                public final /* synthetic */ ActionBarH5 f73250a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -152,16 +152,16 @@ public class ActionBarH5 extends FrameLayout implements View.OnClickListener {
                             return;
                         }
                     }
-                    this.f36441a = this;
+                    this.f73250a = this;
                 }
 
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC0415a
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1982a
                 public void a() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f36441a.f36440d == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f73250a.f73249d == null) {
                         return;
                     }
-                    this.f36441a.f36440d.a();
+                    this.f73250a.f73249d.a();
                 }
             }, null, false);
         }

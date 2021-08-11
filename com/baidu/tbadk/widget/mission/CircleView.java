@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
@@ -15,28 +16,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f13477i = 20;
-    public static int j = 13;
+    public static int f48516i = 20;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static int f48517j = 13;
     public static final int k;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f13478e;
+    public float f48518e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13479f;
+    public float f48519f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f13480g;
+    public float f48520g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f13481h;
+    public Paint f48521h;
 
     static {
         InterceptResult invokeClinit;
@@ -78,21 +80,21 @@ public class CircleView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            f13477i = l.g(context, R.dimen.tbds94);
-            j = l.g(context, R.dimen.tbds94);
+            f48516i = l.g(context, R.dimen.tbds94);
+            f48517j = l.g(context, R.dimen.tbds94);
             Paint paint = new Paint();
-            this.f13481h = paint;
+            this.f48521h = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0314));
-            this.f13481h.setAntiAlias(true);
-            this.f13481h.setStyle(Paint.Style.STROKE);
-            this.f13481h.setStrokeWidth(k);
+            this.f48521h.setAntiAlias(true);
+            this.f48521h.setStyle(Paint.Style.STROKE);
+            this.f48521h.setStrokeWidth(k);
         }
     }
 
-    public void b() {
+    public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f13481h.setColor(getContext().getResources().getColor(R.color.CAM_X0314));
+            this.f48521h.setColor(getContext().getResources().getColor(R.color.CAM_X0314));
             invalidate();
         }
     }
@@ -102,7 +104,7 @@ public class CircleView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            canvas.drawCircle(this.f13478e, this.f13479f, this.f13480g, this.f13481h);
+            canvas.drawCircle(this.f48518e, this.f48519f, this.f48520g, this.f48521h);
         }
     }
 
@@ -116,11 +118,11 @@ public class CircleView extends View {
             int mode2 = View.MeasureSpec.getMode(i3);
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode == Integer.MIN_VALUE && mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(f13477i, j);
+                setMeasuredDimension(f48516i, f48517j);
             } else if (mode == Integer.MIN_VALUE) {
-                setMeasuredDimension(f13477i, size2);
+                setMeasuredDimension(f48516i, size2);
             } else if (mode2 == Integer.MIN_VALUE) {
-                setMeasuredDimension(size, j);
+                setMeasuredDimension(size, f48517j);
             }
         }
     }
@@ -130,9 +132,9 @@ public class CircleView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            this.f13478e = i2 / 2.0f;
-            this.f13479f = i3 / 2.0f;
-            this.f13480g = (Math.min(i2, i3) / 2.0f) - k;
+            this.f48518e = i2 / 2.0f;
+            this.f48519f = i3 / 2.0f;
+            this.f48520g = (Math.min(i2, i3) / 2.0f) - k;
         }
     }
 

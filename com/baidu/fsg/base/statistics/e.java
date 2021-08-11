@@ -1,40 +1,231 @@
 package com.baidu.fsg.base.statistics;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
-public class e implements Runnable {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class e {
+    public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f5329a;
+    public static final String f39272a = "e";
+    public transient /* synthetic */ FieldHolder $fh;
 
-    public e(d dVar) {
+    /* renamed from: b  reason: collision with root package name */
+    public JSONArray f39273b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public byte[] f39274c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public byte[] f39275d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public byte[] f39276e;
+
+    /* renamed from: com.baidu.fsg.base.statistics.e$1  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public int f39277a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f39278b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public f[] f39279c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+
+        /* renamed from: a  reason: collision with root package name */
+        public static e f39280a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(2004189609, "Lcom/baidu/fsg/base/statistics/e$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(2004189609, "Lcom/baidu/fsg/base/statistics/e$b;");
+                    return;
+                }
+            }
+            f39280a = new e(null);
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1047894439, "Lcom/baidu/fsg/base/statistics/e;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1047894439, "Lcom/baidu/fsg/base/statistics/e;");
+        }
+    }
+
+    public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f5329a = dVar;
+        this.f39273b = new JSONArray();
+        this.f39274c = new byte[0];
+        this.f39275d = new byte[0];
+        this.f39276e = new byte[0];
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public /* synthetic */ e(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    public static e a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l.a().a(b.o);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.f39280a : (e) invokeV.objValue;
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && com.baidu.fsg.base.statistics.b.o.equals(str)) {
+            synchronized (this.f39275d) {
+                this.f39273b = new JSONArray();
+            }
+            com.baidu.fsg.base.statistics.a.a(RimStatisticsUtil.getAppContext(), com.baidu.fsg.base.statistics.b.n, StringUtil.EMPTY_ARRAY, false);
         }
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            synchronized (this.f39275d) {
+                try {
+                    this.f39273b.put(this.f39273b.length(), jSONObject);
+                } catch (JSONException unused) {
+                }
+            }
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Context appContext = RimStatisticsUtil.getAppContext();
+            if (com.baidu.fsg.base.statistics.a.c(appContext, com.baidu.fsg.base.statistics.b.n)) {
+                String a2 = com.baidu.fsg.base.statistics.a.a(appContext, com.baidu.fsg.base.statistics.b.n);
+                if (TextUtils.isEmpty(a2)) {
+                    return;
+                }
+                if ((a2 == null || a2.getBytes().length <= 102400) && d.a().a(appContext, a2)) {
+                    try {
+                        if (a2.getBytes().length > 51200) {
+                            byte[] bArr = new byte[51200];
+                            a2.getBytes(0, 51200, bArr, 0);
+                            a2 = new String(bArr);
+                        }
+                    } catch (Exception unused) {
+                    }
+                    try {
+                        JSONArray jSONArray = new JSONArray(a2);
+                        long currentTimeMillis = System.currentTimeMillis();
+                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                            JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
+                            if (currentTimeMillis - jSONObject.getLong("dim_excep_time") <= 604800000) {
+                                a().a(jSONObject);
+                            }
+                        }
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.f39275d) {
+                z = this.f39273b.length() == 0;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public JSONArray d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f39273b : (JSONArray) invokeV.objValue;
     }
 }

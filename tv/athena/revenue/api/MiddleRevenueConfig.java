@@ -19,7 +19,7 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Keep
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\b\n\u0002\b\u0011\n\u0002\u0018\u0002\n\u0002\b\u000f\n\u0002\u0010\u000b\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\t\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0007\u0018\u0000:\u0001dB\u0011\b\u0002\u0012\u0006\u0010a\u001a\u00020`¢\u0006\u0004\bb\u0010cJ\u000f\u0010\u0002\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u0002\u0010\u0003R$\u0010\u0005\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0005\u0010\u0006\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\nR\"\u0010\f\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010\r\u001a\u0004\b\u000e\u0010\u000f\"\u0004\b\u0010\u0010\u0011R\"\u0010\u0012\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010\r\u001a\u0004\b\u0013\u0010\u000f\"\u0004\b\u0014\u0010\u0011R\"\u0010\u0015\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0017\u0010\u0003\"\u0004\b\u0018\u0010\u0019R\"\u0010\u001a\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001a\u0010\r\u001a\u0004\b\u001b\u0010\u000f\"\u0004\b\u001c\u0010\u0011R$\u0010\u001e\u001a\u0004\u0018\u00010\u001d8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001e\u0010\u001f\u001a\u0004\b \u0010!\"\u0004\b\"\u0010#R\"\u0010$\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b$\u0010\u0016\u001a\u0004\b%\u0010\u0003\"\u0004\b&\u0010\u0019R\"\u0010'\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b'\u0010\u0016\u001a\u0004\b(\u0010\u0003\"\u0004\b)\u0010\u0019R\"\u0010*\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b*\u0010\u0016\u001a\u0004\b+\u0010\u0003\"\u0004\b,\u0010\u0019R\"\u0010.\u001a\u00020-8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b.\u0010/\u001a\u0004\b.\u00100\"\u0004\b1\u00102R\"\u00103\u001a\u00020-8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b3\u0010/\u001a\u0004\b3\u00100\"\u0004\b4\u00102R\"\u00105\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b5\u0010\u0016\u001a\u0004\b6\u0010\u0003\"\u0004\b7\u0010\u0019R\"\u00108\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b8\u0010\u0016\u001a\u0004\b9\u0010\u0003\"\u0004\b:\u0010\u0019R\"\u0010<\u001a\u00020;8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b<\u0010=\u001a\u0004\b>\u0010?\"\u0004\b@\u0010AR$\u0010C\u001a\u0004\u0018\u00010B8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bC\u0010D\u001a\u0004\bE\u0010F\"\u0004\bG\u0010HR\"\u0010I\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bI\u0010\u0016\u001a\u0004\bJ\u0010\u0003\"\u0004\bK\u0010\u0019R$\u0010M\u001a\u0004\u0018\u00010L8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bM\u0010N\u001a\u0004\bO\u0010P\"\u0004\bQ\u0010RR\"\u0010T\u001a\u00020S8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bT\u0010U\u001a\u0004\bV\u0010W\"\u0004\bX\u0010YR\"\u0010Z\u001a\u00020\u000b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bZ\u0010\r\u001a\u0004\b[\u0010\u000f\"\u0004\b\\\u0010\u0011R\"\u0010]\u001a\u00020\u00018\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b]\u0010\u0016\u001a\u0004\b^\u0010\u0003\"\u0004\b_\u0010\u0019¨\u0006e"}, d2 = {"Ltv/athena/revenue/api/MiddleRevenueConfig;", "", "toString", "()Ljava/lang/String;", "Landroid/content/Context;", "appContext", "Landroid/content/Context;", "getAppContext", "()Landroid/content/Context;", "setAppContext", "(Landroid/content/Context;)V", "", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "I", "getAppId", "()I", "setAppId", "(I)V", "authType", "getAuthType", "setAuthType", "country", "Ljava/lang/String;", "getCountry", "setCountry", "(Ljava/lang/String;)V", "currencyType", "getCurrencyType", "setCurrencyType", "Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IDataSenderAdapter;", "dataSender", "Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IDataSenderAdapter;", "getDataSender", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IDataSenderAdapter;", "setDataSender", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IDataSenderAdapter;)V", "deviceId", "getDeviceId", "setDeviceId", "gslbAppId", "getGslbAppId", "setGslbAppId", "hostId", "getHostId", "setHostId", "", "isOpenRisk", "Z", "()Z", "setOpenRisk", "(Z)V", "isTestEnv", "setTestEnv", "language", "getLanguage", "setLanguage", "packageName", "getPackageName", "setPackageName", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "protoType", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "getProtoType", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "setProtoType", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;)V", "Ltv/athena/revenue/api/MiddleReportConfig;", "reportConfig", "Ltv/athena/revenue/api/MiddleReportConfig;", "getReportConfig", "()Ltv/athena/revenue/api/MiddleReportConfig;", "setReportConfig", "(Ltv/athena/revenue/api/MiddleReportConfig;)V", "token", "getToken", "setToken", "Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "tokenCallback", "Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "getTokenCallback", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "setTokenCallback", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;)V", "", "uid", "J", "getUid", "()J", "setUid", "(J)V", "useChannel", "getUseChannel", "setUseChannel", "version", WebChromeClient.MSG_METHOD_GETVERSION, "setVersion", "Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "builder", "<init>", "(Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;)V", "MiddleRevenueConfigBuilder", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class MiddleRevenueConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public final class MiddleRevenueConfig {
 
     @Keep
     @Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b:\b\u0007\u0018\u0000B\u0007¢\u0006\u0004\bn\u0010oJ\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J\u0015\u0010\u0006\u001a\u00020\u00002\u0006\u0010\u0005\u001a\u00020\u0004¢\u0006\u0004\b\u0006\u0010\u0007J\u0015\u0010\n\u001a\u00020\u00002\u0006\u0010\t\u001a\u00020\b¢\u0006\u0004\b\n\u0010\u000bJ\u0015\u0010\r\u001a\u00020\u00002\u0006\u0010\f\u001a\u00020\b¢\u0006\u0004\b\r\u0010\u000bJ\u0015\u0010\u0010\u001a\u00020\u00002\u0006\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0013\u001a\u00020\u00002\u0006\u0010\u0012\u001a\u00020\b¢\u0006\u0004\b\u0013\u0010\u000bJ\u0015\u0010\u0015\u001a\u00020\u00002\u0006\u0010\u0014\u001a\u00020\u000e¢\u0006\u0004\b\u0015\u0010\u0011J\u0015\u0010\u0017\u001a\u00020\u00002\u0006\u0010\u0016\u001a\u00020\u000e¢\u0006\u0004\b\u0017\u0010\u0011J\u0015\u0010\u0019\u001a\u00020\u00002\u0006\u0010\u0018\u001a\u00020\u000e¢\u0006\u0004\b\u0019\u0010\u0011J\u0017\u0010\u001c\u001a\u00020\u00002\b\u0010\u001b\u001a\u0004\u0018\u00010\u001a¢\u0006\u0004\b\u001c\u0010\u001dJ\u0015\u0010 \u001a\u00020\u00002\u0006\u0010\u001f\u001a\u00020\u001e¢\u0006\u0004\b \u0010!J\u0015\u0010#\u001a\u00020\u00002\u0006\u0010\"\u001a\u00020\u000e¢\u0006\u0004\b#\u0010\u0011J\u0015\u0010%\u001a\u00020\u00002\u0006\u0010$\u001a\u00020\u000e¢\u0006\u0004\b%\u0010\u0011J\u0015\u0010(\u001a\u00020\u00002\u0006\u0010'\u001a\u00020&¢\u0006\u0004\b(\u0010)J\u0017\u0010,\u001a\u00020\u00002\b\u0010+\u001a\u0004\u0018\u00010*¢\u0006\u0004\b,\u0010-J\u0015\u0010/\u001a\u00020\u00002\u0006\u0010.\u001a\u00020\u001e¢\u0006\u0004\b/\u0010!J\u0015\u00101\u001a\u00020\u00002\u0006\u00100\u001a\u00020\u000e¢\u0006\u0004\b1\u0010\u0011J\u0017\u00104\u001a\u00020\u00002\b\u00103\u001a\u0004\u0018\u000102¢\u0006\u0004\b4\u00105J\u0015\u00108\u001a\u00020\u00002\u0006\u00107\u001a\u000206¢\u0006\u0004\b8\u00109J\u0015\u0010;\u001a\u00020\u00002\u0006\u0010:\u001a\u00020\b¢\u0006\u0004\b;\u0010\u000bJ\u0015\u0010=\u001a\u00020\u00002\u0006\u0010<\u001a\u00020\u000e¢\u0006\u0004\b=\u0010\u0011R$\u0010\u0005\u001a\u0004\u0018\u00010\u00048\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0005\u0010>\u001a\u0004\b?\u0010@\"\u0004\b\u0006\u0010AR\"\u0010\t\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\t\u0010B\u001a\u0004\bC\u0010D\"\u0004\b\n\u0010ER\"\u0010\f\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\f\u0010B\u001a\u0004\bF\u0010D\"\u0004\b\r\u0010ER\"\u0010\u000f\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000f\u0010G\u001a\u0004\bH\u0010I\"\u0004\b\u0010\u0010JR\"\u0010\u0012\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0012\u0010B\u001a\u0004\bK\u0010D\"\u0004\b\u0013\u0010ER$\u0010\u001b\u001a\u0004\u0018\u00010\u001a8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001b\u0010L\u001a\u0004\bM\u0010N\"\u0004\bO\u0010PR\"\u0010\u0014\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0014\u0010G\u001a\u0004\bQ\u0010I\"\u0004\b\u0015\u0010JR\"\u0010R\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\bR\u0010G\u001a\u0004\bS\u0010I\"\u0004\b\u0017\u0010JR\"\u0010\u0018\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0018\u0010G\u001a\u0004\bT\u0010I\"\u0004\b\u0019\u0010JR\"\u0010\u001f\u001a\u00020\u001e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001f\u0010U\u001a\u0004\b\u001f\u0010V\"\u0004\bW\u0010XR\"\u0010.\u001a\u00020\u001e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b.\u0010U\u001a\u0004\b.\u0010V\"\u0004\b/\u0010XR\"\u0010\"\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\"\u0010G\u001a\u0004\bY\u0010I\"\u0004\b#\u0010JR\"\u0010$\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b$\u0010G\u001a\u0004\bZ\u0010I\"\u0004\b%\u0010JR\"\u0010'\u001a\u00020&8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b'\u0010[\u001a\u0004\b\\\u0010]\"\u0004\b(\u0010^R$\u0010+\u001a\u0004\u0018\u00010*8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b+\u0010_\u001a\u0004\b`\u0010a\"\u0004\b,\u0010bR\"\u00100\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u0010G\u001a\u0004\bc\u0010I\"\u0004\b1\u0010JR$\u00103\u001a\u0004\u0018\u0001028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b3\u0010d\u001a\u0004\be\u0010f\"\u0004\b4\u0010gR\"\u00107\u001a\u0002068\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b7\u0010h\u001a\u0004\bi\u0010j\"\u0004\b8\u0010kR\"\u0010:\u001a\u00020\b8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b:\u0010B\u001a\u0004\bl\u0010D\"\u0004\b;\u0010ER\"\u0010<\u001a\u00020\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b<\u0010G\u001a\u0004\bm\u0010I\"\u0004\b=\u0010J¨\u0006p"}, d2 = {"Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "Ltv/athena/revenue/api/MiddleRevenueConfig;", "build", "()Ltv/athena/revenue/api/MiddleRevenueConfig;", "Landroid/content/Context;", "appContext", "setAppContext", "(Landroid/content/Context;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "setAppId", "(I)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "authType", "setAuthType", "", "country", "setCountry", "(Ljava/lang/String;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "currencyType", "setCurrencyType", "deviceId", "setDeviceId", "gslpAppId", "setGslbAppId", "hostId", "setHostId", "Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IDataSenderAdapter;", "dataSender", "setHttpDataSender", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IDataSenderAdapter;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "", "isOpenRisk", "setIsOpenRisk", "(Z)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "language", "setLanguage", "packageName", "setPackageName", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "protoType", "setProtoType", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "Ltv/athena/revenue/api/MiddleReportConfig;", "reportConfig", "setReportConfig", "(Ltv/athena/revenue/api/MiddleReportConfig;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "isTestEnv", "setTestEnv", "token", "setToken", "Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "tokenCallback", "setTokenCallback", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "", "uid", "setUid", "(J)Ltv/athena/revenue/api/MiddleRevenueConfig$MiddleRevenueConfigBuilder;", "useChannel", "setUseChannel", "version", "setVersion", "Landroid/content/Context;", "getAppContext", "()Landroid/content/Context;", "(Landroid/content/Context;)V", "I", "getAppId", "()I", "(I)V", "getAuthType", "Ljava/lang/String;", "getCountry", "()Ljava/lang/String;", "(Ljava/lang/String;)V", "getCurrencyType", "Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IDataSenderAdapter;", "getDataSender", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IDataSenderAdapter;", "setDataSender", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/data/IDataSenderAdapter;)V", "getDeviceId", "gslbAppId", "getGslbAppId", "getHostId", "Z", "()Z", "setOpenRisk", "(Z)V", "getLanguage", "getPackageName", "Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "getProtoType", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/ProtocolType;)V", "Ltv/athena/revenue/api/MiddleReportConfig;", "getReportConfig", "()Ltv/athena/revenue/api/MiddleReportConfig;", "(Ltv/athena/revenue/api/MiddleReportConfig;)V", "getToken", "Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "getTokenCallback", "()Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;", "(Lcom/yy/mobile/framework/revenuesdk/baseapi/IToken;)V", "J", "getUid", "()J", "(J)V", "getUseChannel", WebChromeClient.MSG_METHOD_GETVERSION, "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class MiddleRevenueConfigBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +223,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setAppContext  reason: collision with other method in class */
-        public final void m2008setAppContext(Context context) {
+        public final void m2011setAppContext(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, context) == null) {
                 this.appContext = context;
@@ -231,7 +231,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setAppId  reason: collision with other method in class */
-        public final void m2009setAppId(int i2) {
+        public final void m2012setAppId(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
                 this.appId = i2;
@@ -239,7 +239,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setAuthType  reason: collision with other method in class */
-        public final void m2010setAuthType(int i2) {
+        public final void m2013setAuthType(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
                 this.authType = i2;
@@ -247,7 +247,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setCountry  reason: collision with other method in class */
-        public final void m2011setCountry(String str) {
+        public final void m2014setCountry(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
                 this.country = str;
@@ -255,7 +255,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setCurrencyType  reason: collision with other method in class */
-        public final void m2012setCurrencyType(int i2) {
+        public final void m2015setCurrencyType(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
                 this.currencyType = i2;
@@ -270,7 +270,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setDeviceId  reason: collision with other method in class */
-        public final void m2013setDeviceId(String str) {
+        public final void m2016setDeviceId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
                 this.deviceId = str;
@@ -278,7 +278,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setGslbAppId  reason: collision with other method in class */
-        public final void m2014setGslbAppId(String str) {
+        public final void m2017setGslbAppId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048611, this, str) == null) {
                 this.gslbAppId = str;
@@ -286,7 +286,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setHostId  reason: collision with other method in class */
-        public final void m2015setHostId(String str) {
+        public final void m2018setHostId(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
                 this.hostId = str;
@@ -314,7 +314,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setLanguage  reason: collision with other method in class */
-        public final void m2016setLanguage(String str) {
+        public final void m2019setLanguage(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
                 this.language = str;
@@ -329,7 +329,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setPackageName  reason: collision with other method in class */
-        public final void m2017setPackageName(String str) {
+        public final void m2020setPackageName(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
                 this.packageName = str;
@@ -337,7 +337,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setProtoType  reason: collision with other method in class */
-        public final void m2018setProtoType(ProtocolType protocolType) {
+        public final void m2021setProtoType(ProtocolType protocolType) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048622, this, protocolType) == null) {
                 this.protoType = protocolType;
@@ -345,7 +345,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setReportConfig  reason: collision with other method in class */
-        public final void m2019setReportConfig(MiddleReportConfig middleReportConfig) {
+        public final void m2022setReportConfig(MiddleReportConfig middleReportConfig) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048624, this, middleReportConfig) == null) {
                 this.reportConfig = middleReportConfig;
@@ -353,7 +353,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setTestEnv  reason: collision with other method in class */
-        public final void m2020setTestEnv(boolean z) {
+        public final void m2023setTestEnv(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
                 this.isTestEnv = z;
@@ -361,7 +361,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setToken  reason: collision with other method in class */
-        public final void m2021setToken(String str) {
+        public final void m2024setToken(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048628, this, str) == null) {
                 this.token = str;
@@ -369,7 +369,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setTokenCallback  reason: collision with other method in class */
-        public final void m2022setTokenCallback(IToken iToken) {
+        public final void m2025setTokenCallback(IToken iToken) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048630, this, iToken) == null) {
                 this.tokenCallback = iToken;
@@ -377,15 +377,15 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setUid  reason: collision with other method in class */
-        public final void m2023setUid(long j) {
+        public final void m2026setUid(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048632, this, j) == null) {
-                this.uid = j;
+            if (interceptable == null || interceptable.invokeJ(1048632, this, j2) == null) {
+                this.uid = j2;
             }
         }
 
         /* renamed from: setUseChannel  reason: collision with other method in class */
-        public final void m2024setUseChannel(int i2) {
+        public final void m2027setUseChannel(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048634, this, i2) == null) {
                 this.useChannel = i2;
@@ -393,7 +393,7 @@ public final class MiddleRevenueConfig {
         }
 
         /* renamed from: setVersion  reason: collision with other method in class */
-        public final void m2025setVersion(String str) {
+        public final void m2028setVersion(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048636, this, str) == null) {
                 this.version = str;
@@ -550,11 +550,11 @@ public final class MiddleRevenueConfig {
             return (MiddleRevenueConfigBuilder) invokeL.objValue;
         }
 
-        public final MiddleRevenueConfigBuilder setUid(long j) {
+        public final MiddleRevenueConfigBuilder setUid(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048631, this, j)) == null) {
-                this.uid = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048631, this, j2)) == null) {
+                this.uid = j2;
                 return this;
             }
             return (MiddleRevenueConfigBuilder) invokeJ.objValue;
@@ -868,10 +868,10 @@ public final class MiddleRevenueConfig {
         }
     }
 
-    public final void setUid(long j) {
+    public final void setUid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048613, this, j) == null) {
-            this.uid = j;
+        if (interceptable == null || interceptable.invokeJ(1048613, this, j2) == null) {
+            this.uid = j2;
         }
     }
 

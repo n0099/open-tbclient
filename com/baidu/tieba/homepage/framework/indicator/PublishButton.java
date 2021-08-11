@@ -3,6 +3,8 @@ package com.baidu.tieba.homepage.framework.indicator;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.Nullable;
+import c.a.e.e.p.l;
+import c.a.o0.s.f0.n.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
@@ -12,13 +14,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.s.f0.n.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PublishButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float s;
+    public float r;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PublishButton(Context context) {
@@ -38,11 +38,11 @@ public class PublishButton extends TBSpecificationBtn {
                 return;
             }
         }
-        this.s = 1.0f;
-        m();
+        this.r = 1.0f;
+        f();
     }
 
-    private void m() {
+    private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             b bVar = new b();
@@ -60,14 +60,21 @@ public class PublishButton extends TBSpecificationBtn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.drawableStateChanged();
-            setAlpha(this.s);
+            setAlpha(this.r);
+        }
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            changeSkinType();
         }
     }
 
     public void setScrollAlpha(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
-            this.s = f2;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
+            this.r = f2;
         }
     }
 
@@ -90,8 +97,8 @@ public class PublishButton extends TBSpecificationBtn {
                 return;
             }
         }
-        this.s = 1.0f;
-        m();
+        this.r = 1.0f;
+        f();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -113,7 +120,7 @@ public class PublishButton extends TBSpecificationBtn {
                 return;
             }
         }
-        this.s = 1.0f;
-        m();
+        this.r = 1.0f;
+        f();
     }
 }

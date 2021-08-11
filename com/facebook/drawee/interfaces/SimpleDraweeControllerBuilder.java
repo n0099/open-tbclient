@@ -3,7 +3,7 @@ package com.facebook.drawee.interfaces;
 import android.net.Uri;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface SimpleDraweeControllerBuilder {
     DraweeController build();
 

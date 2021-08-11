@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class i extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f23826a;
+    public Paint f59565a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Path f23827b;
+    public Path f59566b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i(Context context) {
@@ -40,22 +40,22 @@ public final class i extends View {
             }
         }
         Paint paint = new Paint(1);
-        this.f23826a = paint;
+        this.f59565a = paint;
         paint.setColor(-3355444);
-        this.f23826a.setStyle(Paint.Style.STROKE);
-        this.f23826a.setStrokeWidth(3.0f);
-        this.f23827b = new Path();
-        this.f23826a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
+        this.f59565a.setStyle(Paint.Style.STROKE);
+        this.f59565a.setStrokeWidth(3.0f);
+        this.f59566b = new Path();
+        this.f59565a.setPathEffect(new DashPathEffect(new float[]{15.0f, 5.0f}, 0.0f));
     }
 
     @Override // android.view.View
     public final void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.f23827b.reset();
-            this.f23827b.moveTo(0.0f, 0.0f);
-            this.f23827b.lineTo(getWidth(), 0.0f);
-            canvas.drawPath(this.f23827b, this.f23826a);
+            this.f59566b.reset();
+            this.f59566b.moveTo(0.0f, 0.0f);
+            this.f59566b.lineTo(getWidth(), 0.0f);
+            canvas.drawPath(this.f59566b, this.f59565a);
         }
     }
 }

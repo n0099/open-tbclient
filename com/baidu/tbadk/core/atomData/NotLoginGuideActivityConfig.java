@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NotLoginGuideActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static String FROM_ACCOUNT = "from_account";

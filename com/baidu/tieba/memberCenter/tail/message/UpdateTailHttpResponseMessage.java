@@ -1,5 +1,6 @@
 package com.baidu.tieba.memberCenter.tail.message;
 
+import c.a.p0.w1.h.a.g;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -9,8 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.v1.h.a.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UpdateTailHttpResponseMessage extends HttpResponsedMessage implements IDataResponseMessage<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

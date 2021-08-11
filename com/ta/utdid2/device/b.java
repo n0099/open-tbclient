@@ -6,17 +6,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.ta.utdid2.a.a.f;
+import com.ta.utdid2.a.a.g;
 import java.util.zip.Adler32;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f38868a;
+    public static a f75688a;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Object f38869d;
+    public static final Object f75689d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,7 +33,7 @@ public class b {
                 return;
             }
         }
-        f38869d = new Object();
+        f75689d = new Object();
     }
 
     public static long a(a aVar) {
@@ -40,8 +41,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
             if (aVar != null) {
-                String format = String.format("%s%s%s%s%s", aVar.getUtdid(), aVar.getDeviceId(), Long.valueOf(aVar.a()), aVar.getImsi(), aVar.getImei());
-                if (f.isEmpty(format)) {
+                String format = String.format("%s%s%s%s%s", aVar.f(), aVar.getDeviceId(), Long.valueOf(aVar.a()), aVar.getImsi(), aVar.e());
+                if (g.m63a(format)) {
                     return 0L;
                 }
                 Adler32 adler32 = new Adler32();
@@ -59,12 +60,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (b.class) {
-                if (f38868a != null) {
-                    return f38868a;
+                if (f75688a != null) {
+                    return f75688a;
                 }
                 if (context != null) {
                     a a2 = a(context);
-                    f38868a = a2;
+                    f75688a = a2;
                     return a2;
                 }
                 return null;
@@ -78,23 +79,23 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             if (context != null) {
-                synchronized (f38869d) {
+                synchronized (f75689d) {
                     String value = c.a(context).getValue();
-                    if (f.isEmpty(value)) {
+                    if (g.m63a(value)) {
                         return null;
                     }
-                    if (value.endsWith("\n")) {
+                    if (value.endsWith(StringUtils.LF)) {
                         value = value.substring(0, value.length() - 1);
                     }
                     a aVar = new a();
                     long currentTimeMillis = System.currentTimeMillis();
-                    String imei = com.ta.utdid2.a.a.d.getImei(context);
-                    String imsi = com.ta.utdid2.a.a.d.getImsi(context);
-                    aVar.b(imei);
-                    aVar.setImei(imei);
+                    String a2 = com.ta.utdid2.a.a.e.a(context);
+                    String c2 = com.ta.utdid2.a.a.e.c(context);
+                    aVar.d(a2);
+                    aVar.b(a2);
                     aVar.b(currentTimeMillis);
-                    aVar.setImsi(imsi);
-                    aVar.c(value);
+                    aVar.c(c2);
+                    aVar.e(value);
                     aVar.a(a(aVar));
                     return aVar;
                 }

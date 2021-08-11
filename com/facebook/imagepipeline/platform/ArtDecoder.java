@@ -13,7 +13,7 @@ import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ArtDecoder extends DefaultDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

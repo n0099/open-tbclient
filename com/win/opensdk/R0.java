@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class R0 implements z2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ S0 f39652a;
+    public final /* synthetic */ S0 f76490a;
 
     public R0(S0 s0) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class R0 implements z2 {
                 return;
             }
         }
-        this.f39652a = s0;
+        this.f76490a = s0;
     }
 
     @Override // com.win.opensdk.z2
@@ -42,14 +42,14 @@ public class R0 implements z2 {
     public void onLoaded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f39652a.k.removeMessages(11);
-            this.f39652a.f39665c = true;
-            Z0.a(this.f39652a.f39664b).a(new a1(this.f39652a.f39668f), 200, System.currentTimeMillis() - this.f39652a.j).a();
-            S0 s0 = this.f39652a;
-            if (s0.f39667e) {
+            this.f76490a.k.removeMessages(11);
+            this.f76490a.f76503c = true;
+            Z0.a(this.f76490a.f76502b).a(new a1(this.f76490a.f76506f), 200, System.currentTimeMillis() - this.f76490a.f76510j).a();
+            S0 s0 = this.f76490a;
+            if (s0.f76505e) {
                 return;
             }
-            s0.f39670h.onLoaded();
+            s0.f76508h.onLoaded();
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.faceunity.gles;
 
 import android.opengl.GLES20;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class CameraClipFrameRect {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER_EXT = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n";
@@ -73,7 +71,7 @@ public class CameraClipFrameRect {
                 return;
             }
         }
-        Log.d(TAG, "X : " + f2 + " Y : " + f3);
+        String str = "X : " + f2 + " Y : " + f3;
         int loadShader = GlUtil.loadShader(35633, "uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n");
         int loadShader2 = GlUtil.loadShader(35632, "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n");
         int glCreateProgram = GLES20.glCreateProgram();
@@ -124,11 +122,11 @@ public class CameraClipFrameRect {
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glEnableVertexAttribArray(this.maPositionLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, this.mCoordsPerVertex, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, this.mVertexStride, (Buffer) this.mVertexArray);
+            GLES20.glVertexAttribPointer(this.maPositionLoc, this.mCoordsPerVertex, 5126, false, this.mVertexStride, (Buffer) this.mVertexArray);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, this.mTexCoordStride, (Buffer) this.mTexCoordArray);
+            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, this.mTexCoordStride, (Buffer) this.mTexCoordArray);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glDrawArrays(5, 0, this.mVertexCount);
             GlUtil.checkGlError("glDrawArrays");

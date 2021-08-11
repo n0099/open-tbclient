@@ -1,6 +1,5 @@
 package com.baidu.searchbox.afx.proxy;
 
-import android.util.Log;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class VideoPlayerProxy extends PlayerProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VideoPlayerProxy";
@@ -35,7 +34,7 @@ public class VideoPlayerProxy extends PlayerProxy {
     public final VideoPlayer mVideoPlayer;
 
     /* renamed from: com.baidu.searchbox.afx.proxy.VideoPlayerProxy$6  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass6 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState;
         public static /* synthetic */ Interceptable $ic;
@@ -367,7 +366,6 @@ public class VideoPlayerProxy extends PlayerProxy {
                 public void onFailed(Exception exc) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                        Log.e(VideoPlayerProxy.TAG, "onFailed, exception: ", exc);
                     }
                 }
 
@@ -401,13 +399,13 @@ public class VideoPlayerProxy extends PlayerProxy {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j, long j2) {
+    public void setLoopSection(long j2, long j3) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
-        videoPlayer.setLoopSection(j, j2);
+        videoPlayer.setLoopSection(j2, j3);
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
@@ -457,22 +455,22 @@ public class VideoPlayerProxy extends PlayerProxy {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy, com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j) {
+    public void setLoopSection(long j2) {
         VideoPlayer videoPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048586, this, j) == null) || (videoPlayer = this.mVideoPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) || (videoPlayer = this.mVideoPlayer) == null) {
             return;
         }
-        videoPlayer.setLoopSection(j);
+        videoPlayer.setLoopSection(j2);
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy
-    public void setSourceFD(FileDescriptor fileDescriptor, long j, long j2) {
+    public void setSourceFD(FileDescriptor fileDescriptor, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{fileDescriptor, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             try {
                 if (this.mVideoPlayer != null) {
-                    this.mVideoPlayer.setDataSource(fileDescriptor, j, j2);
+                    this.mVideoPlayer.setDataSource(fileDescriptor, j2, j3);
                 }
             } catch (IOException e2) {
                 e2.printStackTrace();

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okio.Buffer;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class WebSocketProtocol {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT_MAGIC = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";

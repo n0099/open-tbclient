@@ -3,6 +3,7 @@ package com.baidu.searchbox.v8engine.net;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.apollon.restnet.http.b;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
 import com.baidu.smallgame.sdk.Log;
@@ -11,9 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class NetInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NetInfo";
@@ -26,7 +28,7 @@ public class NetInfo {
     public SwanExtra mSwanExtra;
     public Timing mTiming;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Base {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,19 +66,19 @@ public class NetInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Base{mJSONObject=" + this.mJSONObject + ", mNetType=" + this.mNetType + ", mRequestStart=" + this.mRequestStart + ", mStatus=" + this.mStatus + ", mUrl='" + this.mUrl + "'}";
+                return "Base{mJSONObject=" + this.mJSONObject + ", mNetType=" + this.mNetType + ", mRequestStart=" + this.mRequestStart + ", mStatus=" + this.mStatus + ", mUrl='" + this.mUrl + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Dns {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public JSONObject mJSONObject;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes5.dex */
         public static class Config {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +98,7 @@ public class NetInfo {
             }
         }
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes5.dex */
         public static class Result {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -135,7 +137,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class JSONObjectUtils {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +259,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Quic {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -277,7 +279,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Response {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -339,13 +341,13 @@ public class NetInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Response{mJSONObject=" + this.mJSONObject + ", mBackupJob=" + this.mBackupJob + ", mCached=" + this.mCached + ", mCode=" + this.mCode + ", mConnectionInfo=" + this.mConnectionInfo + ", mDnsSource=" + this.mDnsSource + ", mNetworkAccessed=" + this.mNetworkAccessed + ", mQuicSend=" + this.mQuicSend + ", mQuicType=" + this.mQuicType + ", mRaceResult=" + this.mRaceResult + ", mReceivedBytes=" + this.mReceivedBytes + ", mResolveType=" + this.mResolveType + ", mSentBytes=" + this.mSentBytes + ", mUseQuic=" + this.mUseQuic + ", mViaProxy=" + this.mViaProxy + ", mWeakNqe=" + this.mWeakNqe + ", mWeakRtt=" + this.mWeakRtt + '}';
+                return "Response{mJSONObject=" + this.mJSONObject + ", mBackupJob=" + this.mBackupJob + ", mCached=" + this.mCached + ", mCode=" + this.mCode + ", mConnectionInfo=" + this.mConnectionInfo + ", mDnsSource=" + this.mDnsSource + ", mNetworkAccessed=" + this.mNetworkAccessed + ", mQuicSend=" + this.mQuicSend + ", mQuicType=" + this.mQuicType + ", mRaceResult=" + this.mRaceResult + ", mReceivedBytes=" + this.mReceivedBytes + ", mResolveType=" + this.mResolveType + ", mSentBytes=" + this.mSentBytes + ", mUseQuic=" + this.mUseQuic + ", mViaProxy=" + this.mViaProxy + ", mWeakNqe=" + this.mWeakNqe + ", mWeakRtt=" + this.mWeakRtt + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Socket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -353,7 +355,7 @@ public class NetInfo {
         public boolean mQuic;
         public boolean mReused;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes5.dex */
         public static class Attempts {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -399,13 +401,13 @@ public class NetInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Socket{mJSONObject=" + this.mJSONObject + ", mQuic=" + this.mQuic + ", mReused=" + this.mReused + '}';
+                return "Socket{mJSONObject=" + this.mJSONObject + ", mQuic=" + this.mQuic + ", mReused=" + this.mReused + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Ssl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -445,19 +447,19 @@ public class NetInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Ssl{mJSONObject=" + this.mJSONObject + ", mClientCertSent=" + this.mClientCertSent + ", mConnectionStatus=" + this.mConnectionStatus + ", mHandshakeType=" + this.mHandshakeType + ", mIsIssuedByKnownRoot=" + this.mIsIssuedByKnownRoot + ", mKeyExchangeInfo=" + this.mKeyExchangeInfo + '}';
+                return "Ssl{mJSONObject=" + this.mJSONObject + ", mClientCertSent=" + this.mClientCertSent + ", mConnectionStatus=" + this.mConnectionStatus + ", mHandshakeType=" + this.mHandshakeType + ", mIsIssuedByKnownRoot=" + this.mIsIssuedByKnownRoot + ", mKeyExchangeInfo=" + this.mKeyExchangeInfo + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SwanExtra {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Timing mTiming;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes5.dex */
         public static class Timing {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -506,7 +508,7 @@ public class NetInfo {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Timing {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -538,7 +540,7 @@ public class NetInfo {
             if (jSONObject != null) {
                 this.mJSONObject = jSONObject;
                 this.mConnect = JSONObjectUtils.getLong(jSONObject, "connect");
-                this.mDns = JSONObjectUtils.getLong(this.mJSONObject, "dns");
+                this.mDns = JSONObjectUtils.getLong(this.mJSONObject, b.InterfaceC1611b.f37853b);
                 this.mDurationTime = JSONObjectUtils.getLong(this.mJSONObject, "duration_time");
                 this.mHeadRecv = JSONObjectUtils.getInt(this.mJSONObject, "head_recv");
                 this.mRedirect = JSONObjectUtils.getInt(this.mJSONObject, "redirect");
@@ -552,7 +554,7 @@ public class NetInfo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Timing{mJSONObject=" + this.mJSONObject + ", mConnect=" + this.mConnect + ", mDns=" + this.mDns + ", mDurationTime=" + this.mDurationTime + ", mHeadRecv=" + this.mHeadRecv + ", mRedirect=" + this.mRedirect + ", mSend=" + this.mSend + ", mSsl=" + this.mSsl + ", mTTfb=" + this.mTTfb + '}';
+                return "Timing{mJSONObject=" + this.mJSONObject + ", mConnect=" + this.mConnect + ", mDns=" + this.mDns + ", mDurationTime=" + this.mDurationTime + ", mHeadRecv=" + this.mHeadRecv + ", mRedirect=" + this.mRedirect + ", mSend=" + this.mSend + ", mSsl=" + this.mSsl + ", mTTfb=" + this.mTTfb + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -667,7 +669,7 @@ public class NetInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "NetInfo{mBase=" + this.mBase + ", mTiming=" + this.mTiming + ", mResponse=" + this.mResponse + ", mSocket=" + this.mSocket + ", mSsl=" + this.mSsl + ", mSwanExtra=" + this.mSwanExtra + ", mJSONObject=" + this.mJSONObject + '}';
+            return "NetInfo{mBase=" + this.mBase + ", mTiming=" + this.mTiming + ", mResponse=" + this.mResponse + ", mSocket=" + this.mSocket + ", mSsl=" + this.mSsl + ", mSwanExtra=" + this.mSwanExtra + ", mJSONObject=" + this.mJSONObject + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -19,7 +19,7 @@ import com.bumptech.glide.load.data.StreamAssetPathFetcher;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_PATH_SEGMENT = "android_asset";
@@ -29,12 +29,12 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
     public final AssetManager assetManager;
     public final AssetFetcherFactory<Data> factory;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface AssetFetcherFactory<Data> {
         DataFetcher<Data> buildFetcher(AssetManager assetManager, String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class FileDescriptorFactory implements ModelLoaderFactory<Uri, ParcelFileDescriptor>, AssetFetcherFactory<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class StreamFactory implements ModelLoaderFactory<Uri, InputStream>, AssetFetcherFactory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

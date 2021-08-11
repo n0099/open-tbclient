@@ -11,7 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class WrappingScheduledExecutorService extends WrappingExecutorService implements ScheduledExecutorService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,30 +39,30 @@ public abstract class WrappingScheduledExecutorService extends WrappingExecutorS
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public final ScheduledFuture<?> schedule(Runnable runnable, long j, TimeUnit timeUnit) {
+    public final ScheduledFuture<?> schedule(Runnable runnable, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) ? this.delegate.schedule(wrapTask(runnable), j, timeUnit) : (ScheduledFuture) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) ? this.delegate.schedule(wrapTask(runnable), j2, timeUnit) : (ScheduledFuture) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public final ScheduledFuture<?> scheduleAtFixedRate(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+    public final ScheduledFuture<?> scheduleAtFixedRate(Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? this.delegate.scheduleAtFixedRate(wrapTask(runnable), j, j2, timeUnit) : (ScheduledFuture) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) ? this.delegate.scheduleAtFixedRate(wrapTask(runnable), j2, j3, timeUnit) : (ScheduledFuture) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public final ScheduledFuture<?> scheduleWithFixedDelay(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
+    public final ScheduledFuture<?> scheduleWithFixedDelay(Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) ? this.delegate.scheduleWithFixedDelay(wrapTask(runnable), j, j2, timeUnit) : (ScheduledFuture) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) ? this.delegate.scheduleWithFixedDelay(wrapTask(runnable), j2, j3, timeUnit) : (ScheduledFuture) invokeCommon.objValue;
     }
 
     @Override // java.util.concurrent.ScheduledExecutorService
-    public final <V> ScheduledFuture<V> schedule(Callable<V> callable, long j, TimeUnit timeUnit) {
+    public final <V> ScheduledFuture<V> schedule(Callable<V> callable, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{callable, Long.valueOf(j), timeUnit})) == null) ? this.delegate.schedule(wrapTask(callable), j, timeUnit) : (ScheduledFuture) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{callable, Long.valueOf(j2), timeUnit})) == null) ? this.delegate.schedule(wrapTask(callable), j2, timeUnit) : (ScheduledFuture) invokeCommon.objValue;
     }
 }

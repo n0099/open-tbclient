@@ -10,15 +10,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.f;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f35582a;
+    public static final int f72343a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f35583b;
+    public static String f72344b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class d {
                 return;
             }
         }
-        f35582a = b.f34058a.booleanValue() ? 1 : 2;
-        f35583b = "kwrules.csv";
+        f72343a = b.f70786a.booleanValue() ? 1 : 2;
+        f72344b = "kwrules.csv";
     }
 
     public static String a() {

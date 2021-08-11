@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import ms.bd.c.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public final class g {
             b.a(65538, new d());
             b.a(65539, new e());
             b.a((int) InputDeviceCompat.SOURCE_TRACKBALL, new f());
-            b.a aVar = b0.c() ? new d.b.b.a.a.a() : new d.b.b.a.a.c();
+            b.a aVar = b0.c() ? new c.b.b.a.a.a() : new c.b.b.a.a.c();
             b.a(196609, aVar);
             b.a(196610, aVar);
             b.a(196611, aVar);

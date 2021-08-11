@@ -29,7 +29,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
     public final int prefetch;
     public final Function<? super Flowable<T>, ? extends Publisher<? extends R>> selector;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class MulticastProcessor<T> extends Flowable<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public static final MulticastSubscription[] EMPTY;
@@ -224,28 +224,28 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
                     atomicReference = atomicReference2;
                 } else {
                     int length2 = multicastSubscriptionArr.length;
-                    long j = Long.MAX_VALUE;
                     long j2 = Long.MAX_VALUE;
+                    long j3 = Long.MAX_VALUE;
                     int i5 = 0;
                     while (i5 < length2) {
                         MulticastSubscription<T> multicastSubscription = multicastSubscriptionArr[i5];
                         AtomicReference<MulticastSubscription<T>[]> atomicReference3 = atomicReference2;
-                        long j3 = multicastSubscription.get() - multicastSubscription.emitted;
-                        if (j3 == Long.MIN_VALUE) {
+                        long j4 = multicastSubscription.get() - multicastSubscription.emitted;
+                        if (j4 == Long.MIN_VALUE) {
                             length--;
-                        } else if (j2 > j3) {
-                            j2 = j3;
+                        } else if (j3 > j4) {
+                            j3 = j4;
                         }
                         i5++;
                         atomicReference2 = atomicReference3;
                     }
                     atomicReference = atomicReference2;
-                    long j4 = 0;
+                    long j5 = 0;
                     if (length == 0) {
-                        j2 = 0;
+                        j3 = 0;
                     }
                     while (true) {
-                        int i6 = (j2 > j4 ? 1 : (j2 == j4 ? 0 : -1));
+                        int i6 = (j3 > j5 ? 1 : (j3 == j5 ? 0 : -1));
                         if (i6 == 0) {
                             break;
                         } else if (isDisposed()) {
@@ -277,9 +277,9 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
                                     boolean z4 = false;
                                     while (i7 < length3) {
                                         MulticastSubscription<T> multicastSubscription2 = multicastSubscriptionArr[i7];
-                                        long j5 = multicastSubscription2.get();
-                                        if (j5 != Long.MIN_VALUE) {
-                                            if (j5 != j) {
+                                        long j6 = multicastSubscription2.get();
+                                        if (j6 != Long.MIN_VALUE) {
+                                            if (j6 != j2) {
                                                 multicastSubscription2.emitted++;
                                             }
                                             multicastSubscription2.actual.onNext(poll);
@@ -287,9 +287,9 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
                                             z4 = true;
                                         }
                                         i7++;
-                                        j = Long.MAX_VALUE;
+                                        j2 = Long.MAX_VALUE;
                                     }
-                                    j2--;
+                                    j3--;
                                     if (z && (i2 = i2 + 1) == i3) {
                                         this.s.get().request(i3);
                                         i2 = 0;
@@ -298,8 +298,8 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
                                     if (z4 || multicastSubscriptionArr2 != multicastSubscriptionArr) {
                                         break;
                                     }
-                                    j4 = 0;
-                                    j = Long.MAX_VALUE;
+                                    j5 = 0;
+                                    j2 = Long.MAX_VALUE;
                                 }
                             } catch (Throwable th3) {
                                 Exceptions.throwIfFatal(th3);
@@ -470,7 +470,7 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class MulticastSubscription<T> extends AtomicLong implements Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8664815189257569791L;
@@ -515,16 +515,16 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.addCancel(this, j);
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.addCancel(this, j2);
                 this.parent.drain();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class OutputCanceller<R> implements FlowableSubscriber<R>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -596,10 +596,10 @@ public final class FlowablePublishMulticast<T, R> extends AbstractFlowableWithUp
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                this.s.request(j);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                this.s.request(j2);
             }
         }
     }

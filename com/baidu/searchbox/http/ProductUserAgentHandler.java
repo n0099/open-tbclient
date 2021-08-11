@@ -1,5 +1,5 @@
 package com.baidu.searchbox.http;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface ProductUserAgentHandler {
     String getProductUserAgent();
 }

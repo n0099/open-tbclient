@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PersonalChatActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IS_FRIEND = 1;
@@ -30,13 +30,13 @@ public class PersonalChatActivityConfig extends IntentConfig {
     public UserData mUserData;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i2) {
-        this(context, j, str, str2, str3, i2, 1);
+    public PersonalChatActivityConfig(Context context, long j2, String str, String str2, String str3, int i2) {
+        this(context, j2, str, str2, str3, i2, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i2)};
+            Object[] objArr = {context, Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -65,13 +65,13 @@ public class PersonalChatActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i2, String str4, String str5) {
-        this(context, j, str, str2, str3, i2);
+    public PersonalChatActivityConfig(Context context, long j2, String str, String str2, String str3, int i2, String str4, String str5) {
+        this(context, j2, str, str2, str3, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r5;
-            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i2), str4, str5};
+            Object[] objArr = {context, Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), str4, str5};
             interceptable.invokeUnInit(AdIconUtil.AD_TEXT_ID, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -89,13 +89,13 @@ public class PersonalChatActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i2, int i3) {
-        this(context, j, str, str2, str3, i2, i3, "");
+    public PersonalChatActivityConfig(Context context, long j2, String str, String str2, String str3, int i2, int i3) {
+        this(context, j2, str, str2, str3, i2, i3, "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -110,13 +110,13 @@ public class PersonalChatActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i2, int i3, int i4) {
-        this(context, j, str, str2, str3, i2, i3, "", i4);
+    public PersonalChatActivityConfig(Context context, long j2, String str, String str2, String str3, int i2, int i3, int i4) {
+        this(context, j2, str, str2, str3, i2, i3, "", i4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {context, Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -131,13 +131,13 @@ public class PersonalChatActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i2, int i3, String str4) {
+    public PersonalChatActivityConfig(Context context, long j2, String str, String str2, String str3, int i2, int i3, String str4) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4};
+            Object[] objArr = {context, Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4};
             interceptable.invokeUnInit(65539, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -149,7 +149,7 @@ public class PersonalChatActivityConfig extends IntentConfig {
             }
         }
         this.mUserData = null;
-        UserData userData = new UserData(j, str, str3, i2);
+        UserData userData = new UserData(j2, str, str3, i2);
         userData.setName_show(str2);
         this.mUserData = userData;
         Intent intent = getIntent();
@@ -165,13 +165,13 @@ public class PersonalChatActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonalChatActivityConfig(Context context, long j, String str, String str2, String str3, int i2, int i3, String str4, int i4) {
+    public PersonalChatActivityConfig(Context context, long j2, String str, String str2, String str3, int i2, int i3, String str4, int i4) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, Integer.valueOf(i4)};
+            Object[] objArr = {context, Long.valueOf(j2), str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), str4, Integer.valueOf(i4)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -183,7 +183,7 @@ public class PersonalChatActivityConfig extends IntentConfig {
             }
         }
         this.mUserData = null;
-        UserData userData = new UserData(j, str, str3, i2);
+        UserData userData = new UserData(j2, str, str3, i2);
         userData.setName_show(str2);
         userData.setUserType(i4);
         this.mUserData = userData;

@@ -7,12 +7,15 @@ import android.os.Build;
 import android.os.Bundle;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.h.j.g.d;
+import c.a.p0.n3.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.pluginSettings.PluginSetting;
 import com.baidu.adp.plugin.util.Util;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.TTIStats;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.FlutterCrabReportEnableSwitch;
@@ -26,8 +29,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.idlefish.flutterboost.interfaces.IContainerManager;
 import com.idlefish.flutterboost.interfaces.INativeRouter;
-import d.a.d.h.j.g.d;
-import d.a.q0.m3.a;
 import dalvik.system.PathClassLoader;
 import io.flutter.embedding.android.FlutterActivityLaunchConfigs;
 import io.flutter.embedding.android.FlutterView;
@@ -43,7 +44,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class FlutterBoost {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sInit;
@@ -57,14 +58,14 @@ public class FlutterBoost {
     public FlutterViewContainerManager mManager;
     public Platform mPlatform;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface BoostLifecycleListener {
         void beforeCreateEngine();
 
         void onEngineCreated();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class ConfigBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static int ANY_ACTIVITY_CREATED = 1;
@@ -309,12 +310,12 @@ public class FlutterBoost {
                 a.getInstance().setFlutterPath("createEngine1");
             }
             if (this.mEngine == null) {
-                synchronized (d.a.d.h.k.a.f42263a) {
+                synchronized (c.a.e.h.k.a.f2822a) {
                     PluginSetting h2 = d.k().h("com.baidu.tieba.pluginFlutter");
                     try {
                         if (FlutterCrashRepairEnableSwitch.isOn() && h2 != null && h2.apkPath != null) {
-                            Object i2 = d.a.d.h.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
-                            Object h3 = d.a.d.h.k.a.h(i2);
+                            Object i2 = c.a.e.h.k.a.i((PathClassLoader) TbadkCoreApplication.getInst().getClassLoader());
+                            Object h3 = c.a.e.h.k.a.h(i2);
                             if (h3 instanceof File[]) {
                                 File[] fileArr = (File[]) h3;
                                 z = false;
@@ -337,7 +338,7 @@ public class FlutterBoost {
                             if (!z) {
                                 String replace = h2.apkPath.replace(".apk", "/lib");
                                 if (h3 instanceof File[]) {
-                                    list = d.a.d.h.k.a.c(h3, new File(replace));
+                                    list = c.a.e.h.k.a.c(h3, new File(replace));
                                 } else {
                                     boolean z2 = h3 instanceof List;
                                     list = h3;
@@ -347,19 +348,19 @@ public class FlutterBoost {
                                         list = list3;
                                     }
                                 }
-                                d.a.d.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
+                                c.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
                                 if (Build.VERSION.SDK_INT <= 25 && (Build.VERSION.SDK_INT != 25 || !Util.t())) {
                                     if (Build.VERSION.SDK_INT >= 23) {
                                         Method declaredMethod = i2.getClass().getDeclaredMethod("makePathElements", List.class, File.class, List.class);
                                         declaredMethod.setAccessible(true);
-                                        d.a.d.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i2.getClass(), (List) list, null, new ArrayList()));
+                                        c.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod.invoke(i2.getClass(), (List) list, null, new ArrayList()));
                                     } else {
-                                        d.a.d.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
+                                        c.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryDirectories", list);
                                     }
                                 }
                                 Method declaredMethod2 = i2.getClass().getDeclaredMethod("makePathElements", List.class);
                                 declaredMethod2.setAccessible(true);
-                                d.a.d.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i2.getClass(), (List) list));
+                                c.a.e.h.k.a.p(i2, i2.getClass(), "nativeLibraryPathElements", declaredMethod2.invoke(i2.getClass(), (List) list));
                             }
                         }
                     } catch (Exception e2) {
@@ -401,33 +402,36 @@ public class FlutterBoost {
     public void doInitialFlutter() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (FlutterCrabReportEnableSwitch.isOn()) {
-                a.getInstance().setFlutterPath("doInitialFlutter");
-            }
-            if (this.mEngine != null) {
-                return;
-            }
             long currentTimeMillis = System.currentTimeMillis();
-            BoostLifecycleListener boostLifecycleListener = this.mPlatform.lifecycleListener;
-            if (boostLifecycleListener != null) {
-                boostLifecycleListener.beforeCreateEngine();
+            try {
+                if (FlutterCrabReportEnableSwitch.isOn()) {
+                    a.getInstance().setFlutterPath("doInitialFlutter");
+                }
+                if (this.mEngine != null) {
+                    return;
+                }
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (this.mPlatform.lifecycleListener != null) {
+                    this.mPlatform.lifecycleListener.beforeCreateEngine();
+                }
+                FlutterEngine createEngine = createEngine();
+                if (this.mPlatform.lifecycleListener != null) {
+                    this.mPlatform.lifecycleListener.onEngineCreated();
+                }
+                if (createEngine.getDartExecutor().isExecutingDart()) {
+                    return;
+                }
+                if (this.mPlatform.initialRoute() != null) {
+                    createEngine.getNavigationChannel().setInitialRoute(this.mPlatform.initialRoute());
+                }
+                createEngine.getDartExecutor().executeDartEntrypoint(new DartExecutor.DartEntrypoint(FlutterMain.findAppBundlePath(), this.mPlatform.dartEntrypoint()));
+                HashMap hashMap = new HashMap();
+                hashMap.put("seb", String.valueOf(currentTimeMillis2));
+                hashMap.put("see", String.valueOf(System.currentTimeMillis()));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921451, hashMap));
+            } finally {
+                TTIStats.record("FlutterBoost.doInitialFlutter", System.currentTimeMillis() - currentTimeMillis);
             }
-            FlutterEngine createEngine = createEngine();
-            BoostLifecycleListener boostLifecycleListener2 = this.mPlatform.lifecycleListener;
-            if (boostLifecycleListener2 != null) {
-                boostLifecycleListener2.onEngineCreated();
-            }
-            if (createEngine.getDartExecutor().isExecutingDart()) {
-                return;
-            }
-            if (this.mPlatform.initialRoute() != null) {
-                createEngine.getNavigationChannel().setInitialRoute(this.mPlatform.initialRoute());
-            }
-            createEngine.getDartExecutor().executeDartEntrypoint(new DartExecutor.DartEntrypoint(FlutterMain.findAppBundlePath(), this.mPlatform.dartEntrypoint()));
-            HashMap hashMap = new HashMap();
-            hashMap.put("seb", String.valueOf(currentTimeMillis));
-            hashMap.put("see", String.valueOf(System.currentTimeMillis()));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921451, hashMap));
         }
     }
 
@@ -575,9 +579,9 @@ public class FlutterBoost {
         }
     }
 
-    public void setFlutterPostFrameCallTime(long j) {
+    public void setFlutterPostFrameCallTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
         }
     }
 }

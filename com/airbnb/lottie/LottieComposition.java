@@ -32,7 +32,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LottieComposition {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,19 +53,19 @@ public class LottieComposition {
     public final HashSet<String> warnings;
 
     /* renamed from: com.airbnb.lottie.LottieComposition$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @Deprecated
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes.dex */
+        /* loaded from: classes4.dex */
         public static final class ListenerAdapter implements LottieListener<LottieComposition>, Cancellable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -432,10 +432,10 @@ public class LottieComposition {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public Layer layerModelForId(long j) {
+    public Layer layerModelForId(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j)) == null) ? this.layerMap.get(j) : (Layer) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048597, this, j2)) == null) ? this.layerMap.get(j2) : (Layer) invokeJ.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})

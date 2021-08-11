@@ -15,9 +15,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class SettingTextVersionView extends TbSettingTextTipView {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String HAS_SHOWN_FUNCTION_INTRO = "has_shown_funtion_intro";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -56,7 +57,7 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
         }
     }
 
-    public void i() {
+    public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             boolean z = false;
@@ -66,13 +67,13 @@ public final class SettingTextVersionView extends TbSettingTextTipView {
                 z = true;
             }
             if (z) {
-                SkinManager.setBackgroundResource(this.j, R.drawable.icon_news_head_new);
-                this.j.setText((CharSequence) null);
+                SkinManager.setBackgroundResource(this.tipView, R.drawable.icon_news_head_new);
+                this.tipView.setText((CharSequence) null);
                 return;
             }
-            this.j.setText(TbConfig.getVersion());
-            this.j.setBackgroundDrawable(null);
-            this.j.setTextAppearance(this.f12966e, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
+            this.tipView.setText(TbConfig.getVersion());
+            this.tipView.setBackgroundDrawable(null);
+            this.tipView.setTextAppearance(this.mContext, z2 ? R.style.setting_version_text_1 : R.style.setting_version_text);
         }
     }
 }

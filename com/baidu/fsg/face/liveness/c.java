@@ -9,61 +9,63 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f6005a = 1;
+    public static final int f39973a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f6006b = 2;
+    public static final int f39974b = 2;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f6007c;
+    public static final String f39975c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f6008d;
+    public static final String f39976d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f6009e;
+    public static final String f39977e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f6010f;
+    public Context f39978f;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class a extends com.baidu.fsg.face.base.c.a {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f6011a = 1;
+        public static final int f39979a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f6012b = 2;
+        public static final int f39980b = 2;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f6013c = 5;
+        public static final int f39981c = 5;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f6014d = -306;
+        public static final int f39982d = -306;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f6015e;
+        public String f39983e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f6016f;
+        public String f39984f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f6017g;
+        public boolean f39985g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f6018h;
+        public boolean f39986h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f6019i;
-        public final /* synthetic */ c j;
+        public boolean f39987i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public final /* synthetic */ c f39988j;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -80,12 +82,12 @@ public class c {
                     return;
                 }
             }
-            this.j = cVar;
-            this.f6018h = true;
-            this.f6019i = false;
-            this.msgMap.put(1, c.f6007c);
-            this.msgMap.put(2, c.f6008d);
-            this.msgMap.put(-306, c.f6009e);
+            this.f39988j = cVar;
+            this.f39986h = true;
+            this.f39987i = false;
+            this.msgMap.put(1, c.f39975c);
+            this.msgMap.put(2, c.f39976d);
+            this.msgMap.put(-306, c.f39977e);
         }
     }
 
@@ -102,9 +104,9 @@ public class c {
                 return;
             }
         }
-        f6007c = ResUtils.string("error_msg_get_userinfo_failure");
-        f6008d = ResUtils.string("error_msg_upload_failure");
-        f6009e = ResUtils.string("error_msg_image_file_empty");
+        f39975c = ResUtils.string("error_msg_get_userinfo_failure");
+        f39976d = ResUtils.string("error_msg_upload_failure");
+        f39977e = ResUtils.string("error_msg_image_file_empty");
     }
 
     public c(Context context) {
@@ -122,7 +124,7 @@ public class c {
                 return;
             }
         }
-        this.f6010f = context;
+        this.f39978f = context;
     }
 
     public void a() {

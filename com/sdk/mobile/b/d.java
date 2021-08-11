@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class d implements com.sdk.base.framework.b.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public /* synthetic */ a f38466a;
+    public /* synthetic */ a f75252a;
 
     public d(a aVar) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public final class d implements com.sdk.base.framework.b.a<T> {
                 return;
             }
         }
-        this.f38466a = aVar;
+        this.f75252a = aVar;
     }
 
     @Override // com.sdk.base.framework.b.a
     public final void a(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, str) == null) {
-            this.f38466a.a(i2, i3, str);
+            this.f75252a.a(i2, i3, str);
         }
     }
 
@@ -47,17 +47,17 @@ public final class d implements com.sdk.base.framework.b.a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
             if (i2 == 0) {
-                context = this.f38466a.f38445d;
+                context = this.f75252a.f75231d;
                 String a2 = com.sdk.base.framework.f.k.a.a(context, String.valueOf(t));
                 if (a2 == null) {
-                    this.f38466a.a(1, "SDK解密异常", 302001, a2, str2);
+                    this.f75252a.a(1, "SDK解密异常", 302001, a2, str2);
                     return;
                 }
                 str3 = a2;
             } else {
                 str3 = t;
             }
-            this.f38466a.a(i2, str, i3, str3, str2);
+            this.f75252a.a(i2, str, i3, str3, str2);
         }
     }
 }

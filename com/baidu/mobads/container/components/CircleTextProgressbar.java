@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CircleTextProgressbar extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,7 +43,7 @@ public class CircleTextProgressbar extends TextView {
     public long timeMillis;
 
     /* renamed from: com.baidu.mobads.container.components.CircleTextProgressbar$2  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$mobads$container$components$CircleTextProgressbar$ProgressType;
         public static /* synthetic */ Interceptable $ic;
@@ -75,7 +75,7 @@ public class CircleTextProgressbar extends TextView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnCountdownProgressListener {
         void onEnd();
 
@@ -83,7 +83,7 @@ public class CircleTextProgressbar extends TextView {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class ProgressType {
         public static final /* synthetic */ ProgressType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -424,10 +424,10 @@ public class CircleTextProgressbar extends TextView {
         }
     }
 
-    public void setTimeMillis(long j) {
+    public void setTimeMillis(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.timeMillis = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.timeMillis = j2;
             invalidate();
         }
     }

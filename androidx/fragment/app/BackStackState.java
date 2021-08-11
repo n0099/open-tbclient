@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
@@ -169,11 +168,11 @@ public final class BackStackState implements Parcelable {
                 int i4 = i2 + 1;
                 op.mCmd = this.mOps[i2];
                 if (FragmentManager.isLoggingEnabled(2)) {
-                    Log.v("FragmentManager", "Instantiate " + backStackRecord + " op #" + i3 + " base fragment #" + this.mOps[i4]);
+                    String str = "Instantiate " + backStackRecord + " op #" + i3 + " base fragment #" + this.mOps[i4];
                 }
-                String str = this.mFragmentWhos.get(i3);
-                if (str != null) {
-                    op.mFragment = fragmentManager.findActiveFragment(str);
+                String str2 = this.mFragmentWhos.get(i3);
+                if (str2 != null) {
+                    op.mFragment = fragmentManager.findActiveFragment(str2);
                 } else {
                     op.mFragment = null;
                 }

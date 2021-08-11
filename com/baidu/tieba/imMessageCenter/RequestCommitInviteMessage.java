@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.CommitInviteMsg.CommitInviteMsgReqIdl;
 import protobuf.CommitInviteMsg.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RequestCommitInviteMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

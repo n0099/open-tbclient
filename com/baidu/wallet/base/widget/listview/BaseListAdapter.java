@@ -14,22 +14,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.listview.internal.InnerAdapter;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseListAdapter<T> extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f24674a;
+    public Context f60381a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<T> f24675b;
+    public List<T> f60382b;
 
     /* renamed from: c  reason: collision with root package name */
-    public InnerAdapter<T> f24676c;
+    public InnerAdapter<T> f60383c;
     public ViewGroup mParent;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static abstract class BaseViewHolder<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,15 +75,15 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
                 return;
             }
         }
-        this.f24675b = new ArrayList();
-        this.f24674a = context;
-        this.f24676c = new InnerAdapter<>(context, this);
+        this.f60382b = new ArrayList();
+        this.f60381a = context;
+        this.f60383c = new InnerAdapter<>(context, this);
     }
 
     public void addList(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.f24675b.addAll(list);
+            this.f60382b.addAll(list);
             notifyDataSetChanged();
         }
     }
@@ -91,7 +91,7 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     public void clearList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f24675b.clear();
+            this.f60382b.clear();
             notifyDataSetChanged();
         }
     }
@@ -99,21 +99,21 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24674a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60381a : (Context) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24675b.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60382b.size() : invokeV.intValue;
     }
 
     @Override // android.widget.Adapter
     public T getItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f24675b.get(i2) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f60382b.get(i2) : (T) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -142,7 +142,7 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     public List<T> getList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f24675b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f60382b : (List) invokeV.objValue;
     }
 
     @Override // android.widget.Adapter
@@ -151,7 +151,7 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i2, view, viewGroup)) == null) {
             this.mParent = viewGroup;
-            return this.f24676c.getView(i2, view, viewGroup);
+            return this.f60383c.getView(i2, view, viewGroup);
         }
         return (View) invokeILL.objValue;
     }
@@ -160,16 +160,16 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
     public int getViewTypeCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f24676c.getViewBundles().size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f60383c.getViewBundles().size() : invokeV.intValue;
     }
 
     public void initList(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            if (this.f24675b.size() > 0) {
-                this.f24675b.clear();
+            if (this.f60382b.size() > 0) {
+                this.f60382b.clear();
             }
-            this.f24675b.addAll(list);
+            this.f60382b.addAll(list);
             notifyDataSetChanged();
         }
     }

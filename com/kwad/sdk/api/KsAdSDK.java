@@ -24,7 +24,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.concurrent.atomic.AtomicBoolean;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class KsAdSDK {
     public static /* synthetic */ Interceptable $ic;
     public static String sAppTag;
@@ -35,7 +35,7 @@ public class KsAdSDK {
 
     @Keep
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public @interface KsThemeModeType {
         public static final int NIGHT = 1;
         public static final int NORMAL = 0;
@@ -190,7 +190,7 @@ public class KsAdSDK {
                     if (sdkConfig != null) {
                         q.a(a2, "sdkconfig", sdkConfig.toJson());
                     }
-                    if (b.f33954a.booleanValue()) {
+                    if (b.f70681a.booleanValue()) {
                         Loader.get().checkUpdate();
                     }
                     z = sInited.get();

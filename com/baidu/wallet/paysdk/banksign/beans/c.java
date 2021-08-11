@@ -3,25 +3,25 @@ package com.baidu.wallet.paysdk.banksign.beans;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.datamodel.UserData;
-import com.baidu.wallet.core.beans.NetworkBean;
-import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.banksign.datamodel.PollingResponse;
-import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
+import com.dxmpay.apollon.armor.SecurePay;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.base.datamodel.UserData;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.beans.NetworkBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
-public class c extends PayBaseBean<PollingResponse> {
+/* loaded from: classes8.dex */
+public class c extends BaseBean<PollingResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +45,7 @@ public class c extends PayBaseBean<PollingResponse> {
         }
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -53,7 +53,7 @@ public class c extends PayBaseBean<PollingResponse> {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         String str;
@@ -75,8 +75,8 @@ public class c extends PayBaseBean<PollingResponse> {
             } else {
                 str = null;
             }
-            String encryptProxy = SafePay.getInstance().encryptProxy(com.baidu.wallet.paysdk.banksign.a.a.a().l());
-            String str4 = SafePay.getInstance().getpwProxy();
+            String encryptProxy = SecurePay.getInstance().encryptProxy(com.baidu.wallet.paysdk.banksign.a.a.a().l());
+            String str4 = SecurePay.getInstance().getpwProxy();
             arrayList.add(new RestNameValuePair("agreement_trans_id", encryptProxy));
             arrayList.add(new RestNameValuePair("key", str4));
             if (!TextUtils.isEmpty(sessionId)) {
@@ -93,7 +93,7 @@ public class c extends PayBaseBean<PollingResponse> {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -103,7 +103,7 @@ public class c extends PayBaseBean<PollingResponse> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

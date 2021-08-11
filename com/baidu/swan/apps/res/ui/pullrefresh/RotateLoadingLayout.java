@@ -15,6 +15,11 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.e;
+import c.a.n0.a.f;
+import c.a.n0.a.g;
+import c.a.n0.a.h;
+import c.a.n0.a.v2.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.livesdk.sdk.service.IMLikeRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -24,21 +29,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.e;
-import d.a.o0.a.f;
-import d.a.o0.a.g;
-import d.a.o0.a.h;
-import d.a.o0.a.v2.d;
 @SuppressLint({"NewApi"})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RotateLoadingLayout extends LoadingLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final Interpolator o;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f11470i;
-    public ImageView j;
+    public RelativeLayout f46198i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public ImageView f46199j;
     public TextView k;
     public TextView l;
     public TextView m;
@@ -78,100 +80,19 @@ public class RotateLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        n(context);
+        a(context);
     }
 
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        InterceptResult invokeLLL;
+    public final void a(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(g.aiapps_pull_to_refresh_header2, viewGroup, false) : (View) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void d(float f2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) && d.c()) {
-            this.j.setRotation(f2 * 180.0f);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.k.setText(h.aiapps_pull_to_refresh_header_hint_normal);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public int getContentSize() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RelativeLayout relativeLayout = this.f11470i;
-            if (relativeLayout != null) {
-                return relativeLayout.getHeight();
-            }
-            return (int) getResources().getDimension(d.a.o0.a.d.aiapps_picture_pull_to_refresh_height_height);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            o();
-            this.j.startAnimation(this.n);
-            this.k.setText(h.aiapps_pull_to_refresh_header_hint_loading);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.i();
-            this.k.setText(h.aiapps_pull_to_refresh_header_hint_go_home);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.k.setText(h.aiapps_pull_to_refresh_header_hint_ready);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            o();
-            this.k.setText(h.aiapps_pull_to_refresh_header_hint_normal);
-        }
-    }
-
-    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void l(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
-            super.l(iLoadingLayout$State, iLoadingLayout$State2);
-        }
-    }
-
-    public final void n(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
-            this.f11470i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
-            this.j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            this.f46198i = (RelativeLayout) findViewById(f.pull_to_refresh_header_content);
+            this.f46199j = (ImageView) findViewById(f.pull_to_refresh_header_arrow);
             this.k = (TextView) findViewById(f.pull_to_refresh_header_hint_textview);
             this.l = (TextView) findViewById(f.pull_to_refresh_header_time);
             this.m = (TextView) findViewById(f.pull_to_refresh_last_update_time_text);
-            this.j.setScaleType(ImageView.ScaleType.CENTER);
-            this.j.setImageResource(e.aiapps_default_ptr_rotate);
+            this.f46199j.setScaleType(ImageView.ScaleType.CENTER);
+            this.f46199j.setImageResource(e.aiapps_default_ptr_rotate);
             RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
             this.n = rotateAnimation;
             rotateAnimation.setFillAfter(true);
@@ -182,13 +103,94 @@ public class RotateLoadingLayout extends LoadingLayout {
         }
     }
 
-    public final void o() {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.j.clearAnimation();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f46199j.clearAnimation();
             if (d.c()) {
-                this.j.setRotation(0.0f);
+                this.f46199j.setRotation(0.0f);
             }
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public View createLoadingView(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, viewGroup, attributeSet)) == null) ? LayoutInflater.from(context).inflate(g.aiapps_pull_to_refresh_header2, viewGroup, false) : (View) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public int getContentSize() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            RelativeLayout relativeLayout = this.f46198i;
+            if (relativeLayout != null) {
+                return relativeLayout.getHeight();
+            }
+            return (int) getResources().getDimension(c.a.n0.a.d.aiapps_picture_pull_to_refresh_height_height);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public void onPull(float f2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeF(1048580, this, f2) == null) && d.c()) {
+            this.f46199j.setRotation(f2 * 180.0f);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public void onPullToRefresh() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.k.setText(h.aiapps_pull_to_refresh_header_hint_normal);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public void onRefreshing() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b();
+            this.f46199j.startAnimation(this.n);
+            this.k.setText(h.aiapps_pull_to_refresh_header_hint_loading);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public void onReleaseToLongRefresh() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onReleaseToLongRefresh();
+            this.k.setText(h.aiapps_pull_to_refresh_header_hint_go_home);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public void onReleaseToRefresh() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.k.setText(h.aiapps_pull_to_refresh_header_hint_ready);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public void onReset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            b();
+            this.k.setText(h.aiapps_pull_to_refresh_header_hint_normal);
+        }
+    }
+
+    @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
+    public void onStateChanged(ILoadingLayout$State iLoadingLayout$State, ILoadingLayout$State iLoadingLayout$State2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, iLoadingLayout$State, iLoadingLayout$State2) == null) {
+            super.onStateChanged(iLoadingLayout$State, iLoadingLayout$State2);
         }
     }
 
@@ -220,6 +222,6 @@ public class RotateLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        n(context);
+        a(context);
     }
 }

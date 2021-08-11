@@ -5,7 +5,7 @@ import io.reactivex.annotations.NonNull;
 import io.reactivex.annotations.Nullable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Cancellable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface MaybeEmitter<T> {
     boolean isDisposed();
 

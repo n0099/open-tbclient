@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
+import com.baidu.android.common.util.CommonParam;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.idl.license.License;
 import com.baidu.idl.util.FileUtil;
@@ -24,9 +25,10 @@ import java.io.InputStream;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Statistics {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AS_FILE_NAME = "as";
@@ -47,7 +49,7 @@ public class Statistics {
     public Handler workerHandler;
     public HandlerThread workerThread;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final Statistics instance;
@@ -84,7 +86,7 @@ public class Statistics {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class StatisticsResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +173,7 @@ public class Statistics {
                 this.app = context;
                 this.appId = str;
                 try {
-                    this.userId = "0000";
+                    this.userId = CommonParam.getCUID(context);
                 } catch (SecurityException e2) {
                     e2.printStackTrace();
                 }
@@ -293,7 +295,7 @@ public class Statistics {
                                                         sb.append(this.this$1.this$0.au_version);
                                                         sb.append(" ");
                                                         sb.append(this.this$1.this$0.al_version);
-                                                        sb.append("\n");
+                                                        sb.append(StringUtils.LF);
                                                     }
                                                 }
                                                 return sb.toString();

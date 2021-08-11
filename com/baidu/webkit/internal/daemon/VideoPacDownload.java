@@ -23,7 +23,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebSettings;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class VideoPacDownload implements IResourceTask, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "VideoPacDownload";

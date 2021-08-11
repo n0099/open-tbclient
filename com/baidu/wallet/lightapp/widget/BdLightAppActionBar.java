@@ -2,13 +2,16 @@ package com.baidu.wallet.lightapp.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.apollon.utils.DisplayUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.BdActionBar;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BdLightAppActionBar extends BdActionBar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,6 +41,18 @@ public class BdLightAppActionBar extends BdActionBar {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "wallet_langbrige_action_bar" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.wallet.base.widget.BdActionBar
+    public void hideLeftZone() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.mLeftImgZone2.setVisibility(8);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mClose.getLayoutParams();
+            layoutParams.width = DisplayUtils.dip2px(getContext(), 50.0f);
+            this.mClose.setLayoutParams(layoutParams);
+            this.mClose.setPadding(DisplayUtils.dip2px(getContext(), 12.0f), 0, 0, 0);
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

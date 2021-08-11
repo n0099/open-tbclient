@@ -17,7 +17,8 @@ import com.bumptech.glide.util.Preconditions;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public class DecodePath<DataType, ResourceType, Transcode> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DecodePath";
@@ -28,7 +29,7 @@ public class DecodePath<DataType, ResourceType, Transcode> {
     public final Pools.Pool<List<Throwable>> listPool;
     public final ResourceTranscoder<ResourceType, Transcode> transcoder;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface DecodeCallback<ResourceType> {
         @NonNull
         Resource<ResourceType> onResourceDecoded(@NonNull Resource<ResourceType> resource);
@@ -86,7 +87,7 @@ public class DecodePath<DataType, ResourceType, Transcode> {
                     }
                 } catch (IOException | OutOfMemoryError | RuntimeException e2) {
                     if (Log.isLoggable(TAG, 2)) {
-                        Log.v(TAG, "Failed to decode data for " + resourceDecoder, e2);
+                        String str = "Failed to decode data for " + resourceDecoder;
                     }
                     list.add(e2);
                 }
@@ -112,7 +113,7 @@ public class DecodePath<DataType, ResourceType, Transcode> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "DecodePath{ dataClass=" + this.dataClass + ", decoders=" + this.decoders + ", transcoder=" + this.transcoder + '}';
+            return "DecodePath{ dataClass=" + this.dataClass + ", decoders=" + this.decoders + ", transcoder=" + this.transcoder + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

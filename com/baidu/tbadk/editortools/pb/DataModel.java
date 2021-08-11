@@ -2,6 +2,7 @@ package com.baidu.tbadk.editortools.pb;
 
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,8 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.f;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class DataModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -8,8 +8,6 @@ import com.airbnb.lottie.model.animatable.AnimatableValue;
 import com.airbnb.lottie.model.content.PolystarShape;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PolystarShapeParser {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonReader.Options NAMES;
@@ -37,7 +35,7 @@ public class PolystarShapeParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", Config.PLATFORM_TYPE, "p", r.f7788a, "or", IAdRequestParam.OS, "ir", "is", "hd");
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "sy", "pt", "p", r.f42062a, "or", "os", "ir", "is", "hd");
     }
 
     public PolystarShapeParser() {

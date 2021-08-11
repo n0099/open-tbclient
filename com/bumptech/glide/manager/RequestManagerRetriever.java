@@ -36,7 +36,7 @@ import com.bumptech.glide.util.Util;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class RequestManagerRetriever implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final RequestManagerFactory DEFAULT_FACTORY;
@@ -58,7 +58,7 @@ public class RequestManagerRetriever implements Handler.Callback {
     public final ArrayMap<View, Fragment> tempViewToFragment;
     public final ArrayMap<View, androidx.fragment.app.Fragment> tempViewToSupportFragment;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface RequestManagerFactory {
         @NonNull
         RequestManager build(@NonNull Glide glide, @NonNull Lifecycle lifecycle, @NonNull RequestManagerTreeNode requestManagerTreeNode, @NonNull Context context);
@@ -367,7 +367,7 @@ public class RequestManagerRetriever implements Handler.Callback {
                 z = false;
                 obj2 = null;
                 if (z && obj3 == null && Log.isLoggable(TAG, 5)) {
-                    Log.w(TAG, "Failed to remove expected request manager fragment, manager: " + obj2);
+                    String str = "Failed to remove expected request manager fragment, manager: " + obj2;
                 }
                 return z;
             }
@@ -375,7 +375,7 @@ public class RequestManagerRetriever implements Handler.Callback {
             obj3 = remove;
             obj2 = obj4;
             if (z) {
-                Log.w(TAG, "Failed to remove expected request manager fragment, manager: " + obj2);
+                String str2 = "Failed to remove expected request manager fragment, manager: " + obj2;
             }
             return z;
         }

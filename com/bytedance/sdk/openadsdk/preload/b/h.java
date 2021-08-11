@@ -6,40 +6,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Class<? extends d> f32286a;
+    public Class<? extends d> f68245a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.b.b.a f32287b;
+    public com.bytedance.sdk.openadsdk.preload.b.b.a f68246b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object[] f32288c;
+    public Object[] f68247c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.b.h$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Class<? extends d> f32289a;
+        public Class<? extends d> f68248a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.preload.b.b.a f32290b;
+        public com.bytedance.sdk.openadsdk.preload.b.b.a f68249b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Object[] f32291c;
+        public Object[] f68250c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -72,7 +72,7 @@ public final class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
                 if (cls != null) {
-                    this.f32289a = cls;
+                    this.f68248a = cls;
                     return this;
                 }
                 throw new IllegalArgumentException("interceptor class == null");
@@ -84,7 +84,7 @@ public final class h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                this.f32290b = aVar;
+                this.f68249b = aVar;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -95,7 +95,7 @@ public final class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr)) == null) {
                 if (objArr != null) {
-                    this.f32291c = objArr;
+                    this.f68250c = objArr;
                     return this;
                 }
                 throw new IllegalArgumentException("args == null");
@@ -111,19 +111,19 @@ public final class h {
     public Class<? extends d> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32286a : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68245a : (Class) invokeV.objValue;
     }
 
     public com.bytedance.sdk.openadsdk.preload.b.b.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32287b : (com.bytedance.sdk.openadsdk.preload.b.b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68246b : (com.bytedance.sdk.openadsdk.preload.b.b.a) invokeV.objValue;
     }
 
     public Object[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32288c : (Object[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68247c : (Object[]) invokeV.objValue;
     }
 
     public h(a aVar) {
@@ -141,10 +141,10 @@ public final class h {
                 return;
             }
         }
-        this.f32286a = aVar.f32289a;
-        this.f32287b = aVar.f32290b;
-        this.f32288c = aVar.f32291c;
-        if (this.f32286a == null) {
+        this.f68245a = aVar.f68248a;
+        this.f68246b = aVar.f68249b;
+        this.f68247c = aVar.f68250c;
+        if (this.f68245a == null) {
             throw new IllegalArgumentException("Interceptor class == null");
         }
     }

@@ -12,15 +12,15 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.module.manager.SDKManager;
 import java.io.IOException;
 import java.util.Properties;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38411a = "a";
+    public static final String f75197a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f38412b;
+    public static final boolean f75198b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f38412b = f.f38384b;
+        f75198b = f.f75169b;
     }
 
     public a() {
@@ -64,8 +64,8 @@ public class a {
             try {
                 properties.load(SDKManager.getContext().getAssets().open(str));
             } catch (IOException unused) {
-                String str3 = f38411a;
-                c.b(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f38412b));
+                String str3 = f75197a;
+                c.b(str3, "域名读取失败！《" + str2 + "+》", Boolean.valueOf(f75198b));
             }
             return properties.getProperty(str2);
         }

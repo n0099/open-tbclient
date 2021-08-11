@@ -11,22 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f2593b = null;
+    public static b f36468b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f2594c = "";
+    public static String f36469c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile String f2595d = "";
+    public static volatile String f36470d = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f2596a;
+    public final Context f36471a;
 
     static {
         InterceptResult invokeClinit;
@@ -58,17 +58,17 @@ public final class c {
                 return;
             }
         }
-        this.f2596a = context.getApplicationContext();
+        this.f36471a = context.getApplicationContext();
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TextUtils.isEmpty(f2594c)) {
-                f2594c = "0newiqr3mini0";
+            if (TextUtils.isEmpty(f36469c)) {
+                f36469c = "0newiqr3mini0";
             }
-            return f2594c;
+            return f36469c;
         }
         return (String) invokeV.objValue;
     }
@@ -86,8 +86,8 @@ public final class c {
                 throw new IllegalArgumentException("expect src only letter or number , less than 6");
             }
             synchronized (b.class) {
-                if (TextUtils.isEmpty(f2595d)) {
-                    f2595d = str;
+                if (TextUtils.isEmpty(f36470d)) {
+                    f36470d = str;
                     int length = 5 - str.length();
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append("0newiqr3");
@@ -95,7 +95,7 @@ public final class c {
                     for (int i2 = 0; i2 < length; i2++) {
                         stringBuffer.append("0");
                     }
-                    f2594c = stringBuffer.toString().trim();
+                    f36469c = stringBuffer.toString().trim();
                 }
             }
         }
@@ -105,21 +105,21 @@ public final class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            b b2 = b.b(this.f2596a);
+            b b2 = b.b(this.f36471a);
             boolean z = b2 == null;
             if (b2 == null) {
-                a b3 = a.b(this.f2596a);
+                a b3 = a.b(this.f36471a);
                 if (b3 == null) {
-                    b2 = b.a(this.f2596a, a());
+                    b2 = b.a(this.f36471a, a());
                 } else {
                     b3.c();
                     b2 = b.a(b3);
                 }
             }
             if (z) {
-                b2.a(this.f2596a);
+                b2.a(this.f36471a);
             }
-            a.a(this.f2596a);
+            a.a(this.f36471a);
             return b2;
         }
         return (b) invokeV.objValue;
@@ -129,14 +129,14 @@ public final class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
-            if (f2593b == null) {
+            if (f36468b == null) {
                 synchronized (b.class) {
-                    if (f2593b == null) {
-                        f2593b = new c(context).b();
+                    if (f36468b == null) {
+                        f36468b = new c(context).b();
                     }
                 }
             }
-            return f2593b;
+            return f36468b;
         }
         return (b) invokeL.objValue;
     }

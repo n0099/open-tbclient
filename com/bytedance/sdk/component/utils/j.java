@@ -10,22 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f28998a;
+    public static final a f64864a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.bytedance.sdk.component.utils.j$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public class j {
     }
 
     @TargetApi(19)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class b extends a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,16 +127,16 @@ public class j {
             }
         }
         if (Build.VERSION.SDK_INT >= 19) {
-            f28998a = new b(null);
+            f64864a = new b(null);
         } else {
-            f28998a = new a(null);
+            f64864a = new a(null);
         }
     }
 
     public static void a(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, webView, str) == null) {
-            f28998a.a(webView, str);
+            f64864a.a(webView, str);
         }
     }
 }

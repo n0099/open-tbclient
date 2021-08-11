@@ -3,7 +3,7 @@ package com.bytedance.sdk.component.net.tnc;
 import android.content.Context;
 import android.location.Address;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface ITTAdNetDepend {
     int getAid();
 

@@ -1,5 +1,6 @@
 package com.baidu.tieba.model.message;
 
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import tbclient.AddPollPost.AddPollPostReqIdl;
 import tbclient.AddPollPost.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AddPollPostRequestNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,10 +75,10 @@ public class AddPollPostRequestNetMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.threadId : invokeV.longValue;
     }
 
-    public void setForumId(long j) {
+    public void setForumId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.forumId = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.forumId = j2;
         }
     }
 
@@ -89,10 +89,10 @@ public class AddPollPostRequestNetMessage extends NetMessage {
         }
     }
 
-    public void setThreadId(long j) {
+    public void setThreadId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.threadId = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.threadId = j2;
         }
     }
 }

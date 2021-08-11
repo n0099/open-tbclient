@@ -1,7 +1,6 @@
 package com.baidu.turbonet.base;
 
 import android.os.StrictMode;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,12 +14,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SysUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f23184a;
+    public static Boolean f58903a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,38 +59,36 @@ public class SysUtils {
             Pattern compile = Pattern.compile("^MemTotal:\\s+([0-9]+) kB$");
             StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
             try {
-                try {
-                    fileReader = new FileReader("/proc/meminfo");
-                } catch (Exception e2) {
-                    Log.w("SysUtils", "Cannot get total physical size from /proc/meminfo", e2);
-                }
-                try {
-                    BufferedReader bufferedReader = new BufferedReader(fileReader);
-                    while (true) {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            Log.w("SysUtils", "/proc/meminfo lacks a MemTotal entry?");
-                            break;
-                        }
-                        Matcher matcher = compile.matcher(readLine);
-                        if (matcher.find()) {
-                            int parseInt = Integer.parseInt(matcher.group(1));
-                            if (parseInt <= 1024) {
-                                Log.w("SysUtils", "Invalid /proc/meminfo total size in kB: " + matcher.group(1));
-                            } else {
-                                bufferedReader.close();
-                                return parseInt;
-                            }
+                fileReader = new FileReader("/proc/meminfo");
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                StrictMode.setThreadPolicy(allowThreadDiskReads);
+                throw th;
+            }
+            try {
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    Matcher matcher = compile.matcher(readLine);
+                    if (matcher.find()) {
+                        int parseInt = Integer.parseInt(matcher.group(1));
+                        if (parseInt <= 1024) {
+                            String str = "Invalid /proc/meminfo total size in kB: " + matcher.group(1);
+                        } else {
+                            bufferedReader.close();
+                            StrictMode.setThreadPolicy(allowThreadDiskReads);
+                            return parseInt;
                         }
                     }
-                    bufferedReader.close();
-                    StrictMode.setThreadPolicy(allowThreadDiskReads);
-                    return 0;
-                } finally {
-                    fileReader.close();
                 }
-            } finally {
+                bufferedReader.close();
                 StrictMode.setThreadPolicy(allowThreadDiskReads);
+                return 0;
+            } finally {
+                fileReader.close();
             }
         }
         return invokeV.intValue;
@@ -115,10 +112,10 @@ public class SysUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f23184a == null) {
-                f23184a = Boolean.valueOf(b());
+            if (f58903a == null) {
+                f58903a = Boolean.valueOf(b());
             }
-            return f23184a.booleanValue();
+            return f58903a.booleanValue();
         }
         return invokeV.booleanValue;
     }

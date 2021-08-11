@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class br {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f8903a;
+    public static final String[] f43212a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class br {
                 return;
             }
         }
-        f8903a = new String[]{"h9YLQoINGWyOBYYk", "30212102dicudiab", "dm1VEmW651QTz4MD"};
+        f43212a = new String[]{"h9YLQoINGWyOBYYk", "30212102dicudiab", "dm1VEmW651QTz4MD"};
     }
 
     public static byte[] a() {

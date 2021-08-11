@@ -5,6 +5,9 @@ import android.content.Context;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import c.p.a.a.a.c.h;
+import c.p.a.a.a.c.t;
+import c.p.a.d.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,18 +17,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTCustomController;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.q.d;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.l.a.a.a.c.h;
-import d.l.a.a.a.c.t;
-import d.l.a.d.h;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f31283a;
+    public final WeakReference<Context> f67222a;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -42,17 +41,17 @@ public class d implements h {
                 return;
             }
         }
-        this.f31283a = new WeakReference<>(context);
+        this.f67222a = new WeakReference<>(context);
     }
 
-    @Override // d.l.a.a.a.c.h
+    @Override // c.p.a.a.a.c.h
     public void a(@NonNull Activity activity, int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048576, this, activity, i2, strArr, iArr) == null) {
         }
     }
 
-    @Override // d.l.a.a.a.c.h
+    @Override // c.p.a.a.a.c.h
     public void a(@NonNull Activity activity, @NonNull String[] strArr, t tVar) {
         boolean z;
         TTCustomController f2;
@@ -65,7 +64,7 @@ public class d implements h {
                     if (i2 >= length) {
                         z = false;
                         break;
-                    } else if (StorageUtils.EXTERNAL_STORAGE_PERMISSION.equalsIgnoreCase(strArr[i2])) {
+                    } else if ("android.permission.WRITE_EXTERNAL_STORAGE".equalsIgnoreCase(strArr[i2])) {
                         z = true;
                         break;
                     } else {
@@ -73,7 +72,7 @@ public class d implements h {
                     }
                 }
                 if (z && (f2 = com.bytedance.sdk.openadsdk.core.h.d().f()) != null && tVar != null && !f2.isCanUseWriteExternal()) {
-                    tVar.a(StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+                    tVar.a("android.permission.WRITE_EXTERNAL_STORAGE");
                     return;
                 }
             }
@@ -95,13 +94,13 @@ public class d implements h {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ t f31284a;
+                    public final /* synthetic */ t f67223a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String[] f31285b;
+                    public final /* synthetic */ String[] f67224b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ d f31286c;
+                    public final /* synthetic */ d f67225c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -118,20 +117,20 @@ public class d implements h {
                                 return;
                             }
                         }
-                        this.f31286c = this;
-                        this.f31284a = tVar;
-                        this.f31285b = strArr;
+                        this.f67225c = this;
+                        this.f67223a = tVar;
+                        this.f67224b = strArr;
                     }
 
                     @Override // com.bytedance.sdk.openadsdk.q.d.a
                     public void a() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            t tVar2 = this.f31284a;
+                            t tVar2 = this.f67223a;
                             if (tVar2 != null) {
                                 tVar2.a();
                             }
-                            com.bytedance.sdk.openadsdk.j.a.a().a(true, this.f31285b);
+                            com.bytedance.sdk.openadsdk.j.a.a().a(true, this.f67224b);
                         }
                     }
 
@@ -139,7 +138,7 @@ public class d implements h {
                     public void a(String str2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
-                            t tVar2 = this.f31284a;
+                            t tVar2 = this.f67223a;
                             if (tVar2 != null) {
                                 tVar2.a(str2);
                             }
@@ -151,13 +150,13 @@ public class d implements h {
         }
     }
 
-    @Override // d.l.a.a.a.c.h
+    @Override // c.p.a.a.a.c.h
     public boolean a(@Nullable Context context, @NonNull String str) {
         InterceptResult invokeLL;
         TTCustomController f2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            if (!StorageUtils.EXTERNAL_STORAGE_PERMISSION.equalsIgnoreCase(str) || (f2 = com.bytedance.sdk.openadsdk.core.h.d().f()) == null || f2.isCanUseWriteExternal()) {
+            if (!"android.permission.WRITE_EXTERNAL_STORAGE".equalsIgnoreCase(str) || (f2 = com.bytedance.sdk.openadsdk.core.h.d().f()) == null || f2.isCanUseWriteExternal()) {
                 if (context == null) {
                     context = o.a();
                 }

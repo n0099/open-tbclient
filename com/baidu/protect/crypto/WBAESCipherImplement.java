@@ -1,5 +1,6 @@
 package com.baidu.protect.crypto;
 
+import c.a.f0.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,14 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.g0.a.a;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class WBAESCipherImplement extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f9573a;
+    public long f44230a;
 
     static {
         InterceptResult invokeClinit;
@@ -53,42 +53,42 @@ public class WBAESCipherImplement extends a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new WBAESCipherImplement() : (a) invokeV.objValue;
     }
 
-    private native int decrypt(long j, byte[] bArr, byte[] bArr2, int i2);
+    private native int decrypt(long j2, byte[] bArr, byte[] bArr2, int i2);
 
-    private native int decryptFile(long j, String str, String str2, int i2);
+    private native int decryptFile(long j2, String str, String str2, int i2);
 
-    private native int destroyContext(long j);
+    private native int destroyContext(long j2);
 
-    private native int encrypt(long j, byte[] bArr, byte[] bArr2, int i2);
+    private native int encrypt(long j2, byte[] bArr, byte[] bArr2, int i2);
 
-    private native int encryptFile(long j, String str, String str2, int i2);
+    private native int encryptFile(long j2, String str, String str2, int i2);
 
     private native long initKeyDataFile(String str, String str2);
 
     private native long initKeyDataMemory(byte[] bArr, byte[] bArr2);
 
-    @Override // d.a.g0.a.a
+    @Override // c.a.f0.a.a
     public final boolean a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
             long initKeyDataMemory = initKeyDataMemory(bArr, null);
-            this.f9573a = initKeyDataMemory;
+            this.f44230a = initKeyDataMemory;
             return initKeyDataMemory > 0;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.g0.a.a
+    @Override // c.a.f0.a.a
     public final boolean b(byte[] bArr, byte[] bArr2, int i2) throws b {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, bArr2, i2)) == null) {
-            long j = this.f9573a;
-            if (j <= 0) {
+            long j2 = this.f44230a;
+            if (j2 <= 0) {
                 return false;
             }
-            int encrypt = encrypt(j, bArr, bArr2, i2);
+            int encrypt = encrypt(j2, bArr, bArr2, i2);
             if (encrypt == -2 || encrypt == -1) {
                 throw new b("invalid param");
             }

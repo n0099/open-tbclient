@@ -12,7 +12,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.baidu.mobstat.Config;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,16 +26,16 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class ej extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference f23761a;
+    public final WeakReference f59498a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23762b;
+    public String f59499b;
 
     public ej(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -52,19 +52,19 @@ public final class ej extends Handler {
                 return;
             }
         }
-        this.f23761a = new WeakReference(feedbackInputActivity);
+        this.f59498a = new WeakReference(feedbackInputActivity);
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(15:20|(5:22|(1:24)(1:130)|25|26|(1:28)(2:116|(1:118)(2:119|(4:121|(1:123)|124|(1:126))(2:127|(1:129)))))(1:131)|29|(1:31)(1:115)|32|(2:34|35)(1:114)|36|(2:41|(6:111|112|50|51|(2:57|58)|59)(7:45|(2:47|48)(10:67|68|69|(2:71|72)(1:107)|73|74|75|(1:77)(1:103)|78|(11:87|88|89|90|(2:92|93)|(1:99)(1:97)|98|50|51|(1:62)(4:53|55|57|58)|59)(2:82|(1:86)))|49|50|51|(0)(0)|59))|113|112|50|51|(0)(0)|59|18) */
-    /* JADX WARN: Code restructure failed: missing block: B:126:0x02f5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:126:0x02f4, code lost:
         r0 = move-exception;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:127:0x02f6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:127:0x02f5, code lost:
         r0.printStackTrace();
      */
-    /* JADX WARN: Removed duplicated region for block: B:104:0x027a A[Catch: Exception -> 0x0281, TRY_LEAVE, TryCatch #5 {Exception -> 0x0281, blocks: (B:102:0x0274, B:104:0x027a), top: B:147:0x0274, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:120:0x02df A[Catch: Exception -> 0x02f5, TryCatch #4 {Exception -> 0x02f5, blocks: (B:118:0x02d7, B:120:0x02df, B:122:0x02e7, B:124:0x02ef), top: B:145:0x02d7, outer: #0 }] */
-    /* JADX WARN: Removed duplicated region for block: B:151:0x02f9 A[ADDED_TO_REGION, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x0279 A[Catch: Exception -> 0x0280, TRY_LEAVE, TryCatch #0 {Exception -> 0x0280, blocks: (B:102:0x0273, B:104:0x0279), top: B:137:0x0273, outer: #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x02de A[Catch: Exception -> 0x02f4, TryCatch #4 {Exception -> 0x02f4, blocks: (B:118:0x02d6, B:120:0x02de, B:122:0x02e6, B:124:0x02ee), top: B:145:0x02d6, outer: #5 }] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x02f8 A[ADDED_TO_REGION, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -93,7 +93,7 @@ public final class ej extends Handler {
             String str18 = "discontent_reason";
             String str19 = "evaluation";
             feedbackInputActivity.u = false;
-            feedbackInputActivity.f23565h.clear();
+            feedbackInputActivity.f59298h.clear();
             HashMap hashMap = new HashMap();
             String str20 = "from";
             hashMap.put("from", 1);
@@ -110,12 +110,12 @@ public final class ej extends Handler {
                 str = "extra";
                 str2 = "contenttype";
                 String valueOf = String.valueOf(System.currentTimeMillis());
-                this.f23762b = valueOf;
+                this.f59499b = valueOf;
                 hashMap.put("time", valueOf);
             } else {
                 str = "extra";
                 str2 = "contenttype";
-                String string = feedbackInputActivity.r.getString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f23562e, "0");
+                String string = feedbackInputActivity.r.getString("first" + feedbackInputActivity.f59295e, "0");
                 if (string.equals("0")) {
                     try {
                         string = (String) new JSONArray(str25).getJSONObject(0).get("time");
@@ -126,9 +126,9 @@ public final class ej extends Handler {
                 hashMap.put("time", string);
             }
             if (!feedbackInputActivity.o) {
-                feedbackInputActivity.f23565h.add(hashMap);
+                feedbackInputActivity.f59298h.add(hashMap);
             }
-            cg cgVar = feedbackInputActivity.j;
+            cg cgVar = feedbackInputActivity.f59300j;
             if (cgVar != null) {
                 cgVar.notifyDataSetChanged();
             }
@@ -231,7 +231,7 @@ public final class ej extends Handler {
                                     if (str14 == null) {
                                     }
                                     hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
-                                    feedbackInputActivity.f23565h.add(hashMap2);
+                                    feedbackInputActivity.f59298h.add(hashMap2);
                                     i2++;
                                     str = str5;
                                     str21 = str13;
@@ -258,7 +258,7 @@ public final class ej extends Handler {
                                         hashMap2.put(str27, "1");
                                     }
                                     hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
-                                    feedbackInputActivity.f23565h.add(hashMap2);
+                                    feedbackInputActivity.f59298h.add(hashMap2);
                                     i2++;
                                     str = str5;
                                     str21 = str13;
@@ -287,7 +287,7 @@ public final class ej extends Handler {
                             if (str14 == null) {
                             }
                             hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
-                            feedbackInputActivity.f23565h.add(hashMap2);
+                            feedbackInputActivity.f59298h.add(hashMap2);
                             i2++;
                             str = str5;
                             str21 = str13;
@@ -311,11 +311,11 @@ public final class ej extends Handler {
                             hashMap2.put(str9, (String) jSONArray3.getJSONObject(i2).get(str9));
                             hashMap2.put("flagRobot", 0);
                             str14 = (String) hashMap2.get(str9);
-                            if (str14 == null && str14.contains(".jpg") && str14.startsWith("http")) {
+                            if (str14 == null && str14.contains(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) && str14.startsWith("http")) {
                                 hashMap2.put(str27, "1");
                             }
                             hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
-                            feedbackInputActivity.f23565h.add(hashMap2);
+                            feedbackInputActivity.f59298h.add(hashMap2);
                             i2++;
                             str = str5;
                             str21 = str13;
@@ -344,7 +344,7 @@ public final class ej extends Handler {
                     if (str14 == null) {
                     }
                     hashMap2.put("time", (String) jSONArray3.getJSONObject(i2).get("time"));
-                    feedbackInputActivity.f23565h.add(hashMap2);
+                    feedbackInputActivity.f59298h.add(hashMap2);
                     i2++;
                     str = str5;
                     str21 = str13;
@@ -359,12 +359,12 @@ public final class ej extends Handler {
                     str26 = str9;
                     str19 = str3;
                 }
-                feedbackInputActivity.j.notifyDataSetChanged();
-                feedbackInputActivity.f23561d.setVisibility(0);
-                feedbackInputActivity.f23560c.setVisibility(0);
-                feedbackInputActivity.f23559b.setVisibility(8);
+                feedbackInputActivity.f59300j.notifyDataSetChanged();
+                feedbackInputActivity.f59294d.setVisibility(0);
+                feedbackInputActivity.f59293c.setVisibility(0);
+                feedbackInputActivity.f59292b.setVisibility(8);
                 feedbackInputActivity.k.setVisibility(8);
-                feedbackInputActivity.f23566i.setSelection(feedbackInputActivity.f23566i.getBottom());
+                feedbackInputActivity.f59299i.setSelection(feedbackInputActivity.f59299i.getBottom());
                 feedbackInputActivity.n = true;
                 new Handler().postDelayed(new ek(this, feedbackInputActivity), 1500L);
             } catch (JSONException e6) {
@@ -387,13 +387,13 @@ public final class ej extends Handler {
                 feedbackInputActivity.y = false;
             }
             if (feedbackInputActivity.H) {
-                feedbackInputActivity.f23563f = feedbackInputActivity.f23562e;
+                feedbackInputActivity.f59296f = feedbackInputActivity.f59295e;
             }
             feedbackInputActivity.u = false;
-            feedbackInputActivity.f23561d.setVisibility(0);
+            feedbackInputActivity.f59294d.setVisibility(0);
             ArrayList arrayList = (ArrayList) message.obj;
             for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                if (((String) ((Map) arrayList.get(i2)).get("id")).equals(feedbackInputActivity.f23562e)) {
+                if (((String) ((Map) arrayList.get(i2)).get("id")).equals(feedbackInputActivity.f59295e)) {
                     HashMap hashMap = new HashMap();
                     if (((Integer) ((Map) arrayList.get(i2)).get("flagRobot")).intValue() == 0) {
                         if (((Map) arrayList.get(i2)).containsKey("chatId")) {
@@ -410,7 +410,7 @@ public final class ej extends Handler {
                             feedbackInputActivity.B = false;
                         }
                         String str = (String) hashMap.get("content");
-                        if (str != null && str.contains(".jpg") && str.startsWith("http")) {
+                        if (str != null && str.contains(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) && str.startsWith("http")) {
                             hashMap.put("contenttype", "1");
                         }
                     } else {
@@ -431,9 +431,9 @@ public final class ej extends Handler {
                                 if (((String) ((Map) arrayList.get(i2)).get("toggle")).equals("yes")) {
                                 }
                                 hashMap.put(obj, 0);
-                                feedbackInputActivity.f23565h.add(hashMap);
-                                feedbackInputActivity.j.notifyDataSetChanged();
-                                ListView listView = feedbackInputActivity.f23566i;
+                                feedbackInputActivity.f59298h.add(hashMap);
+                                feedbackInputActivity.f59300j.notifyDataSetChanged();
+                                ListView listView = feedbackInputActivity.f59299i;
                                 listView.setSelection(listView.getBottom());
                             }
                         } catch (JSONException e3) {
@@ -447,9 +447,9 @@ public final class ej extends Handler {
                             feedbackInputActivity.B = false;
                         }
                     }
-                    feedbackInputActivity.f23565h.add(hashMap);
-                    feedbackInputActivity.j.notifyDataSetChanged();
-                    ListView listView2 = feedbackInputActivity.f23566i;
+                    feedbackInputActivity.f59298h.add(hashMap);
+                    feedbackInputActivity.f59300j.notifyDataSetChanged();
+                    ListView listView2 = feedbackInputActivity.f59299i;
                     listView2.setSelection(listView2.getBottom());
                 }
             }
@@ -475,7 +475,7 @@ public final class ej extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f23761a.get();
+            FeedbackInputActivity feedbackInputActivity = (FeedbackInputActivity) this.f59498a.get();
             if (feedbackInputActivity == null) {
                 return;
             }
@@ -486,9 +486,9 @@ public final class ej extends Handler {
                     hashMap.put("content", message.obj);
                     hashMap.put("contenttype", "0");
                     hashMap.put("time", String.valueOf(System.currentTimeMillis()));
-                    feedbackInputActivity.f23565h.add(hashMap);
-                    feedbackInputActivity.j.notifyDataSetChanged();
-                    ListView listView = feedbackInputActivity.f23566i;
+                    feedbackInputActivity.f59298h.add(hashMap);
+                    feedbackInputActivity.f59300j.notifyDataSetChanged();
+                    ListView listView = feedbackInputActivity.f59299i;
                     listView.setSelection(listView.getBottom());
                     feedbackInputActivity.s.setVisibility(8);
                     feedbackInputActivity.E.setEnabled(true);
@@ -509,9 +509,9 @@ public final class ej extends Handler {
                                 hashMap2.put("content", decodeByteArray);
                                 hashMap2.put("contenttype", "2");
                                 hashMap2.put("time", String.valueOf(System.currentTimeMillis()));
-                                feedbackInputActivity.f23565h.add(hashMap2);
-                                feedbackInputActivity.j.notifyDataSetChanged();
-                                ListView listView2 = feedbackInputActivity.f23566i;
+                                feedbackInputActivity.f59298h.add(hashMap2);
+                                feedbackInputActivity.f59300j.notifyDataSetChanged();
+                                ListView listView2 = feedbackInputActivity.f59299i;
                                 listView2.setSelection(listView2.getBottom());
                                 return;
                             }
@@ -523,10 +523,10 @@ public final class ej extends Handler {
                     }
                     return;
                 case 4:
-                    feedbackInputActivity.f23561d.setVisibility(8);
-                    feedbackInputActivity.f23560c.setVisibility(8);
+                    feedbackInputActivity.f59294d.setVisibility(8);
+                    feedbackInputActivity.f59293c.setVisibility(8);
                     com.baidu.ufosdk.f.i.a(feedbackInputActivity.getApplicationContext(), feedbackInputActivity.m);
-                    feedbackInputActivity.f23559b.setVisibility(0);
+                    feedbackInputActivity.f59292b.setVisibility(0);
                     feedbackInputActivity.k.setVisibility(8);
                     return;
                 case 5:
@@ -534,7 +534,7 @@ public final class ej extends Handler {
                     return;
                 case 6:
                     if (feedbackInputActivity.n) {
-                        ListView listView3 = feedbackInputActivity.f23566i;
+                        ListView listView3 = feedbackInputActivity.f59299i;
                         listView3.setSelection(listView3.getBottom());
                         return;
                     }
@@ -546,8 +546,8 @@ public final class ej extends Handler {
                             com.baidu.ufosdk.f.c.a("solved replay response: " + b2);
                             if (new JSONObject(b2).optInt("errno", -1) == 0) {
                                 feedbackInputActivity.u = false;
-                                feedbackInputActivity.j.notifyDataSetChanged();
-                                feedbackInputActivity.f23566i.setSelection(feedbackInputActivity.f23566i.getBottom());
+                                feedbackInputActivity.f59300j.notifyDataSetChanged();
+                                feedbackInputActivity.f59299i.setSelection(feedbackInputActivity.f59299i.getBottom());
                                 return;
                             }
                         }
@@ -555,8 +555,8 @@ public final class ej extends Handler {
                         e2.printStackTrace();
                     }
                     feedbackInputActivity.u = false;
-                    feedbackInputActivity.j.notifyDataSetChanged();
-                    ListView listView4 = feedbackInputActivity.f23566i;
+                    feedbackInputActivity.f59300j.notifyDataSetChanged();
+                    ListView listView4 = feedbackInputActivity.f59299i;
                     listView4.setSelection(listView4.getBottom());
                     if (TextUtils.isEmpty(feedbackInputActivity.L)) {
                         Toast.makeText(feedbackInputActivity.getApplicationContext(), com.baidu.ufosdk.f.s.a("44"), 0).show();
@@ -593,11 +593,11 @@ public final class ej extends Handler {
                         hashMap3.put("contenttype", "0");
                         hashMap3.put("time", String.valueOf(System.currentTimeMillis()));
                         hashMap3.put("ask", 0);
-                        feedbackInputActivity.f23565h.add(hashMap3);
+                        feedbackInputActivity.f59298h.add(hashMap3);
                     }
                     feedbackInputActivity.u = true;
-                    feedbackInputActivity.j.notifyDataSetChanged();
-                    ListView listView5 = feedbackInputActivity.f23566i;
+                    feedbackInputActivity.f59300j.notifyDataSetChanged();
+                    ListView listView5 = feedbackInputActivity.f59299i;
                     listView5.setSelection(listView5.getBottom());
                     return;
                 case 9:
@@ -608,9 +608,9 @@ public final class ej extends Handler {
                         hashMap4.put("contenttype", "-1");
                         hashMap4.put("subtype", 1);
                         hashMap4.put("content", (JSONArray) message.obj);
-                        feedbackInputActivity.f23565h.add(hashMap4);
-                        feedbackInputActivity.j.notifyDataSetChanged();
-                        feedbackInputActivity.f23566i.setSelection(feedbackInputActivity.f23566i.getBottom());
+                        feedbackInputActivity.f59298h.add(hashMap4);
+                        feedbackInputActivity.f59300j.notifyDataSetChanged();
+                        feedbackInputActivity.f59299i.setSelection(feedbackInputActivity.f59299i.getBottom());
                         return;
                     } catch (Exception e3) {
                         e3.printStackTrace();
@@ -620,20 +620,20 @@ public final class ej extends Handler {
                     com.baidu.ufosdk.f.c.a("产品方向列表为空，直接跳转人工反馈！");
                     Intent intent = new Intent();
                     intent.setClass(feedbackInputActivity, FeedbackEditActivity.class);
-                    intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-                    intent.putExtra("msgid", feedbackInputActivity.f23562e);
+                    intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59177j);
+                    intent.putExtra("msgid", feedbackInputActivity.f59295e);
                     intent.putExtra("im_content", feedbackInputActivity.A);
                     intent.putExtra("come_from", 0);
                     feedbackInputActivity.startActivity(intent);
                     return;
                 case 11:
-                    feedbackInputActivity.K.f23790a.setVisibility(8);
-                    feedbackInputActivity.K.f23792c.setBackgroundResource(R.drawable.dialog_btn_selector);
-                    feedbackInputActivity.K.f23792c.setTextColor(-1);
-                    feedbackInputActivity.K.f23792c.setClickable(true);
-                    feedbackInputActivity.K.f23791b.setFocusable(true);
-                    feedbackInputActivity.K.f23791b.setFocusableInTouchMode(true);
-                    feedbackInputActivity.K.f23791b.requestFocus();
+                    feedbackInputActivity.K.f59528a.setVisibility(8);
+                    feedbackInputActivity.K.f59530c.setBackgroundResource(R.drawable.dialog_btn_selector);
+                    feedbackInputActivity.K.f59530c.setTextColor(-1);
+                    feedbackInputActivity.K.f59530c.setClickable(true);
+                    feedbackInputActivity.K.f59529b.setFocusable(true);
+                    feedbackInputActivity.K.f59529b.setFocusableInTouchMode(true);
+                    feedbackInputActivity.K.f59529b.requestFocus();
                     if (((Integer) message.obj).intValue() == 0) {
                         ev evVar = feedbackInputActivity.K;
                         if (evVar != null && evVar.isShowing()) {
@@ -655,7 +655,7 @@ public final class ej extends Handler {
                         makeText = Toast.makeText(feedbackInputActivity.getApplicationContext(), "发生失败，请稍候重试", 1);
                     }
                     makeText.show();
-                    feedbackInputActivity.j.notifyDataSetChanged();
+                    feedbackInputActivity.f59300j.notifyDataSetChanged();
                     return;
                 case 12:
                     feedbackInputActivity.a();
@@ -672,13 +672,13 @@ public final class ej extends Handler {
                     StringBuilder sb = new StringBuilder();
                     sb.append(message.arg1);
                     String sb2 = sb.toString();
-                    feedbackInputActivity.f23563f = sb2;
-                    feedbackInputActivity.f23562e = sb2;
+                    feedbackInputActivity.f59296f = sb2;
+                    feedbackInputActivity.f59295e = sb2;
                     StringBuilder sb3 = new StringBuilder();
                     sb3.append(message.arg2);
                     String sb4 = sb3.toString();
-                    com.baidu.ufosdk.f.c.a("Handler = 12 PluginInvoker.robotAnswer = " + UfoSDK.robotAnswer + "; tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f23563f);
-                    if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str4 = feedbackInputActivity.f23563f) == null || str4.length() <= 0) {
+                    com.baidu.ufosdk.f.c.a("Handler = 12 PluginInvoker.robotAnswer = " + UfoSDK.robotAnswer + "; tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f59296f);
+                    if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str4 = feedbackInputActivity.f59296f) == null || str4.length() <= 0) {
                         return;
                     }
                     feedbackInputActivity.l.execute(new em(this, feedbackInputActivity, sb4));
@@ -703,8 +703,8 @@ public final class ej extends Handler {
                         return;
                     }
                     feedbackInputActivity.G = false;
-                    if (!TextUtils.isEmpty(feedbackInputActivity.f23562e) && TextUtils.isEmpty(feedbackInputActivity.F)) {
-                        feedbackInputActivity.q.putString(feedbackInputActivity.f23562e, "");
+                    if (!TextUtils.isEmpty(feedbackInputActivity.f59295e) && TextUtils.isEmpty(feedbackInputActivity.F)) {
+                        feedbackInputActivity.q.putString(feedbackInputActivity.f59295e, "");
                     }
                     if (!TextUtils.isEmpty(feedbackInputActivity.F)) {
                         feedbackInputActivity.q.putString(feedbackInputActivity.F, "");
@@ -716,20 +716,20 @@ public final class ej extends Handler {
                     StringBuilder sb5 = new StringBuilder();
                     sb5.append(message.arg1);
                     String sb6 = sb5.toString();
-                    feedbackInputActivity.f23563f = sb6;
-                    feedbackInputActivity.f23562e = sb6;
+                    feedbackInputActivity.f59296f = sb6;
+                    feedbackInputActivity.f59295e = sb6;
                     StringBuilder sb7 = new StringBuilder();
                     sb7.append(message.arg2);
                     String sb8 = sb7.toString();
-                    com.baidu.ufosdk.a.a aVar = feedbackInputActivity.f23564g;
-                    if (aVar != null && (str6 = feedbackInputActivity.f23562e) != null) {
+                    com.baidu.ufosdk.a.a aVar = feedbackInputActivity.f59297g;
+                    if (aVar != null && (str6 = feedbackInputActivity.f59295e) != null) {
                         aVar.a(str6);
                     }
                     SharedPreferences.Editor editor = feedbackInputActivity.q;
-                    editor.putString(Config.TRACE_VISIT_FIRST + feedbackInputActivity.f23563f, this.f23762b);
+                    editor.putString("first" + feedbackInputActivity.f59296f, this.f59499b);
                     feedbackInputActivity.q.commit();
-                    com.baidu.ufosdk.f.c.a("Handler = 14 tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f23563f);
-                    if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str5 = feedbackInputActivity.f23563f) == null || str5.length() <= 0) {
+                    com.baidu.ufosdk.f.c.a("Handler = 14 tempRobotSwitch = " + feedbackInputActivity.y + "; id = " + feedbackInputActivity.f59296f);
+                    if (!UfoSDK.robotAnswer || !feedbackInputActivity.y || (str5 = feedbackInputActivity.f59296f) == null || str5.length() <= 0) {
                         feedbackInputActivity.l.execute(new eo(this, feedbackInputActivity, sb8));
                         return;
                     } else {
@@ -757,15 +757,15 @@ public final class ej extends Handler {
                         hashMap5.put("contenttype", "0");
                         hashMap5.put("time", String.valueOf(System.currentTimeMillis()));
                         hashMap5.put("ask", 0);
-                        feedbackInputActivity.f23565h.add(hashMap5);
+                        feedbackInputActivity.f59298h.add(hashMap5);
                     }
                     feedbackInputActivity.u = true;
-                    feedbackInputActivity.j.notifyDataSetChanged();
-                    ListView listView6 = feedbackInputActivity.f23566i;
+                    feedbackInputActivity.f59300j.notifyDataSetChanged();
+                    ListView listView6 = feedbackInputActivity.f59299i;
                     listView6.setSelection(listView6.getBottom());
                     return;
                 case 18:
-                    ((InputMethodManager) feedbackInputActivity.getSystemService("input_method")).showSoftInput(feedbackInputActivity.K.f23791b, 1);
+                    ((InputMethodManager) feedbackInputActivity.getSystemService("input_method")).showSoftInput(feedbackInputActivity.K.f59529b, 1);
                     com.baidu.ufosdk.f.c.a("show keyboard! " + message.obj.toString());
                     return;
                 default:

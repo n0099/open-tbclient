@@ -2,8 +2,6 @@ package com.facebook.imagepipeline.producers;
 
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import c.d;
-import c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,6 +24,8 @@ import com.facebook.imagepipeline.common.BytesRange;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import e.d;
+import e.e;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -46,7 +46,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class PartialDiskCacheConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int READ_SIZE = 16384;
@@ -263,7 +263,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.d
+            @Override // e.d
             public Void then(e<EncodedImage> eVar) throws Exception {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;

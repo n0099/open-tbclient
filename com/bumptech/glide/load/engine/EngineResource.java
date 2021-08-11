@@ -11,7 +11,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public class EngineResource<Z> implements Resource<Z> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +24,7 @@ public class EngineResource<Z> implements Resource<Z> {
     public ResourceListener listener;
     public final Resource<Z> resource;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface ResourceListener {
         void onResourceReleased(Key key, EngineResource<?> engineResource);
     }
@@ -147,7 +148,7 @@ public class EngineResource<Z> implements Resource<Z> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "EngineResource{isCacheable=" + this.isCacheable + ", listener=" + this.listener + ", key=" + this.key + ", acquired=" + this.acquired + ", isRecycled=" + this.isRecycled + ", resource=" + this.resource + '}';
+            return "EngineResource{isCacheable=" + this.isCacheable + ", listener=" + this.listener + ", key=" + this.key + ", acquired=" + this.acquired + ", isRecycled=" + this.isRecycled + ", resource=" + this.resource + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

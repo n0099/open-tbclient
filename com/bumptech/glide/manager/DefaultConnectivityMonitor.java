@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.ConnectivityMonitor;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ConnectivityMonitor";
@@ -75,7 +75,7 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
                     defaultConnectivityMonitor.isConnected = defaultConnectivityMonitor.isConnected(context2);
                     if (z != this.this$0.isConnected) {
                         if (Log.isLoggable("ConnectivityMonitor", 3)) {
-                            Log.d("ConnectivityMonitor", "connectivity changed, isConnected: " + this.this$0.isConnected);
+                            String str = "connectivity changed, isConnected: " + this.this$0.isConnected;
                         }
                         DefaultConnectivityMonitor defaultConnectivityMonitor2 = this.this$0;
                         defaultConnectivityMonitor2.listener.onConnectivityChanged(defaultConnectivityMonitor2.isConnected);
@@ -96,10 +96,8 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
         try {
             this.context.registerReceiver(this.connectivityReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
             this.isRegistered = true;
-        } catch (SecurityException e2) {
-            if (Log.isLoggable("ConnectivityMonitor", 5)) {
-                Log.w("ConnectivityMonitor", "Failed to register", e2);
-            }
+        } catch (SecurityException unused) {
+            Log.isLoggable("ConnectivityMonitor", 5);
         }
     }
 
@@ -119,10 +117,8 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
             try {
                 NetworkInfo activeNetworkInfo = ((ConnectivityManager) Preconditions.checkNotNull((ConnectivityManager) context.getSystemService("connectivity"))).getActiveNetworkInfo();
                 return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-            } catch (RuntimeException e2) {
-                if (Log.isLoggable("ConnectivityMonitor", 5)) {
-                    Log.w("ConnectivityMonitor", "Failed to determine connectivity status when connectivity changed", e2);
-                }
+            } catch (RuntimeException unused) {
+                Log.isLoggable("ConnectivityMonitor", 5);
                 return true;
             }
         }

@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class y0 implements n1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ E0 f39990a;
+    public final /* synthetic */ E0 f76841a;
 
     public y0(E0 e0) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class y0 implements n1 {
                 return;
             }
         }
-        this.f39990a = e0;
+        this.f76841a = e0;
     }
 
     @Override // com.win.opensdk.n1
@@ -45,12 +45,12 @@ public class y0 implements n1 {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             Info info = (Info) obj;
             try {
-                this.f39990a.f39567c = info;
-                if (this.f39990a.f39570f != null) {
+                this.f76841a.f76402c = info;
+                if (this.f76841a.f76405f != null) {
                     if (info == null || info.getType() != 11) {
-                        this.f39990a.f39570f.onFail(PBError.PID_TYPE_ERROR);
-                    } else if (this.f39990a.b()) {
-                        this.f39990a.f39570f.onLoaded();
+                        this.f76841a.f76405f.onFail(PBError.PID_TYPE_ERROR);
+                    } else if (this.f76841a.b()) {
+                        this.f76841a.f76405f.onLoaded();
                     }
                 }
             } catch (Exception unused) {
@@ -62,7 +62,7 @@ public class y0 implements n1 {
     public void onFail(PBError pBError) {
         PBNativeListener pBNativeListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f39990a.f39570f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) || (pBNativeListener = this.f76841a.f76405f) == null) {
             return;
         }
         pBNativeListener.onFail(pBError);

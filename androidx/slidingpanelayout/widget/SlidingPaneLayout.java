@@ -12,7 +12,6 @@ import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -764,10 +763,10 @@ public class SlidingPaneLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j) {
+    public boolean drawChild(Canvas canvas, View view, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             int save = canvas.save();
             if (this.mCanSlide && !layoutParams.slideable && this.mSlideableView != null) {
@@ -781,7 +780,7 @@ public class SlidingPaneLayout extends ViewGroup {
                 }
                 canvas.clipRect(this.mTmpRect);
             }
-            boolean drawChild = super.drawChild(canvas, view, j);
+            boolean drawChild = super.drawChild(canvas, view, j2);
             canvas.restoreToCount(save);
             return drawChild;
         }
@@ -836,15 +835,13 @@ public class SlidingPaneLayout extends ViewGroup {
                 if (!this.mDisplayListReflectionLoaded) {
                     try {
                         this.mGetDisplayList = View.class.getDeclaredMethod("getDisplayList", null);
-                    } catch (NoSuchMethodException e2) {
-                        Log.e("SlidingPaneLayout", "Couldn't fetch getDisplayList method; dimming won't work right.", e2);
+                    } catch (NoSuchMethodException unused) {
                     }
                     try {
                         Field declaredField = View.class.getDeclaredField("mRecreateDisplayList");
                         this.mRecreateDisplayList = declaredField;
                         declaredField.setAccessible(true);
-                    } catch (NoSuchFieldException e3) {
-                        Log.e("SlidingPaneLayout", "Couldn't fetch mRecreateDisplayList field; dimming will be slow.", e3);
+                    } catch (NoSuchFieldException unused2) {
                     }
                     this.mDisplayListReflectionLoaded = true;
                 }
@@ -852,8 +849,7 @@ public class SlidingPaneLayout extends ViewGroup {
                     try {
                         field.setBoolean(view, true);
                         this.mGetDisplayList.invoke(view, null);
-                    } catch (Exception e4) {
-                        Log.e("SlidingPaneLayout", "Error refreshing display list state", e4);
+                    } catch (Exception unused3) {
                     }
                 } else {
                     view.invalidate();
@@ -1089,9 +1085,6 @@ public class SlidingPaneLayout extends ViewGroup {
             }
             int paddingLeft = (size - getPaddingLeft()) - getPaddingRight();
             int childCount = getChildCount();
-            if (childCount > 2) {
-                Log.e("SlidingPaneLayout", "onMeasure: More than two child views are not supported.");
-            }
             this.mSlideableView = null;
             int i10 = paddingLeft;
             int i11 = 0;

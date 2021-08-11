@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class cb extends cg.b<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f40190a;
+    public long f77041a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f172a;
+    public String f176a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cb(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i2, String str6) {
@@ -41,8 +41,8 @@ public class cb extends cg.b<Long> {
                 return;
             }
         }
-        this.f40190a = 0L;
-        this.f172a = str6;
+        this.f77041a = 0L;
+        this.f176a = str6;
     }
 
     public static cb a(String str) {
@@ -69,7 +69,7 @@ public class cb extends cg.b<Long> {
     public Object a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Long.valueOf(this.f40190a) : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Long.valueOf(this.f77041a) : invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.cg.b
@@ -78,6 +78,6 @@ public class cb extends cg.b<Long> {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, list) == null) || context == null || list == null || list.size() <= 0) {
             return;
         }
-        this.f40190a = list.get(0).longValue();
+        this.f77041a = list.get(0).longValue();
     }
 }

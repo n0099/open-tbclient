@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class GestureAR extends c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MDL_GESTURE_STATUS_DETECTED = 5002;
@@ -131,7 +131,7 @@ public class GestureAR extends c {
                 HashMap hashMap2 = new HashMap();
                 hashMap2.put(SDK_TO_LUA_GESTURE_RESULT_RESERVED, Float.valueOf(fArr[i4]));
                 hashMap2.put("type", Float.valueOf(fArr[i4 + 1]));
-                hashMap2.put(SDK_TO_LUA_GESTURE_RESULT_SCORE, Float.valueOf(fArr[i4 + 2]));
+                hashMap2.put("score", Float.valueOf(fArr[i4 + 2]));
                 hashMap2.put(SDK_TO_LUA_GESTURE_RESULT_X1, Float.valueOf(pointF.x));
                 hashMap2.put(SDK_TO_LUA_GESTURE_RESULT_Y1, Float.valueOf(pointF.y));
                 hashMap2.put(SDK_TO_LUA_GESTURE_RESULT_X2, Float.valueOf(pointF2.x));

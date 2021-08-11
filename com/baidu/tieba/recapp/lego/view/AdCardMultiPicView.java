@@ -2,6 +2,8 @@ package com.baidu.tieba.recapp.lego.view;
 
 import android.view.View;
 import android.view.ViewGroup;
+import c.a.p0.o1.o.k.a;
+import c.a.p0.x2.i0.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -13,21 +15,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n1.o.k.a;
-import d.a.q0.w2.f0.b.c;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AdCardMultiPicView extends AdCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public XfremodeRoundLayout n0;
-    public TbImageView o0;
-    public XfremodeRoundLayout p0;
-    public TbImageView q0;
-    public XfremodeRoundLayout r0;
-    public TbImageView s0;
-    public float t0;
-    public float u0;
+    public TbImageView mAdvertAppImgCenter;
+    public TbImageView mAdvertAppImgLeft;
+    public TbImageView mAdvertAppImgRight;
+    public XfremodeRoundLayout mRlImgCenter;
+    public XfremodeRoundLayout mRlImgLeft;
+    public XfremodeRoundLayout mRlImgRight;
+    public float x;
+    public float y;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AdCardMultiPicView(TbPageContext tbPageContext) {
@@ -47,10 +47,10 @@ public class AdCardMultiPicView extends AdCardBaseView {
                 return;
             }
         }
-        this.u0 = 0.0f;
+        this.y = 0.0f;
     }
 
-    public final void J0(TbImageView tbImageView, int i2, int i3) {
+    public final void S(TbImageView tbImageView, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i2, i3) == null) || tbImageView == null) {
             return;
@@ -61,70 +61,70 @@ public class AdCardMultiPicView extends AdCardBaseView {
         tbImageView.setLayoutParams(layoutParams);
     }
 
-    public final void K0(XfremodeRoundLayout xfremodeRoundLayout, int i2) {
+    public final void T(XfremodeRoundLayout xfremodeRoundLayout, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xfremodeRoundLayout, i2) == null) {
             if (i2 == 1) {
-                float f2 = this.t0;
-                float f3 = this.u0;
+                float f2 = this.x;
+                float f3 = this.y;
                 xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f2, f2, f3, f3, f3, f3, f2, f2});
             } else if (i2 == 2) {
-                float f4 = this.u0;
+                float f4 = this.y;
                 xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f4, f4, f4, f4, f4, f4, f4, f4});
             } else if (i2 != 3) {
-                float f5 = this.t0;
+                float f5 = this.x;
                 xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f5, f5, f5, f5, f5, f5, f5, f5});
             } else {
-                float f6 = this.u0;
-                float f7 = this.t0;
+                float f6 = this.y;
+                float f7 = this.x;
                 xfremodeRoundLayout.setRoundLayoutRadius(new float[]{f6, f6, f7, f7, f7, f7, f6, f6});
             }
         }
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void c0(AdCard adCard) {
+    public void fillCustomView(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) {
-            c cVar = adCard.picInfo;
-            List<String> list = cVar == null ? null : cVar.f66587c;
-            if (!a.e(list) && cVar != null) {
-                int k = a.k(cVar.f66587c);
-                int dimensionPixelSize = (int) ((this.G - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-                int i2 = cVar.f66589e;
-                int i3 = cVar.f66588d;
+            d dVar = adCard.picInfo;
+            List<String> list = dVar == null ? null : dVar.f28542c;
+            if (!a.e(list) && dVar != null) {
+                int k = a.k(dVar.f28542c);
+                int dimensionPixelSize = (int) ((this.mMaxWidth - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
+                int i2 = dVar.f28544e;
+                int i3 = dVar.f28543d;
                 int max = (int) (dimensionPixelSize * Math.max(Math.min((i2 == 0 || i3 == 0) ? 1.0f : i2 / i3, 1.0f), 0.0f));
-                this.o0.setVisibility(4);
-                this.q0.setVisibility(4);
-                this.s0.setVisibility(4);
-                K0(this.n0, 1);
-                K0(this.p0, 2);
-                K0(this.r0, 3);
-                J0(this.o0, dimensionPixelSize, max);
-                J0(this.q0, dimensionPixelSize, max);
-                J0(this.s0, dimensionPixelSize, max);
+                this.mAdvertAppImgLeft.setVisibility(4);
+                this.mAdvertAppImgCenter.setVisibility(4);
+                this.mAdvertAppImgRight.setVisibility(4);
+                T(this.mRlImgLeft, 1);
+                T(this.mRlImgCenter, 2);
+                T(this.mRlImgRight, 3);
+                S(this.mAdvertAppImgLeft, dimensionPixelSize, max);
+                S(this.mAdvertAppImgCenter, dimensionPixelSize, max);
+                S(this.mAdvertAppImgRight, dimensionPixelSize, max);
                 if (k == 1) {
-                    this.o0.M((String) a.d(list, 0), 30, false);
-                    this.o0.setVisibility(0);
-                    K0(this.n0, 4);
+                    this.mAdvertAppImgLeft.startLoad((String) a.d(list, 0), 30, false);
+                    this.mAdvertAppImgLeft.setVisibility(0);
+                    T(this.mRlImgLeft, 4);
                 } else if (k == 2) {
-                    this.o0.M((String) a.d(list, 0), 30, false);
-                    this.o0.setVisibility(0);
-                    this.q0.M((String) a.d(list, 1), 30, false);
-                    this.q0.setVisibility(0);
-                    K0(this.p0, 3);
+                    this.mAdvertAppImgLeft.startLoad((String) a.d(list, 0), 30, false);
+                    this.mAdvertAppImgLeft.setVisibility(0);
+                    this.mAdvertAppImgCenter.startLoad((String) a.d(list, 1), 30, false);
+                    this.mAdvertAppImgCenter.setVisibility(0);
+                    T(this.mRlImgCenter, 3);
                 } else if (k >= 3) {
-                    this.o0.M((String) a.d(list, 0), 30, false);
-                    this.o0.setVisibility(0);
-                    this.q0.M((String) a.d(list, 1), 30, false);
-                    this.q0.setVisibility(0);
-                    this.s0.M((String) a.d(list, 2), 30, false);
-                    this.s0.setVisibility(0);
+                    this.mAdvertAppImgLeft.startLoad((String) a.d(list, 0), 30, false);
+                    this.mAdvertAppImgLeft.setVisibility(0);
+                    this.mAdvertAppImgCenter.startLoad((String) a.d(list, 1), 30, false);
+                    this.mAdvertAppImgCenter.setVisibility(0);
+                    this.mAdvertAppImgRight.startLoad((String) a.d(list, 2), 30, false);
+                    this.mAdvertAppImgRight.setVisibility(0);
                 }
-                this.t.setVisibility(0);
+                this.mCustomRoot.setVisibility(0);
                 return;
             }
-            this.t.setVisibility(8);
+            this.mCustomRoot.setVisibility(8);
         }
     }
 
@@ -143,19 +143,19 @@ public class AdCardMultiPicView extends AdCardBaseView {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void j0(View view) {
+    public void initCustomView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            this.n0 = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_left);
-            this.o0 = (TbImageView) view.findViewById(R.id.advert_app_img_left);
-            this.p0 = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_center);
-            this.q0 = (TbImageView) view.findViewById(R.id.advert_app_img_center);
-            this.r0 = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_right);
-            this.s0 = (TbImageView) view.findViewById(R.id.advert_app_img_right);
-            this.t0 = d0(R.string.J_X05);
-            this.o0.setPlaceHolder(2);
-            this.q0.setPlaceHolder(2);
-            this.s0.setPlaceHolder(2);
+            this.mRlImgLeft = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_left);
+            this.mAdvertAppImgLeft = (TbImageView) view.findViewById(R.id.advert_app_img_left);
+            this.mRlImgCenter = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_center);
+            this.mAdvertAppImgCenter = (TbImageView) view.findViewById(R.id.advert_app_img_center);
+            this.mRlImgRight = (XfremodeRoundLayout) view.findViewById(R.id.rl_img_right);
+            this.mAdvertAppImgRight = (TbImageView) view.findViewById(R.id.advert_app_img_right);
+            this.x = getRatioByResString(R.string.J_X05);
+            this.mAdvertAppImgLeft.setPlaceHolder(2);
+            this.mAdvertAppImgCenter.setPlaceHolder(2);
+            this.mAdvertAppImgRight.setPlaceHolder(2);
         }
     }
 }

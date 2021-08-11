@@ -18,15 +18,15 @@ import com.bytedance.sdk.openadsdk.AdSlot;
 import com.bytedance.sdk.openadsdk.core.o;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f32003a = "SettingRitRepertoryImpl";
+    public static String f67955a = "SettingRitRepertoryImpl";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f32004b;
+    public static boolean f67956b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,13 +47,13 @@ public class a {
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f32004b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f67956b : invokeV.booleanValue;
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            f32004b = true;
+            f67956b = true;
         }
     }
 
@@ -66,7 +66,7 @@ public class a {
     public static void a(JSONObject jSONObject, String str) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, str) == null) && a()) {
-            k.b(f32003a, "queryConfig start");
+            k.b(f67955a, "queryConfig start");
             Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "setting_rit", null, "rit=?", new String[]{str}, null, null, null);
             if (a2 == null || a2.getCount() <= 0) {
                 if (a2 != null) {
@@ -99,7 +99,7 @@ public class a {
     public static void b(int i2, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIL(65544, null, i2, str) == null) && a()) {
-            String str2 = f32003a;
+            String str2 = f67955a;
             k.b(str2, "insertOrUpdateGlobalInfo -- key:" + i2 + "; value:" + str);
             if (TextUtils.isEmpty(str)) {
                 str = StringUtil.NULL_STRING;
@@ -128,7 +128,7 @@ public class a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, str, jSONObject) == null) && a()) {
             if (!TextUtils.isEmpty(str) && jSONObject != null) {
-                k.b(f32003a, "insertOrUpdate start");
+                k.b(f67955a, "insertOrUpdate start");
                 Cursor a2 = com.bytedance.sdk.openadsdk.multipro.a.a.a(o.a(), "setting_rit", null, "rit=?", new String[]{str}, null, null, null);
                 boolean z = a2 != null && a2.getCount() > 0;
                 if (a2 != null) {
@@ -149,7 +149,7 @@ public class a {
                     return;
                 }
             }
-            String str2 = f32003a;
+            String str2 = f67955a;
             k.b(str2, "insert -- key:" + str + "; value:" + jSONObject);
         }
     }
@@ -159,7 +159,7 @@ public class a {
         if ((interceptable == null || interceptable.invokeL(65538, null, adSlot) == null) && a()) {
             String codeId = adSlot.getCodeId();
             if (a(codeId)) {
-                k.b(f32003a, "updateSlot start");
+                k.b(f67955a, "updateSlot start");
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("img_width", adSlot.getImgAcceptedWidth());

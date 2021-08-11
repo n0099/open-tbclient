@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.loader.a;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SecurityChecker {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile State f33978a;
+    public static volatile State f70706a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -46,7 +46,7 @@ public class SecurityChecker {
             INIT = new State("INIT", 0);
             DATA_VALID = new State("DATA_VALID", 1);
             MD5 = new State("MD5", 2);
-            State state = new State(com.alipay.security.mobile.module.http.model.c.f2136g, 3);
+            State state = new State(com.alipay.security.mobile.module.http.model.c.f35984g, 3);
             SUCCESS = state;
             $VALUES = new State[]{INIT, DATA_VALID, MD5, state};
         }
@@ -83,35 +83,35 @@ public class SecurityChecker {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(Exception exc);
 
         void a(boolean z, State state);
     }
 
-    public static void a(File file, a.C0401a c0401a, a aVar) {
+    public static void a(File file, a.C1968a c1968a, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, file, c0401a, aVar) == null) {
-            i.a(new Runnable(c0401a, file, aVar) { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
+        if (interceptable == null || interceptable.invokeLLL(65538, null, file, c1968a, aVar) == null) {
+            i.a(new Runnable(c1968a, file, aVar) { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a.C0401a f33979a;
+                public final /* synthetic */ a.C1968a f70707a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ File f33980b;
+                public final /* synthetic */ File f70708b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f33981c;
+                public final /* synthetic */ a f70709c;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {c0401a, file, aVar};
+                        Object[] objArr = {c1968a, file, aVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -121,27 +121,27 @@ public class SecurityChecker {
                             return;
                         }
                     }
-                    this.f33979a = c0401a;
-                    this.f33980b = file;
-                    this.f33981c = aVar;
+                    this.f70707a = c1968a;
+                    this.f70708b = file;
+                    this.f70709c = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        State unused = SecurityChecker.f33978a = State.INIT;
+                        State unused = SecurityChecker.f70706a = State.INIT;
                         try {
-                            boolean z = this.f33979a != null && SecurityChecker.b(this.f33980b) && SecurityChecker.b(this.f33980b, this.f33979a.f33984c);
+                            boolean z = this.f70707a != null && SecurityChecker.b(this.f70708b) && SecurityChecker.b(this.f70708b, this.f70707a.f70712c);
                             if (z) {
-                                State unused2 = SecurityChecker.f33978a = State.SUCCESS;
+                                State unused2 = SecurityChecker.f70706a = State.SUCCESS;
                             }
-                            a aVar2 = this.f33981c;
+                            a aVar2 = this.f70709c;
                             if (aVar2 != null) {
-                                aVar2.a(z, SecurityChecker.f33978a);
+                                aVar2.a(z, SecurityChecker.f70706a);
                             }
                         } catch (Exception e2) {
-                            a aVar3 = this.f33981c;
+                            a aVar3 = this.f70709c;
                             if (aVar3 != null) {
                                 aVar3.a(e2);
                             }
@@ -156,7 +156,7 @@ public class SecurityChecker {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, file)) == null) {
-            f33978a = State.DATA_VALID;
+            f70706a = State.DATA_VALID;
             return file != null && file.exists() && file.getName().endsWith(".apk") && file.length() > 0;
         }
         return invokeL.booleanValue;
@@ -166,7 +166,7 @@ public class SecurityChecker {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, file, str)) == null) {
-            f33978a = State.MD5;
+            f70706a = State.MD5;
             if (TextUtils.isEmpty(str)) {
                 return false;
             }

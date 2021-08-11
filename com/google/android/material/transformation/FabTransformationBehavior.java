@@ -49,7 +49,7 @@ import com.google.android.material.math.MathUtils;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public abstract class FabTransformationBehavior extends ExpandableTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     public final RectF tmpRectF1;
     public final RectF tmpRectF2;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class FabTransformationSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -538,28 +538,28 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createPostFillRadialExpansion(View view, long j, long j2, long j3, int i2, int i3, float f2, @NonNull List<Animator> list) {
+    private void createPostFillRadialExpansion(View view, long j2, long j3, long j4, int i2, int i3, float f2, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{view, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), list}) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{view, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), list}) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        long j4 = j + j2;
-        if (j4 < j3) {
+        long j5 = j2 + j3;
+        if (j5 < j4) {
             Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view, i2, i3, f2, f2);
-            createCircularReveal.setStartDelay(j4);
-            createCircularReveal.setDuration(j3 - j4);
+            createCircularReveal.setStartDelay(j5);
+            createCircularReveal.setDuration(j4 - j5);
             list.add(createCircularReveal);
         }
     }
 
-    private void createPreFillRadialExpansion(View view, long j, int i2, int i3, float f2, @NonNull List<Animator> list) {
+    private void createPreFillRadialExpansion(View view, long j2, int i2, int i3, float f2, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{view, Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), list}) == null) || Build.VERSION.SDK_INT < 21 || j <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{view, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), list}) == null) || Build.VERSION.SDK_INT < 21 || j2 <= 0) {
             return;
         }
         Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view, i2, i3, f2, f2);
         createCircularReveal.setStartDelay(0L);
-        createCircularReveal.setDuration(j);
+        createCircularReveal.setDuration(j2);
         list.add(createCircularReveal);
     }
 

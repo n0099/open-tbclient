@@ -8,32 +8,32 @@ import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.ResUtils;
-import com.baidu.apollon.webmanager.SafeWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.widget.BdActionBar;
-import com.baidu.wallet.core.SDKBaseActivity;
 import com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.apollon.webmanager.SafeWebView;
+import com.dxmpay.wallet.base.widget.BdActionBar;
+import com.dxmpay.wallet.core.SDKBaseActivity;
+/* loaded from: classes8.dex */
 public class PostWebviewActivity extends DxmPayBaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SafeWebView f26789a;
+    public SafeWebView f62657a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class a extends SafeWebView.SafeChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PostWebviewActivity f26791a;
+        public final /* synthetic */ PostWebviewActivity f62659a;
 
         public a(PostWebviewActivity postWebviewActivity) {
             Interceptable interceptable = $ic;
@@ -50,15 +50,15 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
                     return;
                 }
             }
-            this.f26791a = postWebviewActivity;
+            this.f62659a = postWebviewActivity;
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
                 super.onReceivedTitle(webView, str);
-                PostWebviewActivity postWebviewActivity = this.f26791a;
+                PostWebviewActivity postWebviewActivity = this.f62659a;
                 if (TextUtils.isEmpty(str)) {
                     str = "";
                 }
@@ -97,14 +97,14 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
         context.startActivity(intent);
     }
 
-    @Override // com.baidu.wallet.core.SDKBaseActivity
+    @Override // com.dxmpay.wallet.core.SDKBaseActivity
     public SDKBaseActivity.BottomBarType getBottomBarType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SDKBaseActivity.BottomBarType.NONE : (SDKBaseActivity.BottomBarType) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -112,14 +112,14 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         byte[] bArr;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(ResUtils.layout(getActivity(), "wallet_base_webview_layout"));
+            setContentView(ResUtils.layout(getActivity(), "dxm_wallet_base_webview_layout"));
             Bundle extras = getIntent().getExtras();
             String str2 = "";
             if (extras != null) {
@@ -130,21 +130,21 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
                 bArr = null;
                 str = "";
             }
-            this.f26789a = (SafeWebView) findViewById(ResUtils.id(getActivity(), "cust_webview"));
+            this.f62657a = (SafeWebView) findViewById(ResUtils.id(getActivity(), "dxm_cust_webview"));
             if (TextUtils.isEmpty(str2)) {
-                this.f26789a.setWebChromeClient(new a());
+                this.f62657a.setWebChromeClient(new a());
             }
-            this.f26789a.getSettings().setJavaScriptEnabled(true);
+            this.f62657a.getSettings().setJavaScriptEnabled(true);
             if (Build.VERSION.SDK_INT <= 18) {
-                this.f26789a.getSettings().setSavePassword(false);
+                this.f62657a.getSettings().setSavePassword(false);
             }
-            this.f26789a.setScrollBarStyle(0);
-            this.f26789a.clearCache(false);
-            this.f26789a.resumeTimers();
+            this.f62657a.setScrollBarStyle(0);
+            this.f62657a.clearCache(false);
+            this.f62657a.resumeTimers();
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f26789a.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f26789a.removeJavascriptInterface("accessibility");
-                this.f26789a.removeJavascriptInterface("accessibilityTraversal");
+                this.f62657a.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f62657a.removeJavascriptInterface("accessibility");
+                this.f62657a.removeJavascriptInterface("accessibilityTraversal");
             }
             if (bArr != null) {
                 try {
@@ -152,11 +152,11 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
                     e2.printStackTrace();
                 }
                 if (bArr.length != 0) {
-                    this.f26789a.postUrl(str.trim(), bArr);
+                    this.f62657a.postUrl(str.trim(), bArr);
                     a(str2);
                 }
             }
-            this.f26789a.loadUrl(str.trim());
+            this.f62657a.loadUrl(str.trim());
             a(str2);
         }
     }
@@ -174,7 +174,7 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ PostWebviewActivity f26790a;
+            public final /* synthetic */ PostWebviewActivity f62658a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -191,15 +191,15 @@ public class PostWebviewActivity extends DxmPayBaseActivity {
                         return;
                     }
                 }
-                this.f26790a = this;
+                this.f62658a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f26790a.getActivity());
-                    this.f26790a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.f62658a.getActivity());
+                    this.f62658a.onBackPressed();
                 }
             }
         });

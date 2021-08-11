@@ -2,7 +2,6 @@ package androidx.transition;
 
 import android.annotation.SuppressLint;
 import android.graphics.Matrix;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewParent;
 import androidx.annotation.NonNull;
@@ -53,8 +52,7 @@ public class ViewUtilsBase {
             Method declaredMethod = View.class.getDeclaredMethod("setFrame", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
             sSetFrameMethod = declaredMethod;
             declaredMethod.setAccessible(true);
-        } catch (NoSuchMethodException e2) {
-            Log.i(TAG, "Failed to retrieve setFrame method", e2);
+        } catch (NoSuchMethodException unused) {
         }
         sSetFrameFetched = true;
     }
@@ -159,7 +157,6 @@ public class ViewUtilsBase {
                     sViewFlagsField = declaredField;
                     declaredField.setAccessible(true);
                 } catch (NoSuchFieldException unused) {
-                    Log.i(TAG, "fetchViewFlagsField: ");
                 }
                 sViewFlagsFieldFetched = true;
             }

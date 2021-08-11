@@ -18,7 +18,7 @@ import org.apache.http.conn.routing.HttpRoutePlanner;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class ProxySelectorRoutePlanner implements HttpRoutePlanner {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

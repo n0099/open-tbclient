@@ -29,25 +29,25 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLHandshakeException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class j implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final w f28345a;
+    public final w f64195a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f28346b;
+    public final boolean f64196b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.bytedance.sdk.component.b.b.a.b.g f28347c;
+    public com.bytedance.sdk.component.b.b.a.b.g f64197c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Object f28348d;
+    public Object f64198d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f28349e;
+    public volatile boolean f64199e;
 
     public j(w wVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -64,15 +64,15 @@ public final class j implements u {
                 return;
             }
         }
-        this.f28345a = wVar;
-        this.f28346b = z;
+        this.f64195a = wVar;
+        this.f64196b = z;
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f28349e = true;
-            com.bytedance.sdk.component.b.b.a.b.g gVar = this.f28347c;
+            this.f64199e = true;
+            com.bytedance.sdk.component.b.b.a.b.g gVar = this.f64197c;
             if (gVar != null) {
                 gVar.e();
             }
@@ -82,7 +82,7 @@ public final class j implements u {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28349e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64199e : invokeV.booleanValue;
     }
 
     @Override // com.bytedance.sdk.component.b.b.u
@@ -96,13 +96,13 @@ public final class j implements u {
             g gVar = (g) aVar;
             com.bytedance.sdk.component.b.b.e h2 = gVar.h();
             p i2 = gVar.i();
-            this.f28347c = new com.bytedance.sdk.component.b.b.a.b.g(this.f28345a.o(), a(a4.a()), h2, i2, this.f28348d);
+            this.f64197c = new com.bytedance.sdk.component.b.b.a.b.g(this.f64195a.o(), a(a4.a()), h2, i2, this.f64198d);
             ab abVar = null;
             int i3 = 0;
-            while (!this.f28349e) {
+            while (!this.f64199e) {
                 try {
                     try {
-                        a2 = gVar.a(a4, this.f28347c, null, null);
+                        a2 = gVar.a(a4, this.f64197c, null, null);
                         if (abVar != null) {
                             a2 = a2.i().c(abVar.i().a((ac) null).a()).a();
                         }
@@ -117,8 +117,8 @@ public final class j implements u {
                         }
                     }
                     if (a3 == null) {
-                        if (!this.f28346b) {
-                            this.f28347c.c();
+                        if (!this.f64196b) {
+                            this.f64197c.c();
                         }
                         return a2;
                     }
@@ -127,29 +127,29 @@ public final class j implements u {
                     if (i4 <= 20) {
                         if (!(a3.d() instanceof l)) {
                             if (!a(a2, a3.a())) {
-                                this.f28347c.c();
-                                this.f28347c = new com.bytedance.sdk.component.b.b.a.b.g(this.f28345a.o(), a(a3.a()), h2, i2, this.f28348d);
-                            } else if (this.f28347c.a() != null) {
+                                this.f64197c.c();
+                                this.f64197c = new com.bytedance.sdk.component.b.b.a.b.g(this.f64195a.o(), a(a3.a()), h2, i2, this.f64198d);
+                            } else if (this.f64197c.a() != null) {
                                 throw new IllegalStateException("Closing the body of " + a2 + " didn't close its backing stream. Bad interceptor?");
                             }
                             abVar = a2;
                             a4 = a3;
                             i3 = i4;
                         } else {
-                            this.f28347c.c();
+                            this.f64197c.c();
                             throw new HttpRetryException("Cannot retry streamed HTTP body", a2.c());
                         }
                     } else {
-                        this.f28347c.c();
+                        this.f64197c.c();
                         throw new ProtocolException("Too many follow-up requests: " + i4);
                     }
                 } catch (Throwable th) {
-                    this.f28347c.a((IOException) null);
-                    this.f28347c.c();
+                    this.f64197c.a((IOException) null);
+                    this.f64197c.c();
                     throw th;
                 }
             }
-            this.f28347c.c();
+            this.f64197c.c();
             throw new IOException(ResponseException.CANCELED);
         }
         return (ab) invokeL.objValue;
@@ -158,7 +158,7 @@ public final class j implements u {
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            this.f28348d = obj;
+            this.f64198d = obj;
         }
     }
 
@@ -170,16 +170,16 @@ public final class j implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, tVar)) == null) {
             if (tVar.d()) {
-                SSLSocketFactory j = this.f28345a.j();
-                hostnameVerifier = this.f28345a.k();
-                sSLSocketFactory = j;
-                gVar = this.f28345a.l();
+                SSLSocketFactory j2 = this.f64195a.j();
+                hostnameVerifier = this.f64195a.k();
+                sSLSocketFactory = j2;
+                gVar = this.f64195a.l();
             } else {
                 sSLSocketFactory = null;
                 hostnameVerifier = null;
                 gVar = null;
             }
-            return new com.bytedance.sdk.component.b.b.a(tVar.g(), tVar.h(), this.f28345a.h(), this.f28345a.i(), sSLSocketFactory, hostnameVerifier, gVar, this.f28345a.n(), this.f28345a.d(), this.f28345a.t(), this.f28345a.u(), this.f28345a.e());
+            return new com.bytedance.sdk.component.b.b.a(tVar.g(), tVar.h(), this.f64195a.h(), this.f64195a.i(), sSLSocketFactory, hostnameVerifier, gVar, this.f64195a.n(), this.f64195a.d(), this.f64195a.t(), this.f64195a.u(), this.f64195a.e());
         }
         return (com.bytedance.sdk.component.b.b.a) invokeL.objValue;
     }
@@ -188,9 +188,9 @@ public final class j implements u {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{iOException, Boolean.valueOf(z), zVar})) == null) {
-            this.f28347c.a(iOException);
-            if (this.f28345a.r()) {
-                return !(z && (zVar.d() instanceof l)) && a(iOException, z) && this.f28347c.f();
+            this.f64197c.a(iOException);
+            if (this.f64195a.r()) {
+                return !(z && (zVar.d() instanceof l)) && a(iOException, z) && this.f64197c.f();
             }
             return false;
         }
@@ -217,7 +217,7 @@ public final class j implements u {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, abVar)) == null) {
             if (abVar != null) {
-                com.bytedance.sdk.component.b.b.a.b.c b2 = this.f28347c.b();
+                com.bytedance.sdk.component.b.b.a.b.c b2 = this.f64197c.b();
                 ad a3 = b2 != null ? b2.a() : null;
                 int c3 = abVar.c();
                 String b3 = abVar.a().b();
@@ -230,14 +230,14 @@ public final class j implements u {
                         if (a3 != null) {
                             d2 = a3.b();
                         } else {
-                            d2 = this.f28345a.d();
+                            d2 = this.f64195a.d();
                         }
                         if (d2.type() == Proxy.Type.HTTP) {
-                            return this.f28345a.n().a(a3, abVar);
+                            return this.f64195a.n().a(a3, abVar);
                         }
                         throw new ProtocolException("Received HTTP_PROXY_AUTH (407) code while not using proxy");
                     } else if (c3 == 408) {
-                        if (this.f28345a.r() && !(abVar.a().d() instanceof l)) {
+                        if (this.f64195a.r() && !(abVar.a().d() instanceof l)) {
                             if (abVar.j() == null || abVar.j().c() != 408) {
                                 return abVar.a();
                             }
@@ -256,12 +256,12 @@ public final class j implements u {
                         }
                     }
                 } else {
-                    return this.f28345a.m().a(a3, abVar);
+                    return this.f64195a.m().a(a3, abVar);
                 }
-                if (!this.f28345a.q() || (a2 = abVar.a("Location")) == null || (c2 = abVar.a().a().c(a2)) == null) {
+                if (!this.f64195a.q() || (a2 = abVar.a("Location")) == null || (c2 = abVar.a().a().c(a2)) == null) {
                     return null;
                 }
-                if (c2.c().equals(abVar.a().a().c()) || this.f28345a.p()) {
+                if (c2.c().equals(abVar.a().a().c()) || this.f64195a.p()) {
                     z.a f2 = abVar.a().f();
                     if (f.c(b3)) {
                         boolean d3 = f.d(b3);

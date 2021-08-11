@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class l implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31405a;
+    public String f67345a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31406b;
+    public long f67346b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f31407c;
+    public long f67347c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f31408d;
+    public long f67348d;
 
     public l() {
         Interceptable interceptable = $ic;
@@ -40,28 +40,28 @@ public class l implements c {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f31405a = str;
+            this.f67345a = str;
         }
     }
 
-    public void b(long j) {
+    public void b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f31407c = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.f67347c = j2;
         }
     }
 
-    public void c(long j) {
+    public void c(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.f31408d = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.f67348d = j2;
         }
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.f31406b = j;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            this.f67346b = j2;
         }
     }
 
@@ -72,10 +72,10 @@ public class l implements c {
             return;
         }
         try {
-            jSONObject.put("preload_url", this.f31406b);
-            jSONObject.put("preload_size", this.f31406b);
-            jSONObject.put("load_time", this.f31407c);
-            jSONObject.put("local_cache", this.f31408d);
+            jSONObject.put("preload_url", this.f67346b);
+            jSONObject.put("preload_size", this.f67346b);
+            jSONObject.put("load_time", this.f67347c);
+            jSONObject.put("local_cache", this.f67348d);
         } catch (Throwable th) {
             th.printStackTrace();
         }

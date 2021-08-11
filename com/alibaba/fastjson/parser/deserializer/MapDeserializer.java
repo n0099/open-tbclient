@@ -36,8 +36,8 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import kotlin.text.Typography;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class MapDeserializer extends ContextObjectDeserializer implements ObjectDeserializer {
     public static /* synthetic */ Interceptable $ic;
     public static MapDeserializer instance;
@@ -179,7 +179,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
                     }
                 }
                 if (current == '\"') {
-                    scanSymbolUnQuoted = jSONLexer.scanSymbol(defaultJSONParser.getSymbolTable(), Typography.quote);
+                    scanSymbolUnQuoted = jSONLexer.scanSymbol(defaultJSONParser.getSymbolTable(), '\"');
                     jSONLexer.skipWhitespace();
                     if (jSONLexer.getCurrent() != ':') {
                         throw new JSONException("expect ':' at " + jSONLexer.pos());
@@ -191,7 +191,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
                     return map;
                 } else if (current == '\'') {
                     if (jSONLexer.isEnabled(Feature.AllowSingleQuotes)) {
-                        scanSymbolUnQuoted = jSONLexer.scanSymbol(defaultJSONParser.getSymbolTable(), '\'');
+                        scanSymbolUnQuoted = jSONLexer.scanSymbol(defaultJSONParser.getSymbolTable(), ExtendedMessageFormat.QUOTE);
                         jSONLexer.skipWhitespace();
                         if (jSONLexer.getCurrent() != ':') {
                             throw new JSONException("expect ':' at " + jSONLexer.pos());
@@ -215,7 +215,7 @@ public class MapDeserializer extends ContextObjectDeserializer implements Object
                 jSONLexer.resetStringPosition();
                 Object obj3 = null;
                 if (scanSymbolUnQuoted == JSON.DEFAULT_TYPE_KEY && !jSONLexer.isEnabled(Feature.DisableSpecialKeyDetect) && !Feature.isEnabled(i2, Feature.DisableSpecialKeyDetect)) {
-                    String scanSymbol = jSONLexer.scanSymbol(defaultJSONParser.getSymbolTable(), Typography.quote);
+                    String scanSymbol = jSONLexer.scanSymbol(defaultJSONParser.getSymbolTable(), '\"');
                     ParserConfig config = defaultJSONParser.getConfig();
                     if (scanSymbol.equals("java.util.HashMap")) {
                         checkAutoType = HashMap.class;

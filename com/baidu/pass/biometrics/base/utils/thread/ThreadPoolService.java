@@ -18,30 +18,30 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ThreadPoolService {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f9186c;
+    public static final int f43827c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ThreadFactory f9187d;
+    public static final ThreadFactory f43828d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f9188e = 0;
+    public static final int f43829e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f9189f = 1;
+    public static final int f43830f = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ThreadPoolExecutor f9190a;
+    public ThreadPoolExecutor f43831a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f9191b;
+    public Handler f43832b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SingletonContainer {
         public static /* synthetic */ Interceptable $ic;
         public static ThreadPoolService mSingleInstance;
@@ -91,13 +91,13 @@ public class ThreadPoolService {
                 return;
             }
         }
-        f9186c = Runtime.getRuntime().availableProcessors();
-        f9187d = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
+        f43827c = Runtime.getRuntime().availableProcessors();
+        f43828d = new ThreadFactory() { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final AtomicInteger f9192a;
+            public final AtomicInteger f43833a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -112,7 +112,7 @@ public class ThreadPoolService {
                         return;
                     }
                 }
-                this.f9192a = new AtomicInteger(1);
+                this.f43833a = new AtomicInteger(1);
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -120,7 +120,7 @@ public class ThreadPoolService {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    return new Thread(runnable, "pass_face_thread # " + this.f9192a.getAndIncrement());
+                    return new Thread(runnable, "pass_face_thread # " + this.f43833a.getAndIncrement());
                 }
                 return (Thread) invokeL.objValue;
             }
@@ -136,14 +136,14 @@ public class ThreadPoolService {
     public void run(TPRunnable tPRunnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tPRunnable) == null) {
-            this.f9190a.submit(tPRunnable);
+            this.f43831a.submit(tPRunnable);
         }
     }
 
     public void runInUiThread(TPRunnable tPRunnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tPRunnable) == null) {
-            this.f9191b.sendMessage(this.f9191b.obtainMessage(0, tPRunnable));
+            this.f43832b.sendMessage(this.f43832b.obtainMessage(0, tPRunnable));
         }
     }
 
@@ -160,12 +160,12 @@ public class ThreadPoolService {
                 return;
             }
         }
-        this.f9191b = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
+        this.f43832b = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.pass.biometrics.base.utils.thread.ThreadPoolService.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ThreadPoolService f9193a;
+            public final /* synthetic */ ThreadPoolService f43834a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -185,7 +185,7 @@ public class ThreadPoolService {
                         return;
                     }
                 }
-                this.f9193a = this;
+                this.f43834a = this;
             }
 
             @Override // android.os.Handler
@@ -197,13 +197,13 @@ public class ThreadPoolService {
                         ((TPRunnable) message.obj).run();
                     } else if (i4 != 1) {
                     } else {
-                        this.f9193a.f9190a.submit(((TPRunnable) message.obj).runable);
+                        this.f43834a.f43831a.submit(((TPRunnable) message.obj).runable);
                     }
                 }
             }
         };
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Math.max(2, Math.min(f9186c - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f9187d);
-        this.f9190a = threadPoolExecutor;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(Math.max(2, Math.min(f43827c - 1, 4)), Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new LinkedBlockingQueue(), f43828d);
+        this.f43831a = threadPoolExecutor;
         if (Build.VERSION.SDK_INT >= 9) {
             threadPoolExecutor.allowCoreThreadTimeOut(true);
         }

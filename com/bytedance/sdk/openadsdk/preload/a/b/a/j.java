@@ -16,16 +16,16 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class j extends v<Date> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f32068a;
+    public static final w f68021a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final DateFormat f32069b;
+    public final DateFormat f68022b;
 
     static {
         InterceptResult invokeClinit;
@@ -40,7 +40,7 @@ public final class j extends v<Date> {
                 return;
             }
         }
-        f32068a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.j.1
+        f68021a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.j.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,7 +86,7 @@ public final class j extends v<Date> {
                 return;
             }
         }
-        this.f32069b = new SimpleDateFormat("MMM d, yyyy");
+        this.f68022b = new SimpleDateFormat("MMM d, yyyy");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -97,12 +97,12 @@ public final class j extends v<Date> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             synchronized (this) {
-                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f32229i) {
+                if (aVar.f() == com.bytedance.sdk.openadsdk.preload.a.d.b.f68184i) {
                     aVar.j();
                     return null;
                 }
                 try {
-                    return new Date(this.f32069b.parse(aVar.h()).getTime());
+                    return new Date(this.f68022b.parse(aVar.h()).getTime());
                 } catch (ParseException e2) {
                     throw new t(e2);
                 }
@@ -117,7 +117,7 @@ public final class j extends v<Date> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, date) == null) {
             synchronized (this) {
-                cVar.b(date == null ? null : this.f32069b.format((java.util.Date) date));
+                cVar.b(date == null ? null : this.f68022b.format((java.util.Date) date));
             }
         }
     }

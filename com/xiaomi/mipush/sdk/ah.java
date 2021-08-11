@@ -24,7 +24,7 @@ import com.xiaomi.push.io;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ah {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class ah {
     public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, t, hfVar)) == null) ? a(context, t, hfVar, !hfVar.equals(hf.f40522a), context.getPackageName(), b.m111a(context).m112a()) : (ib) invokeLLL.objValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, t, hfVar)) == null) ? a(context, t, hfVar, !hfVar.equals(hf.f77381a), context.getPackageName(), b.m114a(context).m115a()) : (ib) invokeLLL.objValue;
     }
 
     public static <T extends iq<T, ?>> ib a(Context context, T t, hf hfVar, boolean z, String str, String str2) {
@@ -50,20 +50,20 @@ public class ah {
             if (a2 != null) {
                 ib ibVar = new ib();
                 if (z) {
-                    String d2 = b.m111a(context).d();
+                    String d2 = b.m114a(context).d();
                     if (TextUtils.isEmpty(d2)) {
                         str3 = "regSecret is empty, return null";
                     } else {
                         try {
-                            a2 = com.xiaomi.push.h.b(bj.m180a(d2), a2);
+                            a2 = com.xiaomi.push.h.b(bj.m183a(d2), a2);
                         } catch (Exception unused) {
                             com.xiaomi.channel.commonutils.logger.b.d("encryption error. ");
                         }
                     }
                 }
                 hu huVar = new hu();
-                huVar.f557a = 5L;
-                huVar.f558a = "fakeid";
+                huVar.f561a = 5L;
+                huVar.f562a = "fakeid";
                 ibVar.a(huVar);
                 ibVar.a(ByteBuffer.wrap(a2));
                 ibVar.a(hfVar);
@@ -74,7 +74,7 @@ public class ah {
                 return ibVar;
             }
             str3 = "invoke convertThriftObjectToBytes method, return null.";
-            com.xiaomi.channel.commonutils.logger.b.m70a(str3);
+            com.xiaomi.channel.commonutils.logger.b.m73a(str3);
             return null;
         }
         return (ib) invokeCommon.objValue;
@@ -82,21 +82,21 @@ public class ah {
 
     public static iq a(Context context, ib ibVar) {
         InterceptResult invokeLL;
-        byte[] m456a;
+        byte[] m459a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, ibVar)) == null) {
-            if (ibVar.m458b()) {
+            if (ibVar.m461b()) {
                 try {
-                    m456a = com.xiaomi.push.h.a(bj.m180a(b.m111a(context).d()), ibVar.m456a());
+                    m459a = com.xiaomi.push.h.a(bj.m183a(b.m114a(context).d()), ibVar.m459a());
                 } catch (Exception e2) {
                     throw new t("the aes decrypt failed.", e2);
                 }
             } else {
-                m456a = ibVar.m456a();
+                m459a = ibVar.m459a();
             }
-            iq a2 = a(ibVar.a(), ibVar.f639b);
+            iq a2 = a(ibVar.a(), ibVar.f643b);
             if (a2 != null) {
-                ip.a(a2, m456a);
+                ip.a(a2, m459a);
             }
             return a2;
         }
@@ -107,7 +107,7 @@ public class ah {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, hfVar, z)) == null) {
-            switch (ai.f40044a[hfVar.ordinal()]) {
+            switch (ai.f76895a[hfVar.ordinal()]) {
                 case 1:
                     return new ig();
                 case 2:

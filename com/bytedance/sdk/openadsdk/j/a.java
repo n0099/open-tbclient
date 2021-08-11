@@ -8,6 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.constants.ARConfigKey;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,12 +30,12 @@ import com.tencent.connect.common.Constants;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f31607a;
+    public static volatile a f67550a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public a() {
@@ -55,14 +56,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f31607a == null) {
+            if (f67550a == null) {
                 synchronized (a.class) {
-                    if (f31607a == null) {
-                        f31607a = new a();
+                    if (f67550a == null) {
+                        f67550a = new a();
                     }
                 }
             }
-            return f31607a;
+            return f67550a;
         }
         return (a) invokeV.objValue;
     }
@@ -131,19 +132,19 @@ public class a {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, this, cVar)) == null) ? cVar == null : invokeL.booleanValue;
     }
 
-    public void a(long j, long j2, int i2) {
+    public void a(long j2, long j3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            long j3 = j2 - j;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
+            long j4 = j3 - j2;
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("starttime", j);
-                jSONObject.put("endtime", j2);
+                jSONObject.put(LaunchedTaskSpeedStats.KEY_START_TIME, j2);
+                jSONObject.put("endtime", j3);
                 jSONObject.put("start_type", i2);
             } catch (Throwable unused) {
             }
             com.bytedance.sdk.openadsdk.j.a.c a2 = com.bytedance.sdk.openadsdk.j.a.c.b().a("general_label");
-            o.i().a(a2.e(j3 + "").b(jSONObject.toString()), false);
+            o.i().a(a2.e(j4 + "").b(jSONObject.toString()), false);
         }
     }
 
@@ -155,10 +156,10 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f31608a;
+                public final /* synthetic */ Activity f67551a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f31609b;
+                public final /* synthetic */ a f67552b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -178,8 +179,8 @@ public class a {
                             return;
                         }
                     }
-                    this.f31609b = this;
-                    this.f31608a = activity;
+                    this.f67552b = this;
+                    this.f67551a = activity;
                 }
 
                 @Override // java.lang.Runnable
@@ -188,7 +189,7 @@ public class a {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("page_name", this.f31608a.getClass().getName());
+                            jSONObject.put("page_name", this.f67551a.getClass().getName());
                             s.a(jSONObject);
                             String jSONObject2 = jSONObject.toString();
                             com.bytedance.sdk.openadsdk.j.a.c b2 = com.bytedance.sdk.openadsdk.j.a.c.b().a("delegate_on_create").b(jSONObject2);
@@ -267,16 +268,16 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ List f31614a;
+            public final /* synthetic */ List f67557a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ m f31615b;
+            public final /* synthetic */ m f67558b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ JSONObject f31616c;
+            public final /* synthetic */ JSONObject f67559c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ a f31617d;
+            public final /* synthetic */ a f67560d;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -296,10 +297,10 @@ public class a {
                         return;
                     }
                 }
-                this.f31617d = this;
-                this.f31614a = list;
-                this.f31615b = mVar;
-                this.f31616c = jSONObject;
+                this.f67560d = this;
+                this.f67557a = list;
+                this.f67558b = mVar;
+                this.f67559c = jSONObject;
             }
 
             @Override // java.lang.Runnable
@@ -307,7 +308,7 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     if (!o.h().u() || n.c(o.a()) == 4) {
-                        o.f().a(this.f31617d.b(this.f31614a, this.f31615b, this.f31616c), 1);
+                        o.f().a(this.f67560d.b(this.f67557a, this.f67558b, this.f67559c), 1);
                     }
                 }
             }
@@ -469,10 +470,10 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f31610a;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f67553a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f31611b;
+            public final /* synthetic */ a f67554b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -492,16 +493,16 @@ public class a {
                         return;
                     }
                 }
-                this.f31611b = this;
-                this.f31610a = cVar;
+                this.f67554b = this;
+                this.f67553a = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f31611b.n(this.f31610a) && this.f31611b.a(this.f31610a.e(), 1)) {
-                    this.f31610a.a("reg_creative");
-                    o.i().a(this.f31610a);
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f67554b.n(this.f67553a) && this.f67554b.a(this.f67553a.e(), 1)) {
+                    this.f67553a.a("reg_creative");
+                    o.i().a(this.f67553a);
                 }
             }
         }, 5);
@@ -517,10 +518,10 @@ public class a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f31612a;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.j.a.c f67555a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f31613b;
+            public final /* synthetic */ a f67556b;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -540,16 +541,16 @@ public class a {
                         return;
                     }
                 }
-                this.f31613b = this;
-                this.f31612a = cVar;
+                this.f67556b = this;
+                this.f67555a = cVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f31613b.n(this.f31612a) && this.f31613b.a(this.f31612a.e(), 0)) {
-                    this.f31612a.a("no_reg_creative");
-                    o.i().a(this.f31612a);
+                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && !this.f67556b.n(this.f67555a) && this.f67556b.a(this.f67555a.e(), 0)) {
+                    this.f67555a.a("no_reg_creative");
+                    o.i().a(this.f67555a);
                 }
             }
         }, 5);

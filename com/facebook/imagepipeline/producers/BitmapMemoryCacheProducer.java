@@ -15,7 +15,7 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.image.QualityInfo;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BitmapMemoryCacheProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_CACHED_VALUE_FOUND = "cached_value_found";

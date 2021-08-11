@@ -10,38 +10,38 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.widget.SafeKeyBoardEditText;
 import com.baidu.wallet.paysdk.ui.widget.BankCardErrorMsgView;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.widget.SafeKeyBoardEditText;
+/* loaded from: classes8.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f26960a;
+    public Context f62796a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f26961b;
+    public ViewGroup f62797b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f26962c;
+    public ImageView f62798c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f26963d;
+    public TextView f62799d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SafeKeyBoardEditText f26964e;
+    public SafeKeyBoardEditText f62800e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BankCardErrorMsgView f26965f;
+    public BankCardErrorMsgView f62801f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f26966g;
+    public View f62802g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -61,29 +61,29 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
             if (context != null) {
-                this.f26960a = context;
-                this.f26961b = (ViewGroup) LayoutInflater.from(context).inflate(ResUtils.layout(this.f26960a, "wallet_cashdesk_bind_card_item"), (ViewGroup) null);
-                this.f26963d = (TextView) this.f26961b.findViewById(ResUtils.id(this.f26960a, "wallet_base_bindcard_item_title"));
+                this.f62796a = context;
+                this.f62797b = (ViewGroup) LayoutInflater.from(context).inflate(ResUtils.layout(this.f62796a, "wallet_cashdesk_bind_card_item"), (ViewGroup) null);
+                this.f62799d = (TextView) this.f62797b.findViewById(ResUtils.id(this.f62796a, "wallet_base_bindcard_item_title"));
                 CharSequence d2 = d();
                 if (!TextUtils.isEmpty(d2)) {
-                    this.f26963d.setText(d2);
+                    this.f62799d.setText(d2);
                 }
-                SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f26961b.findViewById(ResUtils.id(this.f26960a, "wallet_base_bindcard_item_value"));
-                this.f26964e = safeKeyBoardEditText;
+                SafeKeyBoardEditText safeKeyBoardEditText = (SafeKeyBoardEditText) this.f62797b.findViewById(ResUtils.id(this.f62796a, "wallet_base_bindcard_item_value"));
+                this.f62800e = safeKeyBoardEditText;
                 a(safeKeyBoardEditText);
-                this.f26964e.setCheckFunc(f());
-                View findViewWithTag = this.f26961b.findViewWithTag(ResUtils.getString(this.f26960a, "wallet_base_string_bindcard_item_line_tag"));
-                this.f26966g = findViewWithTag;
-                this.f26964e.setTag(findViewWithTag);
-                this.f26965f = (BankCardErrorMsgView) this.f26961b.findViewById(ResUtils.id(this.f26960a, "wallet_bindcard_item_error"));
-                ImageView imageView = (ImageView) this.f26961b.findViewById(ResUtils.id(this.f26960a, "wallet_base_bindcard_item_image"));
-                this.f26962c = imageView;
+                this.f62800e.setCheckFunc(f());
+                View findViewWithTag = this.f62797b.findViewWithTag(ResUtils.getString(this.f62796a, "wallet_base_string_bindcard_item_line_tag"));
+                this.f62802g = findViewWithTag;
+                this.f62800e.setTag(findViewWithTag);
+                this.f62801f = (BankCardErrorMsgView) this.f62797b.findViewById(ResUtils.id(this.f62796a, "wallet_bindcard_item_error"));
+                ImageView imageView = (ImageView) this.f62797b.findViewById(ResUtils.id(this.f62796a, "wallet_base_bindcard_item_image"));
+                this.f62798c = imageView;
                 imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.wallet.paysdk.ui.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f26967a;
+                    public final /* synthetic */ a f62803a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -100,29 +100,29 @@ public abstract class a {
                                 return;
                             }
                         }
-                        this.f26967a = this;
+                        this.f62803a = this;
                     }
 
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                            if (this.f26967a.f26964e.getEditableText().length() == 0) {
-                                this.f26967a.e();
+                            if (this.f62803a.f62800e.getEditableText().length() == 0) {
+                                this.f62803a.e();
                                 return;
                             }
-                            ((ImageView) view).setImageResource(ResUtils.drawable(this.f26967a.f26960a, "wallet_base_info_btn_selector"));
-                            this.f26967a.f26964e.getEditableText().clear();
-                            this.f26967a.f26964e.requestFocus();
+                            ((ImageView) view).setImageResource(ResUtils.drawable(this.f62803a.f62796a, "wallet_base_info_btn_selector"));
+                            this.f62803a.f62800e.getEditableText().clear();
+                            this.f62803a.f62800e.requestFocus();
                         }
                     }
                 });
-                this.f26964e.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.paysdk.ui.a.2
+                this.f62800e.addTextChangedListener(new TextWatcher(this) { // from class: com.baidu.wallet.paysdk.ui.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f26968a;
+                    public final /* synthetic */ a f62804a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -139,16 +139,16 @@ public abstract class a {
                                 return;
                             }
                         }
-                        this.f26968a = this;
+                        this.f62804a = this;
                     }
 
                     @Override // android.text.TextWatcher
                     public void afterTextChanged(Editable editable) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, editable) == null) {
-                            String str = TextUtils.isEmpty(editable.toString().trim()) ? "wallet_base_info_btn_selector" : "wallet_base_delete";
-                            a aVar = this.f26968a;
-                            aVar.f26962c.setImageResource(ResUtils.drawable(aVar.f26960a, str));
+                            String str = TextUtils.isEmpty(editable.toString().trim()) ? "wallet_base_info_btn_selector" : "dxm_wallet_base_delete";
+                            a aVar = this.f62804a;
+                            aVar.f62798c.setImageResource(ResUtils.drawable(aVar.f62796a, str));
                         }
                     }
 
@@ -163,16 +163,16 @@ public abstract class a {
                     public void onTextChanged(CharSequence charSequence, int i3, int i4, int i5) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i3, i4, i5) == null) {
-                            this.f26968a.a(true);
+                            this.f62804a.a(true);
                         }
                     }
                 });
-                this.f26964e.setOnMyFocusChangeListener(new SafeKeyBoardEditText.OnMyFocusChangeListener(this) { // from class: com.baidu.wallet.paysdk.ui.a.3
+                this.f62800e.setOnMyFocusChangeListener(new SafeKeyBoardEditText.OnMyFocusChangeListener(this) { // from class: com.baidu.wallet.paysdk.ui.a.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ a f26969a;
+                    public final /* synthetic */ a f62805a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -189,14 +189,14 @@ public abstract class a {
                                 return;
                             }
                         }
-                        this.f26969a = this;
+                        this.f62805a = this;
                     }
 
-                    @Override // com.baidu.wallet.base.widget.SafeKeyBoardEditText.OnMyFocusChangeListener
+                    @Override // com.dxmpay.wallet.base.widget.SafeKeyBoardEditText.OnMyFocusChangeListener
                     public void onMyFocusChange(View view, boolean z) {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeLZ(1048576, this, view, z) == null) && z) {
-                            com.baidu.wallet.paysdk.ui.widget.a.a(this.f26969a.f26964e, false, true);
+                            com.baidu.wallet.paysdk.ui.widget.a.a(this.f62805a.f62800e, false, true);
                         }
                     }
                 });
@@ -217,16 +217,16 @@ public abstract class a {
     public void a(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
-            this.f26965f.showErrorLayout(null, charSequence);
-            com.baidu.wallet.paysdk.ui.widget.a.a(this.f26961b, true, false);
+            this.f62801f.showErrorLayout(null, charSequence);
+            com.baidu.wallet.paysdk.ui.widget.a.a(this.f62797b, true, false);
         }
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f26965f.showErrorLayout(null, null);
-            com.baidu.wallet.paysdk.ui.widget.a.a(this.f26961b, false, z);
+            this.f62801f.showErrorLayout(null, null);
+            com.baidu.wallet.paysdk.ui.widget.a.a(this.f62797b, false, z);
         }
     }
 }

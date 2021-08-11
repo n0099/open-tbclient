@@ -9,26 +9,26 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ScrollingView;
+import c.a.n0.j.o.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.j.o.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FlipperFrameLayout extends FrameLayout implements d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f12019e;
+    public float f46923e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f12020f;
+    public d f46924f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12021g;
+    public boolean f46925g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlipperFrameLayout(@NonNull Context context) {
@@ -50,26 +50,10 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         }
     }
 
-    @Override // d.a.o0.j.o.d.b
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f12021g = false;
-        }
-    }
-
-    @Override // d.a.o0.j.o.d.b
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f12021g = true;
-        }
-    }
-
-    public final boolean c() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (getChildCount() <= 0) {
                 return true;
             }
@@ -82,10 +66,26 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         return invokeV.booleanValue;
     }
 
-    public final boolean d(float f2) {
+    public final boolean b(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f2)) == null) ? Math.abs(f2) >= ((float) ViewConfiguration.getTouchSlop()) : invokeF.booleanValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? Math.abs(f2) >= ((float) ViewConfiguration.getTouchSlop()) : invokeF.booleanValue;
+    }
+
+    @Override // c.a.n0.j.o.d.b
+    public void onFlipOver(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.f46925g = false;
+        }
+    }
+
+    @Override // c.a.n0.j.o.d.b
+    public void onFlipStart(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f46925g = true;
+        }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x001a, code lost:
@@ -99,29 +99,29 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (!this.f12021g && this.f12020f != null) {
+            if (!this.f46925g && this.f46924f != null) {
                 int action = motionEvent.getAction();
                 if (action != 0) {
                     if (action != 1) {
                         if (action == 2) {
-                            float rawY = motionEvent.getRawY() - this.f12019e;
+                            float rawY = motionEvent.getRawY() - this.f46923e;
                             boolean z = rawY <= 0.0f;
-                            if (z && !this.f12020f.d() && d(rawY)) {
-                                this.f12020f.e(true);
+                            if (z && !this.f46924f.d() && b(rawY)) {
+                                this.f46924f.e(true);
                                 return true;
-                            } else if (!z && c() && this.f12020f.d() && d(rawY)) {
-                                this.f12020f.e(false);
+                            } else if (!z && a() && this.f46924f.d() && b(rawY)) {
+                                this.f46924f.e(false);
                                 return true;
                             }
                         }
                     }
-                    this.f12019e = motionEvent.getRawY();
+                    this.f46923e = motionEvent.getRawY();
                 } else {
-                    this.f12019e = motionEvent.getRawY();
+                    this.f46923e = motionEvent.getRawY();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            this.f12019e = motionEvent.getRawY();
+            this.f46923e = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -130,7 +130,7 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
     public void setViewFlipper(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            this.f12020f = dVar;
+            this.f46924f = dVar;
         }
     }
 

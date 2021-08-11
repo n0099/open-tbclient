@@ -1,6 +1,5 @@
 package com.bytedance.sdk.component.video.d;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -8,15 +7,15 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f29060a = false;
+    public static boolean f64928a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f29061b = 4;
+    public static int f64929b = 4;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,47 +36,46 @@ public class c {
     public static void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            f29061b = i2;
+            f64929b = i2;
         }
     }
 
     public static void b(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, objArr) == null) || !f29060a || objArr == null || f29061b > 4) {
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, objArr) == null) || !f64928a || objArr == null || f64929b > 4) {
             return;
         }
-        Log.v(str, a(objArr));
+        a(objArr);
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            f29060a = true;
+            f64928a = true;
             a(3);
         }
     }
 
     public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) || !f29060a || objArr == null || f29061b > 3) {
+        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) || !f64928a || objArr == null || f64929b > 3) {
             return;
         }
-        Log.v(str, a(objArr));
+        a(objArr);
     }
 
     public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f29060a) {
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && f64928a) {
             a("VideoLog", str);
         }
     }
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) || !f29060a || str2 == null || f29061b > 4) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && f64928a && str2 != null) {
+            int i2 = f64929b;
         }
-        Log.i(str, str2);
     }
 
     public static String a(Object... objArr) {

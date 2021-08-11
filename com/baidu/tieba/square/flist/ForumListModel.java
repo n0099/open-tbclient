@@ -1,12 +1,14 @@
 package com.baidu.tieba.square.flist;
 
+import c.a.e.a.f;
+import c.a.e.e.d.l;
+import c.a.o0.s.r.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,11 +19,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.utils.ContactPermissionUtil;
-import d.a.d.a.f;
-import d.a.d.e.d.l;
-import d.a.p0.s.r.a;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY = "_list";
@@ -38,7 +37,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
     public List recommend_list_right;
     public long time;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class List extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3206282936395220632L;
@@ -63,7 +62,7 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class RequestParams extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8487620337266534315L;
@@ -152,8 +151,8 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             netWork.addPostData("rn", String.valueOf(requestParams.rn));
             netWork.addPostData("offset", String.valueOf(requestParams.offset));
             netWork.addPostData("recommend_type", String.valueOf(requestParams.recommend_type));
-            netWork.addPostData("menu_name", requestParams.menu_name);
-            netWork.addPostData(ForumListActivityConfig.KEY_MENU_TYPE, String.valueOf(i2));
+            netWork.addPostData(ForumListActivity.KEY_MENU_NAME, requestParams.menu_name);
+            netWork.addPostData("menu_type", String.valueOf(i2));
             String postNetData = netWork.postNetData();
             isOk = netWork.isNetSuccess();
             ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);

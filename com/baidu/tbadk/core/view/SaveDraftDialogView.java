@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import c.a.e.e.p.k;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -14,28 +16,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.d.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SaveDraftDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f12584e;
+    public LinearLayout f47556e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f12585f;
+    public TextView f47557f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f12586g;
+    public TextView f47558g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f12587h;
+    public TextView f47559h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f12588i;
-    public TextView j;
+    public TextView f47560i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f47561j;
     public GradientDrawable k;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,11 +64,11 @@ public class SaveDraftDialogView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setViewTextColor(this.f12585f, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f12586g, R.color.CAM_X0108);
-            SkinManager.setViewTextColor(this.f12587h, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f12588i, R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.j, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f47557f, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f47558g, R.color.CAM_X0108);
+            SkinManager.setViewTextColor(this.f47559h, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f47560i, R.color.CAM_X0302);
+            SkinManager.setViewTextColor(this.f47561j, R.color.CAM_X0107);
             if (this.k == null) {
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 this.k = gradientDrawable;
@@ -83,43 +85,43 @@ public class SaveDraftDialogView extends LinearLayout {
             setOrientation(1);
             setPadding(0, 0, 0, l.g(context, R.dimen.tbds21));
             LinearLayout linearLayout = new LinearLayout(context);
-            this.f12584e = linearLayout;
+            this.f47556e = linearLayout;
             linearLayout.setOrientation(1);
-            this.f12584e.setGravity(17);
-            addView(this.f12584e, -1, l.g(context, R.dimen.tbds182));
+            this.f47556e.setGravity(17);
+            addView(this.f47556e, -1, l.g(context, R.dimen.tbds182));
             int g2 = l.g(context, R.dimen.tbds44);
             TextView textView = new TextView(context);
-            this.f12585f = textView;
+            this.f47557f = textView;
             float f2 = g2;
             textView.setTextSize(0, f2);
-            this.f12585f.setGravity(17);
-            this.f12584e.addView(this.f12585f, -1, -2);
+            this.f47557f.setGravity(17);
+            this.f47556e.addView(this.f47557f, -1, -2);
             TextView textView2 = new TextView(context);
-            this.f12586g = textView2;
+            this.f47558g = textView2;
             textView2.setTextSize(0, l.g(context, R.dimen.tbds34));
-            this.f12586g.setGravity(17);
-            this.f12586g.setPadding(0, l.g(context, R.dimen.tbds10), 0, 0);
-            this.f12584e.addView(this.f12586g, -1, -2);
+            this.f47558g.setGravity(17);
+            this.f47558g.setPadding(0, l.g(context, R.dimen.tbds10), 0, 0);
+            this.f47556e.addView(this.f47558g, -1, -2);
             TextView textView3 = new TextView(context);
-            this.f12587h = textView3;
+            this.f47559h = textView3;
             textView3.setId(R.id.save_draft_dialog_not_save);
-            this.f12587h.setTextSize(0, f2);
-            this.f12587h.setGravity(17);
-            this.f12587h.setText(R.string.not_save);
-            addView(this.f12587h, -1, l.g(context, R.dimen.tbds136));
+            this.f47559h.setTextSize(0, f2);
+            this.f47559h.setGravity(17);
+            this.f47559h.setText(R.string.not_save);
+            addView(this.f47559h, -1, l.g(context, R.dimen.tbds136));
             TextView textView4 = new TextView(context);
-            this.f12588i = textView4;
+            this.f47560i = textView4;
             textView4.setId(R.id.save_draft_dialog_save);
-            this.f12588i.setTextSize(0, f2);
-            this.f12588i.setGravity(17);
-            addView(this.f12588i, -1, l.g(context, R.dimen.tbds136));
+            this.f47560i.setTextSize(0, f2);
+            this.f47560i.setGravity(17);
+            addView(this.f47560i, -1, l.g(context, R.dimen.tbds136));
             TextView textView5 = new TextView(context);
-            this.j = textView5;
+            this.f47561j = textView5;
             textView5.setId(R.id.save_draft_dialog_cancle);
-            this.j.setTextSize(0, f2);
-            this.j.setGravity(17);
-            this.j.setText(R.string.cancel);
-            addView(this.j, -1, l.g(context, R.dimen.tbds136));
+            this.f47561j.setTextSize(0, f2);
+            this.f47561j.setGravity(17);
+            this.f47561j.setText(R.string.cancel);
+            addView(this.f47561j, -1, l.g(context, R.dimen.tbds136));
             a();
         }
     }
@@ -127,15 +129,16 @@ public class SaveDraftDialogView extends LinearLayout {
     public void setButtonTag(int i2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, obj) == null) {
-            this.f12588i.setTag(i2, obj);
-            this.f12587h.setTag(i2, obj);
+            this.f47560i.setTag(i2, obj);
+            this.f47559h.setTag(i2, obj);
+            this.f47561j.setTag(i2, obj);
         }
     }
 
     public void setCancelVisible(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.j.setVisibility(i2);
+            this.f47561j.setVisibility(i2);
         }
     }
 
@@ -143,23 +146,23 @@ public class SaveDraftDialogView extends LinearLayout {
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f12587h.setOnClickListener(onClickListener);
-            this.f12588i.setOnClickListener(onClickListener);
-            this.j.setOnClickListener(onClickListener);
+            this.f47559h.setOnClickListener(onClickListener);
+            this.f47560i.setOnClickListener(onClickListener);
+            this.f47561j.setOnClickListener(onClickListener);
         }
     }
 
     public void setText(String str, @Nullable String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, str3) == null) {
-            this.f12585f.setText(str);
-            this.f12588i.setText(str3);
+            this.f47557f.setText(str);
+            this.f47560i.setText(str3);
             if (!k.isEmpty(str2)) {
-                this.f12586g.setText(str2);
-                this.f12586g.setVisibility(0);
+                this.f47558g.setText(str2);
+                this.f47558g.setVisibility(0);
                 return;
             }
-            this.f12586g.setVisibility(8);
+            this.f47558g.setVisibility(8);
         }
     }
 
@@ -210,17 +213,17 @@ public class SaveDraftDialogView extends LinearLayout {
     public void setText(String str, @Nullable String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, str4) == null) {
-            this.f12585f.setText(str);
-            this.f12588i.setText(str3);
+            this.f47557f.setText(str);
+            this.f47560i.setText(str3);
             if (!k.isEmpty(str4)) {
-                this.f12587h.setText(str4);
+                this.f47559h.setText(str4);
             }
             if (!k.isEmpty(str2)) {
-                this.f12586g.setText(str2);
-                this.f12586g.setVisibility(0);
+                this.f47558g.setText(str2);
+                this.f47558g.setVisibility(0);
                 return;
             }
-            this.f12586g.setVisibility(8);
+            this.f47558g.setVisibility(8);
         }
     }
 }

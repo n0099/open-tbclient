@@ -1,7 +1,6 @@
 package com.fun.ad.sdk.channel.model.csj;
 
-import a.a.a.a.r.b.a.b;
-import a.a.a.a.v.d;
+import a.a.a.a.s.b.a.b;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
@@ -9,6 +8,7 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
+import b.a.a.a.x.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,16 +19,16 @@ import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.R;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class CSJNativeAdSmallImgView extends b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f32882f;
+    public ImageView f69571f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f32883g;
+    public float f69572g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdSmallImgView(Context context) {
@@ -48,7 +48,7 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
         }
-        this.f32883g = 1.78f;
+        this.f69572g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -70,7 +70,7 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
         }
-        this.f32883g = 1.78f;
+        this.f69572g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,10 +92,10 @@ public final class CSJNativeAdSmallImgView extends b {
                 return;
             }
         }
-        this.f32883g = 1.78f;
+        this.f69572g = 1.78f;
     }
 
-    @Override // a.a.a.a.r.b.a.b
+    @Override // a.a.a.a.s.b.a.b
     public void a(Activity activity, TTNativeAd tTNativeAd, TTNativeAd.AdInteractionListener adInteractionListener) {
         TTImage tTImage;
         Interceptable interceptable = $ic;
@@ -105,33 +105,33 @@ public final class CSJNativeAdSmallImgView extends b {
             if (imageList == null || imageList.isEmpty() || (tTImage = imageList.get(0)) == null || !tTImage.isValid()) {
                 return;
             }
-            d.b("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
-            this.f32883g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
+            d.f("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
+            this.f69572g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
             Context context = getContext();
             String imageUrl = tTImage.getImageUrl();
-            ImageView imageView = this.f32882f;
+            ImageView imageView = this.f69571f;
             if (context == null) {
-                d.b("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
+                d.f("GlideHelper: context is null when load: " + imageUrl, new Object[0]);
             } else if (context instanceof Activity) {
                 Activity activity2 = (Activity) context;
                 if (activity2.isFinishing() || (Build.VERSION.SDK_INT > 17 && activity2.isDestroyed())) {
-                    d.b("GlideHelper: activity is destroyed when load: " + imageUrl, new Object[0]);
+                    d.f("GlideHelper: activity is destroyed when load: " + imageUrl, new Object[0]);
                 } else {
                     Glide.with(activity2).load(imageUrl).into(imageView);
                 }
             } else {
                 Glide.with(context).load(imageUrl).into(imageView);
             }
-            d.b("CSJNativeAdView ttImage url: " + tTImage.getImageUrl(), new Object[0]);
+            d.f("CSJNativeAdView ttImage url: " + tTImage.getImageUrl(), new Object[0]);
         }
     }
 
-    @Override // a.a.a.a.r.b.a.b, android.view.View
+    @Override // a.a.a.a.s.b.a.b, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f32882f = (ImageView) findViewById(R.id.ad_img);
+            this.f69571f = (ImageView) findViewById(R.id.ad_img);
         }
     }
 
@@ -140,11 +140,11 @@ public final class CSJNativeAdSmallImgView extends b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
             super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f32882f.getLayoutParams();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f69571f.getLayoutParams();
             int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
             layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f32883g);
-            this.f32882f.setLayoutParams(layoutParams);
+            layoutParams.height = (int) (i6 / this.f69572g);
+            this.f69571f.setLayoutParams(layoutParams);
         }
     }
 }

@@ -13,22 +13,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile p f40809a;
+    public static volatile p f77684a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f821a;
+    public Context f825a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f822a;
+    public Handler f826a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, Map<String, String>> f823a;
+    public Map<String, Map<String, String>> f827a;
 
     public p(Context context) {
         Interceptable interceptable = $ic;
@@ -45,23 +45,23 @@ public class p {
                 return;
             }
         }
-        this.f821a = context;
-        this.f822a = new Handler(Looper.getMainLooper());
-        this.f823a = new HashMap();
+        this.f825a = context;
+        this.f826a = new Handler(Looper.getMainLooper());
+        this.f827a = new HashMap();
     }
 
     public static p a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f40809a == null) {
+            if (f77684a == null) {
                 synchronized (p.class) {
-                    if (f40809a == null) {
-                        f40809a = new p(context);
+                    if (f77684a == null) {
+                        f77684a = new p(context);
                     }
                 }
             }
-            return f40809a;
+            return f77684a;
         }
         return (p) invokeL.objValue;
     }
@@ -71,10 +71,10 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, str2)) == null) {
             synchronized (this) {
-                if (this.f823a != null && !TextUtils.isEmpty(str)) {
+                if (this.f827a != null && !TextUtils.isEmpty(str)) {
                     if (!TextUtils.isEmpty(str2)) {
                         try {
-                            Map<String, String> map = this.f823a.get(str);
+                            Map<String, String> map = this.f827a.get(str);
                             return map != null ? map.get(str2) : "";
                         } catch (Throwable unused) {
                             return "";
@@ -91,15 +91,15 @@ public class p {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, str2, str3) == null) {
             synchronized (this) {
-                if (this.f823a == null) {
-                    this.f823a = new HashMap();
+                if (this.f827a == null) {
+                    this.f827a = new HashMap();
                 }
-                Map<String, String> map = this.f823a.get(str);
+                Map<String, String> map = this.f827a.get(str);
                 if (map == null) {
                     map = new HashMap<>();
                 }
                 map.put(str2, str3);
-                this.f823a.put(str, map);
+                this.f827a.put(str, map);
             }
         }
     }
@@ -110,19 +110,19 @@ public class p {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
             synchronized (this) {
                 String a2 = a(str, str2);
-                return !TextUtils.isEmpty(a2) ? a2 : this.f821a.getSharedPreferences(str, 4).getString(str2, str3);
+                return !TextUtils.isEmpty(a2) ? a2 : this.f825a.getSharedPreferences(str, 4).getString(str2, str3);
             }
         }
         return (String) invokeLLL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m540a(String str, String str2, String str3) {
+    public synchronized void m543a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
             synchronized (this) {
                 b(str, str2, str3);
-                this.f822a.post(new q(this, str, str2, str3));
+                this.f826a.post(new q(this, str, str2, str3));
             }
         }
     }

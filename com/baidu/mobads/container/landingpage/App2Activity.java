@@ -28,7 +28,6 @@ import android.os.Parcelable;
 import android.os.Process;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -110,7 +109,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class App2Activity implements IActivityImpl, View.OnTouchListener, NativePlayerJsBridgeHandler.PlayerCallBack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIONBAR_VIEW_ID = 1001;
@@ -216,7 +215,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     public LpVideoView videoView;
     public RelativeLayout wvTool;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class CustomProgressBar extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -271,12 +270,12 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface PageFinishedListener {
         void onPageFinished(WebView webView);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class Redirect38Class {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1055,9 +1054,9 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
                 }
 
                 @Override // android.webkit.DownloadListener
-                public void onDownloadStart(String str2, String str3, String str4, String str5, long j) {
+                public void onDownloadStart(String str2, String str3, String str4, String str5, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str2, str3, str4, str5, Long.valueOf(j)}) == null) && CommonUtils.isUrlForDownloadApk(str2, str5, str4)) {
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{str2, str3, str4, str5, Long.valueOf(j2)}) == null) && CommonUtils.isUrlForDownloadApk(str2, str5, str4)) {
                         this.this$0.stateEvent(AdStateCode.EVENT_CLICK_LP_DL);
                         App2Activity app2Activity = this.this$0;
                         app2Activity.downloadAPK(str2, app2Activity.mTmpExtraInfo.getAdInstanceInfo());
@@ -1617,9 +1616,9 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
                     this.mRlViewTop = 0.0f;
                 }
             }
-            long j = (f3 * 200.0f) / this.mVideoHeight;
-            if (j > 0) {
-                this.mRlContainer.animate().setDuration(j).setInterpolator(this.mInterpolator).translationY(this.mRlViewTop);
+            long j2 = (f3 * 200.0f) / this.mVideoHeight;
+            if (j2 > 0) {
+                this.mRlContainer.animate().setDuration(j2).setInterpolator(this.mInterpolator).translationY(this.mRlViewTop);
             }
         }
     }
@@ -2526,7 +2525,6 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     public void onPause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            Log.d("ZYBBBBBB", "App2Activity onPause: ");
             if (this.isFirstPause) {
                 this.isFirstPause = false;
             } else {
@@ -2537,7 +2535,6 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
                 lpVideoView.pause();
             }
             if (this.mIsCpuLandingPage && this.curWebview != null) {
-                Log.d("ZYBBBBBB", "App2Activity onPause:  curWebview.onPause();");
                 this.curWebview.onPause();
             }
             if (SHOUBAI_LP_APO_START) {
@@ -2561,7 +2558,6 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            Log.d("ZYBBBBB", "onResume:Activity2 ");
             LpVideoView lpVideoView = this.videoView;
             if (lpVideoView != null && this.mRlViewTop > -0.01f) {
                 lpVideoView.resume();
@@ -2569,7 +2565,6 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
             if (!this.mIsCpuLandingPage || this.curWebview == null) {
                 return;
             }
-            Log.d("ZYBBBB", "onResume: curWebview ");
             this.curWebview.onResume();
         }
     }
@@ -2938,7 +2933,7 @@ public class App2Activity implements IActivityImpl, View.OnTouchListener, Native
         StateMachine.event(this.mAdUniqueId, str, str2);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class ActionBarColorTheme {
         public static /* synthetic */ Interceptable $ic;
         public static final ActionBarColorTheme ACTION_BAR_BLACK_THEME;

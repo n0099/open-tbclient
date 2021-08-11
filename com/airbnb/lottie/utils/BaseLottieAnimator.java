@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseLottieAnimator extends ValueAnimator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -157,19 +157,19 @@ public abstract class BaseLottieAnimator extends ValueAnimator {
     }
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
-    public void setStartDelay(long j) {
+    public void setStartDelay(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
             throw new UnsupportedOperationException("LottieAnimator does not support setStartDelay.");
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.ValueAnimator, android.animation.Animator
-    public ValueAnimator setDuration(long j) {
+    public ValueAnimator setDuration(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j2)) == null) {
             throw new UnsupportedOperationException("LottieAnimator does not support setDuration.");
         }
         return (ValueAnimator) invokeJ.objValue;

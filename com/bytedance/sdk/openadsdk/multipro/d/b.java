@@ -13,12 +13,12 @@ import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f31804a;
+    public static SoftReference<ConcurrentHashMap<String, Map<String, Object>>> f67749a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(String str) {
@@ -31,7 +31,7 @@ public class b {
         SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference;
         Map<String, Object> map;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65550, null, str) == null) || (softReference = f31804a) == null || softReference.get() == null || (map = f31804a.get().get(a(str))) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65550, null, str) == null) || (softReference = f67749a) == null || softReference.get() == null || (map = f67749a.get().get(a(str))) == null) {
             return;
         }
         map.clear();
@@ -55,7 +55,7 @@ public class b {
         Map<String, Object> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f31804a;
+            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f67749a;
             if (softReference == null || (concurrentHashMap = softReference.get()) == null || (map = concurrentHashMap.get(a(str))) == null) {
                 return null;
             }
@@ -108,12 +108,12 @@ public class b {
     public static void a(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, obj) == null) {
-            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f31804a;
+            SoftReference<ConcurrentHashMap<String, Map<String, Object>>> softReference = f67749a;
             if (softReference == null || softReference.get() == null) {
-                f31804a = new SoftReference<>(new ConcurrentHashMap());
+                f67749a = new SoftReference<>(new ConcurrentHashMap());
             }
             String a2 = a(str);
-            ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f31804a.get();
+            ConcurrentHashMap<String, Map<String, Object>> concurrentHashMap = f67749a.get();
             if (concurrentHashMap.get(a2) == null) {
                 concurrentHashMap.put(a2, new HashMap());
             }
@@ -166,16 +166,16 @@ public class b {
                 SharedPreferences.Editor edit = c2.edit();
                 edit.remove(str2);
                 edit.apply();
-                if (f31804a == null || f31804a.get() == null) {
+                if (f67749a == null || f67749a.get() == null) {
                     return;
                 }
                 String a2 = a(str);
-                if (!TextUtils.isEmpty(a2) && (map = f31804a.get().get(a2)) != null && map.size() != 0) {
+                if (!TextUtils.isEmpty(a2) && (map = f67749a.get().get(a2)) != null && map.size() != 0) {
                     map.remove(str2);
-                    if (f31804a == null || f31804a.get() == null) {
+                    if (f67749a == null || f67749a.get() == null) {
                         return;
                     }
-                    f31804a.get().put(a2, map);
+                    f67749a.get().put(a2, map);
                 }
             } catch (Throwable unused) {
             }
@@ -233,12 +233,12 @@ public class b {
         return invokeCommon.booleanValue;
     }
 
-    public static long a(Context context, String str, String str2, long j) {
+    public static long a(Context context, String str, String str2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Long.valueOf(j2)})) == null) {
             SharedPreferences c2 = c(context, str);
-            return c2 == null ? j : c2.getLong(str2, j);
+            return c2 == null ? j2 : c2.getLong(str2, j2);
         }
         return invokeCommon.longValue;
     }

@@ -2,18 +2,17 @@ package com.xiaomi.mipush.sdk;
 
 import android.content.Context;
 import android.content.pm.PackageInfo;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class v implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f40093a;
+    public final /* synthetic */ Context f76944a;
 
     public v(Context context) {
         Interceptable interceptable = $ic;
@@ -30,7 +29,7 @@ public final class v implements Runnable {
                 return;
             }
         }
-        this.f40093a = context;
+        this.f76944a = context;
     }
 
     @Override // java.lang.Runnable
@@ -38,12 +37,11 @@ public final class v implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                PackageInfo packageInfo = this.f40093a.getPackageManager().getPackageInfo(this.f40093a.getPackageName(), 4612);
-                u.c(this.f40093a);
-                u.d(this.f40093a, packageInfo);
-                u.c(this.f40093a, packageInfo);
-            } catch (Throwable th) {
-                Log.e("ManifestChecker", "", th);
+                PackageInfo packageInfo = this.f76944a.getPackageManager().getPackageInfo(this.f76944a.getPackageName(), 4612);
+                u.c(this.f76944a);
+                u.d(this.f76944a, packageInfo);
+                u.c(this.f76944a, packageInfo);
+            } catch (Throwable unused) {
             }
         }
     }

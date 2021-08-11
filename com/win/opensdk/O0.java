@@ -4,7 +4,6 @@ import android.graphics.Rect;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,25 +13,25 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class O0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f39608a;
+    public View f76444a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f39609b;
+    public boolean f76445b;
 
     /* renamed from: c  reason: collision with root package name */
-    public N0 f39610c;
+    public N0 f76446c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Info f39611d;
+    public Info f76447d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f39612e;
+    public Handler f76448e;
 
     public O0() {
         Interceptable interceptable = $ic;
@@ -47,22 +46,21 @@ public class O0 {
                 return;
             }
         }
-        this.f39612e = new F0(this, Looper.getMainLooper());
+        this.f76448e = new F0(this, Looper.getMainLooper());
     }
 
     public void a(View view, Info info, N0 n0) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, view, info, n0) == null) {
-            this.f39608a = view;
-            this.f39610c = n0;
-            this.f39611d = info;
+            this.f76444a = view;
+            this.f76446c = n0;
+            this.f76447d = info;
             try {
-                Log.e("register", "b111:" + this.f39609b);
-                if (!this.f39609b) {
-                    this.f39612e.sendEmptyMessage(1101);
+                String str = "b111:" + this.f76445b;
+                if (!this.f76445b) {
+                    this.f76448e.sendEmptyMessage(1101);
                 }
-                Log.e("register", "b2222");
-                ViewTreeObserver viewTreeObserver = this.f39608a.getViewTreeObserver();
+                ViewTreeObserver viewTreeObserver = this.f76444a.getViewTreeObserver();
                 viewTreeObserver.addOnScrollChangedListener(new G0(this, n0));
                 viewTreeObserver.addOnGlobalFocusChangeListener(new H0(this, n0));
                 if (Build.VERSION.SDK_INT >= 18) {
@@ -98,9 +96,9 @@ public class O0 {
             return false;
         }
         Rect rect = new Rect();
-        if (view.getGlobalVisibleRect(rect) && this.f39611d != null) {
-            if (rect.width() >= this.f39611d.getSper() * view.getMeasuredWidth()) {
-                if (rect.height() >= this.f39611d.getSper() * view.getMeasuredHeight()) {
+        if (view.getGlobalVisibleRect(rect) && this.f76447d != null) {
+            if (rect.width() >= this.f76447d.getSper() * view.getMeasuredWidth()) {
+                if (rect.height() >= this.f76447d.getSper() * view.getMeasuredHeight()) {
                     z = false;
                     return z;
                 }

@@ -1,5 +1,7 @@
 package com.baidu.tbadk.BdToken;
 
+import c.a.o0.a.e;
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,11 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.a.e;
-import d.a.p0.b1.w;
 import tbclient.GetUserByTiebaUid.DataReq;
 import tbclient.GetUserByTiebaUid.GetUserByTiebaUidReqIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TiebaUidCheckReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ThreadPoolService implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORE_POOL_SIZE;
@@ -30,7 +30,7 @@ public class ThreadPoolService implements NoProguard {
     public Handler mHandler;
     public ThreadPoolExecutor poolService;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SingletonContainer {
         public static /* synthetic */ Interceptable $ic;
         public static ThreadPoolService mSingleInstance;

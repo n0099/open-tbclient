@@ -8,19 +8,21 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MsgSettingItemView2 extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CheckBox f20925e;
+    public CheckBox f56400e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgSettingItemView2(Context context) {
@@ -40,38 +42,47 @@ public class MsgSettingItemView2 extends LinearLayout {
                 return;
             }
         }
-        a(context);
-    }
-
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view2, (ViewGroup) this, true);
-            this.f20925e = (CheckBox) findViewById(R.id.setting_check_view);
-        }
+        init(context);
     }
 
     public CheckBox getSwitchView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20925e : (CheckBox) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f56400e : (CheckBox) invokeV.objValue;
+    }
+
+    public void init(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            setOrientation(1);
+            LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view2, (ViewGroup) this, true);
+            this.f56400e = (CheckBox) findViewById(R.id.setting_check_view);
+        }
+    }
+
+    public void onChangeSkinType(TbPageContext<?> tbPageContext, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
+            tbPageContext.getLayoutMode().k(i2 == 1);
+            tbPageContext.getLayoutMode().j(this);
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
+        }
     }
 
     @Deprecated
     public void setLineVisibility(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             if (StringUtils.isNULL(str)) {
                 str = "";
             }
-            this.f20925e.setText(str);
+            this.f56400e.setText(str);
         }
     }
 
@@ -94,14 +105,14 @@ public class MsgSettingItemView2 extends LinearLayout {
                 return;
             }
         }
-        a(context);
+        init(context);
     }
 
     public void setText(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || i2 == 0) {
             return;
         }
-        this.f20925e.setText(i2);
+        this.f56400e.setText(i2);
     }
 }

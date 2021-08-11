@@ -9,15 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class DisplayUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final float f5404a = 0.5f;
+    public static final float f39348a = 0.5f;
 
     /* renamed from: b  reason: collision with root package name */
-    public static DisplayMetrics f5405b;
+    public static DisplayMetrics f39349b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public DisplayUtils() {
@@ -36,8 +36,8 @@ public final class DisplayUtils {
 
     public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f5405b == null) {
-            f5405b = context.getResources().getDisplayMetrics();
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && f39349b == null) {
+            f39349b = context.getResources().getDisplayMetrics();
         }
     }
 
@@ -52,7 +52,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             a(context);
-            return f5405b.heightPixels;
+            return f39349b.heightPixels;
         }
         return invokeL.intValue;
     }
@@ -62,7 +62,7 @@ public final class DisplayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             a(context);
-            return f5405b.widthPixels;
+            return f39349b.widthPixels;
         }
         return invokeL.intValue;
     }

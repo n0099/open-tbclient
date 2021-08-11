@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadWrapperImpl implements IDownloadWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -63,10 +63,10 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
-    public StatisticInfo getStatisticInfo(long j) {
+    public StatisticInfo getStatisticInfo(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.mTaskManager.getStatsticInfo(j) : (StatisticInfo) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.mTaskManager.getStatsticInfo(j2) : (StatisticInfo) invokeJ.objValue;
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
@@ -78,10 +78,10 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
-    public void pauseDownload(String str, long j) {
+    public void pauseDownload(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
-            this.mTaskManager.pauseDownload(str, j);
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j2) == null) {
+            this.mTaskManager.pauseDownload(str, j2);
         }
     }
 
@@ -109,10 +109,10 @@ public class DownloadWrapperImpl implements IDownloadWrapper {
     }
 
     @Override // com.baidu.down.common.IDownloadWrapper
-    public void stopDownload(String str, long j, boolean z) {
+    public void stopDownload(String str, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.mTaskManager.stopDownload(str, j, z);
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.mTaskManager.stopDownload(str, j2, z);
         }
     }
 }

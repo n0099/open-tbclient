@@ -1,5 +1,5 @@
 package com.qq.e.ads.splash;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface SplashADZoomOutListener extends SplashADListener {
     boolean isSupportZoomOut();
 

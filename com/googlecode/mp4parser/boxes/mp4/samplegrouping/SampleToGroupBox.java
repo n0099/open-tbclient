@@ -18,9 +18,10 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SampleToGroupBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "sbgp";
@@ -35,19 +36,19 @@ public class SampleToGroupBox extends AbstractFullBox {
     public String groupingType;
     public String groupingTypeParameter;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int groupDescriptionIndex;
         public long sampleCount;
 
-        public Entry(long j, int i2) {
+        public Entry(long j2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -57,7 +58,7 @@ public class SampleToGroupBox extends AbstractFullBox {
                     return;
                 }
             }
-            this.sampleCount = j;
+            this.sampleCount = j2;
             this.groupDescriptionIndex = i2;
         }
 
@@ -93,8 +94,8 @@ public class SampleToGroupBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                long j = this.sampleCount;
-                return (((int) (j ^ (j >>> 32))) * 31) + this.groupDescriptionIndex;
+                long j2 = this.sampleCount;
+                return (((int) (j2 ^ (j2 >>> 32))) * 31) + this.groupDescriptionIndex;
             }
             return invokeV.intValue;
         }
@@ -106,10 +107,10 @@ public class SampleToGroupBox extends AbstractFullBox {
             }
         }
 
-        public void setSampleCount(long j) {
+        public void setSampleCount(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                this.sampleCount = j;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                this.sampleCount = j2;
             }
         }
 
@@ -117,7 +118,7 @@ public class SampleToGroupBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return "Entry{sampleCount=" + this.sampleCount + ", groupDescriptionIndex=" + this.groupDescriptionIndex + '}';
+                return "Entry{sampleCount=" + this.sampleCount + ", groupDescriptionIndex=" + this.groupDescriptionIndex + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -181,12 +182,12 @@ public class SampleToGroupBox extends AbstractFullBox {
         }
         long readUInt32 = IsoTypeReader.readUInt32(byteBuffer);
         while (true) {
-            long j = readUInt32 - 1;
+            long j2 = readUInt32 - 1;
             if (readUInt32 <= 0) {
                 return;
             }
             this.entries.add(new Entry(CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer)), CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer))));
-            readUInt32 = j;
+            readUInt32 = j2;
         }
     }
 

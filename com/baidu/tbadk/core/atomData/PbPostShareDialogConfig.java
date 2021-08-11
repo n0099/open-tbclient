@@ -1,14 +1,14 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import c.a.p0.i2.h.m;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.h2.h.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PbPostShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

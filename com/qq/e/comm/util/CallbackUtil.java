@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class CallbackUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Boolean> f38254a;
+    public static final Map<String, Boolean> f75037a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,7 +31,7 @@ public class CallbackUtil {
                 return;
             }
         }
-        f38254a = new HashMap();
+        f75037a = new HashMap();
     }
 
     public CallbackUtil() {
@@ -66,14 +66,14 @@ public class CallbackUtil {
                 }
                 sb = sb2.toString();
             }
-            Boolean bool = f38254a.get(sb);
+            Boolean bool = f75037a.get(sb);
             if (bool == null) {
                 try {
                     cls.getDeclaredMethod(str, clsArr);
-                    f38254a.put(sb, Boolean.TRUE);
+                    f75037a.put(sb, Boolean.TRUE);
                     return true;
                 } catch (NoSuchMethodException unused) {
-                    f38254a.put(sb, Boolean.FALSE);
+                    f75037a.put(sb, Boolean.FALSE);
                     return false;
                 }
             }

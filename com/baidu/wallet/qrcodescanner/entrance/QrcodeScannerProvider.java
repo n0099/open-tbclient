@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.router.RouterProvider;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class QrcodeScannerProvider extends RouterProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,6 +30,7 @@ public class QrcodeScannerProvider extends RouterProvider {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerAction("qrcodescanner", new EnterQrcodeScannerAction());
             registerAction("qrcodescanresult", new GetQRScanCodeResultAction());
+            registerAction("qrissupporzxing", new IsZxingSupportAction());
         }
     }
 }

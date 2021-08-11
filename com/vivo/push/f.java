@@ -8,16 +8,16 @@ import com.vivo.push.cache.ISubscribeAppTagManager;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ArrayList f39388a;
+    public final /* synthetic */ ArrayList f76220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ LocalAliasTagsManager f39389b;
+    public final /* synthetic */ LocalAliasTagsManager f76221b;
 
     public f(LocalAliasTagsManager localAliasTagsManager, ArrayList arrayList) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public final class f implements Runnable {
                 return;
             }
         }
-        this.f39389b = localAliasTagsManager;
-        this.f39388a = arrayList;
+        this.f76221b = localAliasTagsManager;
+        this.f76220a = arrayList;
     }
 
     @Override // java.lang.Runnable
@@ -44,13 +44,13 @@ public final class f implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             HashSet hashSet = new HashSet();
-            Iterator it = this.f39388a.iterator();
+            Iterator it = this.f76220a.iterator();
             while (it.hasNext()) {
                 hashSet.add((String) it.next());
             }
-            iSubscribeAppTagManager = this.f39389b.mSubscribeAppTagManager;
+            iSubscribeAppTagManager = this.f76221b.mSubscribeAppTagManager;
             if (iSubscribeAppTagManager.setTags(hashSet)) {
-                p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.f39388a);
+                p.a().a(LocalAliasTagsManager.DEFAULT_LOCAL_REQUEST_ID, this.f76220a);
             }
         }
     }

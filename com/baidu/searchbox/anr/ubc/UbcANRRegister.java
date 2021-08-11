@@ -1,7 +1,6 @@
 package com.baidu.searchbox.anr.ubc;
 
 import android.content.Context;
-import android.util.Log;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
@@ -27,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UbcANRRegister implements IANRRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static String KEY_ANR_ACTIVE_UPLOAD = "key_anr_active_upload";
@@ -83,7 +82,6 @@ public class UbcANRRegister implements IANRRegister {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aNRInfo) == null) && checkEnable()) {
             AppConfig.isDebug();
-            Log.d("Ruka", "onANR  at UbcANRRegister");
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", aNRInfo.getType());
@@ -116,12 +114,12 @@ public class UbcANRRegister implements IANRRegister {
                 jSONObject.put("launchTime", String.valueOf(Ruka.getProcessLaunchTime()));
                 String stackTrace = aNRInfo.getStackTrace();
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "stack format before: " + stackTrace);
+                    String str = "stack format before: " + stackTrace;
                 }
-                String str = "ANR" + this.separator + this.separator + stackTrace;
-                jSONObject.put("stacktrace", str);
+                String str2 = "ANR" + this.separator + this.separator + stackTrace;
+                jSONObject.put("stacktrace", str2);
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "stack format after: " + str);
+                    String str3 = "stack format after: " + str2;
                 }
                 LinkedList<TrackUI> trackUIs = aNRInfo.getTrackUIs();
                 if (trackUIs != null && trackUIs.size() > 0) {
@@ -151,7 +149,7 @@ public class UbcANRRegister implements IANRRegister {
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("ext", jSONObject);
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, jSONObject3.toString());
+                    jSONObject3.toString();
                 }
                 UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 if (uBCManager != null) {

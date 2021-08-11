@@ -29,27 +29,27 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f10530a;
+    public static final String f45214a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f10531b;
+    public static final String f45215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f10532c;
+    public static final String f45216c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f10533d;
+    public static c f45217d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f10534e;
+    public Context f45218e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,12 +67,12 @@ public final class j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final byte[] f10535a;
+        public static final byte[] f45219a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -88,7 +88,7 @@ public final class j {
                     return;
                 }
             }
-            f10535a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
+            f45219a = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, 47};
         }
 
         public static byte[] a(byte[] bArr) {
@@ -168,16 +168,16 @@ public final class j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f10536a;
+        public String f45220a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f10537b;
+        public String f45221b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -206,8 +206,8 @@ public final class j {
                     String string2 = jSONObject.getString("imei");
                     if (!TextUtils.isEmpty(string) && string2 != null) {
                         c cVar = new c();
-                        cVar.f10536a = string;
-                        cVar.f10537b = string2;
+                        cVar.f45220a = string;
+                        cVar.f45221b = string2;
                         return cVar;
                     }
                     return null;
@@ -228,12 +228,12 @@ public final class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 try {
-                    String str = this.f10537b;
+                    String str = this.f45221b;
                     if (TextUtils.isEmpty(str)) {
                         str = "0";
                     }
                     String stringBuffer = new StringBuffer(str).reverse().toString();
-                    return this.f10536a + "|" + stringBuffer;
+                    return this.f45220a + "|" + stringBuffer;
                 } catch (Throwable unused) {
                     com.baidu.sofire.utility.c.a();
                     return null;
@@ -243,7 +243,7 @@ public final class j {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -288,9 +288,9 @@ public final class j {
                 return;
             }
         }
-        f10530a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
-        f10531b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-        f10532c = f10530a + f10531b;
+        f45214a = new String(b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
+        f45215b = new String(b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
+        f45216c = f45214a + f45215b;
     }
 
     public j(Context context) {
@@ -308,7 +308,7 @@ public final class j {
                 return;
             }
         }
-        this.f10534e = context;
+        this.f45218e = context;
     }
 
     private String a(String str) {
@@ -316,7 +316,7 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
             try {
-                return s.b(this.f10534e) ? Settings.System.getString(this.f10534e.getContentResolver(), str) : "";
+                return s.b(this.f45218e) ? Settings.System.getString(this.f45218e.getContentResolver(), str) : "";
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return null;
@@ -331,10 +331,10 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             synchronized (j.class) {
-                if (f10533d == null) {
-                    f10533d = new j(context).a();
+                if (f45217d == null) {
+                    f45217d = new j(context).a();
                 }
-                cVar = f10533d;
+                cVar = f45217d;
             }
             return cVar;
         }
@@ -352,15 +352,15 @@ public final class j {
                     a3 = c("");
                 }
                 if (TextUtils.isEmpty(a2)) {
-                    String i2 = s.i(this.f10534e);
+                    String i2 = s.i(this.f45218e);
                     a2 = a(d.a((com.baidu.sofire.utility.c.e("q6R8gqLUgHDSsH6dbL27xN7Qr9sa0MxMqXTV66AWUUE=") + a3 + i2).getBytes()));
                 }
                 if (TextUtils.isEmpty(a2)) {
                     return null;
                 }
                 c cVar = new c((byte) 0);
-                cVar.f10536a = a2;
-                cVar.f10537b = a3;
+                cVar.f45220a = a2;
+                cVar.f45221b = a3;
                 return cVar;
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
@@ -378,7 +378,7 @@ public final class j {
                 return null;
             }
             try {
-                return new String(a.a(f10532c, f10532c, b.a(str.getBytes())));
+                return new String(a.a(f45216c, f45216c, b.a(str.getBytes())));
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
                 return "";
@@ -440,13 +440,13 @@ public final class j {
             } catch (Throwable unused) {
                 com.baidu.sofire.utility.c.a();
             }
-            if (s.c(this.f10534e)) {
+            if (s.c(this.f45218e)) {
                 File externalStorageDirectory = Environment.getExternalStorageDirectory();
                 File file = new File(externalStorageDirectory, com.baidu.sofire.utility.c.e("_99uIeWLLYgYWnfdVm4xmTNMy58crLVzIq1_1xd6OaXaqNsyUOaKaQPHeL9hMa2J") + "/" + com.baidu.sofire.utility.c.e("idzo8hWEQF2c4tBTa5WOlQMU8UU8Wq-86X4X9ljayiU="));
                 if (file.exists()) {
                     String a2 = a(file);
                     if (!TextUtils.isEmpty(a2)) {
-                        return c.a(new String(a.a(f10532c, f10532c, b.a(a2.getBytes()))));
+                        return c.a(new String(a.a(f45216c, f45216c, b.a(a2.getBytes()))));
                     }
                 }
                 return null;
@@ -476,7 +476,7 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
             boolean z = Build.VERSION.SDK_INT < 23;
-            if (!(z && TextUtils.isEmpty(str)) && s.c(this.f10534e)) {
+            if (!(z && TextUtils.isEmpty(str)) && s.c(this.f45218e)) {
                 String str2 = "";
                 File externalStorageDirectory = Environment.getExternalStorageDirectory();
                 File file = new File(externalStorageDirectory, com.baidu.sofire.utility.c.e("u_lhldj5Nkwulw6YvIU2wr_ieZRcYQnQZ7zSlbUYnYY=") + "/" + com.baidu.sofire.utility.c.e("u2fjUEpcZJL7IE6RlBqIRmFJW_FjZrNApjdMKDgt7FM="));
@@ -496,7 +496,7 @@ public final class j {
                         sb.append(Part.CRLF);
                     }
                     bufferedReader.close();
-                    String[] split = new String(a.a(f10532c, f10532c, b.a(sb.toString().getBytes()))).split("=");
+                    String[] split = new String(a.a(f45216c, f45216c, b.a(sb.toString().getBytes()))).split("=");
                     if (split != null && split.length == 2) {
                         if (z && str.equals(split[0])) {
                             str2 = split[1];
@@ -514,8 +514,8 @@ public final class j {
                     return null;
                 }
                 c cVar = new c((byte) 0);
-                cVar.f10536a = str2;
-                cVar.f10537b = str;
+                cVar.f45220a = str2;
+                cVar.f45221b = str;
                 return cVar;
             }
             return null;
@@ -534,7 +534,7 @@ public final class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             try {
-                File file = new File(this.f10534e.getFilesDir(), com.baidu.sofire.utility.c.e("K5j7Snuat7HHCaEg62XaRa41Ukv_4vtSH9Z4FqXi1Fs="));
+                File file = new File(this.f45218e.getFilesDir(), com.baidu.sofire.utility.c.e("K5j7Snuat7HHCaEg62XaRa41Ukv_4vtSH9Z4FqXi1Fs="));
                 c a2 = file.exists() ? c.a(d(a(file))) : null;
                 if (a2 != null) {
                     return a2;
@@ -543,7 +543,7 @@ public final class j {
                 if (a3 != null) {
                     return a3;
                 }
-                boolean z = this.f10534e.checkPermission("android.permission.READ_EXTERNAL_STORAGE", Process.myPid(), Process.myUid()) == 0;
+                boolean z = this.f45218e.checkPermission("android.permission.READ_EXTERNAL_STORAGE", Process.myPid(), Process.myUid()) == 0;
                 if (z) {
                     a3 = b();
                 }

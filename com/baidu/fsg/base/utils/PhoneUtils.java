@@ -8,8 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.location.Location;
-import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -22,7 +20,6 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 import android.text.format.Formatter;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.util.devices.IDevices;
@@ -58,37 +55,39 @@ import java.util.Random;
 import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class PhoneUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5423a = "PhoneUtils";
+    public static final String f39367a = "PhoneUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5424b = "_rim_pay.preferences";
+    public static final String f39368b = "_rim_pay.preferences";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5425c = "cuid_1";
+    public static final String f39369c = "cuid_1";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5426d = "cuid_2";
+    public static final String f39370d = "cuid_2";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5427e = "wime";
+    public static final String f39371e = "wime";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f5428f = "identity_code";
+    public static final String f39372f = "identity_code";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f5429g = "phone_number";
+    public static final String f39373g = "phone_number";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5430h = "card_no";
+    public static final String f39374h = "card_no";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f5431i = "valid_date";
-    public static final String j = "cvv2";
+    public static final String f39375i = "valid_date";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f39376j = "cvv2";
     public static final String k = "imei";
     public static final String l = "nettype";
     public static final String m = "wloc";
@@ -96,7 +95,7 @@ public final class PhoneUtils {
     public static ArrayList<String> o;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -108,10 +107,10 @@ public final class PhoneUtils {
         public static final String PROCESSOR_ARM_PREFIX = "armv";
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String f5432a = "processor";
+        public static final String f39377a = "processor";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f5433b = "features";
+        public static final String f39378b = "features";
         public transient /* synthetic */ FieldHolder $fh;
         public String features;
         public String processor;
@@ -176,42 +175,52 @@ public final class PhoneUtils {
         }
     }
 
+    public static String a(byte b2) {
+        InterceptResult invokeB;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b2)) == null) {
+            return ("00" + Integer.toHexString(b2) + ":").substring(str.length() - 3);
+        }
+        return (String) invokeB.objValue;
+    }
+
     public static final String a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String str = (String) SharedPreferencesUtils.getParam(context, f5424b, "imei", "");
-            if (TextUtils.isEmpty(str)) {
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append("BAIDU");
-                long currentTimeMillis = System.currentTimeMillis();
-                String upperCase = Long.toHexString(currentTimeMillis).toUpperCase(Locale.ENGLISH);
-                int length = upperCase.length();
-                Random random = new Random(currentTimeMillis);
-                if (length < 7) {
-                    while (length < 7) {
-                        upperCase = upperCase + ((char) (random.nextInt(10) | 48));
-                        length++;
-                    }
-                    random = null;
-                }
+            String str = (String) SharedPreferencesUtils.getParam(context, f39368b, "imei", "");
+            if (!TextUtils.isEmpty(str)) {
                 if (ApollonConstants.DEBUG) {
-                    Log.d("PhoneUtils", "makeImei :: " + upperCase + " # " + length);
+                    String str2 = "从文件里面获取imei号=" + str;
                 }
-                int length2 = upperCase.length();
-                for (int i2 = length2 - 1; i2 >= length2 - 6; i2--) {
-                    stringBuffer.append(upperCase.charAt(i2));
+                return str;
+            }
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append("BAIDU");
+            long currentTimeMillis = System.currentTimeMillis();
+            String upperCase = Long.toHexString(currentTimeMillis).toUpperCase(Locale.ENGLISH);
+            int length = upperCase.length();
+            Random random = new Random(currentTimeMillis);
+            if (length < 7) {
+                while (length < 7) {
+                    upperCase = upperCase + ((char) (random.nextInt(10) | 48));
+                    length++;
                 }
-                for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
-                    stringBuffer.append((char) (random.nextInt(10) | 48));
-                }
-                SharedPreferencesUtils.setParam(context, f5424b, "imei", stringBuffer.toString());
-                return stringBuffer.toString();
+                random = null;
             }
             if (ApollonConstants.DEBUG) {
-                Log.d("PhoneUtils", "从文件里面获取imei号=" + str);
+                String str3 = "makeImei :: " + upperCase + " # " + length;
             }
-            return str;
+            int length2 = upperCase.length();
+            for (int i2 = length2 - 1; i2 >= length2 - 6; i2--) {
+                stringBuffer.append(upperCase.charAt(i2));
+            }
+            for (int length3 = stringBuffer.length(); length3 < 15; length3++) {
+                stringBuffer.append((char) (random.nextInt(10) | 48));
+            }
+            SharedPreferencesUtils.setParam(context, f39368b, "imei", stringBuffer.toString());
+            return stringBuffer.toString();
         }
         return (String) invokeL.objValue;
     }
@@ -335,7 +344,7 @@ public final class PhoneUtils {
                 BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
                 return defaultAdapter != null ? defaultAdapter.getAddress() : "";
             } catch (Exception e2) {
-                Log.d("PhoneUtils", "exception is " + e2);
+                String str = "exception is " + e2;
                 return "";
             }
         }
@@ -363,20 +372,7 @@ public final class PhoneUtils {
     public static String getGPSLocation(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            try {
-                if (hasPermission(context, "android.permission.ACCESS_FINE_LOCATION")) {
-                    Location lastKnownLocation = ((LocationManager) context.getSystemService("location")).getLastKnownLocation("gps");
-                    LogUtil.d("PhoneUtils", "location: " + lastKnownLocation);
-                    return lastKnownLocation != null ? String.format("%s:%s", Double.valueOf(lastKnownLocation.getLongitude()), Double.valueOf(lastKnownLocation.getLatitude())) : "";
-                }
-                return "";
-            } catch (Exception e2) {
-                LogUtil.d("PhoneUtils", "exception is " + e2);
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) ? "" : (String) invokeL.objValue;
     }
 
     public static final String getImei(Context context) {
@@ -416,7 +412,7 @@ public final class PhoneUtils {
                 }
             } catch (Exception e2) {
                 if (ApollonConstants.DEBUG) {
-                    Log.d("PhoneUtils", "getIpInfo fail!" + e2.toString());
+                    String str2 = "getIpInfo fail!" + e2.toString();
                 }
             }
             return TextUtils.isEmpty(str) ? "" : str;
@@ -463,19 +459,17 @@ public final class PhoneUtils {
             while (true) {
                 try {
                     int read = inputStreamReader.read(cArr);
-                    if (read != -1) {
-                        if (read != 20 || cArr[19] == '\r') {
-                            for (int i2 = 0; i2 < read; i2++) {
-                                if (cArr[i2] != '\r') {
-                                    stringBuffer.append(cArr[i2]);
-                                }
-                            }
-                        }
-                    } else {
+                    if (read == -1) {
                         try {
                             break;
                         } catch (IOException e2) {
                             e2.printStackTrace();
+                        }
+                    } else if (read != 20 || cArr[19] == '\r') {
+                        for (int i2 = 0; i2 < read; i2++) {
+                            if (cArr[i2] != '\r') {
+                                stringBuffer.append(cArr[i2]);
+                            }
                         }
                     }
                 } catch (Exception unused) {
@@ -518,17 +512,17 @@ public final class PhoneUtils {
                 if (applicationInfo != null) {
                     Bundle bundle = applicationInfo.metaData;
                     Object obj = bundle != null ? bundle.get(str) : null;
-                    if (obj == null) {
-                        LogUtil.d("StatSDK", "null,can't find information for key:" + str);
-                        return "";
+                    if (obj != null) {
+                        String obj2 = obj.toString();
+                        obj2.trim().equals("");
+                        return obj2;
                     }
-                    String obj2 = obj.toString();
-                    obj2.trim().equals("");
-                    return obj2;
+                    LogUtil.d("StatSDK", "null,can't find information for key:" + str);
+                    return "";
                 }
                 return "";
             } catch (PackageManager.NameNotFoundException e2) {
-                Log.e("PhoneUtils", "exception is " + e2);
+                String str2 = "exception is " + e2;
                 return "";
             }
         }
@@ -605,14 +599,14 @@ public final class PhoneUtils {
             } catch (SocketException e2) {
                 e2.printStackTrace();
             }
-            if (bArr != null) {
-                for (byte b2 : bArr) {
-                    stringBuffer.append(a(b2));
-                }
-                return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(":", "");
+            if (bArr == null) {
+                String wifiMacAddress = getWifiMacAddress(context);
+                return wifiMacAddress != null ? wifiMacAddress.replaceAll(":", "") : wifiMacAddress;
             }
-            String wifiMacAddress = getWifiMacAddress(context);
-            return wifiMacAddress != null ? wifiMacAddress.replaceAll(":", "") : wifiMacAddress;
+            for (byte b2 : bArr) {
+                stringBuffer.append(a(b2));
+            }
+            return stringBuffer.substring(0, stringBuffer.length() - 1).replaceAll(":", "");
         }
         return (String) invokeL.objValue;
     }
@@ -635,7 +629,11 @@ public final class PhoneUtils {
             try {
                 FileReader fileReader = new FileReader("/proc/cpuinfo");
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
-                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
                     String lowerCase = readLine.trim().toLowerCase(Locale.ENGLISH);
                     if (lowerCase.startsWith("processor") && lowerCase.indexOf(":", 9) != -1) {
                         if (cPUInfo2.processor.length() > 0) {
@@ -679,10 +677,9 @@ public final class PhoneUtils {
             long j2 = 0;
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader("/proc/meminfo"), 8192);
-                String readLine = bufferedReader.readLine();
-                String[] split = readLine.split("\\s+");
+                String[] split = bufferedReader.readLine().split("\\s+");
                 for (String str : split) {
-                    Log.i(readLine, str + TrackUI.SEPERATOR);
+                    String str2 = str + TrackUI.SEPERATOR;
                 }
                 j2 = Long.valueOf(split[1]).longValue() * 1024;
                 bufferedReader.close();
@@ -738,11 +735,11 @@ public final class PhoneUtils {
                             str = String.format("%s_%s", scanResult2.BSSID.replace(":", "").toLowerCase(Locale.ENGLISH), Integer.valueOf(Math.abs(scanResult2.level)));
                         }
                         WifiInfo connectionInfo = wifiManager.getConnectionInfo();
-                        Log.d("PhoneUtils", String.format("[active]%s %s_%s", connectionInfo.getSSID(), connectionInfo.getMacAddress(), Integer.valueOf(Math.abs(connectionInfo.getRssi()))));
+                        String.format("[active]%s %s_%s", connectionInfo.getSSID(), connectionInfo.getMacAddress(), Integer.valueOf(Math.abs(connectionInfo.getRssi())));
                     }
                 }
             } catch (Exception e2) {
-                Log.d("PhoneUtils", "getWifiLocation " + e2);
+                String str2 = "getWifiLocation " + e2;
             }
             return str;
         }
@@ -763,7 +760,7 @@ public final class PhoneUtils {
                 return "";
             } catch (Exception e2) {
                 if (ApollonConstants.DEBUG) {
-                    Log.d("PhoneUtils", e2.toString());
+                    e2.toString();
                     return "";
                 }
                 return "";
@@ -798,36 +795,24 @@ public final class PhoneUtils {
         if (interceptable == null || interceptable.invokeLL(65572, null, context, str) == null) {
             Intent intent = new Intent();
             int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 9) {
-                if (!TextUtils.isEmpty(str)) {
-                    intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
-                    intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, str, null));
-                } else {
-                    intent.setAction("android.settings.MANAGE_APPLICATIONS_SETTINGS");
-                }
-            } else {
+            if (i2 < 9) {
                 String str2 = i2 == 8 ? "pkg" : "com.android.settings.ApplicationPkgName";
                 intent.setAction("android.intent.action.VIEW");
-                if (!TextUtils.isEmpty(str)) {
+                if (TextUtils.isEmpty(str)) {
+                    intent.setClassName("com.android.settings", "com.android.settings.ManageApplications");
+                } else {
                     intent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
                     intent.putExtra(str2, str);
-                } else {
-                    intent.setClassName("com.android.settings", "com.android.settings.ManageApplications");
                 }
+            } else if (TextUtils.isEmpty(str)) {
+                intent.setAction("android.settings.MANAGE_APPLICATIONS_SETTINGS");
+            } else {
+                intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, str, null));
             }
             if (isIntentAvailable(context, intent)) {
                 context.startActivity(intent);
             }
         }
-    }
-
-    public static String a(byte b2) {
-        InterceptResult invokeB;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65538, null, b2)) == null) {
-            return ("00" + Integer.toHexString(b2) + ":").substring(str.length() - 3);
-        }
-        return (String) invokeB.objValue;
     }
 }

@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f31363a;
+    public final String f67303a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final JSONObject f31364b;
+    public final JSONObject f67304b;
 
     public a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
@@ -40,8 +40,8 @@ public class a implements i {
                 return;
             }
         }
-        this.f31363a = str;
-        this.f31364b = jSONObject;
+        this.f67303a = str;
+        this.f67304b = jSONObject;
     }
 
     public static a a(Context context, String str, String str2, String str3, JSONObject jSONObject) {
@@ -82,10 +82,10 @@ public class a implements i {
         return (JSONObject) invokeLLLLL.objValue;
     }
 
-    public static a a(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
+    public static a a(String str, String str2, String str3, long j2, long j3, JSONObject jSONObject) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), jSONObject})) == null) ? new a(UUID.randomUUID().toString(), b(str, str2, str3, j, j2, jSONObject)) : (a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), jSONObject})) == null) ? new a(UUID.randomUUID().toString(), b(str, str2, str3, j2, j3, jSONObject)) : (a) invokeCommon.objValue;
     }
 
     public static a a(String str) {
@@ -113,13 +113,13 @@ public class a implements i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.f31363a) || this.f31364b == null) {
+            if (TextUtils.isEmpty(this.f67303a) || this.f67304b == null) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("localId", this.f31363a);
-                jSONObject.put("event", this.f31364b);
+                jSONObject.put("localId", this.f67303a);
+                jSONObject.put("event", this.f67304b);
             } catch (Throwable unused) {
             }
             return jSONObject.toString();
@@ -127,19 +127,19 @@ public class a implements i {
         return (String) invokeV.objValue;
     }
 
-    public static JSONObject b(String str, String str2, String str3, long j, long j2, JSONObject jSONObject) {
+    public static JSONObject b(String str, String str2, String str3, long j2, long j3, JSONObject jSONObject) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), jSONObject})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), jSONObject})) == null) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("event_ts", System.currentTimeMillis());
                 jSONObject2.putOpt("tag", str2);
                 jSONObject2.putOpt(NotificationCompatJellybean.KEY_LABEL, str3);
                 jSONObject2.putOpt("category", str);
-                jSONObject2.putOpt("value", Long.valueOf(j));
+                jSONObject2.putOpt("value", Long.valueOf(j2));
                 jSONObject2.putOpt("is_ad_event", "1");
-                jSONObject2.putOpt("ext_value", Long.valueOf(j2));
+                jSONObject2.putOpt("ext_value", Long.valueOf(j3));
                 jSONObject2.putOpt("tob_ab_sdk_version", com.bytedance.sdk.openadsdk.core.h.d().w());
                 if (jSONObject != null) {
                     Iterator<String> keys = jSONObject.keys();
@@ -159,6 +159,6 @@ public class a implements i {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31363a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f67303a : (String) invokeV.objValue;
     }
 }

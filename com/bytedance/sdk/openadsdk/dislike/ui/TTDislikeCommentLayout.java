@@ -21,28 +21,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.t;
 import com.bytedance.sdk.openadsdk.FilterWord;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TTDislikeCommentLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f31220a;
+    public ImageView f67158a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EditText f31221b;
+    public EditText f67159b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f31222c;
+    public TextView f67160c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f31223d;
+    public TextView f67161d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.c.b f31224e;
+    public com.bytedance.sdk.openadsdk.dislike.c.b f67162e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.dislike.b.a f31225f;
+    public com.bytedance.sdk.openadsdk.dislike.b.a f67163f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TTDislikeCommentLayout(Context context) {
@@ -108,7 +108,7 @@ public class TTDislikeCommentLayout extends LinearLayout {
     public void setDislikeModel(com.bytedance.sdk.openadsdk.dislike.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f31224e = bVar;
+            this.f67162e = bVar;
         }
     }
 
@@ -137,16 +137,16 @@ public class TTDislikeCommentLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             EditText editText = (EditText) findViewById(t.e(getContext(), "tt_comment_content"));
-            this.f31221b = editText;
+            this.f67159b = editText;
             setEditTextInputSpace(editText);
             TextView textView = (TextView) findViewById(t.e(getContext(), "tt_comment_commit"));
-            this.f31222c = textView;
+            this.f67160c = textView;
             textView.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeCommentLayout.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTDislikeCommentLayout f31226a;
+                public final /* synthetic */ TTDislikeCommentLayout f67164a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -163,22 +163,22 @@ public class TTDislikeCommentLayout extends LinearLayout {
                             return;
                         }
                     }
-                    this.f31226a = this;
+                    this.f67164a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        String obj = this.f31226a.f31221b.getText().toString();
+                        String obj = this.f67164a.f67159b.getText().toString();
                         if (obj.length() <= 0 || obj.isEmpty()) {
                             return;
                         }
                         FilterWord filterWord = new FilterWord("0:00", obj);
-                        com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f31226a.f31224e, filterWord);
-                        if (this.f31226a.f31225f != null) {
+                        com.bytedance.sdk.openadsdk.dislike.a.a.a().a(this.f67164a.f67162e, filterWord);
+                        if (this.f67164a.f67163f != null) {
                             try {
-                                this.f31226a.f31225f.a(0, filterWord);
+                                this.f67164a.f67163f.a(0, filterWord);
                             } catch (Throwable unused) {
                             }
                         }
@@ -186,13 +186,13 @@ public class TTDislikeCommentLayout extends LinearLayout {
                 }
             });
             ImageView imageView = (ImageView) findViewById(t.e(getContext(), "tt_comment_close"));
-            this.f31220a = imageView;
+            this.f67158a = imageView;
             imageView.setOnClickListener(new View.OnClickListener(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeCommentLayout.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTDislikeCommentLayout f31227a;
+                public final /* synthetic */ TTDislikeCommentLayout f67165a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -209,24 +209,24 @@ public class TTDislikeCommentLayout extends LinearLayout {
                             return;
                         }
                     }
-                    this.f31227a = this;
+                    this.f67165a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f31227a.f31225f.a();
+                        this.f67165a.f67163f.a();
                     }
                 }
             });
-            this.f31223d = (TextView) findViewById(t.e(getContext(), "tt_comment_number"));
-            this.f31221b.addTextChangedListener(new TextWatcher(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeCommentLayout.3
+            this.f67161d = (TextView) findViewById(t.e(getContext(), "tt_comment_number"));
+            this.f67159b.addTextChangedListener(new TextWatcher(this) { // from class: com.bytedance.sdk.openadsdk.dislike.ui.TTDislikeCommentLayout.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTDislikeCommentLayout f31228a;
+                public final /* synthetic */ TTDislikeCommentLayout f67166a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -243,7 +243,7 @@ public class TTDislikeCommentLayout extends LinearLayout {
                             return;
                         }
                     }
-                    this.f31228a = this;
+                    this.f67166a = this;
                 }
 
                 @Override // android.text.TextWatcher
@@ -265,14 +265,14 @@ public class TTDislikeCommentLayout extends LinearLayout {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
                         int round = Math.round(charSequence.length());
-                        this.f31228a.f31223d.setText(round + "");
+                        this.f67166a.f67161d.setText(round + "");
                         if (round > 0) {
-                            this.f31228a.f31222c.setTextColor(-16777216);
-                            this.f31228a.f31222c.setClickable(true);
+                            this.f67166a.f67160c.setTextColor(-16777216);
+                            this.f67166a.f67160c.setClickable(true);
                             return;
                         }
-                        this.f31228a.f31222c.setTextColor(-7829368);
-                        this.f31228a.f31222c.setClickable(false);
+                        this.f67166a.f67160c.setTextColor(-7829368);
+                        this.f67166a.f67160c.setClickable(false);
                     }
                 }
             });
@@ -282,8 +282,8 @@ public class TTDislikeCommentLayout extends LinearLayout {
     public void a(com.bytedance.sdk.openadsdk.dislike.c.b bVar, com.bytedance.sdk.openadsdk.dislike.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, aVar) == null) {
-            this.f31224e = bVar;
-            this.f31225f = aVar;
+            this.f67162e = bVar;
+            this.f67163f = aVar;
             d();
         }
     }
@@ -291,7 +291,7 @@ public class TTDislikeCommentLayout extends LinearLayout {
     public void b() {
         InputMethodManager inputMethodManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (inputMethodManager = (InputMethodManager) this.f31221b.getContext().getSystemService("input_method")) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (inputMethodManager = (InputMethodManager) this.f67159b.getContext().getSystemService("input_method")) == null) {
             return;
         }
         inputMethodManager.hideSoftInputFromWindow(getWindowToken(), 0);
@@ -300,7 +300,7 @@ public class TTDislikeCommentLayout extends LinearLayout {
     public void c() {
         EditText editText;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (editText = this.f31221b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (editText = this.f67159b) == null) {
             return;
         }
         editText.setText((CharSequence) null);
@@ -330,11 +330,11 @@ public class TTDislikeCommentLayout extends LinearLayout {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            InputMethodManager inputMethodManager = (InputMethodManager) this.f31221b.getContext().getSystemService("input_method");
+            InputMethodManager inputMethodManager = (InputMethodManager) this.f67159b.getContext().getSystemService("input_method");
             if (inputMethodManager != null) {
                 inputMethodManager.hideSoftInputFromWindow(getWindowToken(), 0);
             }
-            this.f31221b.clearFocus();
+            this.f67159b.clearFocus();
         }
     }
 }

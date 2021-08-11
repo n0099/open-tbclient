@@ -5,7 +5,6 @@ import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.Base64Utils;
 import com.baidu.apollon.utils.BussinessUtils;
 import com.baidu.apollon.utils.PhoneUtils;
@@ -17,33 +16,30 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletLoginHelper;
-import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
-import com.baidu.wallet.core.Domains;
 import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.lightapp.base.statistics.LightAppStatEvent;
-import java.util.Arrays;
-/* loaded from: classes5.dex */
+import com.dxmpay.wallet.core.Domains;
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f25506a;
+    public int f61362a;
 
     /* renamed from: com.baidu.wallet.lightapp.base.a$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.baidu.wallet.lightapp.base.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0269a {
+    /* loaded from: classes8.dex */
+    public static class C1832a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f25507a;
+        public static a f61363a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -59,7 +55,7 @@ public class a {
                     return;
                 }
             }
-            f25507a = new a(null);
+            f61363a = new a(null);
         }
     }
 
@@ -70,7 +66,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C0269a.f25507a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C1832a.f61363a : (a) invokeV.objValue;
     }
 
     public a() {
@@ -86,7 +82,7 @@ public class a {
                 return;
             }
         }
-        this.f25506a = -1;
+        this.f61362a = -1;
     }
 
     public void a(Context context) {
@@ -100,10 +96,10 @@ public class a {
                 sb.append("STDCJUVF=");
                 sb.append(Base64Utils.encodeToString(("{\"ua\":\"" + BussinessUtils.getUA(context) + "\",\"cu\":\"" + PhoneUtils.getCUID(context) + "\",\"cu2\":\"" + PhoneUtils.getCUID2(context) + "\"}").getBytes()));
                 String sb2 = sb.toString();
-                String[] strArr = {Domains.BAIDU, Domains.BAIFUBAO, Domains.DU_XIAO_MAN, Domains.DU_XIAO_MAN_PAY, "duxiaoman-int.com"};
-                for (int i2 = 0; i2 < 5; i2++) {
+                String[] strArr = {Domains.BAIDU, Domains.BAIFUBAO, Domains.DU_XIAO_MAN, Domains.DU_XIAO_MAN_PAY, Domains.DU_XIAO_MAN_INT, ".dxmbaoxian.com", Domains.DU_XIAO_MAN_FUND, Domains.BAI_YING_FUND};
+                for (int i2 = 0; i2 < 8; i2++) {
                     String str = strArr[i2];
-                    cookieManager.setCookie(str, sb2 + ";path=/;domain=" + str + ";secure;httponly");
+                    cookieManager.setCookie("https://www" + str, sb2 + ";path=/;domain=" + str + ";secure;httponly");
                 }
                 String str2 = "" + System.currentTimeMillis();
                 String str3 = SafePay.getInstance().getpwProxy();
@@ -130,15 +126,13 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, context, str, i2)) == null) {
             int bdussState = WalletLoginHelper.getInstance().getBdussState();
-            if (i2 != bdussState && (bdussState == 0 || bdussState == 3 || bdussState == 4)) {
-                WalletLoginHelper.getInstance().getOpenBduss(false, null);
+            if (i2 != -1 && i2 != bdussState && (bdussState == 0 || bdussState == 3 || bdussState == 4)) {
+                WalletLoginHelper.getInstance().getOpenBduss(false, null, 4);
             }
-            DXMSdkSAUtils.onEventWithValues(LightAppStatEvent.SYNC_WEB_LOGIN_STATUS_TO_NATIVE, Arrays.asList(str));
-            PayStatisticsUtil.onEventWithValue(LightAppStatEvent.SYNC_WEB_LOGIN_STATUS_TO_NATIVE, str);
             if (WalletLoginHelper.getInstance().getSyncLoginListener() == null) {
                 return bdussState;
             }
-            WalletLoginHelper.getInstance().syncH5LoginStatus(context);
+            WalletLoginHelper.getInstance().syncH5LoginStatus(context, str);
             return bdussState;
         }
         return invokeLLI.intValue;

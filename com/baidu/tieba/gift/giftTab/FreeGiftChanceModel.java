@@ -1,5 +1,6 @@
 package com.baidu.tieba.gift.giftTab;
 
+import c.a.e.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,28 +11,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f16397e;
+    public int f51615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f16398f;
+    public b f51616f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.d.c.g.a f16399g;
+    public c.a.e.c.g.a f51617g;
 
-    /* loaded from: classes4.dex */
-    public class a extends d.a.d.c.g.a {
+    /* loaded from: classes7.dex */
+    public class a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FreeGiftChanceModel f16400a;
+        public final /* synthetic */ FreeGiftChanceModel f51618a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FreeGiftChanceModel freeGiftChanceModel, int i2, int i3) {
@@ -52,10 +52,10 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                     return;
                 }
             }
-            this.f16400a = freeGiftChanceModel;
+            this.f51618a = freeGiftChanceModel;
         }
 
-        @Override // d.a.d.c.g.a
+        @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
@@ -64,18 +64,18 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
             boolean z = responsedMessage instanceof FreeGiftChanceHttpResponseMessage;
             if (z || (responsedMessage instanceof FreeGiftChanceSocketResponseMessage)) {
                 if (z) {
-                    this.f16400a.f16397e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
+                    this.f51618a.f51615e = ((FreeGiftChanceHttpResponseMessage) responsedMessage).getFreeChance();
                 } else if (responsedMessage instanceof FreeGiftChanceSocketResponseMessage) {
-                    this.f16400a.f16397e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
+                    this.f51618a.f51615e = ((FreeGiftChanceSocketResponseMessage) responsedMessage).getFreeChance();
                 }
-                if (this.f16400a.f16398f != null) {
-                    this.f16400a.f16398f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f16400a.f16397e);
+                if (this.f51618a.f51616f != null) {
+                    this.f51618a.f51616f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.f51618a.f51615e);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(int i2, String str, int i3);
     }
@@ -98,7 +98,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
         }
-        this.f16399g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
+        this.f51617g = new a(this, CmdConfigHttp.CMD_USER_FREE_CHANCE, 309060);
         registerListener();
         registerTask();
     }
@@ -106,7 +106,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public void A(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f16398f = bVar;
+            this.f51616f = bVar;
         }
     }
 
@@ -133,15 +133,15 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            registerListener(this.f16399g);
+            registerListener(this.f51617g);
         }
     }
 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d.a.q0.h3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            d.a.q0.h3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            c.a.p0.i3.d0.a.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            c.a.p0.i3.d0.a.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 

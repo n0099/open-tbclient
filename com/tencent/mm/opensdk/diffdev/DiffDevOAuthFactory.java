@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.diffdev.a.a;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DiffDevOAuthFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SUPPORTED_VERSION = 1;
@@ -57,9 +57,9 @@ public class DiffDevOAuthFactory {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            Log.v(TAG, "getDiffDevOAuth, version = " + i2);
+            Log.v(TAG, "getDiffDevOAuth, version = ".concat(String.valueOf(i2)));
             if (i2 > 1) {
-                Log.e(TAG, "getDiffDevOAuth fail, unsupported version = " + i2);
+                Log.e(TAG, "getDiffDevOAuth fail, unsupported version = ".concat(String.valueOf(i2)));
                 return null;
             } else if (i2 != 1) {
                 return null;

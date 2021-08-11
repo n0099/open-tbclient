@@ -2,6 +2,8 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.os.Bundle;
 import android.util.LongSparseArray;
+import c.a.o0.h0.i;
+import c.a.p0.j1.f.j.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -16,10 +18,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h0.i;
-import d.a.q0.i1.f.j.g;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,13 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     public g.d onDataLoadListener;
     public byte source;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends i<TopToastEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f17493c;
+        /* renamed from: g  reason: collision with root package name */
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f52709g;
 
         public a(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -53,18 +53,18 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f17493c = singleForumBroadcastFeedActivity;
+            this.f52709g = singleForumBroadcastFeedActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.h0.b
+        @Override // c.a.o0.h0.b
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
-                if (this.f17493c.feedView != null) {
-                    this.f17493c.feedView.o(topToastEvent.isSuccess(), topToastEvent.getContent());
+                if (this.f52709g.feedView != null) {
+                    this.f52709g.feedView.m(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -73,13 +73,13 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements g.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f17494a;
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f52710a;
 
         public b(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -96,22 +96,22 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f17494a = singleForumBroadcastFeedActivity;
+            this.f52710a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // d.a.q0.i1.f.j.g.d
-        public void a(List<d.a.q0.i1.l.c.b> list) {
+        @Override // c.a.p0.j1.f.j.g.d
+        public void a(List<c.a.p0.j1.l.c.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.f17494a.feedView.l(list, null);
+                this.f52710a.feedView.j(list, null);
             }
         }
 
-        @Override // d.a.q0.i1.f.j.g.d
-        public void onReadCountLoad(LongSparseArray<d.a.q0.i1.i.a.b.b> longSparseArray) {
+        @Override // c.a.p0.j1.f.j.g.d
+        public void onReadCountLoad(LongSparseArray<c.a.p0.j1.i.a.b.b> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
-                this.f17494a.feedView.m(longSparseArray);
+                this.f52710a.feedView.k(longSparseArray);
             }
         }
     }
@@ -155,7 +155,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                 this.forumId = getIntent().getStringExtra("key_uid");
                 this.source = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
                 this.model.f(this.forumId);
-                this.feedView.p(this.forumId, System.currentTimeMillis());
+                this.feedView.n(this.forumId, System.currentTimeMillis());
             }
             registerResponsedEventListener(TopToastEvent.class, this.mTopToastEventListener);
         }

@@ -1,7 +1,6 @@
 package com.baidu.android.util.io;
 
 import android.database.Cursor;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class Closeables {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Closeables";
@@ -37,11 +36,9 @@ public final class Closeables {
         try {
             closeable.close();
         } catch (IOException e2) {
-            if (z) {
-                Log.d(TAG, "IOException thrown while closing Closeable.", e2);
-                return;
+            if (!z) {
+                throw e2;
             }
-            throw e2;
         }
     }
 

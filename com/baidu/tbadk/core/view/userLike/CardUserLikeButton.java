@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.view.userLike;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -11,8 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CardUserLikeButton extends EntelechyUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,39 +37,20 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, d.a.p0.s.f0.t.b
-    public void e(boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            this.f12807g = z;
-            setVisibility(0);
-            if (z) {
-                setClickable(false);
-                setText(this.f12805e);
-                setPadding(0, 0, 0, 0);
-            } else {
-                setClickable(true);
-                setText(this.f12806f);
-                setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds8), 0);
-            }
-            g(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void f() {
+    public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.f();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.init();
             setTextSize(0, l.g(getContext(), R.dimen.fontsize26));
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void g(int i2) {
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f12807g) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (this.mCurrentIsLike) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0110, 1, i2);
                 setBackgroundDrawable(null);
@@ -78,6 +59,25 @@ public class CardUserLikeButton extends EntelechyUserLikeButton {
             setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(i2, R.drawable.pb_user_like_add_icon), (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, R.color.pb_like_user_select_color, 1, i2);
             SkinManager.setBackgroundResource(this, R.drawable.btn_focus_border_bg, i2);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton, com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.o0.s.f0.t.b
+    public void updateLikeStatus(boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            this.mCurrentIsLike = z;
+            setVisibility(0);
+            if (z) {
+                setClickable(false);
+                setText(this.mStrAlreadyFollowed);
+                setPadding(0, 0, 0, 0);
+            } else {
+                setClickable(true);
+                setText(this.mStrFollow);
+                setPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds8), 0);
+            }
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 

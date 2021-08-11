@@ -2,23 +2,23 @@ package com.baidu.wallet.paysdk.datamodel;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.beans.IBeanResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.NoProguard;
+import com.dxmpay.apollon.beans.IBeanResponse;
+import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class WalletInterfaceResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public JSONObject login_data;
     public JSONObject unlogin_data;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class WalletModuleData implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String NO_ANIM = "0";
@@ -67,7 +67,7 @@ public class WalletInterfaceResponse implements IBeanResponse {
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,7 +77,7 @@ public class WalletInterfaceResponse implements IBeanResponse {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {

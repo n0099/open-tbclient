@@ -72,7 +72,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
 @KsAdSdkDynamicImpl(IKsAdSDK.class)
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class KsAdSDKImpl implements IKsAdSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "KsAdSDKImpl";
@@ -107,12 +107,12 @@ public class KsAdSDKImpl implements IKsAdSDK {
     public AdLocationProxy mLocationProxy;
     public volatile boolean personalRecommend;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static KsAdSDKImpl f33857a;
+        public static KsAdSDKImpl f70579a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -128,7 +128,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
                     return;
                 }
             }
-            f33857a = new KsAdSDKImpl();
+            f70579a = new KsAdSDKImpl();
         }
     }
 
@@ -197,7 +197,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     public static KsAdSDKImpl get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f33857a : (KsAdSDKImpl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? a.f70579a : (KsAdSDKImpl) invokeV.objValue;
     }
 
     public static Class<?> getProxyRealClass(Class cls) {
@@ -454,7 +454,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     public int getSDKType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? d.f35582a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? d.f72343a : invokeV.intValue;
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
@@ -515,13 +515,13 @@ public class KsAdSDKImpl implements IKsAdSDK {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ SdkConfig f33854a;
+            public final /* synthetic */ SdkConfig f70576a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ KsAdSDKImpl f33855b;
+            public final /* synthetic */ KsAdSDKImpl f70577b;
 
             /* renamed from: c  reason: collision with root package name */
-            public AtomicBoolean f33856c;
+            public AtomicBoolean f70578c;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -538,9 +538,9 @@ public class KsAdSDKImpl implements IKsAdSDK {
                         return;
                     }
                 }
-                this.f33855b = this;
-                this.f33854a = sdkConfig;
-                this.f33856c = new AtomicBoolean(false);
+                this.f70577b = this;
+                this.f70576a = sdkConfig;
+                this.f70578c = new AtomicBoolean(false);
             }
 
             @Override // com.kwad.sdk.core.g.c.a
@@ -549,23 +549,23 @@ public class KsAdSDKImpl implements IKsAdSDK {
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     com.kwad.sdk.core.d.a.a("cf read");
                     com.kwad.sdk.core.d.a.c(KsAdSDKImpl.TAG, "onCacheLoaded()");
-                    if (com.kwad.sdk.core.config.c.k() && !this.f33856c.get()) {
-                        com.kwad.sdk.core.video.a.e.a(this.f33855b.mAppContext);
-                        this.f33856c.set(true);
+                    if (com.kwad.sdk.core.config.c.k() && !this.f70578c.get()) {
+                        com.kwad.sdk.core.video.a.e.a(this.f70577b.mAppContext);
+                        this.f70578c.set(true);
                     }
                     com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) f.a(com.kwad.sdk.plugin.b.class);
                     if (bVar != null) {
-                        bVar.a(this.f33855b.mAppContext);
+                        bVar.a(this.f70577b.mAppContext);
                     }
-                    com.kwad.sdk.core.a.a.a(this.f33855b.mAppContext, this.f33854a);
+                    com.kwad.sdk.core.a.a.a(this.f70577b.mAppContext, this.f70576a);
                     try {
-                        if (com.kwad.sdk.core.config.c.s() || b.f34059b.booleanValue()) {
-                            DynamicInstallReceiver.registerToApp(this.f33855b.mAppContext);
+                        if (com.kwad.sdk.core.config.c.s() || b.f70787b.booleanValue()) {
+                            DynamicInstallReceiver.registerToApp(this.f70577b.mAppContext);
                         }
                     } catch (Throwable unused) {
                     }
-                    this.f33855b.initSpeedLimitConfig();
-                    com.kwad.sdk.collector.i.a(this.f33855b.mAppContext);
+                    this.f70577b.initSpeedLimitConfig();
+                    com.kwad.sdk.collector.i.a(this.f70577b.mAppContext);
                 }
             }
 
@@ -575,16 +575,16 @@ public class KsAdSDKImpl implements IKsAdSDK {
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sdkConfigData) == null) {
                     com.kwad.sdk.core.d.a.a("cf load");
                     com.kwad.sdk.core.d.a.c(KsAdSDKImpl.TAG, "onConfigRefresh()");
-                    if (com.kwad.sdk.core.config.c.k() && !this.f33856c.get()) {
-                        com.kwad.sdk.core.video.a.e.a(this.f33855b.mAppContext);
-                        this.f33856c.set(true);
+                    if (com.kwad.sdk.core.config.c.k() && !this.f70578c.get()) {
+                        com.kwad.sdk.core.video.a.e.a(this.f70577b.mAppContext);
+                        this.f70578c.set(true);
                     }
                     com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) f.a(com.kwad.sdk.plugin.b.class);
                     if (bVar != null) {
                         bVar.a(sdkConfigData);
                     }
-                    this.f33855b.initSpeedLimitConfig();
-                    com.kwad.sdk.collector.i.a(this.f33855b.mAppContext);
+                    this.f70577b.initSpeedLimitConfig();
+                    com.kwad.sdk.collector.i.a(this.f70577b.mAppContext);
                 }
             }
         });
@@ -649,17 +649,17 @@ public class KsAdSDKImpl implements IKsAdSDK {
     public void reportBatchEvent(int i2, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048602, this, i2, map) == null) {
-            long j = 0;
+            long j2 = 0;
             if (map != null) {
                 try {
                     if (map.containsKey(ReportAction.KEY_DOWNLOAD_DURATION)) {
-                        j = ((Long) map.get(ReportAction.KEY_DOWNLOAD_DURATION)).longValue();
+                        j2 = ((Long) map.get(ReportAction.KEY_DOWNLOAD_DURATION)).longValue();
                     }
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                 }
             }
-            com.kwad.sdk.core.report.d.a(i2, j);
+            com.kwad.sdk.core.report.d.a(i2, j2);
         }
     }
 

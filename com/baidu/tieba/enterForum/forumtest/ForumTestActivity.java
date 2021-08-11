@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.webkit.JsPromptResult;
 import android.webkit.WebView;
 import android.widget.RelativeLayout;
+import c.a.e.e.p.l;
+import c.a.o0.b1.q;
+import c.a.o0.s.s.f;
+import c.a.o0.s.s.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -23,6 +27,7 @@ import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumTestActivityConfig;
 import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.dialog.PopupDialog;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
@@ -36,38 +41,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.p0.b1.q;
-import d.a.p0.s.s.h;
-import d.a.p0.s.s.j;
-import d.a.p0.s.s.l;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
-public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
+/* loaded from: classes7.dex */
+public class ForumTestActivity extends BaseActivity implements c.a.p0.m0.e.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l.d mDialogSaveToDiskListener;
-    public j mMoreDialog;
-    public List<h> mMoreDialogDataList;
-    public l mMoreDialogView;
+    public i.d mDialogSaveToDiskListener;
+    public PopupDialog mMoreDialog;
+    public List<f> mMoreDialogDataList;
+    public i mMoreDialogView;
     public NoNetworkView mNoNetworkView;
     public PermissionJudgePolicy mPermissionJudgement;
-    public h mSaveToDickItem;
+    public f mSaveToDickItem;
     public View mStatusBarView;
     public long mTestId;
     public String mUrl;
     public ForumTestWebView mWebView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f14701e;
+        public final /* synthetic */ ForumTestActivity f49878e;
 
         public a(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -84,27 +84,27 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
                     return;
                 }
             }
-            this.f14701e = forumTestActivity;
+            this.f49878e = forumTestActivity;
         }
 
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f14701e.handleLongClick() : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) ? this.f49878e.handleLongClick() : invokeL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f14702e;
+        public final /* synthetic */ ShareItem f49879e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f14703f;
+        public final /* synthetic */ ForumTestActivity f49880f;
 
         public b(ForumTestActivity forumTestActivity, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -121,27 +121,27 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
                     return;
                 }
             }
-            this.f14703f = forumTestActivity;
-            this.f14702e = shareItem;
+            this.f49880f = forumTestActivity;
+            this.f49879e = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                d.a.d.e.p.a.a(this.f14702e.t);
-                d.a.d.e.p.l.M(this.f14703f, view.getResources().getString(R.string.copy_pb_url_success));
+                c.a.e.e.p.a.a(this.f49879e.t);
+                l.M(this.f49880f, view.getResources().getString(R.string.copy_pb_url_success));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements l.c {
+    /* loaded from: classes7.dex */
+    public class c implements i.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f14704a;
+        public final /* synthetic */ ForumTestActivity f49881a;
 
         public c(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -158,25 +158,25 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
                     return;
                 }
             }
-            this.f14704a = forumTestActivity;
+            this.f49881a = forumTestActivity;
         }
 
-        @Override // d.a.p0.s.s.l.c
+        @Override // c.a.o0.s.s.i.c
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f14704a.hideMoreDialog();
+                this.f49881a.hideMoreDialog();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements l.d {
+    /* loaded from: classes7.dex */
+    public class d implements i.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f14705a;
+        public final /* synthetic */ ForumTestActivity f49882a;
 
         public d(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -193,27 +193,27 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
                     return;
                 }
             }
-            this.f14705a = forumTestActivity;
+            this.f49882a = forumTestActivity;
         }
 
-        @Override // d.a.p0.s.s.l.d
+        @Override // c.a.o0.s.s.i.d
         public void onClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ForumTestActivity forumTestActivity = this.f14705a;
+                ForumTestActivity forumTestActivity = this.f49882a;
                 forumTestActivity.saveImage(forumTestActivity.mWebView.getHitTestResult().getExtra());
-                this.f14705a.hideMoreDialog();
+                this.f49882a.hideMoreDialog();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class e extends q.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ForumTestActivity f14706a;
+        public final /* synthetic */ ForumTestActivity f49883a;
 
         public e(ForumTestActivity forumTestActivity) {
             Interceptable interceptable = $ic;
@@ -230,22 +230,22 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
                     return;
                 }
             }
-            this.f14706a = forumTestActivity;
+            this.f49883a = forumTestActivity;
         }
 
-        @Override // d.a.p0.b1.q.a
+        @Override // c.a.o0.b1.q.a
         public void onError(int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
-                d.a.d.e.p.l.L(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
+                l.L(TbadkCoreApplication.getInst(), R.string.tb_webview_download_image_success_tip);
             }
         }
 
-        @Override // d.a.p0.b1.q.a
+        @Override // c.a.o0.b1.q.a
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                d.a.d.e.p.l.L(TbadkCoreApplication.getInst(), R.string.save_success);
+                l.L(TbadkCoreApplication.getInst(), R.string.save_success);
             }
         }
     }
@@ -286,9 +286,9 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hideMoreDialog() {
-        j jVar;
+        PopupDialog popupDialog;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && (jVar = this.mMoreDialog) != null && jVar.isShowing()) {
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && (popupDialog = this.mMoreDialog) != null && popupDialog.isShowing()) {
             this.mMoreDialog.dismiss();
         }
     }
@@ -307,12 +307,12 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             if (this.mMoreDialog == null) {
-                this.mMoreDialogView = new l(this);
+                this.mMoreDialogView = new i(this);
             }
             if (this.mMoreDialogDataList == null) {
                 this.mMoreDialogDataList = new ArrayList();
             }
-            this.mMoreDialog = new j(getPageContext(), this.mMoreDialogView);
+            this.mMoreDialog = new PopupDialog(getPageContext(), this.mMoreDialogView);
         }
     }
 
@@ -339,7 +339,7 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
                 this.mPermissionJudgement = new PermissionJudgePolicy();
             }
             this.mPermissionJudgement.clearRequestPermissionList();
-            this.mPermissionJudgement.appendRequestPermission(pageActivity, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            this.mPermissionJudgement.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
             if (this.mPermissionJudgement.startRequestPermission(pageActivity)) {
                 return;
             }
@@ -353,9 +353,9 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             this.mMoreDialogDataList.clear();
-            h hVar = new h(getString(R.string.save_this_image), this.mMoreDialogView);
-            this.mSaveToDickItem = hVar;
-            hVar.m(this.mDialogSaveToDiskListener);
+            f fVar = new f(getString(R.string.save_this_image), this.mMoreDialogView);
+            this.mSaveToDickItem = fVar;
+            fVar.l(this.mDialogSaveToDiskListener);
             this.mMoreDialogDataList.add(this.mSaveToDickItem);
             this.mMoreDialogView.m(new c(this));
             this.mMoreDialogView.k(this.mMoreDialogDataList);
@@ -367,10 +367,10 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
         if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || this.mMoreDialog == null || isFinishing()) {
             return;
         }
-        this.mMoreDialog.l();
+        this.mMoreDialog.showDialog();
     }
 
-    @Override // d.a.q0.l0.e.a.b
+    @Override // c.a.p0.m0.e.a.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -443,7 +443,7 @@ public class ForumTestActivity extends BaseActivity implements d.a.q0.l0.e.a.b {
             this.mStatusBarView = findViewById(R.id.status_bar_view);
             ForumTestWebView forumTestWebView = (ForumTestWebView) findViewById(R.id.activity_forum_test_web);
             this.mWebView = forumTestWebView;
-            forumTestWebView.g(this);
+            forumTestWebView.init(this);
             initStatusBar();
             initData();
             this.mWebView.loadUrl(this.mUrl);

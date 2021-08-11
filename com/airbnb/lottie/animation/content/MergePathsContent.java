@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 @TargetApi(19)
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MergePathsContent implements PathContent, GreedyContent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class MergePathsContent implements PathContent, GreedyContent {
     public final Path remainderPath;
 
     /* renamed from: com.airbnb.lottie.animation.content.MergePathsContent$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$MergePaths$MergePathsMode;
         public static /* synthetic */ Interceptable $ic;

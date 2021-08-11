@@ -9,34 +9,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBasePvFrameLayout;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b extends com.kwad.sdk.core.e.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    public KsNativeAd.AdInteractionListener f34083a;
+    public KsNativeAd.AdInteractionListener f70811a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public KsNativeAd.VideoPlayListener f34084b;
+    public KsNativeAd.VideoPlayListener f70812b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdBasePvFrameLayout f34085c;
+    public AdBasePvFrameLayout f70813c;
     @NonNull
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f34086d;
+    public AdTemplate f70814d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f34087e;
+    public com.kwad.sdk.core.download.b.b f70815e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.b.c.a f34088f;
+    public com.kwad.sdk.b.c.a f70816f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -56,11 +56,11 @@ public class b extends com.kwad.sdk.core.e.b {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.kwad.sdk.core.download.b.b bVar = this.f34087e;
+            com.kwad.sdk.core.download.b.b bVar = this.f70815e;
             if (bVar != null) {
                 bVar.f();
             }
-            this.f34088f.e();
+            this.f70816f.e();
         }
     }
 }

@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pay.BindBack;
 import com.baidu.android.pay.PayCallBack;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,31 +17,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.BaiduWalletServiceController;
-import com.baidu.wallet.BaiduWalletServiceProviderMap;
+import com.baidu.wallet.api.IWalletCreditFacade;
 import com.baidu.wallet.core.utils.ReflectUtils;
 import com.baidu.wallet.rnauth.RNAuthCallBack;
 import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterProvider;
 import java.lang.reflect.Proxy;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class BaiduWallet implements IWalletFacade {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.api.BaiduWallet$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final IWalletFacade f24025a;
+        public static final IWalletFacade f59760a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -56,7 +57,7 @@ public final class BaiduWallet implements IWalletFacade {
                     return;
                 }
             }
-            f24025a = (IWalletFacade) Proxy.newProxyInstance(BaiduWallet.class.getClassLoader(), new Class[]{IWalletFacade.class}, new WalletFacadeAOP(new BaiduWallet(null)));
+            f59760a = (IWalletFacade) Proxy.newProxyInstance(BaiduWallet.class.getClassLoader(), new Class[]{IWalletFacade.class}, new WalletFacadeAOP(new BaiduWallet(null)));
         }
     }
 
@@ -67,35 +68,38 @@ public final class BaiduWallet implements IWalletFacade {
     private void a(Application application) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, application) == null) {
-            DxmPay.getInstance().initWallet(application);
             Object providerObject = ReflectUtils.getProviderObject("com.baidu.wallet.fastpay.entrance.FastPayProvider");
             if (providerObject != null && (providerObject instanceof RouterProvider)) {
-                LocalRouter.getInstance(application).registerProvider(BaiduWalletServiceProviderMap.PLUGIN_FASTPAY, (RouterProvider) providerObject);
+                LocalRouter.getInstance(application).registerProvider("fastpay", (RouterProvider) providerObject);
             }
             Object providerObject2 = ReflectUtils.getProviderObject("com.baidu.wallet.qrcodescanner.entrance.QrcodeScannerProvider");
             if (providerObject2 != null && (providerObject2 instanceof RouterProvider)) {
-                LocalRouter.getInstance(application).registerProvider(BaiduWalletServiceProviderMap.PLUGIN_QRCODESCANNER, (RouterProvider) providerObject2);
+                LocalRouter.getInstance(application).registerProvider("saoyisao", (RouterProvider) providerObject2);
             }
             Object providerObject3 = ReflectUtils.getProviderObject("com.baidu.wallet.home.entrance.EnterWalletHomeProvider");
             if (providerObject3 != null && (providerObject3 instanceof RouterProvider)) {
-                LocalRouter.getInstance(application).registerProvider(BaiduWalletServiceProviderMap.PLUGIN_WALLETHOME, (RouterProvider) providerObject3);
+                LocalRouter.getInstance(application).registerProvider("home", (RouterProvider) providerObject3);
             }
             Object providerObject4 = ReflectUtils.getProviderObject("com.baidu.wallet.personal.entrance.PersonalProvider");
             if (providerObject4 != null && (providerObject4 instanceof RouterProvider)) {
-                LocalRouter.getInstance(application).registerProvider(BaiduWalletServiceProviderMap.PLUGIN_PERSONAL, (RouterProvider) providerObject4);
+                LocalRouter.getInstance(application).registerProvider("personal", (RouterProvider) providerObject4);
             }
             Object providerObject5 = ReflectUtils.getProviderObject("com.baidu.wallet.lightapp.entrance.LangbrigeProvider");
-            if (providerObject5 == null || !(providerObject5 instanceof RouterProvider)) {
+            if (providerObject5 != null && (providerObject5 instanceof RouterProvider)) {
+                LocalRouter.getInstance(application).registerProvider("langbrige", (RouterProvider) providerObject5);
+            }
+            Object providerObject6 = ReflectUtils.getProviderObject("com.baidu.wallet.base.iddetect.entrance.IDCardDetectProvider");
+            if (providerObject6 == null || !(providerObject6 instanceof RouterProvider)) {
                 return;
             }
-            LocalRouter.getInstance(application).registerProvider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE, (RouterProvider) providerObject5);
+            LocalRouter.getInstance(application).registerProvider("idcarddetect", (RouterProvider) providerObject6);
         }
     }
 
     public static IWalletFacade getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f24025a : (IWalletFacade) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f59760a : (IWalletFacade) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletPayFacade
@@ -185,17 +189,25 @@ public final class BaiduWallet implements IWalletFacade {
         }
     }
 
+    @Override // com.baidu.wallet.api.IWalletCreditFacade
+    public void getUserFinancialInfo(Context context, IWalletCreditFacade.Callback callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, context, callback) == null) {
+            BaiduWalletDelegate.getInstance().getUserFinancialInfo(context, callback);
+        }
+    }
+
     @Override // com.baidu.wallet.api.IWalletPayFacade
     public String getWalletOuterInterface(Context context, IWalletOuterInterfaceListener iWalletOuterInterfaceListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, context, iWalletOuterInterfaceListener)) == null) ? BaiduPayDelegate.getInstance().getWalletOuterInterface(context, iWalletOuterInterfaceListener) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, context, iWalletOuterInterfaceListener)) == null) ? BaiduPayDelegate.getInstance().getWalletOuterInterface(context, iWalletOuterInterfaceListener) : (String) invokeLL.objValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void gotoWalletService(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048589, this, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048590, this, context, str, str2) == null) {
             BaiduWalletServiceController.getInstance().gotoWalletService(context, str, str2);
         }
     }
@@ -203,16 +215,26 @@ public final class BaiduWallet implements IWalletFacade {
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void initWallet(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
-            a((Application) context.getApplicationContext());
+        if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
+            a((Application) DxmApplicationContextImpl.getApplicationContext(context));
             BaiduWalletDelegate.getInstance().initWallet(context);
+            DxmPay.getInstance().initWallet(context);
+        }
+    }
+
+    @Override // com.baidu.wallet.api.IWalletBaseFacade
+    public void invokeBdWalletNative(Activity activity, String str, String str2, ILightappInvokerCallback iLightappInvokerCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048595, this, activity, str, str2, iLightappInvokerCallback) == null) {
+            BaiduWalletDelegate.getInstance().invokeBdWalletNative(activity, str, str2, iLightappInvokerCallback);
         }
     }
 
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void logout(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, context) == null) {
+            com.dxmpay.wallet.api.BaiduWalletDelegate.getInstance().logout(context);
             BaiduWalletDelegate.getInstance().logout(context);
         }
     }
@@ -220,7 +242,7 @@ public final class BaiduWallet implements IWalletFacade {
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void openH5Module(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048595, this, context, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048597, this, context, str, z) == null) {
             BaiduWalletDelegate.getInstance().openH5Module(context, str, z);
         }
     }
@@ -228,7 +250,7 @@ public final class BaiduWallet implements IWalletFacade {
     @Override // com.baidu.wallet.api.IWalletPayFacade
     public void preOrderPay(Context context, String str, IPrecashierCallback iPrecashierCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048597, this, context, str, iPrecashierCallback) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048599, this, context, str, iPrecashierCallback) == null) {
             BaiduPayDelegate.getInstance().preOrderPay(context, str, iPrecashierCallback);
         }
     }
@@ -236,7 +258,8 @@ public final class BaiduWallet implements IWalletFacade {
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void setDebugOn(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048598, this, context, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048600, this, context, z) == null) {
+            com.dxmpay.wallet.api.BaiduWalletDelegate.getInstance().setDebugOn(context, z);
             BaiduWalletDelegate.getInstance().setDebugOn(context, z);
         }
     }
@@ -245,7 +268,7 @@ public final class BaiduWallet implements IWalletFacade {
     public boolean startWallet(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, context)) == null) ? BaiduWalletDelegate.getInstance().startWallet(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, context)) == null) ? BaiduWalletDelegate.getInstance().startWallet(context) : invokeL.booleanValue;
     }
 
     public BaiduWallet() {
@@ -273,7 +296,7 @@ public final class BaiduWallet implements IWalletFacade {
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void openH5Module(Context context, String str, boolean z, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{context, str, Boolean.valueOf(z), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{context, str, Boolean.valueOf(z), bundle}) == null) {
             BaiduWalletDelegate.getInstance().openH5Module(context, str, z, bundle);
         }
     }
@@ -281,27 +304,30 @@ public final class BaiduWallet implements IWalletFacade {
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void initWallet(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, context, str) == null) {
-            a((Application) context.getApplicationContext());
+        if (interceptable == null || interceptable.invokeLL(1048592, this, context, str) == null) {
+            a((Application) DxmApplicationContextImpl.getApplicationContext(context));
             BaiduWalletDelegate.getInstance().initWallet(context, str);
+            DxmPay.getInstance().initWallet(context, str);
         }
     }
 
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void initWallet(IWalletListener iWalletListener, Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048592, this, iWalletListener, context, str) == null) {
-            a((Application) context.getApplicationContext());
+        if (interceptable == null || interceptable.invokeLLL(1048593, this, iWalletListener, context, str) == null) {
+            a((Application) DxmApplicationContextImpl.getApplicationContext(context));
             BaiduWalletDelegate.getInstance().initWallet(iWalletListener, context, str);
+            DxmPay.getInstance().initWallet(iWalletListener, context, str);
         }
     }
 
     @Override // com.baidu.wallet.api.IWalletBaseFacade
     public void initWallet(IWalletListener iWalletListener, Context context, String str, ISecurityListener iSecurityListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048593, this, iWalletListener, context, str, iSecurityListener) == null) {
-            a((Application) context.getApplicationContext());
+        if (interceptable == null || interceptable.invokeLLLL(1048594, this, iWalletListener, context, str, iSecurityListener) == null) {
+            a((Application) DxmApplicationContextImpl.getApplicationContext(context));
             BaiduWalletDelegate.getInstance().initWallet(iWalletListener, context, str, iSecurityListener);
+            DxmPay.getInstance().initWallet(iWalletListener, context, str, iSecurityListener);
         }
     }
 }

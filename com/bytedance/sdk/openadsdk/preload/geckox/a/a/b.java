@@ -12,28 +12,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.List;
 @SuppressLint({"CI_StaticFieldLeak"})
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f32329a;
+    public static final b f68288a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final b f32330b;
+    public static final b f68289b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final b f32331c;
+    public static final b f68290c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f32332d;
+    public a f68291d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f32333e;
+    public File f68292e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<String> f32334f;
+    public List<String> f68293f;
 
     static {
         InterceptResult invokeClinit;
@@ -48,9 +48,9 @@ public abstract class b {
                 return;
             }
         }
-        f32329a = new d();
-        f32330b = new f();
-        f32331c = new e();
+        f68288a = new d();
+        f68289b = new f();
+        f68290c = new e();
     }
 
     public b() {
@@ -72,9 +72,9 @@ public abstract class b {
     public void a(a aVar, File file, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, file, list) == null) {
-            this.f32332d = aVar;
-            this.f32333e = file;
-            this.f32334f = list;
+            this.f68291d = aVar;
+            this.f68292e = file;
+            this.f68293f = list;
         }
     }
 }

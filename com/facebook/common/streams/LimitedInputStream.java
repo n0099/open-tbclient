@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class LimitedInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -95,11 +95,11 @@ public class LimitedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j) throws IOException {
+    public long skip(long j2) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            long skip = ((FilterInputStream) this).in.skip(Math.min(j, this.mBytesToRead));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+            long skip = ((FilterInputStream) this).in.skip(Math.min(j2, this.mBytesToRead));
             this.mBytesToRead = (int) (this.mBytesToRead - skip);
             return skip;
         }

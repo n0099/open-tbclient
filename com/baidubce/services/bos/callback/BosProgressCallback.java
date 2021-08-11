@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.callback.BceProgressCallback;
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class BosProgressCallback<T extends AbstractBceRequest> implements BceProgressCallback<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,17 +27,17 @@ public abstract class BosProgressCallback<T extends AbstractBceRequest> implemen
     }
 
     @Deprecated
-    public void onProgress(long j, long j2) {
+    public void onProgress(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
         }
     }
 
     @Override // com.baidubce.callback.BceProgressCallback
-    public void onProgress(T t, long j, long j2) {
+    public void onProgress(T t, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{t, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            onProgress(j, j2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{t, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            onProgress(j2, j3);
         }
     }
 }

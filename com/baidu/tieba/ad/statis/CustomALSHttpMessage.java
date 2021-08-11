@@ -3,6 +3,7 @@ package com.baidu.tieba.ad.statis;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import c.a.e.e.p.j;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
@@ -10,6 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,21 +20,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CustomALSHttpMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final TbHttpMessageTask task;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler mUIHandler;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CustomALSHttpMessage f13831e;
+        public final /* synthetic */ CustomALSHttpMessage f48963e;
 
         public a(CustomALSHttpMessage customALSHttpMessage) {
             Interceptable interceptable = $ic;
@@ -49,14 +50,14 @@ public class CustomALSHttpMessage extends HttpMessage {
                     return;
                 }
             }
-            this.f13831e = customALSHttpMessage;
+            this.f48963e = customALSHttpMessage;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.f13831e, CustomALSHttpMessage.task);
+                MessageManager.getInstance().sendMessage(this.f48963e, CustomALSHttpMessage.task);
             }
         }
     }
@@ -110,7 +111,7 @@ public class CustomALSHttpMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             addParam("c_id", str);
-            addParam("c_type", str2);
+            addParam(TiePlusStat.RichTextType.STAT_KEY, str2);
             return this;
         }
         return (CustomALSHttpMessage) invokeLL.objValue;

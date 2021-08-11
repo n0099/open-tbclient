@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class WalletMenuLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(HomeCfgResponse.TitleItemData titleItemData);
     }
@@ -71,13 +71,13 @@ public class WalletMenuLayout extends LinearLayout {
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ a f25234a;
+                        public final /* synthetic */ a f60966a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ HomeCfgResponse.TitleItemData f25235b;
+                        public final /* synthetic */ HomeCfgResponse.TitleItemData f60967b;
 
                         /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ WalletMenuLayout f25236c;
+                        public final /* synthetic */ WalletMenuLayout f60968c;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -94,16 +94,16 @@ public class WalletMenuLayout extends LinearLayout {
                                     return;
                                 }
                             }
-                            this.f25236c = this;
-                            this.f25234a = aVar;
-                            this.f25235b = titleItemData;
+                            this.f60968c = this;
+                            this.f60966a = aVar;
+                            this.f60967b = titleItemData;
                         }
 
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                                this.f25234a.a(this.f25235b);
+                                this.f60966a.a(this.f60967b);
                             }
                         }
                     });

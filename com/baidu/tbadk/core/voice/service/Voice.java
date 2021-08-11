@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class Voice implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<Voice> CREATOR;
@@ -24,7 +24,7 @@ public class Voice implements Parcelable {
     public long sob;
     public int stas;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<Voice> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,10 +172,10 @@ public class Voice implements Parcelable {
         }
     }
 
-    public void setSob(long j) {
+    public void setSob(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.sob = j;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.sob = j2;
         }
     }
 

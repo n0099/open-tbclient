@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class HotTopicSelectActivityStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,6 +50,7 @@ public final class HotTopicSelectActivityStaticAutoGenerateUrlCollectorImpl impl
             HashMap hashMap = new HashMap();
             ArrayList arrayList = new ArrayList();
             arrayList.add("HotSelectActivityConfig");
+            arrayList.add("WorkPublishHotSelectActivityConfig");
             hashMap.put("com.baidu.tieba.hottopicselect.HotTopicSelectActivityStatic", arrayList);
             return hashMap;
         }

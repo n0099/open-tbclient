@@ -4,19 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class R {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int livesdk_not_support_msg_type = 0x7f0f0b24;
-        public static final int livesdk_pic = 0x7f0f0b25;
-        public static final int livesdk_reply = 0x7f0f0b26;
-        public static final int livesdk_voice = 0x7f0f0b27;
+        public static final int livesdk_not_support_msg_type = 0x7f0f0bae;
+        public static final int livesdk_pic = 0x7f0f0baf;
+        public static final int livesdk_reply = 0x7f0f0bb0;
+        public static final int livesdk_voice = 0x7f0f0bb1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList f73611a;
+    public ArrayList f78913a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class a {
                 return;
             }
         }
-        this.f73611a = new ArrayList();
+        this.f78913a = new ArrayList();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -59,7 +59,7 @@ public class a {
         }
         int length = Array.getLength(obj);
         for (int i4 = 0; i4 < length; i4++) {
-            this.f73611a.add(Array.get(obj, i4));
+            this.f78913a.add(Array.get(obj, i4));
         }
     }
 
@@ -98,7 +98,7 @@ public class a {
                 return;
             }
         }
-        this.f73611a = collection == null ? new ArrayList() : new ArrayList(collection);
+        this.f78913a = collection == null ? new ArrayList() : new ArrayList(collection);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -138,10 +138,10 @@ public class a {
             char c4 = cVar.c();
             cVar.a();
             if (c4 == ',') {
-                arrayList = this.f73611a;
+                arrayList = this.f78913a;
                 d2 = null;
             } else {
-                arrayList = this.f73611a;
+                arrayList = this.f78913a;
                 d2 = cVar.d();
             }
             arrayList.add(d2);
@@ -164,13 +164,13 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
-            int size = this.f73611a.size();
+            int size = this.f78913a.size();
             StringBuffer stringBuffer = new StringBuffer();
             for (int i2 = 0; i2 < size; i2++) {
                 if (i2 > 0) {
                     stringBuffer.append(str);
                 }
-                stringBuffer.append(b.a(this.f73611a.get(i2)));
+                stringBuffer.append(b.a(this.f78913a.get(i2)));
             }
             return stringBuffer.toString();
         }
@@ -180,14 +180,14 @@ public class a {
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f73611a.size() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f78913a.size() : invokeV.intValue;
     }
 
     public final Object a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            Object obj = (i2 < 0 || i2 >= this.f73611a.size()) ? null : this.f73611a.get(i2);
+            Object obj = (i2 < 0 || i2 >= this.f78913a.size()) ? null : this.f78913a.get(i2);
             if (obj != null) {
                 return obj;
             }

@@ -5,10 +5,10 @@ import android.net.Uri;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface DownloadOutputStream {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface Factory {
         DownloadOutputStream create(Context context, Uri uri, int i2) throws FileNotFoundException;
 
@@ -21,9 +21,9 @@ public interface DownloadOutputStream {
 
     void flushAndSync() throws IOException;
 
-    void seek(long j) throws IOException;
+    void seek(long j2) throws IOException;
 
-    void setLength(long j) throws IOException;
+    void setLength(long j2) throws IOException;
 
     void write(byte[] bArr, int i2, int i3) throws IOException;
 }

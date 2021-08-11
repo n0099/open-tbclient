@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.NV21Buffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RTCNV21Buffer extends NV21Buffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

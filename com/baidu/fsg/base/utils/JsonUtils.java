@@ -31,15 +31,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONStringer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5414a;
+    public static final boolean f39358a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class DataType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,13 +91,7 @@ public final class JsonUtils {
         public static boolean isNull(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) {
-                if (obj instanceof JSONObject) {
-                    return JSONObject.NULL.equals(obj);
-                }
-                return obj == null;
-            }
-            return invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, obj)) == null) ? obj instanceof JSONObject ? JSONObject.NULL.equals(obj) : obj == null : invokeL.booleanValue;
         }
 
         public static boolean isNumber(Class<?> cls) {
@@ -125,64 +119,300 @@ public final class JsonUtils {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1675578891, "Lcom/baidu/fsg/base/utils/JsonUtils;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class Decoder {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public Decoder() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1675578891, "Lcom/baidu/fsg/base/utils/JsonUtils;");
+        }
+
+        public static <T> T a(Class<T> cls) throws JSONException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
+                if (cls == null) {
+                    return null;
+                }
+                if (!cls.isInterface()) {
+                    try {
+                        return cls.newInstance();
+                    } catch (Exception e2) {
+                        e2.printStackTrace();
+                        return null;
+                    }
+                } else if (cls.equals(Map.class)) {
+                    return (T) new HashMap();
+                } else {
+                    if (cls.equals(List.class)) {
+                        return (T) new ArrayList();
+                    }
+                    if (cls.equals(Set.class)) {
+                        return (T) new HashSet();
+                    }
+                    throw new JSONException("unknown interface: " + cls);
+                }
+            }
+            return (T) invokeL.objValue;
+        }
+
+        public static <T> T a(JSONArray jSONArray, int i2, Class<T> cls, boolean z) throws JSONException {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jSONArray, Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) ? z ? (T) deserialize(jSONArray.getJSONArray(i2), cls) : jSONArray.get(i2) instanceof JSONObject ? (T) deserialize(jSONArray.getJSONObject(i2), cls) : (T) jSONArray.get(i2) : (T) invokeCommon.objValue;
+        }
+
+        public static Map<String, Object> a(Map<String, Object> map, JSONObject jSONObject) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, jSONObject)) == null) {
+                try {
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        map.put(next, jSONObject.get(next));
+                    }
+                    if (LogUtil.DEBUG) {
+                        LogUtil.logd("map=" + map.toString());
+                    }
+                    return map;
+                } catch (JSONException e2) {
+                    if (JsonUtils.f39358a) {
+                        e2.printStackTrace();
+                        return null;
+                    }
+                    return null;
+                }
+            }
+            return (Map) invokeLL.objValue;
+        }
+
+        public static void a(Object obj, Field field, Object obj2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, field, obj2) == null) || obj == null || field == null || obj2 == null || "".equals(obj2)) {
                 return;
             }
-        }
-        f5414a = ApollonConstants.DEBUG & false;
-    }
-
-    public JsonUtils() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            try {
+                Class<?> type = field.getType();
+                field.setAccessible(true);
+                if (Date.class.isAssignableFrom(type)) {
+                    obj2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA).parse(obj2.toString());
+                }
+                field.set(obj, obj2);
+            } catch (Exception e2) {
+                if (JsonUtils.f39358a) {
+                    e2.printStackTrace();
+                }
             }
         }
-    }
 
-    public static <T> T fromJson(String str, Class<T> cls) throws JSONException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, cls)) == null) {
-            if (cls == null || str == null || str.length() == 0) {
+        public static void a(JSONObject jSONObject, Class<?> cls, Object obj) {
+            Field[] declaredFields;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, jSONObject, cls, obj) == null) || cls == null) {
+                return;
+            }
+            a(jSONObject, cls.getSuperclass(), obj);
+            for (Field field : cls.getDeclaredFields()) {
+                if (!Modifier.isTransient(field.getModifiers()) && !field.isSynthetic()) {
+                    a(jSONObject, obj, field);
+                }
+            }
+        }
+
+        /* JADX WARN: Can't wrap try/catch for region: R(6:11|(2:16|(4:22|23|19|20))|30|31|19|20) */
+        /* JADX WARN: Code restructure failed: missing block: B:13:0x002a, code lost:
+            if (com.baidu.fsg.base.utils.JsonUtils.f39358a == false) goto L19;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:40:0x0081, code lost:
+            r4 = e;
+         */
+        /* JADX WARN: Code restructure failed: missing block: B:42:0x0086, code lost:
+            if (com.baidu.fsg.base.utils.JsonUtils.f39358a != false) goto L36;
+         */
+        /* JADX WARN: Removed duplicated region for block: B:66:0x00db  */
+        /* JADX WARN: Removed duplicated region for block: B:80:? A[RETURN, SYNTHETIC] */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public static void a(JSONObject jSONObject, Object obj, Field field) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject, obj, field) == null) {
+                Class<?> type = field.getType();
+                String name = field.getName();
+                Object obj2 = null;
+                try {
+                } catch (Exception e2) {
+                    if (JsonUtils.f39358a) {
+                    }
+                }
+                if (!DataType.isRaw(type)) {
+                    if (!DataType.isArray(type) && !DataType.isCollection(type)) {
+                        if (!DataType.isJSONObject(type)) {
+                            if (DataType.isObject(type)) {
+                                obj2 = deserialize(jSONObject.optJSONObject(name), type);
+                            } else if (!DataType.isMap(type)) {
+                                throw new Exception("unknow type!");
+                            } else {
+                                obj2 = a(new HashMap(), jSONObject.optJSONObject(name));
+                            }
+                            a(obj, field, obj2);
+                        }
+                    }
+                    obj2 = deserialize(jSONObject.optJSONArray(name), type);
+                    a(obj, field, obj2);
+                }
+                if (Integer.TYPE.isAssignableFrom(type)) {
+                    try {
+                        obj2 = Integer.valueOf(jSONObject.getInt(name));
+                    } catch (JSONException e3) {
+                        e = e3;
+                    }
+                    a(obj, field, obj2);
+                } else if (Long.TYPE.isAssignableFrom(type)) {
+                    try {
+                        obj2 = Long.valueOf(jSONObject.getLong(name));
+                    } catch (JSONException e4) {
+                        e = e4;
+                        if (JsonUtils.f39358a) {
+                            e.printStackTrace();
+                        }
+                    }
+                    a(obj, field, obj2);
+                } else {
+                    if (!Float.TYPE.isAssignableFrom(type) && !Double.TYPE.isAssignableFrom(type)) {
+                        if (DataType.isBoolean(type)) {
+                            try {
+                                obj2 = Boolean.valueOf(jSONObject.getBoolean(name));
+                            } catch (JSONException e5) {
+                                e = e5;
+                                if (JsonUtils.f39358a) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            a(obj, field, obj2);
+                        }
+                    }
+                    obj2 = Double.valueOf(jSONObject.getDouble(name));
+                    a(obj, field, obj2);
+                }
+                if (JsonUtils.f39358a) {
+                    return;
+                }
+                e2.printStackTrace();
+                return;
+                obj2 = jSONObject.opt(name);
+                a(obj, field, obj2);
+            }
+        }
+
+        /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: T[] */
+        /* JADX WARN: Multi-variable type inference failed */
+        public static <T> T[] a(JSONArray jSONArray, Class<T> cls) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, jSONArray, cls)) == null) {
+                if (DataType.isNull(jSONArray) || cls == null) {
+                    return null;
+                }
+                int length = jSONArray.length();
+                T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, length));
+                boolean z = DataType.isArray(cls) || DataType.isCollection(cls);
+                for (int i2 = 0; i2 < length; i2++) {
+                    try {
+                        tArr[i2] = a(jSONArray, i2, cls, z);
+                    } catch (JSONException e2) {
+                        if (JsonUtils.f39358a) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                return tArr;
+            }
+            return (T[]) ((Object[]) invokeLL.objValue);
+        }
+
+        /* JADX WARN: Type inference failed for: r5v2, types: [T, java.util.Collection] */
+        public static <T> T b(JSONArray jSONArray, Class<T> cls) throws JSONException {
+            InterceptResult invokeLL;
+            Type[] actualTypeArguments;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, jSONArray, cls)) == null) {
+                if (DataType.isNull(jSONArray) || !DataType.isCollection(cls)) {
+                    return null;
+                }
+                Type genericSuperclass = cls.getGenericSuperclass();
+                Class cls2 = (!(genericSuperclass instanceof ParameterizedType) || (actualTypeArguments = ((ParameterizedType) genericSuperclass).getActualTypeArguments()) == null || actualTypeArguments.length <= 0) ? null : (Class) actualTypeArguments[0];
+                if (cls2 == null) {
+                    return null;
+                }
+                ?? r5 = (T) ((Collection) a(cls));
+                boolean z = DataType.isArray(cls2) || DataType.isCollection(cls2);
+                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    try {
+                        r5.add(a(jSONArray, i2, cls2, z));
+                    } catch (JSONException e2) {
+                        if (JsonUtils.f39358a) {
+                            e2.printStackTrace();
+                        }
+                    }
+                }
+                return r5;
+            }
+            return (T) invokeLL.objValue;
+        }
+
+        public static <T> T deserialize(JSONArray jSONArray, Class<T> cls) throws JSONException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jSONArray, cls)) == null) {
+                if (cls == null || DataType.isNull(jSONArray)) {
+                    return null;
+                }
+                if (DataType.isArray(cls)) {
+                    return (T) a(jSONArray, cls.getComponentType());
+                }
+                if (DataType.isCollection(cls)) {
+                    return (T) b(jSONArray, cls);
+                }
                 return null;
             }
-            if (!DataType.isArray(cls) && !DataType.isCollection(cls)) {
-                return (T) Decoder.deserialize(new JSONObject(str), cls);
-            }
-            return (T) Decoder.deserialize(new JSONArray(str), cls);
+            return (T) invokeLL.objValue;
         }
-        return (T) invokeLL.objValue;
+
+        public static <T> T deserialize(JSONObject jSONObject, Class<T> cls) throws JSONException {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, jSONObject, cls)) == null) {
+                if (cls == null || DataType.isNull(jSONObject)) {
+                    return null;
+                }
+                T t = (T) a(cls);
+                if (t != null) {
+                    if (DataType.isMap(cls)) {
+                        a((Map) t, jSONObject);
+                    } else {
+                        a(jSONObject, (Class<?>) cls, (Object) t);
+                    }
+                }
+                return t;
+            }
+            return (T) invokeLL.objValue;
+        }
     }
 
-    public static String toJson(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            return Encoder.serialize(new JSONStringer(), obj).toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Encoder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,7 +437,80 @@ public final class JsonUtils {
                 try {
                     jSONStringer.value((Object) null);
                 } catch (JSONException e2) {
-                    if (JsonUtils.f5414a) {
+                    if (JsonUtils.f39358a) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        public static void a(JSONStringer jSONStringer, Class<?> cls, Object obj) {
+            Field[] declaredFields;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLLL(65538, null, jSONStringer, cls, obj) == null) || cls == null) {
+                return;
+            }
+            a(jSONStringer, cls.getSuperclass(), obj);
+            for (Field field : cls.getDeclaredFields()) {
+                if (!ClassLoader.class.isAssignableFrom(field.getType()) && !PathClassLoader.class.isAssignableFrom(field.getType()) && !Class.class.isAssignableFrom(field.getType()) && !field.isSynthetic() && !Modifier.isTransient(field.getModifiers())) {
+                    try {
+                        field.setAccessible(true);
+                        Object obj2 = field.get(obj);
+                        if (Date.class.isAssignableFrom(field.getType())) {
+                            obj2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA).format((Date) obj2);
+                        }
+                        jSONStringer.key(field.getName());
+                        serialize(jSONStringer, obj2);
+                    } catch (Exception unused) {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public static void a(JSONStringer jSONStringer, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65539, null, jSONStringer, obj) == null) {
+                try {
+                    jSONStringer.value(obj);
+                } catch (JSONException e2) {
+                    if (JsonUtils.f39358a) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        public static void a(JSONStringer jSONStringer, Collection<?> collection) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONStringer, collection) == null) {
+                try {
+                    jSONStringer.array();
+                    Iterator<?> it = collection.iterator();
+                    while (it.hasNext()) {
+                        serialize(jSONStringer, it.next());
+                    }
+                    jSONStringer.endArray();
+                } catch (Exception e2) {
+                    if (JsonUtils.f39358a) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        }
+
+        public static void a(JSONStringer jSONStringer, Map<?, ?> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, jSONStringer, map) == null) {
+                try {
+                    jSONStringer.object();
+                    for (Map.Entry<?, ?> entry : map.entrySet()) {
+                        jSONStringer.key((String) entry.getKey());
+                        serialize(jSONStringer, entry.getValue());
+                    }
+                    jSONStringer.endObject();
+                } catch (Exception e2) {
+                    if (JsonUtils.f39358a) {
                         e2.printStackTrace();
                     }
                 }
@@ -225,7 +528,7 @@ public final class JsonUtils {
                     }
                     jSONStringer.endArray();
                 } catch (Exception e2) {
-                    if (JsonUtils.f5414a) {
+                    if (JsonUtils.f39358a) {
                         e2.printStackTrace();
                     }
                 }
@@ -242,7 +545,7 @@ public final class JsonUtils {
                     a(jSONStringer, obj.getClass(), obj);
                     jSONStringer.endObject();
                 } catch (Exception e2) {
-                    if (JsonUtils.f5414a) {
+                    if (JsonUtils.f39358a) {
                         e2.printStackTrace();
                     }
                 }
@@ -273,372 +576,59 @@ public final class JsonUtils {
             }
             return (JSONStringer) invokeLL.objValue;
         }
+    }
 
-        public static void a(JSONStringer jSONStringer, Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65539, null, jSONStringer, obj) == null) {
-                try {
-                    jSONStringer.value(obj);
-                } catch (JSONException e2) {
-                    if (JsonUtils.f5414a) {
-                        e2.printStackTrace();
-                    }
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1675578891, "Lcom/baidu/fsg/base/utils/JsonUtils;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-
-        public static void a(JSONStringer jSONStringer, Collection<?> collection) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONStringer, collection) == null) {
-                try {
-                    jSONStringer.array();
-                    Iterator<?> it = collection.iterator();
-                    while (it.hasNext()) {
-                        serialize(jSONStringer, it.next());
-                    }
-                    jSONStringer.endArray();
-                } catch (Exception e2) {
-                    if (JsonUtils.f5414a) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        }
-
-        public static void a(JSONStringer jSONStringer, Map<?, ?> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, jSONStringer, map) == null) {
-                try {
-                    jSONStringer.object();
-                    for (Map.Entry<?, ?> entry : map.entrySet()) {
-                        jSONStringer.key((String) entry.getKey());
-                        serialize(jSONStringer, entry.getValue());
-                    }
-                    jSONStringer.endObject();
-                } catch (Exception e2) {
-                    if (JsonUtils.f5414a) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        }
-
-        public static void a(JSONStringer jSONStringer, Class<?> cls, Object obj) {
-            Field[] declaredFields;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(65538, null, jSONStringer, cls, obj) == null) || cls == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1675578891, "Lcom/baidu/fsg/base/utils/JsonUtils;");
                 return;
             }
-            a(jSONStringer, cls.getSuperclass(), obj);
-            for (Field field : cls.getDeclaredFields()) {
-                if (!ClassLoader.class.isAssignableFrom(field.getType()) && !PathClassLoader.class.isAssignableFrom(field.getType()) && !Class.class.isAssignableFrom(field.getType()) && !field.isSynthetic() && !Modifier.isTransient(field.getModifiers())) {
-                    try {
-                        field.setAccessible(true);
-                        Object obj2 = field.get(obj);
-                        if (Date.class.isAssignableFrom(field.getType())) {
-                            obj2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA).format((Date) obj2);
-                        }
-                        jSONStringer.key(field.getName());
-                        serialize(jSONStringer, obj2);
-                    } catch (Exception unused) {
-                        return;
-                    }
-                }
+        }
+        f39358a = ApollonConstants.DEBUG & false;
+    }
+
+    public JsonUtils() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* loaded from: classes2.dex */
-    public static class Decoder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public Decoder() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static void a(JSONObject jSONObject, Class<?> cls, Object obj) {
-            Field[] declaredFields;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, jSONObject, cls, obj) == null) || cls == null) {
-                return;
-            }
-            a(jSONObject, cls.getSuperclass(), obj);
-            for (Field field : cls.getDeclaredFields()) {
-                if (!Modifier.isTransient(field.getModifiers()) && !field.isSynthetic()) {
-                    a(jSONObject, obj, field);
-                }
-            }
-        }
-
-        /* JADX WARN: Type inference failed for: r5v2, types: [T, java.util.Collection] */
-        public static <T> T b(JSONArray jSONArray, Class<T> cls) throws JSONException {
-            InterceptResult invokeLL;
-            Type[] actualTypeArguments;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, jSONArray, cls)) == null) {
-                if (DataType.isNull(jSONArray) || !DataType.isCollection(cls)) {
-                    return null;
-                }
-                Type genericSuperclass = cls.getGenericSuperclass();
-                Class cls2 = (!(genericSuperclass instanceof ParameterizedType) || (actualTypeArguments = ((ParameterizedType) genericSuperclass).getActualTypeArguments()) == null || actualTypeArguments.length <= 0) ? null : (Class) actualTypeArguments[0];
-                if (cls2 == null) {
-                    return null;
-                }
-                ?? r5 = (T) ((Collection) a(cls));
-                boolean z = DataType.isArray(cls2) || DataType.isCollection(cls2);
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    try {
-                        r5.add(a(jSONArray, i2, cls2, z));
-                    } catch (JSONException e2) {
-                        if (JsonUtils.f5414a) {
-                            e2.printStackTrace();
-                        }
-                    }
-                }
-                return r5;
-            }
-            return (T) invokeLL.objValue;
-        }
-
-        public static <T> T deserialize(JSONArray jSONArray, Class<T> cls) throws JSONException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, jSONArray, cls)) == null) {
-                if (cls == null || DataType.isNull(jSONArray)) {
-                    return null;
-                }
-                if (DataType.isArray(cls)) {
-                    return (T) a(jSONArray, cls.getComponentType());
-                }
-                if (DataType.isCollection(cls)) {
-                    return (T) b(jSONArray, cls);
-                }
+    public static <T> T fromJson(String str, Class<T> cls) throws JSONException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, cls)) == null) {
+            if (cls == null || str == null || str.length() == 0) {
                 return null;
             }
-            return (T) invokeLL.objValue;
+            return (DataType.isArray(cls) || DataType.isCollection(cls)) ? (T) Decoder.deserialize(new JSONArray(str), cls) : (T) Decoder.deserialize(new JSONObject(str), cls);
         }
+        return (T) invokeLL.objValue;
+    }
 
-        /* JADX WARN: Removed duplicated region for block: B:66:0x00eb  */
-        /* JADX WARN: Removed duplicated region for block: B:80:? A[RETURN, SYNTHETIC] */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public static void a(JSONObject jSONObject, Object obj, Field field) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, jSONObject, obj, field) == null) {
-                Class<?> type = field.getType();
-                String name = field.getName();
-                Object obj2 = null;
-                try {
-                } catch (Exception e2) {
-                    if (JsonUtils.f5414a) {
-                    }
-                }
-                if (DataType.isRaw(type)) {
-                    if (Integer.TYPE.isAssignableFrom(type)) {
-                        try {
-                            obj2 = Integer.valueOf(jSONObject.getInt(name));
-                        } catch (JSONException e3) {
-                            if (JsonUtils.f5414a) {
-                                e3.printStackTrace();
-                            }
-                        }
-                    } else if (Long.TYPE.isAssignableFrom(type)) {
-                        try {
-                            obj2 = Long.valueOf(jSONObject.getLong(name));
-                        } catch (JSONException e4) {
-                            if (JsonUtils.f5414a) {
-                                e4.printStackTrace();
-                            }
-                        }
-                    } else {
-                        if (!Float.TYPE.isAssignableFrom(type) && !Double.TYPE.isAssignableFrom(type)) {
-                            if (DataType.isBoolean(type)) {
-                                try {
-                                    obj2 = Boolean.valueOf(jSONObject.getBoolean(name));
-                                } catch (JSONException e5) {
-                                    if (JsonUtils.f5414a) {
-                                        e5.printStackTrace();
-                                    }
-                                }
-                            } else {
-                                obj2 = jSONObject.opt(name);
-                            }
-                        }
-                        try {
-                            obj2 = Double.valueOf(jSONObject.getDouble(name));
-                        } catch (JSONException e6) {
-                            if (JsonUtils.f5414a) {
-                                e6.printStackTrace();
-                            }
-                        }
-                    }
-                    if (JsonUtils.f5414a) {
-                        return;
-                    }
-                    e2.printStackTrace();
-                    return;
-                }
-                if (!DataType.isArray(type) && !DataType.isCollection(type)) {
-                    if (DataType.isJSONObject(type)) {
-                        obj2 = jSONObject.opt(name);
-                    } else if (DataType.isObject(type)) {
-                        obj2 = deserialize(jSONObject.optJSONObject(name), type);
-                    } else if (DataType.isMap(type)) {
-                        obj2 = a(new HashMap(), jSONObject.optJSONObject(name));
-                    } else {
-                        throw new Exception("unknow type!");
-                    }
-                }
-                obj2 = deserialize(jSONObject.optJSONArray(name), type);
-                a(obj, field, obj2);
+    public static String toJson(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
+            return Encoder.serialize(new JSONStringer(), obj).toString();
         }
-
-        public static <T> T deserialize(JSONObject jSONObject, Class<T> cls) throws JSONException {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, jSONObject, cls)) == null) {
-                if (cls == null || DataType.isNull(jSONObject)) {
-                    return null;
-                }
-                T t = (T) a(cls);
-                if (t != null) {
-                    if (DataType.isMap(cls)) {
-                        a((Map) t, jSONObject);
-                    } else {
-                        a(jSONObject, (Class<?>) cls, (Object) t);
-                    }
-                }
-                return t;
-            }
-            return (T) invokeLL.objValue;
-        }
-
-        public static void a(Object obj, Field field, Object obj2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, field, obj2) == null) || obj == null || field == null || obj2 == null || "".equals(obj2)) {
-                return;
-            }
-            try {
-                Class<?> type = field.getType();
-                field.setAccessible(true);
-                if (Date.class.isAssignableFrom(type)) {
-                    field.set(obj, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA).parse(obj2.toString()));
-                } else {
-                    field.set(obj, obj2);
-                }
-            } catch (Exception e2) {
-                if (JsonUtils.f5414a) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-
-        public static Map<String, Object> a(Map<String, Object> map, JSONObject jSONObject) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, map, jSONObject)) == null) {
-                try {
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        map.put(next, jSONObject.get(next));
-                    }
-                    if (LogUtil.DEBUG) {
-                        LogUtil.logd("map=" + map.toString());
-                    }
-                    return map;
-                } catch (JSONException e2) {
-                    if (JsonUtils.f5414a) {
-                        e2.printStackTrace();
-                        return null;
-                    }
-                    return null;
-                }
-            }
-            return (Map) invokeLL.objValue;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v3, resolved type: T[] */
-        /* JADX WARN: Multi-variable type inference failed */
-        public static <T> T[] a(JSONArray jSONArray, Class<T> cls) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, jSONArray, cls)) == null) {
-                if (DataType.isNull(jSONArray) || cls == null) {
-                    return null;
-                }
-                int length = jSONArray.length();
-                T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, length));
-                boolean z = DataType.isArray(cls) || DataType.isCollection(cls);
-                for (int i2 = 0; i2 < length; i2++) {
-                    try {
-                        tArr[i2] = a(jSONArray, i2, cls, z);
-                    } catch (JSONException e2) {
-                        if (JsonUtils.f5414a) {
-                            e2.printStackTrace();
-                        }
-                    }
-                }
-                return tArr;
-            }
-            return (T[]) ((Object[]) invokeLL.objValue);
-        }
-
-        public static <T> T a(JSONArray jSONArray, int i2, Class<T> cls, boolean z) throws JSONException {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jSONArray, Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) {
-                if (z) {
-                    return (T) deserialize(jSONArray.getJSONArray(i2), cls);
-                }
-                if (jSONArray.get(i2) instanceof JSONObject) {
-                    return (T) deserialize(jSONArray.getJSONObject(i2), cls);
-                }
-                return (T) jSONArray.get(i2);
-            }
-            return (T) invokeCommon.objValue;
-        }
-
-        public static <T> T a(Class<T> cls) throws JSONException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
-                if (cls == null) {
-                    return null;
-                }
-                if (cls.isInterface()) {
-                    if (cls.equals(Map.class)) {
-                        return (T) new HashMap();
-                    }
-                    if (cls.equals(List.class)) {
-                        return (T) new ArrayList();
-                    }
-                    if (cls.equals(Set.class)) {
-                        return (T) new HashSet();
-                    }
-                    throw new JSONException("unknown interface: " + cls);
-                }
-                try {
-                    return cls.newInstance();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                    return null;
-                }
-            }
-            return (T) invokeL.objValue;
-        }
+        return (String) invokeL.objValue;
     }
 }

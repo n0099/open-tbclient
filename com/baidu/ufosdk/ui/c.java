@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class c implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f23653a;
+    public final /* synthetic */ e f59389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f23654b;
+    public final /* synthetic */ a f59390b;
 
     public c(a aVar, e eVar) {
         Interceptable interceptable = $ic;
@@ -32,13 +32,13 @@ public final class c implements View.OnClickListener {
                 return;
             }
         }
-        this.f23654b = aVar;
-        this.f23653a = eVar;
+        this.f59390b = aVar;
+        this.f59389a = eVar;
     }
 
-    /* JADX WARN: Incorrect condition in loop: B:21:0x0089 */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x008b A[LOOP:0: B:20:0x007f->B:22:0x008b, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x00b4  */
+    /* JADX WARN: Incorrect condition in loop: B:21:0x0087 */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0089 A[LOOP:0: B:20:0x007d->B:22:0x0089, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x00b1  */
     /* JADX WARN: Removed duplicated region for block: B:31:? A[RETURN, SYNTHETIC] */
     @Override // android.view.View.OnClickListener
     /*
@@ -60,50 +60,50 @@ public final class c implements View.OnClickListener {
         if (interceptable != null && interceptable.invokeL(1048576, this, view) != null) {
             return;
         }
-        e eVar = this.f23653a;
-        boolean z = !eVar.f23747a;
-        eVar.f23747a = z;
+        e eVar = this.f59389a;
+        boolean z = !eVar.f59484a;
+        eVar.f59484a = z;
         eVar.a(z);
-        if (this.f23653a.f23747a) {
-            arrayList5 = this.f23654b.f23588d;
-            arrayList5.add(this.f23653a.b());
-            if (this.f23653a.b().contains("抄袭")) {
-                this.f23654b.f23590f = 1;
+        if (this.f59389a.f59484a) {
+            arrayList5 = this.f59390b.f59324d;
+            arrayList5.add(this.f59389a.b());
+            if (this.f59389a.b().contains("抄袭")) {
+                this.f59390b.f59326f = 1;
             }
-            if (this.f23653a.b().equals("播放问题")) {
-                aVar = this.f23654b;
+            if (this.f59389a.b().equals("播放问题")) {
+                aVar = this.f59390b;
                 i2 = 2;
-                aVar.f23590f = i2;
+                aVar.f59326f = i2;
             }
             for (i3 = 0; i3 < arrayList2.size(); i3++) {
                 StringBuilder sb = new StringBuilder("选中的原因：");
-                arrayList4 = this.f23654b.f23588d;
+                arrayList4 = this.f59390b.f59324d;
                 sb.append((String) arrayList4.get(i3));
                 com.baidu.ufosdk.f.c.a(sb.toString());
             }
-            dVar = this.f23654b.f23589e;
+            dVar = this.f59390b.f59325e;
             if (dVar == null) {
-                dVar2 = this.f23654b.f23589e;
-                arrayList3 = this.f23654b.f23588d;
-                i4 = this.f23654b.f23590f;
+                dVar2 = this.f59390b.f59325e;
+                arrayList3 = this.f59390b.f59324d;
+                i4 = this.f59390b.f59326f;
                 dVar2.a(arrayList3, i4);
                 return;
             }
             return;
         }
-        arrayList = this.f23654b.f23588d;
-        arrayList.remove(this.f23653a.b());
-        if (this.f23653a.b().contains("抄袭")) {
-            this.f23654b.f23590f = 3;
+        arrayList = this.f59390b.f59324d;
+        arrayList.remove(this.f59389a.b());
+        if (this.f59389a.b().contains("抄袭")) {
+            this.f59390b.f59326f = 3;
         }
-        if (this.f23653a.b().equals("播放问题")) {
-            aVar = this.f23654b;
+        if (this.f59389a.b().equals("播放问题")) {
+            aVar = this.f59390b;
             i2 = 4;
-            aVar.f23590f = i2;
+            aVar.f59326f = i2;
         }
         while (i3 < arrayList2.size()) {
         }
-        dVar = this.f23654b.f23589e;
+        dVar = this.f59390b.f59325e;
         if (dVar == null) {
         }
     }

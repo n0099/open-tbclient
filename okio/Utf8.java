@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class Utf8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class Utf8 {
 
     public static long size(String str, int i2, int i3) {
         InterceptResult invokeLII;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i2, i3)) == null) {
             if (str != null) {
@@ -42,32 +42,32 @@ public final class Utf8 {
                     if (i3 > str.length()) {
                         throw new IllegalArgumentException("endIndex > string.length: " + i3 + " > " + str.length());
                     }
-                    long j2 = 0;
+                    long j3 = 0;
                     while (i2 < i3) {
                         char charAt = str.charAt(i2);
                         if (charAt < 128) {
-                            j2++;
+                            j3++;
                         } else {
                             if (charAt < 2048) {
-                                j = 2;
+                                j2 = 2;
                             } else if (charAt < 55296 || charAt > 57343) {
-                                j = 3;
+                                j2 = 3;
                             } else {
                                 int i4 = i2 + 1;
                                 char charAt2 = i4 < i3 ? str.charAt(i4) : (char) 0;
                                 if (charAt > 56319 || charAt2 < 56320 || charAt2 > 57343) {
-                                    j2++;
+                                    j3++;
                                     i2 = i4;
                                 } else {
-                                    j2 += 4;
+                                    j3 += 4;
                                     i2 += 2;
                                 }
                             }
-                            j2 += j;
+                            j3 += j2;
                         }
                         i2++;
                     }
-                    return j2;
+                    return j3;
                 } else {
                     throw new IllegalArgumentException("endIndex < beginIndex: " + i3 + " < " + i2);
                 }

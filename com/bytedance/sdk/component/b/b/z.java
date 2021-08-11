@@ -10,50 +10,51 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.b.b.s;
 import java.net.URL;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final t f28767a;
+    public final t f64629a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f28768b;
+    public final String f64630b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final s f28769c;
+    public final s f64631c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final aa f28770d;
+    public final aa f64632d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f28771e;
+    public final Object f64633e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile d f28772f;
+    public volatile d f64634f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public t f28773a;
+        public t f64635a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f28774b;
+        public String f64636b;
 
         /* renamed from: c  reason: collision with root package name */
-        public s.a f28775c;
+        public s.a f64637c;
 
         /* renamed from: d  reason: collision with root package name */
-        public aa f28776d;
+        public aa f64638d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f28777e;
+        public Object f64639e;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -68,8 +69,8 @@ public final class z {
                     return;
                 }
             }
-            this.f28774b = "GET";
-            this.f28775c = new s.a();
+            this.f64636b = "GET";
+            this.f64637c = new s.a();
         }
 
         public a a(t tVar) {
@@ -77,7 +78,7 @@ public final class z {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tVar)) == null) {
                 if (tVar != null) {
-                    this.f28773a = tVar;
+                    this.f64635a = tVar;
                     return this;
                 }
                 throw new NullPointerException("url == null");
@@ -89,7 +90,7 @@ public final class z {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
-                this.f28775c.a(str, str2);
+                this.f64637c.a(str, str2);
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -98,7 +99,7 @@ public final class z {
         public a c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? b(com.bytedance.sdk.component.b.b.a.c.f28318d) : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? b(com.bytedance.sdk.component.b.b.a.c.f64166d) : (a) invokeV.objValue;
         }
 
         public a d(aa aaVar) {
@@ -111,7 +112,7 @@ public final class z {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-                this.f28775c.b(str);
+                this.f64637c.b(str);
                 return this;
             }
             return (a) invokeL.objValue;
@@ -127,7 +128,7 @@ public final class z {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-                if (this.f28773a != null) {
+                if (this.f64635a != null) {
                     return new z(this);
                 }
                 throw new IllegalStateException("url == null");
@@ -177,11 +178,11 @@ public final class z {
                     return;
                 }
             }
-            this.f28773a = zVar.f28767a;
-            this.f28774b = zVar.f28768b;
-            this.f28776d = zVar.f28770d;
-            this.f28777e = zVar.f28771e;
-            this.f28775c = zVar.f28769c.c();
+            this.f64635a = zVar.f64629a;
+            this.f64636b = zVar.f64630b;
+            this.f64638d = zVar.f64632d;
+            this.f64639e = zVar.f64633e;
+            this.f64637c = zVar.f64631c.c();
         }
 
         public a b(aa aaVar) {
@@ -210,7 +211,7 @@ public final class z {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-                this.f28775c.c(str, str2);
+                this.f64637c.c(str, str2);
                 return this;
             }
             return (a) invokeLL.objValue;
@@ -220,7 +221,7 @@ public final class z {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sVar)) == null) {
-                this.f28775c = sVar.c();
+                this.f64637c = sVar.c();
                 return this;
             }
             return (a) invokeL.objValue;
@@ -259,8 +260,8 @@ public final class z {
                         } else if (aaVar == null && com.bytedance.sdk.component.b.b.a.c.f.b(str)) {
                             throw new IllegalArgumentException("method " + str + " must have a request body.");
                         } else {
-                            this.f28774b = str;
-                            this.f28776d = aaVar;
+                            this.f64636b = str;
+                            this.f64638d = aaVar;
                             return this;
                         }
                     }
@@ -275,7 +276,7 @@ public final class z {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                this.f28777e = obj;
+                this.f64639e = obj;
                 return this;
             }
             return (a) invokeL.objValue;
@@ -297,42 +298,42 @@ public final class z {
                 return;
             }
         }
-        this.f28767a = aVar.f28773a;
-        this.f28768b = aVar.f28774b;
-        this.f28769c = aVar.f28775c.a();
-        this.f28770d = aVar.f28776d;
-        Object obj = aVar.f28777e;
-        this.f28771e = obj == null ? this : obj;
+        this.f64629a = aVar.f64635a;
+        this.f64630b = aVar.f64636b;
+        this.f64631c = aVar.f64637c.a();
+        this.f64632d = aVar.f64638d;
+        Object obj = aVar.f64639e;
+        this.f64633e = obj == null ? this : obj;
     }
 
     public t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28767a : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64629a : (t) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28768b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64630b : (String) invokeV.objValue;
     }
 
     public s c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28769c : (s) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64631c : (s) invokeV.objValue;
     }
 
     public aa d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28770d : (aa) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64632d : (aa) invokeV.objValue;
     }
 
     public Object e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f28771e : invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64633e : invokeV.objValue;
     }
 
     public a f() {
@@ -345,12 +346,12 @@ public final class z {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            d dVar = this.f28772f;
+            d dVar = this.f64634f;
             if (dVar != null) {
                 return dVar;
             }
-            d a2 = d.a(this.f28769c);
-            this.f28772f = a2;
+            d a2 = d.a(this.f64631c);
+            this.f64634f = a2;
             return a2;
         }
         return (d) invokeV.objValue;
@@ -359,7 +360,7 @@ public final class z {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f28767a.d() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f64629a.d() : invokeV.booleanValue;
     }
 
     public String toString() {
@@ -368,16 +369,16 @@ public final class z {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Request{method=");
-            sb.append(this.f28768b);
+            sb.append(this.f64630b);
             sb.append(", url=");
-            sb.append(this.f28767a);
+            sb.append(this.f64629a);
             sb.append(", tag=");
-            Object obj = this.f28771e;
+            Object obj = this.f64633e;
             if (obj == this) {
                 obj = null;
             }
             sb.append(obj);
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -386,6 +387,6 @@ public final class z {
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f28769c.a(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f64631c.a(str) : (String) invokeL.objValue;
     }
 }

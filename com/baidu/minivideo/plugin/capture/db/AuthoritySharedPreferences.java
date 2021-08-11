@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AuthoritySharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FIRSTSHOT_CONFIG = "firstshot_config";
@@ -150,10 +150,10 @@ public class AuthoritySharedPreferences {
         }
     }
 
-    public static void setAuthorityConfigTimestamp(long j) {
+    public static void setAuthorityConfigTimestamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65549, null, j) == null) {
-            sPref.edit().putLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, j).apply();
+        if (interceptable == null || interceptable.invokeJ(65549, null, j2) == null) {
+            sPref.edit().putLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, j2).apply();
         }
     }
 

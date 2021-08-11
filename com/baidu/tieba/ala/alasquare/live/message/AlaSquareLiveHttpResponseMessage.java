@@ -1,6 +1,9 @@
 package com.baidu.tieba.ala.alasquare.live.message;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.d.l;
+import c.a.p0.v.d.a.b;
+import c.a.p0.v.d.b.b.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.ala.AlaCmdConfigHttp;
@@ -12,15 +15,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.d.e.d.l;
-import d.a.q0.v.d.a.b;
-import d.a.q0.v.d.b.b.a;
 import java.util.LinkedList;
 import tbclient.LiveSquare.DataRes;
 import tbclient.LiveSquare.FunctionListInfo;
 import tbclient.LiveSquare.HeadLiveInfo;
 import tbclient.LiveSquare.LiveSquareResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class AlaSquareLiveHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

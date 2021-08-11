@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ARVOJniClient {
     public static /* synthetic */ Interceptable $ic;
     public static List<String> sModelIds;

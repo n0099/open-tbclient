@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,18 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import tbclient.CommonReq;
 import tbclient.NewTopicThread.DataReq;
 import tbclient.NewTopicThread.NewTopicThreadReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RequestGetTopicThreadMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f16957common;
+    public CommonReq f52190common;
     public long lastFeedId;
     public long pageNo;
     public long topicId;
@@ -49,7 +49,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f74061common = this.f16957common;
+            builder.f79370common = this.f52190common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.page_no = Long.valueOf(this.pageNo);
             builder.last_feed_id = Long.valueOf(this.lastFeedId);
@@ -74,28 +74,28 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f16957common = commonReq;
+            this.f52190common = commonReq;
         }
     }
 
-    public void setLastFeedId(long j) {
+    public void setLastFeedId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.lastFeedId = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.lastFeedId = j2;
         }
     }
 
-    public void setPageNo(long j) {
+    public void setPageNo(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.pageNo = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.pageNo = j2;
         }
     }
 
-    public void setTopicId(long j) {
+    public void setTopicId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.topicId = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.topicId = j2;
         }
     }
 }

@@ -1,6 +1,9 @@
 package com.baidu.ugc.editvideo.record.processor;
 
 import androidx.core.app.NotificationCompat;
+import c.a.v0.t.h;
+import c.a.z.b.a.e;
+import c.a.z.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.a0.b.a.e;
-import d.a.a0.b.a.k.c;
-import d.a.w0.t.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ThemeProcessor extends BaseEffectProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,11 +38,11 @@ public class ThemeProcessor extends BaseEffectProcessor {
             if (eVar == null) {
                 return i2;
             }
-            int b2 = h.b(eVar.k());
+            int b2 = h.b(eVar.l());
             int i3 = i2;
             for (int i4 = 1; i4 < b2; i4++) {
-                MediaTrack mediaTrack = (MediaTrack) h.c(eVar.k(), i4);
-                if (!c.l(mediaTrack, "effect") && !c.l(mediaTrack, "edit_sticker") && !c.l(mediaTrack, "multi_input") && !c.l(mediaTrack, "only_background") && !c.l(mediaTrack, "watermark") && !c.l(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND)) {
+                MediaTrack mediaTrack = (MediaTrack) h.c(eVar.l(), i4);
+                if (!c.m(mediaTrack, "effect") && !c.m(mediaTrack, "template_effect") && !c.m(mediaTrack, "edit_sticker") && !c.m(mediaTrack, "multi_input") && !c.m(mediaTrack, "only_background") && !c.m(mediaTrack, "watermark") && !c.m(mediaTrack, NotificationCompat.WearableExtender.KEY_BACKGROUND) && !c.m(mediaTrack, "user_background")) {
                     i3 = eVar.i(mediaTrack, i3, null);
                 }
             }

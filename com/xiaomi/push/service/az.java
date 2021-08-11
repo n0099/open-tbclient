@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class az {
     public static /* synthetic */ Interceptable $ic = null;
     public static String A = "ext_pkg_name";
@@ -21,32 +21,34 @@ public abstract class az {
     public static String K = "notifyId";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f40894a = "1";
+    public static String f77769a = "1";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f40895b = "2";
+    public static String f77770b = "2";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f40896c = "3";
+    public static String f77771c = "3";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f40897d = "com.xiaomi.push.OPEN_CHANNEL";
+    public static String f77772d = "com.xiaomi.push.OPEN_CHANNEL";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f40898e = "com.xiaomi.push.SEND_MESSAGE";
+    public static String f77773e = "com.xiaomi.push.SEND_MESSAGE";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f40899f = "com.xiaomi.push.SEND_IQ";
+    public static String f77774f = "com.xiaomi.push.SEND_IQ";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f40900g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
+    public static String f77775g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f40901h = "com.xiaomi.push.SEND_PRES";
+    public static String f77776h = "com.xiaomi.push.SEND_PRES";
 
     /* renamed from: i  reason: collision with root package name */
-    public static String f40902i = "com.xiaomi.push.CLOSE_CHANNEL";
-    public static String j = "com.xiaomi.push.FORCE_RECONN";
+    public static String f77777i = "com.xiaomi.push.CLOSE_CHANNEL";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static String f77778j = "com.xiaomi.push.FORCE_RECONN";
     public static String k = "com.xiaomi.push.RESET_CONN";
     public static String l = "com.xiaomi.push.UPDATE_CHANNEL_INFO";
     public static String m = "com.xiaomi.push.SEND_STATS";

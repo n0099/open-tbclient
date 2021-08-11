@@ -20,15 +20,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.Arrays;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f7756a;
+    public static int f42029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f7757b;
+    public static Context f42030b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public class i {
                 return;
             }
         }
-        f7757b = BMapManager.getContext();
+        f42030b = BMapManager.getContext();
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
             throw new BaiduMapSDKException("the version of map is not match with base");
         }
@@ -59,16 +59,16 @@ public class i {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (f7756a == 0) {
-                if (f7757b == null) {
+            if (f42029a == 0) {
+                if (f42030b == null) {
                     throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
                 }
                 VMsg.init();
-                AppEngine.InitEngine(f7757b);
+                AppEngine.InitEngine(f42030b);
                 AppEngine.StartSocketProc();
-                NetworkUtil.updateNetworkProxy(f7757b);
+                NetworkUtil.updateNetworkProxy(f42030b);
             }
-            f7756a++;
+            f42029a++;
         }
     }
 
@@ -141,8 +141,8 @@ public class i {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            int i2 = f7756a - 1;
-            f7756a = i2;
+            int i2 = f42029a - 1;
+            f42029a = i2;
             if (i2 == 0) {
                 AppEngine.UnInitEngine();
                 VMsg.destroy();

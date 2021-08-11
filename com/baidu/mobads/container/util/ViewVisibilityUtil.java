@@ -19,7 +19,7 @@ import java.lang.ref.WeakReference;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ViewVisibilityUtil implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INTERVAL_MILLIS = 500;
@@ -36,7 +36,7 @@ public class ViewVisibilityUtil implements Handler.Callback {
     public ConcurrentHashMap<WeakReference<View>, Integer> mViewStateHashMap;
     public Handler mVisibleMonitor;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnViewVisibleChangedListener {
         void onViewVisibleChange(boolean z);
     }

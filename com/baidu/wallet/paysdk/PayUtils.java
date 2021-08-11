@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CARD_NO = "card_no";
@@ -36,16 +36,16 @@ public final class PayUtils {
     public static final String KEY_VALID_DATE = "valid_date";
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f25998a = "PayUtils";
+    public static String f61914a = "PayUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f25999b = "";
+    public static final String f61915b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static ArrayList<String> f26000c;
+    public static ArrayList<String> f61916c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,12 +88,12 @@ public final class PayUtils {
             }
         }
         ArrayList<String> arrayList = new ArrayList<>();
-        f26000c = arrayList;
+        f61916c = arrayList;
         arrayList.add("card_no");
-        f26000c.add("valid_date");
-        f26000c.add("cvv2");
-        f26000c.add("identity_code");
-        f26000c.add("phone_number");
+        f61916c.add("valid_date");
+        f61916c.add("cvv2");
+        f61916c.add("identity_code");
+        f61916c.add("phone_number");
     }
 
     public PayUtils() {
@@ -132,7 +132,7 @@ public final class PayUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             LogUtil.d(str + "加密=" + str2);
-            if (f26000c.contains(str)) {
+            if (f61916c.contains(str)) {
                 if (TextUtils.isEmpty(str2)) {
                     return "";
                 }
@@ -186,21 +186,22 @@ public final class PayUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             StringBuilder sb = new StringBuilder();
             Map<String, String> loginData = AccountManager.getInstance(context).getLoginData();
-            String str = loginData.get("pass_open_bduss");
-            if (TextUtils.isEmpty(str)) {
-                str = "";
+            if (loginData == null) {
+                return "";
             }
+            String str = loginData.get("pass_open_bduss");
+            String str2 = TextUtils.isEmpty(str) ? "" : str;
             if (AccountManager.getInstance(context).getLoginType() == 0) {
                 sb.append("OPENBDUSS=");
-                sb.append(str);
+                sb.append(str2);
             } else if (AccountManager.getInstance(context).getLoginType() == 1) {
                 sb.append("access_token=");
-                sb.append(str);
-            }
-            String str2 = loginData.get("pass_stoken");
-            if (!TextUtils.isEmpty(str2)) {
-                sb.append(";stoken=");
                 sb.append(str2);
+            }
+            String str3 = loginData.get("pass_stoken");
+            if (!TextUtils.isEmpty(str3)) {
+                sb.append(";stoken=");
+                sb.append(str3);
                 if (!TextUtils.isEmpty(WalletLoginHelper.getInstance().getTpl())) {
                     sb.append(";tpl=");
                     sb.append(WalletLoginHelper.getInstance().getTpl());
@@ -271,7 +272,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(com.alipay.sdk.encrypt.a.f1923h);
+                    sb.append(com.alipay.sdk.encrypt.a.f35773h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }

@@ -2,7 +2,6 @@ package com.bytedance.sdk.openadsdk.dislike.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,16 +12,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FlowLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List<List<View>> f31218a;
+    public List<List<View>> f67156a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Integer> f31219b;
+    public List<Integer> f67157b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowLayout(Context context, AttributeSet attributeSet, int i2) {
@@ -43,8 +42,8 @@ public class FlowLayout extends ViewGroup {
                 return;
             }
         }
-        this.f31218a = new ArrayList();
-        this.f31219b = new ArrayList();
+        this.f67156a = new ArrayList();
+        this.f67157b = new ArrayList();
     }
 
     @Override // android.view.ViewGroup
@@ -58,9 +57,8 @@ public class FlowLayout extends ViewGroup {
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            Log.e("TAG", "onLayout");
-            this.f31218a.clear();
-            this.f31219b.clear();
+            this.f67156a.clear();
+            this.f67157b.clear();
             int width = getWidth();
             ArrayList arrayList = new ArrayList();
             int childCount = getChildCount();
@@ -73,8 +71,8 @@ public class FlowLayout extends ViewGroup {
                 int measuredWidth = childAt.getMeasuredWidth();
                 int measuredHeight = childAt.getMeasuredHeight();
                 if ((measuredWidth * i7) + ((marginLayoutParams.leftMargin + marginLayoutParams.rightMargin) * (i7 - 1)) > (width - getPaddingLeft()) - getPaddingRight()) {
-                    this.f31219b.add(Integer.valueOf(i6));
-                    this.f31218a.add(arrayList);
+                    this.f67157b.add(Integer.valueOf(i6));
+                    this.f67156a.add(arrayList);
                     i6 = marginLayoutParams.bottomMargin + marginLayoutParams.topMargin + measuredHeight;
                     arrayList = new ArrayList();
                     i7 = 0;
@@ -84,14 +82,14 @@ public class FlowLayout extends ViewGroup {
                 i6 = Math.max(i6, measuredHeight + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin);
                 arrayList.add(childAt);
             }
-            this.f31219b.add(Integer.valueOf(i6));
-            this.f31218a.add(arrayList);
+            this.f67157b.add(Integer.valueOf(i6));
+            this.f67156a.add(arrayList);
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int size = this.f31218a.size();
+            int size = this.f67156a.size();
             for (int i11 = 0; i11 < size; i11++) {
-                List<View> list = this.f31218a.get(i11);
-                int intValue = this.f31219b.get(i11).intValue();
+                List<View> list = this.f67156a.get(i11);
+                int intValue = this.f67157b.get(i11).intValue();
                 for (int i12 = 0; i12 < list.size(); i12++) {
                     View view = list.get(i12);
                     if (view.getVisibility() != 8) {
@@ -142,12 +140,9 @@ public class FlowLayout extends ViewGroup {
                     i5 += i7;
                 }
             }
-            Log.e("TAG", "sizeWidth = " + size + "|sizeHeight = " + size2);
-            StringBuilder sb = new StringBuilder();
-            sb.append("width = ");
-            sb.append(i4);
-            Log.e("TAG", sb.toString());
-            Log.e("TAG", "height = " + i5);
+            String str = "sizeWidth = " + size + "|sizeHeight = " + size2;
+            String str2 = "width = " + i4;
+            String str3 = "height = " + i5;
             if (mode != 1073741824) {
                 size = getPaddingRight() + i4 + getPaddingLeft();
             }

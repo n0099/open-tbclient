@@ -19,14 +19,14 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.internal.observers.BasicQueueDisposable;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends Iterable<? extends R>> mapper;
     public final MaybeSource<T> source;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class FlatMapIterableObserver<T, R> extends BasicQueueDisposable<R> implements MaybeObserver<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73469d;
+        public Disposable f78528d;
         public volatile Iterator<? extends R> it;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
         public boolean outputFused;
@@ -71,8 +71,8 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.cancelled = true;
-                this.f73469d.dispose();
-                this.f73469d = DisposableHelper.DISPOSED;
+                this.f78528d.dispose();
+                this.f78528d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -102,7 +102,7 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, th) == null) {
-                this.f73469d = DisposableHelper.DISPOSED;
+                this.f78528d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -110,8 +110,8 @@ public final class MaybeFlatMapIterableObservable<T, R> extends Observable<R> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f73469d, disposable)) {
-                this.f73469d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048582, this, disposable) == null) && DisposableHelper.validate(this.f78528d, disposable)) {
+                this.f78528d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

@@ -2,6 +2,9 @@ package com.baidu.tieba.write.write;
 
 import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.j;
+import c.a.e.e.p.l;
+import c.a.p0.i3.q0.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -22,7 +25,9 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.RelevanceItemSearchActivityConfig;
+import com.baidu.tbadk.core.atomData.SelectClassDialogActivityConfig;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
+import com.baidu.tbadk.core.atomData.SelectTagActivityConfig;
 import com.baidu.tbadk.core.atomData.TransmitPostEditActivityConfig;
 import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
 import com.baidu.tbadk.core.atomData.WorkPublishActivityConfig;
@@ -56,6 +61,9 @@ import com.baidu.tieba.write.vcode.oldVcode.VcodeActivity;
 import com.baidu.tieba.write.write.relevance.RelevanceItemSearchActivity;
 import com.baidu.tieba.write.write.vote.WriteVoteActivity;
 import com.baidu.tieba.write.write.work.WorkPublishActivity;
+import com.baidu.tieba.write.write.work.classdialog.SelectClassDialogActivity;
+import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassHttpResMessage;
+import com.baidu.tieba.write.write.work.selecttag.SelectTagActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,22 +71,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.j;
-import d.a.d.e.p.l;
-import d.a.q0.h3.q0.g;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WriteActivityStatic {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f23025a = 11;
+    public static int f58694a = 11;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f23026b = 18;
+    public static int f58695b = 18;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a implements UrlManager.UrlSchemaHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,8 +112,8 @@ public class WriteActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class b extends d.a.d.c.f.b {
+    /* loaded from: classes7.dex */
+    public static class b extends c.a.e.c.f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -134,7 +139,7 @@ public class WriteActivityStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.a.d.c.f.f
+        @Override // c.a.e.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);
@@ -165,7 +170,7 @@ public class WriteActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -201,7 +206,7 @@ public class WriteActivityStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class d implements CustomMessageTask.CustomRunnable<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,10 +226,10 @@ public class WriteActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<d.a.q0.e0.c> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<c.a.p0.e0.c> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001449, new d.a.q0.a4.b()) : (CustomResponsedMessage) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2001449, new c.a.p0.b4.b()) : (CustomResponsedMessage) invokeL.objValue;
         }
     }
 
@@ -243,6 +248,8 @@ public class WriteActivityStatic {
         }
         TbadkCoreApplication.getInst().RegisterIntent(WriteActivityConfig.class, WriteActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(WorkPublishActivityConfig.class, WorkPublishActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(SelectClassDialogActivityConfig.class, SelectClassDialogActivity.class);
+        TbadkCoreApplication.getInst().RegisterIntent(SelectTagActivityConfig.class, SelectTagActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(TransmitPostEditActivityConfig.class, TransmitPostEditActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(VcodeActivityConfig.class, VcodeActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlbumActivityConfig.class, AlbumActivity.class);
@@ -263,8 +270,9 @@ public class WriteActivityStatic {
         UrlManager.getInstance().registerSchema(UrlSchemaHelper.SCHEMA_TYPE_FEED_BACK, new a());
         f();
         g();
-        d.a.q0.h3.d0.a.h(309450, GetRepostForumSocketResMessage.class, false, false);
-        d.a.q0.h3.d0.a.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
+        c.a.p0.i3.d0.a.h(309450, GetRepostForumSocketResMessage.class, false, false);
+        c.a.p0.i3.d0.a.c(309450, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, TbConfig.CMD_GET_REPOST_FORUM_LIST, GetRepostForumHttpResMessage.class, false, false, true, false);
+        c.a.p0.i3.d0.a.c(309713, CmdConfigHttp.CMD_GET_SELECT_CLASS, TbConfig.URL_GET_WORKS_TAGS, GetSelectClassHttpResMessage.class, false, false, true, false);
     }
 
     public WriteActivityStatic() {
@@ -286,7 +294,7 @@ public class WriteActivityStatic {
         if (interceptable == null || interceptable.invokeL(65539, null, tbPageContext) == null) {
             BdStatisticsManager.getInstance().forceUploadAllLogIgnoreSwitch();
             int i2 = Build.VERSION.SDK_INT;
-            if (i2 <= f23026b && i2 >= f23025a) {
+            if (i2 <= f58695b && i2 >= f58694a) {
                 d(tbPageContext);
             } else {
                 c(tbPageContext);
@@ -316,7 +324,7 @@ public class WriteActivityStatic {
     public static void d(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, tbPageContext) == null) {
-            d.a.p0.m.a.p(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
+            c.a.o0.m.a.p(tbPageContext.getPageActivity(), TbadkCoreApplication.getInst().getString(R.string.feedback), TbConfig.FEED_BACK_WEB_VIEW_URL, true, true, false, false, true);
         }
     }
 
@@ -326,8 +334,8 @@ public class WriteActivityStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2001449, new d());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            d.a.q0.h3.d0.a.f(309686, UrlParserSocketResponseMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, d.a.q0.h3.d0.a.a(TbConfig.URL_URL_PARSER, 309686));
+            c.a.p0.i3.d0.a.f(309686, UrlParserSocketResponseMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, c.a.p0.i3.d0.a.a(TbConfig.URL_URL_PARSER, 309686));
             tbHttpMessageTask.setResponsedClass(UrlParserHttpResponseMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }

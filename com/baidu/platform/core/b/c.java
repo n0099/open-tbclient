@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,11 +32,11 @@ public class c extends com.baidu.platform.base.e {
     private void a(GeoCodeOption geoCodeOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, geoCodeOption) == null) {
-            this.f9434a.a("city", geoCodeOption.mCity);
-            this.f9434a.a("address", geoCodeOption.mAddress);
-            this.f9434a.a("output", "json");
-            this.f9434a.a("ret_coordtype", "bd09ll");
-            this.f9434a.a("from", "android_map_sdk");
+            this.f44083a.a("city", geoCodeOption.mCity);
+            this.f44083a.a("address", geoCodeOption.mAddress);
+            this.f44083a.a("output", "json");
+            this.f44083a.a("ret_coordtype", "bd09ll");
+            this.f44083a.a("from", "android_map_sdk");
         }
     }
 

@@ -18,13 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMDatabase {
     public static /* synthetic */ Interceptable $ic;
     public static DbOpenHelper mDbHelper;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class DbOpenHelper extends SQLiteOpenHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -107,14 +107,14 @@ public class IMDatabase {
         }
     }
 
-    public static synchronized DbOpenHelper getDBOpenHelper(Context context, String str, long j) {
+    public static synchronized DbOpenHelper getDBOpenHelper(Context context, String str, long j2) {
         InterceptResult invokeCommon;
         String path;
         DbOpenHelper dbOpenHelper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
             synchronized (IMDatabase.class) {
-                String path2 = context.getDatabasePath(TableDefine.DB_NAME_PREFIX + str + "_" + j + ".db").getPath();
+                String path2 = context.getDatabasePath(TableDefine.DB_NAME_PREFIX + str + "_" + j2 + ".db").getPath();
                 if (mDbHelper == null) {
                     mDbHelper = new DbOpenHelper(context, path2, 50);
                 } else {
@@ -137,12 +137,12 @@ public class IMDatabase {
         return (DbOpenHelper) invokeCommon.objValue;
     }
 
-    public static synchronized SQLiteDatabase getReadableDb(Context context, String str, long j) {
+    public static synchronized SQLiteDatabase getReadableDb(Context context, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
             synchronized (IMDatabase.class) {
-                DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j);
+                DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j2);
                 SQLiteDatabase sQLiteDatabase = null;
                 if (dBOpenHelper == null) {
                     return null;
@@ -160,12 +160,12 @@ public class IMDatabase {
         return (SQLiteDatabase) invokeCommon.objValue;
     }
 
-    public static synchronized SQLiteDatabase getWritableDb(Context context, String str, long j) {
+    public static synchronized SQLiteDatabase getWritableDb(Context context, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
             synchronized (IMDatabase.class) {
-                DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j);
+                DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j2);
                 SQLiteDatabase sQLiteDatabase = null;
                 if (dBOpenHelper == null) {
                     return null;

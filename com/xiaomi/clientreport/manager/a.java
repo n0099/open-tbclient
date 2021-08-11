@@ -27,40 +27,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f40008a;
+    public static final int f76859a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile a f30a;
+    public static volatile a f34a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f31a;
+    public Context f35a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Config f32a;
+    public Config f36a;
 
     /* renamed from: a  reason: collision with other field name */
-    public IEventProcessor f33a;
+    public IEventProcessor f37a;
 
     /* renamed from: a  reason: collision with other field name */
-    public IPerfProcessor f34a;
+    public IPerfProcessor f38a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f35a;
+    public String f39a;
 
     /* renamed from: a  reason: collision with other field name */
-    public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f36a;
+    public HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> f40a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ExecutorService f37a;
+    public ExecutorService f41a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f40009b;
+    public HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> f76860b;
 
     static {
         InterceptResult invokeClinit;
@@ -75,7 +75,7 @@ public class a {
                 return;
             }
         }
-        f40008a = l.m535a() ? 30 : 10;
+        f76859a = l.m538a() ? 30 : 10;
     }
 
     public a(Context context) {
@@ -93,10 +93,10 @@ public class a {
                 return;
             }
         }
-        this.f37a = Executors.newSingleThreadExecutor();
-        this.f36a = new HashMap<>();
-        this.f40009b = new HashMap<>();
-        this.f31a = context;
+        this.f41a = Executors.newSingleThreadExecutor();
+        this.f40a = new HashMap<>();
+        this.f76860b = new HashMap<>();
+        this.f35a = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -104,11 +104,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f40009b;
+            HashMap<String, ArrayList<com.xiaomi.clientreport.data.a>> hashMap = this.f76860b;
             if (hashMap != null) {
                 int i2 = 0;
                 for (String str : hashMap.keySet()) {
-                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f40009b.get(str);
+                    ArrayList<com.xiaomi.clientreport.data.a> arrayList = this.f76860b.get(str);
                     i2 += arrayList != null ? arrayList.size() : 0;
                 }
                 return i2;
@@ -122,14 +122,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (f30a == null) {
+            if (f34a == null) {
                 synchronized (a.class) {
-                    if (f30a == null) {
-                        f30a = new a(context);
+                    if (f34a == null) {
+                        f34a = new a(context);
                     }
                 }
             }
-            return f30a;
+            return f34a;
         }
         return (a) invokeL.objValue;
     }
@@ -137,7 +137,7 @@ public class a {
     private void a(ai.a aVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65545, this, aVar, i2) == null) {
-            ai.a(this.f31a).b(aVar, i2);
+            ai.a(this.f35a).b(aVar, i2);
         }
     }
 
@@ -146,11 +146,11 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap = this.f36a;
+            HashMap<String, HashMap<String, com.xiaomi.clientreport.data.a>> hashMap = this.f40a;
             int i2 = 0;
             if (hashMap != null) {
                 for (String str : hashMap.keySet()) {
-                    HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = this.f36a.get(str);
+                    HashMap<String, com.xiaomi.clientreport.data.a> hashMap2 = this.f40a.get(str);
                     if (hashMap2 != null) {
                         for (String str2 : hashMap2.keySet()) {
                             com.xiaomi.clientreport.data.a aVar = hashMap2.get(str2);
@@ -170,32 +170,32 @@ public class a {
     public void b(EventClientReport eventClientReport) {
         IEventProcessor iEventProcessor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, this, eventClientReport) == null) || (iEventProcessor = this.f33a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, this, eventClientReport) == null) || (iEventProcessor = this.f37a) == null) {
             return;
         }
-        iEventProcessor.mo78a(eventClientReport);
+        iEventProcessor.mo81a(eventClientReport);
         if (a() < 10) {
-            a(new d(this), f40008a);
+            a(new d(this), f76859a);
             return;
         }
         d();
-        ai.a(this.f31a).m143a("100888");
+        ai.a(this.f35a).m146a("100888");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(PerfClientReport perfClientReport) {
         IPerfProcessor iPerfProcessor;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65549, this, perfClientReport) == null) || (iPerfProcessor = this.f34a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65549, this, perfClientReport) == null) || (iPerfProcessor = this.f38a) == null) {
             return;
         }
-        iPerfProcessor.mo78a(perfClientReport);
+        iPerfProcessor.mo81a(perfClientReport);
         if (b() < 10) {
-            a(new f(this), f40008a);
+            a(new f(this), f76859a);
             return;
         }
         e();
-        ai.a(this.f31a).m143a("100889");
+        ai.a(this.f35a).m146a("100889");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -203,7 +203,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             try {
-                this.f33a.b();
+                this.f37a.b();
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("we: " + e2.getMessage());
             }
@@ -215,7 +215,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             try {
-                this.f34a.b();
+                this.f38a.b();
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("wp: " + e2.getMessage());
             }
@@ -224,19 +224,19 @@ public class a {
 
     private void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && a(this.f31a).m75a().isEventUploadSwitchOpen()) {
-            bn bnVar = new bn(this.f31a);
-            int eventUploadFrequency = (int) a(this.f31a).m75a().getEventUploadFrequency();
+        if ((interceptable == null || interceptable.invokeV(65553, this) == null) && a(this.f35a).m78a().isEventUploadSwitchOpen()) {
+            bn bnVar = new bn(this.f35a);
+            int eventUploadFrequency = (int) a(this.f35a).m78a().getEventUploadFrequency();
             if (eventUploadFrequency < 1800) {
                 eventUploadFrequency = 1800;
             }
-            if (System.currentTimeMillis() - bt.a(this.f31a).a("sp_client_report_status", "event_last_upload_time", 0L) > eventUploadFrequency * 1000) {
-                ai.a(this.f31a).a(new h(this, bnVar), 10);
+            if (System.currentTimeMillis() - bt.a(this.f35a).a("sp_client_report_status", "event_last_upload_time", 0L) > eventUploadFrequency * 1000) {
+                ai.a(this.f35a).a(new h(this, bnVar), 10);
             }
             synchronized (a.class) {
-                if (!ai.a(this.f31a).a((ai.a) bnVar, eventUploadFrequency)) {
-                    ai.a(this.f31a).m143a("100886");
-                    ai.a(this.f31a).a((ai.a) bnVar, eventUploadFrequency);
+                if (!ai.a(this.f35a).a((ai.a) bnVar, eventUploadFrequency)) {
+                    ai.a(this.f35a).m146a("100886");
+                    ai.a(this.f35a).a((ai.a) bnVar, eventUploadFrequency);
                 }
             }
         }
@@ -244,35 +244,35 @@ public class a {
 
     private void g() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && a(this.f31a).m75a().isPerfUploadSwitchOpen()) {
-            bo boVar = new bo(this.f31a);
-            int perfUploadFrequency = (int) a(this.f31a).m75a().getPerfUploadFrequency();
+        if ((interceptable == null || interceptable.invokeV(65554, this) == null) && a(this.f35a).m78a().isPerfUploadSwitchOpen()) {
+            bo boVar = new bo(this.f35a);
+            int perfUploadFrequency = (int) a(this.f35a).m78a().getPerfUploadFrequency();
             if (perfUploadFrequency < 1800) {
                 perfUploadFrequency = 1800;
             }
-            if (System.currentTimeMillis() - bt.a(this.f31a).a("sp_client_report_status", "perf_last_upload_time", 0L) > perfUploadFrequency * 1000) {
-                ai.a(this.f31a).a(new i(this, boVar), 15);
+            if (System.currentTimeMillis() - bt.a(this.f35a).a("sp_client_report_status", "perf_last_upload_time", 0L) > perfUploadFrequency * 1000) {
+                ai.a(this.f35a).a(new i(this, boVar), 15);
             }
             synchronized (a.class) {
-                if (!ai.a(this.f31a).a((ai.a) boVar, perfUploadFrequency)) {
-                    ai.a(this.f31a).m143a("100887");
-                    ai.a(this.f31a).a((ai.a) boVar, perfUploadFrequency);
+                if (!ai.a(this.f35a).a((ai.a) boVar, perfUploadFrequency)) {
+                    ai.a(this.f35a).m146a("100887");
+                    ai.a(this.f35a).a((ai.a) boVar, perfUploadFrequency);
                 }
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Config m75a() {
+    public synchronized Config m78a() {
         InterceptResult invokeV;
         Config config;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                if (this.f32a == null) {
-                    this.f32a = Config.defaultConfig(this.f31a);
+                if (this.f36a == null) {
+                    this.f36a = Config.defaultConfig(this.f35a);
                 }
-                config = this.f32a;
+                config = this.f36a;
             }
             return config;
         }
@@ -291,99 +291,99 @@ public class a {
             eventClientReport.production = 1000;
             eventClientReport.reportType = 1001;
             eventClientReport.clientInterfaceId = "E100004";
-            eventClientReport.setAppPackageName(this.f31a.getPackageName());
-            eventClientReport.setSdkVersion(this.f35a);
+            eventClientReport.setAppPackageName(this.f35a.getPackageName());
+            eventClientReport.setSdkVersion(this.f39a);
             return eventClientReport;
         }
         return (EventClientReport) invokeIL.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m76a() {
+    public void m79a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a(this.f31a).f();
-            a(this.f31a).g();
+            a(this.f35a).f();
+            a(this.f35a).g();
         }
     }
 
     public void a(Config config, IEventProcessor iEventProcessor, IPerfProcessor iPerfProcessor) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, config, iEventProcessor, iPerfProcessor) == null) {
-            this.f32a = config;
-            this.f33a = iEventProcessor;
-            this.f34a = iPerfProcessor;
-            iEventProcessor.setEventMap(this.f40009b);
-            this.f34a.setPerfMap(this.f36a);
+            this.f36a = config;
+            this.f37a = iEventProcessor;
+            this.f38a = iPerfProcessor;
+            iEventProcessor.setEventMap(this.f76860b);
+            this.f38a.setPerfMap(this.f40a);
         }
     }
 
     public void a(EventClientReport eventClientReport) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, eventClientReport) == null) && m75a().isEventUploadSwitchOpen()) {
-            this.f37a.execute(new b(this, eventClientReport));
+        if ((interceptable == null || interceptable.invokeL(1048580, this, eventClientReport) == null) && m78a().isEventUploadSwitchOpen()) {
+            this.f41a.execute(new b(this, eventClientReport));
         }
     }
 
     public void a(PerfClientReport perfClientReport) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, perfClientReport) == null) && m75a().isPerfUploadSwitchOpen()) {
-            this.f37a.execute(new c(this, perfClientReport));
+        if ((interceptable == null || interceptable.invokeL(1048581, this, perfClientReport) == null) && m78a().isPerfUploadSwitchOpen()) {
+            this.f41a.execute(new c(this, perfClientReport));
         }
     }
 
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f35a = str;
+            this.f39a = str;
         }
     }
 
-    public void a(boolean z, boolean z2, long j, long j2) {
+    public void a(boolean z, boolean z2, long j2, long j3) {
         Config config;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2)}) == null) || (config = this.f32a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (config = this.f36a) == null) {
             return;
         }
-        if (z == config.isEventUploadSwitchOpen() && z2 == this.f32a.isPerfUploadSwitchOpen() && j == this.f32a.getEventUploadFrequency() && j2 == this.f32a.getPerfUploadFrequency()) {
+        if (z == config.isEventUploadSwitchOpen() && z2 == this.f36a.isPerfUploadSwitchOpen() && j2 == this.f36a.getEventUploadFrequency() && j3 == this.f36a.getPerfUploadFrequency()) {
             return;
         }
-        long eventUploadFrequency = this.f32a.getEventUploadFrequency();
-        long perfUploadFrequency = this.f32a.getPerfUploadFrequency();
-        Config build = Config.getBuilder().setAESKey(bq.a(this.f31a)).setEventEncrypted(this.f32a.isEventEncrypted()).setEventUploadSwitchOpen(z).setEventUploadFrequency(j).setPerfUploadSwitchOpen(z2).setPerfUploadFrequency(j2).build(this.f31a);
-        this.f32a = build;
+        long eventUploadFrequency = this.f36a.getEventUploadFrequency();
+        long perfUploadFrequency = this.f36a.getPerfUploadFrequency();
+        Config build = Config.getBuilder().setAESKey(bq.a(this.f35a)).setEventEncrypted(this.f36a.isEventEncrypted()).setEventUploadSwitchOpen(z).setEventUploadFrequency(j2).setPerfUploadSwitchOpen(z2).setPerfUploadFrequency(j3).build(this.f35a);
+        this.f36a = build;
         if (!build.isEventUploadSwitchOpen()) {
-            ai.a(this.f31a).m143a("100886");
+            ai.a(this.f35a).m146a("100886");
         } else if (eventUploadFrequency != build.getEventUploadFrequency()) {
-            com.xiaomi.channel.commonutils.logger.b.c(this.f31a.getPackageName() + "reset event job " + build.getEventUploadFrequency());
+            com.xiaomi.channel.commonutils.logger.b.c(this.f35a.getPackageName() + "reset event job " + build.getEventUploadFrequency());
             f();
         }
-        if (!this.f32a.isPerfUploadSwitchOpen()) {
-            ai.a(this.f31a).m143a("100887");
+        if (!this.f36a.isPerfUploadSwitchOpen()) {
+            ai.a(this.f35a).m146a("100887");
         } else if (perfUploadFrequency != build.getPerfUploadFrequency()) {
-            com.xiaomi.channel.commonutils.logger.b.c(this.f31a.getPackageName() + "reset perf job " + build.getPerfUploadFrequency());
+            com.xiaomi.channel.commonutils.logger.b.c(this.f35a.getPackageName() + "reset perf job " + build.getPerfUploadFrequency());
             g();
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m77b() {
+    public void m80b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && m75a().isEventUploadSwitchOpen()) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && m78a().isEventUploadSwitchOpen()) {
             bp bpVar = new bp();
-            bpVar.a(this.f31a);
-            bpVar.a(this.f33a);
-            this.f37a.execute(bpVar);
+            bpVar.a(this.f35a);
+            bpVar.a(this.f37a);
+            this.f41a.execute(bpVar);
         }
     }
 
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && m75a().isPerfUploadSwitchOpen()) {
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && m78a().isPerfUploadSwitchOpen()) {
             bp bpVar = new bp();
-            bpVar.a(this.f34a);
-            bpVar.a(this.f31a);
-            this.f37a.execute(bpVar);
+            bpVar.a(this.f38a);
+            bpVar.a(this.f35a);
+            this.f41a.execute(bpVar);
         }
     }
 }

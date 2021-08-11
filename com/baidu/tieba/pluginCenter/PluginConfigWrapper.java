@@ -1,5 +1,6 @@
 package com.baidu.tieba.pluginCenter;
 
+import c.a.o0.i0.b.a;
 import com.baidu.adp.plugin.packageManager.pluginServerConfig.PluginNetConfigInfos;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,8 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i0.b.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PluginConfigWrapper extends PluginNetConfigInfos.PluginConfig implements a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOADED_BUT_FORBIDDEN = 1;

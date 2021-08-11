@@ -15,26 +15,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoRecordButton extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f21861e;
+    public View f57435e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f21862f;
+    public View f57436f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f21863g;
+    public View f57437g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21864h;
+    public TextView f57438h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ObjectAnimator f21865i;
-    public ObjectAnimator j;
+    public ObjectAnimator f57439i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public ObjectAnimator f57440j;
     public ObjectAnimator k;
     public ObjectAnimator l;
 
@@ -63,49 +65,73 @@ public class VideoRecordButton extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             FrameLayout.inflate(getContext(), R.layout.layout_record_button, this);
-            this.f21861e = findViewById(R.id.record_layer1);
-            this.f21862f = findViewById(R.id.record_layer2);
-            this.f21863g = findViewById(R.id.record_layer3);
-            this.f21864h = (TextView) findViewById(R.id.tv_tip);
-            this.f21863g.setScaleX(0.766f);
-            this.f21863g.setScaleY(0.766f);
+            this.f57435e = findViewById(R.id.record_layer1);
+            this.f57436f = findViewById(R.id.record_layer2);
+            this.f57437g = findViewById(R.id.record_layer3);
+            this.f57438h = (TextView) findViewById(R.id.tv_tip);
+            this.f57437g.setScaleX(0.766f);
+            this.f57437g.setScaleY(0.766f);
         }
     }
 
-    public void b(boolean z) {
+    public View getLayer1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            ObjectAnimator objectAnimator = this.j;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f57435e : (View) invokeV.objValue;
+    }
+
+    public View getLayer2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57436f : (View) invokeV.objValue;
+    }
+
+    public View getLayer3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57437g : (View) invokeV.objValue;
+    }
+
+    public TextView getTvTip() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57438h : (TextView) invokeV.objValue;
+    }
+
+    public void startRecordAnimator(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            ObjectAnimator objectAnimator = this.f57440j;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.j.cancel();
+                this.f57440j.cancel();
             }
-            if (this.f21865i == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21863g, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
-                this.f21865i = ofPropertyValuesHolder;
+            if (this.f57439i == null) {
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f57437g, PropertyValuesHolder.ofFloat("scaleX", 0.766f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.766f, 1.0f));
+                this.f57439i = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setRepeatCount(-1);
-                this.f21865i.setRepeatMode(2);
-                this.f21865i.setDuration(1000L);
+                this.f57439i.setRepeatMode(2);
+                this.f57439i.setDuration(1000L);
             }
-            this.f21863g.setVisibility(0);
+            this.f57437g.setVisibility(0);
             if (z) {
-                this.f21861e.setVisibility(8);
+                this.f57435e.setVisibility(8);
             } else {
-                this.f21861e.setBackgroundResource(R.drawable.red_square_bg);
+                this.f57435e.setBackgroundResource(R.drawable.red_square_bg);
             }
-            this.f21864h.setVisibility(8);
-            this.f21865i.start();
+            this.f57438h.setVisibility(8);
+            this.f57439i.start();
         }
     }
 
-    public void c() {
+    public void startTakePhotoAnimator() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             ObjectAnimator objectAnimator = this.l;
             if (objectAnimator != null && objectAnimator.isRunning()) {
                 this.k.cancel();
             }
             if (this.k == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21862f, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f57436f, PropertyValuesHolder.ofFloat("scaleX", 1.0f, 0.9f), PropertyValuesHolder.ofFloat("scaleY", 1.0f, 0.9f));
                 this.k = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }
@@ -113,65 +139,41 @@ public class VideoRecordButton extends FrameLayout {
         }
     }
 
-    public void d() {
+    public void stopRecordAnimator() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ObjectAnimator objectAnimator = this.f21865i;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            ObjectAnimator objectAnimator = this.f57439i;
             if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.f21865i.cancel();
+                this.f57439i.cancel();
             }
-            if (this.j == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21863g, PropertyValuesHolder.ofFloat("scaleX", this.f21863g.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.f21863g.getScaleY(), 0.766f));
-                this.j = ofPropertyValuesHolder;
-                ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.f21863g.getScaleX()) * 500.0f) / 0.3f);
+            if (this.f57440j == null) {
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f57437g, PropertyValuesHolder.ofFloat("scaleX", this.f57437g.getScaleX(), 0.766f), PropertyValuesHolder.ofFloat("scaleY", this.f57437g.getScaleY(), 0.766f));
+                this.f57440j = ofPropertyValuesHolder;
+                ofPropertyValuesHolder.setDuration((Math.abs(0.766f - this.f57437g.getScaleX()) * 500.0f) / 0.3f);
             }
-            this.f21861e.setVisibility(0);
-            this.f21861e.setBackgroundResource(R.drawable.red_circle_bg);
-            this.j.start();
+            this.f57435e.setVisibility(0);
+            this.f57435e.setBackgroundResource(R.drawable.red_circle_bg);
+            this.f57440j.start();
         }
     }
 
-    public void e() {
+    public void stopTakePhotoAnimator() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ObjectAnimator objectAnimator = this.k;
             if (objectAnimator != null && objectAnimator.isRunning()) {
                 this.k.cancel();
             }
-            if (this.f21862f.getScaleX() == 1.0f) {
+            if (this.f57436f.getScaleX() == 1.0f) {
                 return;
             }
             if (this.l == null) {
-                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f21862f, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
+                ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.f57436f, PropertyValuesHolder.ofFloat("scaleX", 0.9f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.9f, 1.0f));
                 this.l = ofPropertyValuesHolder;
                 ofPropertyValuesHolder.setDuration(200L);
             }
             this.l.start();
         }
-    }
-
-    public View getLayer1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f21861e : (View) invokeV.objValue;
-    }
-
-    public View getLayer2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f21862f : (View) invokeV.objValue;
-    }
-
-    public View getLayer3() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f21863g : (View) invokeV.objValue;
-    }
-
-    public TextView getTvTip() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f21864h : (TextView) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

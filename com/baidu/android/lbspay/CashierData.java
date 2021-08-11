@@ -2,7 +2,6 @@ package com.baidu.android.lbspay;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class CashierData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CUSTOMER_ID = "customerId";
@@ -164,7 +164,7 @@ public class CashierData implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Map<String, String[]> map = this.mExtraData;
             if (map != null) {
-                return map.get(com.baidu.wallet.api.Constants.KEY_ORDERINFO_DESCARRAY);
+                return map.get("orderInfoDescArray");
             }
             return null;
         }
@@ -181,20 +181,10 @@ public class CashierData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public String getUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Map<String, String> map = this.mData;
-            return map != null ? map.get("passuid") : "";
-        }
-        return (String) invokeV.objValue;
-    }
-
     public String originAmount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             Map<String, String> map = this.mData;
             return map != null ? map.get("originalAmount") : "";
         }
@@ -203,14 +193,14 @@ public class CashierData implements Serializable {
 
     public void setData(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, map) == null) {
             this.mData = map;
         }
     }
 
     public void setExtraData(Map<String, String[]> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
             this.mExtraData = map;
         }
     }

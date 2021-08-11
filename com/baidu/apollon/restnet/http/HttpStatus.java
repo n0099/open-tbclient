@@ -13,8 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.utils.StatHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class HttpStatus {
     public static final /* synthetic */ HttpStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -87,7 +88,7 @@ public final class HttpStatus {
     public final int value;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static final class Series {
         public static final /* synthetic */ Series[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -194,7 +195,7 @@ public final class HttpStatus {
         SWITCHING_PROTOCOLS = new HttpStatus("SWITCHING_PROTOCOLS", 1, 101, "Switching Protocols");
         PROCESSING = new HttpStatus("PROCESSING", 2, 102, "Processing");
         CHECKPOINT = new HttpStatus("CHECKPOINT", 3, 103, "Checkpoint");
-        OK = new HttpStatus("OK", 4, 200, "OK");
+        OK = new HttpStatus(StatHelper.SENSOR_OK, 4, 200, StatHelper.SENSOR_OK);
         CREATED = new HttpStatus("CREATED", 5, 201, "Created");
         ACCEPTED = new HttpStatus("ACCEPTED", 6, 202, "Accepted");
         NON_AUTHORITATIVE_INFORMATION = new HttpStatus("NON_AUTHORITATIVE_INFORMATION", 7, 203, "Non-Authoritative Information");

@@ -6,20 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.GlGenericDrawer;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class GlRectDrawer extends GlGenericDrawer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER = "void main() {\n  gl_FragColor = sample(tc);\n}\n";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.GlRectDrawer$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class ShaderCallbacks implements GlGenericDrawer.ShaderCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

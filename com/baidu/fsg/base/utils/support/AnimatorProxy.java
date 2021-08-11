@@ -19,39 +19,41 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.WeakHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class AnimatorProxy extends Animation {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean NEEDS_PROXY;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final WeakHashMap<View, AnimatorProxy> f5466a;
+    public static final WeakHashMap<View, AnimatorProxy> f39412a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final WeakReference<View> f5467b;
+    public final WeakReference<View> f39413b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Camera f5468c;
+    public final Camera f39414c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final RectF f5469d;
+    public final RectF f39415d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final RectF f5470e;
+    public final RectF f39416e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Matrix f5471f;
+    public final Matrix f39417f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f5472g;
+    public boolean f39418g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f5473h;
+    public float f39419h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f5474i;
-    public float j;
+    public float f39420i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public float f39421j;
     public float k;
     public float l;
     public float m;
@@ -74,7 +76,7 @@ public final class AnimatorProxy extends Animation {
             }
         }
         NEEDS_PROXY = Integer.valueOf(Build.VERSION.SDK).intValue() < 11;
-        f5466a = new WeakHashMap<>();
+        f39412a = new WeakHashMap<>();
     }
 
     public AnimatorProxy(View view) {
@@ -92,37 +94,93 @@ public final class AnimatorProxy extends Animation {
                 return;
             }
         }
-        this.f5468c = new Camera();
-        this.f5469d = new RectF();
-        this.f5470e = new RectF();
-        this.f5471f = new Matrix();
-        this.f5473h = 1.0f;
+        this.f39414c = new Camera();
+        this.f39415d = new RectF();
+        this.f39416e = new RectF();
+        this.f39417f = new Matrix();
+        this.f39419h = 1.0f;
         this.n = 1.0f;
         this.o = 1.0f;
         setDuration(0L);
         setFillAfter(true);
         view.setAnimation(this);
-        this.f5467b = new WeakReference<>(view);
+        this.f39413b = new WeakReference<>(view);
     }
 
     private void a() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (view = this.f5467b.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (view = this.f39413b.get()) == null) {
             return;
         }
-        a(this.f5469d, view);
+        a(this.f39415d, view);
+    }
+
+    private void a(Matrix matrix, View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, this, matrix, view) == null) {
+            float width = view.getWidth();
+            float height = view.getHeight();
+            boolean z = this.f39418g;
+            float f2 = z ? this.f39420i : width / 2.0f;
+            float f3 = z ? this.f39421j : height / 2.0f;
+            float f4 = this.k;
+            float f5 = this.l;
+            float f6 = this.m;
+            if (f4 != 0.0f || f5 != 0.0f || f6 != 0.0f) {
+                Camera camera = this.f39414c;
+                camera.save();
+                camera.rotateX(f4);
+                camera.rotateY(f5);
+                camera.rotateZ(-f6);
+                camera.getMatrix(matrix);
+                camera.restore();
+                matrix.preTranslate(-f2, -f3);
+                matrix.postTranslate(f2, f3);
+            }
+            float f7 = this.n;
+            float f8 = this.o;
+            if (f7 != 1.0f || f8 != 1.0f) {
+                matrix.postScale(f7, f8);
+                matrix.postTranslate((-(f2 / width)) * ((f7 * width) - width), (-(f3 / height)) * ((f8 * height) - height));
+            }
+            matrix.postTranslate(this.p, this.q);
+        }
+    }
+
+    private void a(RectF rectF, View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, rectF, view) == null) {
+            rectF.set(0.0f, 0.0f, view.getWidth(), view.getHeight());
+            Matrix matrix = this.f39417f;
+            matrix.reset();
+            a(matrix, view);
+            this.f39417f.mapRect(rectF);
+            rectF.offset(view.getLeft(), view.getTop());
+            float f2 = rectF.right;
+            float f3 = rectF.left;
+            if (f2 < f3) {
+                rectF.right = f3;
+                rectF.left = f2;
+            }
+            float f4 = rectF.bottom;
+            float f5 = rectF.top;
+            if (f4 < f5) {
+                rectF.top = f4;
+                rectF.bottom = f5;
+            }
+        }
     }
 
     private void b() {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (view = this.f5467b.get()) == null || view.getParent() == null) {
+        if (!(interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) || (view = this.f39413b.get()) == null || view.getParent() == null) {
             return;
         }
-        RectF rectF = this.f5470e;
+        RectF rectF = this.f39416e;
         a(rectF, view);
-        rectF.union(this.f5469d);
+        rectF.union(this.f39415d);
         ((View) view.getParent()).invalidate((int) Math.floor(rectF.left), (int) Math.floor(rectF.top), (int) Math.ceil(rectF.right), (int) Math.ceil(rectF.bottom));
     }
 
@@ -130,10 +188,10 @@ public final class AnimatorProxy extends Animation {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, view)) == null) {
-            AnimatorProxy animatorProxy = f5466a.get(view);
+            AnimatorProxy animatorProxy = f39412a.get(view);
             if (animatorProxy == null || animatorProxy != view.getAnimation()) {
                 AnimatorProxy animatorProxy2 = new AnimatorProxy(view);
-                f5466a.put(view, animatorProxy2);
+                f39412a.put(view, animatorProxy2);
                 return animatorProxy2;
             }
             return animatorProxy;
@@ -145,29 +203,29 @@ public final class AnimatorProxy extends Animation {
     public void applyTransformation(float f2, Transformation transformation) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) || (view = this.f5467b.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), transformation}) == null) || (view = this.f39413b.get()) == null) {
             return;
         }
-        transformation.setAlpha(this.f5473h);
+        transformation.setAlpha(this.f39419h);
         a(transformation.getMatrix(), view);
     }
 
     public float getAlpha() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f5473h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39419h : invokeV.floatValue;
     }
 
     public float getPivotX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f5474i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39420i : invokeV.floatValue;
     }
 
     public float getPivotY() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39421j : invokeV.floatValue;
     }
 
     public float getRotation() {
@@ -204,7 +262,7 @@ public final class AnimatorProxy extends Animation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            View view = this.f5467b.get();
+            View view = this.f39413b.get();
             if (view == null) {
                 return 0;
             }
@@ -217,7 +275,7 @@ public final class AnimatorProxy extends Animation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            View view = this.f5467b.get();
+            View view = this.f39413b.get();
             if (view == null) {
                 return 0;
             }
@@ -242,7 +300,7 @@ public final class AnimatorProxy extends Animation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            View view = this.f5467b.get();
+            View view = this.f39413b.get();
             if (view == null) {
                 return 0.0f;
             }
@@ -255,7 +313,7 @@ public final class AnimatorProxy extends Animation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            View view = this.f5467b.get();
+            View view = this.f39413b.get();
             if (view == null) {
                 return 0.0f;
             }
@@ -266,11 +324,11 @@ public final class AnimatorProxy extends Animation {
 
     public void setAlpha(float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048591, this, f2) == null) || this.f5473h == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048591, this, f2) == null) || this.f39419h == f2) {
             return;
         }
-        this.f5473h = f2;
-        View view = this.f5467b.get();
+        this.f39419h = f2;
+        View view = this.f39413b.get();
         if (view != null) {
             view.invalidate();
         }
@@ -279,12 +337,12 @@ public final class AnimatorProxy extends Animation {
     public void setPivotX(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            if (this.f5472g && this.f5474i == f2) {
+            if (this.f39418g && this.f39420i == f2) {
                 return;
             }
             a();
-            this.f5472g = true;
-            this.f5474i = f2;
+            this.f39418g = true;
+            this.f39420i = f2;
             b();
         }
     }
@@ -292,12 +350,12 @@ public final class AnimatorProxy extends Animation {
     public void setPivotY(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
-            if (this.f5472g && this.j == f2) {
+            if (this.f39418g && this.f39421j == f2) {
                 return;
             }
             a();
-            this.f5472g = true;
-            this.j = f2;
+            this.f39418g = true;
+            this.f39421j = f2;
             b();
         }
     }
@@ -355,7 +413,7 @@ public final class AnimatorProxy extends Animation {
     public void setScrollX(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || (view = this.f5467b.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || (view = this.f39413b.get()) == null) {
             return;
         }
         view.scrollTo(i2, view.getScrollY());
@@ -364,7 +422,7 @@ public final class AnimatorProxy extends Animation {
     public void setScrollY(int i2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048600, this, i2) == null) || (view = this.f5467b.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048600, this, i2) == null) || (view = this.f39413b.get()) == null) {
             return;
         }
         view.scrollTo(view.getScrollX(), i2);
@@ -393,7 +451,7 @@ public final class AnimatorProxy extends Animation {
     public void setX(float f2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048603, this, f2) == null) || (view = this.f5467b.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048603, this, f2) == null) || (view = this.f39413b.get()) == null) {
             return;
         }
         setTranslationX(f2 - view.getLeft());
@@ -402,65 +460,9 @@ public final class AnimatorProxy extends Animation {
     public void setY(float f2) {
         View view;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048604, this, f2) == null) || (view = this.f5467b.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048604, this, f2) == null) || (view = this.f39413b.get()) == null) {
             return;
         }
         setTranslationY(f2 - view.getTop());
-    }
-
-    private void a(RectF rectF, View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, rectF, view) == null) {
-            rectF.set(0.0f, 0.0f, view.getWidth(), view.getHeight());
-            Matrix matrix = this.f5471f;
-            matrix.reset();
-            a(matrix, view);
-            this.f5471f.mapRect(rectF);
-            rectF.offset(view.getLeft(), view.getTop());
-            float f2 = rectF.right;
-            float f3 = rectF.left;
-            if (f2 < f3) {
-                rectF.right = f3;
-                rectF.left = f2;
-            }
-            float f4 = rectF.bottom;
-            float f5 = rectF.top;
-            if (f4 < f5) {
-                rectF.top = f4;
-                rectF.bottom = f5;
-            }
-        }
-    }
-
-    private void a(Matrix matrix, View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, matrix, view) == null) {
-            float width = view.getWidth();
-            float height = view.getHeight();
-            boolean z = this.f5472g;
-            float f2 = z ? this.f5474i : width / 2.0f;
-            float f3 = z ? this.j : height / 2.0f;
-            float f4 = this.k;
-            float f5 = this.l;
-            float f6 = this.m;
-            if (f4 != 0.0f || f5 != 0.0f || f6 != 0.0f) {
-                Camera camera = this.f5468c;
-                camera.save();
-                camera.rotateX(f4);
-                camera.rotateY(f5);
-                camera.rotateZ(-f6);
-                camera.getMatrix(matrix);
-                camera.restore();
-                matrix.preTranslate(-f2, -f3);
-                matrix.postTranslate(f2, f3);
-            }
-            float f7 = this.n;
-            float f8 = this.o;
-            if (f7 != 1.0f || f8 != 1.0f) {
-                matrix.postScale(f7, f8);
-                matrix.postTranslate((-(f2 / width)) * ((f7 * width) - width), (-(f3 / height)) * ((f8 * height) - height));
-            }
-            matrix.postTranslate(this.p, this.q);
-        }
     }
 }

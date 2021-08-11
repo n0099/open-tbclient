@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
@@ -49,7 +48,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CORNER_ANIMATION_DURATION = 500;
@@ -122,7 +121,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     @Nullable
     public WeakReference<V> viewRef;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static abstract class BottomSheetCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,11 +147,11 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public @interface SaveFlags {
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -332,7 +331,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class SettleRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -378,7 +377,7 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public @interface State {
     }
 
@@ -1486,7 +1485,6 @@ public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behav
     public void setBottomSheetCallback(BottomSheetCallback bottomSheetCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, bottomSheetCallback) == null) {
-            Log.w(TAG, "BottomSheetBehavior now supports multiple callbacks. `setBottomSheetCallback()` removes all existing callbacks, including ones set internally by library authors, which may result in unintended behavior. This may change in the future. Please use `addBottomSheetCallback()` and `removeBottomSheetCallback()` instead to set your own callbacks.");
             this.callbacks.clear();
             if (bottomSheetCallback != null) {
                 this.callbacks.add(bottomSheetCallback);

@@ -17,13 +17,13 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.BasicHttpContext;
 import org.apache.http.protocol.BasicHttpProcessor;
 import org.apache.http.protocol.HttpContext;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class d extends DefaultHttpClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ b f1669a;
+    public final /* synthetic */ b f35504a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(b bVar, ClientConnectionManager clientConnectionManager, HttpParams httpParams) {
@@ -44,7 +44,7 @@ public final class d extends DefaultHttpClient {
                 return;
             }
         }
-        this.f1669a = bVar;
+        this.f35504a = bVar;
     }
 
     @Override // org.apache.http.impl.client.DefaultHttpClient, org.apache.http.impl.client.AbstractHttpClient
@@ -75,9 +75,9 @@ public final class d extends DefaultHttpClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             BasicHttpProcessor createHttpProcessor = super.createHttpProcessor();
-            httpRequestInterceptor = b.f1662c;
+            httpRequestInterceptor = b.f35497c;
             createHttpProcessor.addRequestInterceptor(httpRequestInterceptor);
-            createHttpProcessor.addRequestInterceptor(new b.a(this.f1669a, (byte) 0));
+            createHttpProcessor.addRequestInterceptor(new b.a(this.f35504a, (byte) 0));
             return createHttpProcessor;
         }
         return (BasicHttpProcessor) invokeV.objValue;

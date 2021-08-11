@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 @Experimental
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class SchedulerWhen extends Scheduler implements Disposable {
     public static /* synthetic */ Interceptable $ic;
     public static final Disposable DISPOSED;
@@ -34,13 +34,13 @@ public class SchedulerWhen extends Scheduler implements Disposable {
     public Disposable disposable;
     public final FlowableProcessor<Flowable<Completable>> workerProcessor;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class CreateWorkerFunction implements Function<ScheduledAction, Completable> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Scheduler.Worker actualWorker;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public final class WorkerCompletable extends Completable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class DelayedAction extends ScheduledAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,12 +111,12 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         public final long delayTime;
         public final TimeUnit unit;
 
-        public DelayedAction(Runnable runnable, long j, TimeUnit timeUnit) {
+        public DelayedAction(Runnable runnable, long j2, TimeUnit timeUnit) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {runnable, Long.valueOf(j), timeUnit};
+                Object[] objArr = {runnable, Long.valueOf(j2), timeUnit};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -127,7 +127,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
                 }
             }
             this.action = runnable;
-            this.delayTime = j;
+            this.delayTime = j2;
             this.unit = timeUnit;
         }
 
@@ -139,7 +139,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class ImmediateAction extends ScheduledAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,7 +171,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class OnCompletedAction implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -210,7 +210,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class ScheduledAction extends AtomicReference<Disposable> implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,7 +273,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SubscribedDisposable implements Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -383,7 +383,7 @@ public class SchedulerWhen extends Scheduler implements Disposable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.disposable.isDisposed() : invokeV.booleanValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class QueueWorker extends Scheduler.Worker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -429,11 +429,11 @@ public class SchedulerWhen extends Scheduler implements Disposable {
 
         @Override // io.reactivex.Scheduler.Worker
         @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
-                DelayedAction delayedAction = new DelayedAction(runnable, j, timeUnit);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+                DelayedAction delayedAction = new DelayedAction(runnable, j2, timeUnit);
                 this.actionProcessor.onNext(delayedAction);
                 return delayedAction;
             }

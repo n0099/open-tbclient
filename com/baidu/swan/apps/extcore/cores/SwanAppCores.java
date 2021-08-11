@@ -13,7 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes6.dex */
 public class SwanAppCores extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SwanAppCores> CREATOR;
@@ -21,7 +22,7 @@ public class SwanAppCores extends SwanAppIPCData {
     public ExtensionCore mExtensionCore;
     public SwanCoreVersion mSwanCoreVersion;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<SwanAppCores> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +120,7 @@ public class SwanAppCores extends SwanAppIPCData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "SwanAppCores{mSwanCoreVersion=" + this.mSwanCoreVersion + ", mExtensionCore=" + this.mExtensionCore + '}';
+            return "SwanAppCores{mSwanCoreVersion=" + this.mSwanCoreVersion + ", mExtensionCore=" + this.mExtensionCore + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

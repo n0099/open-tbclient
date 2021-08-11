@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BigImgPbActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BIGPB_URL = "http://tieba.baidu.com/n/drift-bottle/detail";

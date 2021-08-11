@@ -1,6 +1,10 @@
 package com.baidu.tieba.lego.card.model;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.p0.o1.o.i.a;
+import c.a.p0.o1.o.k.b;
+import c.a.p0.o1.o.k.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -10,12 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.n1.o.i.a;
-import d.a.q0.n1.o.k.b;
-import d.a.q0.n1.o.k.d;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -159,13 +159,13 @@ public class LPBigImgCard extends BaseCardInfo implements a<LPBigImgCard> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.q0.n1.o.i.a
+    @Override // c.a.p0.o1.o.i.a
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, tbPageContext) == null) || lPBigImgCard == null || tbPageContext == null) {
             return;
         }
         int k = l.k(TbadkCoreApplication.getInst());
-        d.a.d.e.l.d.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
+        c.a.e.e.l.d.h().k(lPBigImgCard.getPicUrl(), 17, null, k, (int) ((lPBigImgCard.getPicHeight() / lPBigImgCard.getPicWidth()) * k), tbPageContext.getUniqueId(), new Object[0]);
     }
 }

@@ -2,6 +2,7 @@ package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.fsg.base.statistics.f;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ParamsUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -223,7 +224,7 @@ public class ParamsUtil implements NoProguard {
                 hashMap.put("connect", "1");
             }
             if (sapiConfiguration.language == Language.ENGLISH) {
-                hashMap.put("lang", "en");
+                hashMap.put("lang", f.f39281a);
             }
             hashMap.put("suppcheck", "1");
             if (sapiConfiguration.supportFaceLogin) {

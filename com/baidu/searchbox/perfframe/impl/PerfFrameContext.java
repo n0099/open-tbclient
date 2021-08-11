@@ -1,7 +1,7 @@
 package com.baidu.searchbox.perfframe.impl;
 
 import android.content.Context;
-import android.util.Log;
+import c.a.g0.a.b.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -16,9 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.a.b.d;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PerfFrameContext {
     public static /* synthetic */ Interceptable $ic;
     public static final IPerfFrameCallBack PERFFRAME_CONTEXT_DEFAULT;
@@ -59,18 +58,15 @@ public class PerfFrameContext {
             public void onPerfFrameCallBack(Context context, PerfExpInfo perfExpInfo) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, perfExpInfo) == null) {
-                    if (AppConfig.isDebug()) {
-                        Log.d("PerfFrame", "onPerfFrameCallBack");
-                    }
-                    Log.d("PerfFrame", "onPerfFrameCallBack");
+                    AppConfig.isDebug();
                     d<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
                     if (perfFrameRegister == null || perfFrameRegister.getList() == null || perfExpInfo == null) {
                         return;
                     }
                     if (AppConfig.isDebug()) {
-                        Log.i("PerfFrame", "perfExpInfo = " + perfExpInfo.toString());
+                        String str = "perfExpInfo = " + perfExpInfo.toString();
                     }
-                    Log.i("PerfFrame", "perfExpInfo = " + perfExpInfo.toString());
+                    String str2 = "perfExpInfo = " + perfExpInfo.toString();
                     perfExpInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
                     perfExpInfo.setLogId(CommonUtils.getLogId());
                     for (IPerfFrameRegister iPerfFrameRegister : perfFrameRegister.getList()) {

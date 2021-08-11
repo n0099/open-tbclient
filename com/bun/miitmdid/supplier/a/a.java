@@ -12,34 +12,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SupplierListener f27755a;
+    public SupplierListener f63586a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f27756b;
+    public String f63587b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f27757c;
+    public String f63588c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f27758d;
+    public String f63589d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27759e;
+    public String f63590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SupplementaryDIDManager f27760f;
+    public SupplementaryDIDManager f63591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27761g;
+    public boolean f63592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27762h;
+    public boolean f63593h;
 
     public a(Context context, SupplierListener supplierListener) {
         Interceptable interceptable = $ic;
@@ -56,21 +56,21 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
                 return;
             }
         }
-        this.f27756b = "";
-        this.f27757c = "";
-        this.f27758d = "";
-        this.f27759e = "";
-        this.f27761g = false;
-        this.f27762h = false;
-        this.f27755a = supplierListener;
-        this.f27760f = new SupplementaryDIDManager(context);
+        this.f63587b = "";
+        this.f63588c = "";
+        this.f63589d = "";
+        this.f63590e = "";
+        this.f63592g = false;
+        this.f63593h = false;
+        this.f63586a = supplierListener;
+        this.f63591f = new SupplementaryDIDManager(context);
     }
 
     @Override // com.asus.msa.sdid.a
     public void a() {
         SupplierListener supplierListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (supplierListener = this.f27755a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (supplierListener = this.f63586a) == null) {
             return;
         }
         supplierListener.OnSupport(false, this);
@@ -82,44 +82,44 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             try {
                 String b2 = aVar.b();
-                this.f27756b = b2;
+                this.f63587b = b2;
                 if (b2 == null) {
-                    this.f27756b = "";
+                    this.f63587b = "";
                 }
             } catch (Exception unused) {
             }
             try {
                 String c2 = aVar.c();
-                this.f27757c = c2;
+                this.f63588c = c2;
                 if (c2 == null) {
-                    this.f27757c = "";
+                    this.f63588c = "";
                 }
             } catch (Exception unused2) {
             }
             try {
                 String d2 = aVar.d();
-                this.f27758d = d2;
+                this.f63589d = d2;
                 if (d2 == null) {
-                    this.f27758d = "";
+                    this.f63589d = "";
                 }
             } catch (Exception unused3) {
             }
             try {
                 String e2 = aVar.e();
-                this.f27759e = e2;
+                this.f63590e = e2;
                 if (e2 == null) {
-                    this.f27759e = "";
+                    this.f63590e = "";
                 }
             } catch (Exception unused4) {
             }
             try {
-                this.f27762h = aVar.a();
+                this.f63593h = aVar.a();
             } catch (Exception unused5) {
             }
-            this.f27761g = true;
-            SupplierListener supplierListener = this.f27755a;
+            this.f63592g = true;
+            SupplierListener supplierListener = this.f63586a;
             if (supplierListener != null) {
-                supplierListener.OnSupport(this.f27762h, this);
+                supplierListener.OnSupport(this.f63593h, this);
             }
         }
     }
@@ -128,7 +128,7 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
     public void a(SupplierListener supplierListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, supplierListener) == null) {
-            this.f27760f.init(this);
+            this.f63591f.init(this);
         }
     }
 
@@ -156,42 +156,42 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
     public String getAAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27759e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f63590e : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getOAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27757c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f63588c : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f27756b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f63587b : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public String getVAID() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27758d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f63589d : (String) invokeV.objValue;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier
     public boolean isSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f27762h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f63593h : invokeV.booleanValue;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public void shutDown() {
         SupplementaryDIDManager supplementaryDIDManager;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f27761g && (supplementaryDIDManager = this.f27760f) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.f63592g && (supplementaryDIDManager = this.f63591f) != null) {
             supplementaryDIDManager.deInit();
         }
     }

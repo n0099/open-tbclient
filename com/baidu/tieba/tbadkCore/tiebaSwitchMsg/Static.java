@@ -1,6 +1,7 @@
 package com.baidu.tieba.tbadkCore.tiebaSwitchMsg;
 
 import android.text.TextUtils;
+import c.a.e.h.j.g.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -19,14 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.h.j.g.d;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +85,7 @@ public class Static {
                 if (Util.c(string, M) == Util.VersionCompare.EQUAL && (parse = PluginNetConfigInfos.parse(jSONObject.toString())) != null && !parse.getConfigs().isEmpty()) {
                     PluginNetConfigInfos.PluginConfig pluginConfig = parse.getConfigs().get(0);
                     PluginNetConfigInfos.PluginConfig R = PluginPackageManager.O().R(pluginConfig.package_name);
-                    d.a.d.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
+                    c.a.e.h.j.f.d.c().d().addOrUpdateConfig(pluginConfig);
                     if (R == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2000987, pluginConfig));
                         return;

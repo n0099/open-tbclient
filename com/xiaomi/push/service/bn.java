@@ -16,12 +16,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bn {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object f40924a;
+    public static final Object f77800a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class bn {
                 return;
             }
         }
-        f40924a = new Object();
+        f77800a = new Object();
     }
 
     public static void a(Context context, hj hjVar) {
@@ -54,7 +54,7 @@ public class bn {
             String a2 = com.xiaomi.push.p.a(context).a("mipush", "td_key", "");
             if (TextUtils.isEmpty(a2)) {
                 a2 = com.xiaomi.push.bm.a(20);
-                com.xiaomi.push.p.a(context).m540a("mipush", "td_key", a2);
+                com.xiaomi.push.p.a(context).m543a("mipush", "td_key", a2);
             }
             return a(a2);
         }
@@ -65,7 +65,7 @@ public class bn {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m180a(str), 16);
+            byte[] copyOf = Arrays.copyOf(com.xiaomi.push.bj.m183a(str), 16);
             copyOf[0] = 68;
             copyOf[15] = 84;
             return copyOf;
@@ -97,7 +97,7 @@ public class bn {
                 if (b2 != null && b2.length >= 1) {
                     if (b2.length > 10240) {
                         str2 = "TinyData write to cache file failed case too much data content item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                        com.xiaomi.channel.commonutils.logger.b.m70a(str2);
+                        com.xiaomi.channel.commonutils.logger.b.m73a(str2);
                         com.xiaomi.push.y.a((Closeable) null);
                         com.xiaomi.push.y.a((Closeable) null);
                     }
@@ -136,7 +136,7 @@ public class bn {
                     }
                 }
                 str2 = "TinyData write to cache file failed case encryption fail item:" + hjVar.d() + "  ts:" + System.currentTimeMillis();
-                com.xiaomi.channel.commonutils.logger.b.m70a(str2);
+                com.xiaomi.channel.commonutils.logger.b.m73a(str2);
                 com.xiaomi.push.y.a((Closeable) null);
                 com.xiaomi.push.y.a((Closeable) null);
             } catch (Throwable th2) {

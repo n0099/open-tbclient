@@ -23,7 +23,7 @@ import org.webrtc.EncodedImage;
 import org.webrtc.ThreadUtils;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEQUEUE_INPUT_TIMEOUT_US = 500000;
@@ -70,19 +70,19 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
     public SurfaceTextureHelper surfaceTextureHelper;
     public int width;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class DecodedTextureMetadata {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Integer decodeTimeMs;
         public final long presentationTimestampUs;
 
-        public DecodedTextureMetadata(long j, Integer num) {
+        public DecodedTextureMetadata(long j2, Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), num};
+                Object[] objArr = {Long.valueOf(j2), num};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -92,24 +92,24 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                     return;
                 }
             }
-            this.presentationTimestampUs = j;
+            this.presentationTimestampUs = j2;
             this.decodeTimeMs = num;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class FrameInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long decodeStartTimeMs;
         public final int rotation;
 
-        public FrameInfo(long j, int i2) {
+        public FrameInfo(long j2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -119,7 +119,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                     return;
                 }
             }
-            this.decodeStartTimeMs = j;
+            this.decodeStartTimeMs = j2;
             this.rotation = i2;
         }
     }
@@ -648,7 +648,7 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
 
     @Override // org.webrtc.VideoSink
     public void onFrame(VideoFrame videoFrame) {
-        long j;
+        long j2;
         int intValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, videoFrame) == null) {
@@ -656,11 +656,11 @@ public class AndroidVideoDecoder implements VideoDecoder, VideoSink {
                 if (this.renderedTextureMetadata == null) {
                     throw new IllegalStateException("Rendered texture metadata was null in onTextureFrameAvailable.");
                 }
-                j = this.renderedTextureMetadata.presentationTimestampUs;
+                j2 = this.renderedTextureMetadata.presentationTimestampUs;
                 intValue = this.renderedTextureMetadata.decodeTimeMs.intValue();
                 this.renderedTextureMetadata = null;
             }
-            this.callback.onDecodedFrame(new VideoFrame(videoFrame.getBuffer(), videoFrame.getRotation(), j * 1000), Integer.valueOf(intValue), null);
+            this.callback.onDecodedFrame(new VideoFrame(videoFrame.getBuffer(), videoFrame.getRotation(), j2 * 1000), Integer.valueOf(intValue), null);
         }
     }
 

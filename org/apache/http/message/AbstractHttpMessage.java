@@ -12,7 +12,7 @@ import org.apache.http.HeaderIterator;
 import org.apache.http.HttpMessage;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractHttpMessage implements HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

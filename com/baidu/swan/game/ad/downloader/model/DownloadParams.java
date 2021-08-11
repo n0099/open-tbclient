@@ -12,31 +12,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DownloadParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11788a;
+    public String f46672a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11789b;
+    public String f46673b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f11790c;
+    public String f46674c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f11791d;
+    public String f46675d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f11792e;
+    public String f46676e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f11793f;
+    public long f46677f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class SwanAppDownloadType {
         public static final /* synthetic */ SwanAppDownloadType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -146,8 +146,8 @@ public class DownloadParams {
                 return;
             }
         }
-        this.f11788a = str;
-        this.f11789b = str2;
+        this.f46672a = str;
+        this.f46673b = str2;
     }
 
     public JSONObject a() {
@@ -156,12 +156,12 @@ public class DownloadParams {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("url", this.f11788a);
-                jSONObject.put("name", this.f11789b);
-                jSONObject.put("userAgent", this.f11790c);
-                jSONObject.put("contentDisposition", this.f11791d);
-                jSONObject.put("mimeType", this.f11792e);
-                jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.f11793f);
+                jSONObject.put("url", this.f46672a);
+                jSONObject.put("name", this.f46673b);
+                jSONObject.put("userAgent", this.f46674c);
+                jSONObject.put("contentDisposition", this.f46675d);
+                jSONObject.put("mimeType", this.f46676e);
+                jSONObject.put(XAdRemoteAPKDownloadExtraInfo.CONTENT_LENGTH, this.f46677f);
             } catch (JSONException unused) {
             }
             return jSONObject;
@@ -184,7 +184,7 @@ public class DownloadParams {
                 return;
             }
         }
-        this.f11788a = str;
-        this.f11789b = str2;
+        this.f46672a = str;
+        this.f46673b = str2;
     }
 }

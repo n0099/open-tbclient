@@ -17,8 +17,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
-import org.apache.commons.base.CharEncoding;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class PlayReadyHeader extends ProtectionSpecificHeader {
     public static /* synthetic */ Interceptable $ic;
     public static UUID PROTECTION_SYSTEM_ID;
@@ -26,13 +26,13 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
     public long length;
     public List<PlayReadyRecord> records;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class PlayReadyRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int type;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public static class DefaulPlayReadyRecord extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public static class EmeddedLicenseStore extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -118,13 +118,13 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    return "EmeddedLicenseStore{length=" + getValue().limit() + '}';
+                    return "EmeddedLicenseStore{length=" + getValue().limit() + ExtendedMessageFormat.END_FE;
                 }
                 return (String) invokeV.objValue;
             }
         }
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public static class RMHeader extends PlayReadyRecord {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -160,7 +160,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     try {
-                        return ByteBuffer.wrap(this.header.getBytes(CharEncoding.UTF_16LE));
+                        return ByteBuffer.wrap(this.header.getBytes("UTF-16LE"));
                     } catch (UnsupportedEncodingException e2) {
                         throw new RuntimeException(e2);
                     }
@@ -175,7 +175,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                     try {
                         byte[] bArr = new byte[byteBuffer.slice().limit()];
                         byteBuffer.get(bArr);
-                        this.header = new String(bArr, CharEncoding.UTF_16LE);
+                        this.header = new String(bArr, "UTF-16LE");
                     } catch (UnsupportedEncodingException e2) {
                         throw new RuntimeException(e2);
                     }
@@ -194,7 +194,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                    return "RMHeader{length=" + getValue().limit() + ", header='" + this.header + "'}";
+                    return "RMHeader{length=" + getValue().limit() + ", header='" + this.header + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
                 }
                 return (String) invokeV.objValue;
             }
@@ -253,7 +253,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "PlayReadyRecord{type=" + this.type + ", length=" + getValue().limit() + '}';
+                return "PlayReadyRecord{type=" + this.type + ", length=" + getValue().limit() + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
@@ -346,7 +346,7 @@ public class PlayReadyHeader extends ProtectionSpecificHeader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "PlayReadyHeader{length=" + this.length + ", recordCount=" + this.records.size() + ", records=" + this.records + '}';
+            return "PlayReadyHeader{length=" + this.length + ", recordCount=" + this.records.size() + ", records=" + this.records + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

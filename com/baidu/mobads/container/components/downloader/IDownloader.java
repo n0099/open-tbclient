@@ -9,13 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.download.PayDownloadModule;
 import java.util.Observer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IDownloader {
     public static final String TEMP_SUFFIX = ".tmp";
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class DownloadStatus {
         public static final /* synthetic */ DownloadStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -49,7 +50,7 @@ public interface IDownloader {
             DOWNLOADING = new DownloadStatus(AdDownloadApkUtils.DL_STATUS_DOWNLOADING, 2, 1, "正在下载");
             CANCELLED = new DownloadStatus("CANCELLED", 3, 2, "已取消下载");
             COMPLETED = new DownloadStatus("COMPLETED", 4, 3, "下载完成");
-            ERROR = new DownloadStatus("ERROR", 5, 4, "下载失败");
+            ERROR = new DownloadStatus("ERROR", 5, 4, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
             COMPLETE_BUT_FILE_REMOVED = new DownloadStatus("COMPLETE_BUT_FILE_REMOVED", 6, 5, "下载完但文件异常");
             DownloadStatus downloadStatus = new DownloadStatus("PAUSED", 7, 6, "已暂停下载");
             PAUSED = downloadStatus;

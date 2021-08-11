@@ -2,13 +2,12 @@ package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
 import android.content.Context;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GroupInfoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_FROM = "activity_from";
@@ -28,13 +27,13 @@ public class GroupInfoActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupInfoActivityConfig(Context context, long j, int i2) {
+    public GroupInfoActivityConfig(Context context, long j2, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2)};
+            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -45,22 +44,22 @@ public class GroupInfoActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("group_id", j);
+        getIntent().putExtra("group_id", j2);
         getIntent().putExtra(ACTION_FROM, i2);
         if (context instanceof Activity) {
             return;
         }
-        getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        getIntent().addFlags(268435456);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupInfoActivityConfig(Context context, long j, int i2, String str, long j2) {
+    public GroupInfoActivityConfig(Context context, long j2, int i2, String str, long j3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), str, Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), str, Long.valueOf(j3)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -71,25 +70,25 @@ public class GroupInfoActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra("group_id", j);
+        getIntent().putExtra("group_id", j2);
         getIntent().putExtra(ACTION_FROM, i2);
         getIntent().putExtra(DEFAULT_INVITE_MSG, str);
-        getIntent().putExtra(INVITE_USER_ID, j2);
+        getIntent().putExtra(INVITE_USER_ID, j3);
         getIntent().putExtra(JOIN_TYPE, ApplyJoinGroupActivityConfig.JOINTYPE_INVITE);
         if (context instanceof Activity) {
             return;
         }
-        getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        getIntent().addFlags(268435456);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupInfoActivityConfig(int i2, Activity activity, long j, int i3) {
+    public GroupInfoActivityConfig(int i2, Activity activity, long j2, int i3) {
         super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), activity, Long.valueOf(j), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i2), activity, Long.valueOf(j2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -101,11 +100,11 @@ public class GroupInfoActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("requestCode", i2);
-        getIntent().putExtra("group_id", j);
+        getIntent().putExtra("group_id", j2);
         getIntent().putExtra(ACTION_FROM, i3);
         if (activity instanceof Activity) {
             return;
         }
-        getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        getIntent().addFlags(268435456);
     }
 }

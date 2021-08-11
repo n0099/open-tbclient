@@ -2,7 +2,6 @@ package com.baidu.mobads.container.util.animation;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AnimationSet;
 import com.baidu.android.imsdk.internal.Constants;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BDAnimationManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BDAnimationManager";
@@ -83,8 +82,7 @@ public class BDAnimationManager {
                     this.animationSet.addAnimation(this.mAnimations.get(i2).animation);
                 }
                 view.startAnimation(this.animationSet);
-            } catch (Throwable th) {
-                Log.e(TAG, "startAnimations fail: ", th);
+            } catch (Throwable unused) {
             }
         }
     }
@@ -105,8 +103,7 @@ public class BDAnimationManager {
                     objectAnimator = bDAnimation.animator;
                 }
                 this.animatorSet.start();
-            } catch (Throwable th) {
-                Log.e(TAG, "startAnimators fail: ", th);
+            } catch (Throwable unused) {
             }
         }
     }

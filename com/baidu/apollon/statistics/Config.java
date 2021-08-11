@@ -4,38 +4,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TYPE_NORMAL = "normal_log";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3951a = "wallet_stastics";
+    public static final String f37933a = "wallet_stastics";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f3952b = false;
+    public static final boolean f37934b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3953c = 204800;
+    public static final int f37935c = 204800;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f3954d = 51200;
+    public static final int f37936d = 51200;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final long f3955e = 604800000;
+    public static final long f37937e = 604800000;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final long f3956f = 86400000;
+    public static final long f37938f = 86400000;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f3957g = "publish_data";
+    public static final String f37939g = "publish_data";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f3958h = "sign";
+    public static final String f37940h = "sign";
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f3959i = "mk";
-    public static final String j = "array";
+    public static final String f37941i = "mk";
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final String f37942j = "array";
     public static final String k = "exception";
     public static final String l = "dim_excep_time";
     public static final String m = "dim_excep_owner";

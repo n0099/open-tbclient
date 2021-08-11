@@ -23,7 +23,7 @@ import com.yy.hiidostatis.inner.util.log.ActLog;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Vector;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class TaskManagerNew implements ITaskManager {
     public static /* synthetic */ Interceptable $ic;
     public static final int MAX_CACHE_DAY;
@@ -47,7 +47,7 @@ public class TaskManagerNew implements ITaskManager {
     public final TaskExecutor mSaveExecutor;
     public AtomicInteger sendFailedCount;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class FailSendControler {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long SEND_FAIL_SLEEP_TIMES = 10000;
@@ -56,12 +56,12 @@ public class TaskManagerNew implements ITaskManager {
         public long lastFailTime;
         public final long sleepTime;
 
-        public FailSendControler(long j) {
+        public FailSendControler(long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j)};
+                Object[] objArr = {Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -73,7 +73,7 @@ public class TaskManagerNew implements ITaskManager {
             }
             this.lastFailTime = 0L;
             this.failContinuous = 0;
-            this.sleepTime = j <= 0 ? 10000L : j;
+            this.sleepTime = j2 <= 0 ? 10000L : j2;
         }
 
         public int getFailContinuous() {

@@ -13,7 +13,12 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
+import c.a.e.a.g;
+import c.a.e.a.j;
+import c.a.e.e.m.f;
+import c.a.e.h.j.g.d;
+import c.a.o0.h0.h;
+import c.a.o0.k0.c;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -34,15 +39,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.g;
-import d.a.d.a.j;
-import d.a.d.e.m.f;
-import d.a.d.h.j.g.d;
-import d.a.p0.h0.h;
-import d.a.p0.k0.c;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class IntentConfig extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AB_TAG = "ab_tag";
@@ -148,13 +147,13 @@ public class IntentConfig extends OrmObject {
     public ServiceConnection mServiceConnection;
     public int mServiceConnectionFlags;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f12371e;
+        public final /* synthetic */ IntentConfig f47318e;
 
         public a(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -171,7 +170,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f12371e = intentConfig;
+            this.f47318e = intentConfig;
         }
 
         @Override // android.content.ServiceConnection
@@ -180,17 +179,17 @@ public class IntentConfig extends OrmObject {
             if (!(interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) || iBinder == null) {
                 return;
             }
-            this.f12371e.mReplyMessenger = new Messenger(iBinder);
-            if (this.f12371e.mReplyMessenger != null) {
+            this.f47318e.mReplyMessenger = new Messenger(iBinder);
+            if (this.f47318e.mReplyMessenger != null) {
                 Message obtain = Message.obtain();
                 Bundle bundle = new Bundle();
-                if (this.f12371e.mComponentClass != null) {
-                    bundle.putString(DealIntentService.KEY_CLASS, this.f12371e.mComponentClass.getName());
+                if (this.f47318e.mComponentClass != null) {
+                    bundle.putString(DealIntentService.KEY_CLASS, this.f47318e.mComponentClass.getName());
                 }
                 obtain.setData(bundle);
-                obtain.replyTo = this.f12371e.mClientMessenger;
+                obtain.replyTo = this.f47318e.mClientMessenger;
                 try {
-                    this.f12371e.mReplyMessenger.send(obtain);
+                    this.f47318e.mReplyMessenger.send(obtain);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -205,13 +204,13 @@ public class IntentConfig extends OrmObject {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ IntentConfig f12372a;
+        public final /* synthetic */ IntentConfig f47319a;
 
         public b(IntentConfig intentConfig) {
             Interceptable interceptable = $ic;
@@ -228,7 +227,7 @@ public class IntentConfig extends OrmObject {
                     return;
                 }
             }
-            this.f12372a = intentConfig;
+            this.f47319a = intentConfig;
         }
 
         public final boolean a(Message message) {
@@ -240,19 +239,19 @@ public class IntentConfig extends OrmObject {
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f12372a.mContext == null) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) || this.f47319a.mContext == null) {
                 return;
             }
             if (a(message)) {
-                if (this.f12372a.isForResult) {
-                    IntentConfig intentConfig = this.f12372a;
-                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f12372a.mComponentClass);
+                if (this.f47319a.isForResult) {
+                    IntentConfig intentConfig = this.f47319a;
+                    intentConfig.startActivityForResult(intentConfig.mRequestCode, this.f47319a.mComponentClass);
                 } else {
-                    IntentConfig intentConfig2 = this.f12372a;
+                    IntentConfig intentConfig2 = this.f47319a;
                     intentConfig2.startActivity(intentConfig2.mComponentClass);
                 }
             }
-            f.e(this.f12372a.mContext, this.f12372a.mClientConnection);
+            f.e(this.f47319a.mContext, this.f47319a.mClientConnection);
         }
 
         public /* synthetic */ b(IntentConfig intentConfig, a aVar) {
@@ -306,7 +305,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(context);
-        d.a.p0.l0.b tbPageInfo = b2 instanceof d.a.p0.l0.a ? ((d.a.p0.l0.a) b2).getTbPageInfo() : null;
+        c.a.o0.l0.b tbPageInfo = b2 instanceof c.a.o0.l0.a ? ((c.a.o0.l0.a) b2).getTbPageInfo() : null;
         if (tbPageInfo != null) {
             this.mIntent.putExtra("tb_page_tag_source_trace", tbPageInfo.a());
         }
@@ -339,7 +338,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         if (k != null) {
-            TbPageExtraHelper.u(k.a());
+            TbPageExtraHelper.v(k.a());
             h.i(new PrePageKeyEvent(TbPageExtraHelper.m()));
         }
         this.mIntent.putStringArrayListExtra("tb_page_extar_source_list", b2);
@@ -351,7 +350,7 @@ public class IntentConfig extends OrmObject {
             return;
         }
         g<?> b2 = j.b(this.mContext);
-        ArrayList<String> arrayList = b2 instanceof d.a.p0.m0.a ? (ArrayList) ((d.a.p0.m0.a) b2).getNextPageSourceKeyList() : null;
+        ArrayList<String> arrayList = b2 instanceof c.a.o0.m0.a ? (ArrayList) ((c.a.o0.m0.a) b2).getNextPageSourceKeyList() : null;
         if (ListUtils.isEmpty(arrayList)) {
             return;
         }
@@ -390,14 +389,14 @@ public class IntentConfig extends OrmObject {
                         return;
                     }
                 } catch (Exception e2) {
-                    d.a.d.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    c.a.e.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e2);
                 }
             }
             try {
                 this.mContext.bindService(this.mIntent, this.mServiceConnection, this.mServiceConnectionFlags);
             } catch (Throwable th) {
-                d.a.d.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                c.a.e.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
             }
         }
@@ -550,7 +549,7 @@ public class IntentConfig extends OrmObject {
                         return PluginCenter.getInstance().launchIntent(this.mContext, pluginNameByClassloader, this.mIntent);
                     }
                 } catch (Exception e2) {
-                    d.a.d.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    c.a.e.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e2);
                     return false;
                 }
@@ -565,12 +564,12 @@ public class IntentConfig extends OrmObject {
                     return false;
                 }
                 if (!(this.mContext instanceof Activity)) {
-                    this.mIntent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    this.mIntent.addFlags(268435456);
                 }
                 this.mContext.startActivity(this.mIntent);
                 return true;
             } catch (Throwable th) {
-                d.a.d.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                c.a.e.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
                 return false;
             }
@@ -647,14 +646,14 @@ public class IntentConfig extends OrmObject {
                         return;
                     }
                 } catch (Exception e2) {
-                    d.a.d.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    c.a.e.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e2);
                 }
             }
             try {
                 this.mContext.startService(this.mIntent);
             } catch (Throwable th) {
-                d.a.d.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                c.a.e.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
             }
         }
@@ -684,7 +683,7 @@ public class IntentConfig extends OrmObject {
                         return;
                     }
                 } catch (Exception e2) {
-                    d.a.d.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                    c.a.e.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                     BdLog.detailException(e2);
                 }
             }
@@ -699,7 +698,7 @@ public class IntentConfig extends OrmObject {
                 }
                 startActivityForResult(i2);
             } catch (Throwable th) {
-                d.a.d.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
+                c.a.e.h.h.a.b().i("plugin_run_fail", pluginNameByClassloader);
                 BdLog.detailException(th);
             }
         }

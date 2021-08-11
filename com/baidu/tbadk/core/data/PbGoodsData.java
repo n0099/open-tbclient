@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.data;
 
+import c.a.p0.a0.d0.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.QuickPersistConfigConst;
@@ -8,11 +9,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a0.e0.c;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.PbGoodsInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PbGoodsData extends c implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class PbGoodsData extends c implements Serializable {
         this.goodsUrlH5 = pbGoodsInfo.goods_url_h5;
     }
 
-    @Override // d.a.q0.a0.e0.c
+    @Override // c.a.p0.a0.d0.c
     public int sort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

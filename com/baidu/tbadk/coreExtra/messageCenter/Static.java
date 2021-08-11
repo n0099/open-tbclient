@@ -1,5 +1,7 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
+import c.a.e.e.p.l;
+import c.a.o0.t.d.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -13,25 +15,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.t.d.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements CustomMessageTask.CustomRunnable<AccountData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.tbadk.coreExtra.messageCenter.Static$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0185a implements Runnable {
+        /* loaded from: classes6.dex */
+        public class RunnableC1738a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0185a(a aVar) {
+            public RunnableC1738a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -79,7 +79,7 @@ public class Static {
                     b.g0().h();
                     return null;
                 } else if (TbadkCoreApplication.getInst() != null) {
-                    TbadkCoreApplication.getInst().handler.post(new RunnableC0185a(this));
+                    TbadkCoreApplication.getInst().handler.post(new RunnableC1738a(this));
                     return null;
                 } else {
                     return null;

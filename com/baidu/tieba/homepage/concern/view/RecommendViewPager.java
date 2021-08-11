@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RecommendViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f16596e;
+    public float f51809e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f16597f;
+    public float f51810f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RecommendViewPager(@NonNull Context context) {
@@ -41,16 +41,8 @@ public class RecommendViewPager extends ViewPager {
                 return;
             }
         }
-        this.f16596e = 0.0f;
-        this.f16597f = 0.0f;
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || getParent() == null) {
-            return;
-        }
-        getParent().requestDisallowInterceptTouchEvent(z);
+        this.f51809e = 0.0f;
+        this.f51810f = 0.0f;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x002e, code lost:
@@ -63,32 +55,40 @@ public class RecommendViewPager extends ViewPager {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             int currentItem = getCurrentItem();
             boolean z = (currentItem == 0 || currentItem == (getAdapter() == null ? 0 : getAdapter().getCount()) - 1) ? false : true;
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        float abs = Math.abs(motionEvent.getX() - this.f16596e);
-                        float abs2 = Math.abs(motionEvent.getY() - this.f16597f);
-                        this.f16596e = motionEvent.getX();
-                        this.f16597f = motionEvent.getY();
+                        float abs = Math.abs(motionEvent.getX() - this.f51809e);
+                        float abs2 = Math.abs(motionEvent.getY() - this.f51810f);
+                        this.f51809e = motionEvent.getX();
+                        this.f51810f = motionEvent.getY();
                         if (abs2 / abs < 1.0f && z) {
-                            a(true);
+                            requestParentInterceptTouchEvent(true);
                         } else {
-                            a(false);
+                            requestParentInterceptTouchEvent(false);
                         }
                     }
                 }
-                a(false);
+                requestParentInterceptTouchEvent(false);
             } else {
-                this.f16596e = motionEvent.getX();
-                this.f16597f = motionEvent.getY();
+                this.f51809e = motionEvent.getX();
+                this.f51810f = motionEvent.getY();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
+    }
+
+    public void requestParentInterceptTouchEvent(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || getParent() == null) {
+            return;
+        }
+        getParent().requestDisallowInterceptTouchEvent(z);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,7 +110,7 @@ public class RecommendViewPager extends ViewPager {
                 return;
             }
         }
-        this.f16596e = 0.0f;
-        this.f16597f = 0.0f;
+        this.f51809e = 0.0f;
+        this.f51810f = 0.0f;
     }
 }

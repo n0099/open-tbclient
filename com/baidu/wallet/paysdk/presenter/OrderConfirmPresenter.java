@@ -7,20 +7,14 @@ import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.eventbus.EventBus;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.WalletLoginHelper;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.base.datamodel.PayData;
-import com.baidu.wallet.base.datamodel.UserData;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
+import com.baidu.wallet.base.statistics.PayStatServiceEvent;
 import com.baidu.wallet.paysdk.PayCallBackManager;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.contract.OrderConfirmContract;
@@ -32,9 +26,16 @@ import com.baidu.wallet.paysdk.fingerprint.WalletFingerprint;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.OrderConfirmActivity;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.eventbus.EventBus;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.api.WalletLoginHelper;
+import com.dxmpay.wallet.base.datamodel.UserData;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
+import java.util.ArrayList;
+import java.util.HashMap;
+/* loaded from: classes8.dex */
 public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "OrderConfirmPresenter";
@@ -268,7 +269,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
         if (misc != null) {
             this.mViewData.title_url = misc.title_url;
         }
-        StatisticManager.onEventWithValue(StatServiceEvent.DEFAULT_VER_TYPE, this.mViewData.confirmBtnMsg);
+        StatisticManager.onEventWithValue("defaultVerType", this.mViewData.confirmBtnMsg);
         this.mActivity.reFreshUI(this.mViewData);
     }
 
@@ -278,7 +279,14 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
         if (interceptable == null || interceptable.invokeZL(1048582, this, z, str) == null) {
             if (z) {
                 this.mPayRequest.supportFingerprintPay = false;
+                StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
             }
+            HashMap hashMap = new HashMap();
+            hashMap.put("pay_from", StatHelper.getPayFrom());
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(StatHelper.getOrderNo());
+            hashMap.put(StatHelper.PAY_WAY, "0");
+            StatisticManager.onEventWithValues(PayStatServiceEvent.CHANGE_PAY_WAY, arrayList, hashMap);
             this.mPayRequest.setPayWay(3);
             this.mActivity.gotoNext(null, str);
             new Handler(Looper.getMainLooper()).postDelayed(new Runnable(this) { // from class: com.baidu.wallet.paysdk.presenter.OrderConfirmPresenter.2
@@ -286,7 +294,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OrderConfirmPresenter f26375a;
+                public final /* synthetic */ OrderConfirmPresenter f62277a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -303,14 +311,14 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             return;
                         }
                     }
-                    this.f26375a = this;
+                    this.f62277a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f26375a.getViewData();
+                        this.f62277a.getViewData();
                     }
                 }
             }, 800L);
@@ -353,11 +361,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
 
     public void onModuleEvent(EventBus.Event event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, event) == null) {
-            LogUtil.d(TAG, "OrderConfirmActivity  onModuleEvent");
-            if (event == null || !"order_confirm_event_bus_key".equals(event.mEventKey)) {
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(1048587, this, event) == null) && event != null && "order_confirm_event_bus_key".equals(event.mEventKey)) {
             Object obj = event.mEventObj;
             if (obj != null && (obj instanceof PayRequest)) {
                 this.mPayRequest = (PayRequest) obj;
@@ -410,12 +414,13 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
             if (this.mPayRequest.getPayWay() != 2 || (iFingerprintPay = this.mPayRequest.mFingerprintPay) == null || !(iFingerprintPay instanceof SysFingerprintPay) || Build.VERSION.SDK_INT < 23) {
                 return;
             }
+            StatisticManager.onEventStart(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION);
             WalletFingerprint.getInstance(this.mActivity).startListening(new com.baidu.wallet.paysdk.fingerprint.b(this) { // from class: com.baidu.wallet.paysdk.presenter.OrderConfirmPresenter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ OrderConfirmPresenter f26374a;
+                public final /* synthetic */ OrderConfirmPresenter f62276a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -432,7 +437,7 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                             return;
                         }
                     }
-                    this.f26374a = this;
+                    this.f62276a = this;
                 }
 
                 @Override // com.baidu.wallet.paysdk.fingerprint.b
@@ -440,17 +445,24 @@ public class OrderConfirmPresenter implements OrderConfirmContract.Presenter {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
                         if (i2 == 0) {
-                            this.f26374a.onFpCheckSucces(str);
+                            StatHelper.cacheCodeAndMsg(i2 + "", StatHelper.SENSOR_OK);
+                        } else {
+                            StatHelper.cacheCodeAndMsg(i2 + "", str);
+                        }
+                        if (i2 == 0) {
+                            StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
+                            this.f62276a.onFpCheckSucces(str);
                         } else if (i2 == -5) {
-                            this.f26374a.onFpCheckError();
+                            this.f62276a.onFpCheckError();
                         } else if (i2 == -3) {
-                            this.f26374a.gotoPayUsePwd(true, str);
+                            this.f62276a.gotoPayUsePwd(true, str);
                         } else if (i2 == -1) {
-                            this.f26374a.changePwdMode();
+                            StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_CHECK_FINGERPRINT_DURATION, null, new String[0]);
+                            this.f62276a.changePwdMode();
                         } else if (i2 == -4 || i2 == -6) {
-                            this.f26374a.gotoPayUsePwd(true, str);
+                            this.f62276a.gotoPayUsePwd(true, str);
                         } else if (i2 == -2) {
-                            this.f26374a.gotoPayUsePwd(true, "");
+                            this.f62276a.gotoPayUsePwd(true, "");
                         }
                     }
                 }

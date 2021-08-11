@@ -1,7 +1,6 @@
 package com.baidu.pass.face.platform.decode;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.face.platform.FaceConfig;
 import com.baidu.pass.face.platform.FaceSDKManager;
@@ -15,7 +14,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes5.dex */
 public class FaceModuleNew {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceModuleNew";
@@ -42,27 +42,22 @@ public class FaceModuleNew {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, faceExtInfo, bDFaceImageInstance)) == null) {
-            if (faceExtInfo == null) {
-                Log.e(TAG, "faceInfo == null");
+            if (faceExtInfo == null || bDFaceImageInstance == null) {
                 return null;
-            } else if (bDFaceImageInstance == null) {
-                Log.e(TAG, "cropInstance == null");
-                return null;
-            } else {
-                ArrayList<ImageInfo> arrayList = new ArrayList<>();
-                ImageInfo imageInfo = new ImageInfo();
-                FaceConfig faceConfig = this.mFaceConfig;
-                int secType = faceConfig != null ? faceConfig.getSecType() : 0;
-                imageInfo.setBase64(bDFaceImageInstance.getBase64());
-                if (secType == 1) {
-                    String imageSec = FaceSDKManager.getInstance().imageSec(bDFaceImageInstance);
-                    if (!TextUtils.isEmpty(imageSec)) {
-                        imageInfo.setSecBase64(imageSec.replaceAll("\n", ""));
-                    }
-                }
-                arrayList.add(imageInfo);
-                return arrayList;
             }
+            ArrayList<ImageInfo> arrayList = new ArrayList<>();
+            ImageInfo imageInfo = new ImageInfo();
+            FaceConfig faceConfig = this.mFaceConfig;
+            int secType = faceConfig != null ? faceConfig.getSecType() : 0;
+            imageInfo.setBase64(bDFaceImageInstance.getBase64());
+            if (secType == 1) {
+                String imageSec = FaceSDKManager.getInstance().imageSec(bDFaceImageInstance);
+                if (!TextUtils.isEmpty(imageSec)) {
+                    imageInfo.setSecBase64(imageSec.replaceAll(StringUtils.LF, ""));
+                }
+            }
+            arrayList.add(imageInfo);
+            return arrayList;
         }
         return (ArrayList) invokeLL.objValue;
     }
@@ -71,27 +66,22 @@ public class FaceModuleNew {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, faceExtInfo, bDFaceImageInstance)) == null) {
-            if (faceExtInfo == null) {
-                Log.e(TAG, "faceInfo == null");
+            if (faceExtInfo == null || bDFaceImageInstance == null) {
                 return null;
-            } else if (bDFaceImageInstance == null) {
-                Log.e(TAG, "cropInstance == null");
-                return null;
-            } else {
-                ArrayList<ImageInfo> arrayList = new ArrayList<>();
-                ImageInfo imageInfo = new ImageInfo();
-                FaceConfig faceConfig = this.mFaceConfig;
-                int secType = faceConfig != null ? faceConfig.getSecType() : 0;
-                imageInfo.setBase64(bDFaceImageInstance.getBase64());
-                if (secType == 1) {
-                    String imageSec = FaceSDKManager.getInstance().imageSec(bDFaceImageInstance);
-                    if (!TextUtils.isEmpty(imageSec)) {
-                        imageInfo.setSecBase64(imageSec.replaceAll("\n", ""));
-                    }
-                }
-                arrayList.add(imageInfo);
-                return arrayList;
             }
+            ArrayList<ImageInfo> arrayList = new ArrayList<>();
+            ImageInfo imageInfo = new ImageInfo();
+            FaceConfig faceConfig = this.mFaceConfig;
+            int secType = faceConfig != null ? faceConfig.getSecType() : 0;
+            imageInfo.setBase64(bDFaceImageInstance.getBase64());
+            if (secType == 1) {
+                String imageSec = FaceSDKManager.getInstance().imageSec(bDFaceImageInstance);
+                if (!TextUtils.isEmpty(imageSec)) {
+                    imageInfo.setSecBase64(imageSec.replaceAll(StringUtils.LF, ""));
+                }
+            }
+            arrayList.add(imageInfo);
+            return arrayList;
         }
         return (ArrayList) invokeLL.objValue;
     }

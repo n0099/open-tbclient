@@ -1,5 +1,10 @@
 package com.google.common.base;
 
+import c.i.d.a.g;
+import c.i.d.a.k;
+import c.i.d.a.m;
+import c.i.d.a.n;
+import c.i.d.a.r;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -10,19 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.g;
-import d.f.d.a.k;
-import d.f.d.a.m;
-import d.f.d.a.n;
-import d.f.d.a.r;
 import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Suppliers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class ExpiringMemoizingSupplier<T> implements r<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -32,12 +32,12 @@ public final class Suppliers {
         public volatile transient long expirationNanos;
         public volatile transient T value;
 
-        public ExpiringMemoizingSupplier(r<T> rVar, long j, TimeUnit timeUnit) {
+        public ExpiringMemoizingSupplier(r<T> rVar, long j2, TimeUnit timeUnit) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rVar, Long.valueOf(j), timeUnit};
+                Object[] objArr = {rVar, Long.valueOf(j2), timeUnit};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -49,27 +49,27 @@ public final class Suppliers {
             }
             n.p(rVar);
             this.delegate = rVar;
-            this.durationNanos = timeUnit.toNanos(j);
-            n.j(j > 0, "duration (%s %s) must be > 0", j, timeUnit);
+            this.durationNanos = timeUnit.toNanos(j2);
+            n.j(j2 > 0, "duration (%s %s) must be > 0", j2, timeUnit);
         }
 
-        @Override // d.f.d.a.r
+        @Override // c.i.d.a.r
         public T get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long j = this.expirationNanos;
+                long j2 = this.expirationNanos;
                 long f2 = m.f();
-                if (j == 0 || f2 - j >= 0) {
+                if (j2 == 0 || f2 - j2 >= 0) {
                     synchronized (this) {
-                        if (j == this.expirationNanos) {
+                        if (j2 == this.expirationNanos) {
                             T t = this.delegate.get();
                             this.value = t;
-                            long j2 = f2 + this.durationNanos;
-                            if (j2 == 0) {
-                                j2 = 1;
+                            long j3 = f2 + this.durationNanos;
+                            if (j3 == 0) {
+                                j3 = 1;
                             }
-                            this.expirationNanos = j2;
+                            this.expirationNanos = j3;
                             return t;
                         }
                     }
@@ -89,7 +89,7 @@ public final class Suppliers {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class MemoizingSupplier<T> implements r<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -117,7 +117,7 @@ public final class Suppliers {
             this.delegate = rVar;
         }
 
-        @Override // d.f.d.a.r
+        @Override // c.i.d.a.r
         public T get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -157,7 +157,7 @@ public final class Suppliers {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class SupplierComposition<F, T> implements r<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -200,7 +200,7 @@ public final class Suppliers {
         }
 
         /* JADX DEBUG: Type inference failed for r1v2. Raw type applied. Possible types: F, ? super F */
-        @Override // d.f.d.a.r
+        @Override // c.i.d.a.r
         public T get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -224,7 +224,7 @@ public final class Suppliers {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class SupplierFunctionImpl implements Object<Object> {
         public static final /* synthetic */ SupplierFunctionImpl[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -295,7 +295,7 @@ public final class Suppliers {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class SupplierOfInstance<T> implements r<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -332,7 +332,7 @@ public final class Suppliers {
             return invokeL.booleanValue;
         }
 
-        @Override // d.f.d.a.r
+        @Override // c.i.d.a.r
         public T get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -355,7 +355,7 @@ public final class Suppliers {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class ThreadSafeSupplier<T> implements r<T>, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -381,7 +381,7 @@ public final class Suppliers {
             this.delegate = rVar;
         }
 
-        @Override // d.f.d.a.r
+        @Override // c.i.d.a.r
         public T get() {
             InterceptResult invokeV;
             T t;

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase;
 import com.baidu.wallet.lightapp.base.LightappWebView;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PullToRefreshWebview extends PullToRefreshBase<LightappWebView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LightappWebView f25943a;
+    public LightappWebView f61857a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PullToRefreshWebview(Context context, AttributeSet attributeSet) {
@@ -43,7 +43,7 @@ public class PullToRefreshWebview extends PullToRefreshBase<LightappWebView> {
     public boolean isReadyForPullDown() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25943a.getScrollY() == 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61857a.getScrollY() == 0 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -83,9 +83,9 @@ public class PullToRefreshWebview extends PullToRefreshBase<LightappWebView> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet)) == null) {
             LightappWebView lightappWebView = new LightappWebView(context);
-            this.f25943a = lightappWebView;
+            this.f61857a = lightappWebView;
             lightappWebView.setVerticalScrollBarEnabled(false);
-            return this.f25943a;
+            return this.f61857a;
         }
         return (LightappWebView) invokeLL.objValue;
     }

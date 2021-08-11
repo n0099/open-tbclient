@@ -21,7 +21,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
     public final Function<? super T, ? extends ObservableSource<V>> itemTimeoutIndicator;
     public final ObservableSource<? extends T> other;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class TimeoutConsumer extends AtomicReference<Disposable> implements Observer<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8708641127342403073L;
@@ -37,12 +37,12 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         public final long idx;
         public final TimeoutSelectorSupport parent;
 
-        public TimeoutConsumer(long j, TimeoutSelectorSupport timeoutSelectorSupport) {
+        public TimeoutConsumer(long j2, TimeoutSelectorSupport timeoutSelectorSupport) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), timeoutSelectorSupport};
+                Object[] objArr = {Long.valueOf(j2), timeoutSelectorSupport};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -52,7 +52,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
                     return;
                 }
             }
-            this.idx = j;
+            this.idx = j2;
             this.parent = timeoutSelectorSupport;
         }
 
@@ -120,7 +120,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class TimeoutFallbackObserver<T> extends AtomicReference<Disposable> implements Observer<T>, Disposable, TimeoutSelectorSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7508389464265974549L;
@@ -201,10 +201,10 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                long j = this.index.get();
-                if (j != Long.MAX_VALUE) {
-                    long j2 = 1 + j;
-                    if (this.index.compareAndSet(j, j2)) {
+                long j2 = this.index.get();
+                if (j2 != Long.MAX_VALUE) {
+                    long j3 = 1 + j2;
+                    if (this.index.compareAndSet(j2, j3)) {
                         Disposable disposable = this.task.get();
                         if (disposable != null) {
                             disposable.dispose();
@@ -212,7 +212,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
                         this.actual.onNext(t);
                         try {
                             ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null ObservableSource.");
-                            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j2, this);
+                            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j3, this);
                             if (this.task.replace(timeoutConsumer)) {
                                 observableSource.subscribe(timeoutConsumer);
                             }
@@ -236,9 +236,9 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableTimeoutTimed.TimeoutSupport
-        public void onTimeout(long j) {
+        public void onTimeout(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && this.index.compareAndSet(j, Long.MAX_VALUE)) {
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && this.index.compareAndSet(j2, Long.MAX_VALUE)) {
                 DisposableHelper.dispose(this.upstream);
                 ObservableSource<? extends T> observableSource = this.fallback;
                 this.fallback = null;
@@ -247,10 +247,10 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableTimeout.TimeoutSelectorSupport
-        public void onTimeoutError(long j, Throwable th) {
+        public void onTimeoutError(long j2, Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJL(1048583, this, j, th) == null) {
-                if (this.index.compareAndSet(j, Long.MAX_VALUE)) {
+            if (interceptable == null || interceptable.invokeJL(1048583, this, j2, th) == null) {
+                if (this.index.compareAndSet(j2, Long.MAX_VALUE)) {
                     DisposableHelper.dispose(this);
                     this.actual.onError(th);
                     return;
@@ -271,7 +271,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class TimeoutObserver<T> extends AtomicLong implements Observer<T>, Disposable, TimeoutSelectorSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3764492702657003550L;
@@ -345,10 +345,10 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                long j = get();
-                if (j != Long.MAX_VALUE) {
-                    long j2 = 1 + j;
-                    if (compareAndSet(j, j2)) {
+                long j2 = get();
+                if (j2 != Long.MAX_VALUE) {
+                    long j3 = 1 + j2;
+                    if (compareAndSet(j2, j3)) {
                         Disposable disposable = this.task.get();
                         if (disposable != null) {
                             disposable.dispose();
@@ -356,7 +356,7 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
                         this.actual.onNext(t);
                         try {
                             ObservableSource observableSource = (ObservableSource) ObjectHelper.requireNonNull(this.itemTimeoutIndicator.apply(t), "The itemTimeoutIndicator returned a null ObservableSource.");
-                            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j2, this);
+                            TimeoutConsumer timeoutConsumer = new TimeoutConsumer(j3, this);
                             if (this.task.replace(timeoutConsumer)) {
                                 observableSource.subscribe(timeoutConsumer);
                             }
@@ -380,19 +380,19 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableTimeoutTimed.TimeoutSupport
-        public void onTimeout(long j) {
+        public void onTimeout(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && compareAndSet(j, Long.MAX_VALUE)) {
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && compareAndSet(j2, Long.MAX_VALUE)) {
                 DisposableHelper.dispose(this.upstream);
                 this.actual.onError(new TimeoutException());
             }
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableTimeout.TimeoutSelectorSupport
-        public void onTimeoutError(long j, Throwable th) {
+        public void onTimeoutError(long j2, Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJL(1048583, this, j, th) == null) {
-                if (compareAndSet(j, Long.MAX_VALUE)) {
+            if (interceptable == null || interceptable.invokeJL(1048583, this, j2, th) == null) {
+                if (compareAndSet(j2, Long.MAX_VALUE)) {
                     DisposableHelper.dispose(this.upstream);
                     this.actual.onError(th);
                     return;
@@ -413,9 +413,9 @@ public final class ObservableTimeout<T, U, V> extends AbstractObservableWithUpst
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface TimeoutSelectorSupport extends ObservableTimeoutTimed.TimeoutSupport {
-        void onTimeoutError(long j, Throwable th);
+        void onTimeoutError(long j2, Throwable th);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

@@ -12,15 +12,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class aj {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36683a;
+    public static String f73504a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36684b;
+    public static String f73505b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a() {
@@ -34,40 +34,40 @@ public class aj {
         String upperCase;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = f36683a;
+            String str2 = f73504a;
             if (str2 != null) {
                 return str2.contains(str);
             }
             String b2 = b("ro.build.version.opporom");
-            f36684b = b2;
+            f73505b = b2;
             if (TextUtils.isEmpty(b2)) {
                 String b3 = b("ro.vivo.os.version");
-                f36684b = b3;
+                f73505b = b3;
                 if (TextUtils.isEmpty(b3)) {
                     String b4 = b("ro.build.version.emui");
-                    f36684b = b4;
+                    f73505b = b4;
                     if (TextUtils.isEmpty(b4)) {
                         String b5 = b("ro.miui.ui.version.name");
-                        f36684b = b5;
+                        f73505b = b5;
                         if (TextUtils.isEmpty(b5)) {
                             String b6 = b("ro.product.system.manufacturer");
-                            f36684b = b6;
+                            f73505b = b6;
                             if (TextUtils.isEmpty(b6)) {
                                 String b7 = b("ro.smartisan.version");
-                                f36684b = b7;
+                                f73505b = b7;
                                 if (TextUtils.isEmpty(b7)) {
                                     String str3 = "SAMSUNG";
                                     if (!b("ro.product.manufacturer").toUpperCase().contains("SAMSUNG")) {
                                         String str4 = Build.DISPLAY;
-                                        f36684b = str4;
+                                        f73505b = str4;
                                         str3 = "FLYME";
                                         if (!str4.toUpperCase().contains("FLYME")) {
-                                            f36684b = "unknown";
+                                            f73505b = "unknown";
                                             upperCase = Build.MANUFACTURER.toUpperCase();
                                         }
                                     }
-                                    f36683a = str3;
-                                    return f36683a.contains(str);
+                                    f73504a = str3;
+                                    return f73504a.contains(str);
                                 }
                                 upperCase = "SMARTISAN";
                             } else {
@@ -85,8 +85,8 @@ public class aj {
             } else {
                 upperCase = "OPPO";
             }
-            f36683a = upperCase;
-            return f36683a.contains(str);
+            f73504a = upperCase;
+            return f73504a.contains(str);
         }
         return invokeL.booleanValue;
     }
@@ -180,10 +180,10 @@ public class aj {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f36683a == null) {
+            if (f73504a == null) {
                 a("");
             }
-            return f36683a;
+            return f73504a;
         }
         return (String) invokeV.objValue;
     }
@@ -192,10 +192,10 @@ public class aj {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
-            if (f36684b == null) {
+            if (f73505b == null) {
                 a("");
             }
-            return f36684b;
+            return f73505b;
         }
         return (String) invokeV.objValue;
     }

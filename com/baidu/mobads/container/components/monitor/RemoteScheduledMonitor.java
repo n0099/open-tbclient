@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RemoteScheduledMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MONITOR_INTERVAL = 500;
@@ -24,7 +24,7 @@ public class RemoteScheduledMonitor {
     public List<IScheduleTask> mTaskList;
     public ScheduledTask mTaskRunnable;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class ScheduledTask extends BaseTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

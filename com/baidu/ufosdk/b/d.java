@@ -9,15 +9,16 @@ import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes8.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static TelephonyManager f23450a;
+    public static TelephonyManager f59179a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static ConnectivityManager f23451b;
+    public static ConnectivityManager f59180b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a(Context context) {
@@ -25,13 +26,13 @@ public final class d {
         NetworkInfo activeNetworkInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            String str = "\n";
+            String str = StringUtils.LF;
             StringBuilder sb = new StringBuilder();
             try {
-                if (f23451b == null) {
-                    f23451b = (ConnectivityManager) context.getSystemService("connectivity");
+                if (f59180b == null) {
+                    f59180b = (ConnectivityManager) context.getSystemService("connectivity");
                 }
-                activeNetworkInfo = f23451b.getActiveNetworkInfo();
+                activeNetworkInfo = f59180b.getActiveNetworkInfo();
             } catch (Exception e2) {
                 com.baidu.ufosdk.f.c.a("NetworkCollector: Couldn't get NetworkInfo : " + context.getPackageName(), e2);
             }
@@ -42,16 +43,16 @@ public final class d {
             if (activeNetworkInfo.isConnected()) {
                 sb.append("type: ");
                 sb.append(activeNetworkInfo.getTypeName());
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 if (activeNetworkInfo.getType() == 0) {
                     sb.append(" subType: ");
                     sb.append(activeNetworkInfo.getSubtypeName());
-                    sb.append("\n");
-                    if (f23450a == null) {
-                        f23450a = (TelephonyManager) context.getSystemService("phone");
+                    sb.append(StringUtils.LF);
+                    if (f59179a == null) {
+                        f59179a = (TelephonyManager) context.getSystemService("phone");
                     }
                     sb.append(" isRoaming: ");
-                    sb.append(f23450a.isNetworkRoaming() ? "yes" : "no");
+                    sb.append(f59179a.isNetworkRoaming() ? "yes" : "no");
                 }
                 return sb.toString();
             }
@@ -68,10 +69,10 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                if (f23451b == null) {
-                    f23451b = (ConnectivityManager) context.getSystemService("connectivity");
+                if (f59180b == null) {
+                    f59180b = (ConnectivityManager) context.getSystemService("connectivity");
                 }
-                NetworkInfo activeNetworkInfo = f23451b.getActiveNetworkInfo();
+                NetworkInfo activeNetworkInfo = f59180b.getActiveNetworkInfo();
                 if (activeNetworkInfo != null) {
                     return !activeNetworkInfo.isConnected() ? "NONE" : activeNetworkInfo.getTypeName().toUpperCase();
                 }

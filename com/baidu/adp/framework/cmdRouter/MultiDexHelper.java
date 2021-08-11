@@ -6,9 +6,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Looper;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import androidx.multidex.MultiDex;
+import c.a.e.e.p.l;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -19,14 +19,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
 import dalvik.system.DexFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MultiDexHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_SUFFIX = "UrlCollectorImpl";
@@ -40,7 +39,7 @@ public class MultiDexHelper {
     public static StaticLoadAsyncTask task;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class StaticLoadAsyncTask extends BdAsyncTask<List<String>, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +89,7 @@ public class MultiDexHelper {
                                 this.loading = nextElement;
                                 Class.forName(nextElement);
                                 this.loading = "";
-                                Log.e("MultiLoadHelper", nextElement + l.C());
+                                String str2 = nextElement + l.C();
                             }
                         }
                     } catch (IOException unused) {
@@ -216,11 +215,10 @@ public class MultiDexHelper {
                         String nextElement = entries.nextElement();
                         if (nextElement.endsWith(SUFFIX)) {
                             Class.forName(nextElement);
-                            Log.e("MultiLoadHelper", nextElement);
                         }
                         if (nextElement.startsWith(PUSH_SDK_PREFIX)) {
                             Class.forName(nextElement);
-                            Log.e("MultiLoadHelper", "push sdk = " + nextElement);
+                            r0 = "push sdk = " + nextElement;
                         }
                     }
                 } catch (IOException unused) {

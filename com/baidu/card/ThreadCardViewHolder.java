@@ -2,6 +2,19 @@ package com.baidu.card;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import c.a.l.b0;
+import c.a.l.c;
+import c.a.l.d0;
+import c.a.l.f;
+import c.a.l.j;
+import c.a.l.k0;
+import c.a.l.l0;
+import c.a.l.m0;
+import c.a.l.r0;
+import c.a.l.u;
+import c.a.o0.b.d;
+import c.a.o0.s.q.a;
+import c.a.o0.s.q.c2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,39 +28,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.k.b0;
-import d.a.k.c;
-import d.a.k.d0;
-import d.a.k.f;
-import d.a.k.j;
-import d.a.k.k0;
-import d.a.k.l0;
-import d.a.k.m0;
-import d.a.k.r0;
-import d.a.k.u;
-import d.a.p0.b.d;
-import d.a.p0.s.q.a;
-import d.a.p0.s.q.b2;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdUniqueId f4400e;
+    public BdUniqueId f38365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public l0<T> f4401f;
+    public l0<T> f38366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b0 f4402g;
+    public b0 f38367g;
 
     /* renamed from: h  reason: collision with root package name */
-    public r0 f4403h;
+    public r0 f38368h;
 
     /* renamed from: i  reason: collision with root package name */
-    public u f4404i;
-    public k0 j;
+    public u f38369i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public k0 f38370j;
     public d0 k;
     public j l;
     public f m;
@@ -70,266 +72,279 @@ public class ThreadCardViewHolder<T extends a> extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f4401f = l0Var;
+        this.f38366f = l0Var;
+    }
+
+    public final TbPageContext a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((TbPageContextSupport) this.f38366f.j().getContext()).getPageContext() : (TbPageContext) invokeV.objValue;
+    }
+
+    public final void b(c cVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) || cVar == null || cVar.a() == null) {
+            return;
+        }
+        this.f38366f.n(cVar);
+    }
+
+    public final boolean c(c2 c2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c2Var)) == null) ? (c2Var == null || c2Var.J() == null || !c2Var.Y1 || !d.i() || c2Var.J().hadConcerned() || ThreadCardUtils.isSelf(c2Var)) ? false : true : invokeL.booleanValue;
+    }
+
+    public l0<T> getCardView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38366f : (l0) invokeV.objValue;
+    }
+
+    public u getMultiDelDecorItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38369i : (u) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder
-    public View a() {
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4401f.j() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38366f.j() : (View) invokeV.objValue;
     }
 
-    public l0<T> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4401f : (l0) invokeV.objValue;
-    }
-
-    public final TbPageContext c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((TbPageContextSupport) this.f4401f.j().getContext()).getPageContext() : (TbPageContext) invokeV.objValue;
-    }
-
-    public final void d(c cVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) || cVar == null || cVar.b() == null) {
-            return;
-        }
-        this.f4401f.n(cVar);
-    }
-
-    public final boolean e(b2 b2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, b2Var)) == null) ? (b2Var == null || b2Var.H() == null || !b2Var.X1 || !d.i() || b2Var.H().hadConcerned() || ThreadCardUtils.isSelf(b2Var)) ? false : true : invokeL.booleanValue;
-    }
-
-    public void f(T t) {
+    public void onBindDataToView(T t) {
         NEGFeedBackView nEGFeedBackView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
             if (t == null) {
-                this.f4401f.j().setVisibility(8);
+                this.f38366f.j().setVisibility(8);
                 return;
             }
             if (t.getThreadData() != null) {
-                t.getThreadData().o1();
+                t.getThreadData().q1();
             }
-            if (t.getThreadData() != null && t.getThreadData().H() != null) {
-                t.getThreadData().H().getName_show();
+            if (t.getThreadData() != null && t.getThreadData().J() != null) {
+                t.getThreadData().J().getName_show();
             }
             boolean z = false;
-            this.f4401f.j().setVisibility(0);
-            b0 b0Var = this.f4402g;
-            if (b0Var != null && b0Var.f43137i != null) {
+            this.f38366f.j().setVisibility(0);
+            b0 b0Var = this.f38367g;
+            if (b0Var != null && b0Var.f3554i != null) {
                 if (!t.isSelf() && t.getNegFeedBackData() != null) {
-                    this.f4402g.m(t);
-                    this.f4402g.a(t.getNegFeedBackData());
-                    this.f4402g.f43137i.setVisibility(0);
+                    this.f38367g.l(t);
+                    this.f38367g.onBindDataToView(t.getNegFeedBackData());
+                    this.f38367g.f3554i.setVisibility(0);
                     z = true;
                 } else {
-                    b0 b0Var2 = this.f4402g;
-                    if (b0Var2 != null && (nEGFeedBackView = b0Var2.f43137i) != null) {
+                    b0 b0Var2 = this.f38367g;
+                    if (b0Var2 != null && (nEGFeedBackView = b0Var2.f3554i) != null) {
                         nEGFeedBackView.setVisibility(8);
                     }
                 }
             }
-            if (this.f4403h != null) {
-                if (e(t.getThreadData())) {
-                    d(this.f4403h);
+            if (this.f38368h != null) {
+                if (c(t.getThreadData())) {
+                    b(this.f38368h);
                 } else {
-                    this.f4403h.l(t);
-                    this.f4403h.a(t.getThreadData());
+                    this.f38368h.k(t);
+                    this.f38368h.onBindDataToView(t.getThreadData());
                 }
             }
-            k0 k0Var = this.j;
+            k0 k0Var = this.f38370j;
             if (k0Var != null) {
-                k0Var.n(z);
-                this.j.a(t.getThreadData());
+                k0Var.m(z);
+                this.f38370j.onBindDataToView(t.getThreadData());
             }
-            u uVar = this.f4404i;
+            u uVar = this.f38369i;
             if (uVar != null) {
-                uVar.a(t.getThreadData());
+                uVar.onBindDataToView(t.getThreadData());
             }
             d0 d0Var = this.k;
             if (d0Var != null) {
-                d0Var.n(t);
-                this.k.a(t.getThreadData());
+                d0Var.m(t);
+                this.k.onBindDataToView(t.getThreadData());
             }
             j jVar = this.l;
             if (jVar != null) {
-                jVar.k(t, z);
-                this.l.a(t.getThreadData());
+                jVar.j(t, z);
+                this.l.onBindDataToView(t.getThreadData());
             }
             if (this.m != null) {
-                if (e(t.getThreadData())) {
-                    this.m.a(t.getThreadData());
+                if (c(t.getThreadData())) {
+                    this.m.onBindDataToView(t.getThreadData());
                 } else {
-                    d(this.m);
+                    b(this.m);
                 }
             }
-            this.f4401f.l(t);
+            this.f38366f.l(t);
         }
     }
 
-    public void g() {
+    public void removeThemeAndStarDecorItem() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f4401f.n(this.j);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f38366f.n(this.f38370j);
         }
     }
 
-    public void h(int i2, m0 m0Var) {
+    public void setData(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, t) == null) {
+            this.f38366f.l(t);
+        }
+    }
+
+    public void setDelDecorWeightSum(int i2, m0 m0Var) {
         u uVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048583, this, i2, m0Var) == null) || (uVar = this.f4404i) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i2, m0Var) == null) || (uVar = this.f38369i) == null) {
             return;
         }
-        uVar.t(i2, m0Var);
+        uVar.s(i2, m0Var);
     }
 
-    public void i(d.a.q0.a0.b0<T> b0Var) {
+    public void setOnSubCardClickListener(c.a.p0.a0.b0<T> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, b0Var) == null) {
-            this.f4401f.p(b0Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, b0Var) == null) {
+            this.f38366f.p(b0Var);
         }
     }
 
-    public void j(BdUniqueId bdUniqueId) {
+    public void setPageId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
-            this.f4400e = bdUniqueId;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bdUniqueId) == null) {
+            this.f38365e = bdUniqueId;
         }
     }
 
-    public f k() {
+    public f showConcernForumDecorItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             if (this.m == null) {
-                this.m = new f(c());
+                this.m = new f(a());
             }
-            this.f4401f.b(this.m);
+            this.f38366f.b(this.m);
             return this.m;
         }
         return (f) invokeV.objValue;
     }
 
-    public void l(boolean z, FollowUserButton.a aVar) {
+    public void showFollowUserDecorItemIfNeed(boolean z, FollowUserButton.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048587, this, z, aVar) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048589, this, z, aVar) == null) {
             if (!z) {
-                d(this.l);
+                b(this.l);
                 return;
             }
             if (this.l == null) {
-                j jVar = new j(c(), d.o0());
+                j jVar = new j(a(), d.r0());
                 this.l = jVar;
-                jVar.q(aVar);
+                jVar.p(aVar);
             }
-            this.l.r(this.f4400e);
-            this.f4401f.b(this.l);
+            this.l.q(this.f38365e);
+            this.f38366f.b(this.l);
         }
     }
 
-    public u m() {
+    public u showMultiDelDecorItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? n(true) : (u) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? showMultiDelDecorItem(true) : (u) invokeV.objValue;
     }
 
-    public u n(boolean z) {
+    public b0 showNEGFeedBackView(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048589, this, z)) == null) {
-            if (this.f4404i == null) {
-                this.f4404i = new u(this.f4401f.g());
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
+            if (this.f38367g == null) {
+                b0 b0Var = new b0(a(), z);
+                this.f38367g = b0Var;
+                b0Var.f3554i.setUniqueId(this.f38365e);
             }
-            this.f4404i.s(this.f4400e);
-            this.f4404i.q(z);
-            this.f4401f.b(this.f4404i);
-            return this.f4404i;
-        }
-        return (u) invokeZ.objValue;
-    }
-
-    public b0 o(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048590, this, z)) == null) {
-            if (this.f4402g == null) {
-                b0 b0Var = new b0(c(), z);
-                this.f4402g = b0Var;
-                b0Var.f43137i.setUniqueId(this.f4400e);
-            }
-            this.f4401f.b(this.f4402g);
-            return this.f4402g;
+            this.f38366f.b(this.f38367g);
+            return this.f38367g;
         }
         return (b0) invokeZ.objValue;
     }
 
-    public void p(boolean z, Align align, NEGFeedBackView.b bVar) {
+    public void showNEGFeedBackViewIfNeed(boolean z, Align align, NEGFeedBackView.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), align, bVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Boolean.valueOf(z), align, bVar}) == null) {
             if (!z) {
-                d(this.f4402g);
+                b(this.f38367g);
                 return;
             }
-            if (this.f4402g == null) {
-                b0 b0Var = new b0(c(), align);
-                this.f4402g = b0Var;
-                b0Var.f43137i.setUniqueId(this.f4400e);
-                this.f4402g.u(bVar);
+            if (this.f38367g == null) {
+                b0 b0Var = new b0(a(), align);
+                this.f38367g = b0Var;
+                b0Var.f3554i.setUniqueId(this.f38365e);
+                this.f38367g.t(bVar);
             }
-            this.f4402g.l(align);
-            this.f4401f.b(this.f4402g);
+            this.f38367g.k(align);
+            this.f38366f.b(this.f38367g);
         }
     }
 
-    public d0 q(int i2) {
+    public d0 showPrivateDecorItem(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
             if (this.k == null) {
-                d0 d0Var = new d0(this.f4401f.j().getContext(), i2);
+                d0 d0Var = new d0(this.f38366f.j().getContext(), i2);
                 this.k = d0Var;
-                d0Var.q(this.f4400e);
+                d0Var.p(this.f38365e);
             }
-            this.f4401f.b(this.k);
+            this.f38366f.b(this.k);
             return this.k;
         }
         return (d0) invokeI.objValue;
     }
 
-    public k0 r() {
+    public k0 showThemeAndStarDecorItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (this.j == null) {
-                k0 k0Var = new k0(c());
-                this.j = k0Var;
-                k0Var.o(this.f4400e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.f38370j == null) {
+                k0 k0Var = new k0(a());
+                this.f38370j = k0Var;
+                k0Var.n(this.f38365e);
             }
-            this.f4401f.b(this.j);
-            return this.j;
+            this.f38366f.b(this.f38370j);
+            return this.f38370j;
         }
         return (k0) invokeV.objValue;
     }
 
-    public void s(boolean z, Align align) {
+    public void showUnfollowedDecorItemIfNeed(boolean z, Align align) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048594, this, z, align) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048596, this, z, align) == null) {
             if (!z) {
-                d(this.f4403h);
+                b(this.f38368h);
                 return;
             }
-            if (this.f4403h == null) {
-                this.f4403h = new r0(c(), align);
+            if (this.f38368h == null) {
+                this.f38368h = new r0(a(), align);
             }
-            this.f4403h.k(align);
-            this.f4401f.b(this.f4403h);
+            this.f38368h.j(align);
+            this.f38366f.b(this.f38368h);
         }
+    }
+
+    public u showMultiDelDecorItem(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
+            if (this.f38369i == null) {
+                this.f38369i = new u(this.f38366f.g());
+            }
+            this.f38369i.r(this.f38365e);
+            this.f38369i.p(z);
+            this.f38366f.b(this.f38369i);
+            return this.f38369i;
+        }
+        return (u) invokeZ.objValue;
     }
 }

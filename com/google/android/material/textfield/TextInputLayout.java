@@ -17,7 +17,6 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -80,7 +79,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class TextInputLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOX_BACKGROUND_FILLED = 1;
@@ -210,7 +209,7 @@ public class TextInputLayout extends LinearLayout {
     public final RectF tmpRectF;
     public Typeface typeface;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class AccessibilityDelegate extends AccessibilityDelegateCompat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -293,27 +292,27 @@ public class TextInputLayout extends LinearLayout {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public @interface BoxBackgroundMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public @interface EndIconMode {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface OnEditTextAttachedListener {
         void onEditTextAttached(@NonNull TextInputLayout textInputLayout);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface OnEndIconChangedListener {
         void onEndIconChanged(@NonNull TextInputLayout textInputLayout, int i2);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -928,8 +927,8 @@ public class TextInputLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65580, this, editText) == null) {
             if (this.editText == null) {
-                if (this.endIconMode != 3 && !(editText instanceof TextInputEditText)) {
-                    Log.i(LOG_TAG, "EditText added is not a TextInputEditText. Please switch to using that class instead.");
+                if (this.endIconMode != 3) {
+                    boolean z = editText instanceof TextInputEditText;
                 }
                 this.editText = editText;
                 onApplyBoxBackgroundMode();

@@ -5,13 +5,12 @@ import com.baidu.mapapi.model.inner.Point;
 import com.baidu.mapapi.search.share.RouteShareURLOption;
 import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class e extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -73,17 +72,17 @@ public class e extends com.baidu.platform.base.e {
             String str6 = str3 + name2 + "$$0$$$$";
             int ordinal = routeShareURLOption.mMode.ordinal();
             if (ordinal == 0) {
-                aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
+                aVar.a("sc", a(routeShareURLOption.mFrom.getCity()) + "");
                 aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
                 str4 = "&sharecallbackflag=carRoute";
                 str2 = "nav";
             } else if (ordinal == 1) {
-                aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
+                aVar.a("sc", a(routeShareURLOption.mFrom.getCity()) + "");
                 aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
                 str4 = "&sharecallbackflag=footRoute";
                 str2 = "walk";
             } else if (ordinal == 2) {
-                aVar.a(Config.STAT_SDK_CHANNEL, a(routeShareURLOption.mFrom.getCity()) + "");
+                aVar.a("sc", a(routeShareURLOption.mFrom.getCity()) + "");
                 aVar.a("ec", a(routeShareURLOption.mTo.getCity()) + "");
                 str4 = "&sharecallbackflag=cycleRoute";
                 str2 = "cycle";
@@ -96,10 +95,10 @@ public class e extends com.baidu.platform.base.e {
                 str4 = str7;
             }
             aVar.a(IAdRequestParam.SN, str5);
-            aVar.a("en", str6);
+            aVar.a(com.baidu.fsg.base.statistics.f.f39281a, str6);
             String str8 = "&" + aVar.a() + ("&start=" + name + "&end=" + name2);
-            this.f9434a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
-            this.f9434a.a("from", "android_map_sdk");
+            this.f44083a.a("url", "http://map.baidu.com/?newmap=1&s=" + str2 + (AppMD5.encodeUrlParamsValue(str8) + str4));
+            this.f44083a.a("from", "android_map_sdk");
         }
     }
 

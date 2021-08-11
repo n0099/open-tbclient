@@ -5,6 +5,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import c.a.e.e.p.k;
+import c.a.e.e.p.l;
+import c.a.p0.a0.b;
+import c.a.p0.v.d.g.c.f;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.ala.data.AlaAttentionData;
@@ -19,6 +23,7 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,59 +31,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.d.e.p.l;
-import d.a.q0.a0.b;
-import d.a.q0.v.d.f.c.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ConcernTabLiveItemView extends b<f> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
     public TbPageContext n;
     public int o;
+    public String p;
+    public String q;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public ConcernTabLiveItemView f14189a;
+        public View.OnClickListener f49339a;
 
         /* renamed from: b  reason: collision with root package name */
-        public View f14190b;
+        public final /* synthetic */ ConcernTabLiveItemView f49340b;
+        public TextView bottomText;
+        public ConcernTabLiveItemView concernTabLiveItemView;
+        public View divider;
+        public TextView followBtn;
+        public TextView followedBtn;
+        public TextView livingTag;
+        public TbImageView portraitImg;
+        public View root;
+        public TextView topText;
 
-        /* renamed from: c  reason: collision with root package name */
-        public TbImageView f14191c;
-
-        /* renamed from: d  reason: collision with root package name */
-        public TextView f14192d;
-
-        /* renamed from: e  reason: collision with root package name */
-        public TextView f14193e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public TextView f14194f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public TextView f14195g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public TextView f14196h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public View f14197i;
-        public View.OnClickListener j;
-        public final /* synthetic */ ConcernTabLiveItemView k;
-
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public class a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ViewHolder f14198e;
+            public final /* synthetic */ ViewHolder f49341e;
 
             public a(ViewHolder viewHolder) {
                 Interceptable interceptable = $ic;
@@ -95,7 +84,7 @@ public class ConcernTabLiveItemView extends b<f> {
                         return;
                     }
                 }
-                this.f14198e = viewHolder;
+                this.f49341e = viewHolder;
             }
 
             @Override // android.view.View.OnClickListener
@@ -103,13 +92,13 @@ public class ConcernTabLiveItemView extends b<f> {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view.getId() == R.id.follow_btn && (view.getTag() instanceof UserData)) {
                     if (!l.D()) {
-                        this.f14198e.k.n.showToast(R.string.neterror);
+                        this.f49341e.f49340b.n.showToast(R.string.neterror);
                         return;
                     }
                     UserData userData = (UserData) view.getTag();
                     AlaAttentionManager.getInstance().updateAttention(String.valueOf(userData.getUserId()), new AlaAttentionData(userData.getPortrait(), String.valueOf(userData.getUserId()), "1", true, null));
-                    this.f14198e.k.m.f14195g.setVisibility(8);
-                    this.f14198e.k.m.f14196h.setVisibility(0);
+                    this.f49341e.f49340b.m.followBtn.setVisibility(8);
+                    this.f49341e.f49340b.m.followedBtn.setVisibility(0);
                     TiebaStatic.log(new StatisticItem("c12897"));
                 }
             }
@@ -117,7 +106,7 @@ public class ConcernTabLiveItemView extends b<f> {
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(ConcernTabLiveItemView concernTabLiveItemView, ConcernTabLiveItemView concernTabLiveItemView2) {
-            super(concernTabLiveItemView2.k());
+            super(concernTabLiveItemView2.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -133,27 +122,27 @@ public class ConcernTabLiveItemView extends b<f> {
                     return;
                 }
             }
-            this.k = concernTabLiveItemView;
-            this.j = new a(this);
-            this.f14189a = concernTabLiveItemView2;
-            View k = concernTabLiveItemView2.k();
-            this.f14190b = k;
-            TbImageView tbImageView = (TbImageView) k.findViewById(R.id.protrait);
-            this.f14191c = tbImageView;
+            this.f49340b = concernTabLiveItemView;
+            this.f49339a = new a(this);
+            this.concernTabLiveItemView = concernTabLiveItemView2;
+            View j2 = concernTabLiveItemView2.j();
+            this.root = j2;
+            TbImageView tbImageView = (TbImageView) j2.findViewById(R.id.protrait);
+            this.portraitImg = tbImageView;
             tbImageView.setDefaultResource(R.drawable.icon_default_avatar100_bg);
-            this.f14191c.setIsRound(true);
-            this.f14191c.setAutoChangeStyle(false);
-            this.f14191c.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f14192d = (TextView) this.f14190b.findViewById(R.id.live_title);
-            this.f14193e = (TextView) this.f14190b.findViewById(R.id.living_tag);
-            this.f14197i = this.f14190b.findViewById(R.id.devider_line);
-            Drawable drawable = SkinManager.getDrawable(concernTabLiveItemView.f54321g.getResources(), R.drawable.icon_living_seeding);
-            drawable.setBounds(0, 0, concernTabLiveItemView.f54321g.getResources().getDimensionPixelOffset(R.dimen.tbds8), concernTabLiveItemView.f54321g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-            this.f14193e.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
-            this.f14194f = (TextView) this.f14190b.findViewById(R.id.user_name);
-            this.f14195g = (TextView) this.f14190b.findViewById(R.id.follow_btn);
-            this.f14196h = (TextView) this.f14190b.findViewById(R.id.followed_btn);
-            this.f14195g.setOnClickListener(this.j);
+            this.portraitImg.setIsRound(true);
+            this.portraitImg.setAutoChangeStyle(false);
+            this.portraitImg.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.topText = (TextView) this.root.findViewById(R.id.live_title);
+            this.livingTag = (TextView) this.root.findViewById(R.id.living_tag);
+            this.divider = this.root.findViewById(R.id.devider_line);
+            Drawable drawable = SkinManager.getDrawable(concernTabLiveItemView.f14947g.getResources(), R.drawable.icon_living_seeding);
+            drawable.setBounds(0, 0, concernTabLiveItemView.f14947g.getResources().getDimensionPixelOffset(R.dimen.tbds8), concernTabLiveItemView.f14947g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
+            this.livingTag.setCompoundDrawablesWithIntrinsicBounds(drawable, (Drawable) null, (Drawable) null, (Drawable) null);
+            this.bottomText = (TextView) this.root.findViewById(R.id.user_name);
+            this.followBtn = (TextView) this.root.findViewById(R.id.follow_btn);
+            this.followedBtn = (TextView) this.root.findViewById(R.id.followed_btn);
+            this.followBtn.setOnClickListener(this.f49339a);
         }
     }
 
@@ -177,94 +166,121 @@ public class ConcernTabLiveItemView extends b<f> {
             }
         }
         this.o = 28;
+        this.p = "";
+        this.q = "";
         this.n = tbPageContext;
         this.m = new ViewHolder(this, this);
     }
 
-    @Override // d.a.q0.a0.b
-    public int g() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.special_bar_concern_live_item : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.q = str;
+        }
     }
 
-    @Override // d.a.q0.a0.b
-    public void m(TbPageContext<?> tbPageContext, int i2) {
+    @Override // c.a.p0.a0.b
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            SkinManager.setViewTextColor(this.m.f14192d, R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.m.f14194f, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.m.f14196h, R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.m.f14195g, R.color.common_color_10140);
-            SkinManager.setViewTextColor(this.m.f14193e, R.color.CAM_X0109);
-            SkinManager.getDrawable(this.f54321g.getResources(), R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.f54321g.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.f54321g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
-            this.m.f14193e.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(this.f54321g.getResources(), R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
-            SkinManager.setBackgroundColor(this.m.f14197i, R.color.CAM_X0204);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.special_bar_concern_live_item : invokeV.intValue;
+    }
+
+    @Override // c.a.p0.a0.b
+    public void l(TbPageContext<?> tbPageContext, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) {
+            SkinManager.setViewTextColor(this.m.topText, R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.m.bottomText, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.m.followedBtn, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.m.followBtn, R.color.common_color_10140);
+            SkinManager.setViewTextColor(this.m.livingTag, R.color.CAM_X0109);
+            SkinManager.getDrawable(this.f14947g.getResources(), R.drawable.icon_video_direct_seeding).setBounds(0, 0, this.f14947g.getResources().getDimensionPixelOffset(R.dimen.tbds8), this.f14947g.getResources().getDimensionPixelOffset(R.dimen.tbds8));
+            this.m.livingTag.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(this.f14947g.getResources(), R.drawable.icon_living_seeding), (Drawable) null, (Drawable) null, (Drawable) null);
+            SkinManager.setBackgroundColor(this.m.divider, R.color.CAM_X0204);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.q0.a0.b
-    /* renamed from: t */
-    public void l(f fVar) {
+    @Override // c.a.p0.a0.b
+    /* renamed from: s */
+    public void k(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            UserData userData = fVar.f65170e;
+        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
+            UserData userData = fVar.f24985e;
             if (userData != null) {
                 if (!StringUtils.isNull(userData.getPortrait())) {
-                    this.m.f14191c.M(fVar.f65170e.getPortrait(), 12, false);
+                    this.m.portraitImg.startLoad(fVar.f24985e.getPortrait(), 12, false);
                 }
-                if (!StringUtils.isNull(fVar.f65170e.getName_show())) {
-                    this.m.f14192d.setText(fVar.f65170e.getName_show());
+                if (!StringUtils.isNull(fVar.f24985e.getName_show())) {
+                    this.m.topText.setText(fVar.f24985e.getName_show());
                 }
-                if (fVar.f65172g) {
-                    if (fVar.f65170e.hadConcerned()) {
-                        this.m.f14195g.setVisibility(8);
-                        this.m.f14196h.setVisibility(0);
+                if (fVar.f24987g) {
+                    if (fVar.f24985e.hadConcerned()) {
+                        this.m.followBtn.setVisibility(8);
+                        this.m.followedBtn.setVisibility(0);
                     } else {
-                        this.m.f14195g.setVisibility(0);
-                        this.m.f14196h.setVisibility(8);
+                        this.m.followBtn.setVisibility(0);
+                        this.m.followedBtn.setVisibility(8);
                     }
                 } else {
-                    this.m.f14195g.setVisibility(8);
-                    this.m.f14196h.setVisibility(8);
+                    this.m.followBtn.setVisibility(8);
+                    this.m.followedBtn.setVisibility(8);
                 }
-                this.m.f14195g.setTag(fVar.f65170e);
+                this.m.followBtn.setTag(fVar.f24985e);
             }
-            AlaInfoData alaInfoData = fVar.f65171f;
+            AlaInfoData alaInfoData = fVar.f24986f;
             if (alaInfoData != null) {
-                this.m.f14190b.setTag(alaInfoData);
-                if (!StringUtils.isNull(fVar.f65171f.description)) {
-                    String str = fVar.f65171f.description;
+                this.m.root.setTag(alaInfoData);
+                if (!StringUtils.isNull(fVar.f24986f.description)) {
+                    String str = fVar.f24986f.description;
                     int i2 = this.o;
-                    if (fVar.f65172g) {
+                    if (fVar.f24987g) {
                         i2 -= 9;
                     }
                     if (k.byteLength(str) > i2) {
-                        str = StringHelper.cutChineseAndEnglishWithSuffix(str, i2, StringHelper.STRING_MORE);
+                        str = StringHelper.cutChineseAndEnglishWithSuffix(str, i2, "...");
                     }
-                    this.m.f14194f.setText(str);
+                    this.m.bottomText.setText(str);
                 }
             }
-            if (fVar.f65172g) {
+            if (fVar.f24987g) {
                 TiebaStatic.log(new StatisticItem("c12895"));
             } else {
                 StatisticItem statisticItem = new StatisticItem("c12893");
-                AlaInfoData alaInfoData2 = fVar.f65171f;
+                statisticItem.addParam("fid", this.p);
+                statisticItem.addParam("fname", this.q);
+                AlaInfoData alaInfoData2 = fVar.f24986f;
                 if (alaInfoData2 != null && alaInfoData2.isLegalYYLiveData()) {
-                    TiebaStaticHelper.addYYParam(statisticItem, fVar.f65171f.mYyExtData);
+                    AlaInfoData alaInfoData3 = fVar.f24986f;
+                    int calculateLiveType = YYLiveUtil.calculateLiveType(alaInfoData3);
+                    String str2 = StringUtils.isNull(alaInfoData3.appId) ? null : alaInfoData3.appId;
+                    if (alaInfoData3.mYyExtData != null) {
+                        str2 = TiebaStatic.YYValues.YY_LIVE;
+                    }
+                    statisticItem.addParam("obj_param1", calculateLiveType);
+                    statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, str2);
+                    YYLiveUtil.calculateLiveType(fVar.f24986f);
+                    TiebaStaticHelper.addYYParam(statisticItem, fVar.f24986f.mYyExtData);
                 }
                 TiebaStatic.log(statisticItem);
             }
-            this.m.f14195g.setTag(fVar.f65170e);
-            m(j(), TbadkCoreApplication.getInst().getSkinType());
+            this.m.followBtn.setTag(fVar.f24985e);
+            l(i(), TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.p = str;
         }
     }
 }

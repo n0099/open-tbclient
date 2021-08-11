@@ -13,20 +13,20 @@ import io.reactivex.annotations.Experimental;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.DisposableHelper;
 @Experimental
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class CompletableDetach extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource source;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class DetachCompletableObserver implements CompletableObserver, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f73452d;
+        public Disposable f78511d;
 
         public DetachCompletableObserver(CompletableObserver completableObserver) {
             Interceptable interceptable = $ic;
@@ -51,8 +51,8 @@ public final class CompletableDetach extends Completable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.actual = null;
-                this.f73452d.dispose();
-                this.f73452d = DisposableHelper.DISPOSED;
+                this.f78511d.dispose();
+                this.f78511d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -60,14 +60,14 @@ public final class CompletableDetach extends Completable {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73452d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f78511d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.CompletableObserver, io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f73452d = DisposableHelper.DISPOSED;
+                this.f78511d = DisposableHelper.DISPOSED;
                 CompletableObserver completableObserver = this.actual;
                 if (completableObserver != null) {
                     this.actual = null;
@@ -80,7 +80,7 @@ public final class CompletableDetach extends Completable {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f73452d = DisposableHelper.DISPOSED;
+                this.f78511d = DisposableHelper.DISPOSED;
                 CompletableObserver completableObserver = this.actual;
                 if (completableObserver != null) {
                     this.actual = null;
@@ -92,8 +92,8 @@ public final class CompletableDetach extends Completable {
         @Override // io.reactivex.CompletableObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f73452d, disposable)) {
-                this.f73452d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f78511d, disposable)) {
+                this.f78511d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

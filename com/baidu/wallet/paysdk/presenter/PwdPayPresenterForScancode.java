@@ -5,17 +5,11 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.WalletLoginHelper;
-import com.baidu.wallet.base.datamodel.AccountManager;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.beans.BaseBean;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.contract.PwdPayContract;
 import com.baidu.wallet.paysdk.datamodel.O2OPayResultItemInfo;
@@ -31,10 +25,15 @@ import com.baidu.wallet.paysdk.ui.WalletSmsActivity;
 import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterCallback;
 import com.baidu.wallet.router.RouterRequest;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.api.WalletLoginHelper;
+import com.dxmpay.wallet.base.datamodel.AccountManager;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +76,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ PwdPayPresenterForScancode f26377a;
+                public final /* synthetic */ PwdPayPresenterForScancode f62279a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,7 +93,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                             return;
                         }
                     }
-                    this.f26377a = this;
+                    this.f62279a = this;
                 }
 
                 @Override // com.baidu.wallet.router.RouterCallback
@@ -106,7 +105,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                                 HashMap hashMap2 = new HashMap();
                                 hashMap2.put("provider", "scancode");
                                 hashMap2.put("action", "getLimitPayBean");
-                                StatisticManager.onEventEndWithValues(StatServiceEvent.SDK_ROUTER_ERROR, i2, hashMap2.values());
+                                StatisticManager.onEventEndWithValues("sdk_router_error", i2, hashMap2.values());
                                 return;
                             }
                             return;
@@ -116,8 +115,8 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                             return;
                         }
                         BaseBean baseBean = (BaseBean) obj;
-                        baseBean.setBeanParams(this.f26377a.mOrderInfo.sp_no, this.f26377a.mOrderInfo.order_no, this.f26377a.mOrderInfo.pay_code, "");
-                        baseBean.setResponseCallback(this.f26377a);
+                        baseBean.setBeanParams(this.f62279a.mOrderInfo.sp_no, this.f62279a.mOrderInfo.order_no, this.f62279a.mOrderInfo.pay_code, "");
+                        baseBean.setResponseCallback(this.f62279a);
                         baseBean.execBean();
                     }
                 }
@@ -145,7 +144,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
                 this.mActivity.showPWdInputView(true);
                 clearPayPwdCache(i3);
                 if (TextUtils.isEmpty(str)) {
-                    str = ResUtils.getString(this.mActivity, "fp_get_data_fail");
+                    str = ResUtils.getString(this.mActivity, "dxm_fp_get_data_fail");
                 }
                 if (i3 == 5003) {
                     AccountManager.getInstance(this.mActivity).logout();
@@ -172,7 +171,6 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, obj, str) == null) {
             if (i2 == 257) {
-                StatisticManager.onEventEnd(StatServiceEvent.CHECK_PASSWORD, 0);
                 if (this.mCheckSMS) {
                     this.mActivity.dismissLoading(-1);
                     this.mActivity.showPWdInputView(true);
@@ -326,7 +324,7 @@ public class PwdPayPresenterForScancode extends PwdPayContract.Presenter {
     public void triggleSmsPay() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            StatisticManager.onEvent(StatServiceEvent.TRIGGLESMSVERIFY);
+            StatisticManager.onEvent("triggleSmsVerify");
             Intent intent = new Intent();
             intent.setClass(this.mActivity, WalletSmsActivity.class);
             intent.putExtra(BeanConstants.SMS_ACTIVITY_FROM_KEY, 10);

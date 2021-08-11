@@ -5,7 +5,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -18,7 +17,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class NetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_2G = 2;
@@ -31,7 +30,7 @@ public final class NetworkUtils {
     public static final int NETWORK_WIFI = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5422a = "NetworkUtils";
+    public static final String f39366a = "NetworkUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
     public NetworkUtils() {
@@ -147,17 +146,17 @@ public final class NetworkUtils {
                 return false;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
+            if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
                 if (ApollonConstants.DEBUG) {
-                    LogUtil.d("NetworkUtils", "network is available");
-                    return true;
+                    LogUtil.d("NetworkUtils", "network is not available");
                 }
+                return false;
+            } else if (ApollonConstants.DEBUG) {
+                LogUtil.d("NetworkUtils", "network is available");
+                return true;
+            } else {
                 return true;
             }
-            if (ApollonConstants.DEBUG) {
-                LogUtil.d("NetworkUtils", "network is not available");
-            }
-            return false;
         }
         return invokeL.booleanValue;
     }
@@ -168,23 +167,16 @@ public final class NetworkUtils {
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             if (connectivityManager == null) {
-                if (ApollonConstants.DEBUG) {
-                    Log.d("NetworkUtils", "couldn't get connectivity manager");
-                }
+                boolean z = ApollonConstants.DEBUG;
                 return false;
             }
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
-                if (ApollonConstants.DEBUG) {
-                    Log.d("NetworkUtils", "network is available");
-                    return true;
-                }
-                return true;
+            if (activeNetworkInfo == null || !activeNetworkInfo.isAvailable()) {
+                boolean z2 = ApollonConstants.DEBUG;
+                return false;
             }
-            if (ApollonConstants.DEBUG) {
-                Log.d("NetworkUtils", "network is not available");
-            }
-            return false;
+            boolean z3 = ApollonConstants.DEBUG;
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -219,14 +211,14 @@ public final class NetworkUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-            if (connectivityManager == null) {
-                if (ApollonConstants.DEBUG) {
-                    LogUtil.d("NetworkUtils", "couldn't get connectivity manager");
-                }
-                return false;
+            if (connectivityManager != null) {
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                return activeNetworkInfo != null && activeNetworkInfo.isConnected() && activeNetworkInfo.getType() == 1;
             }
-            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            return activeNetworkInfo != null && activeNetworkInfo.isConnected() && activeNetworkInfo.getType() == 1;
+            if (ApollonConstants.DEBUG) {
+                LogUtil.d("NetworkUtils", "couldn't get connectivity manager");
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }

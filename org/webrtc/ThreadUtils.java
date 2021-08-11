@@ -15,19 +15,19 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class ThreadUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: org.webrtc.ThreadUtils$1CaughtException  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class C1CaughtException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public Exception f73620e;
+        public Exception f78922e;
 
         public C1CaughtException() {
             Interceptable interceptable = $ic;
@@ -45,7 +45,7 @@ public class ThreadUtils {
     }
 
     /* renamed from: org.webrtc.ThreadUtils$1Result  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class C1Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,12 +66,12 @@ public class ThreadUtils {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface BlockingOperation {
         void run() throws InterruptedException;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class ThreadChecker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -165,23 +165,23 @@ public class ThreadUtils {
         }
     }
 
-    public static boolean awaitUninterruptibly(CountDownLatch countDownLatch, long j) {
+    public static boolean awaitUninterruptibly(CountDownLatch countDownLatch, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, countDownLatch, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, countDownLatch, j2)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             boolean z = true;
             boolean z2 = false;
-            long j2 = j;
+            long j3 = j2;
             boolean z3 = false;
             while (true) {
                 try {
-                    z2 = countDownLatch.await(j2, TimeUnit.MILLISECONDS);
+                    z2 = countDownLatch.await(j3, TimeUnit.MILLISECONDS);
                     z = z3;
                     break;
                 } catch (InterruptedException unused) {
-                    j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
-                    if (j2 <= 0) {
+                    j3 = j2 - (SystemClock.elapsedRealtime() - elapsedRealtime);
+                    if (j3 <= 0) {
                         break;
                     }
                     z3 = true;
@@ -283,18 +283,18 @@ public class ThreadUtils {
                         try {
                             this.val$result.value = this.val$callable.call();
                         } catch (Exception e3) {
-                            this.val$caughtException.f73620e = e3;
+                            this.val$caughtException.f78922e = e3;
                         }
                         this.val$barrier.countDown();
                     }
                 }
             });
             awaitUninterruptibly(countDownLatch);
-            if (c1CaughtException.f73620e == null) {
+            if (c1CaughtException.f78922e == null) {
                 return c1Result.value;
             }
-            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f73620e);
-            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f73620e.getStackTrace(), runtimeException.getStackTrace()));
+            RuntimeException runtimeException = new RuntimeException(c1CaughtException.f78922e);
+            runtimeException.setStackTrace(concatStackTraces(c1CaughtException.f78922e.getStackTrace(), runtimeException.getStackTrace()));
             throw runtimeException;
         }
         return (V) invokeLL.objValue;
@@ -378,19 +378,19 @@ public class ThreadUtils {
         }
     }
 
-    public static boolean joinUninterruptibly(Thread thread, long j) {
+    public static boolean joinUninterruptibly(Thread thread, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, null, thread, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65545, null, thread, j2)) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             boolean z = false;
-            long j2 = j;
-            while (j2 > 0) {
+            long j3 = j2;
+            while (j3 > 0) {
                 try {
-                    thread.join(j2);
+                    thread.join(j3);
                     break;
                 } catch (InterruptedException unused) {
-                    j2 = j - (SystemClock.elapsedRealtime() - elapsedRealtime);
+                    j3 = j2 - (SystemClock.elapsedRealtime() - elapsedRealtime);
                     z = true;
                 }
             }

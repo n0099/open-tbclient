@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class Rotation {
     public static final /* synthetic */ Rotation[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -19,12 +19,12 @@ public final class Rotation {
     public static final Rotation ROTATION_90;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f8203a;
+        public static final /* synthetic */ int[] f42493a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -41,21 +41,21 @@ public final class Rotation {
                 }
             }
             int[] iArr = new int[Rotation.values().length];
-            f8203a = iArr;
+            f42493a = iArr;
             try {
                 iArr[Rotation.NORMAL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f8203a[Rotation.ROTATION_90.ordinal()] = 2;
+                f42493a[Rotation.ROTATION_90.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f8203a[Rotation.ROTATION_180.ordinal()] = 3;
+                f42493a[Rotation.ROTATION_180.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f8203a[Rotation.ROTATION_270.ordinal()] = 4;
+                f42493a[Rotation.ROTATION_270.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
         }
@@ -141,7 +141,7 @@ public final class Rotation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = a.f8203a[ordinal()];
+            int i2 = a.f42493a[ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

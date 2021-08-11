@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class PreferenceUtils {
     public static /* synthetic */ Interceptable $ic;
     public static SharedPreferences mPreference;
@@ -79,10 +79,10 @@ public final class PreferenceUtils {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(AdIconUtil.BAIDU_LOGO_ID, null, str, i2)) == null) ? getPreference().getInt(str, i2) : invokeLI.intValue;
     }
 
-    public static long getLong(String str, long j) {
+    public static long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j)) == null) ? getPreference().getLong(str, j) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, str, j2)) == null) ? getPreference().getLong(str, j2) : invokeLJ.longValue;
     }
 
     public static SharedPreferences getPreference() {
@@ -146,11 +146,11 @@ public final class PreferenceUtils {
         }
     }
 
-    public static void setLong(String str, long j) {
+    public static void setLong(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65551, null, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65551, null, str, j2) == null) {
             SharedPreferences.Editor edit = getPreference().edit();
-            edit.putLong(str, j);
+            edit.putLong(str, j2);
             edit.apply();
         }
     }

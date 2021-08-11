@@ -1,5 +1,6 @@
 package com.baidu.tieba.square.message;
 
+import c.a.p0.f3.f.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.e3.f.d;
 import tbclient.Error;
 import tbclient.GetForumSquare.GetForumSquareResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ForumSquareSocketResponsedMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,6 @@
 package com.baidu.tieba.forumsearch.message;
 
+import c.a.p0.u0.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.t0.c.c;
 import tbclient.Error;
 import tbclient.SearchPostForum.SearchPostForumResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

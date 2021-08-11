@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bt {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile bt f40176a;
+    public static volatile bt f77027a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f159a;
+    public Context f163a;
 
     public bt(Context context) {
         Interceptable interceptable = $ic;
@@ -34,38 +34,38 @@ public class bt {
                 return;
             }
         }
-        this.f159a = context;
+        this.f163a = context;
     }
 
     public static bt a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f40176a == null) {
+            if (f77027a == null) {
                 synchronized (bt.class) {
-                    if (f40176a == null) {
-                        f40176a = new bt(context);
+                    if (f77027a == null) {
+                        f77027a = new bt(context);
                     }
                 }
             }
-            return f40176a;
+            return f77027a;
         }
         return (bt) invokeL.objValue;
     }
 
-    public synchronized long a(String str, String str2, long j) {
+    public synchronized long a(String str, String str2, long j2) {
         InterceptResult invokeCommon;
-        long j2;
+        long j3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j2)})) == null) {
             synchronized (this) {
                 try {
-                    j2 = this.f159a.getSharedPreferences(str, 4).getLong(str2, j);
+                    j3 = this.f163a.getSharedPreferences(str, 4).getLong(str2, j2);
                 } catch (Throwable unused) {
-                    return j;
+                    return j2;
                 }
             }
-            return j2;
+            return j3;
         }
         return invokeCommon.longValue;
     }
@@ -77,7 +77,7 @@ public class bt {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
             synchronized (this) {
                 try {
-                    string = this.f159a.getSharedPreferences(str, 4).getString(str2, str3);
+                    string = this.f163a.getSharedPreferences(str, 4).getString(str2, str3);
                 } catch (Throwable unused) {
                     return str3;
                 }
@@ -88,23 +88,23 @@ public class bt {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m188a(String str, String str2, long j) {
+    public synchronized void m191a(String str, String str2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) {
             synchronized (this) {
-                SharedPreferences.Editor edit = this.f159a.getSharedPreferences(str, 4).edit();
-                edit.putLong(str2, j);
+                SharedPreferences.Editor edit = this.f163a.getSharedPreferences(str, 4).edit();
+                edit.putLong(str2, j2);
                 edit.commit();
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m189a(String str, String str2, String str3) {
+    public synchronized void m192a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
             synchronized (this) {
-                SharedPreferences.Editor edit = this.f159a.getSharedPreferences(str, 4).edit();
+                SharedPreferences.Editor edit = this.f163a.getSharedPreferences(str, 4).edit();
                 edit.putString(str2, str3);
                 edit.commit();
             }

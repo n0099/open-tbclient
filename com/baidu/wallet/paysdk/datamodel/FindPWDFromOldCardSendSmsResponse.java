@@ -3,15 +3,15 @@ package com.baidu.wallet.paysdk.datamodel;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.beans.IBeanResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.armor.SecurePay;
+import com.dxmpay.apollon.beans.IBeanResponse;
+/* loaded from: classes8.dex */
 public class FindPWDFromOldCardSendSmsResponse implements IBeanResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class FindPWDFromOldCardSendSmsResponse implements IBeanResponse {
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class FindPWDFromOldCardSendSmsResponse implements IBeanResponse {
                 if (TextUtils.isEmpty(this.mobile_ec)) {
                     return;
                 }
-                this.mobile = SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.mobile_ec));
+                this.mobile = SecurePay.unicodeDecode(SecurePay.getInstance().localDecryptProxy(this.mobile_ec));
             } catch (Exception e2) {
                 if (BeanConstants.DEBUG) {
                     e2.printStackTrace();
@@ -61,7 +61,7 @@ public class FindPWDFromOldCardSendSmsResponse implements IBeanResponse {
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {

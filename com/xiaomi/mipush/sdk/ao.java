@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ao extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ an f40052a;
+    public final /* synthetic */ an f76903a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ao(an anVar, Looper looper) {
@@ -35,7 +35,7 @@ public class ao extends Handler {
                 return;
             }
         }
-        this.f40052a = anVar;
+        this.f76903a = anVar;
     }
 
     @Override // android.os.Handler
@@ -64,80 +64,80 @@ public class ao extends Handler {
             String str = (String) message.obj;
             int i2 = message.arg1;
             synchronized (ae.class) {
-                context = this.f40052a.f67a;
-                if (ae.a(context).m91a(str)) {
-                    context2 = this.f40052a.f67a;
+                context = this.f76903a.f71a;
+                if (ae.a(context).m94a(str)) {
+                    context2 = this.f76903a.f71a;
                     if (ae.a(context2).a(str) < 10) {
-                        if (at.f40057a.ordinal() == i2) {
-                            context14 = this.f40052a.f67a;
-                            if ("syncing".equals(ae.a(context14).a(at.f40057a))) {
-                                anVar2 = this.f40052a;
-                                atVar2 = at.f40057a;
+                        if (at.f76908a.ordinal() == i2) {
+                            context14 = this.f76903a.f71a;
+                            if ("syncing".equals(ae.a(context14).a(at.f76908a))) {
+                                anVar2 = this.f76903a;
+                                atVar2 = at.f76908a;
                                 anVar2.a(str, atVar2, true, (HashMap<String, String>) null);
-                                context13 = this.f40052a.f67a;
+                                context13 = this.f76903a.f71a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f40058b.ordinal() == i2) {
-                            context12 = this.f40052a.f67a;
-                            if ("syncing".equals(ae.a(context12).a(at.f40058b))) {
-                                anVar2 = this.f40052a;
-                                atVar2 = at.f40058b;
+                        if (at.f76909b.ordinal() == i2) {
+                            context12 = this.f76903a.f71a;
+                            if ("syncing".equals(ae.a(context12).a(at.f76909b))) {
+                                anVar2 = this.f76903a;
+                                atVar2 = at.f76909b;
                                 anVar2.a(str, atVar2, true, (HashMap<String, String>) null);
-                                context13 = this.f40052a.f67a;
+                                context13 = this.f76903a.f71a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f40059c.ordinal() == i2) {
-                            context10 = this.f40052a.f67a;
-                            if ("syncing".equals(ae.a(context10).a(at.f40059c))) {
-                                anVar = this.f40052a;
-                                atVar = at.f40059c;
-                                context11 = this.f40052a.f67a;
-                                a2 = i.a(context11, e.f40073a);
+                        if (at.f76910c.ordinal() == i2) {
+                            context10 = this.f76903a.f71a;
+                            if ("syncing".equals(ae.a(context10).a(at.f76910c))) {
+                                anVar = this.f76903a;
+                                atVar = at.f76910c;
+                                context11 = this.f76903a.f71a;
+                                a2 = i.a(context11, e.f76924a);
                                 anVar.a(str, atVar, false, a2);
-                                context13 = this.f40052a.f67a;
+                                context13 = this.f76903a.f71a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f40060d.ordinal() == i2) {
-                            context8 = this.f40052a.f67a;
-                            if ("syncing".equals(ae.a(context8).a(at.f40060d))) {
-                                anVar = this.f40052a;
-                                atVar = at.f40060d;
-                                context9 = this.f40052a.f67a;
-                                a2 = i.a(context9, e.f40074b);
+                        if (at.f76911d.ordinal() == i2) {
+                            context8 = this.f76903a.f71a;
+                            if ("syncing".equals(ae.a(context8).a(at.f76911d))) {
+                                anVar = this.f76903a;
+                                atVar = at.f76911d;
+                                context9 = this.f76903a.f71a;
+                                a2 = i.a(context9, e.f76925b);
                                 anVar.a(str, atVar, false, a2);
-                                context13 = this.f40052a.f67a;
+                                context13 = this.f76903a.f71a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f40061e.ordinal() == i2) {
-                            context6 = this.f40052a.f67a;
-                            if ("syncing".equals(ae.a(context6).a(at.f40061e))) {
-                                anVar = this.f40052a;
-                                atVar = at.f40061e;
-                                context7 = this.f40052a.f67a;
-                                a2 = i.a(context7, e.f40075c);
+                        if (at.f76912e.ordinal() == i2) {
+                            context6 = this.f76903a.f71a;
+                            if ("syncing".equals(ae.a(context6).a(at.f76912e))) {
+                                anVar = this.f76903a;
+                                atVar = at.f76912e;
+                                context7 = this.f76903a.f71a;
+                                a2 = i.a(context7, e.f76926c);
                                 anVar.a(str, atVar, false, a2);
-                                context13 = this.f40052a.f67a;
+                                context13 = this.f76903a.f71a;
                                 ae.a(context13).b(str);
                             }
                         }
-                        if (at.f40062f.ordinal() == i2) {
-                            context4 = this.f40052a.f67a;
-                            if ("syncing".equals(ae.a(context4).a(at.f40062f))) {
-                                anVar = this.f40052a;
-                                atVar = at.f40062f;
-                                context5 = this.f40052a.f67a;
-                                a2 = i.a(context5, e.f40076d);
+                        if (at.f76913f.ordinal() == i2) {
+                            context4 = this.f76903a.f71a;
+                            if ("syncing".equals(ae.a(context4).a(at.f76913f))) {
+                                anVar = this.f76903a;
+                                atVar = at.f76913f;
+                                context5 = this.f76903a.f71a;
+                                a2 = i.a(context5, e.f76927d);
                                 anVar.a(str, atVar, false, a2);
                             }
                         }
-                        context13 = this.f40052a.f67a;
+                        context13 = this.f76903a.f71a;
                         ae.a(context13).b(str);
                     } else {
-                        context3 = this.f40052a.f67a;
+                        context3 = this.f76903a.f71a;
                         ae.a(context3).c(str);
                     }
                 }

@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.c.a;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.tencent.connect.share.QzonePublish;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bi implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo.MaterialFeature> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +41,7 @@ public class bi implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo.MaterialFea
         materialFeature.photoId = jSONObject.optLong("photoId");
         materialFeature.coverUrl = jSONObject.optString("coverUrl");
         materialFeature.videoDuration = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
-        materialFeature.firstFrame = jSONObject.optString("firstFrame");
+        materialFeature.firstFrame = jSONObject.optString(SpeedStatsMainTable.FIRST_FRAME_STAGE);
         materialFeature.blurBackgroundUrl = jSONObject.optString("blurBackgroundUrl");
         materialFeature.webpCoverUrl = jSONObject.optString("webpCoverUrl");
         materialFeature.videoWidth = jSONObject.optInt("videoWidth");
@@ -65,7 +66,7 @@ public class bi implements com.kwad.sdk.core.d<AdInfo.AdMaterialInfo.MaterialFea
             com.kwad.sdk.utils.q.a(jSONObject, "photoId", materialFeature.photoId);
             com.kwad.sdk.utils.q.a(jSONObject, "coverUrl", materialFeature.coverUrl);
             com.kwad.sdk.utils.q.a(jSONObject, QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, materialFeature.videoDuration);
-            com.kwad.sdk.utils.q.a(jSONObject, "firstFrame", materialFeature.firstFrame);
+            com.kwad.sdk.utils.q.a(jSONObject, SpeedStatsMainTable.FIRST_FRAME_STAGE, materialFeature.firstFrame);
             com.kwad.sdk.utils.q.a(jSONObject, "blurBackgroundUrl", materialFeature.blurBackgroundUrl);
             com.kwad.sdk.utils.q.a(jSONObject, "webpCoverUrl", materialFeature.webpCoverUrl);
             com.kwad.sdk.utils.q.a(jSONObject, "videoWidth", materialFeature.videoWidth);

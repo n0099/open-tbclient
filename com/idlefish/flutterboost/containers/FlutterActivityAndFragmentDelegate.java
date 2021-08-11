@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.Lifecycle;
+import c.a.p0.n3.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -33,7 +34,6 @@ import com.idlefish.flutterboost.XFlutterView;
 import com.idlefish.flutterboost.XPlatformPlugin;
 import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.idlefish.flutterboost.interfaces.IOperateSyncer;
-import d.a.q0.m3.a;
 import io.flutter.Log;
 import io.flutter.embedding.android.FlutterEngineConfigurator;
 import io.flutter.embedding.android.FlutterEngineProvider;
@@ -45,7 +45,8 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer {
     public static /* synthetic */ Interceptable $ic = null;
     public static int ACTIVITY_CONTROL_SURFACE_ATTACH_TO_ACTVITY_HASH_CODE = 0;
@@ -64,7 +65,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
     @Nullable
     public XPlatformPlugin platformPlugin;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface Host extends SplashScreenProvider, FlutterEngineProvider, FlutterEngineConfigurator {
         void configureFlutterEngine(@NonNull FlutterEngine flutterEngine);
 
@@ -279,7 +280,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
             this.mSyncer.onContainerResult(i2, i3, hashMap);
             ensureAlive();
             if (this.flutterEngine != null) {
-                Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i2 + "\nresultCode: " + i3 + "\ndata: " + intent);
+                Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onActivityResult() to FlutterEngine:\nrequestCode: " + i2 + StringUtils.LF + "resultCode: " + i3 + StringUtils.LF + "data: " + intent);
                 this.flutterEngine.getActivityControlSurface().onActivityResult(i2, i3, intent);
                 return;
             }
@@ -460,7 +461,7 @@ public class FlutterActivityAndFragmentDelegate implements IFlutterViewContainer
             this.mSyncer.onRequestPermissionsResult(i2, strArr, iArr);
             ensureAlive();
             if (this.flutterEngine != null) {
-                Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onRequestPermissionsResult() to FlutterEngine:\nrequestCode: " + i2 + "\npermissions: " + Arrays.toString(strArr) + "\ngrantResults: " + Arrays.toString(iArr));
+                Log.v("FlutterActivityAndFragmentDelegate", "Forwarding onRequestPermissionsResult() to FlutterEngine:\nrequestCode: " + i2 + StringUtils.LF + "permissions: " + Arrays.toString(strArr) + StringUtils.LF + "grantResults: " + Arrays.toString(iArr));
                 this.flutterEngine.getActivityControlSurface().onRequestPermissionsResult(i2, strArr, iArr);
                 return;
             }

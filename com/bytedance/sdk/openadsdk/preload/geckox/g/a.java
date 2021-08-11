@@ -12,19 +12,19 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<String, Lock> f32415a;
+    public static final Map<String, Lock> f68376a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public FileLock f32416b;
+    public FileLock f68377b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32417c;
+    public String f68378c;
 
     static {
         InterceptResult invokeClinit;
@@ -39,7 +39,7 @@ public class a {
                 return;
             }
         }
-        f32415a = new HashMap();
+        f68376a = new HashMap();
     }
 
     public a(String str, FileLock fileLock) {
@@ -57,19 +57,19 @@ public class a {
                 return;
             }
         }
-        this.f32417c = str;
-        this.f32416b = fileLock;
+        this.f68378c = str;
+        this.f68377b = fileLock;
     }
 
     public static a a(String str) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            synchronized (f32415a) {
-                Lock lock = f32415a.get(str);
+            synchronized (f68376a) {
+                Lock lock = f68376a.get(str);
                 if (lock == null) {
                     lock = new ReentrantLock();
-                    f32415a.put(str, lock);
+                    f68376a.put(str, lock);
                 }
                 if (lock.tryLock()) {
                     try {
@@ -94,10 +94,10 @@ public class a {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (f32415a) {
-                this.f32416b.a();
-                this.f32416b.b();
-                f32415a.get(this.f32417c).unlock();
+            synchronized (f68376a) {
+                this.f68377b.a();
+                this.f68377b.b();
+                f68376a.get(this.f68378c).unlock();
             }
         }
     }

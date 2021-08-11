@@ -13,22 +13,21 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
-import com.baidu.apollon.utils.DisplayUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.BaiduWalletDelegate;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.base.widget.GridLayout;
-import com.baidu.wallet.base.widget.SimpleRatingBar;
 import com.baidu.wallet.paysdk.datamodel.FeedbackInfo;
+import com.dxmpay.apollon.utils.DisplayUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.api.BaiduWalletDelegate;
+import com.dxmpay.wallet.base.widget.GridLayout;
+import com.dxmpay.wallet.base.widget.SimpleRatingBar;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class FeedbackDialog extends Dialog implements View.OnClickListener, SimpleRatingBar.OnSimpleRatingBarChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ICON_HEIGHT_DP = 12;
@@ -55,16 +54,16 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public ArrayList<TagButton> mTags;
     public TextView mTitle;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public FeedbackInfo f27046a;
+        public FeedbackInfo f62883a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f27047b;
+        public b f62884b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -81,23 +80,23 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a();
 
         void a(c cVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f27048a;
+        public int f62885a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String[] f27049b;
+        public String[] f62886b;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -162,8 +161,8 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
     public void initDialog(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.mFeedbackInfo = aVar.f27046a;
-            this.mListener = aVar.f27047b;
+            this.mFeedbackInfo = aVar.f62883a;
+            this.mListener = aVar.f62884b;
             this.mCloseButton.setOnClickListener(this);
             this.mSubmit.setOnClickListener(this);
             FeedbackInfo feedbackInfo = this.mFeedbackInfo;
@@ -173,7 +172,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
             this.mTitle.setText(feedbackInfo.question_desc);
             if (this.mFeedbackInfo.isEntryValid()) {
                 this.mLink.setVisibility(0);
-                this.mLink.setTextColor(ResUtils.getColor(getContext(), "ebpay_text_666666"));
+                this.mLink.setTextColor(ResUtils.getColor(getContext(), "dxm_ebpay_text_666666"));
                 this.mLink.setText(this.mFeedbackInfo.entry_desc);
                 Drawable drawable = ResUtils.getDrawable(getContext(), "wallet_cashdesk_go_icon");
                 drawable.setBounds(0, 0, DisplayUtils.dip2px(getContext(), 12.0f), DisplayUtils.dip2px(getContext(), 12.0f));
@@ -195,7 +194,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
             requestWindowFeature(1);
             setContentView(ResUtils.layout(getContext(), "wallet_cashdesk_feedback_dialog"));
             Window window = getWindow();
-            window.setWindowAnimations(ResUtils.style(getContext(), "wallet_base_bottom_dialog_anim"));
+            window.setWindowAnimations(ResUtils.style(getContext(), "dxm_wallet_base_bottom_dialog_anim"));
             WindowManager.LayoutParams attributes = window.getAttributes();
             attributes.x = 0;
             attributes.y = window.getWindowManager().getDefaultDisplay().getHeight();
@@ -222,7 +221,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onBackPressed();
-            PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_PAY_FEEDBACK_CLOSE_CLICK, this.isEntryClicked);
+            StatisticManager.onEventWithValue("payFeedbackCloseClick", this.isEntryClicked);
             b bVar = this.mListener;
             if (bVar != null) {
                 bVar.a();
@@ -237,10 +236,10 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
             if (view == this.mCloseButton) {
                 onBackPressed();
             } else if (view == this.mSubmit) {
-                PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_PAY_FEEDBACK_SUBMIT_CLICK, this.isEntryClicked);
+                StatisticManager.onEventWithValue("payFeedbackSubmitClick", this.isEntryClicked);
                 if (this.mListener != null) {
                     c cVar = new c();
-                    cVar.f27048a = this.mRatingBar.getRating();
+                    cVar.f62885a = this.mRatingBar.getRating();
                     ArrayList arrayList = new ArrayList();
                     Iterator<TagButton> it = this.mTags.iterator();
                     while (it.hasNext()) {
@@ -250,13 +249,13 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
                         }
                     }
                     String[] strArr = new String[arrayList.size()];
-                    cVar.f27049b = strArr;
+                    cVar.f62886b = strArr;
                     arrayList.toArray(strArr);
                     this.mListener.a(cVar);
                 }
                 dismiss();
             } else if (view == this.mLink) {
-                PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_PAY_FEEDBACK_ENTRY_CLICK);
+                StatisticManager.onEvent("payFeedbackEntryClick");
                 if (this.mFeedbackInfo != null) {
                     getWindow().setWindowAnimations(ResUtils.style(getContext(), "wallet_base_bottom_dialog_no_anim"));
                     this.isEntryClicked = "1";
@@ -266,7 +265,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         }
     }
 
-    @Override // com.baidu.wallet.base.widget.SimpleRatingBar.OnSimpleRatingBarChangeListener
+    @Override // com.dxmpay.wallet.base.widget.SimpleRatingBar.OnSimpleRatingBarChangeListener
     public void onRatingChanged(SimpleRatingBar simpleRatingBar, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{simpleRatingBar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.mFeedbackInfo == null) {
@@ -298,7 +297,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
         this.mLastRating = i2;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class TagButton extends Button implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -362,7 +361,7 @@ public class FeedbackDialog extends Dialog implements View.OnClickListener, Simp
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
                 this.mChecked = z;
                 setBackgroundDrawable(ResUtils.getDrawable(getContext(), this.mChecked ? "wallet_cashdesk_feedbacktag_checked_shape" : "wallet_cashdesk_feedbacktag_uncheck_shape"));
-                setTextColor(ResUtils.getColor(getContext(), this.mChecked ? "wallet_base_mainColor" : "ebpay_text_666666"));
+                setTextColor(ResUtils.getColor(getContext(), this.mChecked ? "dxm_wallet_base_mainColor" : "dxm_ebpay_text_666666"));
             }
         }
 

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class Log implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static String LOG_TAG = "ZeusLog";
@@ -213,8 +213,7 @@ public final class Log implements INoProGuard {
     public static void setMinLogLevel(int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65559, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            String str = LOG_TAG;
-            android.util.Log.e(str, "ZeusSDK.ZeusMinLogLevel=" + i2 + ", sDebugApk=" + z);
+            String str = "ZeusSDK.ZeusMinLogLevel=" + i2 + ", sDebugApk=" + z;
             if (i2 < 2 || i2 > 7) {
                 return;
             }

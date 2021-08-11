@@ -1,7 +1,7 @@
 package com.alipay.android.phone.mrpc.core.a;
 
 import com.alipay.android.phone.mrpc.core.RpcException;
-import com.alipay.sdk.util.l;
+import com.alipay.sdk.util.i;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Type;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class d extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,20 +41,20 @@ public final class d extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                String str = new String(this.f1651b);
+                String str = new String(this.f35486b);
                 StringBuilder sb = new StringBuilder("threadid = ");
                 sb.append(Thread.currentThread().getId());
                 sb.append("; rpc response:  ");
                 sb.append(str);
                 JSONObject jSONObject = new JSONObject(str);
-                int i2 = jSONObject.getInt(l.f2024a);
+                int i2 = jSONObject.getInt(i.f35879a);
                 if (i2 == 1000) {
-                    return this.f1650a == String.class ? jSONObject.optString("result") : com.alipay.a.a.e.a(jSONObject.optString("result"), this.f1650a);
+                    return this.f35485a == String.class ? jSONObject.optString("result") : com.alipay.a.a.e.a(jSONObject.optString("result"), this.f35485a);
                 }
                 throw new RpcException(Integer.valueOf(i2), jSONObject.optString("tips"));
             } catch (Exception e2) {
                 StringBuilder sb2 = new StringBuilder("response  =");
-                sb2.append(new String(this.f1651b));
+                sb2.append(new String(this.f35486b));
                 sb2.append(":");
                 sb2.append(e2);
                 throw new RpcException((Integer) 10, sb2.toString() == null ? "" : e2.getMessage());

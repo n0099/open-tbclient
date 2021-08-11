@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ElasticDataUploader {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ElasticDataUploader sInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public IUploader mUploaderImpl;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface IUploader {
         void uploadStatisticData(JSONObject jSONObject);
 

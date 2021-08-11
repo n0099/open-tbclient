@@ -3,6 +3,8 @@ package com.baidu.tieba.pb.videopb.viewholder;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import c.a.e.e.p.k;
+import c.a.o0.s.q.c2;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.ThreadForumEnterButton;
@@ -11,21 +13,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.p0.s.q.b2;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f19973a;
+    public Context f55336a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FlowLabelLayout f19974b;
+    public FlowLabelLayout f55337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ThreadForumEnterButton f19975c;
+    public ThreadForumEnterButton f55338c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoTabPbFloatEnterForumViewHolder(Context context, View view) {
@@ -45,39 +45,39 @@ public class VideoTabPbFloatEnterForumViewHolder extends TypeAdapter.ViewHolder 
                 return;
             }
         }
-        this.f19973a = context;
-        this.f19974b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
+        this.f55336a = context;
+        this.f55337b = (FlowLabelLayout) ((ViewGroup) view).getChildAt(0);
     }
 
-    public void b() {
+    public void changeSkinType() {
         ThreadForumEnterButton threadForumEnterButton;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (threadForumEnterButton = this.f19975c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (threadForumEnterButton = this.f55338c) == null) {
             return;
         }
-        threadForumEnterButton.e();
+        threadForumEnterButton.onChangeSkinType();
     }
 
-    public void c(View.OnClickListener onClickListener) {
+    public void setAfterListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.f19975c.setAfterClickListener(onClickListener);
+            this.f55338c.setAfterClickListener(onClickListener);
         }
     }
 
-    public void setData(b2 b2Var) {
+    public void setData(c2 c2Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b2Var) == null) || b2Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, c2Var) == null) || c2Var == null) {
             return;
         }
-        this.f19974b.removeAllViews();
-        if (k.isEmpty(b2Var.X())) {
+        this.f55337b.removeAllViews();
+        if (k.isEmpty(c2Var.Z())) {
             return;
         }
-        ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.f19973a);
-        this.f19975c = threadForumEnterButton;
-        threadForumEnterButton.d(true);
-        this.f19975c.a(b2Var);
-        this.f19974b.addView(this.f19975c, new ViewGroup.LayoutParams(-2, -2));
+        ThreadForumEnterButton threadForumEnterButton = new ThreadForumEnterButton(this.f55336a);
+        this.f55338c = threadForumEnterButton;
+        threadForumEnterButton.isFromVideoTabPbFloat(true);
+        this.f55338c.bindData(c2Var);
+        this.f55337b.addView(this.f55338c, new ViewGroup.LayoutParams(-2, -2));
     }
 }

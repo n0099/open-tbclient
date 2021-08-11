@@ -19,12 +19,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, String> f40080a;
+    public static HashMap<String, String> f76931a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class i {
                 return;
             }
         }
-        f40080a = new HashMap<>();
+        f76931a = new HashMap<>();
     }
 
     public static MiPushMessage a(String str) {
@@ -148,7 +148,7 @@ public class i {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
             synchronized (i.class) {
-                str2 = f40080a.get(str);
+                str2 = f76931a.get(str);
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "";
                 }
@@ -162,7 +162,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar)) == null) {
-            int i2 = k.f40082a[eVar.ordinal()];
+            int i2 = k.f76933a[eVar.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -191,22 +191,22 @@ public class i {
             if (TextUtils.isEmpty(a2)) {
                 return hashMap;
             }
-            int i2 = k.f40082a[eVar.ordinal()];
+            int i2 = k.f76933a[eVar.ordinal()];
             String str = null;
             ApplicationInfo applicationInfo = null;
             if (i2 != 1) {
                 if (i2 == 2) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f40040c;
+                    afVar = af.f76891c;
                 } else if (i2 == 3) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f40041d;
+                    afVar = af.f76892d;
                 } else if (i2 == 4) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f40042e;
+                    afVar = af.f76893e;
                 }
                 sb.append(afVar.name());
                 sb.append(Constants.WAVE_SEPARATOR);
@@ -233,13 +233,13 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m130a(Context context) {
+    public static void m133a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
             boolean z = false;
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
-            String a2 = a(e.f40073a);
-            String a3 = a(e.f40074b);
+            String a2 = a(e.f76924a);
+            String a3 = a(e.f76925b);
             if (!TextUtils.isEmpty(sharedPreferences.getString(a2, "")) && TextUtils.isEmpty(sharedPreferences.getString(a3, ""))) {
                 z = true;
             }
@@ -250,7 +250,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m131a(Context context, e eVar) {
+    public static void m134a(Context context, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, eVar) == null) {
             String a2 = a(eVar);
@@ -269,15 +269,15 @@ public class i {
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         String a2 = a(eVar);
         if (TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+            com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
             return;
         }
         String string = sharedPreferences.getString(a2, "");
         if (!TextUtils.isEmpty(string) && str.equals(string)) {
-            com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH : do not need to send token");
+            com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : do not need to send token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH : send token upload");
+        com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : send token upload");
         a(eVar, str);
         at a3 = l.a(eVar);
         if (a3 == null) {
@@ -301,11 +301,11 @@ public class i {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                 } else if (TextUtils.isEmpty(str)) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH : token is null");
+                    com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : token is null");
                 } else {
-                    f40080a.put(a2, str);
+                    f76931a.put(a2, str);
                 }
             }
         }
@@ -319,7 +319,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m132a(Context context) {
+    public static boolean m135a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
@@ -332,12 +332,12 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m133a(Context context, e eVar) {
+    public static boolean m136a(Context context, e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, eVar)) == null) {
-            if (l.m135a(eVar) != null) {
-                return com.xiaomi.push.service.aq.a(context).a(l.m135a(eVar).a(), true);
+            if (l.m138a(eVar) != null) {
+                return com.xiaomi.push.service.aq.a(context).a(l.m138a(eVar).a(), true);
             }
             return false;
         }
@@ -348,7 +348,7 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, eVar)) == null) {
-            int i2 = k.f40082a[eVar.ordinal()];
+            int i2 = k.f76933a[eVar.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {
@@ -393,11 +393,11 @@ public class i {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                     return;
                 }
                 com.xiaomi.push.r.a(context.getSharedPreferences("mipush_extra", 0).edit().putString(a2, str));
-                com.xiaomi.channel.commonutils.logger.b.m70a("ASSEMBLE_PUSH : update sp file success!  " + str);
+                com.xiaomi.channel.commonutils.logger.b.m73a("ASSEMBLE_PUSH : update sp file success!  " + str);
             }
         }
     }

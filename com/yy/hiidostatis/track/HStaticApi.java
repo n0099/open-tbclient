@@ -17,7 +17,7 @@ import com.yy.hiidostatis.defs.StatisAPI;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import java.util.Map;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class HStaticApi {
     public static final /* synthetic */ HStaticApi[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

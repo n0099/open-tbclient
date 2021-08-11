@@ -12,24 +12,24 @@ import com.bytedance.sdk.openadsdk.preload.a.v;
 import com.bytedance.sdk.openadsdk.preload.a.w;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class h extends v<Object> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f32049a;
+    public static final w f68001a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.f f32050b;
+    public final com.bytedance.sdk.openadsdk.preload.a.f f68002b;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.a.h$2  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass2 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f32051a;
+        public static final /* synthetic */ int[] f68003a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -46,29 +46,29 @@ public final class h extends v<Object> {
                 }
             }
             int[] iArr = new int[com.bytedance.sdk.openadsdk.preload.a.d.b.values().length];
-            f32051a = iArr;
+            f68003a = iArr;
             try {
-                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.f32221a.ordinal()] = 1;
+                iArr[com.bytedance.sdk.openadsdk.preload.a.d.b.f68176a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f32051a[com.bytedance.sdk.openadsdk.preload.a.d.b.f32223c.ordinal()] = 2;
+                f68003a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68178c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f32051a[com.bytedance.sdk.openadsdk.preload.a.d.b.f32226f.ordinal()] = 3;
+                f68003a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68181f.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f32051a[com.bytedance.sdk.openadsdk.preload.a.d.b.f32227g.ordinal()] = 4;
+                f68003a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68182g.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f32051a[com.bytedance.sdk.openadsdk.preload.a.d.b.f32228h.ordinal()] = 5;
+                f68003a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68183h.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f32051a[com.bytedance.sdk.openadsdk.preload.a.d.b.f32229i.ordinal()] = 6;
+                f68003a[com.bytedance.sdk.openadsdk.preload.a.d.b.f68184i.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -87,7 +87,7 @@ public final class h extends v<Object> {
                 return;
             }
         }
-        f32049a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.h.1
+        f68001a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.h.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,7 +135,7 @@ public final class h extends v<Object> {
                 return;
             }
         }
-        this.f32050b = fVar;
+        this.f68002b = fVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -146,7 +146,7 @@ public final class h extends v<Object> {
                 cVar.f();
                 return;
             }
-            v a2 = this.f32050b.a((Class) obj.getClass());
+            v a2 = this.f68002b.a((Class) obj.getClass());
             if (a2 instanceof h) {
                 cVar.d();
                 cVar.e();
@@ -161,7 +161,7 @@ public final class h extends v<Object> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            switch (AnonymousClass2.f32051a[aVar.f().ordinal()]) {
+            switch (AnonymousClass2.f68003a[aVar.f().ordinal()]) {
                 case 1:
                     ArrayList arrayList = new ArrayList();
                     aVar.a();

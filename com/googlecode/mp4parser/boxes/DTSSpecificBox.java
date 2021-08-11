@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.channelpay.IChannelPay;
+import com.baidu.apollon.a;
 import com.baidu.ar.gesture.GestureAR;
 import com.baidu.tieba.pb.pb.main.PbFullScreenEditorActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,7 +24,7 @@ import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DTSSpecificBox extends AbstractBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "ddts";
@@ -121,7 +122,7 @@ public class DTSSpecificBox extends AbstractBox {
         ajc$tjp_13 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setCoreLFEPresent", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "coreLFEPresent", "", "void"), PbFullScreenEditorActivity.REPLY_MAX_SIZE);
         ajc$tjp_14 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getCoreLayout", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 144);
         ajc$tjp_15 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setCoreLayout", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "coreLayout", "", "void"), Opcodes.LCMP);
-        ajc$tjp_16 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getCoreSize", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 152);
+        ajc$tjp_16 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getCoreSize", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), a.f37526e);
         ajc$tjp_17 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setCoreSize", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "coreSize", "", "void"), 156);
         ajc$tjp_18 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getStereoDownmix", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "", "", "", "int"), 160);
         ajc$tjp_19 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setStereoDownmix", "com.googlecode.mp4parser.boxes.DTSSpecificBox", "int", "stereoDownmix", "", "void"), IChannelPay.ID_IPAY_PAY_GAME);
@@ -365,11 +366,11 @@ public class DTSSpecificBox extends AbstractBox {
         return invokeV.intValue;
     }
 
-    public void setAvgBitRate(long j) {
+    public void setAvgBitRate(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j)));
-            this.avgBitRate = j;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j2)));
+            this.avgBitRate = j2;
         }
     }
 
@@ -405,11 +406,11 @@ public class DTSSpecificBox extends AbstractBox {
         }
     }
 
-    public void setDTSSamplingFrequency(long j) {
+    public void setDTSSamplingFrequency(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.longObject(j)));
-            this.DTSSamplingFrequency = j;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.longObject(j2)));
+            this.DTSSamplingFrequency = j2;
         }
     }
 
@@ -429,11 +430,11 @@ public class DTSSpecificBox extends AbstractBox {
         }
     }
 
-    public void setMaxBitRate(long j) {
+    public void setMaxBitRate(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.longObject(j)));
-            this.maxBitRate = j;
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.longObject(j2)));
+            this.maxBitRate = j2;
         }
     }
 

@@ -4,9 +4,9 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import c.a.o0.t.d.b;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
@@ -17,8 +17,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.t.d.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SignAlertReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +45,7 @@ public class SignAlertReceiver extends BroadcastReceiver {
                 intent2.putExtra(DealIntentService.KEY_CLASS, 9);
                 intent2.putExtra("is_message_pv", true);
                 intent2.putExtra("is_notify", true);
-                intent2.putExtra(FrsActivityConfig.KEY_REFRESH, true);
+                intent2.putExtra("refresh_all", true);
                 intent2.putExtra("close_dialog", true);
                 intent2.putExtra("locate_type", 1);
                 intent2.setFlags(603979776);

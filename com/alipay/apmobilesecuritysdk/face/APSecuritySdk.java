@@ -20,32 +20,32 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class APSecuritySdk {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static APSecuritySdk f1761a;
+    public static APSecuritySdk f35597a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Object f1762c;
+    public static Object f35598c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f1763b;
+    public Context f35599b;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface InitResultListener {
         void onResult(TokenResult tokenResult);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class TokenResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ APSecuritySdk f1767a;
+        public final /* synthetic */ APSecuritySdk f35603a;
         public String apdid;
         public String apdidToken;
         public String clientKey;
@@ -66,7 +66,7 @@ public class APSecuritySdk {
                     return;
                 }
             }
-            this.f1767a = aPSecuritySdk;
+            this.f35603a = aPSecuritySdk;
         }
     }
 
@@ -83,7 +83,7 @@ public class APSecuritySdk {
                 return;
             }
         }
-        f1762c = new Object();
+        f35598c = new Object();
     }
 
     public APSecuritySdk(Context context) {
@@ -101,21 +101,21 @@ public class APSecuritySdk {
                 return;
             }
         }
-        this.f1763b = context;
+        this.f35599b = context;
     }
 
     public static APSecuritySdk getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f1761a == null) {
-                synchronized (f1762c) {
-                    if (f1761a == null) {
-                        f1761a = new APSecuritySdk(context);
+            if (f35597a == null) {
+                synchronized (f35598c) {
+                    if (f35597a == null) {
+                        f35597a = new APSecuritySdk(context);
                     }
                 }
             }
-            return f1761a;
+            return f35597a;
         }
         return (APSecuritySdk) invokeL.objValue;
     }
@@ -130,7 +130,7 @@ public class APSecuritySdk {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = a.a(this.f1763b, "");
+            String a2 = a.a(this.f35599b, "");
             if (com.alipay.security.mobile.module.a.a.a(a2)) {
                 initToken(0, new HashMap(), null);
             }
@@ -148,7 +148,7 @@ public class APSecuritySdk {
     public String getSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "3.3.0.1905151001" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "3.4.0.201910161639" : (String) invokeV.objValue;
     }
 
     public synchronized TokenResult getTokenResult() {
@@ -159,10 +159,10 @@ public class APSecuritySdk {
             synchronized (this) {
                 tokenResult = new TokenResult(this);
                 try {
-                    tokenResult.apdidToken = a.a(this.f1763b, "");
-                    tokenResult.clientKey = h.f(this.f1763b);
-                    tokenResult.apdid = a.a(this.f1763b);
-                    tokenResult.umidToken = UmidSdkWrapper.getSecurityToken(this.f1763b);
+                    tokenResult.apdidToken = a.a(this.f35599b, "");
+                    tokenResult.clientKey = h.f(this.f35599b);
+                    tokenResult.apdid = a.a(this.f35599b);
+                    tokenResult.umidToken = UmidSdkWrapper.getSecurityToken(this.f35599b);
                     if (com.alipay.security.mobile.module.a.a.a(tokenResult.apdid) || com.alipay.security.mobile.module.a.a.a(tokenResult.apdidToken) || com.alipay.security.mobile.module.a.a.a(tokenResult.clientKey)) {
                         initToken(0, new HashMap(), null);
                     }
@@ -178,25 +178,25 @@ public class APSecuritySdk {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048580, this, i2, map, initResultListener) == null) {
             com.alipay.apmobilesecuritysdk.b.a.a().a(i2);
-            String b2 = h.b(this.f1763b);
+            String b2 = h.b(this.f35599b);
             String c2 = com.alipay.apmobilesecuritysdk.b.a.a().c();
             if (com.alipay.security.mobile.module.a.a.b(b2) && !com.alipay.security.mobile.module.a.a.a(b2, c2)) {
-                com.alipay.apmobilesecuritysdk.e.a.a(this.f1763b);
-                d.a(this.f1763b);
-                g.a(this.f1763b);
+                com.alipay.apmobilesecuritysdk.e.a.a(this.f35599b);
+                d.a(this.f35599b);
+                g.a(this.f35599b);
                 i.h();
             }
             if (!com.alipay.security.mobile.module.a.a.a(b2, c2)) {
-                h.c(this.f1763b, c2);
+                h.c(this.f35599b, c2);
             }
-            String a2 = com.alipay.security.mobile.module.a.a.a(map, b.f1880g, "");
+            String a2 = com.alipay.security.mobile.module.a.a.a(map, b.f35724g, "");
             String a3 = com.alipay.security.mobile.module.a.a.a(map, "tid", "");
             String a4 = com.alipay.security.mobile.module.a.a.a(map, "userId", "");
             if (com.alipay.security.mobile.module.a.a.a(a2)) {
-                a2 = UtdidWrapper.getUtdid(this.f1763b);
+                a2 = UtdidWrapper.getUtdid(this.f35599b);
             }
             HashMap hashMap = new HashMap();
-            hashMap.put(b.f1880g, a2);
+            hashMap.put(b.f35724g, a2);
             hashMap.put("tid", a3);
             hashMap.put("userId", a4);
             hashMap.put("appName", "");
@@ -208,13 +208,13 @@ public class APSecuritySdk {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Map f1764a;
+                public final /* synthetic */ Map f35600a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ InitResultListener f1765b;
+                public final /* synthetic */ InitResultListener f35601b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ APSecuritySdk f1766c;
+                public final /* synthetic */ APSecuritySdk f35602c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -231,19 +231,19 @@ public class APSecuritySdk {
                             return;
                         }
                     }
-                    this.f1766c = this;
-                    this.f1764a = hashMap;
-                    this.f1765b = initResultListener;
+                    this.f35602c = this;
+                    this.f35600a = hashMap;
+                    this.f35601b = initResultListener;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        new a(this.f1766c.f1763b).a(this.f1764a);
-                        InitResultListener initResultListener2 = this.f1765b;
+                        new a(this.f35602c.f35599b).a(this.f35600a);
+                        InitResultListener initResultListener2 = this.f35601b;
                         if (initResultListener2 != null) {
-                            initResultListener2.onResult(this.f1766c.getTokenResult());
+                            initResultListener2.onResult(this.f35602c.getTokenResult());
                         }
                     }
                 }

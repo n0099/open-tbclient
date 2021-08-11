@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.GodInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GodUserData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -133,10 +133,10 @@ public class GodUserData extends OrmObject implements Serializable {
         this.mRecommendReason = godInfo.recommend_reason;
     }
 
-    public void setFid(long j) {
+    public void setFid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.fid = j;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            this.fid = j2;
         }
     }
 

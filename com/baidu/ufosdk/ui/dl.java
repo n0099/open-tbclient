@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class dl implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f23727a;
+    public final /* synthetic */ FeedbackListActivity f59464a;
 
     public dl(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public final class dl implements View.OnClickListener {
                 return;
             }
         }
-        this.f23727a = feedbackListActivity;
+        this.f59464a = feedbackListActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -44,21 +44,21 @@ public final class dl implements View.OnClickListener {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        if (!com.baidu.ufosdk.b.d.c(this.f23727a)) {
+        if (!com.baidu.ufosdk.b.d.c(this.f59464a)) {
             com.baidu.ufosdk.f.c.c("Network is not avaiable. Please try again later.");
             return;
         }
         try {
-            linearLayout = this.f23727a.f23568b;
+            linearLayout = this.f59464a.f59302b;
             linearLayout.setVisibility(8);
-            view2 = this.f23727a.v;
+            view2 = this.f59464a.v;
             view2.setVisibility(0);
             if (UfoSDK.clientid.length() == 0) {
                 new Thread(new dm(this)).start();
                 return;
             }
-            this.f23727a.y = Executors.newSingleThreadExecutor();
-            executorService = this.f23727a.y;
+            this.f59464a.y = Executors.newSingleThreadExecutor();
+            executorService = this.f59464a.y;
             executorService.execute(new dn(this));
         } catch (Exception e2) {
             e2.printStackTrace();

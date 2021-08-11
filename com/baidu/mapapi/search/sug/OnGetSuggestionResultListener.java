@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.sug;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface OnGetSuggestionResultListener {
     void onGetSuggestionResult(SuggestionResult suggestionResult);
 }

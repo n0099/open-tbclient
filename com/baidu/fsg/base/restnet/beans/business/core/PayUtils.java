@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 import kotlin.text.Typography;
 @SuppressLint({"UseSparseArrays"})
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class PayUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_SECRET = "";
@@ -47,7 +47,7 @@ public final class PayUtils {
     public static ArrayList<String> keys;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class ParamComparator implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,7 +221,7 @@ public final class PayUtils {
                         }
                         StringBuilder sb = new StringBuilder();
                         sb.append(name);
-                        sb.append(a.f1923h);
+                        sb.append(a.f35773h);
                         sb.append(value);
                         if (i2 != arrayList.size() - 1) {
                             sb.append(Typography.amp);
@@ -266,6 +266,23 @@ public final class PayUtils {
         return (String) invokeL.objValue;
     }
 
+    public static String getSign(List<String> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, str)) == null) {
+            Collections.sort(list, new ParamComparator());
+            StringBuffer stringBuffer = new StringBuffer();
+            for (String str2 : list) {
+                stringBuffer.append(str2);
+                stringBuffer.append("&");
+            }
+            stringBuffer.append("key=");
+            stringBuffer.append(str);
+            return URLEncoder.encode(Md5Utils.md5Hex(stringBuffer.toString()));
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static String list2String(List<RestNameValuePair> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -282,7 +299,7 @@ public final class PayUtils {
                         value = "";
                     }
                     sb.append(name);
-                    sb.append(a.f1923h);
+                    sb.append(a.f35773h);
                     sb.append(value);
                     sb.append(Typography.amp);
                 }
@@ -313,22 +330,5 @@ public final class PayUtils {
             return null;
         }
         return (List) invokeL.objValue;
-    }
-
-    public static String getSign(List<String> list, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, str)) == null) {
-            Collections.sort(list, new ParamComparator());
-            StringBuffer stringBuffer = new StringBuffer();
-            for (String str2 : list) {
-                stringBuffer.append(str2);
-                stringBuffer.append("&");
-            }
-            stringBuffer.append("key=");
-            stringBuffer.append(str);
-            return URLEncoder.encode(Md5Utils.md5Hex(stringBuffer.toString()));
-        }
-        return (String) invokeLL.objValue;
     }
 }

@@ -4,7 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
+import c.a.n0.o.a.a.k;
+import c.a.n0.o.a.a.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,9 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.o.a.a.k;
-import d.a.o0.o.a.a.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class FragmentState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<FragmentState> CREATOR;
@@ -32,7 +31,7 @@ public final class FragmentState implements Parcelable {
     public Bundle mSavedFragmentState;
     public final String mTag;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<FragmentState> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,7 +101,7 @@ public final class FragmentState implements Parcelable {
             }
         }
         this.mClassName = fragment.getClass().getName();
-        this.mIndex = fragment.j;
+        this.mIndex = fragment.f47011j;
         this.mFromLayout = fragment.s;
         this.mFragmentId = fragment.A;
         this.mContainerId = fragment.B;
@@ -135,13 +134,13 @@ public final class FragmentState implements Parcelable {
             if (bundle != null) {
                 bundle.setClassLoader(h2.getClassLoader());
             }
-            this.mInstance = Fragment.f0(h2, this.mClassName, this.mArguments);
+            this.mInstance = Fragment.l0(h2, this.mClassName, this.mArguments);
             Bundle bundle2 = this.mSavedFragmentState;
             if (bundle2 != null) {
                 bundle2.setClassLoader(h2.getClassLoader());
-                this.mInstance.f12101h = this.mSavedFragmentState;
+                this.mInstance.f47009h = this.mSavedFragmentState;
             }
-            this.mInstance.k1(this.mIndex, fragment);
+            this.mInstance.i1(this.mIndex, fragment);
             Fragment fragment3 = this.mInstance;
             fragment3.s = this.mFromLayout;
             fragment3.u = true;
@@ -150,9 +149,9 @@ public final class FragmentState implements Parcelable {
             fragment3.C = this.mTag;
             fragment3.F = this.mRetainInstance;
             fragment3.E = this.mDetached;
-            fragment3.w = kVar.f51355d;
+            fragment3.w = kVar.f11830d;
             if (m.x) {
-                Log.v("FragmentManager", "Instantiated fragment " + this.mInstance);
+                String str = "Instantiated fragment " + this.mInstance;
             }
             return this.mInstance;
         }

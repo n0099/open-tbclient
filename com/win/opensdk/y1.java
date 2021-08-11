@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class y1 implements x2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ A1 f39991a;
+    public final /* synthetic */ A1 f76842a;
 
     public y1(A1 a1) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class y1 implements x2 {
                 return;
             }
         }
-        this.f39991a = a1;
+        this.f76842a = a1;
     }
 
     @Override // com.win.opensdk.x2
@@ -44,17 +44,17 @@ public class y1 implements x2 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            A1 a1 = this.f39991a;
-            if (Q1.a(a1.f39541c, a1.f39546h)) {
-                this.f39991a.f39546h = System.currentTimeMillis();
-                A1 a12 = this.f39991a;
-                Q1.a(a12.f39539a, str, a12.f39541c, a12.f39545g, str2);
-                Z0.a(this.f39991a.f39539a).a(new a1(this.f39991a.f39541c), str).a("desc", str2).a();
-                F f2 = this.f39991a.f39544f;
+            A1 a1 = this.f76842a;
+            if (Q1.a(a1.f76375c, a1.f76380h)) {
+                this.f76842a.f76380h = System.currentTimeMillis();
+                A1 a12 = this.f76842a;
+                Q1.a(a12.f76373a, str, a12.f76375c, a12.f76379g, str2);
+                Z0.a(this.f76842a.f76373a).a(new a1(this.f76842a.f76375c), str).a("desc", str2).a();
+                F f2 = this.f76842a.f76378f;
                 if (f2 != null) {
                     f2.onClicked();
                 }
-                N.a(this.f39991a.f39541c, str2);
+                N.a(this.f76842a.f76375c, str2);
                 return true;
             }
             return true;

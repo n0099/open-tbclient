@@ -8,8 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.SystemUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class StandardSystemProperty {
     public static final /* synthetic */ StandardSystemProperty[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -60,7 +61,7 @@ public final class StandardSystemProperty {
         JAVA_VERSION = new StandardSystemProperty("JAVA_VERSION", 0, "java.version");
         JAVA_VENDOR = new StandardSystemProperty("JAVA_VENDOR", 1, "java.vendor");
         JAVA_VENDOR_URL = new StandardSystemProperty("JAVA_VENDOR_URL", 2, "java.vendor.url");
-        JAVA_HOME = new StandardSystemProperty("JAVA_HOME", 3, "java.home");
+        JAVA_HOME = new StandardSystemProperty("JAVA_HOME", 3, SystemUtils.JAVA_HOME_KEY);
         JAVA_VM_SPECIFICATION_VERSION = new StandardSystemProperty("JAVA_VM_SPECIFICATION_VERSION", 4, "java.vm.specification.version");
         JAVA_VM_SPECIFICATION_VENDOR = new StandardSystemProperty("JAVA_VM_SPECIFICATION_VENDOR", 5, "java.vm.specification.vendor");
         JAVA_VM_SPECIFICATION_NAME = new StandardSystemProperty("JAVA_VM_SPECIFICATION_NAME", 6, "java.vm.specification.name");
@@ -73,7 +74,7 @@ public final class StandardSystemProperty {
         JAVA_CLASS_VERSION = new StandardSystemProperty("JAVA_CLASS_VERSION", 13, "java.class.version");
         JAVA_CLASS_PATH = new StandardSystemProperty("JAVA_CLASS_PATH", 14, "java.class.path");
         JAVA_LIBRARY_PATH = new StandardSystemProperty("JAVA_LIBRARY_PATH", 15, "java.library.path");
-        JAVA_IO_TMPDIR = new StandardSystemProperty("JAVA_IO_TMPDIR", 16, "java.io.tmpdir");
+        JAVA_IO_TMPDIR = new StandardSystemProperty("JAVA_IO_TMPDIR", 16, SystemUtils.JAVA_IO_TMPDIR_KEY);
         JAVA_COMPILER = new StandardSystemProperty("JAVA_COMPILER", 17, "java.compiler");
         JAVA_EXT_DIRS = new StandardSystemProperty("JAVA_EXT_DIRS", 18, "java.ext.dirs");
         OS_NAME = new StandardSystemProperty("OS_NAME", 19, "os.name");
@@ -83,8 +84,8 @@ public final class StandardSystemProperty {
         PATH_SEPARATOR = new StandardSystemProperty("PATH_SEPARATOR", 23, "path.separator");
         LINE_SEPARATOR = new StandardSystemProperty("LINE_SEPARATOR", 24, "line.separator");
         USER_NAME = new StandardSystemProperty("USER_NAME", 25, "user.name");
-        USER_HOME = new StandardSystemProperty("USER_HOME", 26, "user.home");
-        StandardSystemProperty standardSystemProperty = new StandardSystemProperty("USER_DIR", 27, "user.dir");
+        USER_HOME = new StandardSystemProperty("USER_HOME", 26, SystemUtils.USER_HOME_KEY);
+        StandardSystemProperty standardSystemProperty = new StandardSystemProperty("USER_DIR", 27, SystemUtils.USER_DIR_KEY);
         USER_DIR = standardSystemProperty;
         $VALUES = new StandardSystemProperty[]{JAVA_VERSION, JAVA_VENDOR, JAVA_VENDOR_URL, JAVA_HOME, JAVA_VM_SPECIFICATION_VERSION, JAVA_VM_SPECIFICATION_VENDOR, JAVA_VM_SPECIFICATION_NAME, JAVA_VM_VERSION, JAVA_VM_VENDOR, JAVA_VM_NAME, JAVA_SPECIFICATION_VERSION, JAVA_SPECIFICATION_VENDOR, JAVA_SPECIFICATION_NAME, JAVA_CLASS_VERSION, JAVA_CLASS_PATH, JAVA_LIBRARY_PATH, JAVA_IO_TMPDIR, JAVA_COMPILER, JAVA_EXT_DIRS, OS_NAME, OS_ARCH, OS_VERSION, FILE_SEPARATOR, PATH_SEPARATOR, LINE_SEPARATOR, USER_NAME, USER_HOME, standardSystemProperty};
     }

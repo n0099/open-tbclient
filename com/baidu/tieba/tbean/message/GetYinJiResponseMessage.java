@@ -1,5 +1,6 @@
 package com.baidu.tieba.tbean.message;
 
+import c.a.p0.k3.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.j3.f.a;
 import java.util.List;
 import tbclient.GetIconList.Custom;
 import tbclient.GetIconList.DataRes;
@@ -16,7 +16,7 @@ import tbclient.GetIconList.GetIconListResIdl;
 import tbclient.GetIconList.IconInfo;
 import tbclient.GetIconList.Setting;
 import tbclient.GetIconList.UserInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GetYinJiResponseMessage extends SocketResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,28 +43,28 @@ public class GetYinJiResponseMessage extends SocketResponsedMessage implements a
         }
     }
 
-    @Override // d.a.q0.j3.f.a
+    @Override // c.a.p0.k3.f.a
     public List<Custom> getCustomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.customList : (List) invokeV.objValue;
     }
 
-    @Override // d.a.q0.j3.f.a
+    @Override // c.a.p0.k3.f.a
     public List<IconInfo> getIconInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.iconInfoList : (List) invokeV.objValue;
     }
 
-    @Override // d.a.q0.j3.f.a
+    @Override // c.a.p0.k3.f.a
     public Setting getSetting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.setting : (Setting) invokeV.objValue;
     }
 
-    @Override // d.a.q0.j3.f.a
+    @Override // c.a.p0.k3.f.a
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

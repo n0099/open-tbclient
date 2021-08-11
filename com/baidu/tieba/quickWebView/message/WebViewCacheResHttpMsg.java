@@ -1,6 +1,7 @@
 package com.baidu.tieba.quickWebView.message;
 
 import android.text.TextUtils;
+import c.a.p0.v2.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -11,12 +12,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.u2.e.a;
 import java.util.HashMap;
 import java.util.Map;
 import tbclient.GetWebviewCacheInfo.GetWebviewCacheInfoResIdl;
 import tbclient.GetWebviewCacheInfo.Offpack;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WebViewCacheResHttpMsg extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

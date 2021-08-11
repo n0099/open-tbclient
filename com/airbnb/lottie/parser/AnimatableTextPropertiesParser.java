@@ -5,7 +5,6 @@ import com.airbnb.lottie.model.animatable.AnimatableColorValue;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.animatable.AnimatableTextProperties;
 import com.airbnb.lottie.parser.moshi.JsonReader;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AnimatableTextPropertiesParser {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReader.Options ANIMATABLE_PROPERTIES_NAMES;
@@ -35,7 +34,7 @@ public class AnimatableTextPropertiesParser {
             }
         }
         PROPERTIES_NAMES = JsonReader.Options.of("a");
-        ANIMATABLE_PROPERTIES_NAMES = JsonReader.Options.of("fc", Config.STAT_SDK_CHANNEL, "sw", "t");
+        ANIMATABLE_PROPERTIES_NAMES = JsonReader.Options.of("fc", "sc", "sw", "t");
     }
 
     public AnimatableTextPropertiesParser() {

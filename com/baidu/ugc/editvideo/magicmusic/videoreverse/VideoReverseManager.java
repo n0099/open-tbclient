@@ -1,5 +1,6 @@
 package com.baidu.ugc.editvideo.magicmusic.videoreverse;
 
+import c.a.v0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,11 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.listener.OnTimeReverseListener;
 import com.baidu.ugc.utils.FileUtils;
-import d.a.w0.t.c;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class VideoReverseManager {
     public static /* synthetic */ Interceptable $ic;
     public static volatile VideoReverseManager mVideoReverseManager;
@@ -20,7 +20,7 @@ public class VideoReverseManager {
     public VideoReverseHelper mReverseHelper;
     public Map<String, ReverseTask> mTaskMap;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class ReverseTask {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STATE_DONE = 2;

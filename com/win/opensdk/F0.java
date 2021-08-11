@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class F0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ O0 f39575a;
+    public final /* synthetic */ O0 f76411a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public F0(O0 o0, Looper looper) {
@@ -33,7 +33,7 @@ public class F0 extends Handler {
                 return;
             }
         }
-        this.f39575a = o0;
+        this.f76411a = o0;
     }
 
     @Override // android.os.Handler
@@ -44,17 +44,17 @@ public class F0 extends Handler {
             if (message.what != 1101) {
                 return;
             }
-            this.f39575a.f39612e.removeMessages(1101);
-            O0 o0 = this.f39575a;
-            if (!o0.f39609b && o0.a(o0.f39608a)) {
-                N0 n0 = this.f39575a.f39610c;
+            this.f76411a.f76448e.removeMessages(1101);
+            O0 o0 = this.f76411a;
+            if (!o0.f76445b && o0.a(o0.f76444a)) {
+                N0 n0 = this.f76411a.f76446c;
                 if (n0 != null) {
                     n0.a();
                 }
-                this.f39575a.f39609b = true;
+                this.f76411a.f76445b = true;
                 return;
             }
-            this.f39575a.f39612e.sendEmptyMessageDelayed(1101, 300L);
+            this.f76411a.f76448e.sendEmptyMessageDelayed(1101, 300L);
         }
     }
 }

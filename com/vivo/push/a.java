@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f39268a;
+    public Bundle f76099a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39269b;
+    public String f76100b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39270c;
+    public String f76101c;
 
     public a(String str, String str2, Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -41,9 +41,9 @@ public final class a {
                 return;
             }
         }
-        this.f39269b = str;
-        this.f39270c = str2;
-        this.f39268a = bundle;
+        this.f76100b = str;
+        this.f76101c = str2;
+        this.f76099a = bundle;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:11:0x001f, code lost:
@@ -86,7 +86,7 @@ public final class a {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
-            Bundle bundle = this.f39268a;
+            Bundle bundle = this.f76099a;
             return bundle == null ? i2 : bundle.getInt(str, i2);
         }
         return invokeLI.intValue;
@@ -96,7 +96,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            Bundle bundle = this.f39268a;
+            Bundle bundle = this.f76099a;
             if (bundle == null) {
                 return null;
             }
@@ -109,7 +109,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            Bundle bundle = this.f39268a;
+            Bundle bundle = this.f76099a;
             if (bundle == null) {
                 return false;
             }
@@ -122,7 +122,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            Bundle bundle = this.f39268a;
+            Bundle bundle = this.f76099a;
             if (bundle == null) {
                 return null;
             }
@@ -131,12 +131,12 @@ public final class a {
         return (ArrayList) invokeL.objValue;
     }
 
-    public final long b(String str, long j) {
+    public final long b(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j)) == null) {
-            Bundle bundle = this.f39268a;
-            return bundle == null ? j : bundle.getLong(str, j);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048585, this, str, j2)) == null) {
+            Bundle bundle = this.f76099a;
+            return bundle == null ? j2 : bundle.getLong(str, j2);
         }
         return invokeLJ.longValue;
     }
@@ -144,66 +144,66 @@ public final class a {
     public final Bundle b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f39268a : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f76099a : (Bundle) invokeV.objValue;
     }
 
     public final void a(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i2) == null) {
-            if (this.f39268a == null) {
-                this.f39268a = new Bundle();
+            if (this.f76099a == null) {
+                this.f76099a = new Bundle();
             }
-            this.f39268a.putInt(str, i2);
+            this.f76099a.putInt(str, i2);
         }
     }
 
-    public final void a(String str, long j) {
+    public final void a(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
-            if (this.f39268a == null) {
-                this.f39268a = new Bundle();
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j2) == null) {
+            if (this.f76099a == null) {
+                this.f76099a = new Bundle();
             }
-            this.f39268a.putLong(str, j);
+            this.f76099a.putLong(str, j2);
         }
     }
 
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            if (this.f39268a == null) {
-                this.f39268a = new Bundle();
+            if (this.f76099a == null) {
+                this.f76099a = new Bundle();
             }
-            this.f39268a.putString(str, str2);
+            this.f76099a.putString(str, str2);
         }
     }
 
     public final void a(String str, Serializable serializable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, serializable) == null) {
-            if (this.f39268a == null) {
-                this.f39268a = new Bundle();
+            if (this.f76099a == null) {
+                this.f76099a = new Bundle();
             }
-            this.f39268a.putSerializable(str, serializable);
+            this.f76099a.putSerializable(str, serializable);
         }
     }
 
     public final void a(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) {
-            if (this.f39268a == null) {
-                this.f39268a = new Bundle();
+            if (this.f76099a == null) {
+                this.f76099a = new Bundle();
             }
-            this.f39268a.putBoolean(str, z);
+            this.f76099a.putBoolean(str, z);
         }
     }
 
     public final void a(String str, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, arrayList) == null) {
-            if (this.f39268a == null) {
-                this.f39268a = new Bundle();
+            if (this.f76099a == null) {
+                this.f76099a = new Bundle();
             }
-            this.f39268a.putStringArrayList(str, arrayList);
+            this.f76099a.putStringArrayList(str, arrayList);
         }
     }
 
@@ -211,7 +211,7 @@ public final class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Bundle bundle = this.f39268a;
+            Bundle bundle = this.f76099a;
             if (bundle == null) {
                 return null;
             }
@@ -223,6 +223,6 @@ public final class a {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39269b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76100b : (String) invokeV.objValue;
     }
 }

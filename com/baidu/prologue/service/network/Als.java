@@ -1,13 +1,15 @@
 package com.baidu.prologue.service.network;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e0.b.f;
+import c.a.e0.d.a.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.prologue.service.network.Request;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,21 +18,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.f0.b.f;
-import d.a.f0.d.a.l;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Als {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f9545a;
+    public static final boolean f44200a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class Area {
         public static final /* synthetic */ Area[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -103,7 +103,7 @@ public class Als {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class CloseType {
         public static final /* synthetic */ CloseType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -170,7 +170,7 @@ public class Als {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class Page {
         public static final /* synthetic */ Page[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -233,7 +233,7 @@ public class Als {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -301,7 +301,7 @@ public class Als {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a implements l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -320,26 +320,26 @@ public class Als {
             }
         }
 
-        @Override // d.a.f0.d.a.i
+        @Override // c.a.e0.d.a.i
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && Als.f9545a) {
-                Log.e("Als", "Als get error response, " + th);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && Als.f44200a) {
+                String str = "Als get error response, " + th;
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.f0.d.a.i
+        @Override // c.a.e0.d.a.i
         /* renamed from: b */
         public void onResponse(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && Als.f9545a) {
-                Log.d("Als", "Als get correct response.");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                boolean unused = Als.f44200a;
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class b implements l {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -358,32 +358,32 @@ public class Als {
             }
         }
 
-        @Override // d.a.f0.d.a.i
+        @Override // c.a.e0.d.a.i
         public void a(Throwable th) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && Als.f9545a) {
-                Log.e("Als", "Als performance get error response, " + th);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && Als.f44200a) {
+                String str = "Als performance get error response, " + th;
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.f0.d.a.i
+        @Override // c.a.e0.d.a.i
         /* renamed from: b */
         public void onResponse(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && Als.f9545a) {
-                Log.d("Als", "Als performance get correct response.");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                boolean unused = Als.f44200a;
             }
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final JSONObject f9546a;
+        public final JSONObject f44201a;
 
         public c(@NonNull Type type) {
             Interceptable interceptable = $ic;
@@ -400,24 +400,24 @@ public class Als {
                     return;
                 }
             }
-            this.f9546a = new JSONObject();
+            this.f44201a = new JSONObject();
             d("da_type", type.value);
             c("origin_time", Long.valueOf(System.currentTimeMillis()));
             i(String.valueOf(f.a()));
-            j(d.a.f0.b.g.c.f42765b);
+            j(c.a.e0.b.g.c.f3094b);
         }
 
         public final <T> c b(String str, T t) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, t)) == null) {
-                if (Als.f9545a && this.f9546a.has(str)) {
+                if (Als.f44200a && this.f44201a.has(str)) {
                     throw new IllegalArgumentException("key " + str + " has been set!");
                 }
                 try {
-                    this.f9546a.put(str, t);
+                    this.f44201a.put(str, t);
                 } catch (JSONException unused) {
-                    if (Als.f9545a) {
+                    if (Als.f44200a) {
                         throw new IllegalArgumentException("Json put create invalid exception");
                     }
                 }
@@ -550,10 +550,10 @@ public class Als {
                 return;
             }
         }
-        f9545a = d.a.f0.a.b.a.f42713a.get() != null && d.a.f0.a.b.a.f42713a.get().s();
+        f44200a = c.a.e0.a.b.a.f3041a.get() != null && c.a.e0.a.b.a.f3041a.get().s();
     }
 
-    public static void b(Request.c cVar, d.a.f0.a.b.a aVar) {
+    public static void b(Request.c cVar, c.a.e0.a.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, cVar, aVar) == null) {
             cVar.j(HttpRequest.CLIENT_TYPE, "2");
@@ -563,7 +563,7 @@ public class Als {
             cVar.j("model", aVar.q());
             cVar.j("cuid", aVar.f());
             cVar.j("productId", aVar.p());
-            cVar.j("net_type", String.valueOf(new d.a.f0.d.a.f(aVar.o()).d()));
+            cVar.j("net_type", String.valueOf(new c.a.e0.d.a.f(aVar.o()).d()));
         }
     }
 
@@ -571,29 +571,29 @@ public class Als {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, cVar) == null) {
             cVar.j("c_id", "1038");
-            cVar.j("c_type", "every");
+            cVar.j(TiePlusStat.RichTextType.STAT_KEY, "every");
         }
     }
 
-    public static void d(Request.c cVar, String str, String str2, String str3, long j, long j2, String str4) {
+    public static void d(Request.c cVar, String str, String str2, String str3, long j2, long j3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{cVar, str, str2, str3, Long.valueOf(j), Long.valueOf(j2), str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{cVar, str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), str4}) == null) {
             cVar.j("f1", str);
             cVar.j("f2", str2);
             cVar.j("f3", str3);
-            cVar.j("f4", j2 + "");
+            cVar.j("f4", j3 + "");
             cVar.j("f5", str4);
             cVar.j("f6", String.valueOf(f.a()));
-            cVar.j("f10", String.valueOf(j));
+            cVar.j("f10", String.valueOf(j2));
         }
     }
 
     public static void e(@NonNull c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cVar) == null) {
-            d.a.f0.a.b.a aVar = d.a.f0.a.b.a.f42713a.get();
+            c.a.e0.a.b.a aVar = c.a.e0.a.b.a.f3041a.get();
             if (aVar == null) {
-                if (f9545a) {
+                if (f44200a) {
                     throw new IllegalStateException("宿主App未初始化IAppContext");
                 }
                 return;
@@ -601,19 +601,19 @@ public class Als {
             Request.c cVar2 = new Request.c(aVar.o(), "https://als.baidu.com/clog/clog");
             b(cVar2, aVar);
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(cVar.f9546a);
+            jSONArray.put(cVar.f44201a);
             cVar2.j("ad", jSONArray.toString());
             cVar2.n();
             cVar2.l().e(new a());
         }
     }
 
-    public static void f(String str, String str2, String str3, long j, long j2, String str4) {
+    public static void f(String str, String str2, String str3, long j2, long j3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), str4}) == null) {
-            d.a.f0.a.b.a aVar = d.a.f0.a.b.a.f42713a.get();
+        if (interceptable == null || interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, null, new Object[]{str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), str4}) == null) {
+            c.a.e0.a.b.a aVar = c.a.e0.a.b.a.f3041a.get();
             if (aVar == null) {
-                if (f9545a) {
+                if (f44200a) {
                     throw new IllegalStateException("宿主App未初始化IAppContext");
                 }
                 return;
@@ -621,7 +621,7 @@ public class Als {
             Request.c cVar = new Request.c(aVar.o(), "http://als.baidu.com/elog/plog");
             b(cVar, aVar);
             c(cVar);
-            d(cVar, str, str2, str3, j, j2, str4);
+            d(cVar, str, str2, str3, j2, j3, str4);
             cVar.n();
             cVar.l().e(new b());
         }

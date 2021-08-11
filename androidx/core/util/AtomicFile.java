@@ -1,6 +1,5 @@
 package androidx.core.util;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -72,8 +71,7 @@ public class AtomicFile {
             fileOutputStream.close();
             this.mBaseName.delete();
             this.mBackupName.renameTo(this.mBaseName);
-        } catch (IOException e2) {
-            Log.w("AtomicFile", "failWrite: Got exception:", e2);
+        } catch (IOException unused) {
         }
     }
 
@@ -86,8 +84,7 @@ public class AtomicFile {
         try {
             fileOutputStream.close();
             this.mBackupName.delete();
-        } catch (IOException e2) {
-            Log.w("AtomicFile", "finishWrite: Got exception:", e2);
+        } catch (IOException unused) {
         }
     }
 
@@ -149,7 +146,7 @@ public class AtomicFile {
             if (this.mBaseName.exists()) {
                 if (!this.mBackupName.exists()) {
                     if (!this.mBaseName.renameTo(this.mBackupName)) {
-                        Log.w("AtomicFile", "Couldn't rename file " + this.mBaseName + " to backup file " + this.mBackupName);
+                        String str = "Couldn't rename file " + this.mBaseName + " to backup file " + this.mBackupName;
                     }
                 } else {
                     this.mBaseName.delete();

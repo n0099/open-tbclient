@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class KsNotificationCompat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -629,11 +629,11 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setTimeoutAfter(long j) {
+        public Builder setTimeoutAfter(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048623, this, j)) == null) {
-                this.mBuilder.setTimeoutAfter(j);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048623, this, j2)) == null) {
+                this.mBuilder.setTimeoutAfter(j2);
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -677,11 +677,11 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setWhen(long j) {
+        public Builder setWhen(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048627, this, j)) == null) {
-                this.mBuilder.setWhen(j);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048627, this, j2)) == null) {
+                this.mBuilder.setWhen(j2);
                 return this;
             }
             return (Builder) invokeJ.objValue;

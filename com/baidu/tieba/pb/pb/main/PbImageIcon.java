@@ -8,13 +8,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbImageIcon extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Context f19473e;
+    public Context mContext;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbImageIcon(Context context) {
@@ -34,7 +32,7 @@ public class PbImageIcon extends ImageView {
                 return;
             }
         }
-        this.f19473e = context;
+        this.mContext = context;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -71,6 +69,6 @@ public class PbImageIcon extends ImageView {
                 return;
             }
         }
-        this.f19473e = context;
+        this.mContext = context;
     }
 }

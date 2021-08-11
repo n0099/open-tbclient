@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveUserNotifyManager {
     public static /* synthetic */ Interceptable $ic;
     public static AlaLiveUserNotifyManager mInstance;
@@ -29,7 +29,7 @@ public class AlaLiveUserNotifyManager {
     public BdUniqueId mCurTag;
     public HttpMessageListener mGetUserNotifyListener;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface AlaLiveNotifyListener {
         void onCallBack();
     }

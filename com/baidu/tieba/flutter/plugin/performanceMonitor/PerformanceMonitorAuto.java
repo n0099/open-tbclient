@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PerformanceMonitorAuto {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class FpsParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class PerformanceMonitorAuto {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface HostPerformanceMonitor {
         void reportEnginePerformance(MapParam mapParam);
 
@@ -128,7 +128,7 @@ public class PerformanceMonitorAuto {
         void reportPageLoadPerformance(MapParam mapParam);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class MapParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -1,6 +1,7 @@
 package com.baidu.adp.plugin.proxy.activity;
 
 import android.content.Intent;
+import c.a.e.h.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.h.d;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ThirdActivityProxy extends ActivityProxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,20 +28,20 @@ public class ThirdActivityProxy extends ActivityProxy {
         }
     }
 
-    @Override // com.baidu.adp.plugin.proxy.activity.ActivityProxy, d.a.d.h.f.a
+    @Override // com.baidu.adp.plugin.proxy.activity.ActivityProxy, c.a.e.h.f.a
     public boolean proxyStopService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
             String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
             d.a c2 = stringExtra != null ? d.a().c(stringExtra) : null;
-            if (c2 != null && c2.f42158a != null) {
+            if (c2 != null && c2.f2716a != null) {
                 if (d.a().b() == 1) {
                     d.a().e(stringExtra);
-                    c2.f42158a.stopSelf();
+                    c2.f2716a.stopSelf();
                     return true;
                 }
-                c2.f42158a.onDestroy();
+                c2.f2716a.onDestroy();
                 d.a().e(stringExtra);
                 return true;
             }

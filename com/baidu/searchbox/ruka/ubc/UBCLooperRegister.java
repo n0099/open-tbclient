@@ -1,7 +1,6 @@
 package com.baidu.searchbox.ruka.ubc;
 
 import android.content.Context;
-import android.util.Log;
 import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
@@ -27,7 +26,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Service
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UBCLooperRegister extends ILooperRegister {
     public static /* synthetic */ Interceptable $ic = null;
     public static String KEY_BLOCK_ACTIVE_UPLOAD = "key_block_active_upload";
@@ -83,15 +82,10 @@ public class UBCLooperRegister extends ILooperRegister {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, looperBlock) == null) {
             if (!sEnable) {
-                if (AppConfig.isDebug()) {
-                    Log.d(TAG, "UBCLooperRegister, sEnable = false");
-                    return;
-                }
+                AppConfig.isDebug();
                 return;
             }
-            if (AppConfig.isDebug()) {
-                Log.d(TAG, "UBCLooperRegister, sEnable = true, write LooperBlock into UBC");
-            }
+            AppConfig.isDebug();
             JSONObject jSONObject = new JSONObject();
             try {
                 Object oSVersion = CommonUtils.getOSVersion();
@@ -129,18 +123,18 @@ public class UBCLooperRegister extends ILooperRegister {
                 jSONObject.put(Constant.KEY_TIME_COST_END, looperBlock.getEndLagTime());
                 String sb = looperBlock.getStackSb().toString();
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "stack format before: " + sb);
+                    String str = "stack format before: " + sb;
                 }
                 String[] split = sb.split(this.separator + this.separator);
                 if (split.length > 0) {
-                    String str = split[0];
-                    if (str.length() > 0 && str.contains("stack = ")) {
-                        sb = "Looper" + looperBlock.getStackSb().toString().replace(str, "");
+                    String str2 = split[0];
+                    if (str2.length() > 0 && str2.contains("stack = ")) {
+                        sb = "Looper" + looperBlock.getStackSb().toString().replace(str2, "");
                     }
                 }
                 jSONObject.put("stacktrace", sb);
                 if (AppConfig.isDebug()) {
-                    Log.d(TAG, "stack format after: " + sb);
+                    String str3 = "stack format after: " + sb;
                 }
                 LinkedList<TrackUI> trackUIs = looperBlock.getTrackUIs();
                 if (trackUIs != null && trackUIs.size() > 0) {

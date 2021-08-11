@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.k.b;
+import c.a.p0.j1.f.j.c;
+import c.a.p0.j1.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbPageContext;
@@ -17,43 +20,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.k.b;
-import d.a.q0.i1.f.j.c;
-import d.a.q0.i1.l.c.a;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MultiContentView extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int TYPE_HISTORY = 2;
+    public static final int TYPE_MSG = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f17390e;
+    public Context f52600e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f17391f;
+    public View f52601f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f17392g;
+    public LinearLayout f52602g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b<MultiImageTextTopView> f17393h;
+    public b<MultiImageTextTopView> f52603h;
 
     /* renamed from: i  reason: collision with root package name */
-    public b<MultiImageTextBottomView> f17394i;
-    public b<SingleImageTextView> j;
-    public d.a.d.e.h.b k;
+    public b<MultiImageTextBottomView> f52604i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public b<SingleImageTextView> f52605j;
+    public c.a.e.e.h.b k;
     public int l;
     public boolean m;
     public String n;
     public int o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MultiContentView f17395e;
+        public final /* synthetic */ MultiContentView f52606e;
 
         public a(MultiContentView multiContentView) {
             Interceptable interceptable = $ic;
@@ -70,7 +74,7 @@ public class MultiContentView extends LinearLayout {
                     return;
                 }
             }
-            this.f17395e = multiContentView;
+            this.f52606e = multiContentView;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -85,11 +89,11 @@ public class MultiContentView extends LinearLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) {
                 if (view2 instanceof MultiImageTextTopView) {
-                    this.f17395e.f17393h.e((MultiImageTextTopView) view2);
+                    this.f52606e.f52603h.e((MultiImageTextTopView) view2);
                 } else if (view2 instanceof MultiImageTextBottomView) {
-                    this.f17395e.f17394i.e((MultiImageTextBottomView) view2);
+                    this.f52606e.f52604i.e((MultiImageTextBottomView) view2);
                 } else if (view2 instanceof SingleImageTextView) {
-                    this.f17395e.j.e((SingleImageTextView) view2);
+                    this.f52606e.f52605j.e((SingleImageTextView) view2);
                 }
             }
         }
@@ -116,7 +120,7 @@ public class MultiContentView extends LinearLayout {
         this.k = null;
         this.m = true;
         this.o = 2;
-        this.f17390e = context;
+        this.f52600e = context;
         g();
     }
 
@@ -138,7 +142,7 @@ public class MultiContentView extends LinearLayout {
             } else if (i2 == 1) {
                 SkinManager.setBackgroundResource(commonBottomView, R.drawable.selector_history_multi_bottom_bg, skinType);
             }
-            commonBottomView.g(this.m);
+            commonBottomView.onSkinChange(this.m);
             return commonBottomView;
         }
         return (MultiImageTextBottomView) invokeV.objValue;
@@ -148,10 +152,10 @@ public class MultiContentView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            b<MultiImageTextBottomView> bVar = this.f17394i;
+            b<MultiImageTextBottomView> bVar = this.f52604i;
             MultiImageTextBottomView b2 = bVar != null ? bVar.b() : null;
             if (b2 == null || b2.getParent() != null) {
-                b2 = new MultiImageTextBottomView(this.f17390e);
+                b2 = new MultiImageTextBottomView(this.f52600e);
             }
             b2.setOnItemViewLongClickListener(this.k);
             b2.setPosition(this.l);
@@ -178,7 +182,7 @@ public class MultiContentView extends LinearLayout {
             } else if (i2 == 1) {
                 SkinManager.setBackgroundResource(commonBottomView, R.drawable.selector_history_multi_mid_bg, skinType);
             }
-            commonBottomView.g(this.m);
+            commonBottomView.onSkinChange(this.m);
             return commonBottomView;
         }
         return (MultiImageTextBottomView) invokeV.objValue;
@@ -188,10 +192,10 @@ public class MultiContentView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            b<SingleImageTextView> bVar = this.j;
+            b<SingleImageTextView> bVar = this.f52605j;
             SingleImageTextView b2 = bVar != null ? bVar.b() : null;
             if (b2 == null || b2.getParent() == null) {
-                b2 = new SingleImageTextView(this.f17390e);
+                b2 = new SingleImageTextView(this.f52600e);
             }
             b2.setOnItemViewLongClickListener(this.k);
             b2.setPosition(this.l);
@@ -205,7 +209,7 @@ public class MultiContentView extends LinearLayout {
             } else if (i2 == 1) {
                 SkinManager.setBackgroundResource(b2, R.drawable.selector_history_multi_single_bg, skinType);
             }
-            b2.f(this.m);
+            b2.onSkinChange(this.m);
             return b2;
         }
         return (SingleImageTextView) invokeV.objValue;
@@ -215,10 +219,10 @@ public class MultiContentView extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            b<MultiImageTextTopView> bVar = this.f17393h;
+            b<MultiImageTextTopView> bVar = this.f52603h;
             MultiImageTextTopView b2 = bVar != null ? bVar.b() : null;
             if (b2 == null || b2.getParent() != null) {
-                b2 = new MultiImageTextTopView(this.f17390e);
+                b2 = new MultiImageTextTopView(this.f52600e);
             }
             b2.setOnItemViewLongClickListener(this.k);
             b2.setPosition(this.l);
@@ -232,7 +236,7 @@ public class MultiContentView extends LinearLayout {
             } else if (i2 == 1) {
                 SkinManager.setBackgroundResource(b2, R.drawable.selector_history_multi_top_bg, skinType);
             }
-            b2.e(this.m);
+            b2.onSkinChange(this.m);
             return b2;
         }
         return (MultiImageTextTopView) invokeV.objValue;
@@ -242,60 +246,67 @@ public class MultiContentView extends LinearLayout {
     public void addView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            this.f17392g.addView(view);
+            this.f52602g.addView(view);
         }
     }
 
-    public final void d(TbPageContext<?> tbPageContext, a.C1473a c1473a, MultiImageTextBottomView multiImageTextBottomView, View view) {
+    public final void d(TbPageContext<?> tbPageContext, a.C0959a c0959a, MultiImageTextBottomView multiImageTextBottomView, View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, c1473a, multiImageTextBottomView, view) == null) || c1473a == null || multiImageTextBottomView == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, c0959a, multiImageTextBottomView, view) == null) || c0959a == null || multiImageTextBottomView == null) {
             return;
         }
-        multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.f17390e.getResources().getDimension(R.dimen.ds132)));
-        multiImageTextBottomView.setData(tbPageContext, c1473a, view, this.o);
-        this.f17392g.addView(multiImageTextBottomView);
+        multiImageTextBottomView.setLayoutParams(new LinearLayout.LayoutParams(-1, (int) this.f52600e.getResources().getDimension(R.dimen.ds132)));
+        multiImageTextBottomView.setData(tbPageContext, c0959a, view, this.o);
+        this.f52602g.addView(multiImageTextBottomView);
     }
 
-    public final void e(TbPageContext<?> tbPageContext, a.C1473a c1473a, SingleImageTextView singleImageTextView, View view) {
+    public final void e(TbPageContext<?> tbPageContext, a.C0959a c0959a, SingleImageTextView singleImageTextView, View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, c1473a, singleImageTextView, view) == null) || c1473a == null || singleImageTextView == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, c0959a, singleImageTextView, view) == null) || c0959a == null || singleImageTextView == null) {
             return;
         }
         singleImageTextView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         singleImageTextView.setTime(this.n);
-        singleImageTextView.setData(tbPageContext, c1473a, view, this.o);
-        this.f17392g.addView(singleImageTextView);
+        singleImageTextView.setData(tbPageContext, c0959a, view, this.o);
+        this.f52602g.addView(singleImageTextView);
     }
 
-    public final void f(TbPageContext<?> tbPageContext, a.C1473a c1473a, MultiImageTextTopView multiImageTextTopView, View view) {
+    public final void f(TbPageContext<?> tbPageContext, a.C0959a c0959a, MultiImageTextTopView multiImageTextTopView, View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, tbPageContext, c1473a, multiImageTextTopView, view) == null) || c1473a == null || multiImageTextTopView == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, tbPageContext, c0959a, multiImageTextTopView, view) == null) || c0959a == null || multiImageTextTopView == null) {
             return;
         }
         multiImageTextTopView.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
         multiImageTextTopView.setTime(this.n);
-        multiImageTextTopView.setData(tbPageContext, c1473a, view, this.o);
-        this.f17392g.addView(multiImageTextTopView);
+        multiImageTextTopView.setData(tbPageContext, c0959a, view, this.o);
+        this.f52602g.addView(multiImageTextTopView);
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = View.inflate(this.f17390e, R.layout.msg_multi_pic_text_content_view, this);
-            this.f17391f = inflate;
-            this.f17392g = (LinearLayout) inflate.findViewById(R.id.view_container);
+            View inflate = View.inflate(this.f52600e, R.layout.msg_multi_pic_text_content_view, this);
+            this.f52601f = inflate;
+            this.f52602g = (LinearLayout) inflate.findViewById(R.id.view_container);
             c cVar = new c();
-            this.f17393h = cVar.f(this.f17390e);
-            this.f17394i = cVar.d(this.f17390e);
-            this.j = cVar.e(this.f17390e);
-            this.f17392g.setOnHierarchyChangeListener(new a(this));
+            this.f52603h = cVar.f(this.f52600e);
+            this.f52604i = cVar.d(this.f52600e);
+            this.f52605j = cVar.e(this.f52600e);
+            this.f52602g.setOnHierarchyChangeListener(new a(this));
         }
     }
 
-    public void setData(TbPageContext<?> tbPageContext, List<a.C1473a> list, View view) {
+    public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, tbPageContext, list, view) == null) {
-            this.f17392g.removeAllViews();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f52602g.removeAllViews();
+        }
+    }
+
+    public void setData(TbPageContext<?> tbPageContext, List<a.C0959a> list, View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, tbPageContext, list, view) == null) {
+            this.f52602g.removeAllViews();
             if (list == null || list.size() == 0) {
                 return;
             }
@@ -308,7 +319,7 @@ public class MultiContentView extends LinearLayout {
             for (int i2 = 0; i2 < size; i2++) {
                 if (i2 == 0) {
                     if (list.get(i2) != null) {
-                        str = list.get(i2).f59148f;
+                        str = list.get(i2).f20583f;
                     }
                     f(tbPageContext, list.get(i2), getTopView(), view);
                 } else if (i2 == size - 1) {
@@ -332,35 +343,35 @@ public class MultiContentView extends LinearLayout {
 
     public void setNeedNightMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.m = z;
         }
     }
 
-    public void setOnItemViewLongClickListener(d.a.d.e.h.b bVar) {
+    public void setOnItemViewLongClickListener(c.a.e.e.h.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
             this.k = bVar;
         }
     }
 
     public void setPosition(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
             this.l = i2;
         }
     }
 
     public void setTime(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.n = str;
         }
     }
 
     public void setType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             this.o = i2;
         }
     }
@@ -387,7 +398,7 @@ public class MultiContentView extends LinearLayout {
         this.k = null;
         this.m = true;
         this.o = 2;
-        this.f17390e = context;
+        this.f52600e = context;
         g();
     }
 }

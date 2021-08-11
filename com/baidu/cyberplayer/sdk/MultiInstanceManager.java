@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class MultiInstanceManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static MediaInstanceManagerProvider f4846a;
+    public static MediaInstanceManagerProvider f38772a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,10 +49,10 @@ public class MultiInstanceManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f4846a == null) {
-                f4846a = d.c();
+            if (f38772a == null) {
+                f38772a = d.c();
             }
-            return f4846a;
+            return f38772a;
         }
         return (MediaInstanceManagerProvider) invokeV.objValue;
     }

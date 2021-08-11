@@ -11,7 +11,7 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.util.CheckUtils;
 import java.io.File;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AppendObjectRequest extends PutObjectRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

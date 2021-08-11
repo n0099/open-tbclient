@@ -11,25 +11,25 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Inflater;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class j implements s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f28193a;
+    public int f64036a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f28194b;
+    public final e f64037b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Inflater f28195c;
+    public final Inflater f64038c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final k f28196d;
+    public final k f64039d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final CRC32 f28197e;
+    public final CRC32 f64040e;
 
     public j(s sVar) {
         Interceptable interceptable = $ic;
@@ -46,13 +46,13 @@ public final class j implements s {
                 return;
             }
         }
-        this.f28193a = 0;
-        this.f28197e = new CRC32();
+        this.f64036a = 0;
+        this.f64040e = new CRC32();
         if (sVar != null) {
-            this.f28195c = new Inflater(true);
+            this.f64038c = new Inflater(true);
             e a2 = l.a(sVar);
-            this.f28194b = a2;
-            this.f28196d = new k(a2, this.f28195c);
+            this.f64037b = a2;
+            this.f64039d = new k(a2, this.f64038c);
             return;
         }
         throw new IllegalArgumentException("source == null");
@@ -61,51 +61,51 @@ public final class j implements s {
     private void b() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f28194b.a(10L);
-            byte b2 = this.f28194b.c().b(3L);
+            this.f64037b.a(10L);
+            byte b2 = this.f64037b.c().b(3L);
             boolean z = ((b2 >> 1) & 1) == 1;
             if (z) {
-                a(this.f28194b.c(), 0L, 10L);
+                a(this.f64037b.c(), 0L, 10L);
             }
-            a("ID1ID2", 8075, this.f28194b.i());
-            this.f28194b.h(8L);
+            a("ID1ID2", 8075, this.f64037b.i());
+            this.f64037b.h(8L);
             if (((b2 >> 2) & 1) == 1) {
-                this.f28194b.a(2L);
+                this.f64037b.a(2L);
                 if (z) {
-                    a(this.f28194b.c(), 0L, 2L);
+                    a(this.f64037b.c(), 0L, 2L);
                 }
-                long k = this.f28194b.c().k();
-                this.f28194b.a(k);
+                long k = this.f64037b.c().k();
+                this.f64037b.a(k);
                 if (z) {
-                    a(this.f28194b.c(), 0L, k);
+                    a(this.f64037b.c(), 0L, k);
                 }
-                this.f28194b.h(k);
+                this.f64037b.h(k);
             }
             if (((b2 >> 3) & 1) == 1) {
-                long a2 = this.f28194b.a((byte) 0);
+                long a2 = this.f64037b.a((byte) 0);
                 if (a2 != -1) {
                     if (z) {
-                        a(this.f28194b.c(), 0L, a2 + 1);
+                        a(this.f64037b.c(), 0L, a2 + 1);
                     }
-                    this.f28194b.h(a2 + 1);
+                    this.f64037b.h(a2 + 1);
                 } else {
                     throw new EOFException();
                 }
             }
             if (((b2 >> 4) & 1) == 1) {
-                long a3 = this.f28194b.a((byte) 0);
+                long a3 = this.f64037b.a((byte) 0);
                 if (a3 != -1) {
                     if (z) {
-                        a(this.f28194b.c(), 0L, a3 + 1);
+                        a(this.f64037b.c(), 0L, a3 + 1);
                     }
-                    this.f28194b.h(a3 + 1);
+                    this.f64037b.h(a3 + 1);
                 } else {
                     throw new EOFException();
                 }
             }
             if (z) {
-                a("FHCRC", this.f28194b.k(), (short) this.f28197e.getValue());
-                this.f28197e.reset();
+                a("FHCRC", this.f64037b.k(), (short) this.f64040e.getValue());
+                this.f64040e.reset();
             }
         }
     }
@@ -113,39 +113,39 @@ public final class j implements s {
     private void c() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            a("CRC", this.f28194b.l(), (int) this.f28197e.getValue());
-            a("ISIZE", this.f28194b.l(), (int) this.f28195c.getBytesWritten());
+            a("CRC", this.f64037b.l(), (int) this.f64040e.getValue());
+            a("ISIZE", this.f64037b.l(), (int) this.f64038c.getBytesWritten());
         }
     }
 
     @Override // com.bytedance.sdk.component.b.a.s
-    public long a(c cVar, long j) throws IOException {
+    public long a(c cVar, long j2) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, cVar, j)) == null) {
-            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, cVar, j2)) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
-                throw new IllegalArgumentException("byteCount < 0: " + j);
+                throw new IllegalArgumentException("byteCount < 0: " + j2);
             } else if (i2 == 0) {
                 return 0L;
             } else {
-                if (this.f28193a == 0) {
+                if (this.f64036a == 0) {
                     b();
-                    this.f28193a = 1;
+                    this.f64036a = 1;
                 }
-                if (this.f28193a == 1) {
-                    long j2 = cVar.f28183b;
-                    long a2 = this.f28196d.a(cVar, j);
+                if (this.f64036a == 1) {
+                    long j3 = cVar.f64026b;
+                    long a2 = this.f64039d.a(cVar, j2);
                     if (a2 != -1) {
-                        a(cVar, j2, a2);
+                        a(cVar, j3, a2);
                         return a2;
                     }
-                    this.f28193a = 2;
+                    this.f64036a = 2;
                 }
-                if (this.f28193a == 2) {
+                if (this.f64036a == 2) {
                     c();
-                    this.f28193a = 3;
-                    if (!this.f28194b.e()) {
+                    this.f64036a = 3;
+                    if (!this.f64037b.e()) {
                         throw new IOException("gzip finished without exhausting source");
                     }
                 }
@@ -159,7 +159,7 @@ public final class j implements s {
     public void close() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f28196d.close();
+            this.f64039d.close();
         }
     }
 
@@ -167,29 +167,29 @@ public final class j implements s {
     public t a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28194b.a() : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64037b.a() : (t) invokeV.objValue;
     }
 
-    private void a(c cVar, long j, long j2) {
+    private void a(c cVar, long j2, long j3) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{cVar, Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            o oVar = cVar.f28182a;
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{cVar, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            o oVar = cVar.f64025a;
             while (true) {
-                int i3 = oVar.f28217c;
-                int i4 = oVar.f28216b;
-                if (j < i3 - i4) {
+                int i3 = oVar.f64060c;
+                int i4 = oVar.f64059b;
+                if (j2 < i3 - i4) {
                     break;
                 }
-                j -= i3 - i4;
-                oVar = oVar.f28220f;
+                j2 -= i3 - i4;
+                oVar = oVar.f64063f;
             }
-            while (j2 > 0) {
-                int min = (int) Math.min(oVar.f28217c - i2, j2);
-                this.f28197e.update(oVar.f28215a, (int) (oVar.f28216b + j), min);
-                j2 -= min;
-                oVar = oVar.f28220f;
-                j = 0;
+            while (j3 > 0) {
+                int min = (int) Math.min(oVar.f64060c - i2, j3);
+                this.f64040e.update(oVar.f64058a, (int) (oVar.f64059b + j2), min);
+                j3 -= min;
+                oVar = oVar.f64063f;
+                j2 = 0;
             }
         }
     }

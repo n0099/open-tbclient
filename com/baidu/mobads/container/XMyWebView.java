@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.Locale;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XMyWebView extends XSafeWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +41,7 @@ public class XMyWebView extends XSafeWebView {
     public boolean isScrollY;
     public KeyDownListener mKeyDownListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class C {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SEP = ",";
@@ -121,12 +121,12 @@ public class XMyWebView extends XSafeWebView {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface KeyDownListener {
         boolean onKeyDown(int i2, KeyEvent keyEvent);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class ParameterInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

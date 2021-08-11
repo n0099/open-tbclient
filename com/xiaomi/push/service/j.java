@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.he;
 import com.xiaomi.push.hj;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class j implements he {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final XMPushService f40956a;
+    public final XMPushService f77832a;
 
     public j(XMPushService xMPushService) {
         Interceptable interceptable = $ic;
@@ -31,21 +31,21 @@ public class j implements he {
                 return;
             }
         }
-        this.f40956a = xMPushService;
+        this.f77832a = xMPushService;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? "com.xiaomi.xmsf".equals(str) ? "1000271" : this.f40956a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) ? "com.xiaomi.xmsf".equals(str) ? "1000271" : this.f77832a.getSharedPreferences("pref_registered_pkg_names", 0).getString(str, null) : (String) invokeL.objValue;
     }
 
     @Override // com.xiaomi.push.he
     public void a(List<hj> list, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, list, str, str2) == null) {
-            this.f40956a.a(new k(this, 4, str, list, str2));
+            this.f77832a.a(new k(this, 4, str, list, str2));
         }
     }
 }

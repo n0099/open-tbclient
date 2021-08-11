@@ -5,7 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
+import c.a.e.a.f;
+import c.a.e.a.j;
+import c.a.o0.s.s.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.ApiUtil;
@@ -26,16 +28,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.d.a.f;
-import d.a.d.a.j;
-import d.a.p0.s.s.a;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PermissionJudgePolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EMPTY_REQUEST_CODE = -1;
@@ -54,7 +52,7 @@ public class PermissionJudgePolicy {
     public ArrayList<String> requestPermissionList;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class EXTRA_DIALOG_REFUSE_POLICY {
         public static final /* synthetic */ EXTRA_DIALOG_REFUSE_POLICY[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -113,22 +111,22 @@ public class PermissionJudgePolicy {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface IExtraDialogCloseCallback {
         void onClose();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface ISystemPermissionDialogShowCallBack {
         void onShow();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnPermissionsGrantedListener {
         void onPermissionsGranted();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface PermissionDialogClickListener {
         void onDialogCaneled(String str);
 
@@ -313,7 +311,7 @@ public class PermissionJudgePolicy {
             if (TextUtils.isEmpty(str)) {
                 return R.string.request_permission_default_text;
             }
-            if (StorageUtils.EXTERNAL_STORAGE_PERMISSION.equals(str)) {
+            if ("android.permission.WRITE_EXTERNAL_STORAGE".equals(str)) {
                 return R.string.request_permission_default_text;
             }
             if (!"android.permission.ACCESS_FINE_LOCATION".equals(str) && !"android.permission.ACCESS_COARSE_LOCATION".equals(str)) {
@@ -435,13 +433,13 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // d.a.p0.s.s.a.e
+                @Override // c.a.o0.s.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {
                         aVar2.dismiss();
                         Intent intent = new Intent();
-                        intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                        intent.addFlags(268435456);
                         intent.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
                         intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.val$context.getPackageName(), null));
                         this.val$context.startActivity(intent);
@@ -475,7 +473,7 @@ public class PermissionJudgePolicy {
                     this.val$permission = str;
                 }
 
-                @Override // d.a.p0.s.s.a.e
+                @Override // c.a.o0.s.s.a.e
                 public void onClick(a aVar2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar2) == null) {

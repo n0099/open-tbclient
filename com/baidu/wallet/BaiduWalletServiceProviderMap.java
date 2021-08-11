@@ -12,7 +12,7 @@ import com.baidu.wallet.api.WalletServiceBeanConst;
 import com.baidu.wallet.core.NoProguard;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BaiduWalletServiceProviderMap implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PLUGIN_FASTPAY = "fastpay";
@@ -27,18 +27,18 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
     public Map<Long, String> maps;
 
     /* renamed from: com.baidu.wallet.BaiduWalletServiceProviderMap$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final BaiduWalletServiceProviderMap f23931a;
+        public static final BaiduWalletServiceProviderMap f59660a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -54,7 +54,7 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
                     return;
                 }
             }
-            f23931a = new BaiduWalletServiceProviderMap(null);
+            f59660a = new BaiduWalletServiceProviderMap(null);
         }
 
         public a() {
@@ -79,22 +79,22 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
     public static final BaiduWalletServiceProviderMap getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f23931a : (BaiduWalletServiceProviderMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f59660a : (BaiduWalletServiceProviderMap) invokeV.objValue;
     }
 
     private void initMaps() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.maps.put(1L, PLUGIN_FASTPAY);
-            this.maps.put(4096L, PLUGIN_FASTPAY);
-            this.maps.put(2L, PLUGIN_TRNASFER);
-            this.maps.put(64L, PLUGIN_PERSONAL);
-            this.maps.put(1024L, PLUGIN_NFC);
-            this.maps.put(32768L, PLUGIN_QRCODESCANNER);
-            this.maps.put(16384L, PLUGIN_WALLETHOME);
-            this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_HOME_CREDIT), PLUGIN_WALLETHOME);
-            this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_NFC_BUS_CARD_SETTING), PLUGIN_NFC);
-            this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_LANGBRIGE), PLUGIN_LANGBRIGE);
+            this.maps.put(1L, "fastpay");
+            this.maps.put(4096L, "fastpay");
+            this.maps.put(2L, "transfer");
+            this.maps.put(64L, "personal");
+            this.maps.put(1024L, "nfc");
+            this.maps.put(32768L, "saoyisao");
+            this.maps.put(16384L, "home");
+            this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_HOME_CREDIT), "home");
+            this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_NFC_BUS_CARD_SETTING), "nfc");
+            this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_LANGBRIGE), "langbrige");
             this.maps.put(Long.valueOf((long) WalletServiceBeanConst.SERVICE_ID_WALLET_HOME_FINANCE), "tab");
         }
     }
@@ -109,12 +109,12 @@ public class BaiduWalletServiceProviderMap implements NoProguard {
         }
     }
 
-    public String getProviderNameBySerID(long j) {
+    public String getProviderNameBySerID(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
             Map<Long, String> map = this.maps;
-            return (map == null || map.size() <= 0) ? "" : this.maps.get(Long.valueOf(j));
+            return (map == null || map.size() <= 0) ? "" : this.maps.get(Long.valueOf(j2));
         }
         return (String) invokeJ.objValue;
     }

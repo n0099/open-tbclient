@@ -15,14 +15,14 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean nonScheduledRequests;
     public final Scheduler scheduler;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SubscribeOnSubscriber<T> extends AtomicReference<Thread> implements FlowableSubscriber<T>, Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8094547886072529208L;
@@ -34,19 +34,19 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
         public Publisher<T> source;
         public final Scheduler.Worker worker;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public static final class Request implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final long n;
             public final Subscription s;
 
-            public Request(Subscription subscription, long j) {
+            public Request(Subscription subscription, long j2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {subscription, Long.valueOf(j)};
+                    Object[] objArr = {subscription, Long.valueOf(j2)};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i2 = newInitContext.flag;
                     if ((i2 & 1) != 0) {
@@ -57,7 +57,7 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
                     }
                 }
                 this.s = subscription;
-                this.n = j;
+                this.n = j2;
             }
 
             @Override // java.lang.Runnable
@@ -139,15 +139,15 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
                 Subscription subscription = this.s.get();
                 if (subscription != null) {
-                    requestUpstream(j, subscription);
+                    requestUpstream(j2, subscription);
                     return;
                 }
-                BackpressureHelper.add(this.requested, j);
+                BackpressureHelper.add(this.requested, j2);
                 Subscription subscription2 = this.s.get();
                 if (subscription2 != null) {
                     long andSet = this.requested.getAndSet(0L);
@@ -158,13 +158,13 @@ public final class FlowableSubscribeOn<T> extends AbstractFlowableWithUpstream<T
             }
         }
 
-        public void requestUpstream(long j, Subscription subscription) {
+        public void requestUpstream(long j2, Subscription subscription) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJL(1048582, this, j, subscription) == null) {
+            if (interceptable == null || interceptable.invokeJL(1048582, this, j2, subscription) == null) {
                 if (!this.nonScheduledRequests && Thread.currentThread() != get()) {
-                    this.worker.schedule(new Request(subscription, j));
+                    this.worker.schedule(new Request(subscription, j2));
                 } else {
-                    subscription.request(j);
+                    subscription.request(j2);
                 }
             }
         }

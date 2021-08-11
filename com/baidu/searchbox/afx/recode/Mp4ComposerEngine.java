@@ -6,7 +6,6 @@ import android.media.MediaCodecList;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import com.sina.weibo.sdk.utils.FileUtils;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import org.webrtc.HardwareVideoEncoder;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Mp4ComposerEngine {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long PROGRESS_INTERVAL_STEPS = 10;
@@ -29,7 +28,7 @@ public class Mp4ComposerEngine {
     public long mDurationUs;
     public ProgressCallback mProgressCallback;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface ProgressCallback {
         void onProgress(float f2);
     }
@@ -55,11 +54,11 @@ public class Mp4ComposerEngine {
             if (this.mDurationUs <= 0 && (progressCallback = this.mProgressCallback) != null) {
                 progressCallback.onProgress(-1.0f);
             }
-            long j = 0;
+            long j2 = 0;
             while (!videoTrackTranscoder.isFinished()) {
                 boolean stepPipeline = videoTrackTranscoder.stepPipeline();
-                j++;
-                if (this.mDurationUs > 0 && j % 10 == 0) {
+                j2++;
+                if (this.mDurationUs > 0 && j2 % 10 == 0) {
                     float min = videoTrackTranscoder.isFinished() ? 1.0f : Math.min(1.0f, ((float) videoTrackTranscoder.getWrittenPresentationTimeUs()) / ((float) this.mDurationUs));
                     ProgressCallback progressCallback2 = this.mProgressCallback;
                     if (progressCallback2 != null) {
@@ -141,12 +140,6 @@ public class Mp4ComposerEngine {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:31:0x00b3  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00b8  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x00bd  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
     private void compose(MediaExtractor mediaExtractor, String str, Mp4Info mp4Info) throws IOException {
         MediaMuxer mediaMuxer;
         Interceptable interceptable = $ic;
@@ -162,8 +155,7 @@ public class Mp4ComposerEngine {
                 int i2 = 25;
                 try {
                     i2 = trackFormat.getInteger("frame-rate");
-                } catch (Exception e2) {
-                    Log.e(TAG, "get frame rate (FPS) failed.", e2);
+                } catch (Exception unused) {
                 }
                 this.mDurationUs = mp4Info.getDurationUs();
                 MediaFormat createVideoFormat = MediaFormat.createVideoFormat(string, mp4Info.getWidth(), mp4Info.getHeight());
@@ -203,19 +195,12 @@ public class Mp4ComposerEngine {
                     th = th2;
                 }
             } else {
-                Log.e(TAG, "No video track found in " + str);
+                String str2 = "No video track found in " + str;
                 throw new RuntimeException("No video track found in " + str);
             }
         } catch (Throwable th3) {
             th = th3;
             mediaMuxer = null;
-            if (videoTrackTranscoder != null) {
-            }
-            if (mediaExtractor != null) {
-            }
-            if (mediaMuxer != null) {
-            }
-            throw th;
         }
     }
 }

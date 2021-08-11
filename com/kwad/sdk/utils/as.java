@@ -6,39 +6,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class as {
     public static /* synthetic */ Interceptable $ic;
     public static volatile as l;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile boolean f36707a;
+    public volatile boolean f73529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f36708b;
+    public volatile boolean f73530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f36709c;
+    public volatile boolean f73531c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f36710d;
+    public volatile boolean f73532d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f36711e;
+    public volatile boolean f73533e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f36712f;
+    public volatile boolean f73534f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile long f36713g;
+    public volatile long f73535g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f36714h;
+    public volatile long f73536h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile long f36715i;
-    public volatile long j;
+    public volatile long f73537i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public volatile long f73538j;
     public volatile boolean k;
 
     public as() {
@@ -54,16 +56,16 @@ public class as {
                 return;
             }
         }
-        this.f36707a = false;
-        this.f36708b = false;
-        this.f36709c = false;
-        this.f36710d = false;
-        this.f36711e = false;
-        this.f36712f = false;
-        this.f36713g = 0L;
-        this.f36714h = 0L;
-        this.f36715i = 0L;
-        this.j = -1L;
+        this.f73529a = false;
+        this.f73530b = false;
+        this.f73531c = false;
+        this.f73532d = false;
+        this.f73533e = false;
+        this.f73534f = false;
+        this.f73535g = 0L;
+        this.f73536h = 0L;
+        this.f73537i = 0L;
+        this.f73538j = -1L;
         this.k = false;
     }
 
@@ -83,16 +85,16 @@ public class as {
         return (as) invokeV.objValue;
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.j = j;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            this.f73538j = j2;
         }
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36712f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f73534f : invokeV.booleanValue;
     }
 }

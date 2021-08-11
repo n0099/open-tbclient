@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PaymentConfirmRequestData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TERMINAL_ANDROID = "320";
@@ -127,10 +127,10 @@ public class PaymentConfirmRequestData implements Serializable {
         }
     }
 
-    public void setGoods_duration(long j) {
+    public void setGoods_duration(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.goods_duration = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.goods_duration = j2;
         }
     }
 
@@ -141,10 +141,10 @@ public class PaymentConfirmRequestData implements Serializable {
         }
     }
 
-    public void setGoods_num(long j) {
+    public void setGoods_num(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.goods_num = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.goods_num = j2;
         }
     }
 
@@ -169,10 +169,10 @@ public class PaymentConfirmRequestData implements Serializable {
         }
     }
 
-    public void setOpen_id(long j) {
+    public void setOpen_id(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.open_id = j;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.open_id = j2;
         }
     }
 
@@ -190,17 +190,17 @@ public class PaymentConfirmRequestData implements Serializable {
         }
     }
 
-    public void setScene_id(long j) {
+    public void setScene_id(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
-            this.scene_id = j;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
+            this.scene_id = j2;
         }
     }
 
-    public void setTdou_num(long j) {
+    public void setTdou_num(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            this.tdou_num = j;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
+            this.tdou_num = j2;
         }
     }
 

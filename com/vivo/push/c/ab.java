@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.security.PublicKey;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class ab extends com.vivo.push.v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public PushMessageCallback f39330b;
+    public PushMessageCallback f76162b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ab(com.vivo.push.y yVar) {
@@ -42,7 +42,7 @@ public abstract class ab extends com.vivo.push.v {
     public final void a(PushMessageCallback pushMessageCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pushMessageCallback) == null) {
-            this.f39330b = pushMessageCallback;
+            this.f76162b = pushMessageCallback;
         }
     }
 
@@ -67,7 +67,7 @@ public abstract class ab extends com.vivo.push.v {
                         return true;
                     }
                     com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);
-                    Context context = this.f39512a;
+                    Context context = this.f76346a;
                     com.vivo.push.util.p.c(context, "vertify fail srcDigest is " + str);
                     return false;
                 } catch (Exception e2) {

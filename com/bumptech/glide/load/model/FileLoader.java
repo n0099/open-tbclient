@@ -3,7 +3,6 @@ package com.bumptech.glide.load.model;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,14 +20,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FileLoader<Data> implements ModelLoader<File, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileLoader";
     public transient /* synthetic */ FieldHolder $fh;
     public final FileOpener<Data> fileOpener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Factory<Data> implements ModelLoaderFactory<File, Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +67,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +114,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
                 public ParcelFileDescriptor open(File file) throws FileNotFoundException {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, file)) == null) ? ParcelFileDescriptor.open(file, Label.FORWARD_REFERENCE_TYPE_SHORT) : (ParcelFileDescriptor) invokeL.objValue;
+                    return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, file)) == null) ? ParcelFileDescriptor.open(file, 268435456) : (ParcelFileDescriptor) invokeL.objValue;
                 }
             });
             Interceptable interceptable = $ic;
@@ -134,7 +133,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class FileFetcher<Data> implements DataFetcher<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,16 +206,14 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
                     this.data = open;
                     dataCallback.onDataReady(open);
                 } catch (FileNotFoundException e2) {
-                    if (Log.isLoggable(FileLoader.TAG, 3)) {
-                        Log.d(FileLoader.TAG, "Failed to open file", e2);
-                    }
+                    Log.isLoggable(FileLoader.TAG, 3);
                     dataCallback.onLoadFailed(e2);
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface FileOpener<Data> {
         void close(Data data) throws IOException;
 
@@ -225,7 +222,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         Data open(File file) throws FileNotFoundException;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class StreamFactory extends Factory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

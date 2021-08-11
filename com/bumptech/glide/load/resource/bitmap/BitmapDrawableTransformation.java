@@ -16,7 +16,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
 @Deprecated
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BitmapDrawableTransformation implements Transformation<BitmapDrawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

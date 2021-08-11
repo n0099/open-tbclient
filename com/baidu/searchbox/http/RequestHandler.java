@@ -5,10 +5,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface RequestHandler {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Default implements RequestHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

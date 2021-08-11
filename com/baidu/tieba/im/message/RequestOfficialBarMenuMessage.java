@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import c.a.e.e.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,10 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
 import tbclient.ForumMenu.DataReq;
 import tbclient.ForumMenu.ForumMenuReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RequestOfficialBarMenuMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,10 +69,10 @@ public class RequestOfficialBarMenuMessage extends TbSocketMessage {
         }
     }
 
-    public void setTimestamp(long j) {
+    public void setTimestamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.timestamp = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            this.timestamp = j2;
         }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class NightResourceStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public final class NightResourceStaticAutoGenerateUrlCollectorImpl implements IC
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             HashMap hashMap = new HashMap();
             new ArrayList();
-            hashMap.put("2001281", "com.baidu.tieba.nightResource.NightResourceStatic");
+            hashMap.put("2001281", "com.baidu.tieba.plugin.night.NightResourceStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;
@@ -48,7 +48,7 @@ public final class NightResourceStaticAutoGenerateUrlCollectorImpl implements IC
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             HashMap hashMap = new HashMap();
-            hashMap.put("com.baidu.tieba.nightResource.NightResourceStatic", new ArrayList());
+            hashMap.put("com.baidu.tieba.plugin.night.NightResourceStatic", new ArrayList());
             return hashMap;
         }
         return (Map) invokeV.objValue;

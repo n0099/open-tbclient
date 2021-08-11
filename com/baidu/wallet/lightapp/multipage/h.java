@@ -1,10 +1,10 @@
 package com.baidu.wallet.lightapp.multipage;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.JsonUtils;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,219 +12,363 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.utils.LogUtil;
-import java.lang.ref.WeakReference;
+import com.google.android.material.badge.BadgeDrawable;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.CopyOnWriteArraySet;
-import org.json.JSONException;
-/* loaded from: classes5.dex */
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes8.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25918a;
+    public static final Set<String> f61825a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public LangbridgeSettings f25919b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public b f25920c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public Set<WeakReference<a>> f25921d;
+    public Map<String, Map<String, String>> f61826b;
 
     /* renamed from: com.baidu.wallet.lightapp.multipage.h$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void onSettingUpdated(LangbridgeSettings langbridgeSettings);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        LangbridgeSettings a(Context context, LangbridgeSettings langbridgeSettings);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
+    /* loaded from: classes8.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static h f25922a;
+        public static h f61827a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(549841943, "Lcom/baidu/wallet/lightapp/multipage/h$c;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(549841881, "Lcom/baidu/wallet/lightapp/multipage/h$a;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(549841943, "Lcom/baidu/wallet/lightapp/multipage/h$c;");
+                    classClinitInterceptable.invokePostClinit(549841881, "Lcom/baidu/wallet/lightapp/multipage/h$a;");
                     return;
                 }
             }
-            f25922a = new h(null);
+            f61827a = new h(null);
         }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(36326326, "Lcom/baidu/wallet/lightapp/multipage/h;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(36326326, "Lcom/baidu/wallet/lightapp/multipage/h;");
+                return;
+            }
+        }
+        HashSet hashSet = new HashSet();
+        f61825a = hashSet;
+        hashSet.add("getItem");
+        f61825a.add("setItem");
+        f61825a.add("clear");
+        f61825a.add("key");
+        f61825a.add(CloudStabilityUBCUtils.KEY_LENGTH);
+        f61825a.add("removeItem");
     }
 
     public /* synthetic */ h(AnonymousClass1 anonymousClass1) {
         this();
     }
 
-    public static h a() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.f25922a : (h) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? f61825a.contains(str) : invokeL.booleanValue;
     }
 
-    public void b(@NonNull Context context) {
+    private void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, context) == null) || this.f25919b == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
         }
-        LogUtil.d("LangbridgeSettings", "");
-        for (WeakReference<a> weakReference : this.f25921d) {
-            if (weakReference != null && weakReference.get() != null) {
-                a aVar = weakReference.get();
-                b bVar = this.f25920c;
-                aVar.onSettingUpdated(bVar != null ? bVar.a(context, this.f25919b) : this.f25919b);
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f61826b.remove(str);
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            for (Map.Entry<String, Map<String, String>> entry : this.f61826b.entrySet()) {
+                if (entry.getKey().startsWith(str)) {
+                    this.f61826b.remove(entry.getKey());
+                }
             }
         }
+    }
+
+    public int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            if (this.f61826b.containsKey(str)) {
+                return this.f61826b.get(str).size();
+            }
+            return 0;
+        }
+        return invokeL.intValue;
     }
 
     public h() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f25921d = new CopyOnWriteArraySet();
-        this.f25920c = e.a();
+        this.f61826b = new ConcurrentHashMap();
     }
 
-    public LangbridgeSettings a(@NonNull Context context) {
-        InterceptResult invokeL;
+    public static h a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f25919b == null) {
-                this.f25919b = a(this.f25918a);
-            }
-            if (this.f25919b == null) {
-                this.f25919b = new LangbridgeSettings();
-            }
-            LogUtil.d("LangbridgeSettings", "");
-            b bVar = this.f25920c;
-            return bVar != null ? bVar.a(context, this.f25919b) : this.f25919b;
-        }
-        return (LangbridgeSettings) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f61827a : (h) invokeV.objValue;
     }
 
-    public void a(@NonNull Context context, String str) {
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
-            if (this.f25919b == null) {
-                this.f25919b = new LangbridgeSettings();
-            }
-            if (TextUtils.isEmpty(str)) {
-                this.f25919b = new LangbridgeSettings();
-                if (!TextUtils.isEmpty(this.f25918a)) {
-                    this.f25918a = JsonUtils.toJson(this.f25919b);
-                }
-                LogUtil.d("WebViewCacheManager", "updateSettings CLEAR mSettings = " + this.f25919b.toString());
-                return;
-            }
-            LangbridgeSettings a2 = a(str);
-            StringBuilder sb = new StringBuilder();
-            sb.append("updateSettings oldSettings = ");
-            LangbridgeSettings langbridgeSettings = this.f25919b;
-            String str2 = langbridgeSettings;
-            if (langbridgeSettings != null) {
-                str2 = langbridgeSettings.toString();
-            }
-            sb.append((Object) str2);
-            sb.append("\nnewSettings = ");
-            sb.append((Object) (a2 != null ? a2.toString() : a2));
-            LogUtil.d("WebViewCacheManager", sb.toString());
-            if (a2 != null && !a2.MW_USE_OLD && a2.MW_ON && !TextUtils.isEmpty(this.f25918a)) {
-                LangbridgeSettings langbridgeSettings2 = this.f25919b;
-                if (langbridgeSettings2.MW_USE_OLD || !langbridgeSettings2.MW_ON) {
-                    LogUtil.d("WebViewCacheManager", "updateSettings CANCEL mSettings = " + this.f25919b.toString());
-                    return;
-                }
-            }
-            if (a2 != null) {
-                this.f25919b = a2;
-                LogUtil.d("LangbridgeSettings", "");
-                this.f25918a = str;
-                for (WeakReference<a> weakReference : this.f25921d) {
-                    if (weakReference != null && weakReference.get() != null) {
-                        a aVar = weakReference.get();
-                        b bVar = this.f25920c;
-                        aVar.onSettingUpdated(bVar != null ? bVar.a(context, this.f25919b) : this.f25919b);
-                    }
-                }
-            }
-            LogUtil.d("WebViewCacheManager", "updateSettings SUCCESS mSettings = " + this.f25919b.toString());
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.f61826b.containsKey(str2) && this.f61826b.get(str2).containsKey(str)) {
+            this.f61826b.get(str2).remove(str);
         }
-    }
-
-    public void a(a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || aVar == null) {
-            return;
-        }
-        this.f25921d.add(new WeakReference<>(aVar));
-    }
-
-    private LangbridgeSettings a(String str) {
-        InterceptResult invokeL;
-        LangbridgeSettings langbridgeSettings;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    langbridgeSettings = (LangbridgeSettings) JsonUtils.fromJson(str, LangbridgeSettings.class);
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                if (langbridgeSettings == null && langbridgeSettings.isValid()) {
-                    return langbridgeSettings;
-                }
-                return null;
-            }
-            langbridgeSettings = null;
-            if (langbridgeSettings == null) {
-            }
-            return null;
-        }
-        return (LangbridgeSettings) invokeL.objValue;
     }
 
     public String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            String a2 = com.baidu.wallet.lightapp.business.a.a(str);
-            if (!TextUtils.isEmpty(a2)) {
-                str2 = a2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (this.f61826b.containsKey(str2) && this.f61826b.get(str2).containsKey(str)) {
+                return this.f61826b.get(str2).get(str);
             }
-            LogUtil.d("WebViewCacheManager", "LangbridgeSettingManager获取注入js文件：" + str2);
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: java.util.Map<java.lang.String, java.util.Map<java.lang.String, java.lang.String>> */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r5v1, types: [java.lang.Object] */
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+            ConcurrentHashMap concurrentHashMap2 = new ConcurrentHashMap();
+            for (String str3 : this.f61826b.keySet()) {
+                if (!TextUtils.isEmpty(str3) && str3.startsWith(str)) {
+                    concurrentHashMap2.put(str3, this.f61826b.get(str3));
+                    concurrentHashMap.put(str2 + str3.substring(str3.indexOf(BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX) + 1, str3.length()), this.f61826b.get(str3));
+                }
+            }
+            for (String str4 : concurrentHashMap2.keySet()) {
+                this.f61826b.remove(str4);
+            }
+            Iterator it = concurrentHashMap.keySet().iterator();
+            while (it.hasNext()) {
+                String str5 = (String) it.next();
+                if (this.f61826b.containsKey(str5)) {
+                    Map map = (Map) concurrentHashMap.get(str5);
+                    Iterator it2 = map.keySet().iterator();
+                    while (it.hasNext()) {
+                        String str6 = (String) it2.next();
+                        if (!this.f61826b.get(str5).containsKey(str6)) {
+                            this.f61826b.get(str5).put(str6, map.get(str6));
+                        }
+                    }
+                } else {
+                    this.f61826b.put(str5, concurrentHashMap.get(str5));
+                }
+            }
+        }
+    }
+
+    public void a(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
+            if (this.f61826b.containsKey(str3)) {
+                this.f61826b.get(str3).put(str, str2);
+                return;
+            }
+            ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
+            concurrentHashMap.put(str, str2);
+            this.f61826b.put(str3, concurrentHashMap);
+        }
+    }
+
+    public String c(String str, String str2) {
+        int i2;
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            try {
+                i2 = Integer.valueOf(str).intValue();
+            } catch (Exception unused) {
+                i2 = -1;
+            }
+            if (this.f61826b.containsKey(str2)) {
+                Map<String, String> map = this.f61826b.get(str2);
+                String[] strArr = (String[]) map.keySet().toArray(new String[map.keySet().size()]);
+                if (i2 < 0 || i2 >= strArr.length) {
+                    return null;
+                }
+                return strArr[i2];
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public String a(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        char c2;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, strArr)) == null) {
+            b();
+            switch (str.hashCode()) {
+                case -1106363674:
+                    if (str.equals(CloudStabilityUBCUtils.KEY_LENGTH)) {
+                        c2 = 7;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -354615841:
+                    if (str.equals("clear_by_tab")) {
+                        c2 = 6;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case -75439223:
+                    if (str.equals("getItem")) {
+                        c2 = 0;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 106079:
+                    if (str.equals("key")) {
+                        c2 = 4;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 94746189:
+                    if (str.equals("clear")) {
+                        c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 1098253751:
+                    if (str.equals("removeItem")) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 1280882667:
+                    if (str.equals("transfer")) {
+                        c2 = 5;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 1984670357:
+                    if (str.equals("setItem")) {
+                        c2 = 1;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                default:
+                    c2 = 65535;
+                    break;
+            }
+            switch (c2) {
+                case 0:
+                    if (strArr.length >= 3) {
+                        str2 = a(strArr[0], strArr[2]);
+                        break;
+                    }
+                    str2 = null;
+                    break;
+                case 1:
+                    if (strArr.length >= 3) {
+                        a(strArr[0], strArr[1], strArr[2]);
+                    }
+                    str2 = null;
+                    break;
+                case 2:
+                    if (strArr.length >= 3) {
+                        b(strArr[0], strArr[2]);
+                    }
+                    str2 = null;
+                    break;
+                case 3:
+                    if (strArr.length >= 3) {
+                        b(strArr[2]);
+                    }
+                    str2 = null;
+                    break;
+                case 4:
+                    if (strArr.length >= 3) {
+                        str2 = c(strArr[0], strArr[2]);
+                        break;
+                    }
+                    str2 = null;
+                    break;
+                case 5:
+                    if (strArr.length >= 2) {
+                        d(strArr[0], strArr[1]);
+                    }
+                    str2 = null;
+                    break;
+                case 6:
+                    if (strArr.length >= 1) {
+                        c(strArr[0]);
+                    }
+                    str2 = null;
+                    break;
+                case 7:
+                    if (strArr.length >= 3) {
+                        str2 = "" + d(strArr[2]);
+                        break;
+                    }
+                    str2 = null;
+                    break;
+                default:
+                    str2 = null;
+                    break;
+            }
+            b();
             return str2;
         }
         return (String) invokeLL.objValue;

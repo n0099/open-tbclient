@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class m extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f9023a;
+    public String f43658a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SQLiteDatabase f9024b;
+    public SQLiteDatabase f43659b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(Context context, String str) throws SQLiteException {
@@ -43,7 +43,7 @@ public class m extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f9023a = str;
+        this.f43658a = str;
     }
 
     public synchronized boolean a() {
@@ -53,14 +53,14 @@ public class m extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
                 z = false;
-                if (this.f9024b == null || !this.f9024b.isOpen()) {
+                if (this.f43659b == null || !this.f43659b.isOpen()) {
                     try {
-                        this.f9024b = getWritableDatabase();
+                        this.f43659b = getWritableDatabase();
                     } catch (NullPointerException unused) {
                         throw new NullPointerException("db path is null");
                     }
                 }
-                if (this.f9024b != null && this.f9024b.isOpen()) {
+                if (this.f43659b != null && this.f43659b.isOpen()) {
                     z = true;
                 }
             }
@@ -76,8 +76,8 @@ public class m extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase sQLiteDatabase = this.f9024b;
-                cursor = sQLiteDatabase.rawQuery("SELECT COUNT(*) FROM " + this.f9023a, null);
+                SQLiteDatabase sQLiteDatabase = this.f43659b;
+                cursor = sQLiteDatabase.rawQuery("SELECT COUNT(*) FROM " + this.f43658a, null);
                 if (cursor == null || !cursor.moveToNext()) {
                     if (cursor != null) {
                         cursor.close();
@@ -100,9 +100,9 @@ public class m extends SQLiteOpenHelper {
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             synchronized (this) {
                 super.close();
-                if (this.f9024b != null) {
-                    this.f9024b.close();
-                    this.f9024b = null;
+                if (this.f43659b != null) {
+                    this.f43659b.close();
+                    this.f43659b = null;
                 }
             }
         }
@@ -140,7 +140,7 @@ public class m extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
-            this.f9024b = sQLiteDatabase;
+            this.f43659b = sQLiteDatabase;
         }
     }
 
@@ -169,18 +169,18 @@ public class m extends SQLiteOpenHelper {
     public Cursor a(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4, String str5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{strArr, str, strArr2, str2, str3, str4, str5})) == null) ? this.f9024b.query(this.f9023a, strArr, str, strArr2, str2, str3, str4, str5) : (Cursor) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{strArr, str, strArr2, str2, str3, str4, str5})) == null) ? this.f43659b.query(this.f43658a, strArr, str, strArr2, str2, str3, str4, str5) : (Cursor) invokeCommon.objValue;
     }
 
     public long a(String str, ContentValues contentValues) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, contentValues)) == null) ? this.f9024b.insert(this.f9023a, str, contentValues) : invokeLL.longValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, contentValues)) == null) ? this.f43659b.insert(this.f43658a, str, contentValues) : invokeLL.longValue;
     }
 
     public int a(String str, String[] strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? this.f9024b.delete(this.f9023a, str, strArr) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, strArr)) == null) ? this.f43659b.delete(this.f43658a, str, strArr) : invokeLL.intValue;
     }
 }

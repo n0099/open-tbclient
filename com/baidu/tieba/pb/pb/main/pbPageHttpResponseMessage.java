@@ -1,6 +1,10 @@
 package com.baidu.tieba.pb.pb.main;
 
 import android.content.Context;
+import c.a.p0.i2.h.c;
+import c.a.p0.i2.h.e;
+import c.a.p0.i2.k.e.k;
+import c.a.p0.x2.l0.b;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,17 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.h2.h.c;
-import d.a.q0.h2.h.e;
-import d.a.q0.h2.k.e.k;
-import d.a.q0.w2.i0.b;
 import java.util.ArrayList;
 import org.json.JSONObject;
 import tbclient.PbPage.AppealInfo;
 import tbclient.PbPage.DataRes;
 import tbclient.PbPage.PbPageResIdl;
 import tbclient.SimpleForum;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,20 +115,20 @@ public class pbPageHttpResponseMessage extends TbHttpResponsedMessage {
                 this.mAppealInfo = cVar;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    cVar.f57431a = appealInfo.source;
-                    cVar.f57433c = appealInfo.appeal_url;
+                    cVar.f18723a = appealInfo.source;
+                    cVar.f18725c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
-                    this.mAppealInfo.f57432b = simpleForum.name;
+                    this.mAppealInfo.f18724b = simpleForum.name;
                     return;
                 }
                 return;
             }
             e eVar = new e();
             this.pbData = eVar;
-            eVar.q0(2);
-            this.pbData.p0(pbPageResIdl.data, this.context);
+            eVar.v0(2);
+            this.pbData.u0(pbPageResIdl.data, this.context);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
                 SimpleForum simpleForum2 = dataRes.forum;

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ForumListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_MENU_TYPE = "menu_type";
@@ -33,8 +33,8 @@ public class ForumListActivityConfig extends IntentConfig {
                 return;
             }
         }
-        getIntent().putExtra(KEY_PARENT_MENU_NAME, str);
-        getIntent().putExtra(KEY_MENU_TYPE, str2);
-        getIntent().putExtra(KEY_PARENT_MENU_ID, str3);
+        getIntent().putExtra("parent_menu_name", str);
+        getIntent().putExtra("menu_type", str2);
+        getIntent().putExtra("parent_menu_id", str3);
     }
 }

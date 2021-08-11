@@ -1,9 +1,10 @@
 package com.bytedance.sdk.openadsdk.core.nativeexpress;
 
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -72,7 +73,7 @@ public class g {
                     c2 = 65535;
                     break;
                 case 1844104722:
-                    if (str.equals("interaction")) {
+                    if (str.equals(ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE)) {
                         c2 = 5;
                         break;
                     }

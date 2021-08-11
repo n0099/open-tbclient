@@ -9,9 +9,8 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-import com.alipay.sdk.widget.j;
+import com.alipay.sdk.widget.d;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,7 +22,7 @@ import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.FragmentResultReceiver;
 import com.baidu.wallet.core.utils.FragmentUtils;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BaseFragment extends SDKBaseFragment implements FragmentResultReceiver.a, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -108,7 +107,6 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
             super.onCreate(bundle);
             if (this.mAct != null) {
                 DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "push"));
-                PayStatisticsUtil.onPush(getClass().getSimpleName());
             }
         }
     }
@@ -120,9 +118,9 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             View onCreateView = super.onCreateView(layoutInflater, viewGroup, bundle);
             Bundle arguments = getArguments();
-            if (arguments != null && arguments.containsKey(EXTRA_FRAGMENT_RESULT_RECEIVER) && arguments.containsKey(EXTRA_REQUEST_CODE)) {
-                this.mReceiver = (ResultReceiver) getArguments().getParcelable(EXTRA_FRAGMENT_RESULT_RECEIVER);
-                this.mRequestId = getArguments().getInt(EXTRA_REQUEST_CODE);
+            if (arguments != null && arguments.containsKey("fragment result receiver") && arguments.containsKey("request code")) {
+                this.mReceiver = (ResultReceiver) getArguments().getParcelable("fragment result receiver");
+                this.mRequestId = getArguments().getInt("request code");
             }
             return onCreateView;
         }
@@ -134,8 +132,7 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             if (this.mAct != null) {
-                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), j.j));
-                PayStatisticsUtil.onBack(getClass().getSimpleName());
+                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), d.l));
             }
             super.onDestroy();
         }
@@ -186,7 +183,6 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (this.mAct != null) {
                 DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "out"));
-                PayStatisticsUtil.onOut(getClass().getSimpleName());
             }
             super.onPause();
         }
@@ -217,18 +213,14 @@ public class BaseFragment extends SDKBaseFragment implements FragmentResultRecei
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             super.onResume();
-            BaseActivity baseActivity = this.mAct;
-            if (baseActivity != null) {
-                baseActivity.getApplicationContext();
-                if (0 != this.mTimeVal) {
-                    long currentTimeMillis = System.currentTimeMillis() - this.mTimeVal;
-                    DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(this.mTimeVal)));
-                    PayStatisticsUtil.onIn(getClass().getSimpleName(), currentTimeMillis);
-                    this.mTimeVal = 0L;
+            if (this.mAct != null) {
+                if (0 == this.mTimeVal) {
+                    DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(0)));
                     return;
                 }
-                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(0)));
-                PayStatisticsUtil.onIn(getClass().getSimpleName(), 0L);
+                System.currentTimeMillis();
+                DXMSdkSAUtils.onEventWithValues(StatServiceEvent.PAGE_STACK, Arrays.asList(getClass().getSimpleName(), "in", String.valueOf(this.mTimeVal)));
+                this.mTimeVal = 0L;
             }
         }
     }

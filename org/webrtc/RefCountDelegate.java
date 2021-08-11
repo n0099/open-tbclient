@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class RefCountDelegate implements RefCounted {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

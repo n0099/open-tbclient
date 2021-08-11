@@ -1,6 +1,5 @@
 package com.baidu.ar.arplay.representation;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class Number3D {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int M00 = 0;
@@ -38,7 +37,7 @@ public class Number3D {
     public float z;
 
     /* renamed from: com.baidu.ar.arplay.representation.Number3D$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$ar$arplay$representation$Number3D$Axis;
         public static /* synthetic */ Interceptable $ic;
@@ -75,7 +74,7 @@ public class Number3D {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public static final class Axis {
         public static final /* synthetic */ Axis[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -245,9 +244,7 @@ public class Number3D {
                 return;
             }
         }
-        if (strArr.length != 3) {
-            Log.e(Number3D.class.getSimpleName(), "Number3D should be initialized with 3 values");
-        }
+        int length = strArr.length;
         try {
             this.x = Float.parseFloat(strArr[0]);
             this.y = Float.parseFloat(strArr[1]);

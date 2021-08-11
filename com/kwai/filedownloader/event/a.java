@@ -10,16 +10,16 @@ import com.kwai.filedownloader.f.d;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Executor f37022a;
+    public final Executor f73852a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, LinkedList<c>> f37023b;
+    public final HashMap<String, LinkedList<c>> f73853b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class a {
                 return;
             }
         }
-        this.f37022a = com.kwai.filedownloader.f.b.a(10, "EventPool");
-        this.f37023b = new HashMap<>();
+        this.f73852a = com.kwai.filedownloader.f.b.a(10, "EventPool");
+        this.f73853b = new HashMap<>();
     }
 
     private void a(LinkedList<c> linkedList, b bVar) {
@@ -47,7 +47,7 @@ public class a {
                     break;
                 }
             }
-            Runnable runnable = bVar.f37026a;
+            Runnable runnable = bVar.f73856a;
             if (runnable != null) {
                 runnable.run();
             }
@@ -58,17 +58,17 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-            if (d.f37034a) {
+            if (d.f73864a) {
                 d.e(this, "publish %s", bVar.b());
             }
             if (bVar != null) {
                 String b2 = bVar.b();
-                LinkedList<c> linkedList = this.f37023b.get(b2);
+                LinkedList<c> linkedList = this.f73853b.get(b2);
                 if (linkedList == null) {
                     synchronized (b2.intern()) {
-                        linkedList = this.f37023b.get(b2);
+                        linkedList = this.f73853b.get(b2);
                         if (linkedList == null) {
-                            if (d.f37034a) {
+                            if (d.f73864a) {
                                 d.c(this, "No listener for this event %s", b2);
                             }
                             return false;
@@ -88,16 +88,16 @@ public class a {
         boolean add;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar)) == null) {
-            if (d.f37034a) {
+            if (d.f73864a) {
                 d.e(this, "setListener %s", str);
             }
             if (cVar != null) {
-                LinkedList<c> linkedList = this.f37023b.get(str);
+                LinkedList<c> linkedList = this.f73853b.get(str);
                 if (linkedList == null) {
                     synchronized (str.intern()) {
-                        linkedList = this.f37023b.get(str);
+                        linkedList = this.f73853b.get(str);
                         if (linkedList == null) {
-                            HashMap<String, LinkedList<c>> hashMap = this.f37023b;
+                            HashMap<String, LinkedList<c>> hashMap = this.f73853b;
                             LinkedList<c> linkedList2 = new LinkedList<>();
                             hashMap.put(str, linkedList2);
                             linkedList = linkedList2;
@@ -117,21 +117,21 @@ public class a {
     public void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            if (d.f37034a) {
+            if (d.f73864a) {
                 d.e(this, "asyncPublishInNewThread %s", bVar.b());
             }
             if (bVar == null) {
                 throw new IllegalArgumentException("event must not be null!");
             }
-            this.f37022a.execute(new Runnable(this, bVar) { // from class: com.kwai.filedownloader.event.a.1
+            this.f73852a.execute(new Runnable(this, bVar) { // from class: com.kwai.filedownloader.event.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f37024a;
+                public final /* synthetic */ b f73854a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f37025b;
+                public final /* synthetic */ a f73855b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,8 +148,8 @@ public class a {
                             return;
                         }
                     }
-                    this.f37025b = this;
-                    this.f37024a = bVar;
+                    this.f73855b = this;
+                    this.f73854a = bVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -157,7 +157,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f37025b.a(this.f37024a);
+                            this.f73855b.a(this.f73854a);
                         } catch (Exception unused) {
                         }
                     }

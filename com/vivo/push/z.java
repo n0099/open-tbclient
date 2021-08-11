@@ -6,21 +6,21 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class z {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Uri f39520a;
+    public static final Uri f76354a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Uri f39521b;
+    public static final Uri f76355b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f39522c;
+    public static final Uri f76356c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Uri f39523d;
+    public static final Uri f76357d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,10 +36,10 @@ public final class z {
                 return;
             }
         }
-        f39520a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
-        f39521b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
-        f39522c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
-        f39523d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
+        f76354a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
+        f76355b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
+        f76356c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
+        f76357d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
     }
 
     public static String a(int i2) {

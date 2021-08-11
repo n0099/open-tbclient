@@ -7,26 +7,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a implements com.kwad.sdk.collector.model.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public b f34253a;
+    public b f70984a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f34254b;
+    public Set<String> f70985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f34255c;
+    public long f70986c;
 
-    public a(b bVar, Set<String> set, long j) {
+    public a(b bVar, Set<String> set, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, set, Long.valueOf(j)};
+            Object[] objArr = {bVar, set, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -36,16 +36,16 @@ public class a implements com.kwad.sdk.collector.model.a {
                 return;
             }
         }
-        this.f34253a = bVar;
-        this.f34254b = set;
-        this.f34255c = j;
+        this.f70984a = bVar;
+        this.f70985b = set;
+        this.f70986c = j2;
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b bVar = this.f34253a;
+            b bVar = this.f70984a;
             if (bVar == null) {
                 return null;
             }
@@ -57,12 +57,12 @@ public class a implements com.kwad.sdk.collector.model.a {
     public Set<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34254b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70985b : (Set) invokeV.objValue;
     }
 
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34253a : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70984a : (b) invokeV.objValue;
     }
 }

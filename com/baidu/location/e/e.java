@@ -18,27 +18,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.ConectivityUtils;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6820a;
+    public static String f41058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f6821b;
+    public static int f41059b;
 
     /* renamed from: g  reason: collision with root package name */
-    public static int f6822g;
+    public static int f41060g;
     public static int p;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f6823h;
+    public String f41061h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f6824i;
-    public String j;
+    public int f41062i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f41063j;
     public Map<String, Object> k;
     public String l;
     public byte[] m;
@@ -58,9 +60,9 @@ public abstract class e {
                 return;
             }
         }
-        f6822g = a.f6789g;
-        f6820a = "10.0.0.172";
-        f6821b = 80;
+        f41060g = a.f41025g;
+        f41058a = "10.0.0.172";
+        f41059b = 80;
         p = 0;
     }
 
@@ -77,9 +79,9 @@ public abstract class e {
                 return;
             }
         }
-        this.f6823h = null;
-        this.f6824i = 1;
-        this.j = null;
+        this.f41061h = null;
+        this.f41062i = 1;
+        this.f41063j = null;
         this.k = null;
         this.l = null;
         this.m = null;
@@ -87,7 +89,7 @@ public abstract class e {
         this.o = null;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:55:0x00b1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x00af, code lost:
         if ("10.0.0.200".equals(r5.trim()) != false) goto L24;
      */
     /*
@@ -106,27 +108,27 @@ public abstract class e {
                     if (defaultHost != null && !defaultHost.equals("") && !defaultHost.equals(StringUtil.NULL_STRING)) {
                         str2 = defaultHost;
                     }
-                    f6820a = str2;
-                    return a.f6786d;
+                    f41058a = str2;
+                    return a.f41022d;
                 } else if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
                     String defaultHost2 = Proxy.getDefaultHost();
                     if (defaultHost2 != null && !defaultHost2.equals("") && !defaultHost2.equals(StringUtil.NULL_STRING)) {
                         str = defaultHost2;
                     }
-                    f6820a = str;
-                    return a.f6786d;
+                    f41058a = str;
+                    return a.f41022d;
                 } else if (lowerCase.startsWith(ConectivityUtils.APN_CMNET) || lowerCase.startsWith(ConectivityUtils.APN_UNINET) || lowerCase.startsWith(ConectivityUtils.APN_CTNET) || lowerCase.startsWith(ConectivityUtils.APN_3GNET)) {
-                    return a.f6787e;
+                    return a.f41023e;
                 }
             }
             String defaultHost3 = Proxy.getDefaultHost();
             if (defaultHost3 != null && defaultHost3.length() > 0) {
                 if (!"10.0.0.172".equals(defaultHost3.trim())) {
                 }
-                f6820a = str2;
-                return a.f6786d;
+                f41058a = str2;
+                return a.f41022d;
             }
-            return a.f6787e;
+            return a.f41023e;
         }
         return invokeLL.intValue;
     }
@@ -135,7 +137,7 @@ public abstract class e {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            f6822g = c();
+            f41060g = c();
         }
     }
 
@@ -147,19 +149,19 @@ public abstract class e {
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) serviceContext.getSystemService("connectivity");
                 if (connectivityManager == null) {
-                    return a.f6789g;
+                    return a.f41025g;
                 }
                 NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable()) {
                     if (activeNetworkInfo.getType() == 1) {
                         String defaultHost = Proxy.getDefaultHost();
-                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f6788f : a.f6790h;
+                        return (defaultHost == null || defaultHost.length() <= 0) ? a.f41024f : a.f41026h;
                     }
                     return a(serviceContext, activeNetworkInfo);
                 }
-                return a.f6789g;
+                return a.f41025g;
             } catch (Exception unused) {
-                return a.f6789g;
+                return a.f41025g;
             }
         }
         return invokeV.intValue;

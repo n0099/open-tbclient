@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GalleryViewPager extends BaseViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class GalleryViewPager extends BaseViewPager {
         }
     }
 
-    public final float[] e(MotionEvent motionEvent) {
+    public final float[] d(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
@@ -74,21 +74,21 @@ public class GalleryViewPager extends BaseViewPager {
             if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
                 super.onInterceptTouchEvent(motionEvent);
             }
-            float[] e2 = e(motionEvent);
+            float[] d2 = d(motionEvent);
             DragImageView dragImageView = this.n;
             if (dragImageView == null) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (dragImageView.f0()) {
+            if (dragImageView.pagerCantScroll()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (e2 != null && this.n.e0() && e2[0] < 0.0f) {
+            if (d2 != null && this.n.onRightSide() && d2[0] < 0.0f) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (e2 != null && this.n.d0() && e2[0] > 0.0f) {
+            if (d2 != null && this.n.onLeftSide() && d2[0] > 0.0f) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (e2 == null && (this.n.d0() || this.n.e0())) {
+            if (d2 == null && (this.n.onLeftSide() || this.n.onRightSide())) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -105,23 +105,23 @@ public class GalleryViewPager extends BaseViewPager {
                 super.onTouchEvent(motionEvent);
                 DragImageView dragImageView = this.n;
                 if (dragImageView != null) {
-                    dragImageView.N();
+                    dragImageView.actionUp();
                 }
             }
             if (this.n == null) {
                 return super.onTouchEvent(motionEvent);
             }
-            float[] e2 = e(motionEvent);
-            if (this.n.f0()) {
+            float[] d2 = d(motionEvent);
+            if (this.n.pagerCantScroll()) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (e2 != null && this.n.e0() && e2[0] < 0.0f) {
+            if (d2 != null && this.n.onRightSide() && d2[0] < 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (e2 != null && this.n.d0() && e2[0] > 0.0f) {
+            if (d2 != null && this.n.onLeftSide() && d2[0] > 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (e2 == null && (this.n.d0() || this.n.e0())) {
+            if (d2 == null && (this.n.onLeftSide() || this.n.onRightSide())) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;

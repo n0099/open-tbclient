@@ -13,7 +13,7 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class WeakHashtable extends Hashtable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

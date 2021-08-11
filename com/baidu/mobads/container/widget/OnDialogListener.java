@@ -1,5 +1,5 @@
 package com.baidu.mobads.container.widget;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface OnDialogListener {
     void onDismiss();
 

@@ -1,10 +1,10 @@
 package com.yy.hiidostatis.message;
 
 import com.yy.hiidostatis.message.bean.Message;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface MessageSender {
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface ResultListener {
         void onResult(int i2, Message message, String str);
     }

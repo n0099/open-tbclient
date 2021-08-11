@@ -1,14 +1,13 @@
 package com.baidu.platform.core.a;
 
 import com.baidu.mapapi.search.district.DistrictSearchOption;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,21 +37,21 @@ public class a extends com.baidu.platform.base.e {
         if (!(interceptable == null || interceptable.invokeL(65537, this, districtSearchOption) == null) || districtSearchOption == null) {
             return;
         }
-        this.f9434a.a("qt", "con");
-        this.f9434a.a("rp_format", "json");
-        this.f9434a.a("rp_filter", "mobile");
-        this.f9434a.a("area_res", "true");
-        this.f9434a.a("addr_identify", "1");
-        this.f9434a.a("ie", "utf-8");
-        this.f9434a.a(Config.PACKAGE_NAME, "0");
-        this.f9434a.a("rn", "10");
-        this.f9434a.a("c", districtSearchOption.mCityName);
+        this.f44083a.a("qt", "con");
+        this.f44083a.a("rp_format", "json");
+        this.f44083a.a("rp_filter", "mobile");
+        this.f44083a.a("area_res", "true");
+        this.f44083a.a("addr_identify", "1");
+        this.f44083a.a("ie", "utf-8");
+        this.f44083a.a("pn", "0");
+        this.f44083a.a("rn", "10");
+        this.f44083a.a("c", districtSearchOption.mCityName);
         String str2 = districtSearchOption.mDistrictName;
         if (str2 == null || str2.equals("")) {
-            aVar = this.f9434a;
+            aVar = this.f44083a;
             str = districtSearchOption.mCityName;
         } else {
-            aVar = this.f9434a;
+            aVar = this.f44083a;
             str = districtSearchOption.mDistrictName;
         }
         aVar.a(ActVideoSetting.WIFI_DISPLAY, str);

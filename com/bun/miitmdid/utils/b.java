@@ -7,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f27825a;
+    public static Context f63658a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public b() {
@@ -35,10 +35,10 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (b.class) {
-                if (f27825a == null) {
-                    f27825a = b();
+                if (f63658a == null) {
+                    f63658a = b();
                 }
-                context = f27825a;
+                context = f63658a;
             }
             return context;
         }
@@ -49,7 +49,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             synchronized (b.class) {
-                f27825a = context;
+                f63658a = context;
             }
         }
     }

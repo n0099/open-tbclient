@@ -11,19 +11,19 @@ import com.bytedance.sdk.openadsdk.preload.a.v;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class m<T> extends v<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.f f32085a;
+    public final com.bytedance.sdk.openadsdk.preload.a.f f68038a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final v<T> f32086b;
+    public final v<T> f68039b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Type f32087c;
+    public final Type f68040c;
 
     public m(com.bytedance.sdk.openadsdk.preload.a.f fVar, v<T> vVar, Type type) {
         Interceptable interceptable = $ic;
@@ -40,21 +40,21 @@ public final class m<T> extends v<T> {
                 return;
             }
         }
-        this.f32085a = fVar;
-        this.f32086b = vVar;
-        this.f32087c = type;
+        this.f68038a = fVar;
+        this.f68039b = vVar;
+        this.f68040c = type;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.v
     public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, T t) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, t) == null) {
-            v<T> vVar = this.f32086b;
-            Type a2 = a(this.f32087c, t);
-            if (a2 != this.f32087c) {
-                vVar = this.f32085a.a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(a2));
+            v<T> vVar = this.f68039b;
+            Type a2 = a(this.f68040c, t);
+            if (a2 != this.f68040c) {
+                vVar = this.f68038a.a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(a2));
                 if (vVar instanceof i.a) {
-                    v<T> vVar2 = this.f32086b;
+                    v<T> vVar2 = this.f68039b;
                     if (!(vVar2 instanceof i.a)) {
                         vVar = vVar2;
                     }
@@ -68,7 +68,7 @@ public final class m<T> extends v<T> {
     public T b(com.bytedance.sdk.openadsdk.preload.a.d.a aVar) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? this.f32086b.b(aVar) : (T) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) ? this.f68039b.b(aVar) : (T) invokeL.objValue;
     }
 
     private Type a(Type type, Object obj) {

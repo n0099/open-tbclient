@@ -2,7 +2,6 @@ package com.baidu.ar.child.b;
 
 import android.text.TextUtils;
 import android.util.Base64;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.h.s;
@@ -18,12 +17,12 @@ import java.io.IOException;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void e(byte[] bArr);
     }
@@ -111,7 +110,7 @@ public class b {
                 public void a(HttpException httpException) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, httpException) == null) {
-                        Log.e("ChildRequestController", httpException.getMessage());
+                        httpException.getMessage();
                     }
                 }
 

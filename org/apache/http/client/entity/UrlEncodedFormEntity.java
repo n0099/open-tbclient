@@ -9,7 +9,7 @@ import java.util.List;
 import org.apache.http.NameValuePair;
 import org.apache.http.entity.StringEntity;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class UrlEncodedFormEntity extends StringEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -14,8 +14,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMRtcInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<BIMRtcInfo> CREATOR;
@@ -171,10 +172,10 @@ public class BIMRtcInfo implements Parcelable {
         }
     }
 
-    public void setSeq(long j) {
+    public void setSeq(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.mSeq = j;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.mSeq = j2;
         }
     }
 
@@ -238,7 +239,7 @@ public class BIMRtcInfo implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return "BIMRtcInfo{mAction=" + this.mAction + ", mRtcRoomId='" + this.mRtcRoomId + "', mSeq=" + this.mSeq + ", mCuid='" + this.mCuid + "', mRtcExt='" + this.mRtcExt + "'}";
+            return "BIMRtcInfo{mAction=" + this.mAction + ", mRtcRoomId='" + this.mRtcRoomId + ExtendedMessageFormat.QUOTE + ", mSeq=" + this.mSeq + ", mCuid='" + this.mCuid + ExtendedMessageFormat.QUOTE + ", mRtcExt='" + this.mRtcExt + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

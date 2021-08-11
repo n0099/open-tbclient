@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RouteNode implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RouteNode> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7284a;
+    public String f41543a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f7285b;
+    public LatLng f41544b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7286c;
+    public String f41545c;
 
     static {
         InterceptResult invokeClinit;
@@ -72,9 +72,9 @@ public class RouteNode implements Parcelable {
                 return;
             }
         }
-        this.f7284a = parcel.readString();
-        this.f7285b = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f7286c = parcel.readString();
+        this.f41543a = parcel.readString();
+        this.f41544b = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f41545c = parcel.readString();
     }
 
     public static RouteNode location(LatLng latLng) {
@@ -113,39 +113,39 @@ public class RouteNode implements Parcelable {
     public LatLng getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7285b : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41544b : (LatLng) invokeV.objValue;
     }
 
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7284a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41543a : (String) invokeV.objValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7286c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41545c : (String) invokeV.objValue;
     }
 
     public void setLocation(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, latLng) == null) {
-            this.f7285b = latLng;
+            this.f41544b = latLng;
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f7284a = str;
+            this.f41543a = str;
         }
     }
 
     public void setUid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f7286c = str;
+            this.f41545c = str;
         }
     }
 
@@ -153,9 +153,9 @@ public class RouteNode implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
-            parcel.writeString(this.f7284a);
-            parcel.writeValue(this.f7285b);
-            parcel.writeString(this.f7286c);
+            parcel.writeString(this.f41543a);
+            parcel.writeValue(this.f41544b);
+            parcel.writeString(this.f41545c);
         }
     }
 }

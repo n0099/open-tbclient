@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveUserNotifyDialog extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -90,7 +90,7 @@ public class AlaLiveUserNotifyDialog extends Dialog {
     private void bindDataToView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.userPortrait.M(this.mUserNotifyData.getAnchorPortrait(), 12, false);
+            this.userPortrait.startLoad(this.mUserNotifyData.getAnchorPortrait(), 12, false);
             this.alaNotifyDescription.setText(this.mUserNotifyData.getMessageContent());
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

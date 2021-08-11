@@ -7,23 +7,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b extends HttpClient.ProtoResultCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a.InterfaceC0136a f9444a;
+    public final /* synthetic */ a.InterfaceC1685a f44093a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f9445b;
+    public final /* synthetic */ a f44094b;
 
-    public b(a aVar, a.InterfaceC0136a interfaceC0136a) {
+    public b(a aVar, a.InterfaceC1685a interfaceC1685a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, interfaceC0136a};
+            Object[] objArr = {aVar, interfaceC1685a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -33,15 +33,15 @@ public class b extends HttpClient.ProtoResultCallback {
                 return;
             }
         }
-        this.f9445b = aVar;
-        this.f9444a = interfaceC0136a;
+        this.f44094b = aVar;
+        this.f44093a = interfaceC1685a;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            this.f9444a.a(httpStateError);
+            this.f44093a.a(httpStateError);
         }
     }
 
@@ -50,9 +50,9 @@ public class b extends HttpClient.ProtoResultCallback {
         c a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            a.InterfaceC0136a interfaceC0136a = this.f9444a;
-            a2 = this.f9445b.a(str);
-            interfaceC0136a.a((a.InterfaceC0136a) a2);
+            a.InterfaceC1685a interfaceC1685a = this.f44093a;
+            a2 = this.f44094b.a(str);
+            interfaceC1685a.a((a.InterfaceC1685a) a2);
         }
     }
 }

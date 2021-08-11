@@ -13,22 +13,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final LinkedHashMap<K, V> f38269a;
+    public final LinkedHashMap<K, V> f75052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38270b;
+    public int f75053b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f38271c;
+    public int f75054c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b<K, Long> f38272d;
+    public b<K, Long> f75055d;
 
     public c(int i2) {
         Interceptable interceptable = $ic;
@@ -48,9 +48,9 @@ public class c<K, V> {
         if (i2 <= 0) {
             throw new IllegalArgumentException("maxSize <= 0");
         }
-        this.f38271c = i2;
-        this.f38269a = new LinkedHashMap<>(0, 0.75f, true);
-        this.f38272d = new b<>(0, 0.75f);
+        this.f75054c = i2;
+        this.f75052a = new LinkedHashMap<>(0, 0.75f, true);
+        this.f75055d = new b<>(0, 0.75f);
     }
 
     public static int a(String str, String str2, Boolean bool) {
@@ -72,7 +72,7 @@ public class c<K, V> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            long j = 0;
+            long j2 = 0;
             if (TextUtils.isEmpty(str)) {
                 return 0L;
             }
@@ -83,10 +83,10 @@ public class c<K, V> {
             int i2 = 0;
             while (i2 < length) {
                 int i3 = i2 + 100;
-                j += new String(str.substring(i2, i3 < length ? i3 : length)).getBytes(str2).length;
+                j2 += new String(str.substring(i2, i3 < length ? i3 : length)).getBytes(str2).length;
                 i2 = i3;
             }
-            return j;
+            return j2;
         }
         return invokeLL.longValue;
     }
@@ -102,15 +102,15 @@ public class c<K, V> {
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
             while (true) {
                 synchronized (this) {
-                    if (this.f38270b <= i2 || this.f38269a.isEmpty()) {
+                    if (this.f75053b <= i2 || this.f75052a.isEmpty()) {
                         break;
                     }
-                    Map.Entry<K, V> next = this.f38269a.entrySet().iterator().next();
+                    Map.Entry<K, V> next = this.f75052a.entrySet().iterator().next();
                     K key = next.getKey();
                     V value = next.getValue();
-                    this.f38269a.remove(key);
-                    this.f38272d.remove(key);
-                    this.f38270b -= b(key, value);
+                    this.f75052a.remove(key);
+                    this.f75055d.remove(key);
+                    this.f75053b -= b(key, value);
                 }
             }
         }
@@ -137,9 +137,9 @@ public class c<K, V> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, k, v)) == null) {
             int a2 = a((c<K, V>) k, (K) v);
             if (a2 <= 0) {
-                this.f38270b = 0;
-                for (Map.Entry<K, V> entry : this.f38269a.entrySet()) {
-                    this.f38270b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
+                this.f75053b = 0;
+                for (Map.Entry<K, V> entry : this.f75052a.entrySet()) {
+                    this.f75053b += a((c<K, V>) entry.getKey(), (K) entry.getValue());
                 }
             }
             return a2;
@@ -175,10 +175,10 @@ public class c<K, V> {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, k)) == null) {
             if (k != null) {
                 synchronized (this) {
-                    remove = this.f38269a.remove(k);
-                    this.f38272d.remove(k);
+                    remove = this.f75052a.remove(k);
+                    this.f75055d.remove(k);
                     if (remove != null) {
-                        this.f38270b -= b(k, remove);
+                        this.f75053b -= b(k, remove);
                     }
                 }
                 return remove;
@@ -218,11 +218,11 @@ public class c<K, V> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
             if (k != null) {
                 synchronized (this) {
-                    if (!this.f38272d.containsKey(k)) {
+                    if (!this.f75055d.containsKey(k)) {
                         b((c<K, V>) k);
                         return null;
                     }
-                    V v = this.f38269a.get(k);
+                    V v = this.f75052a.get(k);
                     if (v != null) {
                         return v;
                     }
@@ -234,23 +234,23 @@ public class c<K, V> {
         return (V) invokeL.objValue;
     }
 
-    public final V a(K k, V v, long j) {
+    public final V a(K k, V v, long j2) {
         InterceptResult invokeCommon;
         V put;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{k, v, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{k, v, Long.valueOf(j2)})) == null) {
             if (k == null || v == null) {
                 throw new NullPointerException("key == null || value == null");
             }
             synchronized (this) {
-                this.f38270b += b(k, v);
-                put = this.f38269a.put(k, v);
-                this.f38272d.put(k, Long.valueOf(j));
+                this.f75053b += b(k, v);
+                put = this.f75052a.put(k, v);
+                this.f75055d.put(k, Long.valueOf(j2));
                 if (put != null) {
-                    this.f38270b -= b(k, put);
+                    this.f75053b -= b(k, put);
                 }
             }
-            a(this.f38271c);
+            a(this.f75054c);
             return put;
         }
         return (V) invokeCommon.objValue;

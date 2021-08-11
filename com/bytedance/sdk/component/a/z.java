@@ -20,17 +20,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class z extends a {
     public static /* synthetic */ Interceptable $ic;
-    public static final /* synthetic */ boolean j;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final /* synthetic */ boolean f63817j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f27980h;
+    public String f63818h;
 
     /* renamed from: i  reason: collision with root package name */
-    public WebView f27981i;
+    public WebView f63819i;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +47,7 @@ public class z extends a {
                 return;
             }
         }
-        j = !z.class.desiredAssertionStatus();
+        f63817j = !z.class.desiredAssertionStatus();
     }
 
     public z() {
@@ -68,11 +70,11 @@ public class z extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jVar)) == null) {
-            Context context = jVar.f27919e;
+            Context context = jVar.f63755e;
             if (context != null) {
                 return context;
             }
-            WebView webView = jVar.f27915a;
+            WebView webView = jVar.f63751a;
             if (webView != null) {
                 return webView.getContext();
             }
@@ -86,8 +88,8 @@ public class z extends a {
     public void b(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, jVar) == null) {
-            this.f27981i = jVar.f27915a;
-            this.f27980h = jVar.f27917c;
+            this.f63819i = jVar.f63751a;
+            this.f63818h = jVar.f63753c;
             if (Build.VERSION.SDK_INT < 17 || jVar.n) {
                 return;
             }
@@ -99,17 +101,17 @@ public class z extends a {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!j && this.f27981i == null) {
+            if (!f63817j && this.f63819i == null) {
                 throw new AssertionError();
             }
-            this.f27981i.addJavascriptInterface(this, this.f27980h);
+            this.f63819i.addJavascriptInterface(this, this.f63818h);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f27981i.removeJavascriptInterface(this.f27980h);
+            this.f63819i.removeJavascriptInterface(this.f63818h);
         }
     }
 
@@ -126,7 +128,7 @@ public class z extends a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27981i.getUrl() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f63819i.getUrl() : (String) invokeV.objValue;
     }
 
     @Override // com.bytedance.sdk.component.a.a
@@ -142,8 +144,8 @@ public class z extends a {
     public void a(String str, @Nullable q qVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, qVar) == null) {
-            if (qVar != null && !TextUtils.isEmpty(qVar.f27932h)) {
-                String str2 = qVar.f27932h;
+            if (qVar != null && !TextUtils.isEmpty(qVar.f63769h)) {
+                String str2 = qVar.f63769h;
                 a(str, String.format("javascript:(function(){   const iframe = document.querySelector(atob('%s'));   if (iframe && iframe.contentWindow) {        iframe.contentWindow.postMessage(%s, atob('%s'));   }})()", Base64.encodeToString(String.format("iframe[src=\"%s\"", str2).getBytes(), 2), str, Base64.encodeToString(str2.getBytes(), 2)));
                 return;
             }
@@ -155,13 +157,13 @@ public class z extends a {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            a(str, "javascript:" + this.f27980h + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
+            a(str, "javascript:" + this.f63818h + "._handleMessageFromToutiao(" + str + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
     private void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) || this.f27883f || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, this, str, str2) == null) || this.f63718f || TextUtils.isEmpty(str2)) {
             return;
         }
         Runnable runnable = new Runnable(this, str2) { // from class: com.bytedance.sdk.component.a.z.1
@@ -169,10 +171,10 @@ public class z extends a {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f27982a;
+            public final /* synthetic */ String f63820a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ z f27983b;
+            public final /* synthetic */ z f63821b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -189,28 +191,28 @@ public class z extends a {
                         return;
                     }
                 }
-                this.f27983b = this;
-                this.f27982a = str2;
+                this.f63821b = this;
+                this.f63820a = str2;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f27983b.f27883f) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f63821b.f63718f) {
                     return;
                 }
                 if (Build.VERSION.SDK_INT >= 19) {
-                    i.a("Invoking Jsb using evaluateJavascript: " + this.f27982a);
-                    this.f27983b.f27981i.evaluateJavascript(this.f27982a, null);
+                    i.a("Invoking Jsb using evaluateJavascript: " + this.f63820a);
+                    this.f63821b.f63819i.evaluateJavascript(this.f63820a, null);
                     return;
                 }
-                i.a("Invoking Jsb using loadUrl: " + this.f27982a);
-                this.f27983b.f27981i.loadUrl(this.f27982a);
+                i.a("Invoking Jsb using loadUrl: " + this.f63820a);
+                this.f63821b.f63819i.loadUrl(this.f63820a);
             }
         };
         if (Looper.myLooper() != Looper.getMainLooper()) {
             i.a("Received call on sub-thread, posting to main thread: " + str2);
-            this.f27881d.post(runnable);
+            this.f63716d.post(runnable);
             return;
         }
         runnable.run();

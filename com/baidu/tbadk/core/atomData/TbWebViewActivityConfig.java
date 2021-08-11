@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbWebViewActivityConfig extends WebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static String GOD_INVITE_JUMP_URL = "http://c.tieba.baidu.com/mo/q/god/inviteGod";

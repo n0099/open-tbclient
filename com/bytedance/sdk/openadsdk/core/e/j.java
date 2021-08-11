@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30158a;
+    public int f66064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30159b;
+    public int f66065b;
 
     public j() {
         Interceptable interceptable = $ic;
@@ -31,21 +31,21 @@ public class j {
                 return;
             }
         }
-        this.f30158a = 1;
-        this.f30159b = 1;
+        this.f66064a = 1;
+        this.f66065b = 1;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f30158a = i2;
+            this.f66064a = i2;
         }
     }
 
     public void b(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f30159b = i2;
+            this.f66065b = i2;
         }
     }
 
@@ -55,8 +55,8 @@ public class j {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ah", this.f30158a);
-                jSONObject.put("am", this.f30159b);
+                jSONObject.put("ah", this.f66064a);
+                jSONObject.put("am", this.f66065b);
             } catch (Exception e2) {
                 com.bytedance.sdk.component.utils.k.c(e2.toString());
             }
@@ -68,12 +68,12 @@ public class j {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30158a == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f66064a == 1 : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30159b == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f66065b == 1 : invokeV.booleanValue;
     }
 }

@@ -6,20 +6,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class VideoSource extends MediaSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final NativeCapturerObserver capturerObserver;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoSource(long j) {
-        super(j);
+    public VideoSource(long j2) {
+        super(j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -30,12 +30,12 @@ public class VideoSource extends MediaSource {
                 return;
             }
         }
-        this.capturerObserver = new NativeCapturerObserver(nativeGetInternalSource(j));
+        this.capturerObserver = new NativeCapturerObserver(nativeGetInternalSource(j2));
     }
 
-    public static native void nativeAdaptOutputFormat(long j, int i2, int i3, int i4, int i5, int i6);
+    public static native void nativeAdaptOutputFormat(long j2, int i2, int i3, int i4, int i5, int i6);
 
-    public static native long nativeGetInternalSource(long j);
+    public static native long nativeGetInternalSource(long j2);
 
     public void adaptOutputFormat(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;

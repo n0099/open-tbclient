@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class ad implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23596a;
+    public final /* synthetic */ FeedbackEditActivity f59332a;
 
     public ad(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public final class ad implements View.OnClickListener {
                 return;
             }
         }
-        this.f23596a = feedbackEditActivity;
+        this.f59332a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -38,13 +38,13 @@ public final class ad implements View.OnClickListener {
         List list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            z = this.f23596a.v;
+            z = this.f59332a.v;
             if (z) {
                 return;
             }
-            list = this.f23596a.q;
+            list = this.f59332a.q;
             if (list.size() >= 3) {
-                FeedbackEditActivity.a(this.f23596a, 3);
+                FeedbackEditActivity.a(this.f59332a, 3);
             }
         }
     }

@@ -17,9 +17,10 @@ import javax.annotation.Nullable;
 import okhttp3.Headers;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpMethod;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class Request {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +32,7 @@ public final class Request {
     public final Map<Class<?>, Object> tags;
     public final HttpUrl url;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -370,7 +371,7 @@ public final class Request {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + '}';
+            return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

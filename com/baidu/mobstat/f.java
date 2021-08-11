@@ -25,30 +25,30 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f8998a;
+    public static f f43632a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f8999b;
+    public String f43633b;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f9000a;
+        public String f43634a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f9001b;
+        public String f43635b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f9002c;
+        public String f43636c;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -65,9 +65,9 @@ public class f {
                     return;
                 }
             }
-            this.f9000a = str == null ? "" : str;
-            this.f9001b = str2 == null ? "" : str2;
-            this.f9002c = str3 == null ? "" : str3;
+            this.f43634a = str == null ? "" : str;
+            this.f43635b = str2 == null ? "" : str2;
+            this.f43636c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
@@ -76,9 +76,9 @@ public class f {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("n", this.f9000a);
-                    jSONObject.put("v", this.f9001b);
-                    jSONObject.put("w", this.f9002c);
+                    jSONObject.put("n", this.f43634a);
+                    jSONObject.put("v", this.f43635b);
+                    jSONObject.put("w", this.f43636c);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -91,7 +91,7 @@ public class f {
         public String b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9000a : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43634a : (String) invokeV.objValue;
         }
     }
 
@@ -108,7 +108,7 @@ public class f {
                 return;
             }
         }
-        f8998a = new f();
+        f43632a = new f();
     }
 
     public f() {
@@ -124,7 +124,7 @@ public class f {
                 return;
             }
         }
-        this.f8999b = "";
+        this.f43633b = "";
     }
 
     private boolean a(int i2) {
@@ -206,8 +206,8 @@ public class f {
         }
         if (z) {
             String b2 = a2.get(0).b();
-            if (a(b2, this.f8999b)) {
-                this.f8999b = b2;
+            if (a(b2, this.f43633b)) {
+                this.f43633b = b2;
             }
         }
         a(context, a2, z);
@@ -228,7 +228,7 @@ public class f {
     private boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f8999b)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f43633b)) ? false : true : invokeLL.booleanValue;
     }
 
     private String a(Context context, String str) {
@@ -278,7 +278,7 @@ public class f {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f9018c.a(System.currentTimeMillis(), str);
+            k.f43653c.a(System.currentTimeMillis(), str);
         }
     }
 

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface ConstantsAPI {
     public static final String ACTION_HANDLE_APP_REGISTER = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
     public static final String ACTION_HANDLE_APP_UNREGISTER = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
@@ -21,7 +21,7 @@ public interface ConstantsAPI {
     public static final String CONTENT = "_mmessage_content";
     public static final String SDK_VERSION = "_mmessage_sdkVersion";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Token {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String WX_TOKEN_JUMP_ARG = "wx_jump_arg";
@@ -46,7 +46,7 @@ public interface ConstantsAPI {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class WXApp {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String WXAPP_BROADCAST_PERMISSION = "com.tencent.mm.permission.MM_MESSAGE";

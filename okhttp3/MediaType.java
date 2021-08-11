@@ -13,8 +13,7 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
-import kotlin.text.Typography;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class MediaType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern PARAMETER;
@@ -90,17 +89,17 @@ public final class MediaType {
                                 group2 = matcher2.group(3);
                             }
                             if (str2 != null && !group2.equalsIgnoreCase(str2)) {
-                                throw new IllegalArgumentException("Multiple charsets defined: \"" + str2 + "\" and: \"" + group2 + "\" for: \"" + str + Typography.quote);
+                                throw new IllegalArgumentException("Multiple charsets defined: \"" + str2 + "\" and: \"" + group2 + "\" for: \"" + str + '\"');
                             }
                             str2 = group2;
                         }
                     } else {
-                        throw new IllegalArgumentException("Parameter is not formatted correctly: \"" + str.substring(end) + "\" for: \"" + str + Typography.quote);
+                        throw new IllegalArgumentException("Parameter is not formatted correctly: \"" + str.substring(end) + "\" for: \"" + str + '\"');
                     }
                 }
                 return new MediaType(str, lowerCase, lowerCase2, str2);
             }
-            throw new IllegalArgumentException("No subtype found for: \"" + str + Typography.quote);
+            throw new IllegalArgumentException("No subtype found for: \"" + str + '\"');
         }
         return (MediaType) invokeL.objValue;
     }

@@ -1,6 +1,12 @@
 package com.google.common.hash;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.n;
+import c.i.d.d.b;
+import c.i.d.d.c;
+import c.i.d.d.e;
+import c.i.d.d.f;
+import c.i.d.d.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,17 +17,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.Ints;
-import d.f.d.a.n;
-import d.f.d.d.b;
-import d.f.d.d.c;
-import d.f.d.d.e;
-import d.f.d.d.f;
-import d.f.d.d.j;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Murmur3_32HashFunction extends b implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int C1 = -862048943;
@@ -33,25 +33,25 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public final int seed;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f33701a;
+        public int f70430a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f33702b;
+        public long f70431b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f33703c;
+        public int f70432c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f33704d;
+        public int f70433d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f33705e;
+        public boolean f70434e;
 
         public a(int i2) {
             Interceptable interceptable = $ic;
@@ -68,38 +68,38 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
                     return;
                 }
             }
-            this.f33701a = i2;
-            this.f33704d = 0;
-            this.f33705e = false;
+            this.f70430a = i2;
+            this.f70433d = 0;
+            this.f70434e = false;
         }
 
-        @Override // d.f.d.d.f, d.f.d.d.j
+        @Override // c.i.d.d.f, c.i.d.d.j
         public /* bridge */ /* synthetic */ j a(int i2) {
             a(i2);
             return this;
         }
 
-        @Override // d.f.d.d.f, d.f.d.d.j
-        public /* bridge */ /* synthetic */ j b(long j) {
-            b(j);
+        @Override // c.i.d.d.f, c.i.d.d.j
+        public /* bridge */ /* synthetic */ j b(long j2) {
+            b(j2);
             return this;
         }
 
-        @Override // d.f.d.d.f
+        @Override // c.i.d.d.f
         public HashCode e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                n.w(!this.f33705e);
-                this.f33705e = true;
-                int mixK1 = this.f33701a ^ Murmur3_32HashFunction.mixK1((int) this.f33702b);
-                this.f33701a = mixK1;
-                return Murmur3_32HashFunction.fmix(mixK1, this.f33704d);
+                n.w(!this.f70434e);
+                this.f70434e = true;
+                int mixK1 = this.f70430a ^ Murmur3_32HashFunction.mixK1((int) this.f70431b);
+                this.f70430a = mixK1;
+                return Murmur3_32HashFunction.fmix(mixK1, this.f70433d);
             }
             return (HashCode) invokeV.objValue;
         }
 
-        @Override // d.f.d.d.c, d.f.d.d.f
+        @Override // c.i.d.d.c, c.i.d.d.f
         public f h(byte[] bArr, int i2, int i3) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
@@ -123,7 +123,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
             return (f) invokeLII.objValue;
         }
 
-        @Override // d.f.d.d.f
+        @Override // c.i.d.d.f
         public f i(ByteBuffer byteBuffer) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -142,7 +142,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
             return (f) invokeL.objValue;
         }
 
-        @Override // d.f.d.d.c
+        @Override // c.i.d.d.c
         public f k(char c2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -163,25 +163,25 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
             return (f) invokeB.objValue;
         }
 
-        public final void m(int i2, long j) {
+        public final void m(int i2, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-                long j2 = this.f33702b;
-                int i3 = this.f33703c;
-                long j3 = ((j & 4294967295L) << i3) | j2;
-                this.f33702b = j3;
+            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+                long j3 = this.f70431b;
+                int i3 = this.f70432c;
+                long j4 = ((j2 & 4294967295L) << i3) | j3;
+                this.f70431b = j4;
                 int i4 = i3 + (i2 * 8);
-                this.f33703c = i4;
-                this.f33704d += i2;
+                this.f70432c = i4;
+                this.f70433d += i2;
                 if (i4 >= 32) {
-                    this.f33701a = Murmur3_32HashFunction.mixH1(this.f33701a, Murmur3_32HashFunction.mixK1((int) j3));
-                    this.f33702b >>>= 32;
-                    this.f33703c -= 32;
+                    this.f70430a = Murmur3_32HashFunction.mixH1(this.f70430a, Murmur3_32HashFunction.mixK1((int) j4));
+                    this.f70431b >>>= 32;
+                    this.f70432c -= 32;
                 }
             }
         }
 
-        @Override // d.f.d.d.f, d.f.d.d.j
+        @Override // c.i.d.d.f, c.i.d.d.j
         public f a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
@@ -192,25 +192,25 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
             return (f) invokeI.objValue;
         }
 
-        @Override // d.f.d.d.f, d.f.d.d.j
-        public f b(long j) {
+        @Override // c.i.d.d.f, c.i.d.d.j
+        public f b(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                m(4, (int) j);
-                m(4, j >>> 32);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+                m(4, (int) j2);
+                m(4, j2 >>> 32);
                 return this;
             }
             return (f) invokeJ.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.f.d.d.c, d.f.d.d.f, d.f.d.d.j
+        @Override // c.i.d.d.c, c.i.d.d.f, c.i.d.d.j
         public f d(CharSequence charSequence, Charset charset) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, charSequence, charset)) == null) {
-                if (d.f.d.a.c.f71274a.equals(charset)) {
+                if (c.i.d.a.c.f33940a.equals(charset)) {
                     int length = charSequence.length();
                     int i2 = 0;
                     while (true) {
@@ -270,7 +270,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
             }
         }
         MURMUR3_32 = new Murmur3_32HashFunction(0);
-        GOOD_FAST_HASH_32 = new Murmur3_32HashFunction(Hashing.f33693a);
+        GOOD_FAST_HASH_32 = new Murmur3_32HashFunction(Hashing.f70422a);
     }
 
     public Murmur3_32HashFunction(int i2) {
@@ -354,7 +354,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) ? (obj instanceof Murmur3_32HashFunction) && this.seed == ((Murmur3_32HashFunction) obj).seed : invokeL.booleanValue;
     }
 
-    @Override // d.f.d.d.b
+    @Override // c.i.d.d.b
     public HashCode hashBytes(byte[] bArr, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
@@ -374,7 +374,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
             int i8 = i6;
             int i9 = 0;
             while (i8 < i3) {
-                i5 ^= d.f.d.g.b.c(bArr[i2 + i8]) << i9;
+                i5 ^= c.i.d.g.b.c(bArr[i2 + i8]) << i9;
                 i8++;
                 i9 += 8;
             }
@@ -389,29 +389,29 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Murmur3_32HashFunction.class.hashCode() ^ this.seed : invokeV.intValue;
     }
 
-    @Override // d.f.d.d.b
+    @Override // c.i.d.d.b
     public HashCode hashInt(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? fmix(mixH1(this.seed, mixK1(i2)), 4) : (HashCode) invokeI.objValue;
     }
 
-    @Override // d.f.d.d.b
-    public HashCode hashLong(long j) {
+    @Override // c.i.d.d.b
+    public HashCode hashLong(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
-            return fmix(mixH1(mixH1(this.seed, mixK1((int) j)), mixK1((int) (j >>> 32))), 8);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+            return fmix(mixH1(mixH1(this.seed, mixK1((int) j2)), mixK1((int) (j2 >>> 32))), 8);
         }
         return (HashCode) invokeJ.objValue;
     }
 
-    @Override // d.f.d.d.b
+    @Override // c.i.d.d.b
     public HashCode hashString(CharSequence charSequence, Charset charset) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, charSequence, charset)) == null) {
-            if (d.f.d.a.c.f71274a.equals(charset)) {
+            if (c.i.d.a.c.f33940a.equals(charset)) {
                 int length = charSequence.length();
                 int i2 = this.seed;
                 int i3 = 0;
@@ -433,15 +433,15 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
                     i5 += 4;
                     i4 = i6;
                 }
-                long j = 0;
+                long j2 = 0;
                 while (i4 < length) {
                     char charAt5 = charSequence.charAt(i4);
                     if (charAt5 < 128) {
-                        j |= charAt5 << i3;
+                        j2 |= charAt5 << i3;
                         i3 += 8;
                         i5++;
                     } else if (charAt5 < 2048) {
-                        j |= charToTwoUtf8Bytes(charAt5) << i3;
+                        j2 |= charToTwoUtf8Bytes(charAt5) << i3;
                         i3 += 16;
                         i5 += 2;
                     } else if (charAt5 >= 55296 && charAt5 <= 57343) {
@@ -450,28 +450,28 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
                             return hashBytes(charSequence.toString().getBytes(charset));
                         }
                         i4++;
-                        j |= codePointToFourUtf8Bytes(codePointAt) << i3;
+                        j2 |= codePointToFourUtf8Bytes(codePointAt) << i3;
                         i5 += 4;
                     } else {
-                        j |= charToThreeUtf8Bytes(charAt5) << i3;
+                        j2 |= charToThreeUtf8Bytes(charAt5) << i3;
                         i3 += 24;
                         i5 += 3;
                     }
                     if (i3 >= 32) {
-                        i2 = mixH1(i2, mixK1((int) j));
-                        j >>>= 32;
+                        i2 = mixH1(i2, mixK1((int) j2));
+                        j2 >>>= 32;
                         i3 -= 32;
                     }
                     i4++;
                 }
-                return fmix(mixK1((int) j) ^ i2, i5);
+                return fmix(mixK1((int) j2) ^ i2, i5);
             }
             return hashBytes(charSequence.toString().getBytes(charset));
         }
         return (HashCode) invokeLL.objValue;
     }
 
-    @Override // d.f.d.d.b
+    @Override // c.i.d.d.b
     public HashCode hashUnencodedChars(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -488,7 +488,7 @@ public final class Murmur3_32HashFunction extends b implements Serializable {
         return (HashCode) invokeL.objValue;
     }
 
-    @Override // d.f.d.d.e
+    @Override // c.i.d.d.e
     public f newHasher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

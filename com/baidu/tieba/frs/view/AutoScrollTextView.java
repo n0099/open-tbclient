@@ -21,32 +21,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AutoScrollTextView extends TextView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f16206e;
+    public float f51400e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f16207f;
+    public float f51401f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f16208g;
+    public float f51402g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f16209h;
+    public float f51403h;
+    public boolean hasDraw;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f16210i;
-    public boolean j;
-    public Paint k;
-    public String l;
-    public View.OnClickListener m;
-    public float n;
+    public float f51404i;
+    public boolean isStarting;
 
-    /* loaded from: classes4.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public Paint f51405j;
+    public String k;
+    public View.OnClickListener l;
+    public float m;
+
+    /* loaded from: classes7.dex */
     public static class SavedState extends View.BaseSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -54,7 +57,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         public boolean isStarting;
         public float step;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes7.dex */
         public static class a implements Parcelable.Creator<SavedState> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -169,7 +172,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -193,59 +196,44 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
                 return;
             }
         }
-        this.f16206e = 0.0f;
-        this.f16207f = 0.0f;
-        this.f16208g = 0.0f;
-        this.f16209h = 0.0f;
-        this.f16210i = 0.0f;
-        this.j = false;
-        this.k = null;
-        this.l = "";
-        b();
+        this.f51400e = 0.0f;
+        this.f51401f = 0.0f;
+        this.f51402g = 0.0f;
+        this.f51403h = 0.0f;
+        this.f51404i = 0.0f;
+        this.isStarting = false;
+        this.hasDraw = false;
+        this.f51405j = null;
+        this.k = "";
+        a();
     }
 
-    public void a(WindowManager windowManager) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, windowManager) == null) {
-            TextPaint paint = getPaint();
-            this.k = paint;
-            paint.setColor(-1);
-            String charSequence = getText().toString();
-            this.l = charSequence;
-            this.f16206e = this.k.measureText(charSequence);
-            float width = getWidth();
-            this.f16207f = width;
-            if (width == 0.0f && windowManager != null) {
-                this.f16207f = windowManager.getDefaultDisplay().getWidth();
-            }
-            float f2 = this.f16206e;
-            this.f16208g = f2;
-            this.f16209h = f2;
-            this.f16210i = f2 * 2.0f;
-            getTextSize();
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOnClickListener(this);
         }
     }
 
-    public void c() {
+    public void init(WindowManager windowManager) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.j = true;
-            invalidate();
-        }
-    }
-
-    public void d(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.n = f2;
-            setWidth((int) ((f2 - 0.5f) * 3000.0f));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, windowManager) == null) {
+            TextPaint paint = getPaint();
+            this.f51405j = paint;
+            paint.setColor(-1);
+            String charSequence = getText().toString();
+            this.k = charSequence;
+            this.f51400e = this.f51405j.measureText(charSequence);
+            float width = getWidth();
+            this.f51401f = width;
+            if (width == 0.0f && windowManager != null) {
+                this.f51401f = windowManager.getDefaultDisplay().getWidth();
+            }
+            float f2 = this.f51400e;
+            this.f51402g = f2;
+            this.f51403h = f2;
+            this.f51404i = f2 * 2.0f;
+            getTextSize();
         }
     }
 
@@ -253,7 +241,7 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
     public void onClick(View view) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view) == null) || (onClickListener = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (onClickListener = this.l) == null) {
             return;
         }
         onClickListener.onClick(view);
@@ -262,21 +250,21 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
     @Override // android.widget.TextView, android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            if (!this.j) {
-                float f2 = this.n;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            if (!this.isStarting) {
+                float f2 = this.m;
                 if (f2 > 0.5f) {
                     setWidth((int) ((f2 - 0.5f) * 3000.0f));
-                    canvas.drawText(this.l, this.f16209h - this.f16208g, getTextSize() + 2.7f, this.k);
+                    canvas.drawText(this.k, this.f51403h - this.f51402g, getTextSize() + 2.7f, this.f51405j);
                     return;
                 }
                 return;
             }
-            canvas.drawText(this.l, this.f16209h - this.f16208g, getTextSize() + 2.7f, this.k);
-            float dimensionPixelOffset = this.f16208g + TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3);
-            this.f16208g = dimensionPixelOffset;
-            if (dimensionPixelOffset > this.f16210i) {
-                this.f16208g = this.f16206e;
+            canvas.drawText(this.k, this.f51403h - this.f51402g, getTextSize() + 2.7f, this.f51405j);
+            float dimensionPixelOffset = this.f51402g + TbadkApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds3);
+            this.f51402g = dimensionPixelOffset;
+            if (dimensionPixelOffset > this.f51404i) {
+                this.f51402g = this.f51400e;
             }
             invalidate();
         }
@@ -285,15 +273,15 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
     @Override // android.widget.TextView, android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, parcelable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, parcelable) == null) {
             if (!(parcelable instanceof SavedState)) {
                 super.onRestoreInstanceState(parcelable);
                 return;
             }
             SavedState savedState = (SavedState) parcelable;
             super.onRestoreInstanceState(savedState.getSuperState());
-            this.f16208g = savedState.step;
-            this.j = savedState.isStarting;
+            this.f51402g = savedState.step;
+            this.isStarting = savedState.isStarting;
         }
     }
 
@@ -301,10 +289,10 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
     public Parcelable onSaveInstanceState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             SavedState savedState = new SavedState(super.onSaveInstanceState());
-            savedState.step = this.f16208g;
-            savedState.isStarting = this.j;
+            savedState.step = this.f51402g;
+            savedState.isStarting = this.isStarting;
             return savedState;
         }
         return (Parcelable) invokeV.objValue;
@@ -312,8 +300,32 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
 
     public void setClickliner(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.m = onClickListener;
+        if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
+            this.l = onClickListener;
+        }
+    }
+
+    public void startScroll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.isStarting = true;
+            invalidate();
+        }
+    }
+
+    public void stopScroll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.isStarting = false;
+            invalidate();
+        }
+    }
+
+    public void translatDraw(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
+            this.m = f2;
+            setWidth((int) ((f2 - 0.5f) * 3000.0f));
         }
     }
 
@@ -336,14 +348,15 @@ public class AutoScrollTextView extends TextView implements View.OnClickListener
                 return;
             }
         }
-        this.f16206e = 0.0f;
-        this.f16207f = 0.0f;
-        this.f16208g = 0.0f;
-        this.f16209h = 0.0f;
-        this.f16210i = 0.0f;
-        this.j = false;
-        this.k = null;
-        this.l = "";
-        b();
+        this.f51400e = 0.0f;
+        this.f51401f = 0.0f;
+        this.f51402g = 0.0f;
+        this.f51403h = 0.0f;
+        this.f51404i = 0.0f;
+        this.isStarting = false;
+        this.hasDraw = false;
+        this.f51405j = null;
+        this.k = "";
+        a();
     }
 }

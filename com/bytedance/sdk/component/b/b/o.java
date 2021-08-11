@@ -9,11 +9,11 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface o {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final o f28691a = new o() { // from class: com.bytedance.sdk.component.b.b.o.1
+    public static final o f64550a = new o() { // from class: com.bytedance.sdk.component.b.b.o.1
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 

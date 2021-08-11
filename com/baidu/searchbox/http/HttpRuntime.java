@@ -1,5 +1,6 @@
 package com.baidu.searchbox.http;
 
+import c.a.p0.d3.j;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.c3.j;
 @Autowired
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class HttpRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

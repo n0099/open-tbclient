@@ -1,13 +1,13 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.n;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.n;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
@@ -16,7 +16,7 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.Condition;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Uninterruptibles {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -131,12 +131,12 @@ public final class Uninterruptibles {
         }
     }
 
-    public static void sleepUninterruptibly(long j, TimeUnit timeUnit) {
+    public static void sleepUninterruptibly(long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65545, null, j, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(65545, null, j2, timeUnit) == null) {
             boolean z = false;
             try {
-                long nanos = timeUnit.toNanos(j);
+                long nanos = timeUnit.toNanos(j2);
                 long nanoTime = System.nanoTime() + nanos;
                 while (true) {
                     try {
@@ -182,19 +182,19 @@ public final class Uninterruptibles {
         return (E) invokeL.objValue;
     }
 
-    public static boolean tryAcquireUninterruptibly(Semaphore semaphore, long j, TimeUnit timeUnit) {
+    public static boolean tryAcquireUninterruptibly(Semaphore semaphore, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{semaphore, Long.valueOf(j), timeUnit})) == null) ? tryAcquireUninterruptibly(semaphore, 1, j, timeUnit) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{semaphore, Long.valueOf(j2), timeUnit})) == null) ? tryAcquireUninterruptibly(semaphore, 1, j2, timeUnit) : invokeCommon.booleanValue;
     }
 
-    public static boolean tryAcquireUninterruptibly(Semaphore semaphore, int i2, long j, TimeUnit timeUnit) {
+    public static boolean tryAcquireUninterruptibly(Semaphore semaphore, int i2, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{semaphore, Integer.valueOf(i2), Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{semaphore, Integer.valueOf(i2), Long.valueOf(j2), timeUnit})) == null) {
             boolean z = false;
             try {
-                long nanos = timeUnit.toNanos(j);
+                long nanos = timeUnit.toNanos(j2);
                 while (true) {
                     try {
                         break;
@@ -213,13 +213,13 @@ public final class Uninterruptibles {
         return invokeCommon.booleanValue;
     }
 
-    public static boolean awaitUninterruptibly(CountDownLatch countDownLatch, long j, TimeUnit timeUnit) {
+    public static boolean awaitUninterruptibly(CountDownLatch countDownLatch, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{countDownLatch, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{countDownLatch, Long.valueOf(j2), timeUnit})) == null) {
             boolean z = false;
             try {
-                long nanos = timeUnit.toNanos(j);
+                long nanos = timeUnit.toNanos(j2);
                 while (true) {
                     try {
                         break;
@@ -238,13 +238,13 @@ public final class Uninterruptibles {
         return invokeCommon.booleanValue;
     }
 
-    public static <V> V getUninterruptibly(Future<V> future, long j, TimeUnit timeUnit) throws ExecutionException, TimeoutException {
+    public static <V> V getUninterruptibly(Future<V> future, long j2, TimeUnit timeUnit) throws ExecutionException, TimeoutException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{future, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{future, Long.valueOf(j2), timeUnit})) == null) {
             boolean z = false;
             try {
-                long nanos = timeUnit.toNanos(j);
+                long nanos = timeUnit.toNanos(j2);
                 while (true) {
                     try {
                         break;
@@ -263,13 +263,13 @@ public final class Uninterruptibles {
         return (V) invokeCommon.objValue;
     }
 
-    public static void joinUninterruptibly(Thread thread, long j, TimeUnit timeUnit) {
+    public static void joinUninterruptibly(Thread thread, long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{thread, Long.valueOf(j), timeUnit}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{thread, Long.valueOf(j2), timeUnit}) == null) {
             n.p(thread);
             boolean z = false;
             try {
-                long nanos = timeUnit.toNanos(j);
+                long nanos = timeUnit.toNanos(j2);
                 long nanoTime = System.nanoTime() + nanos;
                 while (true) {
                     try {
@@ -288,13 +288,13 @@ public final class Uninterruptibles {
         }
     }
 
-    public static boolean awaitUninterruptibly(Condition condition, long j, TimeUnit timeUnit) {
+    public static boolean awaitUninterruptibly(Condition condition, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{condition, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{condition, Long.valueOf(j2), timeUnit})) == null) {
             boolean z = false;
             try {
-                long nanos = timeUnit.toNanos(j);
+                long nanos = timeUnit.toNanos(j2);
                 while (true) {
                     try {
                         break;

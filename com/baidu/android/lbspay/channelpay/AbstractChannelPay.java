@@ -11,26 +11,24 @@ import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.lbspay.beans.GetPayBean;
 import com.baidu.android.lbspay.channelpay.IChannelPay;
 import com.baidu.android.lbspay.network.GetPayContent;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.JsonUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.paysdk.api.BaiduPay;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.JsonUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractChannelPay implements IChannelPay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +68,7 @@ public abstract class AbstractChannelPay implements IChannelPay {
             String str = getPayContent.paydata;
             if (!TextUtils.isEmpty(str)) {
                 String str2 = new String(Base64.decode(str, 0));
-                LogUtil.logd("decodeddata=" + str2);
+                String str3 = "decodeddata=" + str2;
                 try {
                     return (PayDataBean) JsonUtils.fromJson(str2, PayDataBean.class);
                 } catch (JSONException e2) {
@@ -123,10 +121,6 @@ public abstract class AbstractChannelPay implements IChannelPay {
             if (this.mNotifyOnError) {
                 LBSPayResult.payResult(context, 2, null);
             }
-            List<String> collectData = StatHelper.collectData(StatHelper.getOrderId(), StatHelper.getChannelId());
-            HashMap hashMap = new HashMap();
-            hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
-            StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_CANCEL, collectData, hashMap);
             if (context != null) {
                 if (!this.mNotifyOnError) {
                     GlobalUtils.toast(context, ResUtils.getString(context, "lbspay_pay_cancel"));
@@ -161,7 +155,7 @@ public abstract class AbstractChannelPay implements IChannelPay {
             String orderId = StatHelper.getOrderId();
             List<String> collectData = StatHelper.collectData(orderId, StatHelper.getChannelId(), str + "", str2);
             HashMap hashMap = new HashMap();
-            hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
+            hashMap.put("pay_amount", StatHelper.getPayAmount());
             StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_ERROR, collectData, hashMap);
             if (context != null) {
                 if (TextUtils.isEmpty(str2)) {
@@ -194,10 +188,6 @@ public abstract class AbstractChannelPay implements IChannelPay {
             WeakReference<Context> weakReference = this.mContext;
             Context context = weakReference == null ? null : weakReference.get();
             LBSPayResult.payResult(context, 0, str, this);
-            List<String> collectData = StatHelper.collectData(StatHelper.getOrderId(), StatHelper.getChannelId());
-            HashMap hashMap = new HashMap();
-            hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
-            StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_SUCCESS, collectData, hashMap);
             if (context != null) {
                 int channelId = getChannelId();
                 if (channelId == 105) {
@@ -224,10 +214,6 @@ public abstract class AbstractChannelPay implements IChannelPay {
             WeakReference<Context> weakReference = this.mContext;
             Context context = weakReference == null ? null : weakReference.get();
             LBSPayResult.payResult(context, 1, "");
-            List<String> collectData = StatHelper.collectData(StatHelper.getOrderId(), StatHelper.getChannelId());
-            HashMap hashMap = new HashMap();
-            hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
-            StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_RESULT_PAYING, collectData, hashMap);
             if (context != null) {
                 int channelId = getChannelId();
                 if (channelId == 105) {

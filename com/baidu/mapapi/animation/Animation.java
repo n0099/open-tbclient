@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class Animation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c bdAnimation;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface AnimationListener {
         void onAnimationCancel();
 
@@ -27,14 +27,14 @@ public abstract class Animation {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class RepeatMode {
         public static /* synthetic */ Interceptable $ic;
         public static final RepeatMode RESTART;
         public static final RepeatMode REVERSE;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ RepeatMode[] f6859a;
+        public static final /* synthetic */ RepeatMode[] f41099a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -53,7 +53,7 @@ public abstract class Animation {
             RESTART = new RepeatMode("RESTART", 0);
             RepeatMode repeatMode = new RepeatMode("REVERSE", 1);
             REVERSE = repeatMode;
-            f6859a = new RepeatMode[]{RESTART, repeatMode};
+            f41099a = new RepeatMode[]{RESTART, repeatMode};
         }
 
         public RepeatMode(String str, int i2) {
@@ -84,7 +84,7 @@ public abstract class Animation {
         public static RepeatMode[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RepeatMode[]) f6859a.clone() : (RepeatMode[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (RepeatMode[]) f41099a.clone() : (RepeatMode[]) invokeV.objValue;
         }
     }
 
@@ -106,7 +106,7 @@ public abstract class Animation {
 
     public abstract void setAnimationListener(AnimationListener animationListener);
 
-    public abstract void setDuration(long j);
+    public abstract void setDuration(long j2);
 
     public abstract void setInterpolator(Interpolator interpolator);
 }

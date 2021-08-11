@@ -14,22 +14,22 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class j0 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l0 f39844a;
+    public l0 f76687a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f39845b;
+    public final /* synthetic */ String f76688b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ boolean f39846c;
+    public final /* synthetic */ boolean f76689c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ n0 f39847d;
+    public final /* synthetic */ n0 f76690d;
 
     public j0(n0 n0Var, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class j0 extends AsyncTask {
                 return;
             }
         }
-        this.f39847d = n0Var;
-        this.f39845b = str;
-        this.f39846c = z;
+        this.f76690d = n0Var;
+        this.f76688b = str;
+        this.f76689c = z;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF] complete} */
@@ -72,34 +72,34 @@ public class j0 extends AsyncTask {
             Void[] voidArr = (Void[]) objArr;
             int i2 = 1;
             try {
-                httpURLConnection = (HttpURLConnection) new URL(this.f39845b).openConnection();
+                httpURLConnection = (HttpURLConnection) new URL(this.f76688b).openConnection();
             } catch (Throwable th) {
                 th = th;
                 httpURLConnection = null;
             }
             try {
                 try {
-                    if (this.f39846c) {
+                    if (this.f76689c) {
                         httpURLConnection.connect();
                         int contentLength = httpURLConnection.getContentLength();
                         if (contentLength <= 0) {
-                            this.f39844a = new l0("Invalid content length. The URL is probably not pointing to a file");
+                            this.f76687a = new l0("Invalid content length. The URL is probably not pointing to a file");
                             cancel(true);
                         }
                         inputStream = new BufferedInputStream(httpURLConnection.getInputStream(), 8192);
                         byteArrayOutputStream = new ByteArrayOutputStream();
                         try {
                             byte[] bArr = new byte[8192];
-                            long j = 0;
+                            long j2 = 0;
                             while (true) {
                                 int read = inputStream.read(bArr);
                                 if (read == -1) {
                                     break;
                                 }
-                                j += read;
+                                j2 += read;
                                 byteArrayOutputStream.write(bArr, 0, read);
                                 Integer[] numArr = new Integer[i2];
-                                numArr[0] = Integer.valueOf((int) ((100 * j) / contentLength));
+                                numArr[0] = Integer.valueOf((int) ((100 * j2) / contentLength));
                                 publishProgress(numArr);
                                 i2 = 1;
                             }
@@ -109,7 +109,7 @@ public class j0 extends AsyncTask {
                             th = th2;
                             try {
                                 if (!isCancelled()) {
-                                    this.f39844a = new l0(th);
+                                    this.f76687a = new l0(th);
                                     cancel(true);
                                 }
                                 if (httpURLConnection != null) {
@@ -202,8 +202,8 @@ public class j0 extends AsyncTask {
     public void onCancelled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f39847d.f39886b.remove(this.f39845b);
-            this.f39847d.f39885a.a(this.f39844a);
+            this.f76690d.f76731b.remove(this.f76688b);
+            this.f76690d.f76730a.a(this.f76687a);
         }
     }
 
@@ -213,11 +213,11 @@ public class j0 extends AsyncTask {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             Bitmap bitmap = (Bitmap) obj;
             if (bitmap == null) {
-                this.f39847d.f39885a.a(new l0("downloaded file could not be decoded as bitmap"));
+                this.f76690d.f76730a.a(new l0("downloaded file could not be decoded as bitmap"));
             } else {
-                this.f39847d.f39885a.a(bitmap);
+                this.f76690d.f76730a.a(bitmap);
             }
-            this.f39847d.f39886b.remove(this.f39845b);
+            this.f76690d.f76731b.remove(this.f76688b);
             System.gc();
         }
     }
@@ -226,7 +226,7 @@ public class j0 extends AsyncTask {
     public void onPreExecute() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f39847d.f39886b.add(this.f39845b);
+            this.f76690d.f76731b.add(this.f76688b);
         }
     }
 
@@ -234,7 +234,7 @@ public class j0 extends AsyncTask {
     public void onProgressUpdate(Object[] objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, objArr) == null) {
-            this.f39847d.f39885a.a(((Integer[]) objArr)[0].intValue());
+            this.f76690d.f76730a.a(((Integer[]) objArr)[0].intValue());
         }
     }
 }

@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class MediaSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long nativeSource;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -86,12 +86,12 @@ public class MediaSource {
         }
     }
 
-    public MediaSource(long j) {
+    public MediaSource(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -101,7 +101,7 @@ public class MediaSource {
                 return;
             }
         }
-        this.nativeSource = j;
+        this.nativeSource = j2;
     }
 
     private void checkMediaSourceExists() {
@@ -111,7 +111,7 @@ public class MediaSource {
         }
     }
 
-    public static native State nativeGetState(long j);
+    public static native State nativeGetState(long j2);
 
     public void dispose() {
         Interceptable interceptable = $ic;

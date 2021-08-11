@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class AlaBannerViewHolder<T> extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,12 +29,12 @@ public abstract class AlaBannerViewHolder<T> extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        b(view);
+        initView(view);
     }
 
-    public abstract void a(int i2, T t);
+    public abstract void bindData(int i2, T t);
 
-    public abstract void b(View view);
+    public abstract void initView(View view);
 
-    public abstract void c(int i2);
+    public abstract void onChangeSkinType(int i2);
 }

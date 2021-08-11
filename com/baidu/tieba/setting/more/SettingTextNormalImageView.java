@@ -20,25 +20,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SettingTextNormalImageView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f20937e;
+    public Context f56412e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f20938f;
+    public LinearLayout f56413f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20939g;
+    public TextView f56414g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f20940h;
+    public TbImageView f56415h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f20941i;
+    public ImageView f56416i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
@@ -59,64 +59,64 @@ public class SettingTextNormalImageView extends FrameLayout {
                 return;
             }
         }
-        this.f20937e = context;
+        this.f56412e = context;
         b();
         a(attributeSet);
-        c(TbadkCoreApplication.getInst().getSkinType());
+        switchSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.f20937e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
+            TypedArray obtainStyledAttributes = this.f56412e.obtainStyledAttributes(attributeSet, R$styleable.TbSettingView);
             String string = obtainStyledAttributes.getString(R$styleable.TbSettingView_settingText);
             int color = obtainStyledAttributes.getColor(R$styleable.TbSettingView_settingTextColor, -1);
             obtainStyledAttributes.recycle();
             if (string != null) {
-                this.f20939g.setText(string);
+                this.f56414g.setText(string);
             }
             if (color > -1) {
-                this.f20939g.setTextColor(color);
+                this.f56414g.setTextColor(color);
             }
-            this.f20938f.setClickable(false);
-            this.f20938f.setFocusable(false);
+            this.f56413f.setClickable(false);
+            this.f56413f.setFocusable(false);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.f20937e).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
-            this.f20938f = (LinearLayout) findViewById(R.id.container);
-            this.f20939g = (TextView) findViewById(R.id.text);
-            this.f20940h = (TbImageView) findViewById(R.id.icon);
-            this.f20941i = (ImageView) findViewById(R.id.arrow);
-        }
-    }
-
-    public void c(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f20939g, R.color.CAM_X0105, 1);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f20941i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
-            this.f20940h.invalidate();
+            LayoutInflater.from(this.f56412e).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
+            this.f56413f = (LinearLayout) findViewById(R.id.container);
+            this.f56414g = (TextView) findViewById(R.id.text);
+            this.f56415h = (TbImageView) findViewById(R.id.icon);
+            this.f56416i = (ImageView) findViewById(R.id.arrow);
         }
     }
 
     public void setLocalIcon(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f20940h.s();
-            this.f20940h.setConrers(0);
-            this.f20940h.setImageResource(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            this.f56415h.clearCornerFlag();
+            this.f56415h.setConrers(0);
+            this.f56415h.setImageResource(i2);
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f20939g.setText(str);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f56414g.setText(str);
+        }
+    }
+
+    public void switchSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            SkinManager.setViewTextColor(this.f56414g, R.color.CAM_X0105, 1);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f56416i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            setBackgroundDrawable(SkinManager.getColorDrawableWithClickState(R.color.CAM_X0205));
+            this.f56415h.invalidate();
         }
     }
 
@@ -138,8 +138,8 @@ public class SettingTextNormalImageView extends FrameLayout {
                 return;
             }
         }
-        this.f20937e = context;
+        this.f56412e = context;
         b();
-        c(TbadkCoreApplication.getInst().getSkinType());
+        switchSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 }

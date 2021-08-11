@@ -79,81 +79,81 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class XMPushService extends Service implements fo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40820a;
+    public int f77695a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f839a;
+    public long f843a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ContentObserver f840a;
+    public ContentObserver f844a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Messenger f841a;
+    public Messenger f845a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fh f842a;
+    public fh f846a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fl f843a;
+    public fl f847a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fm f844a;
+    public fm f848a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fq f845a;
+    public fq f849a;
 
     /* renamed from: a  reason: collision with other field name */
-    public e f846a;
+    public e f850a;
 
     /* renamed from: a  reason: collision with other field name */
-    public p f847a;
+    public p f851a;
 
     /* renamed from: a  reason: collision with other field name */
-    public au f848a;
+    public au f852a;
 
     /* renamed from: a  reason: collision with other field name */
-    public bf f849a;
+    public bf f853a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.push.service.e f850a;
+    public com.xiaomi.push.service.e f854a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.push.service.h f851a;
+    public com.xiaomi.push.service.h f855a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Class f852a;
+    public Class f856a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f853a;
+    public String f857a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList<l> f854a;
+    public ArrayList<l> f858a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Collection<ai> f855a;
+    public Collection<ai> f859a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f40821b;
+    public int f77696b;
 
     /* renamed from: b  reason: collision with other field name */
-    public ContentObserver f856b;
+    public ContentObserver f860b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40822a;
+        public final /* synthetic */ XMPushService f77697a;
 
         /* renamed from: a  reason: collision with other field name */
-        public av.b f857a;
+        public av.b f861a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(XMPushService xMPushService, av.b bVar) {
@@ -173,9 +173,9 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40822a = xMPushService;
-            this.f857a = null;
-            this.f857a = bVar;
+            this.f77697a = xMPushService;
+            this.f861a = null;
+            this.f861a = bVar;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -183,7 +183,7 @@ public class XMPushService extends Service implements fo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "bind the client. " + this.f857a.f40880g;
+                return "bind the client. " + this.f861a.f77755g;
             }
             return (String) invokeV.objValue;
         }
@@ -194,38 +194,38 @@ public class XMPushService extends Service implements fo {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    if (!this.f40822a.m567c()) {
+                    if (!this.f77697a.m570c()) {
                         com.xiaomi.channel.commonutils.logger.b.d("trying bind while the connection is not created, quit!");
                         return;
                     }
-                    av.b a2 = av.a().a(this.f857a.f40880g, this.f857a.f914b);
+                    av.b a2 = av.a().a(this.f861a.f77755g, this.f861a.f918b);
                     if (a2 == null) {
-                        str = "ignore bind because the channel " + this.f857a.f40880g + " is removed ";
-                    } else if (a2.f909a == av.c.f40888a) {
-                        a2.a(av.c.f40889b, 0, 0, (String) null, (String) null);
-                        this.f40822a.f843a.a(a2);
-                        gz.a(this.f40822a, a2);
+                        str = "ignore bind because the channel " + this.f861a.f77755g + " is removed ";
+                    } else if (a2.f913a == av.c.f77763a) {
+                        a2.a(av.c.f77764b, 0, 0, (String) null, (String) null);
+                        this.f77697a.f847a.a(a2);
+                        gz.a(this.f77697a, a2);
                         return;
                     } else {
-                        str = "trying duplicate bind, ingore! " + a2.f909a;
+                        str = "trying duplicate bind, ingore! " + a2.f913a;
                     }
-                    com.xiaomi.channel.commonutils.logger.b.m70a(str);
+                    com.xiaomi.channel.commonutils.logger.b.m73a(str);
                 } catch (Exception e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
-                    this.f40822a.a(10, e2);
+                    this.f77697a.a(10, e2);
                 } catch (Throwable unused) {
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class b extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final av.b f40823a;
+        public final av.b f77698a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(av.b bVar) {
@@ -245,7 +245,7 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40823a = bVar;
+            this.f77698a = bVar;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -253,7 +253,7 @@ public class XMPushService extends Service implements fo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "bind time out. chid=" + this.f40823a.f40880g;
+                return "bind time out. chid=" + this.f77698a.f77755g;
             }
             return (String) invokeV.objValue;
         }
@@ -262,7 +262,7 @@ public class XMPushService extends Service implements fo {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f40823a.a(av.c.f40888a, 1, 21, (String) null, (String) null);
+                this.f77698a.a(av.c.f77763a, 1, 21, (String) null, (String) null);
             }
         }
 
@@ -271,7 +271,7 @@ public class XMPushService extends Service implements fo {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
                 if (obj instanceof b) {
-                    return TextUtils.equals(((b) obj).f40823a.f40880g, this.f40823a.f40880g);
+                    return TextUtils.equals(((b) obj).f77698a.f77755g, this.f77698a.f77755g);
                 }
                 return false;
             }
@@ -281,20 +281,20 @@ public class XMPushService extends Service implements fo {
         public int hashCode() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40823a.f40880g.hashCode() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f77698a.f77755g.hashCode() : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class c extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public fa f40824a;
+        public fa f77699a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final /* synthetic */ XMPushService f858a;
+        public final /* synthetic */ XMPushService f862a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(XMPushService xMPushService, fa faVar) {
@@ -314,9 +314,9 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f858a = xMPushService;
-            this.f40824a = null;
-            this.f40824a = faVar;
+            this.f862a = xMPushService;
+            this.f77699a = null;
+            this.f77699a = faVar;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -330,18 +330,18 @@ public class XMPushService extends Service implements fo {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f858a.f848a.a(this.f40824a);
+                this.f862a.f852a.a(this.f77699a);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class d extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40825a;
+        public final /* synthetic */ XMPushService f77700a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(XMPushService xMPushService) {
@@ -361,7 +361,7 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40825a = xMPushService;
+            this.f77700a = xMPushService;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -375,25 +375,25 @@ public class XMPushService extends Service implements fo {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f40825a.m563a()) {
-                    XMPushService xMPushService = this.f40825a;
+                if (this.f77700a.m566a()) {
+                    XMPushService xMPushService = this.f77700a;
                     if (xMPushService.a(xMPushService.getApplicationContext())) {
-                        this.f40825a.f();
+                        this.f77700a.f();
                         return;
                     }
                 }
-                com.xiaomi.channel.commonutils.logger.b.m70a("should not connect. quit the job.");
+                com.xiaomi.channel.commonutils.logger.b.m73a("should not connect. quit the job.");
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class e extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40826a;
+        public final /* synthetic */ XMPushService f77701a;
 
         public e(XMPushService xMPushService) {
             Interceptable interceptable = $ic;
@@ -410,31 +410,31 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40826a = xMPushService;
+            this.f77701a = xMPushService;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                this.f40826a.onStart(intent, 1);
+                this.f77701a.onStart(intent, 1);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class f extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40827a;
+        public final /* synthetic */ XMPushService f77702a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Exception f859a;
+        public Exception f863a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40828b;
+        public int f77703b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(XMPushService xMPushService, int i2, Exception exc) {
@@ -454,9 +454,9 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40827a = xMPushService;
-            this.f40828b = i2;
-            this.f859a = exc;
+            this.f77702a = xMPushService;
+            this.f77703b = i2;
+            this.f863a = exc;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -470,18 +470,18 @@ public class XMPushService extends Service implements fo {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f40827a.a(this.f40828b, this.f859a);
+                this.f77702a.a(this.f77703b, this.f863a);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class g extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40829a;
+        public final /* synthetic */ XMPushService f77704a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public g(XMPushService xMPushService) {
@@ -501,7 +501,7 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40829a = xMPushService;
+            this.f77704a = xMPushService;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -515,21 +515,21 @@ public class XMPushService extends Service implements fo {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f40829a.c();
+                this.f77704a.c();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class h extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Intent f40830a;
+        public Intent f77705a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final /* synthetic */ XMPushService f860a;
+        public final /* synthetic */ XMPushService f864a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(XMPushService xMPushService, Intent intent) {
@@ -549,9 +549,9 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f860a = xMPushService;
-            this.f40830a = null;
-            this.f40830a = intent;
+            this.f864a = xMPushService;
+            this.f77705a = null;
+            this.f77705a = intent;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -559,7 +559,7 @@ public class XMPushService extends Service implements fo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Handle intent action = " + this.f40830a.getAction();
+                return "Handle intent action = " + this.f77705a.getAction();
             }
             return (String) invokeV.objValue;
         }
@@ -568,12 +568,12 @@ public class XMPushService extends Service implements fo {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f860a.c(this.f40830a);
+                this.f864a.c(this.f77705a);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class i extends h.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -601,28 +601,28 @@ public class XMPushService extends Service implements fo {
         public abstract String a();
 
         /* renamed from: a  reason: collision with other method in class */
-        public abstract void m569a();
+        public abstract void m572a();
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                int i2 = this.f40947a;
+                int i2 = this.f77823a;
                 if (i2 != 4 && i2 != 8) {
-                    com.xiaomi.channel.commonutils.logger.b.m71a(com.xiaomi.channel.commonutils.logger.a.f40003a, a());
+                    com.xiaomi.channel.commonutils.logger.b.m74a(com.xiaomi.channel.commonutils.logger.a.f76854a, a());
                 }
-                m569a();
+                m572a();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class j extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40831a;
+        public final /* synthetic */ XMPushService f77706a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public j(XMPushService xMPushService) {
@@ -642,7 +642,7 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40831a = xMPushService;
+            this.f77706a = xMPushService;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -656,21 +656,21 @@ public class XMPushService extends Service implements fo {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f40831a.f851a.m620a();
+                this.f77706a.f855a.m623a();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class k extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public gc f40832a;
+        public gc f77707a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final /* synthetic */ XMPushService f861a;
+        public final /* synthetic */ XMPushService f865a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public k(XMPushService xMPushService, gc gcVar) {
@@ -690,9 +690,9 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f861a = xMPushService;
-            this.f40832a = null;
-            this.f40832a = gcVar;
+            this.f865a = xMPushService;
+            this.f77707a = null;
+            this.f77707a = gcVar;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -706,27 +706,27 @@ public class XMPushService extends Service implements fo {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f861a.f848a.a(this.f40832a);
+                this.f865a.f852a.a(this.f77707a);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface l {
         /* renamed from: a */
-        void mo370a();
+        void mo373a();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class m extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40833a;
+        public final /* synthetic */ XMPushService f77708a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f862a;
+        public boolean f866a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public m(XMPushService xMPushService, boolean z) {
@@ -746,8 +746,8 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40833a = xMPushService;
-            this.f862a = z;
+            this.f77708a = xMPushService;
+            this.f866a = z;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -760,30 +760,30 @@ public class XMPushService extends Service implements fo {
         @Override // com.xiaomi.push.service.XMPushService.i
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f40833a.m567c()) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f77708a.m570c()) {
                 try {
-                    if (!this.f862a) {
+                    if (!this.f866a) {
                         gz.a();
                     }
-                    this.f40833a.f843a.b(this.f862a);
+                    this.f77708a.f847a.b(this.f866a);
                 } catch (fw e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
-                    this.f40833a.a(10, e2);
+                    this.f77708a.a(10, e2);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class n extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40834a;
+        public final /* synthetic */ XMPushService f77709a;
 
         /* renamed from: a  reason: collision with other field name */
-        public av.b f863a;
+        public av.b f867a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public n(XMPushService xMPushService, av.b bVar) {
@@ -803,9 +803,9 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40834a = xMPushService;
-            this.f863a = null;
-            this.f863a = bVar;
+            this.f77709a = xMPushService;
+            this.f867a = null;
+            this.f867a = bVar;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -813,7 +813,7 @@ public class XMPushService extends Service implements fo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "rebind the client. " + this.f863a.f40880g;
+                return "rebind the client. " + this.f867a.f77755g;
             }
             return (String) invokeV.objValue;
         }
@@ -823,25 +823,25 @@ public class XMPushService extends Service implements fo {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
-                    this.f863a.a(av.c.f40888a, 1, 16, (String) null, (String) null);
-                    this.f40834a.f843a.a(this.f863a.f40880g, this.f863a.f914b);
-                    this.f863a.a(av.c.f40889b, 1, 16, (String) null, (String) null);
-                    this.f40834a.f843a.a(this.f863a);
+                    this.f867a.a(av.c.f77763a, 1, 16, (String) null, (String) null);
+                    this.f77709a.f847a.a(this.f867a.f77755g, this.f867a.f918b);
+                    this.f867a.a(av.c.f77764b, 1, 16, (String) null, (String) null);
+                    this.f77709a.f847a.a(this.f867a);
                 } catch (fw e2) {
                     com.xiaomi.channel.commonutils.logger.b.a(e2);
-                    this.f40834a.a(10, e2);
+                    this.f77709a.a(10, e2);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class o extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40835a;
+        public final /* synthetic */ XMPushService f77710a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public o(XMPushService xMPushService) {
@@ -861,7 +861,7 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40835a = xMPushService;
+            this.f77710a = xMPushService;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -875,24 +875,24 @@ public class XMPushService extends Service implements fo {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f40835a.a(11, (Exception) null);
-                if (this.f40835a.m563a()) {
-                    XMPushService xMPushService = this.f40835a;
+                this.f77710a.a(11, (Exception) null);
+                if (this.f77710a.m566a()) {
+                    XMPushService xMPushService = this.f77710a;
                     if (xMPushService.a(xMPushService.getApplicationContext())) {
-                        this.f40835a.f();
+                        this.f77710a.f();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class p extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40836a;
+        public final /* synthetic */ XMPushService f77711a;
 
         public p(XMPushService xMPushService) {
             Interceptable interceptable = $ic;
@@ -909,37 +909,37 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40836a = xMPushService;
+            this.f77711a = xMPushService;
         }
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                this.f40836a.onStart(intent, 1);
+                this.f77711a.onStart(intent, 1);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class q extends i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ XMPushService f40837a;
+        public final /* synthetic */ XMPushService f77712a;
 
         /* renamed from: a  reason: collision with other field name */
-        public av.b f864a;
+        public av.b f868a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f865a;
+        public String f869a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f40838b;
+        public int f77713b;
 
         /* renamed from: b  reason: collision with other field name */
-        public String f866b;
+        public String f870b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public q(XMPushService xMPushService, av.b bVar, int i2, String str, String str2) {
@@ -959,12 +959,12 @@ public class XMPushService extends Service implements fo {
                     return;
                 }
             }
-            this.f40837a = xMPushService;
-            this.f864a = null;
-            this.f864a = bVar;
-            this.f40838b = i2;
-            this.f865a = str;
-            this.f866b = str2;
+            this.f77712a = xMPushService;
+            this.f868a = null;
+            this.f868a = bVar;
+            this.f77713b = i2;
+            this.f869a = str;
+            this.f870b = str2;
         }
 
         @Override // com.xiaomi.push.service.XMPushService.i
@@ -972,7 +972,7 @@ public class XMPushService extends Service implements fo {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "unbind the channel. " + this.f864a.f40880g;
+                return "unbind the channel. " + this.f868a.f77755g;
             }
             return (String) invokeV.objValue;
         }
@@ -981,15 +981,15 @@ public class XMPushService extends Service implements fo {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.f864a.f909a != av.c.f40888a && this.f40837a.f843a != null) {
+                if (this.f868a.f913a != av.c.f77763a && this.f77712a.f847a != null) {
                     try {
-                        this.f40837a.f843a.a(this.f864a.f40880g, this.f864a.f914b);
+                        this.f77712a.f847a.a(this.f868a.f77755g, this.f868a.f918b);
                     } catch (fw e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
-                        this.f40837a.a(10, e2);
+                        this.f77712a.a(10, e2);
                     }
                 }
-                this.f864a.a(av.c.f40888a, this.f40838b, 0, this.f866b, this.f865a);
+                this.f868a.a(av.c.f77763a, this.f77713b, 0, this.f870b, this.f869a);
             }
         }
     }
@@ -1023,16 +1023,16 @@ public class XMPushService extends Service implements fo {
                 return;
             }
         }
-        this.f40820a = 0;
-        this.f40821b = 0;
-        this.f839a = 0L;
-        this.f852a = XMJobService.class;
-        this.f848a = null;
-        this.f851a = null;
-        this.f841a = null;
-        this.f855a = Collections.synchronizedCollection(new ArrayList());
-        this.f854a = new ArrayList<>();
-        this.f845a = new br(this);
+        this.f77695a = 0;
+        this.f77696b = 0;
+        this.f843a = 0L;
+        this.f856a = XMJobService.class;
+        this.f852a = null;
+        this.f855a = null;
+        this.f845a = null;
+        this.f859a = Collections.synchronizedCollection(new ArrayList());
+        this.f858a = new ArrayList<>();
+        this.f849a = new br(this);
     }
 
     private gc a(gc gcVar, String str, String str2) {
@@ -1042,29 +1042,29 @@ public class XMPushService extends Service implements fo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, gcVar, str, str2)) == null) {
             av a2 = av.a();
-            List<String> m602a = a2.m602a(str);
-            if (m602a.isEmpty()) {
+            List<String> m605a = a2.m605a(str);
+            if (m605a.isEmpty()) {
                 sb = new StringBuilder();
                 str3 = "open channel should be called first before sending a packet, pkg=";
             } else {
                 gcVar.o(str);
                 str = gcVar.k();
                 if (TextUtils.isEmpty(str)) {
-                    str = m602a.get(0);
+                    str = m605a.get(0);
                     gcVar.l(str);
                 }
                 av.b a3 = a2.a(str, gcVar.m());
-                if (!m567c()) {
+                if (!m570c()) {
                     sb = new StringBuilder();
                     str3 = "drop a packet as the channel is not connected, chid=";
-                } else if (a3 != null && a3.f909a == av.c.f40890c) {
-                    if (TextUtils.equals(str2, a3.f40882i)) {
+                } else if (a3 != null && a3.f913a == av.c.f77765c) {
+                    if (TextUtils.equals(str2, a3.f77757i)) {
                         return gcVar;
                     }
                     sb = new StringBuilder();
                     sb.append("invalid session. ");
                     sb.append(str2);
-                    com.xiaomi.channel.commonutils.logger.b.m70a(sb.toString());
+                    com.xiaomi.channel.commonutils.logger.b.m73a(sb.toString());
                     return null;
                 } else {
                     sb = new StringBuilder();
@@ -1073,7 +1073,7 @@ public class XMPushService extends Service implements fo {
             }
             sb.append(str3);
             sb.append(str);
-            com.xiaomi.channel.commonutils.logger.b.m70a(sb.toString());
+            com.xiaomi.channel.commonutils.logger.b.m73a(sb.toString());
             return null;
         }
         return (gc) invokeLLL.objValue;
@@ -1087,19 +1087,19 @@ public class XMPushService extends Service implements fo {
             if (a2 == null) {
                 a2 = new av.b(this);
             }
-            a2.f40880g = intent.getStringExtra(az.s);
-            a2.f914b = intent.getStringExtra(az.p);
-            a2.f40876c = intent.getStringExtra(az.u);
-            a2.f911a = intent.getStringExtra(az.A);
-            a2.f40878e = intent.getStringExtra(az.y);
-            a2.f40879f = intent.getStringExtra(az.z);
-            a2.f913a = intent.getBooleanExtra(az.x, false);
-            a2.f40881h = intent.getStringExtra(az.w);
-            a2.f40882i = intent.getStringExtra(az.D);
-            a2.f40877d = intent.getStringExtra(az.v);
-            a2.f910a = this.f850a;
+            a2.f77755g = intent.getStringExtra(az.s);
+            a2.f918b = intent.getStringExtra(az.p);
+            a2.f77751c = intent.getStringExtra(az.u);
+            a2.f915a = intent.getStringExtra(az.A);
+            a2.f77753e = intent.getStringExtra(az.y);
+            a2.f77754f = intent.getStringExtra(az.z);
+            a2.f917a = intent.getBooleanExtra(az.x, false);
+            a2.f77756h = intent.getStringExtra(az.w);
+            a2.f77757i = intent.getStringExtra(az.D);
+            a2.f77752d = intent.getStringExtra(az.v);
+            a2.f914a = this.f854a;
             a2.a((Messenger) intent.getParcelableExtra(az.H));
-            a2.f903a = getApplicationContext();
+            a2.f907a = getApplicationContext();
             av.a().a(a2);
             return a2;
         }
@@ -1123,9 +1123,9 @@ public class XMPushService extends Service implements fo {
                         break;
                     }
                     if (TextUtils.isEmpty(b2)) {
-                        b2 = com.xiaomi.push.l.m533a("ro.miui.region");
+                        b2 = com.xiaomi.push.l.m536a("ro.miui.region");
                         if (TextUtils.isEmpty(b2)) {
-                            b2 = com.xiaomi.push.l.m533a("ro.product.locale.region");
+                            b2 = com.xiaomi.push.l.m536a("ro.product.locale.region");
                         }
                     }
                     try {
@@ -1142,7 +1142,7 @@ public class XMPushService extends Service implements fo {
                 com.xiaomi.push.service.a.a(getApplicationContext()).b(b2);
                 str = com.xiaomi.push.l.a(b2).name();
             }
-            com.xiaomi.channel.commonutils.logger.b.m70a("wait region :" + str + " cost = " + (SystemClock.elapsedRealtime() - elapsedRealtime));
+            com.xiaomi.channel.commonutils.logger.b.m73a("wait region :" + str + " cost = " + (SystemClock.elapsedRealtime() - elapsedRealtime));
             return str;
         }
         return (String) invokeV.objValue;
@@ -1174,7 +1174,7 @@ public class XMPushService extends Service implements fo {
                 if (gbVar == null) {
                     return;
                 }
-                faVar = fa.a(gbVar, a2.a(gbVar.k(), gbVar.m()).f40881h);
+                faVar = fa.a(gbVar, a2.a(gbVar.k(), gbVar.m()).f77756h);
             } else {
                 byte[] byteArrayExtra = intent.getByteArrayExtra("ext_raw_packet");
                 if (byteArrayExtra != null) {
@@ -1199,8 +1199,8 @@ public class XMPushService extends Service implements fo {
                         }
                         faVar2.a(j2, stringExtra3, stringExtra4);
                         faVar2.a(intent.getStringExtra("ext_pkt_id"));
-                        faVar2.a(byteArrayExtra, a3.f40881h);
-                        com.xiaomi.channel.commonutils.logger.b.m70a("send a message: chid=" + stringExtra5 + ", packetId=" + intent.getStringExtra("ext_pkt_id"));
+                        faVar2.a(byteArrayExtra, a3.f77756h);
+                        com.xiaomi.channel.commonutils.logger.b.m73a("send a message: chid=" + stringExtra5 + ", packetId=" + intent.getStringExtra("ext_pkt_id"));
                         faVar = faVar2;
                     }
                 }
@@ -1229,15 +1229,15 @@ public class XMPushService extends Service implements fo {
     private void a(String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65552, this, str, i2) == null) {
-            Collection<av.b> m601a = av.a().m601a(str);
-            if (m601a != null) {
-                for (av.b bVar : m601a) {
+            Collection<av.b> m604a = av.a().m604a(str);
+            if (m604a != null) {
+                for (av.b bVar : m604a) {
                     if (bVar != null) {
                         a(new q(this, bVar, i2, null, null));
                     }
                 }
             }
-            av.a().m604a(str);
+            av.a().m607a(str);
         }
     }
 
@@ -1250,7 +1250,7 @@ public class XMPushService extends Service implements fo {
                 com.xiaomi.push.ao.a();
                 for (int i2 = 100; i2 > 0; i2--) {
                     if (com.xiaomi.push.bg.c(context)) {
-                        com.xiaomi.channel.commonutils.logger.b.m70a("network connectivity ok.");
+                        com.xiaomi.channel.commonutils.logger.b.m73a("network connectivity ok.");
                         return true;
                     }
                     try {
@@ -1267,7 +1267,7 @@ public class XMPushService extends Service implements fo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m552a(String str, Intent intent) {
+    private boolean m555a(String str, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, this, str, intent)) == null) {
@@ -1278,21 +1278,21 @@ public class XMPushService extends Service implements fo {
             }
             String stringExtra = intent.getStringExtra(az.D);
             String stringExtra2 = intent.getStringExtra(az.w);
-            if (!TextUtils.isEmpty(a2.f40882i) && !TextUtils.equals(stringExtra, a2.f40882i)) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("session changed. old session=" + a2.f40882i + ", new session=" + stringExtra + " chid = " + str);
+            if (!TextUtils.isEmpty(a2.f77757i) && !TextUtils.equals(stringExtra, a2.f77757i)) {
+                com.xiaomi.channel.commonutils.logger.b.m73a("session changed. old session=" + a2.f77757i + ", new session=" + stringExtra + " chid = " + str);
                 z = true;
             }
-            if (stringExtra2.equals(a2.f40881h)) {
+            if (stringExtra2.equals(a2.f77756h)) {
                 return z;
             }
-            com.xiaomi.channel.commonutils.logger.b.m70a("security changed. chid = " + str + " sechash = " + com.xiaomi.push.bl.a(stringExtra2));
+            com.xiaomi.channel.commonutils.logger.b.m73a("security changed. chid = " + str + " sechash = " + com.xiaomi.push.bl.a(stringExtra2));
             return true;
         }
         return invokeLL.booleanValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private int[] m553a() {
+    private int[] m556a() {
         InterceptResult invokeV;
         String[] split;
         Interceptable interceptable = $ic;
@@ -1337,7 +1337,7 @@ public class XMPushService extends Service implements fo {
             fa[] faVarArr = new fa[length];
             for (int i3 = 0; i3 < length; i3++) {
                 gb gbVar = gbVarArr[i3];
-                faVarArr[i3] = fa.a(gbVar, a2.a(gbVar.k(), gbVar.m()).f40881h);
+                faVarArr[i3] = fa.a(gbVar, a2.a(gbVar.k(), gbVar.m()).f77756h);
             }
             c(new com.xiaomi.push.service.c(this, faVarArr));
         }
@@ -1346,8 +1346,8 @@ public class XMPushService extends Service implements fo {
     private void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65560, this, z) == null) {
-            this.f839a = System.currentTimeMillis();
-            if (m567c()) {
+            this.f843a = System.currentTimeMillis();
+            if (m570c()) {
                 if (com.xiaomi.push.bg.b(this)) {
                     c(new m(this, z));
                     return;
@@ -1365,37 +1365,37 @@ public class XMPushService extends Service implements fo {
         if (interceptable == null || interceptable.invokeV(65562, this) == null) {
             com.xiaomi.push.service.a a2 = com.xiaomi.push.service.a.a(getApplicationContext());
             String a3 = a2.a();
-            com.xiaomi.channel.commonutils.logger.b.m70a("region of cache is " + a3);
+            com.xiaomi.channel.commonutils.logger.b.m73a("region of cache is " + a3);
             if (TextUtils.isEmpty(a3)) {
                 a3 = a();
             }
             if (TextUtils.isEmpty(a3)) {
-                this.f853a = com.xiaomi.push.o.f40804a.name();
+                this.f857a = com.xiaomi.push.o.f77679a.name();
             } else {
-                this.f853a = a3;
+                this.f857a = a3;
                 a2.a(a3);
-                if (com.xiaomi.push.o.f40805b.name().equals(this.f853a)) {
+                if (com.xiaomi.push.o.f77680b.name().equals(this.f857a)) {
                     str = "app.chat.global.xiaomi.net";
-                } else if (com.xiaomi.push.o.f40806c.name().equals(this.f853a)) {
+                } else if (com.xiaomi.push.o.f77681c.name().equals(this.f857a)) {
                     str = "fr.app.chat.global.xiaomi.net";
-                } else if (com.xiaomi.push.o.f40807d.name().equals(this.f853a)) {
+                } else if (com.xiaomi.push.o.f77682d.name().equals(this.f857a)) {
                     str = "ru.app.chat.global.xiaomi.net";
-                } else if (com.xiaomi.push.o.f40808e.name().equals(this.f853a)) {
+                } else if (com.xiaomi.push.o.f77683e.name().equals(this.f857a)) {
                     str = "idmb.app.chat.global.xiaomi.net";
                 }
                 fm.a(str);
             }
-            if (com.xiaomi.push.o.f40804a.name().equals(this.f853a)) {
+            if (com.xiaomi.push.o.f77679a.name().equals(this.f857a)) {
                 fm.a("cn.app.chat.xiaomi.net");
             }
-            if (m558h()) {
+            if (m561h()) {
                 ca caVar = new ca(this, 11);
                 a(caVar);
                 com.xiaomi.push.service.m.a(new cb(this, caVar));
             }
             try {
-                if (com.xiaomi.push.t.m639a()) {
-                    this.f850a.a(this);
+                if (com.xiaomi.push.t.m642a()) {
+                    this.f854a.a(this);
                 }
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
@@ -1420,7 +1420,7 @@ public class XMPushService extends Service implements fo {
             av a2 = av.a();
             boolean z2 = true;
             int i3 = 0;
-            if (az.f40897d.equalsIgnoreCase(intent.getAction()) || az.j.equalsIgnoreCase(intent.getAction())) {
+            if (az.f77772d.equalsIgnoreCase(intent.getAction()) || az.f77778j.equalsIgnoreCase(intent.getAction())) {
                 String stringExtra = intent.getStringExtra(az.s);
                 if (!TextUtils.isEmpty(intent.getStringExtra(az.w))) {
                     if (stringExtra == null) {
@@ -1428,21 +1428,21 @@ public class XMPushService extends Service implements fo {
                         com.xiaomi.channel.commonutils.logger.b.d(str);
                         return;
                     }
-                    boolean m552a = m552a(stringExtra, intent);
+                    boolean m555a = m555a(stringExtra, intent);
                     av.b a3 = a(stringExtra, intent);
                     if (com.xiaomi.push.bg.b(this)) {
-                        if (m567c()) {
-                            av.c cVar = a3.f909a;
-                            if (cVar == av.c.f40888a) {
+                        if (m570c()) {
+                            av.c cVar = a3.f913a;
+                            if (cVar == av.c.f77763a) {
                                 nVar = new a(this, a3);
-                            } else if (m552a) {
+                            } else if (m555a) {
                                 nVar = new n(this, a3);
-                            } else if (cVar == av.c.f40889b) {
-                                format = String.format("the client is binding. %1$s %2$s.", a3.f40880g, av.b.a(a3.f914b));
-                            } else if (cVar != av.c.f40890c) {
+                            } else if (cVar == av.c.f77764b) {
+                                format = String.format("the client is binding. %1$s %2$s.", a3.f77755g, av.b.a(a3.f918b));
+                            } else if (cVar != av.c.f77765c) {
                                 return;
                             } else {
-                                eVar = this.f850a;
+                                eVar = this.f854a;
                                 z = true;
                                 i2 = 0;
                             }
@@ -1452,21 +1452,21 @@ public class XMPushService extends Service implements fo {
                         a(true);
                         return;
                     }
-                    eVar = this.f850a;
+                    eVar = this.f854a;
                     z = false;
                     i2 = 2;
                     eVar.a(this, a3, z, i2, null);
                     return;
                 }
                 format = "security is empty. ignore.";
-                com.xiaomi.channel.commonutils.logger.b.m70a(format);
-            } else if (az.f40902i.equalsIgnoreCase(intent.getAction())) {
+                com.xiaomi.channel.commonutils.logger.b.m73a(format);
+            } else if (az.f77777i.equalsIgnoreCase(intent.getAction())) {
                 String stringExtra2 = intent.getStringExtra(az.A);
                 String stringExtra3 = intent.getStringExtra(az.s);
                 String stringExtra4 = intent.getStringExtra(az.p);
-                com.xiaomi.channel.commonutils.logger.b.m70a("Service called close channel chid = " + stringExtra3 + " res = " + av.b.a(stringExtra4));
+                com.xiaomi.channel.commonutils.logger.b.m73a("Service called close channel chid = " + stringExtra3 + " res = " + av.b.a(stringExtra4));
                 if (TextUtils.isEmpty(stringExtra3)) {
-                    for (String str4 : a2.m602a(stringExtra2)) {
+                    for (String str4 : a2.m605a(stringExtra2)) {
                         a(str4, 2);
                     }
                 } else if (TextUtils.isEmpty(stringExtra4)) {
@@ -1474,40 +1474,40 @@ public class XMPushService extends Service implements fo {
                 } else {
                     a(stringExtra3, stringExtra4, 2, null, null);
                 }
-            } else if (az.f40898e.equalsIgnoreCase(intent.getAction())) {
+            } else if (az.f77773e.equalsIgnoreCase(intent.getAction())) {
                 a(intent);
-            } else if (az.f40900g.equalsIgnoreCase(intent.getAction())) {
+            } else if (az.f77775g.equalsIgnoreCase(intent.getAction())) {
                 b(intent);
             } else {
-                if (az.f40899f.equalsIgnoreCase(intent.getAction())) {
+                if (az.f77774f.equalsIgnoreCase(intent.getAction())) {
                     gc a4 = a(new ga(intent.getBundleExtra("ext_packet")), intent.getStringExtra(az.A), intent.getStringExtra(az.D));
                     if (a4 == null) {
                         return;
                     }
-                    bgVar = new bg(this, fa.a(a4, a2.a(a4.k(), a4.m()).f40881h));
-                } else if (!az.f40901h.equalsIgnoreCase(intent.getAction())) {
+                    bgVar = new bg(this, fa.a(a4, a2.a(a4.k(), a4.m()).f77756h));
+                } else if (!az.f77776h.equalsIgnoreCase(intent.getAction())) {
                     if (!az.k.equals(intent.getAction())) {
                         av.b bVar = null;
                         if (!az.l.equals(intent.getAction())) {
                             if ("android.intent.action.SCREEN_ON".equals(intent.getAction()) || "android.intent.action.SCREEN_OFF".equals(intent.getAction())) {
                                 if ("android.intent.action.SCREEN_ON".equals(intent.getAction())) {
-                                    if (m559i()) {
+                                    if (m562i()) {
                                         return;
                                     }
-                                    com.xiaomi.channel.commonutils.logger.b.m70a("exit falldown mode, activate alarm.");
+                                    com.xiaomi.channel.commonutils.logger.b.m73a("exit falldown mode, activate alarm.");
                                     e();
-                                    if (m567c() || m568d()) {
+                                    if (m570c() || m571d()) {
                                         return;
                                     }
                                     a(true);
                                     return;
-                                } else if (!"android.intent.action.SCREEN_OFF".equals(intent.getAction()) || !m559i() || !er.m296a()) {
+                                } else if (!"android.intent.action.SCREEN_OFF".equals(intent.getAction()) || !m562i() || !er.m299a()) {
                                     return;
                                 } else {
                                     str2 = "enter falldown mode, stop alarm.";
                                 }
                             } else if ("com.xiaomi.mipush.REGISTER_APP".equals(intent.getAction())) {
-                                if (bc.a(getApplicationContext()).m609a() && bc.a(getApplicationContext()).a() == 0) {
+                                if (bc.a(getApplicationContext()).m612a() && bc.a(getApplicationContext()).a() == 0) {
                                     str3 = "register without being provisioned. " + intent.getStringExtra("mipush_app_package");
                                 } else {
                                     byte[] byteArrayExtra = intent.getByteArrayExtra("mipush_payload");
@@ -1530,14 +1530,14 @@ public class XMPushService extends Service implements fo {
                                 }
                                 a(stringExtra6, byteArrayExtra2, booleanExtra2);
                                 return;
-                            } else if (!bd.f40906a.equals(intent.getAction())) {
-                                if (bd.f40907b.equals(intent.getAction())) {
+                            } else if (!bd.f77782a.equals(intent.getAction())) {
+                                if (bd.f77783b.equals(intent.getAction())) {
                                     String stringExtra7 = intent.getStringExtra("data_cleared_pkg_name");
                                     if (stringExtra7 == null || TextUtils.isEmpty(stringExtra7.trim())) {
                                         return;
                                     }
-                                    com.xiaomi.channel.commonutils.logger.b.m70a("clear notifications of package " + stringExtra7);
-                                    ac.m572a((Context) this, stringExtra7);
+                                    com.xiaomi.channel.commonutils.logger.b.m73a("clear notifications of package " + stringExtra7);
+                                    ac.m575a((Context) this, stringExtra7);
                                     ak.a((Context) this, stringExtra7);
                                     return;
                                 } else if ("com.xiaomi.mipush.CLEAR_NOTIFICATION".equals(intent.getAction())) {
@@ -1566,7 +1566,7 @@ public class XMPushService extends Service implements fo {
                                     }
                                     if (!TextUtils.isEmpty(stringExtra9) && TextUtils.equals(stringExtra10, b2)) {
                                         if (z2) {
-                                            ac.m577b((Context) this, stringExtra9);
+                                            ac.m580b((Context) this, stringExtra9);
                                             return;
                                         } else {
                                             ac.b(this, stringExtra9, i3);
@@ -1606,9 +1606,9 @@ public class XMPushService extends Service implements fo {
                                     }
                                     com.xiaomi.push.service.p.b(stringExtra12, byteArrayExtra3);
                                     a(new com.xiaomi.push.service.o(this, stringExtra12, stringExtra13, stringExtra14, byteArrayExtra3));
-                                    if ("com.xiaomi.mipush.ENABLE_PUSH_MESSAGE".equals(intent.getAction()) && this.f846a == null) {
-                                        this.f846a = new e(this);
-                                        registerReceiver(this.f846a, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+                                    if ("com.xiaomi.mipush.ENABLE_PUSH_MESSAGE".equals(intent.getAction()) && this.f850a == null) {
+                                        this.f850a = new e(this);
+                                        registerReceiver(this.f850a, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
                                         return;
                                     }
                                     return;
@@ -1626,20 +1626,20 @@ public class XMPushService extends Service implements fo {
                                     }
                                 } else {
                                     if ("com.xiaomi.push.timer".equalsIgnoreCase(intent.getAction())) {
-                                        com.xiaomi.channel.commonutils.logger.b.m70a("Service called on timer");
-                                        if (!m559i()) {
+                                        com.xiaomi.channel.commonutils.logger.b.m73a("Service called on timer");
+                                        if (!m562i()) {
                                             er.a(false);
-                                            if (!m555e()) {
+                                            if (!m558e()) {
                                                 return;
                                             }
-                                        } else if (!er.m296a()) {
+                                        } else if (!er.m299a()) {
                                             return;
                                         } else {
                                             str2 = "enter falldown mode, stop alarm";
                                         }
                                     } else if (!"com.xiaomi.push.check_alive".equalsIgnoreCase(intent.getAction())) {
                                         if ("com.xiaomi.mipush.thirdparty".equals(intent.getAction())) {
-                                            com.xiaomi.channel.commonutils.logger.b.m70a("on thirdpart push :" + intent.getStringExtra("com.xiaomi.mipush.thirdparty_DESC"));
+                                            com.xiaomi.channel.commonutils.logger.b.m73a("on thirdpart push :" + intent.getStringExtra("com.xiaomi.mipush.thirdparty_DESC"));
                                             er.a(this, intent.getIntExtra("com.xiaomi.mipush.thirdparty_LEVEL", 0));
                                             return;
                                         } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(intent.getAction())) {
@@ -1672,7 +1672,7 @@ public class XMPushService extends Service implements fo {
                                                 intExtra4 = 30;
                                             }
                                             boolean z3 = intExtra4 >= 0 ? booleanExtra6 : false;
-                                            com.xiaomi.channel.commonutils.logger.b.m70a("aw_ping: receive a aw_ping message. switch: " + z3 + " frequency: " + intExtra4);
+                                            com.xiaomi.channel.commonutils.logger.b.m73a("aw_ping: receive a aw_ping message. switch: " + z3 + " frequency: " + intExtra4);
                                             if (!z3 || intExtra4 <= 0 || "com.xiaomi.xmsf".equals(getPackageName())) {
                                                 return;
                                             }
@@ -1680,8 +1680,8 @@ public class XMPushService extends Service implements fo {
                                             return;
                                         }
                                     } else {
-                                        com.xiaomi.channel.commonutils.logger.b.m70a("Service called on check alive.");
-                                        if (!m555e()) {
+                                        com.xiaomi.channel.commonutils.logger.b.m73a("Service called on check alive.");
+                                        if (!m558e()) {
                                             return;
                                         }
                                     }
@@ -1698,7 +1698,7 @@ public class XMPushService extends Service implements fo {
                                     z2 = false;
                                 } catch (PackageManager.NameNotFoundException unused) {
                                 }
-                                if (!"com.xiaomi.channel".equals(stringExtra16) || av.a().m601a("1").isEmpty() || !z2) {
+                                if (!"com.xiaomi.channel".equals(stringExtra16) || av.a().m604a("1").isEmpty() || !z2) {
                                     SharedPreferences sharedPreferences = getSharedPreferences("pref_registered_pkg_names", 0);
                                     String string = sharedPreferences.getString(stringExtra16, null);
                                     if (TextUtils.isEmpty(string) || !z2) {
@@ -1707,16 +1707,16 @@ public class XMPushService extends Service implements fo {
                                     SharedPreferences.Editor edit = sharedPreferences.edit();
                                     edit.remove(stringExtra16);
                                     edit.commit();
-                                    if (ac.m578b((Context) this, stringExtra16)) {
-                                        ac.m577b((Context) this, stringExtra16);
+                                    if (ac.m581b((Context) this, stringExtra16)) {
+                                        ac.m580b((Context) this, stringExtra16);
                                     }
-                                    ac.m572a((Context) this, stringExtra16);
-                                    if (!m567c() || string == null) {
+                                    ac.m575a((Context) this, stringExtra16);
+                                    if (!m570c() || string == null) {
                                         return;
                                     }
                                     try {
                                         y.a(this, y.a(stringExtra16, string));
-                                        com.xiaomi.channel.commonutils.logger.b.m70a("uninstall " + stringExtra16 + " msg sent");
+                                        com.xiaomi.channel.commonutils.logger.b.m73a("uninstall " + stringExtra16 + " msg sent");
                                         return;
                                     } catch (fw e3) {
                                         com.xiaomi.channel.commonutils.logger.b.d("Fail to send Message: " + e3.getMessage());
@@ -1727,32 +1727,32 @@ public class XMPushService extends Service implements fo {
                                 a("1", 0);
                                 str3 = "close the miliao channel as the app is uninstalled.";
                             }
-                            com.xiaomi.channel.commonutils.logger.b.m70a(str2);
+                            com.xiaomi.channel.commonutils.logger.b.m73a(str2);
                             er.a();
                             return;
                         }
                         String stringExtra17 = intent.getStringExtra(az.A);
-                        List<String> m602a = a2.m602a(stringExtra17);
-                        if (!m602a.isEmpty()) {
+                        List<String> m605a = a2.m605a(stringExtra17);
+                        if (!m605a.isEmpty()) {
                             String stringExtra18 = intent.getStringExtra(az.s);
                             String stringExtra19 = intent.getStringExtra(az.p);
                             if (TextUtils.isEmpty(stringExtra18)) {
-                                stringExtra18 = m602a.get(0);
+                                stringExtra18 = m605a.get(0);
                             }
                             if (TextUtils.isEmpty(stringExtra19)) {
-                                Collection<av.b> m601a = a2.m601a(stringExtra18);
-                                if (m601a != null && !m601a.isEmpty()) {
-                                    bVar = m601a.iterator().next();
+                                Collection<av.b> m604a = a2.m604a(stringExtra18);
+                                if (m604a != null && !m604a.isEmpty()) {
+                                    bVar = m604a.iterator().next();
                                 }
                             } else {
                                 bVar = a2.a(stringExtra18, stringExtra19);
                             }
                             if (bVar != null) {
                                 if (intent.hasExtra(az.y)) {
-                                    bVar.f40878e = intent.getStringExtra(az.y);
+                                    bVar.f77753e = intent.getStringExtra(az.y);
                                 }
                                 if (intent.hasExtra(az.z)) {
-                                    bVar.f40879f = intent.getStringExtra(az.z);
+                                    bVar.f77754f = intent.getStringExtra(az.z);
                                     return;
                                 }
                                 return;
@@ -1760,7 +1760,7 @@ public class XMPushService extends Service implements fo {
                             return;
                         }
                         str3 = "open channel should be called first before update info, pkg=" + stringExtra17;
-                        com.xiaomi.channel.commonutils.logger.b.m70a(str3);
+                        com.xiaomi.channel.commonutils.logger.b.m73a(str3);
                         return;
                     }
                     String stringExtra20 = intent.getStringExtra(az.s);
@@ -1768,13 +1768,13 @@ public class XMPushService extends Service implements fo {
                     if (stringExtra20 == null) {
                         return;
                     }
-                    com.xiaomi.channel.commonutils.logger.b.m70a("request reset connection from chid = " + stringExtra20);
+                    com.xiaomi.channel.commonutils.logger.b.m73a("request reset connection from chid = " + stringExtra20);
                     av.b a5 = av.a().a(stringExtra20, stringExtra21);
-                    if (a5 == null || !a5.f40881h.equals(intent.getStringExtra(az.w)) || a5.f909a != av.c.f40890c) {
+                    if (a5 == null || !a5.f77756h.equals(intent.getStringExtra(az.w)) || a5.f913a != av.c.f77765c) {
                         return;
                     }
-                    fl m560a = m560a();
-                    if (m560a != null && m560a.a(System.currentTimeMillis() - 15000)) {
+                    fl m563a = m563a();
+                    if (m563a != null && m563a.a(System.currentTimeMillis() - 15000)) {
                         return;
                     }
                     nVar = new o(this);
@@ -1785,7 +1785,7 @@ public class XMPushService extends Service implements fo {
                     if (a6 == null) {
                         return;
                     }
-                    bgVar = new bg(this, fa.a(a6, a2.a(a6.k(), a6.m()).f40881h));
+                    bgVar = new bg(this, fa.a(a6, a2.a(a6.k(), a6.m()).f77756h));
                 }
                 c(bgVar);
             }
@@ -1795,7 +1795,7 @@ public class XMPushService extends Service implements fo {
     private void c(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65564, this, iVar) == null) {
-            this.f851a.a(iVar);
+            this.f855a.a(iVar);
         }
     }
 
@@ -1803,14 +1803,14 @@ public class XMPushService extends Service implements fo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65566, this, z) == null) {
             try {
-                if (com.xiaomi.push.t.m639a()) {
+                if (com.xiaomi.push.t.m642a()) {
                     if (!z) {
                         sendBroadcast(new Intent("miui.intent.action.NETWORK_BLOCKED"));
                         return;
                     }
                     sendBroadcast(new Intent("miui.intent.action.NETWORK_CONNECTED"));
-                    for (ai aiVar : (ai[]) this.f855a.toArray(new ai[0])) {
-                        aiVar.mo619a();
+                    for (ai aiVar : (ai[]) this.f859a.toArray(new ai[0])) {
+                        aiVar.mo622a();
                     }
                 }
             } catch (Exception e2) {
@@ -1833,25 +1833,25 @@ public class XMPushService extends Service implements fo {
                 StringBuilder sb = new StringBuilder();
                 sb.append("network changed,");
                 sb.append(PreferencesUtil.LEFT_MOUNT + "type: " + networkInfo.getTypeName() + PreferencesUtil.LEFT_MOUNT + networkInfo.getSubtypeName() + "], state: " + networkInfo.getState() + "/" + networkInfo.getDetailedState());
-                com.xiaomi.channel.commonutils.logger.b.m70a(sb.toString());
+                com.xiaomi.channel.commonutils.logger.b.m73a(sb.toString());
                 NetworkInfo.State state = networkInfo.getState();
                 if (state == NetworkInfo.State.SUSPENDED || state == NetworkInfo.State.UNKNOWN) {
                     return;
                 }
             } else {
-                com.xiaomi.channel.commonutils.logger.b.m70a("network changed, no active network");
+                com.xiaomi.channel.commonutils.logger.b.m73a("network changed, no active network");
             }
             if (gx.a() != null) {
-                gx.a().m362a();
+                gx.a().m365a();
             }
-            gq.m359a((Context) this);
-            this.f842a.d();
+            gq.m362a((Context) this);
+            this.f846a.d();
             if (com.xiaomi.push.bg.b(this)) {
-                if (m567c() && m555e()) {
+                if (m570c() && m558e()) {
                     b(false);
                 }
-                if (!m567c() && !m568d()) {
-                    this.f851a.a(1);
+                if (!m570c() && !m571d()) {
+                    this.f855a.a(1);
                     a(new d(this));
                 }
                 db.a(this).a();
@@ -1876,10 +1876,10 @@ public class XMPushService extends Service implements fo {
                 ie ieVar = new ie();
                 ip.a(ieVar, byteArrayExtra);
                 String b2 = ieVar.b();
-                Map<String, String> m466a = ieVar.m466a();
-                if (m466a != null) {
-                    String str = m466a.get("extra_help_aw_info");
-                    String str2 = m466a.get("extra_aw_app_online_cmd");
+                Map<String, String> m469a = ieVar.m469a();
+                if (m469a != null) {
+                    String str = m469a.get("extra_help_aw_info");
+                    String str2 = m469a.get("extra_aw_app_online_cmd");
                     if (TextUtils.isEmpty(str2)) {
                         return;
                     }
@@ -1903,9 +1903,9 @@ public class XMPushService extends Service implements fo {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65569, this) == null) {
-            if (!m563a()) {
+            if (!m566a()) {
                 er.a();
-            } else if (er.m296a()) {
+            } else if (er.m299a()) {
             } else {
                 er.a(true);
             }
@@ -1913,11 +1913,11 @@ public class XMPushService extends Service implements fo {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    private boolean m555e() {
+    private boolean m558e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, this)) == null) {
-            if (System.currentTimeMillis() - this.f839a < 30000) {
+            if (System.currentTimeMillis() - this.f843a < 30000) {
                 return false;
             }
             return com.xiaomi.push.bg.d(this);
@@ -1930,13 +1930,13 @@ public class XMPushService extends Service implements fo {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65571, this) == null) {
-            fl flVar = this.f843a;
-            if (flVar == null || !flVar.m326b()) {
-                fl flVar2 = this.f843a;
-                if (flVar2 == null || !flVar2.m327c()) {
-                    this.f844a.b(com.xiaomi.push.bg.m172a((Context) this));
+            fl flVar = this.f847a;
+            if (flVar == null || !flVar.m329b()) {
+                fl flVar2 = this.f847a;
+                if (flVar2 == null || !flVar2.m330c()) {
+                    this.f848a.b(com.xiaomi.push.bg.m175a((Context) this));
                     g();
-                    if (this.f843a == null) {
+                    if (this.f847a == null) {
                         av.a().a(this);
                         c(false);
                         return;
@@ -1953,7 +1953,7 @@ public class XMPushService extends Service implements fo {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: f  reason: collision with other method in class */
-    public boolean m556f() {
+    public boolean m559f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65572, this)) == null) ? "com.xiaomi.xmsf".equals(getPackageName()) && Settings.Secure.getInt(getContentResolver(), "EXTREME_POWER_MODE_ENABLE", 0) == 1 : invokeV.booleanValue;
@@ -1963,19 +1963,19 @@ public class XMPushService extends Service implements fo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65573, this) == null) {
             try {
-                this.f842a.a(this.f845a, new bu(this));
-                this.f842a.e();
-                this.f843a = this.f842a;
+                this.f846a.a(this.f849a, new bu(this));
+                this.f846a.e();
+                this.f847a = this.f846a;
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a("fail to create Slim connection", e2);
-                this.f842a.b(3, e2);
+                this.f846a.b(3, e2);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: g  reason: collision with other method in class */
-    public boolean m557g() {
+    public boolean m560g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(65574, this)) == null) ? "com.xiaomi.xmsf".equals(getPackageName()) && Settings.System.getInt(getContentResolver(), "power_supersave_mode_open", 0) == 1 : invokeV.booleanValue;
@@ -1988,26 +1988,26 @@ public class XMPushService extends Service implements fo {
     }
 
     /* renamed from: h  reason: collision with other method in class */
-    private boolean m558h() {
+    private boolean m561h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65576, this)) == null) ? "com.xiaomi.xmsf".equals(getPackageName()) || !com.xiaomi.push.service.n.a(this).m634b(getPackageName()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65576, this)) == null) ? "com.xiaomi.xmsf".equals(getPackageName()) || !com.xiaomi.push.service.n.a(this).m637b(getPackageName()) : invokeV.booleanValue;
     }
 
     private void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65577, this) == null) {
-            synchronized (this.f854a) {
-                this.f854a.clear();
+            synchronized (this.f858a) {
+                this.f858a.clear();
             }
         }
     }
 
     /* renamed from: i  reason: collision with other method in class */
-    private boolean m559i() {
+    private boolean m562i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65578, this)) == null) ? getApplicationContext().getPackageName().equals("com.xiaomi.xmsf") && j() && !com.xiaomi.push.i.m440b((Context) this) && !com.xiaomi.push.i.m437a(getApplicationContext()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65578, this)) == null) ? getApplicationContext().getPackageName().equals("com.xiaomi.xmsf") && j() && !com.xiaomi.push.i.m443b((Context) this) && !com.xiaomi.push.i.m440a(getApplicationContext()) : invokeV.booleanValue;
     }
 
     private boolean j() {
@@ -2015,8 +2015,8 @@ public class XMPushService extends Service implements fo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65579, this)) == null) {
             int intValue = Integer.valueOf(String.format("%tH", new Date())).intValue();
-            int i2 = this.f40820a;
-            int i3 = this.f40821b;
+            int i2 = this.f77695a;
+            int i3 = this.f77696b;
             if (i2 > i3) {
                 if (intValue >= i2 || intValue < i3) {
                     return true;
@@ -2042,23 +2042,23 @@ public class XMPushService extends Service implements fo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public fl m560a() {
+    public fl m563a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f843a : (fl) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f847a : (fl) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public com.xiaomi.push.service.e m561a() {
+    public com.xiaomi.push.service.e m564a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new com.xiaomi.push.service.e() : (com.xiaomi.push.service.e) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m562a() {
+    public void m565a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && System.currentTimeMillis() - this.f839a >= fr.a() && com.xiaomi.push.bg.d(this)) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && System.currentTimeMillis() - this.f843a >= fr.a() && com.xiaomi.push.bg.d(this)) {
             b(true);
         }
     }
@@ -2066,7 +2066,7 @@ public class XMPushService extends Service implements fo {
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f851a.a(i2);
+            this.f855a.a(i2);
         }
     }
 
@@ -2077,13 +2077,13 @@ public class XMPushService extends Service implements fo {
             sb.append("disconnect ");
             sb.append(hashCode());
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-            fl flVar = this.f843a;
+            fl flVar = this.f847a;
             sb.append(flVar == null ? null : Integer.valueOf(flVar.hashCode()));
-            com.xiaomi.channel.commonutils.logger.b.m70a(sb.toString());
-            fl flVar2 = this.f843a;
+            com.xiaomi.channel.commonutils.logger.b.m73a(sb.toString());
+            fl flVar2 = this.f847a;
             if (flVar2 != null) {
                 flVar2.b(i2, exc);
-                this.f843a = null;
+                this.f847a = null;
             }
             a(7);
             a(4);
@@ -2094,7 +2094,7 @@ public class XMPushService extends Service implements fo {
     public void a(fa faVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, faVar) == null) {
-            fl flVar = this.f843a;
+            fl flVar = this.f847a;
             if (flVar == null) {
                 throw new fw("try send msg while connection is null.");
             }
@@ -2116,7 +2116,7 @@ public class XMPushService extends Service implements fo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048583, this, flVar, i2, exc) == null) {
             gx.a().a(flVar, i2, exc);
-            if (m559i()) {
+            if (m562i()) {
                 return;
             }
             a(false);
@@ -2129,7 +2129,7 @@ public class XMPushService extends Service implements fo {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, flVar, exc) == null) {
             gx.a().a(flVar, exc);
             c(false);
-            if (m559i()) {
+            if (m562i()) {
                 return;
             }
             a(false);
@@ -2147,9 +2147,9 @@ public class XMPushService extends Service implements fo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048586, this, iVar, j2) == null) {
             try {
-                this.f851a.a(iVar, j2);
+                this.f855a.a(iVar, j2);
             } catch (IllegalStateException e2) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("can't execute job err = " + e2.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m73a("can't execute job err = " + e2.getMessage());
             }
         }
     }
@@ -2157,8 +2157,8 @@ public class XMPushService extends Service implements fo {
     public void a(l lVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, lVar) == null) {
-            synchronized (this.f854a) {
-                this.f854a.add(lVar);
+            synchronized (this.f858a) {
+                this.f858a.add(lVar);
             }
         }
     }
@@ -2169,7 +2169,7 @@ public class XMPushService extends Service implements fo {
             return;
         }
         long a2 = bVar.a();
-        com.xiaomi.channel.commonutils.logger.b.m70a("schedule rebind job in " + (a2 / 1000));
+        com.xiaomi.channel.commonutils.logger.b.m73a("schedule rebind job in " + (a2 / 1000));
         a(new a(this, bVar), a2);
     }
 
@@ -2180,19 +2180,19 @@ public class XMPushService extends Service implements fo {
             if (a2 != null) {
                 a(new q(this, a2, i2, str4, str3));
             }
-            av.a().m605a(str, str2);
+            av.a().m608a(str, str2);
         }
     }
 
     public void a(String str, byte[] bArr, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048590, this, str, bArr, z) == null) {
-            Collection<av.b> m601a = av.a().m601a("5");
-            if (m601a.isEmpty()) {
+            Collection<av.b> m604a = av.a().m604a("5");
+            if (m604a.isEmpty()) {
                 if (!z) {
                     return;
                 }
-            } else if (m601a.iterator().next().f909a == av.c.f40890c) {
+            } else if (m604a.iterator().next().f913a == av.c.f77765c) {
                 a(new bs(this, 4, str, bArr));
                 return;
             } else if (!z) {
@@ -2205,7 +2205,7 @@ public class XMPushService extends Service implements fo {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.f849a.a(z);
+            this.f853a.a(z);
         }
     }
 
@@ -2214,16 +2214,16 @@ public class XMPushService extends Service implements fo {
         if (interceptable == null || interceptable.invokeLL(1048592, this, bArr, str) == null) {
             if (bArr == null) {
                 com.xiaomi.push.service.p.a(this, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "null payload");
-                com.xiaomi.channel.commonutils.logger.b.m70a("register request without payload");
+                com.xiaomi.channel.commonutils.logger.b.m73a("register request without payload");
                 return;
             }
             ib ibVar = new ib();
             try {
                 ip.a(ibVar, bArr);
-                if (ibVar.f631a == hf.f40522a) {
+                if (ibVar.f635a == hf.f77381a) {
                     Cif cif = new Cif();
                     try {
-                        ip.a(cif, ibVar.m456a());
+                        ip.a(cif, ibVar.m459a());
                         com.xiaomi.push.service.p.a(ibVar.b(), bArr);
                         a(new com.xiaomi.push.service.o(this, ibVar.b(), cif.b(), cif.c(), bArr));
                         el.a(getApplicationContext()).a(ibVar.b(), "E100003", cif.a(), 6002, null);
@@ -2233,7 +2233,7 @@ public class XMPushService extends Service implements fo {
                     }
                 } else {
                     com.xiaomi.push.service.p.a(this, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, " registration action required.");
-                    com.xiaomi.channel.commonutils.logger.b.m70a("register request with invalid payload");
+                    com.xiaomi.channel.commonutils.logger.b.m73a("register request with invalid payload");
                 }
             } catch (iv e3) {
                 com.xiaomi.channel.commonutils.logger.b.d("app register fail. " + e3);
@@ -2245,7 +2245,7 @@ public class XMPushService extends Service implements fo {
     public void a(fa[] faVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, faVarArr) == null) {
-            fl flVar = this.f843a;
+            fl flVar = this.f847a;
             if (flVar == null) {
                 throw new fw("try send msg while connection is null.");
             }
@@ -2254,19 +2254,19 @@ public class XMPushService extends Service implements fo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m563a() {
+    public boolean m566a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             boolean b2 = com.xiaomi.push.bg.b(this);
-            boolean z = av.a().m599a() > 0;
-            boolean z2 = !m566b();
-            boolean m558h = m558h();
-            boolean z3 = !m557g();
-            boolean z4 = !m556f();
-            boolean z5 = b2 && z && z2 && m558h && z3 && z4;
+            boolean z = av.a().m602a() > 0;
+            boolean z2 = !m569b();
+            boolean m561h = m561h();
+            boolean z3 = !m560g();
+            boolean z4 = !m559f();
+            boolean z5 = b2 && z && z2 && m561h && z3 && z4;
             if (!z5) {
-                com.xiaomi.channel.commonutils.logger.b.e(String.format("not conn, net=%s;cnt=%s;!dis=%s;enb=%s;!spm=%s;!eps=%s", Boolean.valueOf(b2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(m558h), Boolean.valueOf(z3), Boolean.valueOf(z4)));
+                com.xiaomi.channel.commonutils.logger.b.e(String.format("not conn, net=%s;cnt=%s;!dis=%s;enb=%s;!spm=%s;!eps=%s", Boolean.valueOf(b2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(m561h), Boolean.valueOf(z3), Boolean.valueOf(z4)));
             }
             return z5;
         }
@@ -2274,25 +2274,25 @@ public class XMPushService extends Service implements fo {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m564a(int i2) {
+    public boolean m567a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) ? this.f851a.m622a(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) ? this.f855a.m625a(i2) : invokeI.booleanValue;
     }
 
     public com.xiaomi.push.service.e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f850a : (com.xiaomi.push.service.e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f854a : (com.xiaomi.push.service.e) invokeV.objValue;
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public void m565b() {
+    public void m568b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            Iterator it = new ArrayList(this.f854a).iterator();
+            Iterator it = new ArrayList(this.f858a).iterator();
             while (it.hasNext()) {
-                ((l) it.next()).mo370a();
+                ((l) it.next()).mo373a();
             }
         }
     }
@@ -2303,12 +2303,12 @@ public class XMPushService extends Service implements fo {
         if (interceptable == null || interceptable.invokeL(1048598, this, flVar) == null) {
             gx.a().b(flVar);
             c(true);
-            this.f849a.m611a();
-            if (!er.m296a() && !m559i()) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("reconnection successful, reactivate alarm.");
+            this.f853a.m614a();
+            if (!er.m299a() && !m562i()) {
+                com.xiaomi.channel.commonutils.logger.b.m73a("reconnection successful, reactivate alarm.");
                 er.a(true);
             }
-            Iterator<av.b> it = av.a().m600a().iterator();
+            Iterator<av.b> it = av.a().m603a().iterator();
             while (it.hasNext()) {
                 a(new a(this, it.next()));
             }
@@ -2318,12 +2318,12 @@ public class XMPushService extends Service implements fo {
     public void b(i iVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, iVar) == null) {
-            this.f851a.a(iVar.f40947a, iVar);
+            this.f855a.a(iVar.f77823a, iVar);
         }
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m566b() {
+    public boolean m569b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
@@ -2346,23 +2346,23 @@ public class XMPushService extends Service implements fo {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m567c() {
+    public boolean m570c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            fl flVar = this.f843a;
-            return flVar != null && flVar.m327c();
+            fl flVar = this.f847a;
+            return flVar != null && flVar.m330c();
         }
         return invokeV.booleanValue;
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public boolean m568d() {
+    public boolean m571d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            fl flVar = this.f843a;
-            return flVar != null && flVar.m326b();
+            fl flVar = this.f847a;
+            return flVar != null && flVar.m329b();
         }
         return invokeV.booleanValue;
     }
@@ -2371,7 +2371,7 @@ public class XMPushService extends Service implements fo {
     public IBinder onBind(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, intent)) == null) ? this.f841a.getBinder() : (IBinder) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, intent)) == null) ? this.f845a.getBinder() : (IBinder) invokeL.objValue;
     }
 
     @Override // android.app.Service
@@ -2381,25 +2381,25 @@ public class XMPushService extends Service implements fo {
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             super.onCreate();
             com.xiaomi.channel.commonutils.logger.b.a(getApplicationContext());
-            com.xiaomi.push.t.m638a((Context) this);
+            com.xiaomi.push.t.m641a((Context) this);
             com.xiaomi.push.service.l a2 = com.xiaomi.push.service.m.a((Context) this);
             if (a2 != null) {
-                com.xiaomi.push.ab.a(a2.f40959a);
+                com.xiaomi.push.ab.a(a2.f77835a);
             }
-            this.f841a = new Messenger(new bv(this));
+            this.f845a = new Messenger(new bv(this));
             ba.a(this);
             bw bwVar = new bw(this, null, 5222, "xiaomi.com", null);
-            this.f844a = bwVar;
+            this.f848a = bwVar;
             bwVar.a(true);
-            this.f842a = new fh(this, this.f844a);
-            this.f850a = m561a();
+            this.f846a = new fh(this, this.f848a);
+            this.f854a = m564a();
             er.a(this);
-            this.f842a.a(this);
-            this.f848a = new au(this);
-            this.f849a = new bf(this);
+            this.f846a.a(this);
+            this.f852a = new au(this);
+            this.f853a = new bf(this);
             new com.xiaomi.push.service.f().a();
-            gx.m363a().a(this);
-            this.f851a = new com.xiaomi.push.service.h("Connection Controller Thread");
+            gx.m366a().a(this);
+            this.f855a = new com.xiaomi.push.service.h("Connection Controller Thread");
             av a3 = av.a();
             a3.b();
             a3.a(new bx(this));
@@ -2409,46 +2409,46 @@ public class XMPushService extends Service implements fo {
             hd.a(this).a(new com.xiaomi.push.service.j(this), "UPLOADER_PUSH_CHANNEL");
             a(new ha(this));
             a(new g(this));
-            this.f855a.add(bk.a(this));
-            if (m558h()) {
-                this.f846a = new e(this);
-                registerReceiver(this.f846a, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            this.f859a.add(bk.a(this));
+            if (m561h()) {
+                this.f850a = new e(this);
+                registerReceiver(this.f850a, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
             }
             if ("com.xiaomi.xmsf".equals(getPackageName())) {
                 Uri uriFor = Settings.Secure.getUriFor("EXTREME_POWER_MODE_ENABLE");
                 if (uriFor != null) {
-                    this.f840a = new by(this, new Handler(Looper.getMainLooper()));
+                    this.f844a = new by(this, new Handler(Looper.getMainLooper()));
                     try {
-                        getContentResolver().registerContentObserver(uriFor, false, this.f840a);
+                        getContentResolver().registerContentObserver(uriFor, false, this.f844a);
                     } catch (Throwable th) {
-                        com.xiaomi.channel.commonutils.logger.b.m70a("register observer err:" + th.getMessage());
+                        com.xiaomi.channel.commonutils.logger.b.m73a("register observer err:" + th.getMessage());
                     }
                 }
                 Uri uriFor2 = Settings.System.getUriFor("power_supersave_mode_open");
                 if (uriFor2 != null) {
-                    this.f856b = new bz(this, new Handler(Looper.getMainLooper()));
+                    this.f860b = new bz(this, new Handler(Looper.getMainLooper()));
                     try {
-                        getContentResolver().registerContentObserver(uriFor2, false, this.f856b);
+                        getContentResolver().registerContentObserver(uriFor2, false, this.f860b);
                     } catch (Throwable th2) {
                         com.xiaomi.channel.commonutils.logger.b.d("register super-power-mode observer err:" + th2.getMessage());
                     }
                 }
-                int[] m553a = m553a();
-                if (m553a != null) {
-                    this.f847a = new p(this);
+                int[] m556a = m556a();
+                if (m556a != null) {
+                    this.f851a = new p(this);
                     IntentFilter intentFilter = new IntentFilter();
                     intentFilter.addAction("android.intent.action.SCREEN_ON");
                     intentFilter.addAction("android.intent.action.SCREEN_OFF");
-                    registerReceiver(this.f847a, intentFilter);
-                    this.f40820a = m553a[0];
-                    this.f40821b = m553a[1];
-                    com.xiaomi.channel.commonutils.logger.b.m70a("falldown initialized: " + this.f40820a + "," + this.f40821b);
+                    registerReceiver(this.f851a, intentFilter);
+                    this.f77695a = m556a[0];
+                    this.f77696b = m556a[1];
+                    com.xiaomi.channel.commonutils.logger.b.m73a("falldown initialized: " + this.f77695a + "," + this.f77696b);
                 }
             }
             String str = "";
             if (a2 != null) {
                 try {
-                    if (!TextUtils.isEmpty(a2.f962a) && (split = a2.f962a.split(TNCManager.TNC_PROBE_HEADER_SECEPTOR)) != null && split.length > 0) {
+                    if (!TextUtils.isEmpty(a2.f966a) && (split = a2.f966a.split(TNCManager.TNC_PROBE_HEADER_SECEPTOR)) != null && split.length > 0) {
                         str = split[0];
                     }
                 } catch (Exception unused) {
@@ -2462,43 +2462,43 @@ public class XMPushService extends Service implements fo {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            e eVar = this.f846a;
+            e eVar = this.f850a;
             if (eVar != null) {
                 a(eVar);
-                this.f846a = null;
+                this.f850a = null;
             }
-            p pVar = this.f847a;
+            p pVar = this.f851a;
             if (pVar != null) {
                 a(pVar);
-                this.f847a = null;
+                this.f851a = null;
             }
-            if ("com.xiaomi.xmsf".equals(getPackageName()) && this.f840a != null) {
+            if ("com.xiaomi.xmsf".equals(getPackageName()) && this.f844a != null) {
                 try {
-                    getContentResolver().unregisterContentObserver(this.f840a);
+                    getContentResolver().unregisterContentObserver(this.f844a);
                 } catch (Throwable th) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("unregister observer err:" + th.getMessage());
+                    com.xiaomi.channel.commonutils.logger.b.m73a("unregister observer err:" + th.getMessage());
                 }
             }
-            if ("com.xiaomi.xmsf".equals(getPackageName()) && this.f856b != null) {
+            if ("com.xiaomi.xmsf".equals(getPackageName()) && this.f860b != null) {
                 try {
-                    getContentResolver().unregisterContentObserver(this.f856b);
+                    getContentResolver().unregisterContentObserver(this.f860b);
                 } catch (Throwable th2) {
                     com.xiaomi.channel.commonutils.logger.b.d("unregister super-power-mode err:" + th2.getMessage());
                 }
             }
-            this.f855a.clear();
-            this.f851a.m623b();
+            this.f859a.clear();
+            this.f855a.m626b();
             a(new bt(this, 2));
             a(new j(this));
             av.a().b();
             av.a().a(this, 15);
-            av.a().m603a();
-            this.f842a.b(this);
-            bi.a().m617a();
+            av.a().m606a();
+            this.f846a.b(this);
+            bi.a().m620a();
             er.a();
             i();
             super.onDestroy();
-            com.xiaomi.channel.commonutils.logger.b.m70a("Service destroyed");
+            com.xiaomi.channel.commonutils.logger.b.m73a("Service destroyed");
         }
     }
 
@@ -2511,11 +2511,11 @@ public class XMPushService extends Service implements fo {
             if (intent == null) {
                 com.xiaomi.channel.commonutils.logger.b.d("onStart() with intent NULL");
             } else {
-                com.xiaomi.channel.commonutils.logger.b.m70a(String.format("onStart() with intent.Action = %s, chid = %s, pkg = %s|%s", intent.getAction(), intent.getStringExtra(az.s), intent.getStringExtra(az.A), intent.getStringExtra("mipush_app_package")));
+                com.xiaomi.channel.commonutils.logger.b.m73a(String.format("onStart() with intent.Action = %s, chid = %s, pkg = %s|%s", intent.getAction(), intent.getStringExtra(az.s), intent.getStringExtra(az.A), intent.getStringExtra("mipush_app_package")));
             }
             if (intent != null && intent.getAction() != null) {
                 if ("com.xiaomi.push.timer".equalsIgnoreCase(intent.getAction()) || "com.xiaomi.push.check_alive".equalsIgnoreCase(intent.getAction())) {
-                    if (this.f851a.m621a()) {
+                    if (this.f855a.m624a()) {
                         com.xiaomi.channel.commonutils.logger.b.d("ERROR, the job controller is blocked.");
                         av.a().a(this, 14);
                         stopSelf();

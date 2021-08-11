@@ -5,7 +5,6 @@ import com.airbnb.lottie.model.CubicCurveData;
 import com.airbnb.lottie.model.content.ShapeData;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.MiscUtils;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +16,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ShapeDataParser implements ValueParser<ShapeData> {
     public static /* synthetic */ Interceptable $ic;
     public static final ShapeDataParser INSTANCE;
@@ -38,7 +37,7 @@ public class ShapeDataParser implements ValueParser<ShapeData> {
             }
         }
         INSTANCE = new ShapeDataParser();
-        NAMES = JsonReader.Options.of("c", "v", "i", Config.OS);
+        NAMES = JsonReader.Options.of("c", "v", "i", "o");
     }
 
     public ShapeDataParser() {

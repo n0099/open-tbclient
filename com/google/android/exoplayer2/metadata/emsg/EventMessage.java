@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.metadata.emsg;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import c.i.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,9 +12,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.metadata.Metadata;
-import d.f.b.a.i0.v;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class EventMessage implements Metadata.Entry {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<EventMessage> CREATOR;
@@ -25,7 +25,7 @@ public final class EventMessage implements Metadata.Entry {
     public final String schemeIdUri;
     public final String value;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<EventMessage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,12 +79,12 @@ public final class EventMessage implements Metadata.Entry {
         CREATOR = new a();
     }
 
-    public EventMessage(String str, String str2, long j, long j2, byte[] bArr) {
+    public EventMessage(String str, String str2, long j2, long j3, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j), Long.valueOf(j2), bArr};
+            Object[] objArr = {str, str2, Long.valueOf(j2), Long.valueOf(j3), bArr};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -96,8 +96,8 @@ public final class EventMessage implements Metadata.Entry {
         }
         this.schemeIdUri = str;
         this.value = str2;
-        this.durationMs = j;
-        this.id = j2;
+        this.durationMs = j2;
+        this.id = j3;
         this.messageData = bArr;
     }
 
@@ -136,9 +136,9 @@ public final class EventMessage implements Metadata.Entry {
                 int hashCode = (527 + (str != null ? str.hashCode() : 0)) * 31;
                 String str2 = this.value;
                 int hashCode2 = str2 != null ? str2.hashCode() : 0;
-                long j = this.durationMs;
-                long j2 = this.id;
-                this.hashCode = ((((((hashCode + hashCode2) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + Arrays.hashCode(this.messageData);
+                long j2 = this.durationMs;
+                long j3 = this.id;
+                this.hashCode = ((((((hashCode + hashCode2) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + ((int) (j3 ^ (j3 >>> 32)))) * 31) + Arrays.hashCode(this.messageData);
             }
             return this.hashCode;
         }

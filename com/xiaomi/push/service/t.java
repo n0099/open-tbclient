@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class t extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f40979a;
+    public final /* synthetic */ ib f77855a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f976a;
+    public final /* synthetic */ XMPushService f980a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public t(int i2, XMPushService xMPushService, ib ibVar) {
@@ -39,8 +39,8 @@ public final class t extends XMPushService.i {
                 return;
             }
         }
-        this.f976a = xMPushService;
-        this.f40979a = ibVar;
+        this.f980a = xMPushService;
+        this.f77855a = ibVar;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -55,12 +55,12 @@ public final class t extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ib a2 = q.a((Context) this.f976a, this.f40979a);
-                a2.m450a().a("message_obsleted", "1");
-                y.a(this.f976a, a2);
+                ib a2 = q.a((Context) this.f980a, this.f77855a);
+                a2.m453a().a("message_obsleted", "1");
+                y.a(this.f980a, a2);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
-                this.f976a.a(10, e2);
+                this.f980a.a(10, e2);
             }
         }
     }

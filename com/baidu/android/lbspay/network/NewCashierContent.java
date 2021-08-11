@@ -6,18 +6,17 @@ import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.channelpay.PayDataBean;
-import com.baidu.apollon.beans.IBeanResponse;
-import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.datamodel.PrecashierCreateOrderResponse;
+import com.dxmpay.apollon.beans.IBeanResponse;
+import com.dxmpay.apollon.utils.JsonUtils;
 import java.io.Serializable;
 import org.json.JSONException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class NewCashierContent implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6404441585155615479L;
@@ -36,7 +35,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
     public String tn;
     public String token;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Brand implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -59,7 +58,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class CashierChannel implements IBaseChannel, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -232,7 +231,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class CashierChannelCoupon implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8163949050735544670L;
@@ -269,7 +268,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class CashierChannels implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -294,7 +293,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class CashierOrder implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -317,7 +316,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class CashierPay implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -341,7 +340,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class CommonMarketing implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -364,7 +363,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class CommonUsedCard implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -399,7 +398,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface IBaseChannel {
         String getActiveIcon();
 
@@ -438,7 +437,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         boolean isShow();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class ReqField implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -480,7 +479,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -498,7 +497,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
                 return "";
             }
             String str = new String(Base64.decode(this.paydata, 0));
-            LogUtil.logd("decodeddata=" + str);
+            String str2 = "decodeddata=" + str;
             try {
                 PayDataBean payDataBean = (PayDataBean) JsonUtils.fromJson(str, PayDataBean.class);
                 return payDataBean != null ? payDataBean.params : "";
@@ -510,7 +509,7 @@ public class NewCashierContent implements IBeanResponse, Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {

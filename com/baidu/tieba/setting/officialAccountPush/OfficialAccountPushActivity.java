@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.j;
+import c.a.e.e.p.l;
+import c.a.p0.a3.d.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.adp.widget.ListView.BdListView;
@@ -24,11 +27,8 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.d.e.p.l;
-import d.a.q0.z2.d.a;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPushActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACCEPT_MSG = 0;
@@ -108,9 +108,9 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
     }
 
-    private void updateSwitchStatus(boolean z, long j) {
+    private void updateSwitchStatus(boolean z, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) || this.list == null || this.mAdapter == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) || this.list == null || this.mAdapter == null) {
             return;
         }
         if (!j.z()) {
@@ -118,7 +118,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             return;
         }
         for (int i2 = 0; i2 < this.list.size(); i2++) {
-            if (this.list.get(i2).uid == j) {
+            if (this.list.get(i2).uid == j2) {
                 if (z) {
                     this.list.get(i2).is_on = 1;
                 } else {
@@ -149,8 +149,8 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             super.onChangeSkinType(i2);
             this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0205, i2);
-            this.mNoDataView.f(getPageContext(), i2);
-            this.mNetworkView.c(getPageContext(), i2);
+            this.mNoDataView.onChangeSkinType(getPageContext(), i2);
+            this.mNetworkView.onChangeSkinType(getPageContext(), i2);
         }
     }
 
@@ -194,12 +194,12 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         }
     }
 
-    public void switchSingleMask(boolean z, long j) {
+    public void switchSingleMask(boolean z, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             requestUpdateMaskInfoMessage.setMaskType(6);
-            requestUpdateMaskInfoMessage.setG_id(j);
+            requestUpdateMaskInfoMessage.setG_id(j2);
             if (z) {
                 requestUpdateMaskInfoMessage.setIsMask(0);
             } else {
@@ -207,7 +207,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
             }
             requestUpdateMaskInfoMessage.setCallFrom(5);
             MessageManager.getInstance().sendMessage(requestUpdateMaskInfoMessage);
-            updateSwitchStatus(z, j);
+            updateSwitchStatus(z, j2);
         }
     }
 }

@@ -12,7 +12,8 @@ import java.io.FileOutputStream;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Scanner;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes5.dex */
 public class d extends ArrayList<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -142,7 +143,7 @@ public class d extends ArrayList<a> {
                         size = this.wB;
                     }
                     for (int i2 = 0; i2 < size; i2++) {
-                        fileOutputStream.write((a.b((a) get(i2)) + "\n").getBytes("utf-8"));
+                        fileOutputStream.write((a.b((a) get(i2)) + StringUtils.LF).getBytes("utf-8"));
                     }
                 }
             } catch (Exception e2) {

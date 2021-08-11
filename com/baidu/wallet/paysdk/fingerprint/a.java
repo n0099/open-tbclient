@@ -12,9 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -30,25 +28,25 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.IvParameterSpec;
 @TargetApi(23)
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f26259b = "wallet_fp_ks_alias";
+    public static String f62158b = "wallet_fp_ks_alias";
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f26260c = null;
+    public static a f62159c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f26261d = "a";
+    public static final String f62160d = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public KeyStore f26262a;
+    public KeyStore f62161a;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f26263e;
+    public Context f62162e;
 
     static {
         InterceptResult invokeClinit;
@@ -81,10 +79,10 @@ public class a {
             }
         }
         try {
-            this.f26263e = context.getApplicationContext();
-            this.f26262a = KeyStore.getInstance("AndroidKeyStore");
+            this.f62162e = context.getApplicationContext();
+            this.f62161a = KeyStore.getInstance("AndroidKeyStore");
         } catch (KeyStoreException e2) {
-            StatisticManager.onEvent(StatServiceEvent.EVENT_FP_KEYSTORE_FAILED);
+            StatisticManager.onEvent("fprd_keystroed_exception_happends");
             e2.printStackTrace();
             throw new KeyStoreException("getInstance keystore occured Exception!");
         }
@@ -94,14 +92,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f26260c == null) {
+            if (f62159c == null) {
                 synchronized (a.class) {
-                    if (f26260c == null) {
-                        f26260c = new a(context);
+                    if (f62159c == null) {
+                        f62159c = new a(context);
                     }
                 }
             }
-            return f26260c;
+            return f62159c;
         }
         return (a) invokeL.objValue;
     }
@@ -120,10 +118,9 @@ public class a {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             try {
                 KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", "AndroidKeyStore");
-                this.f26262a.load(null);
+                this.f62161a.load(null);
                 keyGenerator.init(new KeyGenParameterSpec.Builder(str, 3).setBlockModes("CBC").setUserAuthenticationRequired(true).setEncryptionPaddings("PKCS7Padding").setRandomizedEncryptionRequired(false).build());
                 keyGenerator.generateKey();
-                LogUtil.d(f26261d, "GenerateKey Success");
             } catch (IOException | InvalidAlgorithmParameterException | NoSuchAlgorithmException | NoSuchProviderException | CertificateException e2) {
                 throw new RuntimeException(e2);
             }
@@ -135,8 +132,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bArr)) == null) {
             try {
-                this.f26262a.load(null);
-                SecretKey secretKey = (SecretKey) this.f26262a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f26263e), null);
+                this.f62161a.load(null);
+                SecretKey secretKey = (SecretKey) this.f62161a.getKey(WalletFingerprint.getKeyStoreNewAlise(this.f62162e), null);
                 if (secretKey == null) {
                     return null;
                 }

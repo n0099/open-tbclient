@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.e.m;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class f extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,12 +40,12 @@ public class f extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
             super.a(i2, i3);
-            i iVar = this.f30848a;
+            i iVar = this.f66775a;
             if (iVar == null || i2 <= 0 || i3 <= 0) {
                 return;
             }
             iVar.c(i2, i3);
-            this.f30848a.a(i2, i3);
+            this.f66775a.a(i2, i3);
             d();
         }
     }
@@ -55,7 +55,7 @@ public class f extends g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            i iVar = this.f30848a;
+            i iVar = this.f66775a;
             if (iVar != null) {
                 return iVar.o();
             }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.restnet.beans.IBeanResponse;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class VideoGetPortraitModel implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +80,7 @@ public class VideoGetPortraitModel implements IBeanResponse, Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(StringHelper.STRING_MORE);
+            arrayList.add("...");
             if (!TextUtils.isEmpty(this.readingContent)) {
                 arrayList.addAll(Arrays.asList(this.readingContent.split("\\|")));
             }

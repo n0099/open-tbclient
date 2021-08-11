@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.j;
+import c.a.p0.j1.i.a.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -18,16 +20,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.q0.i1.i.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String mForumId;
     public String mForumName;
     public ForumBroadCastMajorHistoryModel mModel;
-    public d.a.q0.i1.i.a.c.a mView;
+    public c.a.p0.j1.i.a.c.a mView;
     public String mfrom;
     public View rootView;
 
@@ -61,7 +61,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // d.a.q0.i1.i.a.a
+    @Override // c.a.p0.j1.i.a.a
     public void loadMore() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel;
         Interceptable interceptable = $ic;
@@ -71,8 +71,8 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         forumBroadCastMajorHistoryModel.loadMore();
     }
 
-    @Override // d.a.q0.i1.i.a.a
-    public void netCallback(d.a.q0.i1.i.a.b.a aVar) {
+    @Override // c.a.p0.j1.i.a.a
+    public void netCallback(c.a.p0.j1.i.a.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.mModel;
@@ -80,14 +80,14 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
                 this.mView.r(getString(R.string.im_error_default), false);
                 return;
             }
-            d.a.q0.i1.i.a.c.a aVar2 = this.mView;
+            c.a.p0.j1.i.a.c.a aVar2 = this.mView;
             if (aVar2 != null) {
                 aVar2.o(aVar);
             }
         }
     }
 
-    @Override // d.a.q0.i1.i.a.a
+    @Override // c.a.p0.j1.i.a.a
     public void netResidueCallback(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBroadcastMajorResidueData) == null) {
@@ -120,7 +120,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
             initParamsFromIntent(bundle);
             this.mModel = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.mForumId);
             this.rootView = LayoutInflater.from(this).inflate(R.layout.forum_broadcast_history_list, (ViewGroup) null);
-            this.mView = new d.a.q0.i1.i.a.c.a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.mfrom, bundle);
+            this.mView = new c.a.p0.j1.i.a.c.a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.mfrom, bundle);
             setContentView(this.rootView);
             this.mModel.F();
             refresh();
@@ -132,7 +132,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            d.a.q0.i1.i.a.c.a aVar = this.mView;
+            c.a.p0.j1.i.a.c.a aVar = this.mView;
             if (aVar != null) {
                 aVar.n();
             }
@@ -143,7 +143,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // d.a.p0.s.f0.f.g
+    @Override // c.a.o0.s.f0.f.g
     public void onListPullRefresh(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
@@ -162,7 +162,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        d.a.q0.i1.i.a.c.a aVar;
+        c.a.p0.j1.i.a.c.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, intent) == null) {
             super.onNewIntent(intent);
@@ -182,7 +182,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // d.a.q0.i1.i.a.a
+    @Override // c.a.p0.j1.i.a.a
     public void onServerError(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, errorData) == null) {
@@ -201,7 +201,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // d.a.q0.i1.i.a.a
+    @Override // c.a.p0.j1.i.a.a
     public void refresh() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel;
         Interceptable interceptable = $ic;

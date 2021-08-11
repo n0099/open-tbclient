@@ -27,19 +27,19 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.apache.http.conn.ssl.SSLSocketFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final byte[] f10551b;
+    public static final byte[] f45235b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static OkHttpClient f10552c;
+    public static OkHttpClient f45236c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10553a;
+    public Context f45237a;
 
     static {
         InterceptResult invokeClinit;
@@ -54,7 +54,7 @@ public class q {
                 return;
             }
         }
-        f10551b = new byte[1024];
+        f45235b = new byte[1024];
     }
 
     public q(Context context) {
@@ -72,16 +72,16 @@ public class q {
                 return;
             }
         }
-        this.f10553a = context;
+        this.f45237a = context;
     }
 
     private OkHttpClient a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            if (f10552c == null) {
+            if (f45236c == null) {
                 synchronized (q.class) {
-                    if (f10552c == null) {
+                    if (f45236c == null) {
                         OkHttpClient.Builder builder = new OkHttpClient.Builder();
                         builder.hostnameVerifier(SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
                         builder.connectTimeout(AppConfig.TIMESTAMP_AVAILABLE_DURATION, TimeUnit.MILLISECONDS);
@@ -90,7 +90,7 @@ public class q {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ q f10554a;
+                            public final /* synthetic */ q f45238a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -107,7 +107,7 @@ public class q {
                                         return;
                                     }
                                 }
-                                this.f10554a = this;
+                                this.f45238a = this;
                             }
 
                             @Override // okhttp3.Interceptor
@@ -123,11 +123,11 @@ public class q {
                                 return (Response) invokeL.objValue;
                             }
                         });
-                        f10552c = builder.build();
+                        f45236c = builder.build();
                     }
                 }
             }
-            return f10552c;
+            return f45236c;
         }
         return (OkHttpClient) invokeV.objValue;
     }
@@ -138,13 +138,13 @@ public class q {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, bArr)) == null) {
             try {
                 MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-                String str2 = c.g(this.f10553a)[0];
+                String str2 = c.g(this.f45237a)[0];
                 Request.Builder url = new Request.Builder().url(str);
                 if (bArr != null) {
                     url.post(RequestBody.create(parse, bArr));
                 }
-                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + z.a(this.f10553a) + "/3.5.8.7").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
-                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", o.a(e.b(this.f10553a))).build();
+                Request.Builder addHeader = url.addHeader("User-Agent", "eos/" + str2 + "/" + z.a(this.f45237a) + "/3.5.8.7").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*");
+                return addHeader.addHeader("Accept-Language", Locale.getDefault().getLanguage() + "-" + Locale.getDefault().getCountry()).addHeader("x-device-id", o.a(e.b(this.f45237a))).build();
             } catch (Throwable unused) {
                 c.a();
                 return null;
@@ -158,7 +158,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
             try {
-                if (s.m(this.f10553a)) {
+                if (s.m(this.f45237a)) {
                     Response execute = a().newCall(b(str, bArr)).execute();
                     int code = execute.code();
                     if (code == 200) {
@@ -180,7 +180,7 @@ public class q {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
             try {
-                if (s.m(this.f10553a)) {
+                if (s.m(this.f45237a)) {
                     Response execute = a().newCall(new Request.Builder().url(str).build()).execute();
                     int code = execute.code();
                     if (code == 200) {
@@ -212,9 +212,9 @@ public class q {
         try {
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
             while (true) {
-                int read = inputStream.read(f10551b);
+                int read = inputStream.read(f45235b);
                 if (read != -1) {
-                    bufferedOutputStream.write(f10551b, 0, read);
+                    bufferedOutputStream.write(f45235b, 0, read);
                     bufferedOutputStream.flush();
                 } else {
                     bufferedOutputStream.flush();

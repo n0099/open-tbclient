@@ -11,12 +11,12 @@ import java.lang.Thread;
 import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class UncaughtExceptionHandlers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Exiter implements Thread.UncaughtExceptionHandler {
         public static /* synthetic */ Interceptable $ic;
         public static final Logger logger;

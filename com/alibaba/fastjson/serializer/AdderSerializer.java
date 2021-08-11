@@ -11,7 +11,8 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.concurrent.atomic.DoubleAdder;
 import java.util.concurrent.atomic.LongAdder;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class AdderSerializer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static final AdderSerializer instance;
@@ -53,10 +54,10 @@ public class AdderSerializer implements ObjectSerializer {
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{jSONSerializer, obj, obj2, type, Integer.valueOf(i2)}) == null) {
             SerializeWriter serializeWriter = jSONSerializer.out;
             if (obj instanceof LongAdder) {
-                serializeWriter.writeFieldValue('{', "value", ((LongAdder) obj).longValue());
+                serializeWriter.writeFieldValue(ExtendedMessageFormat.START_FE, "value", ((LongAdder) obj).longValue());
                 serializeWriter.write(125);
             } else if (obj instanceof DoubleAdder) {
-                serializeWriter.writeFieldValue('{', "value", ((DoubleAdder) obj).doubleValue());
+                serializeWriter.writeFieldValue(ExtendedMessageFormat.START_FE, "value", ((DoubleAdder) obj).doubleValue());
                 serializeWriter.write(125);
             }
         }

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class UKCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,14 +31,14 @@ public class UKCache {
         this.mCache = new LruCache<>(i2);
     }
 
-    public Long get(long j) {
+    public Long get(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j < 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+            if (j2 < 0) {
                 return null;
             }
-            return this.mCache.get(Long.valueOf(j));
+            return this.mCache.get(Long.valueOf(j2));
         }
         return (Long) invokeJ.objValue;
     }

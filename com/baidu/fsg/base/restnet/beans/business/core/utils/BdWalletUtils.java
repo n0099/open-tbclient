@@ -12,7 +12,6 @@ import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
 import com.baidu.fsg.base.restnet.fp.a;
 import com.baidu.fsg.base.utils.SharedPreferencesUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +21,7 @@ import com.baidu.walletfacesdk.LightInvokerImpl;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BdWalletUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEVICE_FP = "rim_device_fp";
@@ -135,7 +134,7 @@ public class BdWalletUtils {
                     e2.printStackTrace();
                 }
             }
-            return hashMap.containsKey(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID) ? (String) hashMap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID) : "";
+            return hashMap.containsKey("sp_no") ? (String) hashMap.get("sp_no") : "";
         }
         return (String) invokeL.objValue;
     }

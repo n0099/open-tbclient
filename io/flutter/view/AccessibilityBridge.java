@@ -11,7 +11,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowInsets;
@@ -38,7 +37,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.internal.StaticLayoutBuilderCompat;
-import f.a.d.b;
+import g.a.d.b;
 import io.flutter.embedding.engine.systemchannels.AccessibilityChannel;
 import io.flutter.plugin.platform.PlatformViewsAccessibilityDelegate;
 import io.flutter.util.Predicate;
@@ -53,7 +52,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AccessibilityBridge extends AccessibilityNodeProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_SHOW_ON_SCREEN = 16908342;
@@ -106,7 +105,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     public final AccessibilityManager.TouchExplorationStateChangeListener touchExplorationStateChangeListener;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class AccessibilityFeature {
         public static final /* synthetic */ AccessibilityFeature[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -171,7 +170,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Action {
         public static final /* synthetic */ Action[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -271,7 +270,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class CustomAccessibilityAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -301,7 +300,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class Flag {
         public static final /* synthetic */ Flag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -403,12 +402,12 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnAccessibilityChangeListener {
         void onAccessibilityChanged(boolean z, boolean z2);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class SemanticsNode {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -838,7 +837,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class TextDirection {
         public static final /* synthetic */ TextDirection[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -1366,7 +1365,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
     private boolean shouldSetCollectionInfo(final SemanticsNode semanticsNode) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65568, this, semanticsNode)) == null) ? semanticsNode.scrollChildren > 0 && (SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, new Predicate() { // from class: f.a.d.a
+        return (interceptable == null || (invokeL = interceptable.invokeL(65568, this, semanticsNode)) == null) ? semanticsNode.scrollChildren > 0 && (SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, new Predicate() { // from class: g.a.d.a
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -1376,7 +1375,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                 Interceptable interceptable2 = $ic;
                 return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, obj)) == null) ? AccessibilityBridge.a(AccessibilityBridge.SemanticsNode.this, (AccessibilityBridge.SemanticsNode) obj) : invokeL2.booleanValue;
             }
-        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.f72751a)) : invokeL.booleanValue;
+        }) || !SemanticsNode.nullableHasAncestor(this.accessibilityFocusedSemanticsNode, b.f78025a)) : invokeL.booleanValue;
     }
 
     private void willRemoveSemanticsNode(SemanticsNode semanticsNode) {
@@ -1702,7 +1701,7 @@ public class AccessibilityBridge extends AccessibilityNodeProvider {
                     if (motionEvent.getAction() == 10) {
                         onTouchExplorationExit();
                     } else {
-                        Log.d("flutter", "unexpected accessibility hover event: " + motionEvent);
+                        String str = "unexpected accessibility hover event: " + motionEvent;
                         return false;
                     }
                 } else {

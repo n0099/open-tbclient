@@ -18,7 +18,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class WebRtcAudioRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long AUDIO_RECORD_THREAD_JOIN_TIMEOUT_MS = 2000;
@@ -47,14 +47,14 @@ public class WebRtcAudioRecord {
     public final long nativeAudioRecord;
 
     /* renamed from: org.webrtc.voiceengine.WebRtcAudioRecord$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class AudioRecordStartErrorCode {
         public static final /* synthetic */ AudioRecordStartErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -113,7 +113,7 @@ public class WebRtcAudioRecord {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class AudioRecordThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,7 +192,7 @@ public class WebRtcAudioRecord {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class AudioSamples {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,7 +251,7 @@ public class WebRtcAudioRecord {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface WebRtcAudioRecordErrorCallback {
         void onWebRtcAudioRecordError(String str);
 
@@ -260,7 +260,7 @@ public class WebRtcAudioRecord {
         void onWebRtcAudioRecordStartError(AudioRecordStartErrorCode audioRecordStartErrorCode, String str);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface WebRtcAudioRecordSamplesReadyCallback {
         void onWebRtcAudioRecordSamplesReady(AudioSamples audioSamples);
     }
@@ -283,12 +283,12 @@ public class WebRtcAudioRecord {
         audioSource = defaultAudioSource;
     }
 
-    public WebRtcAudioRecord(long j) {
+    public WebRtcAudioRecord(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -299,7 +299,7 @@ public class WebRtcAudioRecord {
             }
         }
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
-        this.nativeAudioRecord = j;
+        this.nativeAudioRecord = j2;
         this.effects = WebRtcAudioEffects.create();
     }
 
@@ -417,10 +417,10 @@ public class WebRtcAudioRecord {
         Logging.d(TAG, "AudioRecord: buffer size in frames: " + this.audioRecord.getBufferSizeInFrames());
     }
 
-    private native void nativeCacheDirectBufferAddress(ByteBuffer byteBuffer, long j);
+    private native void nativeCacheDirectBufferAddress(ByteBuffer byteBuffer, long j2);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeDataIsRecorded(int i2, long j);
+    public native void nativeDataIsRecorded(int i2, long j2);
 
     private void releaseAudioResources() {
         Interceptable interceptable = $ic;

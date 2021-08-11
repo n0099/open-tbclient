@@ -7,7 +7,7 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class cy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class cy {
         int a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, iqVar, hfVar)) == null) {
-            switch (cz.f40230a[hfVar.ordinal()]) {
+            switch (cz.f77082a[hfVar.ordinal()]) {
                 case 1:
                 case 2:
                 case 3:
@@ -53,18 +53,18 @@ public class cy {
                     if (iqVar != null) {
                         try {
                             if (iqVar instanceof hw) {
-                                String str = ((hw) iqVar).f594d;
-                                if (!TextUtils.isEmpty(str) && ek.a(ek.m285a(str)) != -1) {
-                                    a2 = ek.a(ek.m285a(str));
+                                String str = ((hw) iqVar).f598d;
+                                if (!TextUtils.isEmpty(str) && ek.a(ek.m288a(str)) != -1) {
+                                    a2 = ek.a(ek.m288a(str));
                                     break;
                                 }
                             } else if (iqVar instanceof ie) {
-                                String str2 = ((ie) iqVar).f655d;
+                                String str2 = ((ie) iqVar).f659d;
                                 if (!TextUtils.isEmpty(str2)) {
-                                    if (ek.a(ek.m285a(str2)) != -1) {
-                                        a2 = ek.a(ek.m285a(str2));
+                                    if (ek.a(ek.m288a(str2)) != -1) {
+                                        a2 = ek.a(ek.m288a(str2));
                                     }
-                                    if (hp.B.equals(ek.m285a(str2))) {
+                                    if (hp.B.equals(ek.m288a(str2))) {
                                         return -1;
                                     }
                                 }
@@ -147,7 +147,7 @@ public class cy {
             ip.a(ibVar, bArr);
             a(str, context, ibVar, bArr.length);
         } catch (iv unused) {
-            com.xiaomi.channel.commonutils.logger.b.m70a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m73a("fail to convert bytes to container");
         }
     }
 }

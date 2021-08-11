@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class y extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ x f6713a;
+    public final /* synthetic */ x f40945a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(x xVar, Looper looper) {
@@ -35,10 +35,10 @@ public class y extends Handler {
                 return;
             }
         }
-        this.f6713a = xVar;
+        this.f40945a = xVar;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:39:0x009e -> B:44:0x00a1). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:39:0x009d -> B:44:0x00a0). Please submit an issue!!! */
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         com.baidu.location.c.a c2;
@@ -80,9 +80,9 @@ public class y extends Handler {
                         if (i3) {
                             h.a().d();
                         }
-                        handler = this.f6713a.f6711d;
+                        handler = this.f40945a.f40943d;
                         if (handler != null) {
-                            handler2 = this.f6713a.f6711d;
+                            handler2 = this.f40945a.f40943d;
                             handler2.sendEmptyMessageDelayed(4, com.baidu.location.e.k.R);
                         }
                     }

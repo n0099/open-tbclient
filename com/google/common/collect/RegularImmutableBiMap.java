@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.RegularImmutableMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class RegularImmutableBiMap<K, V> extends ImmutableBiMap<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public static final RegularImmutableBiMap<Object, Object> EMPTY;
@@ -98,11 +98,11 @@ public final class RegularImmutableBiMap<K, V> extends ImmutableBiMap<K, V> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.google.common.collect.ImmutableBiMap, d.f.d.c.k
+    @Override // com.google.common.collect.ImmutableBiMap, c.i.d.c.k
     public ImmutableBiMap<V, K> inverse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.inverse : (ImmutableBiMap) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.inverse : (ImmutableBiMap) invokeV.objValue;
     }
 
     public RegularImmutableBiMap(Object[] objArr, int i2) {

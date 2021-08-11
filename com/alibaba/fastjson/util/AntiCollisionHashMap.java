@@ -23,7 +23,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Random;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map<K, V>, Cloneable, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_INITIAL_CAPACITY = 16;
@@ -45,13 +45,13 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
     public volatile transient Collection<V> values;
 
     /* renamed from: com.alibaba.fastjson.util.AntiCollisionHashMap$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Entry<K, V> implements Map.Entry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +156,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public final class EntryIterator extends AntiCollisionHashMap<K, V>.HashIterator<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -196,7 +196,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public final class EntrySet extends AbstractSet<Map.Entry<K, V>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -269,7 +269,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public abstract class HashIterator<E> implements Iterator<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -369,7 +369,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public final class KeyIterator extends AntiCollisionHashMap<K, V>.HashIterator<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -408,7 +408,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public final class KeySet extends AbstractSet<K> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -473,7 +473,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public final class ValueIterator extends AntiCollisionHashMap<K, V>.HashIterator<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -512,7 +512,7 @@ public class AntiCollisionHashMap<K, V> extends AbstractMap<K, V> implements Map
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public final class Values extends AbstractCollection<V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

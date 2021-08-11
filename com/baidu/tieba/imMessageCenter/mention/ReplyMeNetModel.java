@@ -1,5 +1,8 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
+import c.a.o0.i0.b.g;
+import c.a.p0.k1.b.l;
+import c.a.p0.k1.b.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,10 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i0.b.g;
-import d.a.q0.j1.b.l;
-import d.a.q0.j1.b.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ReplyMeNetModel extends NetAutoModel<l, m, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

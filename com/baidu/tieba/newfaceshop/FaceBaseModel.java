@@ -2,28 +2,28 @@ package com.baidu.tieba.newfaceshop;
 
 import android.os.Handler;
 import android.os.Looper;
+import c.a.e.e.p.l;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class FaceBaseModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Message f18925e;
+        public final /* synthetic */ Message f54288e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FaceBaseModel f18926f;
+        public final /* synthetic */ FaceBaseModel f54289f;
 
         public a(FaceBaseModel faceBaseModel, Message message) {
             Interceptable interceptable = $ic;
@@ -40,15 +40,15 @@ public abstract class FaceBaseModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f18926f = faceBaseModel;
-            this.f18925e = message;
+            this.f54289f = faceBaseModel;
+            this.f54288e = message;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f18926f.sendMessage(this.f18925e);
+                this.f54289f.sendMessage(this.f54288e);
             }
         }
     }

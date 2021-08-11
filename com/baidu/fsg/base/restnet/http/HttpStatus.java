@@ -13,8 +13,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.utils.StatHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class HttpStatus {
     public static final /* synthetic */ HttpStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -87,7 +88,7 @@ public final class HttpStatus {
     public final int value;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class Series {
         public static final /* synthetic */ Series[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -142,6 +143,22 @@ public final class HttpStatus {
             this.value = i3;
         }
 
+        public static Series valueOf(HttpStatus httpStatus) {
+            InterceptResult invokeL;
+            Series[] values;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, httpStatus)) == null) {
+                int value = httpStatus.value() / 100;
+                for (Series series : values()) {
+                    if (series.value == value) {
+                        return series;
+                    }
+                }
+                throw new IllegalArgumentException("No matching constant for [" + httpStatus + PreferencesUtil.RIGHT_MOUNT);
+            }
+            return (Series) invokeL.objValue;
+        }
+
         public static Series valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -158,22 +175,6 @@ public final class HttpStatus {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
-        }
-
-        public static Series valueOf(HttpStatus httpStatus) {
-            InterceptResult invokeL;
-            Series[] values;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, httpStatus)) == null) {
-                int value = httpStatus.value() / 100;
-                for (Series series : values()) {
-                    if (series.value == value) {
-                        return series;
-                    }
-                }
-                throw new IllegalArgumentException("No matching constant for [" + httpStatus + PreferencesUtil.RIGHT_MOUNT);
-            }
-            return (Series) invokeL.objValue;
         }
     }
 
@@ -194,7 +195,7 @@ public final class HttpStatus {
         SWITCHING_PROTOCOLS = new HttpStatus("SWITCHING_PROTOCOLS", 1, 101, "Switching Protocols");
         PROCESSING = new HttpStatus("PROCESSING", 2, 102, "Processing");
         CHECKPOINT = new HttpStatus("CHECKPOINT", 3, 103, "Checkpoint");
-        OK = new HttpStatus("OK", 4, 200, "OK");
+        OK = new HttpStatus(StatHelper.SENSOR_OK, 4, 200, StatHelper.SENSOR_OK);
         CREATED = new HttpStatus("CREATED", 5, 201, "Created");
         ACCEPTED = new HttpStatus("ACCEPTED", 6, 202, "Accepted");
         NON_AUTHORITATIVE_INFORMATION = new HttpStatus("NON_AUTHORITATIVE_INFORMATION", 7, 203, "Non-Authoritative Information");
@@ -280,6 +281,21 @@ public final class HttpStatus {
         this.reasonPhrase = str2;
     }
 
+    public static HttpStatus valueOf(int i2) {
+        InterceptResult invokeI;
+        HttpStatus[] values;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            for (HttpStatus httpStatus : values()) {
+                if (httpStatus.value == i2) {
+                    return httpStatus;
+                }
+            }
+            throw new IllegalArgumentException("No matching constant for [" + i2 + PreferencesUtil.RIGHT_MOUNT);
+        }
+        return (HttpStatus) invokeI.objValue;
+    }
+
     public static HttpStatus valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -315,20 +331,5 @@ public final class HttpStatus {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.value : invokeV.intValue;
-    }
-
-    public static HttpStatus valueOf(int i2) {
-        InterceptResult invokeI;
-        HttpStatus[] values;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            for (HttpStatus httpStatus : values()) {
-                if (httpStatus.value == i2) {
-                    return httpStatus;
-                }
-            }
-            throw new IllegalArgumentException("No matching constant for [" + i2 + PreferencesUtil.RIGHT_MOUNT);
-        }
-        return (HttpStatus) invokeI.objValue;
     }
 }

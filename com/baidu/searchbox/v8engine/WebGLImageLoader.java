@@ -6,6 +6,7 @@ import android.os.Build;
 import android.util.Base64;
 import android.webkit.ValueCallback;
 import androidx.annotation.NonNull;
+import c.a.i0.a.e.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.v8engine.bean.ImageBitmapBean;
@@ -20,14 +21,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j0.a.e.a;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class WebGLImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_URL = "asset://";
@@ -40,7 +40,7 @@ public class WebGLImageLoader {
     public static BitmapReferenceMap sReferenceMap;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class NetValueCallback implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

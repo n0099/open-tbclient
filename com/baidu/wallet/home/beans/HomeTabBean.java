@@ -16,13 +16,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class HomeTabBean extends BaseBean<HomeTabResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, String> f25144a;
+    public HashMap<String, String> f60876a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HomeTabBean(Context context) {
@@ -58,7 +58,7 @@ public class HomeTabBean extends BaseBean<HomeTabResponse> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            HashMap<String, String> hashMap = this.f25144a;
+            HashMap<String, String> hashMap = this.f60876a;
             if (hashMap != null) {
                 for (Map.Entry<String, String> entry : hashMap.entrySet()) {
                     arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
@@ -89,7 +89,7 @@ public class HomeTabBean extends BaseBean<HomeTabResponse> {
     public void setParams(HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, hashMap) == null) {
-            this.f25144a = hashMap;
+            this.f60876a = hashMap;
         }
     }
 }

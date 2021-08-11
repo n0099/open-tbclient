@@ -11,38 +11,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f6792e;
+    public static String f41029e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f6793f;
+    public static String f41030f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f6794g;
+    public static String f41031g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f6795h;
+    public static String f41032h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static int f6796i;
-    public static b j;
+    public static int f41033i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static b f41034j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6797a;
+    public String f41035a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f6798b;
+    public String f41036b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f6799c;
+    public String f41037c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f6800d;
+    public String f41038d;
     public boolean k;
 
     static {
@@ -73,10 +75,10 @@ public class b {
                 return;
             }
         }
-        this.f6797a = null;
-        this.f6798b = null;
-        this.f6799c = null;
-        this.f6800d = null;
+        this.f41035a = null;
+        this.f41036b = null;
+        this.f41037c = null;
+        this.f41038d = null;
         this.k = false;
         if (com.baidu.location.f.getServiceContext() != null) {
             a(com.baidu.location.f.getServiceContext());
@@ -87,10 +89,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (j == null) {
-                j = new b();
+            if (f41034j == null) {
+                f41034j = new b();
             }
-            return j;
+            return f41034j;
         }
         return (b) invokeV.objValue;
     }
@@ -118,18 +120,18 @@ public class b {
             stringBuffer.append("&sdk=");
             stringBuffer.append(7.93f);
             if (z) {
-                if (k.f6841g.equals("all")) {
+                if (k.f41080g.equals("all")) {
                     stringBuffer.append("&addr=allj");
                 }
-                if (k.f6843i) {
+                if (k.f41082i) {
                     stringBuffer.append("&adtp=n2");
                 }
-                if (k.f6842h || k.k || k.l || k.j) {
+                if (k.f41081h || k.k || k.l || k.f41083j) {
                     stringBuffer.append("&sema=");
-                    if (k.f6842h) {
+                    if (k.f41081h) {
                         stringBuffer.append("aptag|");
                     }
-                    if (k.j) {
+                    if (k.f41083j) {
                         stringBuffer.append("aptagd|");
                     }
                     if (k.k) {
@@ -152,18 +154,18 @@ public class b {
                     stringBuffer.append(j2);
                 }
             }
-            if (this.f6799c != null) {
+            if (this.f41037c != null) {
                 stringBuffer.append("&cu=");
-                stringBuffer.append(this.f6799c);
-                String str3 = this.f6797a;
-                str2 = (str3 == null || str3.equals("NULL") || this.f6799c.contains(new StringBuffer(this.f6797a).reverse().toString())) ? "&Aim=" : "&Aim=";
-                if (this.f6798b != null) {
+                stringBuffer.append(this.f41037c);
+                String str3 = this.f41035a;
+                str2 = (str3 == null || str3.equals("NULL") || this.f41037c.contains(new StringBuffer(this.f41035a).reverse().toString())) ? "&Aim=" : "&Aim=";
+                if (this.f41036b != null) {
                     stringBuffer.append("&snd=");
-                    stringBuffer.append(this.f6798b);
+                    stringBuffer.append(this.f41036b);
                 }
-                if (this.f6800d != null) {
+                if (this.f41038d != null) {
                     stringBuffer.append("&Aid=");
-                    stringBuffer.append(this.f6800d);
+                    stringBuffer.append(this.f41038d);
                 }
                 stringBuffer.append("&fw=");
                 stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -191,10 +193,10 @@ public class b {
             }
             str2 = "&im=";
             stringBuffer.append(str2);
-            stringBuffer.append(this.f6797a);
-            if (this.f6798b != null) {
+            stringBuffer.append(this.f41035a);
+            if (this.f41036b != null) {
             }
-            if (this.f6800d != null) {
+            if (this.f41038d != null) {
             }
             stringBuffer.append("&fw=");
             stringBuffer.append(com.baidu.location.f.getFrameVersion());
@@ -221,24 +223,24 @@ public class b {
             return;
         }
         try {
-            this.f6799c = CommonParam.getCUID(context);
+            this.f41037c = CommonParam.getCUID(context);
         } catch (Exception unused) {
-            this.f6799c = null;
+            this.f41037c = null;
         }
         try {
-            f6792e = context.getPackageName();
+            f41029e = context.getPackageName();
         } catch (Exception unused2) {
-            f6792e = null;
+            f41029e = null;
         }
-        k.o = "" + this.f6799c;
+        k.o = "" + this.f41037c;
         this.k = true;
     }
 
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            f6793f = str;
-            f6792e = str2;
+            f41030f = str;
+            f41029e = str2;
         }
     }
 }

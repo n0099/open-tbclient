@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.http.download;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface Downloader {
     void cancel();
 

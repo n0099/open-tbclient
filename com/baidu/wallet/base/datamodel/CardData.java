@@ -4,8 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,16 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
+import com.dxmpay.apollon.armor.SecurePay;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes8.dex */
 public class CardData implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class BondCard implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int UNBIND_CARD_DISABLE_BAIDU_FINANCE = 0;
@@ -77,7 +78,7 @@ public class CardData implements NoProguard {
         public String valid_date;
         public String verify_code;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static class ChannelQuota implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3143189382088186302L;
@@ -133,12 +134,12 @@ public class CardData implements NoProguard {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     if (!TextUtils.isEmpty(this.certificate_code_ec)) {
-                        this.certificate_code = SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.certificate_code_ec));
+                        this.certificate_code = SecurePay.unicodeDecode(SecurePay.getInstance().localDecryptProxy(this.certificate_code_ec));
                     }
                     if (TextUtils.isEmpty(this.mobile_ec)) {
                         return;
                     }
-                    this.mobile = SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.mobile_ec));
+                    this.mobile = SecurePay.unicodeDecode(SecurePay.getInstance().localDecryptProxy(this.mobile_ec));
                 } catch (Exception e2) {
                     if (BeanConstants.DEBUG) {
                         e2.printStackTrace();
@@ -277,7 +278,7 @@ public class CardData implements NoProguard {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                return "BondCard Info [\nbank_code = " + this.bank_code + "\naccount_no = " + this.account_no + "\ncard_type = " + this.card_type + "\nmobile = " + this.mobile + "\naccount_no_head_tail = " + this.account_no_head_tail + "\nbank_name = " + this.bank_name + "\nbank_url = " + this.bank_url + "\nbankground_url = " + this.background_url + "\nbind_time = " + this.bind_time + "\npay_need_sms_code = " + this.pay_need_sms_code + "\nbank_card_msg = " + this.bank_card_msg + "\n" + PreferencesUtil.RIGHT_MOUNT;
+                return "BondCard Info [" + StringUtils.LF + "bank_code = " + this.bank_code + StringUtils.LF + "account_no = " + this.account_no + StringUtils.LF + "card_type = " + this.card_type + StringUtils.LF + "mobile = " + this.mobile + StringUtils.LF + "account_no_head_tail = " + this.account_no_head_tail + StringUtils.LF + "bank_name = " + this.bank_name + StringUtils.LF + "bank_url = " + this.bank_url + StringUtils.LF + "bankground_url = " + this.background_url + StringUtils.LF + "bind_time = " + this.bind_time + StringUtils.LF + "pay_need_sms_code = " + this.pay_need_sms_code + StringUtils.LF + "bank_card_msg = " + this.bank_card_msg + StringUtils.LF + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }

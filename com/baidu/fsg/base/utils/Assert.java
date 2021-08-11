@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class Assert {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,6 +27,13 @@ public abstract class Assert {
         }
     }
 
+    public static void hasLength(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            hasLength(str, "[Assertion failed] - this String argument must have length; it must not be null or empty");
+        }
+    }
+
     public static void hasLength(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && !StringUtils.hasLength(str)) {
@@ -34,10 +41,24 @@ public abstract class Assert {
         }
     }
 
+    public static void isTrue(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+            isTrue(z, "[Assertion failed] - this expression must be true");
+        }
+    }
+
     public static void isTrue(boolean z, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TRACKBALL, null, z, str) == null) && !z) {
             throw new IllegalArgumentException(str);
+        }
+    }
+
+    public static void notEmpty(Collection<?> collection) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, collection) == null) {
+            notEmpty(collection, "[Assertion failed] - this collection must not be empty: it must contain at least 1 element");
         }
     }
 
@@ -50,52 +71,10 @@ public abstract class Assert {
         }
     }
 
-    public static void notNull(Object obj, String str) {
+    public static void notEmpty(Map<?, ?> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, obj, str) == null) && obj == null) {
-            throw new IllegalArgumentException(str);
-        }
-    }
-
-    public static void state(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) && !z) {
-            throw new IllegalStateException(str);
-        }
-    }
-
-    public static void isTrue(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            isTrue(z, "[Assertion failed] - this expression must be true");
-        }
-    }
-
-    public static void notNull(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, obj) == null) {
-            notNull(obj, "[Assertion failed] - this argument is required; it must not be null");
-        }
-    }
-
-    public static void state(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            state(z, "[Assertion failed] - this state invariant must be true");
-        }
-    }
-
-    public static void hasLength(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            hasLength(str, "[Assertion failed] - this String argument must have length; it must not be null or empty");
-        }
-    }
-
-    public static void notEmpty(Collection<?> collection) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, collection) == null) {
-            notEmpty(collection, "[Assertion failed] - this collection must not be empty: it must contain at least 1 element");
+        if (interceptable == null || interceptable.invokeL(65543, null, map) == null) {
+            notEmpty(map, "[Assertion failed] - this map must not be empty; it must contain at least one entry");
         }
     }
 
@@ -106,10 +85,31 @@ public abstract class Assert {
         }
     }
 
-    public static void notEmpty(Map<?, ?> map) {
+    public static void notNull(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, map) == null) {
-            notEmpty(map, "[Assertion failed] - this map must not be empty; it must contain at least one entry");
+        if (interceptable == null || interceptable.invokeL(65545, null, obj) == null) {
+            notNull(obj, "[Assertion failed] - this argument is required; it must not be null");
+        }
+    }
+
+    public static void notNull(Object obj, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, obj, str) == null) && obj == null) {
+            throw new IllegalArgumentException(str);
+        }
+    }
+
+    public static void state(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
+            state(z, "[Assertion failed] - this state invariant must be true");
+        }
+    }
+
+    public static void state(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) && !z) {
+            throw new IllegalStateException(str);
         }
     }
 }

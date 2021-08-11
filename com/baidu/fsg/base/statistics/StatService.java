@@ -13,19 +13,26 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class StatService {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5303a = "logsender";
+    public static final String f39244a = "logsender";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f5304b;
+    public ConcurrentHashMap<String, Long> f39245b;
+
+    /* renamed from: com.baidu.fsg.base.statistics.StatService$1  reason: invalid class name */
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class ETag {
         public static final /* synthetic */ ETag[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -51,7 +58,7 @@ public class StatService {
             in = new ETag("in", 0);
             out = new ETag("out", 1);
             push = new ETag("push", 2);
-            ETag eTag = new ETag(com.alipay.sdk.widget.j.j, 3);
+            ETag eTag = new ETag(com.alipay.sdk.widget.d.l, 3);
             back = eTag;
             $VALUES = new ETag[]{in, out, push, eTag};
         }
@@ -88,12 +95,12 @@ public class StatService {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f5305a;
+        public static StatService f39246a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -109,7 +116,7 @@ public class StatService {
                     return;
                 }
             }
-            f5305a = new StatService(null);
+            f39246a = new StatService(null);
         }
 
         public a() {
@@ -127,28 +134,6 @@ public class StatService {
         }
     }
 
-    public /* synthetic */ StatService(q qVar) {
-        this();
-    }
-
-    public static StatService a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f5305a : (StatService) invokeV.objValue;
-    }
-
-    public static void b(String str, String str2, Collection<String> collection) {
-        ArrayList<String> a2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, str, str2, collection) == null) || (a2 = a(str, str2)) == null) {
-            return;
-        }
-        if (collection != null) {
-            a2.addAll(collection);
-        }
-        a(str, (String) null, a2);
-    }
-
     public StatService() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -162,7 +147,42 @@ public class StatService {
                 return;
             }
         }
-        this.f5304b = new ConcurrentHashMap<>();
+        this.f39245b = new ConcurrentHashMap<>();
+    }
+
+    public /* synthetic */ StatService(AnonymousClass1 anonymousClass1) {
+        this();
+    }
+
+    public static StatService a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f39246a : (StatService) invokeV.objValue;
+    }
+
+    public static ArrayList<String> a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            Long l = a().f39245b.get(str);
+            if (l == null) {
+                return null;
+            }
+            Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
+            a().f39245b.remove(str);
+            arrayList.add(Long.toString(valueOf.longValue()));
+            arrayList.add(str2);
+            return arrayList;
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            a().f39245b.put(str, Long.valueOf(System.currentTimeMillis()));
+        }
     }
 
     public static synchronized void a(String str, ETag eTag, Collection<String> collection) {
@@ -184,6 +204,38 @@ public class StatService {
         a(str, str2, str3, System.currentTimeMillis());
     }
 
+    public static void a(String str, String str2, String str3, long j2) {
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Long.valueOf(j2)}) == null) {
+            if (str3 != null) {
+                arrayList = new ArrayList(1);
+                arrayList.add(str3);
+            } else {
+                arrayList = null;
+            }
+            a(str, str2, arrayList, j2);
+        }
+    }
+
+    public static void a(String str, String str2, Collection<String> collection) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65544, null, str, str2, collection) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        a(str, str2, collection, System.currentTimeMillis());
+    }
+
+    public static void a(String str, String str2, Collection<String> collection, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, collection, Long.valueOf(j2)}) == null) {
+            g.a(RimStatisticsUtil.getAppContext()).a(f.a(str, j2, str2, com.baidu.fsg.base.statistics.a.a(), collection));
+            if (g.a(RimStatisticsUtil.getAppContext()).a() >= 200) {
+                i.a().a("normal_log");
+            }
+        }
+    }
+
     public static void b(String str, String str2, String str3) {
         ArrayList<String> a2;
         Interceptable interceptable = $ic;
@@ -196,60 +248,15 @@ public class StatService {
         a(str, (String) null, a2);
     }
 
-    public static void a(String str, String str2, String str3, long j) {
-        ArrayList arrayList;
+    public static void b(String str, String str2, Collection<String> collection) {
+        ArrayList<String> a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, str2, str3, Long.valueOf(j)}) == null) {
-            if (str3 != null) {
-                arrayList = new ArrayList(1);
-                arrayList.add(str3);
-            } else {
-                arrayList = null;
-            }
-            a(str, str2, arrayList, j);
-        }
-    }
-
-    public static void a(String str, String str2, Collection<String> collection, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{str, str2, collection, Long.valueOf(j)}) == null) {
-            i.a(RimStatisticsUtil.getAppContext()).a(h.a(str, j, str2, com.baidu.fsg.base.statistics.a.a(), collection));
-            if (i.a(RimStatisticsUtil.getAppContext()).a() >= 200) {
-                l.a().a("normal_log");
-            }
-        }
-    }
-
-    public static void a(String str, String str2, Collection<String> collection) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65544, null, str, str2, collection) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLL(65547, null, str, str2, collection) == null) || (a2 = a(str, str2)) == null) {
             return;
         }
-        a(str, str2, collection, System.currentTimeMillis());
-    }
-
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a().f5304b.put(str, Long.valueOf(System.currentTimeMillis()));
+        if (collection != null) {
+            a2.addAll(collection);
         }
-    }
-
-    public static ArrayList<String> a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            Long l = a().f5304b.get(str);
-            if (l == null) {
-                return null;
-            }
-            Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-            a().f5304b.remove(str);
-            arrayList.add(Long.toString(valueOf.longValue()));
-            arrayList.add(str2);
-            return arrayList;
-        }
-        return (ArrayList) invokeLL.objValue;
+        a(str, (String) null, a2);
     }
 }

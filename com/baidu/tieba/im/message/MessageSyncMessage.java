@@ -2,6 +2,7 @@ package com.baidu.tieba.im.message;
 
 import androidx.collection.LongSparseArray;
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.j1.o.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
@@ -10,13 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.i1.o.c;
 import java.util.ArrayList;
 import protobuf.GetGroupMsg.DataReq;
 import protobuf.GetGroupMsg.GetGroupMsgReqIdl;
 import protobuf.GroupLastId;
 import protobuf.NewpushRepair;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MessageSyncMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -9,7 +9,6 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
 import androidx.annotation.DrawableRes;
@@ -88,8 +87,7 @@ public final class ResourceManagerInternal {
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
                 try {
                     return AnimatedStateListDrawableCompat.createFromXmlInner(context, context.getResources(), xmlPullParser, attributeSet, theme);
-                } catch (Exception e2) {
-                    Log.e("AsldcInflateDelegate", "Exception while inflating <animated-selector>", e2);
+                } catch (Exception unused) {
                     return null;
                 }
             }
@@ -123,8 +121,7 @@ public final class ResourceManagerInternal {
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
                 try {
                     return AnimatedVectorDrawableCompat.createFromXmlInner(context, context.getResources(), xmlPullParser, attributeSet, theme);
-                } catch (Exception e2) {
-                    Log.e("AvdcInflateDelegate", "Exception while inflating <animated-vector>", e2);
+                } catch (Exception unused) {
                     return null;
                 }
             }
@@ -221,8 +218,7 @@ public final class ResourceManagerInternal {
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
                 try {
                     return VectorDrawableCompat.createFromXmlInner(context.getResources(), xmlPullParser, attributeSet, theme);
-                } catch (Exception e2) {
-                    Log.e("VdcInflateDelegate", "Exception while inflating <vector>", e2);
+                } catch (Exception unused) {
                     return null;
                 }
             }
@@ -273,10 +269,10 @@ public final class ResourceManagerInternal {
         }
     }
 
-    private synchronized boolean addDrawableToCache(@NonNull Context context, long j, @NonNull Drawable drawable) {
+    private synchronized boolean addDrawableToCache(@NonNull Context context, long j2, @NonNull Drawable drawable) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, Long.valueOf(j), drawable})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, Long.valueOf(j2), drawable})) == null) {
             synchronized (this) {
                 Drawable.ConstantState constantState = drawable.getConstantState();
                 if (constantState != null) {
@@ -285,7 +281,7 @@ public final class ResourceManagerInternal {
                         longSparseArray = new LongSparseArray<>();
                         this.mDrawableCaches.put(context, longSparseArray);
                     }
-                    longSparseArray.put(j, new WeakReference<>(constantState));
+                    longSparseArray.put(j2, new WeakReference<>(constantState));
                     return true;
                 }
                 return false;
@@ -383,22 +379,22 @@ public final class ResourceManagerInternal {
         return (ResourceManagerInternal) invokeV.objValue;
     }
 
-    private synchronized Drawable getCachedDrawable(@NonNull Context context, long j) {
+    private synchronized Drawable getCachedDrawable(@NonNull Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, this, context, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, this, context, j2)) == null) {
             synchronized (this) {
                 LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.mDrawableCaches.get(context);
                 if (longSparseArray == null) {
                     return null;
                 }
-                WeakReference<Drawable.ConstantState> weakReference = longSparseArray.get(j);
+                WeakReference<Drawable.ConstantState> weakReference = longSparseArray.get(j2);
                 if (weakReference != null) {
                     Drawable.ConstantState constantState = weakReference.get();
                     if (constantState != null) {
                         return constantState.newDrawable(context.getResources());
                     }
-                    longSparseArray.remove(j);
+                    longSparseArray.remove(j2);
                 }
                 return null;
             }
@@ -507,8 +503,7 @@ public final class ResourceManagerInternal {
                     } else {
                         throw new XmlPullParserException("No start tag found");
                     }
-                } catch (Exception e2) {
-                    Log.e(TAG, "Exception while inflating drawable", e2);
+                } catch (Exception unused) {
                 }
             }
             if (cachedDrawable == null) {
@@ -669,17 +664,15 @@ public final class ResourceManagerInternal {
     public static void tintDrawable(Drawable drawable, TintInfo tintInfo, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65553, null, drawable, tintInfo, iArr) == null) {
-            if (DrawableUtils.canSafelyMutateDrawable(drawable) && drawable.mutate() != drawable) {
-                Log.d(TAG, "Mutated drawable is not the same instance as the input.");
-                return;
-            }
-            if (!tintInfo.mHasTintList && !tintInfo.mHasTintMode) {
-                drawable.clearColorFilter();
-            } else {
-                drawable.setColorFilter(createTintFilter(tintInfo.mHasTintList ? tintInfo.mTintList : null, tintInfo.mHasTintMode ? tintInfo.mTintMode : DEFAULT_MODE, iArr));
-            }
-            if (Build.VERSION.SDK_INT <= 23) {
-                drawable.invalidateSelf();
+            if (!DrawableUtils.canSafelyMutateDrawable(drawable) || drawable.mutate() == drawable) {
+                if (!tintInfo.mHasTintList && !tintInfo.mHasTintMode) {
+                    drawable.clearColorFilter();
+                } else {
+                    drawable.setColorFilter(createTintFilter(tintInfo.mHasTintList ? tintInfo.mTintList : null, tintInfo.mHasTintMode ? tintInfo.mTintMode : DEFAULT_MODE, iArr));
+                }
+                if (Build.VERSION.SDK_INT <= 23) {
+                    drawable.invalidateSelf();
+                }
             }
         }
     }

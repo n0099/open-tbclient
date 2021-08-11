@@ -24,7 +24,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SimpleDraweeView extends GenericDraweeView {
     public static /* synthetic */ Interceptable $ic;
     public static Supplier<? extends AbstractDraweeControllerBuilder> sDraweecontrollerbuildersupplier;

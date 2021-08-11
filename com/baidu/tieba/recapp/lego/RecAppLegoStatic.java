@@ -1,5 +1,7 @@
 package com.baidu.tieba.recapp.lego;
 
+import c.a.p0.o1.o.b;
+import c.a.p0.x2.i0.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,9 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n1.o.b;
-import d.a.q0.w2.f0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RecAppLegoStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

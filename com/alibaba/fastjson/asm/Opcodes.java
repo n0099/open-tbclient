@@ -1,5 +1,5 @@
 package com.alibaba.fastjson.asm;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface Opcodes {
     public static final int ACC_PUBLIC = 1;
     public static final int ACC_SUPER = 32;

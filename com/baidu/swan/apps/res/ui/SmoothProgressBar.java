@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SmoothProgressBar extends RotateProgressBar {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: i  reason: collision with root package name */
-    public static final int f11389i;
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f46093e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,9 +36,9 @@ public class SmoothProgressBar extends RotateProgressBar {
             }
         }
         if (Build.VERSION.SDK_INT > 15) {
-            f11389i = 36;
+            f46093e = 36;
         } else {
-            f11389i = 25;
+            f46093e = 25;
         }
     }
 
@@ -67,7 +67,7 @@ public class SmoothProgressBar extends RotateProgressBar {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            this.f11364h = (int) ((((this.f11364h * 12.0f) / f11389i) / 2.0f) + 0.5f);
+            this.mFrameDuration = (int) ((((this.mFrameDuration * 12.0f) / f46093e) / 2.0f) + 0.5f);
         }
     }
 
@@ -76,18 +76,18 @@ public class SmoothProgressBar extends RotateProgressBar {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             synchronized (this) {
-                Drawable drawable = this.f11362f;
+                Drawable drawable = this.mCurrentDrawable;
                 if (drawable != null) {
                     drawable.draw(canvas);
-                    if (SystemClock.uptimeMillis() - this.f11363g >= this.f11364h) {
-                        this.f11363g = SystemClock.uptimeMillis();
-                        int i2 = this.f11361e + (10000 / f11389i);
-                        this.f11361e = i2;
+                    if (SystemClock.uptimeMillis() - this.mLastDrawTime >= this.mFrameDuration) {
+                        this.mLastDrawTime = SystemClock.uptimeMillis();
+                        int i2 = this.mDegree + (10000 / f46093e);
+                        this.mDegree = i2;
                         if (i2 >= 10000) {
-                            this.f11361e = i2 - 10000;
+                            this.mDegree = i2 - 10000;
                         }
-                        drawable.setLevel(this.f11361e);
-                        postInvalidateDelayed(this.f11364h);
+                        drawable.setLevel(this.mDegree);
+                        postInvalidateDelayed(this.mFrameDuration);
                     }
                 }
             }

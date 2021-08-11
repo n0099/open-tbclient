@@ -2,7 +2,7 @@ package com.baidu.fsg.base.utils.support;
 
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface MultiValueMap<K, V> extends Map<K, List<V>> {
     void add(K k, V v);
 

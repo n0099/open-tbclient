@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f23472a;
+    public int f59201a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f23473b;
+    public boolean f59202b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference f23474c;
+    public WeakReference f59203c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f23475d;
+    public String f59204d;
 
     public c(WebView webView, String str, int i2) {
         Interceptable interceptable = $ic;
@@ -38,9 +38,9 @@ public class c {
                 return;
             }
         }
-        this.f23473b = true;
-        this.f23474c = new WeakReference(webView);
-        this.f23475d = str;
-        this.f23472a = i2;
+        this.f59202b = true;
+        this.f59203c = new WeakReference(webView);
+        this.f59204d = str;
+        this.f59201a = i2;
     }
 }

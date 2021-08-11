@@ -1,6 +1,11 @@
 package com.baidu.tbadk.browser;
 
 import android.webkit.JsPromptResult;
+import c.a.g.a.a;
+import c.a.o0.t.c.l;
+import c.a.p0.i3.l0.b;
+import c.a.p0.i3.l0.d.c;
+import c.a.p0.q3.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
@@ -12,16 +17,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.f.a.a;
-import d.a.p0.t.c.l;
-import d.a.q0.h3.l0.b;
-import d.a.q0.h3.l0.d.c;
-import d.a.q0.p3.d;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.BlockPopInfo;
 @a
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class UegTbJsBridge implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -55,7 +55,7 @@ public class UegTbJsBridge implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             try {
-                d.a.d.e.p.a.a(new JSONObject(str).optString("content"));
+                c.a.e.e.p.a.a(new JSONObject(str).optString("content"));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -88,7 +88,7 @@ public class UegTbJsBridge implements b {
         return (c) invokeLL.objValue;
     }
 
-    @Override // d.a.q0.h3.l0.b
+    @Override // c.a.p0.i3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

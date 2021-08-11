@@ -2,16 +2,16 @@ package com.baidu.wallet.paysdk.datamodel;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.Md5Utils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.beans.BeanRequestBase;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
+import com.dxmpay.apollon.utils.Md5Utils;
+import com.dxmpay.wallet.core.beans.BeanRequestBase;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PayQueryRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CRDDITPAY_NAME = "get_credit_pay_android_result";
@@ -38,7 +38,7 @@ public class PayQueryRequest extends BeanRequestBase implements Serializable {
         this.mName = EASYPAY_NAME;
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanRequestBase
+    @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -63,7 +63,7 @@ public class PayQueryRequest extends BeanRequestBase implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanRequestBase
+    @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public String getRequestId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

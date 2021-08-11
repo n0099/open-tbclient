@@ -1,0 +1,443 @@
+package j.a.a.e.k;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.UiEventType;
+import tv.athena.revenue.RevenueManager;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.payui.activity.PayCommonWebActivity;
+import tv.athena.revenue.payui.model.H5PayFlowModel;
+import tv.athena.revenue.payui.model.PaySource;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.view.IYYPayAmountView;
+import tv.athena.revenue.payui.view.IYYPayResultView;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.YYPayAmountView;
+import tv.athena.revenue.payui.view.YYPayResultView;
+import tv.athena.revenue.payui.view.YYPayWayView;
+/* loaded from: classes2.dex */
+public class g implements j.a.a.e.k.b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public j.a.a.e.k.a f78710a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public e f78711b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public PayUIKitConfig f78712c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public j.a.a.e.k.c f78713d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public H5PayFlowModel f78714e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f78715f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f78716g;
+
+    /* loaded from: classes2.dex */
+    public class a implements IResult<ProductListResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ IResult f78717a;
+
+        public a(g gVar, IResult iResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gVar, iResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f78717a = iResult;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) || (iResult = this.f78717a) == null) {
+                return;
+            }
+            iResult.onSuccess(productListResult, payCallBackBean);
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f78717a) == null) {
+                return;
+            }
+            iResult.onFail(i2, str, payCallBackBean);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class b implements IResult<MyBalanceResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ IResult f78718a;
+
+        public b(g gVar, IResult iResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gVar, iResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f78718a = iResult;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) || (iResult = this.f78718a) == null) {
+                return;
+            }
+            iResult.onSuccess(myBalanceResult, payCallBackBean);
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f78718a) == null) {
+                return;
+            }
+            iResult.onFail(i2, str, payCallBackBean);
+        }
+    }
+
+    /* loaded from: classes2.dex */
+    public class c implements IResult<BannerConfigResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ IResult f78719a;
+
+        public c(g gVar, IResult iResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gVar, iResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f78719a = iResult;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(BannerConfigResult bannerConfigResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) || (iResult = this.f78719a) == null) {
+                return;
+            }
+            iResult.onSuccess(bannerConfigResult, payCallBackBean);
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, payCallBackBean) == null) || (iResult = this.f78719a) == null) {
+                return;
+            }
+            iResult.onFail(i2, str, payCallBackBean);
+        }
+    }
+
+    public g(int i2, int i3, j.a.a.e.k.a aVar, j.a.a.e.k.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), aVar, cVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f78715f = i2;
+        this.f78710a = aVar;
+        this.f78716g = i3;
+        this.f78713d = cVar;
+        this.f78712c = cVar != null ? cVar.getPayUIKitConfig() : null;
+        RLog.info("YYPayController", "new YYPayController mAppId:" + i2 + " mUserChannel:" + i3);
+    }
+
+    @Override // j.a.a.e.k.b
+    public void a(Activity activity, j.a.a.e.l.c cVar, j.a.a.e.l.a aVar, AppCustomExpand appCustomExpand, IPayCallback iPayCallback, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{activity, cVar, aVar, appCustomExpand, iPayCallback, str}) == null) {
+            j.a.a.e.k.a aVar2 = this.f78710a;
+            if (aVar2 == null) {
+                RLog.error("YYPayController", "payRequest error modelProvider null", new Object[0]);
+                return;
+            }
+            j.a.a.b.b.a.a d2 = aVar2.d();
+            d2.r(iPayCallback);
+            d2.p(activity);
+            d2.u(aVar.f78720a);
+            d2.v(cVar.f78727a);
+            d2.q(appCustomExpand);
+            d2.z(str);
+            if (cVar.f78727a == PayType.DXM_PAY_KJ) {
+                d2.w(j.a.a.e.l.b.b(this.f78712c));
+            }
+            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(this.f78715f, this.f78716g);
+            if (middleRevenue != null && middleRevenue.getMiddlePayService() != null) {
+                middleRevenue.getMiddlePayService().a(d2);
+            } else {
+                RLog.error("YYPayController", "requestPay error middleRevenue null", new Object[0]);
+            }
+        }
+    }
+
+    @Override // j.a.a.e.k.b
+    public IYYPayWayView b(Activity activity, IYYPayWayView.b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, bVar)) == null) ? new YYPayWayView(activity, this.f78715f, this.f78716g, bVar, this.f78710a, this) : (IYYPayWayView) invokeLL.objValue;
+    }
+
+    @Override // j.a.a.e.k.b
+    public IYYPayResultView c(Activity activity, IYYPayResultView.c cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, cVar)) == null) ? new YYPayResultView(activity, this, this.f78710a, this.f78715f, this.f78716g, cVar) : (IYYPayResultView) invokeLL.objValue;
+    }
+
+    @Override // j.a.a.e.k.b
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f78711b = null;
+            this.f78714e = null;
+            RLog.info("YYPayController", "clear() destory H5PayFlowModel");
+        }
+    }
+
+    @Override // j.a.a.e.k.b
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+            clear();
+            String c2 = j.a.a.e.l.b.c(this.f78712c);
+            RLog.info("YYPayController", "startWalletActivity walletUrl:" + c2);
+            j(activity, c2, "我的钱包");
+        }
+    }
+
+    @Override // j.a.a.e.k.b
+    public void e(Activity activity, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, bVar, iPayCallback) == null) {
+            if (this.f78714e != null) {
+                if (bVar == null) {
+                    bVar = new IYYPayWayView.b();
+                }
+                H5PayFlowModel h5PayFlowModel = this.f78714e;
+                bVar.f79501c = h5PayFlowModel.appCustomExpand;
+                bVar.f79503e = h5PayFlowModel.viewEventListener;
+                bVar.f79504f = PaySource.WALLET;
+                RLog.info("YYPayController", "startPayChannelDialog use H5PayFlowModel");
+            }
+            e eVar = new e(this.f78715f, this.f78716g, this.f78713d, this);
+            this.f78711b = eVar;
+            eVar.A(activity, bVar, iPayCallback);
+        }
+    }
+
+    @Override // j.a.a.e.k.b
+    public void f(Activity activity, IYYPayAmountView.ViewParams viewParams, IPayCallback iPayCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, activity, viewParams, iPayCallback) == null) {
+            clear();
+            l(viewParams);
+            e eVar = new e(this.f78715f, this.f78716g, this.f78713d, this);
+            this.f78711b = eVar;
+            eVar.w(activity, iPayCallback, viewParams);
+            j.a.a.e.m.a.b(this.f78715f, this.f78716g, UiEventType.purchaseshow);
+            RLog.warn("YYPayController", UiEventType.purchaseshow);
+        }
+    }
+
+    @Override // j.a.a.e.k.b
+    public void g(Activity activity, IYYPayAmountView.ViewParams viewParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, activity, viewParams) == null) {
+            clear();
+            l(viewParams);
+            String c2 = j.a.a.e.l.b.c(this.f78712c);
+            RLog.info("YYPayController", "startWalletActivity walletUrl:" + c2);
+            j(activity, c2, "我的钱包");
+        }
+    }
+
+    @Override // j.a.a.e.k.b
+    public PayUIKitConfig getPayUIKitConfig() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f78712c : (PayUIKitConfig) invokeV.objValue;
+    }
+
+    @Override // j.a.a.e.k.b
+    public void h(GetBannerConfigReqParams getBannerConfigReqParams, IResult<BannerConfigResult> iResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, getBannerConfigReqParams, iResult) == null) {
+            IAppPayService a2 = j.a.a.e.n.a.a(getBannerConfigReqParams.getAppId(), getBannerConfigReqParams.getUsedChannel());
+            if (a2 != null) {
+                a2.queryBannerConfigRequest(getBannerConfigReqParams, new c(this, iResult));
+            } else {
+                RLog.error("YYPayController", "queryBannerConfig null appPayService", new Object[0]);
+            }
+        }
+    }
+
+    @Override // j.a.a.e.k.b
+    public IYYPayAmountView i(Activity activity, IYYPayAmountView.ViewParams viewParams) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, activity, viewParams)) == null) ? new YYPayAmountView(activity, this.f78715f, this.f78716g, this, viewParams, this.f78710a) : (IYYPayAmountView) invokeLL.objValue;
+    }
+
+    @Override // j.a.a.e.k.b
+    public void j(Activity activity, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048587, this, activity, str, str2) == null) {
+            PayUIKitConfig payUIKitConfig = this.f78712c;
+            if (payUIKitConfig != null && payUIKitConfig.revenueConfig != null) {
+                if (TextUtils.isEmpty(str)) {
+                    RLog.error("YYPayController", "startActivity error url null", new Object[0]);
+                    return;
+                }
+                str2 = (str2 == null || str2.isEmpty()) ? "" : "";
+                Intent intent = new Intent(activity, PayCommonWebActivity.class);
+                intent.putExtra(H5PayConstant.EXTRA_TITLE, str2);
+                intent.putExtra(H5PayConstant.EXTRA_URL, str);
+                intent.putExtra(H5PayConstant.EXTRA_APP_ID, this.f78715f);
+                intent.putExtra(H5PayConstant.EXTRA_USER_CHANNEL, this.f78716g);
+                if (str.equals(j.a.a.e.l.b.c(this.f78712c))) {
+                    RLog.debug("YYPayController", "startPayWebActivity is wallet");
+                    intent.putExtra(H5PayConstant.EXTRA_LOCAL_PAGE_TYPE, 1);
+                }
+                activity.startActivity(intent);
+            }
+            j.a.a.e.m.a.b(this.f78715f, this.f78716g, UiEventType.walletshow);
+            RLog.info("YYPayController", UiEventType.walletshow);
+        }
+    }
+
+    @Override // j.a.a.e.k.b
+    public H5PayFlowModel k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f78714e : (H5PayFlowModel) invokeV.objValue;
+    }
+
+    public final void l(IYYPayAmountView.ViewParams viewParams) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, viewParams) == null) || viewParams == null) {
+            return;
+        }
+        H5PayFlowModel h5PayFlowModel = new H5PayFlowModel();
+        this.f78714e = h5PayFlowModel;
+        h5PayFlowModel.appCustomExpand = viewParams.appCustomExpand;
+        h5PayFlowModel.viewEventListener = viewParams.viewEventListener;
+        RLog.info("YYPayController", "createH5PayFlowModel  H5PayFlowModel");
+    }
+
+    @Override // j.a.a.e.k.b
+    public void queryMyBalance(QueryCurrencyReqParams queryCurrencyReqParams, IResult<MyBalanceResult> iResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, queryCurrencyReqParams, iResult) == null) {
+            IAppPayService a2 = j.a.a.e.n.a.a(queryCurrencyReqParams.getAppId(), queryCurrencyReqParams.getUsedChannel());
+            if (a2 != null) {
+                a2.queryMyBalance(queryCurrencyReqParams, new b(this, iResult));
+            } else {
+                RLog.error("YYPayController", "queryMyBalance null appPayService", new Object[0]);
+            }
+        }
+    }
+
+    @Override // j.a.a.e.k.b
+    public void queryProductList(QueryCurrencyReqParams queryCurrencyReqParams, IResult<ProductListResult> iResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048591, this, queryCurrencyReqParams, iResult) == null) {
+            IAppPayService a2 = j.a.a.e.n.a.a(queryCurrencyReqParams.getAppId(), queryCurrencyReqParams.getUsedChannel());
+            if (a2 != null) {
+                a2.queryProductList(queryCurrencyReqParams, new a(this, iResult));
+            } else {
+                RLog.error("YYPayController", "queryProductList null appPayService", new Object[0]);
+            }
+        }
+    }
+}

@@ -4,12 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class EventAlias {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class GiftEventAlias {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LOAD_ALL_GIFT_FAIL = "拉取所有礼物失败";
@@ -37,7 +37,7 @@ public class EventAlias {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class GiftSummaryEventAlias {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SUMMARY_SEND_MULTI_FAIL = "赠送礼物给多人成功";
@@ -61,7 +61,7 @@ public class EventAlias {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class PayEventAlias {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DO_HANG_JOB_FAIL = "继续完成未完成的订单失败";
@@ -98,7 +98,7 @@ public class EventAlias {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class PaySummaryEventAlias {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SUMMARY_DOHANGDJOB_FAIL = "处理卡单失败";

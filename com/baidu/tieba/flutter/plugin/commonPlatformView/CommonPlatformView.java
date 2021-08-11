@@ -4,9 +4,9 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import androidx.annotation.NonNull;
+import c.a.p0.f3.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,13 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.e3.a;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.platform.PlatformView;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CommonPlatformView implements PlatformView, MethodChannel.MethodCallHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CommonPlatformView";
@@ -124,7 +123,7 @@ public class CommonPlatformView implements PlatformView, MethodChannel.MethodCal
                 this.mSquareDelegate = aVar;
                 aVar.g();
                 this.mSquareDelegate.o();
-                this.mainView = this.mSquareDelegate.f56447d.d();
+                this.mainView = this.mSquareDelegate.f17762d.d();
             }
         }
     }
@@ -133,7 +132,6 @@ public class CommonPlatformView implements PlatformView, MethodChannel.MethodCal
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.d(TAG, "dispose() called");
         }
     }
 

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final /* synthetic */ class VideoDecoderFactory_CC {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

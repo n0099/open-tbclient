@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.Charset;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Charsets {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset ISO_8859_1;
@@ -35,8 +35,8 @@ public class Charsets {
         ISO_8859_1 = Charset.forName("ISO-8859-1");
         US_ASCII = Charset.forName("US-ASCII");
         UTF_16 = Charset.forName("UTF-16");
-        UTF_16BE = Charset.forName(CharEncoding.UTF_16BE);
-        UTF_16LE = Charset.forName(CharEncoding.UTF_16LE);
+        UTF_16BE = Charset.forName("UTF-16BE");
+        UTF_16LE = Charset.forName("UTF-16LE");
         UTF_8 = Charset.forName("UTF-8");
     }
 

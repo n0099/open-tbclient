@@ -1,9 +1,9 @@
 package com.baidu.afd.videopaster.data;
 
 import android.text.TextUtils;
+import c.a.f.m.e.a;
 import com.baidu.afd.ParseError;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -13,10 +13,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.UriUtil;
-import d.a.e.m.e.a;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class VideoPasterResponseData extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TPL_IMAGE_TYPE = "ad_video_attach_image";
@@ -66,7 +65,7 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                         while (true) {
                                             if (i2 < optJSONArray3.length()) {
                                                 JSONObject optJSONObject4 = optJSONArray3.optJSONObject(i2);
-                                                if (optJSONObject4 != null && TextUtils.equals("extraParam", optJSONObject4.optString(Config.APP_KEY))) {
+                                                if (optJSONObject4 != null && TextUtils.equals("extraParam", optJSONObject4.optString("k"))) {
                                                     this.pasterData.q = optJSONObject4.optString("v");
                                                     break;
                                                 }
@@ -217,13 +216,13 @@ public class VideoPasterResponseData extends JsonHttpResponsedMessage {
                                             aVar5.t = 24;
                                         }
                                         a aVar6 = this.pasterData;
-                                        aVar6.f42515g = optString3;
+                                        aVar6.f3200g = optString3;
                                         aVar6.e(this.type);
                                         a aVar7 = this.pasterData;
-                                        aVar7.f42514f = optString2;
-                                        aVar7.j = optInt;
-                                        aVar7.f42517i = optString5;
-                                        aVar7.f42516h = optString4;
+                                        aVar7.f3199f = optString2;
+                                        aVar7.f3203j = optInt;
+                                        aVar7.f3202i = optString5;
+                                        aVar7.f3201h = optString4;
                                         aVar7.o = optString7;
                                         aVar7.n = optString6;
                                         aVar7.p = optString8;

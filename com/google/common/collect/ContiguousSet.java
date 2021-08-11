@@ -1,6 +1,7 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,13 +10,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableSortedSet;
-import d.f.d.a.n;
 import java.lang.Comparable;
 import java.util.Comparator;
 import java.util.NavigableSet;
 import java.util.NoSuchElementException;
 import java.util.SortedSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class ContiguousSet<C extends Comparable> extends ImmutableSortedSet<C> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -144,16 +144,16 @@ public abstract class ContiguousSet<C extends Comparable> extends ImmutableSorte
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? range().toString() : (String) invokeV.objValue;
     }
 
-    public static ContiguousSet<Long> closed(long j, long j2) {
+    public static ContiguousSet<Long> closed(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? create(Range.closed(Long.valueOf(j), Long.valueOf(j2)), DiscreteDomain.longs()) : (ContiguousSet) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? create(Range.closed(Long.valueOf(j2), Long.valueOf(j3)), DiscreteDomain.longs()) : (ContiguousSet) invokeCommon.objValue;
     }
 
-    public static ContiguousSet<Long> closedOpen(long j, long j2) {
+    public static ContiguousSet<Long> closedOpen(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? create(Range.closedOpen(Long.valueOf(j), Long.valueOf(j2)), DiscreteDomain.longs()) : (ContiguousSet) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? create(Range.closedOpen(Long.valueOf(j2), Long.valueOf(j3)), DiscreteDomain.longs()) : (ContiguousSet) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.ContiguousSet<C extends java.lang.Comparable> */

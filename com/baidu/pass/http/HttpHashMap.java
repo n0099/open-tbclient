@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class HttpHashMap implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f9350a;
+    public Map<String, String> f43997a;
 
     public HttpHashMap() {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class HttpHashMap implements com.baidu.pass.a {
                 return;
             }
         }
-        this.f9350a = new HashMap();
+        this.f43997a = new HashMap();
     }
 
     public void doSign(String str) {
@@ -41,26 +41,26 @@ public class HttpHashMap implements com.baidu.pass.a {
     public String get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f9350a.get(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.f43997a.get(str) : (String) invokeL.objValue;
     }
 
     public Map getMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f9350a : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43997a : (Map) invokeV.objValue;
     }
 
     public void put(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            this.f9350a.put(str, str2);
+            this.f43997a.put(str, str2);
         }
     }
 
     public void putAll(Map<? extends String, ? extends String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
-            this.f9350a.putAll(map);
+            this.f43997a.putAll(map);
         }
     }
 }

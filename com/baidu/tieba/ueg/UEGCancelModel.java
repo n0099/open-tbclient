@@ -1,6 +1,7 @@
 package com.baidu.tieba.ueg;
 
 import android.text.TextUtils;
+import c.a.e.e.p.j;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -13,25 +14,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UEGCancelModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f21638e;
+    public b f57196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.a.d.c.g.a f21639f;
+    public final c.a.e.c.g.a f57197f;
 
-    /* loaded from: classes4.dex */
-    public class a extends d.a.d.c.g.a {
+    /* loaded from: classes7.dex */
+    public class a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UEGCancelModel f21640a;
+        public final /* synthetic */ UEGCancelModel f57198a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(UEGCancelModel uEGCancelModel, int i2, int i3) {
@@ -52,10 +52,10 @@ public class UEGCancelModel extends BdBaseModel {
                     return;
                 }
             }
-            this.f21640a = uEGCancelModel;
+            this.f57198a = uEGCancelModel;
         }
 
-        @Override // d.a.d.c.g.a
+        @Override // c.a.e.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             UEGCancelResponsedMessage uEGCancelResponsedMessage;
             Interceptable interceptable = $ic;
@@ -63,20 +63,20 @@ public class UEGCancelModel extends BdBaseModel {
                 return;
             }
             boolean z = responsedMessage instanceof UEGCancelSocketResponseMessage;
-            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && this.f21640a.f21638e != null) {
+            if ((z || (responsedMessage instanceof UEGCancelResponsedMessage)) && this.f57198a.f57196e != null) {
                 if (z) {
                     UEGCancelSocketResponseMessage uEGCancelSocketResponseMessage = (UEGCancelSocketResponseMessage) responsedMessage;
                     if (uEGCancelSocketResponseMessage != null && uEGCancelSocketResponseMessage.getError() == 0) {
-                        this.f21640a.f21638e.a(uEGCancelSocketResponseMessage.getData());
+                        this.f57198a.f57196e.a(uEGCancelSocketResponseMessage.getData());
                     }
                 } else if ((responsedMessage instanceof UEGCancelResponsedMessage) && (uEGCancelResponsedMessage = (UEGCancelResponsedMessage) responsedMessage) != null && uEGCancelResponsedMessage.getError() == 0) {
-                    this.f21640a.f21638e.a(uEGCancelResponsedMessage.getData());
+                    this.f57198a.f57196e.a(uEGCancelResponsedMessage.getData());
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(BlockPopInfoData blockPopInfoData);
     }
@@ -94,10 +94,10 @@ public class UEGCancelModel extends BdBaseModel {
                 return;
             }
         }
-        this.f21639f = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
-        d.a.q0.h3.d0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
-        d.a.q0.h3.d0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
-        registerListener(this.f21639f);
+        this.f57197f = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
+        c.a.p0.i3.d0.a.h(309615, UEGCancelSocketResponseMessage.class, false, false);
+        c.a.p0.i3.d0.a.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
+        registerListener(this.f57197f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -123,7 +123,7 @@ public class UEGCancelModel extends BdBaseModel {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f21639f);
+            MessageManager.getInstance().unRegisterListener(this.f57197f);
         }
     }
 
@@ -139,7 +139,7 @@ public class UEGCancelModel extends BdBaseModel {
     public void y(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f21638e = bVar;
+            this.f57196e = bVar;
         }
     }
 }

@@ -25,6 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class TransitionSet extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
@@ -139,9 +140,9 @@ public class TransitionSet extends Transition {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, transition)) == null) {
             addTransitionInternal(transition);
-            long j = this.mDuration;
-            if (j >= 0) {
-                transition.setDuration(j);
+            long j2 = this.mDuration;
+            if (j2 >= 0) {
+                transition.setDuration(j2);
             }
             if ((this.mChangeFlags & 1) != 0) {
                 transition.setInterpolator(getInterpolator());
@@ -467,7 +468,7 @@ public class TransitionSet extends Transition {
             for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(transition);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append(this.mTransitions.get(i2).toString(str + GlideException.IndentedAppendable.INDENT));
                 transition = sb.toString();
             }
@@ -514,16 +515,16 @@ public class TransitionSet extends Transition {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     @NonNull
-    public TransitionSet setDuration(long j) {
+    public TransitionSet setDuration(long j2) {
         InterceptResult invokeJ;
         ArrayList<Transition> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j)) == null) {
-            super.setDuration(j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j2)) == null) {
+            super.setDuration(j2);
             if (this.mDuration >= 0 && (arrayList = this.mTransitions) != null) {
                 int size = arrayList.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    this.mTransitions.get(i2).setDuration(j);
+                    this.mTransitions.get(i2).setDuration(j2);
                 }
             }
             return this;
@@ -570,10 +571,10 @@ public class TransitionSet extends Transition {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     @NonNull
-    public TransitionSet setStartDelay(long j) {
+    public TransitionSet setStartDelay(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j)) == null) ? (TransitionSet) super.setStartDelay(j) : (TransitionSet) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) ? (TransitionSet) super.setStartDelay(j2) : (TransitionSet) invokeJ.objValue;
     }
 
     @Override // androidx.transition.Transition

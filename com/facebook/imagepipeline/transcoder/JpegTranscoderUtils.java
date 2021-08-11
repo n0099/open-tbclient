@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.common.RotationOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class JpegTranscoderUtils {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting

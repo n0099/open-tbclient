@@ -14,22 +14,22 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public class TurbonetConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public JSONObject f23373a;
+    public JSONObject f59098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f23374b;
+    public String f59099b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f23375c;
+    public boolean f59100c;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public @interface HttpCacheSetting {
     }
 
@@ -46,8 +46,8 @@ public class TurbonetConfig {
                 return;
             }
         }
-        this.f23375c = false;
-        this.f23373a = new JSONObject();
+        this.f59100c = false;
+        this.f59098a = new JSONObject();
     }
 
     public void a(String str) {
@@ -71,15 +71,15 @@ public class TurbonetConfig {
         }
     }
 
-    public void d(int i2, long j) {
+    public void d(int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             if (i2 != 3 && i2 != 2) {
                 if (l() != null) {
                     throw new IllegalArgumentException("Storage path must not be set");
                 }
             } else if (l() != null) {
-                this.f23375c = true;
+                this.f59100c = true;
             } else {
                 throw new IllegalArgumentException("Storage path must be set");
             }
@@ -93,7 +93,7 @@ public class TurbonetConfig {
             } else {
                 i(SchemeCollecter.CLASSIFY_BASE, "http_cache_mode", "DISK");
             }
-            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j));
+            i(SchemeCollecter.CLASSIFY_BASE, "http_cache_size", Long.valueOf(j2));
         }
     }
 
@@ -114,25 +114,25 @@ public class TurbonetConfig {
     public JSONObject g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f23373a : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f59098a : (JSONObject) invokeV.objValue;
     }
 
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f23375c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f59100c : invokeV.booleanValue;
     }
 
     public void i(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, obj) == null) {
             try {
-                JSONObject optJSONObject = this.f23373a.optJSONObject(str);
+                JSONObject optJSONObject = this.f59098a.optJSONObject(str);
                 if (optJSONObject == null) {
                     optJSONObject = new JSONObject();
                 }
                 optJSONObject.put(str2, obj);
-                this.f23373a.put(str, optJSONObject);
+                this.f59098a.put(str, optJSONObject);
             } catch (JSONException e2) {
                 throw new IllegalStateException("JSON expcetion:", e2);
             }
@@ -154,7 +154,7 @@ public class TurbonetConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             if (new File(str).isDirectory()) {
-                this.f23374b = str;
+                this.f59099b = str;
                 return;
             }
             throw new IllegalArgumentException("Storage path must be set to existing directory");
@@ -164,6 +164,6 @@ public class TurbonetConfig {
     public String l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f23374b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f59099b : (String) invokeV.objValue;
     }
 }

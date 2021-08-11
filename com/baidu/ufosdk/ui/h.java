@@ -5,16 +5,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class h implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f23824a;
+    public final /* synthetic */ e f59563a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ f f23825b;
+    public final /* synthetic */ f f59564b;
 
     public h(f fVar, e eVar) {
         Interceptable interceptable = $ic;
@@ -31,8 +31,8 @@ public final class h implements View.OnClickListener {
                 return;
             }
         }
-        this.f23825b = fVar;
-        this.f23824a = eVar;
+        this.f59564b = fVar;
+        this.f59563a = eVar;
     }
 
     @Override // android.view.View.OnClickListener
@@ -41,9 +41,9 @@ public final class h implements View.OnClickListener {
         ey eyVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            String b2 = this.f23824a.b();
-            for (int i2 = 0; i2 < this.f23825b.f23808c.getChildCount(); i2++) {
-                View childAt = this.f23825b.f23808c.getChildAt(i2);
+            String b2 = this.f59563a.b();
+            for (int i2 = 0; i2 < this.f59564b.f59547c.getChildCount(); i2++) {
+                View childAt = this.f59564b.f59547c.getChildAt(i2);
                 if (childAt instanceof e) {
                     e eVar = (e) childAt;
                     if (eVar.b().equals(b2)) {
@@ -53,15 +53,15 @@ public final class h implements View.OnClickListener {
                     }
                 }
             }
-            for (int i3 = 0; i3 < this.f23825b.f23807b.getChildCount(); i3++) {
-                View childAt2 = this.f23825b.f23807b.getChildAt(i3);
+            for (int i3 = 0; i3 < this.f59564b.f59546b.getChildCount(); i3++) {
+                View childAt2 = this.f59564b.f59546b.getChildAt(i3);
                 if (childAt2 instanceof e) {
                     ((e) childAt2).a(false);
                 }
             }
-            eyVar = this.f23825b.f23812g;
+            eyVar = this.f59564b.f59551g;
             if (eyVar != null) {
-                eyVar2 = this.f23825b.f23812g;
+                eyVar2 = this.f59564b.f59551g;
                 eyVar2.a(b2);
             }
         }

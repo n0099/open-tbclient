@@ -1,6 +1,5 @@
 package androidx.recyclerview.widget;
 
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
 import androidx.annotation.NonNull;
@@ -205,7 +204,7 @@ public class AsyncListUtil<T> {
                     }
                     TileList.Tile<T> addOrReplace = this.this$0.mTileList.addOrReplace(tile);
                     if (addOrReplace != null) {
-                        Log.e(AsyncListUtil.TAG, "duplicate tile @" + addOrReplace.mStartPosition);
+                        String str = "duplicate tile @" + addOrReplace.mStartPosition;
                         this.this$0.mBackgroundProxy.recycleTile(addOrReplace);
                     }
                     int i6 = tile.mStartPosition + tile.mItemCount;
@@ -228,7 +227,7 @@ public class AsyncListUtil<T> {
                 if ((interceptable2 == null || interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i5, i6) == null) && isRequestedGeneration(i5)) {
                     TileList.Tile<T> removeAtPos = this.this$0.mTileList.removeAtPos(i6);
                     if (removeAtPos == null) {
-                        Log.e(AsyncListUtil.TAG, "tile not found @" + i6);
+                        String str = "tile not found @" + i6;
                         return;
                     }
                     this.this$0.mBackgroundProxy.recycleTile(removeAtPos);
@@ -343,7 +342,7 @@ public class AsyncListUtil<T> {
             private void log(String str, Object... objArr2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(AdIconUtil.BAIDU_LOGO_ID, this, str, objArr2) == null) {
-                    Log.d(AsyncListUtil.TAG, "[BKGR] " + String.format(str, objArr2));
+                    String str2 = "[BKGR] " + String.format(str, objArr2);
                 }
             }
 
@@ -466,7 +465,7 @@ public class AsyncListUtil<T> {
     public void log(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, objArr) == null) {
-            Log.d(TAG, "[MAIN] " + String.format(str, objArr));
+            String str2 = "[MAIN] " + String.format(str, objArr);
         }
     }
 

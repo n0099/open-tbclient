@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class e2 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ g2 f39798a;
+    public final /* synthetic */ g2 f76639a;
 
     public e2(g2 g2Var) {
         Interceptable interceptable = $ic;
@@ -32,7 +32,7 @@ public class e2 extends WebViewClient {
                 return;
             }
         }
-        this.f39798a = g2Var;
+        this.f76639a = g2Var;
     }
 
     @Override // android.webkit.WebViewClient
@@ -56,14 +56,14 @@ public class e2 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
             super.onReceivedError(webView, i2, str, str2);
-            this.f39798a.f39811b.setVisibility(8);
+            this.f76639a.f76652b.setVisibility(8);
             if (str.contains("TIMED_OUT")) {
-                g2 g2Var = this.f39798a;
-                if (g2Var.f39812c != null) {
-                    Y0 b2 = Z0.a(g2Var.f39810a).b(new a1(this.f39798a.f39812c), 4);
+                g2 g2Var = this.f76639a;
+                if (g2Var.f76653c != null) {
+                    Y0 b2 = Z0.a(g2Var.f76651a).b(new a1(this.f76639a.f76653c), 4);
                     b2.a("desc", str + "&errcode:" + i2 + "&fileurl:" + str2).a();
                 }
-                Toast.makeText(this.f39798a.f39810a, R.string.win_toast_network_error, 0).show();
+                Toast.makeText(this.f76639a.f76651a, R.string.win_toast_network_error, 0).show();
             }
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.HotForum.HotSearch;
 import tbclient.HotForum.SearchValue;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HotSearchInfoData extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DIRECT_SEARCH_TYPE = 2;
@@ -19,16 +19,16 @@ public class HotSearchInfoData extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18445e;
+    public String f53764e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f18446f;
+    public long f53765f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f18447g;
+    public long f53766g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f18448h;
+    public String f53767h;
 
     public HotSearchInfoData() {
         Interceptable interceptable = $ic;
@@ -44,49 +44,49 @@ public class HotSearchInfoData extends OrmObject {
         }
     }
 
-    public void A(long j) {
+    public void A(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.f18446f = j;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            this.f53765f = j2;
         }
     }
 
     public long getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f18447g : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53766g : invokeV.longValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18448h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53767h : (String) invokeV.objValue;
     }
 
-    public void setId(long j) {
+    public void setId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f18447g = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.f53766g = j2;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f18448h = str;
+            this.f53767h = str;
         }
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f18445e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f53764e : (String) invokeV.objValue;
     }
 
     public long x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f18446f : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f53765f : invokeV.longValue;
     }
 
     public void y(HotSearch hotSearch) {
@@ -95,17 +95,17 @@ public class HotSearchInfoData extends OrmObject {
         if (!(interceptable == null || interceptable.invokeL(1048583, this, hotSearch) == null) || hotSearch == null || (searchValue = hotSearch.search_value) == null) {
             return;
         }
-        this.f18445e = hotSearch.search_title;
-        this.f18447g = searchValue.id.longValue();
+        this.f53764e = hotSearch.search_title;
+        this.f53766g = searchValue.id.longValue();
         SearchValue searchValue2 = hotSearch.search_value;
-        this.f18448h = searchValue2.name;
-        this.f18446f = searchValue2.type.longValue();
+        this.f53767h = searchValue2.name;
+        this.f53765f = searchValue2.type.longValue();
     }
 
     public void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f18445e = str;
+            this.f53764e = str;
         }
     }
 }

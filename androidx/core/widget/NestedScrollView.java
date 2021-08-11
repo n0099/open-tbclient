@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.FocusFinder;
 import android.view.KeyEvent;
@@ -1194,7 +1193,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
                         if (i3 != -1) {
                             int findPointerIndex = motionEvent.findPointerIndex(i3);
                             if (findPointerIndex == -1) {
-                                Log.e(TAG, "Invalid pointerId=" + i3 + " in onInterceptTouchEvent");
+                                String str = "Invalid pointerId=" + i3 + " in onInterceptTouchEvent";
                             } else {
                                 int y = (int) motionEvent.getY(findPointerIndex);
                                 if (Math.abs(y - this.mLastMotionY) > this.mTouchSlop && (2 & getNestedScrollAxes()) == 0) {
@@ -1483,7 +1482,7 @@ public class NestedScrollView extends FrameLayout implements NestedScrollingPare
                 } else if (actionMasked == 2) {
                     int findPointerIndex = motionEvent.findPointerIndex(this.mActivePointerId);
                     if (findPointerIndex == -1) {
-                        Log.e(TAG, "Invalid pointerId=" + this.mActivePointerId + " in onTouchEvent");
+                        String str = "Invalid pointerId=" + this.mActivePointerId + " in onTouchEvent";
                     } else {
                         int y = (int) motionEvent.getY(findPointerIndex);
                         int i3 = this.mLastMotionY - y;

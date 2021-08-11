@@ -4,19 +4,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ja {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f40785a;
+    public final byte f77660a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f814a;
+    public final int f818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte f40786b;
+    public final byte f77661b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ja() {
@@ -52,8 +52,8 @@ public final class ja {
                 return;
             }
         }
-        this.f40785a = b2;
-        this.f40786b = b3;
-        this.f814a = i2;
+        this.f77660a = b2;
+        this.f77661b = b3;
+        this.f818a = i2;
     }
 }

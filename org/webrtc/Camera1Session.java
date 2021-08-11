@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit;
 import org.webrtc.Camera1Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Camera1Session implements CameraSession {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUMBER_OF_CAPTURE_BUFFERS = 3;
@@ -41,7 +41,7 @@ public class Camera1Session implements CameraSession {
     public final SurfaceTextureHelper surfaceTextureHelper;
 
     /* renamed from: org.webrtc.Camera1Session$2  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class AnonymousClass2 implements Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,7 +117,7 @@ public class Camera1Session implements CameraSession {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SessionState {
         public static final /* synthetic */ SessionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -194,12 +194,12 @@ public class Camera1Session implements CameraSession {
         camera1ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera1.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
     }
 
-    public Camera1Session(CameraSession.Events events, boolean z, Context context, SurfaceTextureHelper surfaceTextureHelper, int i2, Camera camera, Camera.CameraInfo cameraInfo, CameraEnumerationAndroid.CaptureFormat captureFormat, long j) {
+    public Camera1Session(CameraSession.Events events, boolean z, Context context, SurfaceTextureHelper surfaceTextureHelper, int i2, Camera camera, Camera.CameraInfo cameraInfo, CameraEnumerationAndroid.CaptureFormat captureFormat, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {events, Boolean.valueOf(z), context, surfaceTextureHelper, Integer.valueOf(i2), camera, cameraInfo, captureFormat, Long.valueOf(j)};
+            Object[] objArr = {events, Boolean.valueOf(z), context, surfaceTextureHelper, Integer.valueOf(i2), camera, cameraInfo, captureFormat, Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -219,7 +219,7 @@ public class Camera1Session implements CameraSession {
         this.camera = camera;
         this.info = cameraInfo;
         this.captureFormat = captureFormat;
-        this.constructionTimeNs = j;
+        this.constructionTimeNs = j2;
         surfaceTextureHelper.setTextureSize(captureFormat.width, captureFormat.height);
         startCapturing();
     }

@@ -21,12 +21,12 @@ import com.xiaomi.push.service.az;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,22 +52,22 @@ public class u {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f40091a;
+        public String f76942a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f96a;
+        public boolean f100a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40092b;
+        public String f76943b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f97b;
+        public boolean f101b;
 
         public b(String str, boolean z, boolean z2, String str2) {
             Interceptable interceptable = $ic;
@@ -84,10 +84,10 @@ public class u {
                     return;
                 }
             }
-            this.f40091a = str;
-            this.f96a = z;
-            this.f97b = z2;
-            this.f40092b = str2;
+            this.f76942a = str;
+            this.f100a = z;
+            this.f101b = z2;
+            this.f76943b = str2;
         }
     }
 
@@ -302,9 +302,9 @@ public class u {
                 for (ServiceInfo serviceInfo : serviceInfoArr) {
                     if (!TextUtils.isEmpty(serviceInfo.name) && hashMap2.containsKey(serviceInfo.name)) {
                         b bVar = (b) hashMap2.remove(serviceInfo.name);
-                        boolean z = bVar.f96a;
-                        boolean z2 = bVar.f97b;
-                        String str = bVar.f40092b;
+                        boolean z = bVar.f100a;
+                        boolean z2 = bVar.f101b;
+                        String str = bVar.f76943b;
                         if (z != serviceInfo.enabled) {
                             throw new a(String.format("<service android:name=\"%1$s\" .../> in AndroidManifest had the wrong enabled attribute, which should be android:enabled=%2$b.", serviceInfo.name, Boolean.valueOf(z)));
                         }

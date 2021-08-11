@@ -1,7 +1,6 @@
 package org.aspectj.runtime.reflect;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Modifier;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class StringMaker {
     public static /* synthetic */ Interceptable $ic;
     public static StringMaker longStringMaker;
@@ -179,9 +178,9 @@ public class StringMaker {
             }
             if (!cls.isArray()) {
                 if (z) {
-                    return stripPackageName(str).replace('$', IStringUtil.EXTENSION_SEPARATOR);
+                    return stripPackageName(str).replace('$', '.');
                 }
-                return str.replace('$', IStringUtil.EXTENSION_SEPARATOR);
+                return str.replace('$', '.');
             }
             Class<?> componentType = cls.getComponentType();
             StringBuffer stringBuffer = new StringBuffer();

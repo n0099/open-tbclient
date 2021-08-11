@@ -11,19 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class f<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f3911a = "f";
+    public static final String f37897a = "f";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<T> f3912b;
+    public final Class<T> f37898b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AbstractHttpMessageConverter<?> f3913c;
+    public final AbstractHttpMessageConverter<?> f37899c;
 
     static {
         InterceptResult invokeClinit;
@@ -59,8 +59,8 @@ public class f<T> {
             throw new IllegalArgumentException("'responseType' must not be null");
         }
         if (abstractHttpMessageConverter != null) {
-            this.f3912b = cls;
-            this.f3913c = abstractHttpMessageConverter;
+            this.f37898b = cls;
+            this.f37899c = abstractHttpMessageConverter;
             return;
         }
         throw new IllegalArgumentException("'messageConverters' must not be empty");
@@ -81,10 +81,10 @@ public class f<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             if (b(eVar)) {
-                if (eVar.d().i() == null && Log.isLoggable(f3911a, 3)) {
-                    Log.d(f3911a, "No Content-Type header found, defaulting to application/octet-stream");
+                if (eVar.d().i() == null) {
+                    Log.isLoggable(f37897a, 3);
                 }
-                return (T) this.f3913c.a(this.f3912b, eVar);
+                return (T) this.f37899c.a(this.f37898b, eVar);
             }
             return null;
         }
@@ -94,6 +94,6 @@ public class f<T> {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3913c.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f37899c.a() : (String) invokeV.objValue;
     }
 }

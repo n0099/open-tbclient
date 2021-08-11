@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class DocumentData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class DocumentData {
     public final int tracking;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class Justification {
         public static final /* synthetic */ Justification[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -1,5 +1,6 @@
 package com.baidu.tieba.frs.profession.permission;
 
+import c.a.p0.v0.f2.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.u0.f2.a.b;
 import java.io.IOException;
 import tbclient.ZoneRight.ZoneRightResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ProPermissionSocketResponseMessage extends MvcSocketResponsedMessage<b, ZoneRightResIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

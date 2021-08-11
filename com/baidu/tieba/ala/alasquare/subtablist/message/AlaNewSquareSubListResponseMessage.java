@@ -1,5 +1,6 @@
 package com.baidu.tieba.ala.alasquare.subtablist.message;
 
+import c.a.o0.s.q.c2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,18 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
     public int liveCount;
-    public List<b2> liveList;
+    public List<c2> liveList;
     public List<String> sortType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -59,9 +59,9 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
                 for (int i3 = 0; i3 < length; i3++) {
                     JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
                     if (optJSONObject != null) {
-                        b2 b2Var = new b2();
-                        b2Var.J2(optJSONObject);
-                        this.liveList.add(b2Var);
+                        c2 c2Var = new c2();
+                        c2Var.R2(optJSONObject);
+                        this.liveList.add(c2Var);
                     }
                 }
             } else {
@@ -87,7 +87,7 @@ public class AlaNewSquareSubListResponseMessage extends JsonHttpResponsedMessage
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.liveCount : invokeV.intValue;
     }
 
-    public List<b2> getLiveList() {
+    public List<c2> getLiveList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.liveList : (List) invokeV.objValue;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ThreadRecord {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,17 +68,17 @@ public class ThreadRecord {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.uri : (String) invokeV.objValue;
     }
 
-    public void setEnd(long j) {
+    public void setEnd(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.end = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.end = j2;
         }
     }
 
-    public void setFinished(long j) {
+    public void setFinished(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.finished = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.finished = j2;
         }
     }
 
@@ -89,10 +89,10 @@ public class ThreadRecord {
         }
     }
 
-    public void setStart(long j) {
+    public void setStart(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.start = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.start = j2;
         }
     }
 
@@ -111,13 +111,13 @@ public class ThreadRecord {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ThreadRecord(int i2, String str, String str2, long j) {
-        this(i2, str, str2, 0L, 0L, j);
+    public ThreadRecord(int i2, String str, String str2, long j2) {
+        this(i2, str, str2, 0L, 0L, j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j)};
+            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -131,12 +131,12 @@ public class ThreadRecord {
         }
     }
 
-    public ThreadRecord(int i2, String str, String str2, long j, long j2, long j3) {
+    public ThreadRecord(int i2, String str, String str2, long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -149,8 +149,8 @@ public class ThreadRecord {
         this.id = i2;
         this.tag = str;
         this.uri = str2;
-        this.start = j;
-        this.end = j2;
-        this.finished = j3;
+        this.start = j2;
+        this.end = j3;
+        this.finished = j4;
     }
 }

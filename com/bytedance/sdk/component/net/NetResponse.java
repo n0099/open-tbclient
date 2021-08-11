@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class NetResponse {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHE_DISPATCH_FAIL_CODE = 607;
@@ -34,12 +34,12 @@ public class NetResponse {
     public final long receivedResponseAtMillis;
     public final long sentRequestAtMillis;
 
-    public NetResponse(boolean z, int i2, String str, Map<String, String> map, String str2, long j, long j2) {
+    public NetResponse(boolean z, int i2, String str, Map<String, String> map, String str2, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), str, map, str2, Long.valueOf(j), Long.valueOf(j2)};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), str, map, str2, Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -55,8 +55,8 @@ public class NetResponse {
         this.message = str;
         this.headers = map;
         this.body = str2;
-        this.sentRequestAtMillis = j;
-        this.receivedResponseAtMillis = j2;
+        this.sentRequestAtMillis = j2;
+        this.receivedResponseAtMillis = j3;
     }
 
     public String getBody() {

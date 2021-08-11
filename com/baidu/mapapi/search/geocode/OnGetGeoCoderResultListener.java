@@ -1,5 +1,5 @@
 package com.baidu.mapapi.search.geocode;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface OnGetGeoCoderResultListener {
     void onGetGeoCodeResult(GeoCodeResult geoCodeResult);
 

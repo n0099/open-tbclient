@@ -15,25 +15,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BawuManagerApplyInfoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15258e;
+    public Context f50469e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f15259f;
+    public View f50470f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15260g;
+    public TextView f50471g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f15261h;
+    public TextView f50472h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f15262i;
+    public TextView f50473i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BawuManagerApplyInfoView(Context context) {
@@ -53,39 +53,39 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f15258e = context;
-        b();
+        this.f50469e = context;
+        a();
     }
 
-    public void a(String str, int i2) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-            this.f15261h.setText(str);
-            this.f15260g.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
-            if (i2 > 0) {
-                this.f15262i.setText(String.format(this.f15258e.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(i2)));
-                this.f15260g.setEnabled(true);
-                this.f15260g.setClickable(true);
-                SkinManager.setViewTextColor(this.f15261h, R.color.CAM_X0105, 1);
-                SkinManager.setViewTextColor(this.f15262i, R.color.CAM_X0305, 1);
-                return;
-            }
-            this.f15262i.setText(this.f15258e.getResources().getString(R.string.apply_no_left_tip));
-            this.f15260g.setEnabled(false);
-            this.f15260g.setClickable(false);
-            SkinManager.setViewTextColor(this.f15261h, R.color.CAM_X0109, 1);
-            SkinManager.setViewTextColor(this.f15262i, R.color.CAM_X0109, 1);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = LayoutInflater.from(this.f50469e).inflate(R.layout.bawu_manager_apply_layout, this);
+            this.f50470f = inflate;
+            this.f50471g = (TextView) inflate.findViewById(R.id.imageview_apply_btn);
+            this.f50472h = (TextView) this.f50470f.findViewById(R.id.textview_manager_apply);
+            this.f50473i = (TextView) this.f50470f.findViewById(R.id.textview_manager_left_num);
         }
     }
 
-    public final void b() {
+    public void fillView(String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.f15258e).inflate(R.layout.bawu_manager_apply_layout, this);
-            this.f15259f = inflate;
-            this.f15260g = (TextView) inflate.findViewById(R.id.imageview_apply_btn);
-            this.f15261h = (TextView) this.f15259f.findViewById(R.id.textview_manager_apply);
-            this.f15262i = (TextView) this.f15259f.findViewById(R.id.textview_manager_left_num);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
+            this.f50472h.setText(str);
+            this.f50471g.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
+            if (i2 > 0) {
+                this.f50473i.setText(String.format(this.f50469e.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(i2)));
+                this.f50471g.setEnabled(true);
+                this.f50471g.setClickable(true);
+                SkinManager.setViewTextColor(this.f50472h, R.color.CAM_X0105, 1);
+                SkinManager.setViewTextColor(this.f50473i, R.color.CAM_X0305, 1);
+                return;
+            }
+            this.f50473i.setText(this.f50469e.getResources().getString(R.string.apply_no_left_tip));
+            this.f50471g.setEnabled(false);
+            this.f50471g.setClickable(false);
+            SkinManager.setViewTextColor(this.f50472h, R.color.CAM_X0109, 1);
+            SkinManager.setViewTextColor(this.f50473i, R.color.CAM_X0109, 1);
         }
     }
 
@@ -93,7 +93,7 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
     public void setOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.f15260g.setOnClickListener(onClickListener);
+            this.f50471g.setOnClickListener(onClickListener);
         }
     }
 
@@ -116,8 +116,8 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f15258e = context;
-        b();
+        this.f50469e = context;
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -139,7 +139,7 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
                 return;
             }
         }
-        this.f15258e = context;
-        b();
+        this.f50469e = context;
+        a();
     }
 }

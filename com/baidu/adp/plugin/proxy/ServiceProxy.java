@@ -10,7 +10,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.IBinder;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
+import c.a.e.h.f.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -21,10 +21,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.h.f.c;
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ServiceProxy extends Service implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +90,7 @@ public class ServiceProxy extends Service implements c {
         return (Resources) invokeV.objValue;
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public Service getService() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -239,7 +238,7 @@ public class ServiceProxy extends Service implements c {
         return invokeL.booleanValue;
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i2) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
@@ -253,7 +252,7 @@ public class ServiceProxy extends Service implements c {
         return invokeLLI.booleanValue;
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048590, this, fileDescriptor, printWriter, strArr) == null) {
@@ -261,7 +260,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public void proxyFinalize() throws Throwable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
@@ -269,21 +268,21 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public PackageManager proxyGetPackageManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? super.getPackageManager() : (PackageManager) invokeV.objValue;
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public SharedPreferences proxyGetSharedPreferences(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, str, i2)) == null) ? super.getSharedPreferences(str, i2) : (SharedPreferences) invokeLI.objValue;
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public void proxyOnConfigurationChanged(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, configuration) == null) {
@@ -291,7 +290,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public void proxyOnDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -299,7 +298,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public void proxyOnLowMemory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -307,7 +306,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public void proxyOnRebind(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, intent) == null) {
@@ -315,7 +314,7 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public void proxyOnStart(Intent intent, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048598, this, intent, i2) == null) {
@@ -323,33 +322,33 @@ public class ServiceProxy extends Service implements c {
         }
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public int proxyOnStartCommand(Intent intent, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLII = interceptable.invokeLII(1048599, this, intent, i2, i3)) == null) ? super.onStartCommand(intent, i2, i3) : invokeLII.intValue;
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public boolean proxyOnUnbind(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, intent)) == null) ? super.onUnbind(intent) : invokeL.booleanValue;
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public void proxyStartActivity(Intent intent) {
         Plugin plugin2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048601, this, intent) == null) && (plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName())) != null && plugin2.remapStartActivityIntent(intent)) {
             if (intent != null) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             super.startActivity(intent);
         }
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public ComponentName proxyStartService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -363,7 +362,7 @@ public class ServiceProxy extends Service implements c {
         return (ComponentName) invokeL.objValue;
     }
 
-    @Override // d.a.d.h.f.c
+    @Override // c.a.e.h.f.c
     public boolean proxyStopService(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -382,7 +381,7 @@ public class ServiceProxy extends Service implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, intent) == null) {
             if (intent != null) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             PluginBaseService pluginBaseService = this.mEntity;
             if (pluginBaseService != null) {

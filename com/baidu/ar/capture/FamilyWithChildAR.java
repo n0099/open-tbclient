@@ -2,7 +2,6 @@ package com.baidu.ar.capture;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arrender.n;
 import com.baidu.ar.callback.ICallbackWith;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -238,7 +237,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, cVar) == null) {
-            Log.d("ChildLook", "camera time: " + cVar.getTimestamp());
+            String str = "camera time: " + cVar.getTimestamp();
             e eVar = this.lu;
             if ((eVar == null || eVar.le == null) && b((com.baidu.ar.d.b) cVar) && this.lu != null) {
                 d dVar = this.ln;
@@ -258,7 +257,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
         if (!(interceptable == null || interceptable.invokeL(65545, this, lVar) == null) || this.lv) {
             return;
         }
-        Log.d("ChildLook", "face time: " + lVar.getTimestamp());
+        String str = "face time: " + lVar.getTimestamp();
         if (!b(lVar) || (eA = lVar.eA()) == null) {
             return;
         }
@@ -280,7 +279,7 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     public void b(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, cVar) == null) {
-            Log.d("ChildLook", "output time: " + cVar.getTimestamp());
+            String str = "output time: " + cVar.getTimestamp();
             e eVar = this.lu;
             if ((eVar == null || eVar.lf == null) && b((com.baidu.ar.d.b) cVar) && this.lu != null) {
                 d dVar = this.lo;
@@ -436,15 +435,15 @@ public class FamilyWithChildAR extends com.baidu.ar.c implements ICapture {
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j) {
+    public void a(long j2) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            super.a(j);
-            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != 23) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            super.a(j2);
+            if (j2 <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j2) != 23) {
                 return;
             }
-            this.cb.destroyHandle(j);
+            this.cb.destroyHandle(j2);
         }
     }
 

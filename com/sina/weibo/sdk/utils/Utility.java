@@ -20,7 +20,7 @@ import java.net.URL;
 import java.net.URLDecoder;
 import java.util.Locale;
 import java.util.UUID;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Utility {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "UTF-8";

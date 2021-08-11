@@ -3,7 +3,6 @@ package com.baidu.searchbox.unitedscheme;
 import android.content.Context;
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -26,7 +25,7 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -227,7 +226,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, this, context, unitedSchemeEntity) == null) {
             Uri uri = unitedSchemeEntity.getUri();
-            if (!TextUtils.equals(unitedSchemeEntity.removeParam(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE), "1") || unitedSchemeEntity.isOnlyVerify()) {
+            if (!TextUtils.equals(unitedSchemeEntity.removeParam("upgrade"), "1") || unitedSchemeEntity.isOnlyVerify()) {
                 return;
             }
             SchemeRuntime.getSchemeIoc().showSchemeNotSupportDialog(context);
@@ -301,7 +300,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                 }
             } catch (Exception e2) {
                 if (DEBUG) {
-                    Log.d(TAG, e2.getMessage());
+                    e2.getMessage();
                 }
             }
         }
@@ -372,7 +371,7 @@ public class UnitedSchemeMainDispatcher extends UnitedSchemeBaseDispatcher {
                     if (unitedSchemeEntity2 != null) {
                         return dispatch(context, unitedSchemeEntity2, callbackHandler);
                     }
-                    if (unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE) != null && unitedSchemeEntity.getParam(UnitedSchemeConstants.UNITED_SCHEME_UPGRADE).equals("1")) {
+                    if (unitedSchemeEntity.getParam("upgrade") != null && unitedSchemeEntity.getParam("upgrade").equals("1")) {
                         showUpdateDialog(context, unitedSchemeEntity);
                     }
                 }

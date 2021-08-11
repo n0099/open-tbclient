@@ -21,18 +21,18 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class f implements a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile f f31808a;
+    public static volatile f f67753a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static WeakReference<Context> f31809b;
+    public static WeakReference<Context> f67754b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static List<a> f31810c;
+    public static List<a> f67755c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -49,12 +49,12 @@ public class f implements a {
             }
         }
         List<a> synchronizedList = Collections.synchronizedList(new ArrayList());
-        f31810c = synchronizedList;
+        f67755c = synchronizedList;
         synchronizedList.add(new com.bytedance.sdk.openadsdk.multipro.d.c());
-        f31810c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
-        f31810c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
-        f31810c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
-        for (a aVar : f31810c) {
+        f67755c.add(new com.bytedance.sdk.openadsdk.multipro.a.b());
+        f67755c.add(new com.bytedance.sdk.openadsdk.multipro.c.b());
+        f67755c.add(new com.bytedance.sdk.openadsdk.multipro.c.a());
+        for (a aVar : f67755c) {
             aVar.b();
         }
     }
@@ -78,16 +78,16 @@ public class f implements a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             if (context != null) {
-                f31809b = new WeakReference<>(context.getApplicationContext());
+                f67754b = new WeakReference<>(context.getApplicationContext());
             }
-            if (f31808a == null) {
+            if (f67753a == null) {
                 synchronized (f.class) {
-                    if (f31808a == null) {
-                        f31808a = new f();
+                    if (f67753a == null) {
+                        f67753a = new f();
                     }
                 }
             }
-            return f31808a;
+            return f67753a;
         }
         return (f) invokeL.objValue;
     }
@@ -113,7 +113,7 @@ public class f implements a {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            for (a aVar : f31810c) {
+            for (a aVar : f67755c) {
                 aVar.a(context);
             }
         }
@@ -185,7 +185,7 @@ public class f implements a {
                 k.b("TTProviderManager", "uri is error3");
                 return null;
             }
-            for (a aVar : f31810c) {
+            for (a aVar : f67755c) {
                 if (str.equals(aVar.a())) {
                     return aVar;
                 }

@@ -10,16 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbNoDataItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f19242a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public ImageView f19243b;
+    public ImageView mImageView;
+    public TextView mTextView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbNoDataItemViewHolder(View view, Context context) {
@@ -39,7 +35,7 @@ public class PbNoDataItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f19242a = (TextView) view.findViewById(R.id.no_data_text);
-        this.f19243b = (ImageView) view.findViewById(R.id.no_data_image);
+        this.mTextView = (TextView) view.findViewById(R.id.no_data_text);
+        this.mImageView = (ImageView) view.findViewById(R.id.no_data_image);
     }
 }

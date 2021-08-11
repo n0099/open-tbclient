@@ -13,12 +13,6 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.activity.WapPayActivity;
-import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
-import com.baidu.apollon.utils.BussinessUtils;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.ResUtils;
-import com.baidu.apollon.webmanager.SafeWebView;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -27,20 +21,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.base.widget.BdActionBar;
-import com.baidu.wallet.core.SDKBaseActivity;
-import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.core.utils.HttpsCertVerifyUtil;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
-import com.baidu.wallet.paysdk.PayUtils;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity;
+import com.dxmpay.apollon.armor.SecurePay;
+import com.dxmpay.apollon.utils.BussinessUtils;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.apollon.webmanager.SafeWebView;
+import com.dxmpay.wallet.base.widget.BdActionBar;
+import com.dxmpay.wallet.core.SDKBaseActivity;
+import com.dxmpay.wallet.core.domain.DomainConfig;
+import com.dxmpay.wallet.core.utils.HttpsCertVerifyUtil;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
+import com.dxmpay.wallet.paysdk.PayUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.net.URLEncoder;
 import java.util.Arrays;
 @SuppressLint({"SetJavaScriptEnabled"})
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANNEL_DISCOUNT_PARAMS = "channel_discount_params";
@@ -50,23 +48,23 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
     public static final String WEBVIEW_TITLE_STRING = "webview_title_string";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f26537a;
+    public static final String f62435a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public SafeWebView f26538b;
+    public SafeWebView f62436b;
     public boolean mIsSuccessFlag;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class a extends SafeWebView.SafeChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseWebViewActivity f26540a;
+        public final /* synthetic */ BaseWebViewActivity f62438a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f26541b;
+        public boolean f62439b;
 
         public a(BaseWebViewActivity baseWebViewActivity) {
             Interceptable interceptable = $ic;
@@ -83,59 +81,59 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
                     return;
                 }
             }
-            this.f26540a = baseWebViewActivity;
+            this.f62438a = baseWebViewActivity;
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
                 if (i2 <= 25) {
-                    this.f26541b = false;
-                } else if (!this.f26541b) {
-                    this.f26540a.f26538b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
-                    this.f26541b = true;
+                    this.f62439b = false;
+                } else if (!this.f62439b) {
+                    this.f62438a.f62436b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
+                    this.f62439b = true;
                     if (BeanConstants.DEBUG) {
-                        String str = BaseWebViewActivity.f26537a;
-                        LogUtil.d(str, " inject js interface completely on progress " + i2);
+                        String unused = BaseWebViewActivity.f62435a;
+                        String str = " inject js interface completely on progress " + i2;
                     }
                 }
                 super.onProgressChanged(webView, i2);
             }
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-                if (!this.f26541b) {
+                if (!this.f62439b) {
                     if (BeanConstants.DEBUG) {
-                        String str2 = BaseWebViewActivity.f26537a;
-                        LogUtil.i(str2, "onReceivedTitle: " + str);
+                        String unused = BaseWebViewActivity.f62435a;
+                        String str2 = "onReceivedTitle: " + str;
                     }
-                    this.f26540a.f26538b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
+                    this.f62438a.f62436b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
                 }
                 super.onReceivedTitle(webView, str);
-                this.f26541b = true;
-                BaseWebViewActivity baseWebViewActivity = this.f26540a;
+                this.f62439b = true;
+                BaseWebViewActivity baseWebViewActivity = this.f62438a;
                 if (TextUtils.isEmpty(str)) {
-                    str = ResUtils.getString(this.f26540a.getActivity(), "ebpay_bd_my_wallet");
+                    str = ResUtils.getString(this.f62438a.getActivity(), "ebpay_bd_my_wallet");
                 }
                 baseWebViewActivity.a(str);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class b extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BaseWebViewActivity f26542a;
+        public final /* synthetic */ BaseWebViewActivity f62440a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f26543b;
+        public boolean f62441b;
 
         public b(BaseWebViewActivity baseWebViewActivity) {
             Interceptable interceptable = $ic;
@@ -152,68 +150,68 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
                     return;
                 }
             }
-            this.f26542a = baseWebViewActivity;
+            this.f62440a = baseWebViewActivity;
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) {
-                if (!this.f26543b) {
+                if (!this.f62441b) {
                     if (BeanConstants.DEBUG) {
-                        String str2 = BaseWebViewActivity.f26537a;
-                        LogUtil.i(str2, "doUpdateVisitedHistory: " + str);
+                        String unused = BaseWebViewActivity.f62435a;
+                        String str2 = "doUpdateVisitedHistory: " + str;
                     }
-                    this.f26542a.f26538b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
+                    this.f62440a.f62436b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
                 }
                 super.doUpdateVisitedHistory(webView, str, z);
-                this.f26543b = true;
+                this.f62441b = true;
             }
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onLoadResource(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-                if (!this.f26543b && BeanConstants.DEBUG) {
-                    String str2 = BaseWebViewActivity.f26537a;
-                    LogUtil.i(str2, "onLoadResource: " + str);
+                if (!this.f62441b && BeanConstants.DEBUG) {
+                    String unused = BaseWebViewActivity.f62435a;
+                    String str2 = "onLoadResource: " + str;
                 }
                 super.onLoadResource(webView, str);
-                this.f26543b = true;
+                this.f62441b = true;
             }
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
-                if (!this.f26543b) {
+                if (!this.f62441b) {
                     if (BeanConstants.DEBUG) {
-                        String str2 = BaseWebViewActivity.f26537a;
-                        LogUtil.i(str2, "onPageFinished: " + str);
+                        String unused = BaseWebViewActivity.f62435a;
+                        String str2 = "onPageFinished: " + str;
                     }
-                    this.f26542a.f26538b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
+                    this.f62440a.f62436b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
                 }
                 super.onPageFinished(webView, str);
-                WalletGlobalUtils.safeDismissDialog(this.f26542a, -1);
-                this.f26543b = false;
+                WalletGlobalUtils.safeDismissDialog(this.f62440a, -1);
+                this.f62441b = false;
             }
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, bitmap) == null) {
-                if (!this.f26543b) {
+                if (!this.f62441b) {
                     if (BeanConstants.DEBUG) {
-                        String str2 = BaseWebViewActivity.f26537a;
-                        LogUtil.i(str2, "onPageStarted: " + str);
+                        String unused = BaseWebViewActivity.f62435a;
+                        String str2 = "onPageStarted: " + str;
                     }
-                    this.f26542a.f26538b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
+                    this.f62440a.f62436b.loadUrl("javascript:window._SIGN_FROM_BAIDUWALLETSIMPLEPAY=1");
                 }
                 super.onPageStarted(webView, str, bitmap);
-                this.f26543b = true;
+                this.f62441b = true;
             }
         }
 
@@ -224,7 +222,7 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
             if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, sslErrorHandler, sslError) == null) {
                 int primaryError = sslError == null ? 5000 : sslError.getPrimaryError();
                 String url = sslError == null ? null : sslError.getUrl();
-                PayStatisticsUtil.onEventWithValues(StatServiceEvent.H5_CASHIER_SSL_ERROR, Arrays.asList(primaryError + "", url));
+                StatisticManager.onEventWithValues("#h5_cashier_ssl_error", Arrays.asList(primaryError + "", url));
                 if (HttpsCertVerifyUtil.isWhiteListVerificationPassed(sslError)) {
                     sslErrorHandler.proceed();
                 } else {
@@ -244,9 +242,9 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
                     return false;
                 }
                 if (host.startsWith(WapPayActivity.SUCCESS_NOTIFY_METHOD)) {
-                    this.f26542a.mIsSuccessFlag = true;
+                    this.f62440a.mIsSuccessFlag = true;
                 } else if (host.startsWith(WapPayActivity.CLOSE_VIEW_METHOD)) {
-                    this.f26542a.notifyResultMsg();
+                    this.f62440a.notifyResultMsg();
                 }
                 return true;
             }
@@ -267,7 +265,7 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
                 return;
             }
         }
-        f26537a = BaseWebViewActivity.class.getSimpleName();
+        f62435a = BaseWebViewActivity.class.getSimpleName();
     }
 
     public BaseWebViewActivity() {
@@ -286,7 +284,7 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
         this.mIsSuccessFlag = false;
     }
 
-    @Override // com.baidu.wallet.core.SDKBaseActivity
+    @Override // com.dxmpay.wallet.core.SDKBaseActivity
     public SDKBaseActivity.BottomBarType getBottomBarType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -295,13 +293,13 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
 
     public abstract void notifyResultMsg();
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SafeWebView safeWebView = this.f26538b;
+            SafeWebView safeWebView = this.f62436b;
             if (safeWebView != null && safeWebView.canGoBack()) {
-                this.f26538b.goBack();
+                this.f62436b.goBack();
                 return;
             }
             notifyResultMsg();
@@ -309,7 +307,7 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     @SuppressLint({"NewApi"})
     public void onCreate(Bundle bundle) {
         String str;
@@ -318,7 +316,7 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(ResUtils.layout(getActivity(), "wallet_base_webview_layout"));
+            setContentView(ResUtils.layout(getActivity(), "dxm_wallet_base_webview_layout"));
             Bundle extras = getIntent().getExtras();
             if (extras != null) {
                 String string = extras.getString("webview_title");
@@ -329,7 +327,7 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
                 }
                 str = extras.getString("jump_url");
             } else {
-                str = DomainConfig.getInstance().getCOHost() + "/content/resource/HTML5/eptos.html";
+                str = DomainConfig.getInstance().getAppPayHost() + "/content/resource/HTML5/eptos.html";
                 str2 = "";
             }
             this.mIsSuccessFlag = false;
@@ -340,8 +338,8 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
                 } else {
                     str3 = str + "?ua=" + ua;
                 }
-                String encryptProxy = SafePay.getInstance().encryptProxy(PayUtils.getCookie(this));
-                str = str3 + "&atbc=" + (!TextUtils.isEmpty(encryptProxy) ? URLEncoder.encode(encryptProxy) : "") + "&key=" + URLEncoder.encode(SafePay.getInstance().getpwProxy());
+                String encryptProxy = SecurePay.getInstance().encryptProxy(PayUtils.getCookie(this));
+                str = str3 + "&atbc=" + (!TextUtils.isEmpty(encryptProxy) ? URLEncoder.encode(encryptProxy) : "") + "&key=" + URLEncoder.encode(SecurePay.getInstance().getpwProxy());
                 if (extras != null) {
                     String string2 = extras.getString("extra_param");
                     if (!TextUtils.isEmpty(string2)) {
@@ -350,32 +348,31 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
                 }
             }
             WalletGlobalUtils.safeShowDialog(this, -1, "");
-            SafeWebView safeWebView = (SafeWebView) findViewById(ResUtils.id(getActivity(), "cust_webview"));
-            this.f26538b = safeWebView;
+            SafeWebView safeWebView = (SafeWebView) findViewById(ResUtils.id(getActivity(), "dxm_cust_webview"));
+            this.f62436b = safeWebView;
             safeWebView.setWebViewClient(new b());
             if (TextUtils.isEmpty(str2)) {
-                this.f26538b.setWebChromeClient(new a());
+                this.f62436b.setWebChromeClient(new a());
             }
-            this.f26538b.getSettings().setJavaScriptEnabled(true);
+            this.f62436b.getSettings().setJavaScriptEnabled(true);
             if (Build.VERSION.SDK_INT <= 18) {
-                this.f26538b.getSettings().setSavePassword(false);
+                this.f62436b.getSettings().setSavePassword(false);
             }
-            this.f26538b.setScrollBarStyle(0);
-            this.f26538b.clearCache(false);
-            this.f26538b.resumeTimers();
+            this.f62436b.setScrollBarStyle(0);
+            this.f62436b.clearCache(false);
+            this.f62436b.resumeTimers();
             if (Build.VERSION.SDK_INT >= 11) {
-                this.f26538b.removeJavascriptInterface("searchBoxJavaBridge_");
-                this.f26538b.removeJavascriptInterface("accessibility");
-                this.f26538b.removeJavascriptInterface("accessibilityTraversal");
+                this.f62436b.removeJavascriptInterface("searchBoxJavaBridge_");
+                this.f62436b.removeJavascriptInterface("accessibility");
+                this.f62436b.removeJavascriptInterface("accessibilityTraversal");
             }
             if (TextUtils.isEmpty(str)) {
                 finish();
                 return;
             }
             try {
-                this.f26538b.loadUrl(str.trim());
+                this.f62436b.loadUrl(str.trim());
             } catch (Exception unused) {
-                LogUtil.d("Url error");
                 finish();
             }
             a(str2);
@@ -395,7 +392,7 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ BaseWebViewActivity f26539a;
+            public final /* synthetic */ BaseWebViewActivity f62437a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -412,15 +409,15 @@ public abstract class BaseWebViewActivity extends DxmPayBaseActivity {
                         return;
                     }
                 }
-                this.f26539a = this;
+                this.f62437a = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                    GlobalUtils.hideKeyboard(this.f26539a.getActivity());
-                    this.f26539a.onBackPressed();
+                    GlobalUtils.hideKeyboard(this.f62437a.getActivity());
+                    this.f62437a.onBackPressed();
                 }
             }
         });

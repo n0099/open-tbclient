@@ -1,5 +1,8 @@
 package com.baidu.tieba.ala.frsgamelive.message;
 
+import c.a.e.k.e.n;
+import c.a.o0.s.q.c2;
+import c.a.p0.v.e.b.c;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
@@ -8,14 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.n;
-import d.a.p0.s.q.b2;
-import d.a.q0.v.e.b.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -63,9 +63,9 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                     if (optJSONObject2 != null) {
                         c cVar = new c();
-                        b2 b2Var = new b2();
-                        b2Var.J2(optJSONObject2);
-                        cVar.f65316e = b2Var;
+                        c2 c2Var = new c2();
+                        c2Var.R2(optJSONObject2);
+                        cVar.f25138e = c2Var;
                         this.liveList.add(cVar);
                     }
                 }
@@ -77,9 +77,9 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
                     if (optJSONObject3 != null) {
                         c cVar2 = new c();
-                        b2 b2Var2 = new b2();
-                        b2Var2.J2(optJSONObject3);
-                        cVar2.f65316e = b2Var2;
+                        c2 c2Var2 = new c2();
+                        c2Var2.R2(optJSONObject3);
+                        cVar2.f25138e = c2Var2;
                         this.recommandList.add(cVar2);
                     }
                 }

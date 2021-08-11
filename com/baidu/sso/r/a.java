@@ -12,37 +12,39 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ManufacturerUtils;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f10588a;
+    public static final a f45273a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f10589b;
+    public static final a f45274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final a f10590c;
+    public static final a f45275c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final a f10591d;
+    public static final a f45276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f10592e;
+    public static final a f45277e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final a f10593f;
+    public static final a f45278f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final a f10594g;
+    public static final a f45279g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final a f10595h;
+    public static final a f45280h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final a f10596i;
-    public static final a j;
+    public static final a f45281i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final a f45282j;
     public static final a k;
     public static final a l;
     public static final /* synthetic */ a[] m;
@@ -62,20 +64,20 @@ public final class a {
                 return;
             }
         }
-        f10588a = new a("UNSUPPORT", 0, -1, "unsupport");
-        f10589b = new a("HUA_WEI", 1, 0, "HUAWEI");
-        f10590c = new a("XIAOMI", 2, 1, "Xiaomi");
-        f10591d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
-        f10592e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
-        f10593f = new a("MOTO", 5, 4, "motorola");
-        f10594g = new a("LENOVO", 6, 5, "lenovo");
-        f10595h = new a("ASUS", 7, 6, "asus");
-        f10596i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
-        j = new a("MEIZU", 9, 8, "meizu");
+        f45273a = new a("UNSUPPORT", 0, -1, "unsupport");
+        f45274b = new a("HUA_WEI", 1, 0, "HUAWEI");
+        f45275c = new a("XIAOMI", 2, 1, "Xiaomi");
+        f45276d = new a("VIVO", 3, 2, RomUtils.MANUFACTURER_VIVO);
+        f45277e = new a("OPPO", 4, 3, RomUtils.MANUFACTURER_OPPO);
+        f45278f = new a("MOTO", 5, 4, "motorola");
+        f45279g = new a("LENOVO", 6, 5, "lenovo");
+        f45280h = new a("ASUS", 7, 6, "asus");
+        f45281i = new a("SAMSUNG", 8, 7, ManufacturerUtils.SAMSUNG);
+        f45282j = new a("MEIZU", 9, 8, "meizu");
         k = new a("ALPS", 10, 9, "alps");
         a aVar = new a(RomUtils.ROM_NUBIA, 11, 10, "nubia");
         l = aVar;
-        m = new a[]{f10588a, f10589b, f10590c, f10591d, f10592e, f10593f, f10594g, f10595h, f10596i, j, k, aVar};
+        m = new a[]{f45273a, f45274b, f45275c, f45276d, f45277e, f45278f, f45279g, f45280h, f45281i, f45282j, k, aVar};
     }
 
     public a(String str, int i2, int i3, String str2) {
@@ -105,14 +107,14 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return f10588a;
+                return f45273a;
             }
             for (a aVar : values()) {
                 if (aVar.n.equalsIgnoreCase(str)) {
                     return aVar;
                 }
             }
-            return f10588a;
+            return f45273a;
         }
         return (a) invokeL.objValue;
     }

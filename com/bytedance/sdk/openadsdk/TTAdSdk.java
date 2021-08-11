@@ -40,18 +40,18 @@ import java.io.IOException;
 import java.util.concurrent.ThreadPoolExecutor;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class TTAdSdk {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f29139a;
+    public static volatile boolean f65012a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final TTAdManager f29140b;
+    public static final TTAdManager f65013b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface InitCallback {
         void fail(int i2, String str);
 
@@ -71,7 +71,7 @@ public final class TTAdSdk {
                 return;
             }
         }
-        f29140b = new u();
+        f65013b = new u();
     }
 
     public TTAdSdk() {
@@ -133,7 +133,7 @@ public final class TTAdSdk {
                             if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netExecutor, netResponse) == null) || netResponse == null) {
                                 return;
                             }
-                            l.f30444d = netResponse.getCode();
+                            l.f66362d = netResponse.getCode();
                         }
                     });
                 } catch (Throwable unused) {
@@ -165,10 +165,10 @@ public final class TTAdSdk {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f29144a;
+                public final /* synthetic */ Context f65017a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ TTAdConfig f29145b;
+                public final /* synthetic */ TTAdConfig f65018b;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -188,8 +188,8 @@ public final class TTAdSdk {
                             return;
                         }
                     }
-                    this.f29144a = context;
-                    this.f29145b = tTAdConfig;
+                    this.f65017a = context;
+                    this.f65018b = tTAdConfig;
                 }
 
                 @Override // java.lang.Runnable
@@ -204,20 +204,20 @@ public final class TTAdSdk {
                                 }
                             }
                         }
-                        com.bytedance.sdk.openadsdk.downloadnew.a.g.a(this.f29144a);
-                        AppLogHelper.getInstance().initAppLog(this.f29144a);
+                        com.bytedance.sdk.openadsdk.downloadnew.a.g.a(this.f65017a);
+                        AppLogHelper.getInstance().initAppLog(this.f65017a);
                         com.bytedance.sdk.openadsdk.core.h.d().i();
                         c.f();
-                        TTAdSdk.updatePaid(this.f29145b.isPaid());
-                        l.a(this.f29144a);
+                        TTAdSdk.updatePaid(this.f65018b.isPaid());
+                        l.a(this.f65017a);
                         e.a(true);
                         e.a(new a());
-                        if (this.f29145b.isDebug()) {
-                            TTAdSdk.f29140b.openDebugMode();
+                        if (this.f65018b.isDebug()) {
+                            TTAdSdk.f65013b.openDebugMode();
                         }
                         com.bytedance.sdk.openadsdk.dislike.a.a();
-                        com.bytedance.sdk.openadsdk.m.a.a(this.f29144a);
-                        c.a(this.f29144a);
+                        com.bytedance.sdk.openadsdk.m.a.a(this.f65017a);
+                        c.a(this.f65017a);
                         if (Build.VERSION.SDK_INT >= 29) {
                             try {
                                 s.a();
@@ -234,10 +234,10 @@ public final class TTAdSdk {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTAdConfig f29146a;
+                public final /* synthetic */ TTAdConfig f65019a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f29147b;
+                public final /* synthetic */ Context f65020b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -254,16 +254,16 @@ public final class TTAdSdk {
                             return;
                         }
                     }
-                    this.f29146a = tTAdConfig;
-                    this.f29147b = context;
+                    this.f65019a = tTAdConfig;
+                    this.f65020b = context;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.f29146a.isSupportMultiProcess()) {
-                            if (com.bytedance.sdk.component.utils.q.a(this.f29147b)) {
+                        if (this.f65019a.isSupportMultiProcess()) {
+                            if (com.bytedance.sdk.component.utils.q.a(this.f65020b)) {
                                 f.a(o.h()).e();
                                 k.c("TTAdSdk", "Load setting in main process");
                             }
@@ -284,7 +284,7 @@ public final class TTAdSdk {
     public static TTAdManager getAdManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f29140b : (TTAdManager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f65013b : (TTAdManager) invokeV.objValue;
     }
 
     public static TTAdManager init(Context context, TTAdConfig tTAdConfig) {
@@ -295,23 +295,23 @@ public final class TTAdSdk {
             if (Looper.getMainLooper() != Looper.myLooper()) {
                 k.b("Wrong Thread ! Please exec TTAdSdk.init in main thread.");
             }
-            if (f29139a) {
-                return f29140b;
+            if (f65012a) {
+                return f65013b;
             }
             try {
                 d(context, tTAdConfig);
                 c(context, tTAdConfig);
                 e(context, tTAdConfig);
                 a(SystemClock.elapsedRealtime() - elapsedRealtime, false, tTAdConfig);
-                f29139a = true;
+                f65012a = true;
             } catch (Throwable th) {
                 th.printStackTrace();
                 k.c("TTAdSdk", "Pangle exec init fail, msg = ", th.getMessage());
-                f29139a = false;
+                f65012a = false;
             }
             b(tTAdConfig);
-            l.f30443c = true;
-            return f29140b;
+            l.f66361c = true;
+            return f65013b;
         }
         return (TTAdManager) invokeLL.objValue;
     }
@@ -319,7 +319,7 @@ public final class TTAdSdk {
     public static boolean isInitSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? f29139a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? f65012a : invokeV.booleanValue;
     }
 
     public static void updateAdConfig(TTAdConfig tTAdConfig) {
@@ -346,7 +346,7 @@ public final class TTAdSdk {
     public static void b(TTAdConfig tTAdConfig) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65545, null, tTAdConfig) == null) && tTAdConfig.isDebug()) {
-            com.bytedance.sdk.openadsdk.o.a.b(1, f29139a ? "1" : "0");
+            com.bytedance.sdk.openadsdk.o.a.b(1, f65012a ? "1" : "0");
             com.bytedance.sdk.openadsdk.o.a.a(3, com.bytedance.sdk.openadsdk.core.j.a(o.a()));
             com.bytedance.sdk.openadsdk.core.h.d().e();
             com.bytedance.sdk.openadsdk.o.a.a(2, tTAdConfig.getAppId());
@@ -360,21 +360,21 @@ public final class TTAdSdk {
         }
     }
 
-    public static void a(long j, boolean z, TTAdConfig tTAdConfig) {
+    public static void a(long j2, boolean z, TTAdConfig tTAdConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z), tTAdConfig}) == null) {
-            e.b(new com.bytedance.sdk.component.d.g("initMustBeCall", j, z, tTAdConfig) { // from class: com.bytedance.sdk.openadsdk.TTAdSdk.5
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), tTAdConfig}) == null) {
+            e.b(new com.bytedance.sdk.component.d.g("initMustBeCall", j2, z, tTAdConfig) { // from class: com.bytedance.sdk.openadsdk.TTAdSdk.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ long f29148a;
+                public final /* synthetic */ long f65021a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f29149b;
+                public final /* synthetic */ boolean f65022b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ TTAdConfig f29150c;
+                public final /* synthetic */ TTAdConfig f65023c;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -383,7 +383,7 @@ public final class TTAdSdk {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {r7, Long.valueOf(j), Boolean.valueOf(z), tTAdConfig};
+                        Object[] objArr = {r7, Long.valueOf(j2), Boolean.valueOf(z), tTAdConfig};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -394,9 +394,9 @@ public final class TTAdSdk {
                             return;
                         }
                     }
-                    this.f29148a = j;
-                    this.f29149b = z;
-                    this.f29150c = tTAdConfig;
+                    this.f65021a = j2;
+                    this.f65022b = z;
+                    this.f65023c = tTAdConfig;
                 }
 
                 @Override // java.lang.Runnable
@@ -408,11 +408,11 @@ public final class TTAdSdk {
                             try {
                                 boolean g2 = com.bytedance.sdk.openadsdk.core.h.d().g();
                                 JSONObject jSONObject = new JSONObject();
-                                jSONObject.put("duration", this.f29148a);
-                                jSONObject.put("is_async", this.f29149b);
-                                jSONObject.put("is_multi_process", this.f29150c.isSupportMultiProcess());
-                                jSONObject.put("is_debug", this.f29150c.isDebug());
-                                jSONObject.put("is_use_texture_view", this.f29150c.isUseTextureView());
+                                jSONObject.put("duration", this.f65021a);
+                                jSONObject.put("is_async", this.f65022b);
+                                jSONObject.put("is_multi_process", this.f65023c.isSupportMultiProcess());
+                                jSONObject.put("is_debug", this.f65023c.isDebug());
+                                jSONObject.put("is_use_texture_view", this.f65023c.isUseTextureView());
                                 jSONObject.put("is_activate_init", g2);
                                 com.bytedance.sdk.openadsdk.core.h.d().a(false);
                                 com.bytedance.sdk.openadsdk.j.a.a().a("pangle_sdk_init", jSONObject);
@@ -433,13 +433,13 @@ public final class TTAdSdk {
             if (tTAdConfig.getHttpStack() != null) {
                 com.bytedance.sdk.openadsdk.k.d.a(tTAdConfig.getHttpStack());
             }
-            l.f30441a = tTAdConfig.isAsyncInit();
-            l.f30442b = tTAdConfig.getCustomController();
-            f29140b.setAppId(tTAdConfig.getAppId()).setName(tTAdConfig.getAppName()).setKeywords(tTAdConfig.getKeywords()).setData(tTAdConfig.getData()).setTitleBarTheme(tTAdConfig.getTitleBarTheme()).setAllowShowNotifiFromSDK(tTAdConfig.isAllowShowNotify()).setAllowLandingPageShowWhenScreenLock(tTAdConfig.isAllowShowPageWhenScreenLock()).setDirectDownloadNetworkType(tTAdConfig.getDirectDownloadNetworkType()).isUseTextureView(tTAdConfig.isUseTextureView()).setTTDownloadEventLogger(tTAdConfig.getTTDownloadEventLogger()).setNeedClearTaskReset(tTAdConfig.getNeedClearTaskReset()).setTTSecAbs(tTAdConfig.getTTSecAbs()).setCustomController(tTAdConfig.getCustomController());
+            l.f66359a = tTAdConfig.isAsyncInit();
+            l.f66360b = tTAdConfig.getCustomController();
+            f65013b.setAppId(tTAdConfig.getAppId()).setName(tTAdConfig.getAppName()).setKeywords(tTAdConfig.getKeywords()).setData(tTAdConfig.getData()).setTitleBarTheme(tTAdConfig.getTitleBarTheme()).setAllowShowNotifiFromSDK(tTAdConfig.isAllowShowNotify()).setAllowLandingPageShowWhenScreenLock(tTAdConfig.isAllowShowPageWhenScreenLock()).setDirectDownloadNetworkType(tTAdConfig.getDirectDownloadNetworkType()).isUseTextureView(tTAdConfig.isUseTextureView()).setTTDownloadEventLogger(tTAdConfig.getTTDownloadEventLogger()).setNeedClearTaskReset(tTAdConfig.getNeedClearTaskReset()).setTTSecAbs(tTAdConfig.getTTSecAbs()).setCustomController(tTAdConfig.getCustomController());
             com.bytedance.sdk.openadsdk.m.a.a(tTAdConfig);
             try {
                 if (tTAdConfig.isDebug()) {
-                    f29140b.openDebugMode();
+                    f65013b.openDebugMode();
                     com.bytedance.sdk.openadsdk.q.h.a();
                     com.bytedance.sdk.component.video.d.c.a();
                     NetLog.openDebugMode();
@@ -457,7 +457,7 @@ public final class TTAdSdk {
                 if (Looper.getMainLooper() != Looper.myLooper()) {
                     k.b("Wrong Thread ! Please exec TTAdSdk.init in main thread.");
                 }
-                if (f29139a) {
+                if (f65012a) {
                     if (initCallback != null) {
                         initCallback.success();
                         return;
@@ -471,13 +471,13 @@ public final class TTAdSdk {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ InitCallback f29141a;
+                    public final /* synthetic */ InitCallback f65014a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Context f29142b;
+                    public final /* synthetic */ Context f65015b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ TTAdConfig f29143c;
+                    public final /* synthetic */ TTAdConfig f65016c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -494,47 +494,47 @@ public final class TTAdSdk {
                                 return;
                             }
                         }
-                        this.f29141a = initCallback;
-                        this.f29142b = context;
-                        this.f29143c = tTAdConfig;
+                        this.f65014a = initCallback;
+                        this.f65015b = context;
+                        this.f65016c = tTAdConfig;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            if (!TTAdSdk.f29139a) {
+                            if (!TTAdSdk.f65012a) {
                                 try {
-                                    TTAdSdk.c(this.f29142b, this.f29143c);
-                                    if (this.f29141a != null) {
-                                        this.f29141a.success();
+                                    TTAdSdk.c(this.f65015b, this.f65016c);
+                                    if (this.f65014a != null) {
+                                        this.f65014a.success();
                                     }
-                                    TTAdSdk.e(this.f29142b, this.f29143c);
-                                    boolean unused = TTAdSdk.f29139a = true;
+                                    TTAdSdk.e(this.f65015b, this.f65016c);
+                                    boolean unused = TTAdSdk.f65012a = true;
                                 } catch (Throwable th) {
                                     th.printStackTrace();
-                                    InitCallback initCallback2 = this.f29141a;
+                                    InitCallback initCallback2 = this.f65014a;
                                     if (initCallback2 != null) {
                                         initCallback2.fail(4000, th.getMessage());
                                     }
-                                    boolean unused2 = TTAdSdk.f29139a = false;
+                                    boolean unused2 = TTAdSdk.f65012a = false;
                                 }
-                                TTAdSdk.b(this.f29143c);
+                                TTAdSdk.b(this.f65016c);
                                 return;
                             }
-                            InitCallback initCallback3 = this.f29141a;
+                            InitCallback initCallback3 = this.f65014a;
                             if (initCallback3 != null) {
                                 initCallback3.success();
                             }
                         }
                     }
                 });
-                l.f30443c = true;
+                l.f66361c = true;
             } catch (Throwable th) {
                 if (initCallback != null) {
                     initCallback.fail(4000, th.getMessage());
                     k.c("TTAdSdk", " Pangle exec init fail, msg = ", th.getMessage());
-                    f29139a = false;
+                    f65012a = false;
                     b(tTAdConfig);
                 }
             }

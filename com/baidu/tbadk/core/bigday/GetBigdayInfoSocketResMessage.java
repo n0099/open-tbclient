@@ -1,5 +1,7 @@
 package com.baidu.tbadk.core.bigday;
 
+import c.a.e.e.d.l;
+import c.a.o0.s.n.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,14 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.d.e.d.l;
-import d.a.p0.s.n.a;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetBigday.BigdayInfo;
 import tbclient.GetBigday.DataRes;
 import tbclient.GetBigday.GetBigdayResIdl;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class GetBigdayInfoSocketResMessage extends SocketResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            l<byte[]> d2 = d.a.p0.s.r.a.f().d("tb.bigday_datas");
+            l<byte[]> d2 = c.a.o0.s.r.a.f().d("tb.bigday_datas");
             d2.remove("tb.bigday_datas");
             d2.g("tb.bigday_datas", bArr);
         }

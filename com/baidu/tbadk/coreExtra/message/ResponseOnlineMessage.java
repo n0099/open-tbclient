@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
+import c.a.o0.e0.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.e0.a;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.ConfigVersion;
@@ -17,7 +17,7 @@ import protobuf.MaskInfo;
 import protobuf.UpdateClientInfo.DataRes;
 import protobuf.UpdateClientInfo.UpdateClientInfoResIdl;
 import protobuf.UserInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ResponseOnlineMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -5,21 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.b;
-import h.c;
-import h.j;
-import h.k;
+import i.b;
+import i.c;
+import i.j;
+import i.k;
 import java.util.concurrent.atomic.AtomicInteger;
 import rx.internal.subscriptions.SequentialSubscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber extends j<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final SequentialSubscription f73636e;
+    public final SequentialSubscription f78938e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class ConcatInnerSubscriber extends AtomicInteger implements c {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7233503139645205620L;
@@ -44,7 +44,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             this.this$0 = completableOnSubscribeConcat$CompletableConcatSubscriber;
         }
 
-        @Override // h.c
+        @Override // i.c
         public void onCompleted() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -52,7 +52,7 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             }
         }
 
-        @Override // h.c
+        @Override // i.c
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
@@ -60,11 +60,11 @@ public final class CompletableOnSubscribeConcat$CompletableConcatSubscriber exte
             }
         }
 
-        @Override // h.c
+        @Override // i.c
         public void onSubscribe(k kVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kVar) == null) {
-                this.this$0.f73636e.set(kVar);
+                this.this$0.f78938e.set(kVar);
             }
         }
     }

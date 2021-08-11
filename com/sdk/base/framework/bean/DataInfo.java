@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DataInfo extends JSONObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class DataInfo extends JSONObject {
             }
         }
         try {
-            put(r.f7788a, System.currentTimeMillis());
+            put(r.f42062a, System.currentTimeMillis());
         } catch (JSONException unused) {
         }
     }

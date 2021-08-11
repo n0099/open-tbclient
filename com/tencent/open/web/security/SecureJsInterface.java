@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.a;
 import com.tencent.open.log.SLog;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SecureJsInterface extends a.b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isPWDEdit;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39259a;
+    public String f76090a;
 
     static {
         InterceptResult invokeClinit;
@@ -73,19 +73,19 @@ public class SecureJsInterface extends a.b {
                 i2 = -1;
             }
             if (i2 >= 0) {
-                boolean z = a.f39262c;
-                boolean z2 = a.f39261b;
+                boolean z = a.f76093c;
+                boolean z2 = a.f76092b;
                 if (z2) {
                     if (Boolean.valueOf(JniInterface.BackSpaceChar(z2, i2)).booleanValue()) {
-                        a.f39261b = false;
+                        a.f76092b = false;
                         return;
                     }
                     return;
                 }
-                String str2 = a.f39260a;
-                this.f39259a = str2;
+                String str2 = a.f76091a;
+                this.f76090a = str2;
                 JniInterface.insetTextToArray(i2, str2, str2.length());
-                SLog.v("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f39259a);
+                SLog.v("openSDK_LOG.SecureJsInterface", "curPosFromJS mKey: " + this.f76090a);
                 return;
             }
             throw new RuntimeException("position is illegal.");

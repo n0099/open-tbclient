@@ -3,17 +3,17 @@ package com.baidu.wallet.paysdk.datamodel;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.beans.IBeanResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.NoProguard;
 import com.baidu.wallet.paysdk.payresult.datamodel.PayResultCashbackDetail;
 import com.baidu.wallet.paysdk.payresult.datamodel.PayResultContent;
+import com.dxmpay.apollon.beans.IBeanResponse;
+import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class QueryPayResponse implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class QueryPayResponse implements IBeanResponse, Serializable {
     public String trans_no;
     public String trans_state;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class Business implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1;
@@ -81,14 +81,14 @@ public class QueryPayResponse implements IBeanResponse, Serializable {
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.trans_state) : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {

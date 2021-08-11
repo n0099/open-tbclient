@@ -17,35 +17,35 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class gx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40511a;
+    public int f77370a;
 
     /* renamed from: a  reason: collision with other field name */
-    public long f461a;
+    public long f465a;
 
     /* renamed from: a  reason: collision with other field name */
-    public bi f462a;
+    public bi f466a;
 
     /* renamed from: a  reason: collision with other field name */
-    public gw f463a;
+    public gw f467a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f464a;
+    public String f468a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f465a;
+    public boolean f469a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final gx f40512a;
+        public static final gx f77371a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -61,7 +61,7 @@ public class gx {
                     return;
                 }
             }
-            f40512a = new gx();
+            f77371a = new gx();
         }
     }
 
@@ -78,26 +78,26 @@ public class gx {
                 return;
             }
         }
-        this.f465a = false;
-        this.f462a = bi.a();
+        this.f469a = false;
+        this.f466a = bi.a();
     }
 
     private ex a(bi.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, aVar)) == null) {
-            if (aVar.f153a == 0) {
-                Object obj = aVar.f154a;
+            if (aVar.f157a == 0) {
+                Object obj = aVar.f158a;
                 if (obj instanceof ex) {
                     return (ex) obj;
                 }
                 return null;
             }
-            ex m365a = m365a();
-            m365a.a(ew.k.a());
-            m365a.c(aVar.f153a);
-            m365a.c(aVar.f155a);
-            return m365a;
+            ex m368a = m368a();
+            m368a.a(ew.k.a());
+            m368a.c(aVar.f157a);
+            m368a.c(aVar.f159a);
+            return m368a;
         }
         return (ex) invokeL.objValue;
     }
@@ -107,9 +107,9 @@ public class gx {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
             ArrayList arrayList = new ArrayList();
-            ey eyVar = new ey(this.f464a, arrayList);
-            if (!bg.e(this.f463a.f458a)) {
-                eyVar.a(i.m(this.f463a.f458a));
+            ey eyVar = new ey(this.f468a, arrayList);
+            if (!bg.e(this.f467a.f462a)) {
+                eyVar.a(i.m(this.f467a.f462a));
             }
             jj jjVar = new jj(i2);
             jb a2 = new jh.a().a(jjVar);
@@ -117,10 +117,10 @@ public class gx {
                 eyVar.b(a2);
             } catch (iv unused) {
             }
-            LinkedList<bi.a> m179a = this.f462a.m179a();
-            while (m179a.size() > 0) {
+            LinkedList<bi.a> m182a = this.f466a.m182a();
+            while (m182a.size() > 0) {
                 try {
-                    ex a3 = a(m179a.getLast());
+                    ex a3 = a(m182a.getLast());
                     if (a3 != null) {
                         a3.b(a2);
                     }
@@ -130,7 +130,7 @@ public class gx {
                     if (a3 != null) {
                         arrayList.add(a3);
                     }
-                    m179a.removeLast();
+                    m182a.removeLast();
                 } catch (iv | NoSuchElementException unused2) {
                 }
             }
@@ -144,8 +144,8 @@ public class gx {
         gw gwVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (a.f40512a) {
-                gwVar = a.f40512a.f463a;
+            synchronized (a.f77371a) {
+                gwVar = a.f77371a.f467a;
             }
             return gwVar;
         }
@@ -153,32 +153,32 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static gx m363a() {
+    public static gx m366a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f40512a : (gx) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f77371a : (gx) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m364a() {
+    private void m367a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.f465a && System.currentTimeMillis() - this.f461a > this.f40511a) {
-            this.f465a = false;
-            this.f461a = 0L;
+        if ((interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) && this.f469a && System.currentTimeMillis() - this.f465a > this.f77370a) {
+            this.f469a = false;
+            this.f465a = 0L;
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ex m365a() {
+    public synchronized ex m368a() {
         InterceptResult invokeV;
         ex exVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 exVar = new ex();
-                exVar.a(bg.m172a((Context) this.f463a.f458a));
-                exVar.f344a = (byte) 0;
-                exVar.f348b = 1;
+                exVar.a(bg.m175a((Context) this.f467a.f462a));
+                exVar.f348a = (byte) 0;
+                exVar.f352b = 1;
                 exVar.d((int) (System.currentTimeMillis() / 1000));
             }
             return exVar;
@@ -187,7 +187,7 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ey m366a() {
+    public synchronized ey m369a() {
         InterceptResult invokeV;
         ey eyVar;
         Interceptable interceptable = $ic;
@@ -195,7 +195,7 @@ public class gx {
             synchronized (this) {
                 eyVar = null;
                 if (b()) {
-                    eyVar = a(bg.e(this.f463a.f458a) ? 750 : 375);
+                    eyVar = a(bg.e(this.f467a.f462a) ? 750 : 375);
                 }
             }
             return eyVar;
@@ -204,7 +204,7 @@ public class gx {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m367a(int i2) {
+    public void m370a(int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 <= 0) {
             return;
@@ -213,20 +213,20 @@ public class gx {
         if (i3 > 604800000) {
             i3 = 604800000;
         }
-        if (this.f40511a == i3 && this.f465a) {
+        if (this.f77370a == i3 && this.f469a) {
             return;
         }
-        this.f465a = true;
-        this.f461a = System.currentTimeMillis();
-        this.f40511a = i3;
-        com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i3 + " start = " + this.f461a);
+        this.f469a = true;
+        this.f465a = System.currentTimeMillis();
+        this.f77370a = i3;
+        com.xiaomi.channel.commonutils.logger.b.c("enable dot duration = " + i3 + " start = " + this.f465a);
     }
 
     public synchronized void a(ex exVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exVar) == null) {
             synchronized (this) {
-                this.f462a.a(exVar);
+                this.f466a.a(exVar);
             }
         }
     }
@@ -235,26 +235,26 @@ public class gx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, xMPushService) == null) {
             synchronized (this) {
-                this.f463a = new gw(xMPushService);
-                this.f464a = "";
+                this.f467a = new gw(xMPushService);
+                this.f468a = "";
                 com.xiaomi.push.service.bi.a().a(new gy(this));
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m368a() {
+    public boolean m371a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f465a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f469a : invokeV.booleanValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            m364a();
-            return this.f465a && this.f462a.m178a() > 0;
+            m367a();
+            return this.f469a && this.f466a.m181a() > 0;
         }
         return invokeV.booleanValue;
     }

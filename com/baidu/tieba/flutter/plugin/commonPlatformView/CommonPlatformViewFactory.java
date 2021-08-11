@@ -15,7 +15,7 @@ import io.flutter.plugin.platform.PlatformView;
 import io.flutter.plugin.platform.PlatformViewFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class CommonPlatformViewFactory extends PlatformViewFactory {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, CommonPlatformView> viewMap;

@@ -2,13 +2,12 @@ package com.baidu.tieba.ala.alasquare.recommend.message;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaHttpMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +39,7 @@ public class AlaHttpMessage extends HttpMessage {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i2)) == null) {
-            if (Config.PACKAGE_NAME.equals(str) && i2 >= 0) {
+            if ("pn".equals(str) && i2 >= 0) {
                 this.mPn = i2;
             }
             return super.addParam(str, i2);

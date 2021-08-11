@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class FileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 2048;

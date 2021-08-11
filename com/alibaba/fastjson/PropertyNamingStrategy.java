@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class PropertyNamingStrategy {
     public static final /* synthetic */ PropertyNamingStrategy[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -21,7 +21,7 @@ public final class PropertyNamingStrategy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.alibaba.fastjson.PropertyNamingStrategy$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$alibaba$fastjson$PropertyNamingStrategy;
         public static /* synthetic */ Interceptable $ic;

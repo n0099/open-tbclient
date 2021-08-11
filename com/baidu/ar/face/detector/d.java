@@ -1,6 +1,5 @@
 package com.baidu.ar.face.detector;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class d extends com.baidu.ar.c.a {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
@@ -67,7 +66,6 @@ public class d extends com.baidu.ar.c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Log.d(TAG, "detect_frame animate task before execute");
             c cVar = new c();
             cVar.a(this.oo.ob);
             cVar.g(this.oo.mf);
@@ -81,7 +79,6 @@ public class d extends com.baidu.ar.c.a {
             cVar.oj = this.oj;
             cVar.dJ();
             cVar.dH();
-            Log.d(TAG, "detect_frame animate task after execute");
             cVar.oc.dX().E(cVar.dL());
             if (cVar.ob != null) {
                 return cVar;

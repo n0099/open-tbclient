@@ -20,7 +20,8 @@ import java.util.TreeSet;
 import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpDate;
-/* loaded from: classes9.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes2.dex */
 public final class Headers {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -189,7 +190,7 @@ public final class Headers {
                 sb.append(name(i2));
                 sb.append(": ");
                 sb.append(value(i2));
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             return sb.toString();
         }
@@ -238,7 +239,7 @@ public final class Headers {
         return (String) invokeLL.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

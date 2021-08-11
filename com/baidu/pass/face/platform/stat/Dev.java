@@ -23,7 +23,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Dev {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INSTALLATION = "INSTALLATION";
@@ -109,7 +109,7 @@ public class Dev {
             RandomAccessFile randomAccessFile3 = null;
             try {
                 try {
-                    randomAccessFile = new RandomAccessFile(file, r.f7788a);
+                    randomAccessFile = new RandomAccessFile(file, r.f42062a);
                 } catch (Throwable th) {
                     th = th;
                 }

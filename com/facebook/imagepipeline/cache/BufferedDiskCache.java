@@ -1,7 +1,6 @@
 package com.facebook.imagepipeline.cache;
 
 import androidx.core.view.InputDeviceCompat;
-import c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,6 +21,7 @@ import com.facebook.common.memory.PooledByteStreams;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
+import e.e;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -30,7 +30,7 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BufferedDiskCache {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;

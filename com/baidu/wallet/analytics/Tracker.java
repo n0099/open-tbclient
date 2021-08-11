@@ -2,9 +2,9 @@ package com.baidu.wallet.analytics;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.apollon.restnet.RestNameValuePair;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.NetworkUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import com.baidu.wallet.api.WalletApiExt;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class Tracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,12 +43,10 @@ public class Tracker {
 
     public static void sendPerformanceInfoToSensors(@NonNull String str, @NonNull Map<String, String> map, @NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, map, context) == null) {
-            if (WalletApiExt.getInstance().getSensorsAdapter() != null) {
-                WalletApiExt.getInstance().getSensorsAdapter().sendPerformanceInfo(map);
-            }
-            PayStatisticsUtil.onEventWithValues(str, map.values());
+        if (!(interceptable == null || interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, str, map, context) == null) || WalletApiExt.getInstance().getSensorsAdapter() == null) {
+            return;
         }
+        WalletApiExt.getInstance().getSensorsAdapter().sendPerformanceInfo(map);
     }
 
     public static void send(@NonNull String str, @NonNull Collection<String> collection, @NonNull Context context, String str2) {
@@ -63,7 +61,6 @@ public class Tracker {
             }
             arrayList.add(new RestNameValuePair("netType", String.valueOf(NetworkUtils.getNetworkType(context))));
             new TraceBean(context).buildParams(arrayList, str2).execBean();
-            PayStatisticsUtil.onEventWithValues(str, collection);
         }
     }
 
@@ -84,7 +81,23 @@ public class Tracker {
             }
             arrayList.add(new RestNameValuePair("netType", String.valueOf(NetworkUtils.getNetworkType(context))));
             new TraceBean(context).buildParams(arrayList, str2).execBean();
-            PayStatisticsUtil.onEventWithValues(str, map.values());
+        }
+    }
+
+    public static void send(@NonNull String str, @NonNull Map<String, String> map, @NonNull Map<String, String> map2, @Nullable String str2, @NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(AdIconUtil.AD_TEXT_ID, null, str, map, map2, str2, context) == null) {
+            ArrayList arrayList = new ArrayList(map.size() + 2);
+            arrayList.add(new RestNameValuePair("type", str));
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                arrayList.add(new RestNameValuePair(entry.getKey(), entry.getValue()));
+            }
+            arrayList.add(new RestNameValuePair("netType", String.valueOf(NetworkUtils.getNetworkType(context))));
+            ArrayList arrayList2 = new ArrayList(map2.size());
+            for (Map.Entry<String, String> entry2 : map2.entrySet()) {
+                arrayList2.add(new RestNameValuePair(entry2.getKey(), entry2.getValue()));
+            }
+            new TraceBean(context).buildQueryParams(arrayList).buildPostParams(arrayList2).buildBaseUrl(str2).execBean();
         }
     }
 }

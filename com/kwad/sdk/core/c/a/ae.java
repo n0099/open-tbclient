@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.k;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ae implements com.kwad.sdk.core.d<k.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class ae implements com.kwad.sdk.core.d<k.a> {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        aVar.f35421a = jSONObject.optBoolean("clickActionButton");
-        aVar.f35422b = jSONObject.optString("adTemplate");
+        aVar.f72178a = jSONObject.optBoolean("clickActionButton");
+        aVar.f72179b = jSONObject.optString("adTemplate");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -47,8 +47,8 @@ public class ae implements com.kwad.sdk.core.d<k.a> {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "clickActionButton", aVar.f35421a);
-            com.kwad.sdk.utils.q.a(jSONObject, "adTemplate", aVar.f35422b);
+            com.kwad.sdk.utils.q.a(jSONObject, "clickActionButton", aVar.f72178a);
+            com.kwad.sdk.utils.q.a(jSONObject, "adTemplate", aVar.f72179b);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

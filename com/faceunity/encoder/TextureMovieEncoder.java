@@ -10,8 +10,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.y1.a;
+import c.a.p0.y1.g;
+import c.a.p0.y1.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,16 +29,13 @@ import com.faceunity.gles.FullFrameRect;
 import com.faceunity.gles.GeneratedTexture;
 import com.faceunity.gles.Texture2dProgram;
 import com.faceunity.gles.WindowSurface;
-import d.a.q0.x1.a;
-import d.a.q0.x1.g;
-import d.a.q0.x1.k;
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import kotlinx.coroutines.CoroutineContextKt;
 @TargetApi(18)
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TextureMovieEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] AUDIO_SOURCES;
@@ -85,13 +84,13 @@ public class TextureMovieEncoder {
     public boolean videoEncoderReadyFlag;
 
     /* renamed from: com.faceunity.encoder.TextureMovieEncoder$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class AudioThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,11 +152,8 @@ public class TextureMovieEncoder {
                         this.this$0.mAudioEncoder.encode(null, 0, this.this$0.getPTSUs());
                         audioRecordWrapper.release();
                         this.this$0.mAudioEncoder.release();
-                    } else {
-                        Log.e(TextureMovieEncoder.TAG, "failed to initialize AudioRecord");
                     }
-                } catch (Exception e3) {
-                    Log.e(TextureMovieEncoder.TAG, "AudioThread#run", e3);
+                } catch (Exception unused) {
                 }
                 synchronized (this.this$0.stopEncoderFence) {
                     this.this$0.stopEncoderSuccess = true;
@@ -171,7 +167,7 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class EncoderConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -182,12 +178,12 @@ public class TextureMovieEncoder {
         public final File mOutputFile;
         public final int mWidth;
 
-        public EncoderConfig(File file, int i2, int i3, int i4, EGLContext eGLContext, long j) {
+        public EncoderConfig(File file, int i2, int i3, int i4, EGLContext eGLContext, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {file, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), eGLContext, Long.valueOf(j)};
+                Object[] objArr = {file, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), eGLContext, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i5 = newInitContext.flag;
                 if ((i5 & 1) != 0) {
@@ -206,7 +202,7 @@ public class TextureMovieEncoder {
             } else {
                 this.mEglContext = EGL14.eglGetCurrentContext();
             }
-            this.firstTimeStampBase = j;
+            this.firstTimeStampBase = j2;
         }
 
         public String toString() {
@@ -219,14 +215,14 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface OnEncoderStatusUpdateListener {
         void onStartSuccess();
 
         void onStopSuccess();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class VideoEncoderHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -258,8 +254,9 @@ public class TextureMovieEncoder {
                 Object obj = message.obj;
                 TextureMovieEncoder textureMovieEncoder = this.mWeakEncoder.get();
                 if (textureMovieEncoder == null) {
-                    Log.w(TextureMovieEncoder.TAG, "VideoEncoderHandler.handleMessage: encoder is null");
-                } else if (i2 == 0) {
+                    return;
+                }
+                if (i2 == 0) {
                     textureMovieEncoder.handleStartRecording((EncoderConfig) obj);
                 } else if (i2 == 1) {
                     textureMovieEncoder.handleStopRecording();
@@ -284,7 +281,7 @@ public class TextureMovieEncoder {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class VideoThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -322,7 +319,6 @@ public class TextureMovieEncoder {
                     this.this$0.mReadyFence.notify();
                 }
                 Looper.loop();
-                Log.d(TextureMovieEncoder.TAG, "Encoder thread exiting");
                 synchronized (this.this$0.mReadyFence) {
                     this.this$0.mReady = this.this$0.mRunning = false;
                     this.this$0.mHandler = null;
@@ -381,9 +377,9 @@ public class TextureMovieEncoder {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void handleFrameAvailable(float[] fArr, long j) {
+    public void handleFrameAvailable(float[] fArr, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(65556, this, fArr, j) == null) || this.texture == 0) {
+        if (!(interceptable == null || interceptable.invokeLJ(65556, this, fArr, j2) == null) || this.texture == 0) {
             return;
         }
         try {
@@ -415,7 +411,7 @@ public class TextureMovieEncoder {
     public void handleStartRecording(EncoderConfig encoderConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, this, encoderConfig) == null) {
-            Log.d(TAG, "handleStartRecording " + encoderConfig);
+            String str = "handleStartRecording " + encoderConfig;
             this.config = encoderConfig;
             this.mFrameNum = 0;
             prepareEncoder(encoderConfig.mEglContext, encoderConfig.mWidth, encoderConfig.mHeight, encoderConfig.mBitRate, encoderConfig.mOutputFile);
@@ -431,7 +427,6 @@ public class TextureMovieEncoder {
     public void handleStopRecording() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            Log.d(TAG, "handleStopRecording");
             try {
                 this.mVideoEncoder.drainEncoder(true);
             } catch (Exception e2) {
@@ -439,7 +434,6 @@ public class TextureMovieEncoder {
             }
             this.mRequestStop = true;
             releaseEncoder();
-            Log.e(TAG, "handleStopRecording before stop success");
             while (!this.stopEncoderSuccess) {
                 synchronized (this.stopEncoderFence) {
                     try {
@@ -461,7 +455,7 @@ public class TextureMovieEncoder {
     public void handleUpdateSharedContext(EGLContext eGLContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, this, eGLContext) == null) {
-            Log.d(TAG, "handleUpdatedSharedContext " + eGLContext);
+            String str = "handleUpdatedSharedContext " + eGLContext;
             WindowSurface windowSurface = this.mInputWindowSurface;
             if (windowSurface != null) {
                 windowSurface.releaseEglSurface();
@@ -560,10 +554,9 @@ public class TextureMovieEncoder {
                     Matrix.setIdentityM(fArr, 0);
                     long timestamp = surfaceTexture.getTimestamp();
                     if (timestamp == 0) {
-                        Log.w(TAG, "HEY: got SurfaceTexture with timestamp of zero");
-                    } else {
-                        this.mHandler.sendMessage(this.mHandler.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
+                        return;
                     }
+                    this.mHandler.sendMessage(this.mHandler.obtainMessage(2, (int) (timestamp >> 32), (int) timestamp, fArr));
                 }
             }
         }
@@ -580,16 +573,16 @@ public class TextureMovieEncoder {
                 }
                 nanoTime = (nanoTime - this.firstNanoTime) + this.firstTimeStampBase;
             }
-            long j = nanoTime / 1000;
-            long j2 = this.prevOutputPTSUs;
-            if (j < j2) {
-                j += j2 - j;
+            long j2 = nanoTime / 1000;
+            long j3 = this.prevOutputPTSUs;
+            if (j2 < j3) {
+                j2 += j3 - j2;
             }
-            if (j == this.prevOutputPTSUs) {
-                j += 100;
+            if (j2 == this.prevOutputPTSUs) {
+                j2 += 100;
             }
-            this.prevOutputPTSUs = j;
-            return j;
+            this.prevOutputPTSUs = j2;
+            return j2;
         }
         return invokeV.longValue;
     }
@@ -653,13 +646,11 @@ public class TextureMovieEncoder {
             int[] iArr2 = new int[1];
             GLES20.glGenFramebuffers(1, iArr2, 0);
             this.frameBuffer = iArr2[0];
-            Log.d(TAG, "Encoder: startRecording()");
             this.mRecordingStatus = 5;
             this.firstTimeStampBase = encoderConfig.firstTimeStampBase;
             this.firstNanoTime = System.nanoTime();
             synchronized (this.mReadyFence) {
                 if (this.mRunning) {
-                    Log.w(TAG, "Encoder thread already running");
                     return;
                 }
                 this.mRunning = true;

@@ -1,13 +1,12 @@
 package com.baidu.rtc.logreport;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RTCBitrateTracker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,10 +68,9 @@ public class RTCBitrateTracker {
                 if (str.indexOf("bps") != -1) {
                     return Integer.parseInt(str.substring(0, str.indexOf("bps")));
                 }
-                Log.e("BRTC", "illegal input num");
                 return -1;
             } catch (NumberFormatException e2) {
-                Log.e("RTCBitrateTracker", "bitrateToString dataFormat error: " + e2);
+                String str2 = "bitrateToString dataFormat error: " + e2;
                 return -1;
             }
         }
@@ -91,22 +89,22 @@ public class RTCBitrateTracker {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBytesDelta : invokeV.longValue;
     }
 
-    public void updataBitrateWidhCurrentByteCount(long j) {
+    public void updataBitrateWidhCurrentByteCount(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = this.mPreTimeMs;
-            long j3 = currentTimeMillis - j2;
-            long j4 = this.mPreByteCount;
-            long j5 = j - j4;
-            this.mBytesDelta = j5;
-            if (j3 <= 0) {
+            long j3 = this.mPreTimeMs;
+            long j4 = currentTimeMillis - j3;
+            long j5 = this.mPreByteCount;
+            long j6 = j2 - j5;
+            this.mBytesDelta = j6;
+            if (j4 <= 0) {
                 return;
             }
-            if (j2 != 0 && j > j4) {
-                this.mBitrate = ((j5 * 8) * 1000) / j3;
+            if (j3 != 0 && j2 > j5) {
+                this.mBitrate = ((j6 * 8) * 1000) / j4;
             }
-            this.mPreByteCount = j;
+            this.mPreByteCount = j2;
             this.mPreTimeMs = currentTimeMillis;
         }
     }

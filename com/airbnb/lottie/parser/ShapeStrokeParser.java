@@ -8,7 +8,7 @@ import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
 import com.airbnb.lottie.model.content.ShapeStroke;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
-import com.baidu.mobstat.Config;
+import com.baidu.fsg.base.statistics.h;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ShapeStrokeParser {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonReader.Options DASH_PATTERN_NAMES;
@@ -39,7 +39,7 @@ public class ShapeStrokeParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "w", Config.OS, "lc", "lj", "ml", "hd", "d");
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "w", "o", h.f39306g, "lj", "ml", "hd", "d");
         DASH_PATTERN_NAMES = JsonReader.Options.of("n", "v");
     }
 
@@ -126,7 +126,7 @@ public class ShapeStrokeParser {
                                     }
                                     c2 = 65535;
                                 } else if (hashCode != 103) {
-                                    if (hashCode == 111 && str2.equals(Config.OS)) {
+                                    if (hashCode == 111 && str2.equals("o")) {
                                         c2 = 0;
                                     }
                                     c2 = 65535;

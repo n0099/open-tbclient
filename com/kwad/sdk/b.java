@@ -5,18 +5,18 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Boolean f34058a;
+    public static final Boolean f70786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f34059b;
+    public static final Boolean f70787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Boolean f34060c;
+    public static final Boolean f70788c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,9 +32,9 @@ public final class b {
                 return;
             }
         }
-        f34058a = Boolean.TRUE;
+        f70786a = Boolean.TRUE;
         Boolean bool = Boolean.FALSE;
-        f34059b = bool;
-        f34060c = bool;
+        f70787b = bool;
+        f70788c = bool;
     }
 }

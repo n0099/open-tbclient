@@ -17,13 +17,12 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import org.apache.commons.base.CharEncoding;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class Md5Utils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f4107a;
+    public static char[] f38032a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,7 +38,7 @@ public final class Md5Utils {
                 return;
             }
         }
-        f4107a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f38032a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public Md5Utils() {
@@ -212,7 +211,7 @@ public final class Md5Utils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
             if (str != null) {
                 try {
-                    return a(new String(str.getBytes("GBK"), "GBK").getBytes(CharEncoding.UTF_16LE));
+                    return a(new String(str.getBytes("GBK"), "GBK").getBytes("UTF-16LE"));
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                     return null;
@@ -276,8 +275,8 @@ public final class Md5Utils {
                 if (i2 > 0 && ch != null) {
                     stringBuffer.append(ch.charValue());
                 }
-                stringBuffer.append(f4107a[i3]);
-                stringBuffer.append(f4107a[i4]);
+                stringBuffer.append(f38032a[i3]);
+                stringBuffer.append(f38032a[i4]);
             }
             return stringBuffer.toString();
         }

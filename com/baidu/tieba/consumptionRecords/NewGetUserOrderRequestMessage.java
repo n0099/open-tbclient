@@ -2,14 +2,13 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class NewGetUserOrderRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +63,7 @@ public class NewGetUserOrderRequestMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             this.orderType = i2;
-            addParam(com.baidu.wallet.api.Constants.ORDERTYPE_FLAG, i2);
+            addParam("order_type", i2);
         }
     }
 
@@ -72,7 +71,7 @@ public class NewGetUserOrderRequestMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
             this.pn = i2;
-            addParam(Config.PACKAGE_NAME, i2);
+            addParam("pn", i2);
         }
     }
 

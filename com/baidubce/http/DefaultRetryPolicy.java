@@ -12,7 +12,7 @@ import com.baidubce.ErrorCode;
 import com.baidubce.util.BLog;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DefaultRetryPolicy implements RetryPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SCALE_FACTOR = 300;
@@ -106,12 +106,12 @@ public class DefaultRetryPolicy implements RetryPolicy {
         return invokeLI.booleanValue;
     }
 
-    public DefaultRetryPolicy(int i2, long j) {
+    public DefaultRetryPolicy(int i2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j)};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -122,8 +122,8 @@ public class DefaultRetryPolicy implements RetryPolicy {
             }
         }
         CheckUtils.checkArgument(i2 >= 0, "maxErrorRetry should be a non-negative.");
-        CheckUtils.checkArgument(j >= 0, "maxDelayInMillis should be a non-negative.");
+        CheckUtils.checkArgument(j2 >= 0, "maxDelayInMillis should be a non-negative.");
         this.maxErrorRetry = i2;
-        this.maxDelayInMillis = j;
+        this.maxDelayInMillis = j2;
     }
 }

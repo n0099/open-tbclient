@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class StatisticApi {
     public static /* synthetic */ Interceptable $ic;
     public static g wU;
@@ -104,22 +104,22 @@ public final class StatisticApi {
         gVar.onEvent(str, map);
     }
 
-    public static void onEventDebounce(String str, long j, String str2) {
+    public static void onEventDebounce(String str, long j2, String str2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Long.valueOf(j), str2}) == null) || (gVar = wU) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Long.valueOf(j2), str2}) == null) || (gVar = wU) == null) {
             return;
         }
-        gVar.onEventDebounce(str, j, str2);
+        gVar.onEventDebounce(str, j2, str2);
     }
 
-    public static void onEventDebounce(String str, long j, Map<String, String> map) {
+    public static void onEventDebounce(String str, long j2, Map<String, String> map) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, Long.valueOf(j), map}) == null) || (gVar = wU) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, Long.valueOf(j2), map}) == null) || (gVar = wU) == null) {
             return;
         }
-        gVar.onEventDebounce(str, j, map);
+        gVar.onEventDebounce(str, j2, map);
     }
 
     public static void onEventEnd(String str) {

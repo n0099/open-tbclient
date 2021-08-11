@@ -9,20 +9,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AutoTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int JOB_TYPE_BGSEND = 2;
     public static final int JOB_TYPE_SESSIONTIME = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class MyActivityLifeCallback implements ActivityLifeObserver.IActivityLifeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f8400a;
+        public int f42692a;
 
         public MyActivityLifeCallback(int i2) {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class AutoTrack {
                     return;
                 }
             }
-            this.f8400a = i2;
+            this.f42692a = i2;
         }
 
         @Override // com.baidu.mobstat.ActivityLifeObserver.IActivityLifeCallback
@@ -61,7 +61,7 @@ public class AutoTrack {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
                 Context applicationContext = activity.getApplicationContext();
-                int i2 = this.f8400a;
+                int i2 = this.f42692a;
                 if (i2 == 1) {
                     BDStatCore.instance().autoTrackSessionEndTime(applicationContext);
                 } else if (i2 == 2) {
@@ -75,7 +75,7 @@ public class AutoTrack {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
                 Context applicationContext = activity.getApplicationContext();
-                int i2 = this.f8400a;
+                int i2 = this.f42692a;
                 if (i2 == 1) {
                     BDStatCore.instance().autoTrackSessionStartTime(applicationContext);
                 } else if (i2 == 2) {

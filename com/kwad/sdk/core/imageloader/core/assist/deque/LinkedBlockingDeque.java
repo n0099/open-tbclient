@@ -19,7 +19,7 @@ import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements BlockingDeque<E>, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -387911632671998426L;
@@ -33,13 +33,13 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     public final Condition notFull;
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.assist.deque.LinkedBlockingDeque$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public abstract class AbstractItr implements Iterator<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +161,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class DescendingItr extends LinkedBlockingDeque<E>.AbstractItr {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,7 +207,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class Itr extends LinkedBlockingDeque<E>.AbstractItr {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -253,7 +253,7 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Node<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -655,10 +655,10 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, java.util.concurrent.BlockingQueue
-    public boolean offer(E e2, long j, TimeUnit timeUnit) {
+    public boolean offer(E e2, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{e2, Long.valueOf(j), timeUnit})) == null) ? offerLast(e2, j, timeUnit) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{e2, Long.valueOf(j2), timeUnit})) == null) ? offerLast(e2, j2, timeUnit) : invokeCommon.booleanValue;
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
@@ -682,14 +682,14 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public boolean offerFirst(E e2, long j, TimeUnit timeUnit) {
+    public boolean offerFirst(E e2, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{e2, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{e2, Long.valueOf(j2), timeUnit})) == null) {
             if (e2 != null) {
                 Node<E> node = new Node<>(e2);
-                long nanos = timeUnit.toNanos(j);
+                long nanos = timeUnit.toNanos(j2);
                 ReentrantLock reentrantLock = this.lock;
                 reentrantLock.lockInterruptibly();
                 while (true) {
@@ -735,14 +735,14 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public boolean offerLast(E e2, long j, TimeUnit timeUnit) {
+    public boolean offerLast(E e2, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{e2, Long.valueOf(j), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{e2, Long.valueOf(j2), timeUnit})) == null) {
             if (e2 != null) {
                 Node<E> node = new Node<>(e2);
-                long nanos = timeUnit.toNanos(j);
+                long nanos = timeUnit.toNanos(j2);
                 ReentrantLock reentrantLock = this.lock;
                 reentrantLock.lockInterruptibly();
                 while (true) {
@@ -814,10 +814,10 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, java.util.concurrent.BlockingQueue
-    public E poll(long j, TimeUnit timeUnit) {
+    public E poll(long j2, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048598, this, j, timeUnit)) == null) ? pollFirst(j, timeUnit) : (E) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048598, this, j2, timeUnit)) == null) ? pollFirst(j2, timeUnit) : (E) invokeJL.objValue;
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
@@ -837,13 +837,13 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public E pollFirst(long j, TimeUnit timeUnit) {
+    public E pollFirst(long j2, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJL = interceptable.invokeJL(1048600, this, j, timeUnit)) != null) {
+        if (interceptable != null && (invokeJL = interceptable.invokeJL(1048600, this, j2, timeUnit)) != null) {
             return (E) invokeJL.objValue;
         }
-        long nanos = timeUnit.toNanos(j);
+        long nanos = timeUnit.toNanos(j2);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lockInterruptibly();
         while (true) {
@@ -879,13 +879,13 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public E pollLast(long j, TimeUnit timeUnit) {
+    public E pollLast(long j2, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJL = interceptable.invokeJL(1048602, this, j, timeUnit)) != null) {
+        if (interceptable != null && (invokeJL = interceptable.invokeJL(1048602, this, j2, timeUnit)) != null) {
             return (E) invokeJL.objValue;
         }
-        long nanos = timeUnit.toNanos(j);
+        long nanos = timeUnit.toNanos(j2);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lockInterruptibly();
         while (true) {

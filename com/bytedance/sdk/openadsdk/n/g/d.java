@@ -4,7 +4,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -35,15 +34,15 @@ import java.util.Set;
 import java.util.regex.Pattern;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f31970a;
+    public static final Charset f67922a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f31971b;
+    public static final Handler f67923b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,8 +58,8 @@ public final class d {
                 return;
             }
         }
-        f31971b = new Handler(Looper.getMainLooper());
-        f31970a = Charset.forName("UTF-8");
+        f67923b = new Handler(Looper.getMainLooper());
+        f67922a = Charset.forName("UTF-8");
     }
 
     public static void a(Closeable closeable) {
@@ -181,9 +180,9 @@ public final class d {
             for (int i2 = 0; i2 < size; i2++) {
                 i.b bVar = list.get(0);
                 if (bVar != null) {
-                    sb.append(bVar.f31984a);
+                    sb.append(bVar.f67936a);
                     sb.append(": ");
-                    sb.append(bVar.f31985b);
+                    sb.append(bVar.f67937b);
                     sb.append(Part.CRLF);
                 }
             }
@@ -223,8 +222,8 @@ public final class d {
             sb.append(' ');
             sb.append(aVar.f());
             sb.append(Part.CRLF);
-            if (e.f31893c) {
-                Log.i("TAG_PROXY_headers", aVar.e().toUpperCase() + " " + aVar.a() + " " + aVar.f());
+            if (e.f67842c) {
+                String str = aVar.e().toUpperCase() + " " + aVar.a() + " " + aVar.f();
             }
             List<i.b> a3 = a(aVar.c());
             boolean z = true;
@@ -233,13 +232,13 @@ public final class d {
                 for (int i3 = 0; i3 < size; i3++) {
                     i.b bVar = a3.get(i3);
                     if (bVar != null) {
-                        String str = bVar.f31984a;
-                        String str2 = bVar.f31985b;
-                        sb.append(str);
-                        sb.append(": ");
+                        String str2 = bVar.f67936a;
+                        String str3 = bVar.f67937b;
                         sb.append(str2);
+                        sb.append(": ");
+                        sb.append(str3);
                         sb.append(Part.CRLF);
-                        if ("Content-Range".equalsIgnoreCase(str) || (Util.ACCEPT_RANGES.equalsIgnoreCase(str) && "bytes".equalsIgnoreCase(str2))) {
+                        if ("Content-Range".equalsIgnoreCase(str2) || (Util.ACCEPT_RANGES.equalsIgnoreCase(str2) && "bytes".equalsIgnoreCase(str3))) {
                             z = false;
                         }
                     }
@@ -258,9 +257,7 @@ public final class d {
             sb.append(Part.CRLF);
             sb.append(Part.CRLF);
             String sb2 = sb.toString();
-            if (e.f31893c) {
-                Log.i("TAG_PROXY_WRITE_TO_MP", sb2);
-            }
+            boolean z2 = e.f67842c;
             return sb2;
         }
         return (String) invokeLI.objValue;
@@ -334,31 +331,29 @@ public final class d {
             sb.append("Accept-Ranges: bytes");
             sb.append(Part.CRLF);
             sb.append(Part.CONTENT_TYPE);
-            sb.append(aVar.f31842b);
+            sb.append(aVar.f67789b);
             sb.append(Part.CRLF);
             if (i2 <= 0) {
                 sb.append("Content-Length: ");
-                sb.append(aVar.f31843c);
+                sb.append(aVar.f67790c);
                 sb.append(Part.CRLF);
             } else {
                 sb.append("Content-Range: bytes ");
                 sb.append(i2);
                 sb.append("-");
-                sb.append(aVar.f31843c - 1);
+                sb.append(aVar.f67790c - 1);
                 sb.append("/");
-                sb.append(aVar.f31843c);
+                sb.append(aVar.f67790c);
                 sb.append(Part.CRLF);
                 sb.append("Content-Length: ");
-                sb.append(aVar.f31843c - i2);
+                sb.append(aVar.f67790c - i2);
                 sb.append(Part.CRLF);
             }
             sb.append("Connection: close");
             sb.append(Part.CRLF);
             sb.append(Part.CRLF);
             String sb2 = sb.toString();
-            if (e.f31893c) {
-                Log.i("TAG_PROXY_WRITE_TO_MP", sb2);
-            }
+            boolean z = e.f67842c;
             return sb2;
         }
         return (String) invokeLI.objValue;
@@ -379,7 +374,7 @@ public final class d {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public Pattern f31972a;
+                    public Pattern f67924a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -394,14 +389,14 @@ public final class d {
                                 return;
                             }
                         }
-                        this.f31972a = Pattern.compile("^cpu[0-9]+$");
+                        this.f67924a = Pattern.compile("^cpu[0-9]+$");
                     }
 
                     @Override // java.io.FilenameFilter
                     public boolean accept(File file2, String str) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str)) == null) ? this.f31972a.matcher(str).matches() : invokeLL.booleanValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, file2, str)) == null) ? this.f67924a.matcher(str).matches() : invokeLL.booleanValue;
                     }
                 })) == null) {
                     return 1;
@@ -442,38 +437,34 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{aVar, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (aVar == null) {
-                if (e.f31893c) {
-                    Log.e("TAG_PROXY_Response", "response null");
-                }
+                boolean z3 = e.f67842c;
                 return "response null";
             } else if (!aVar.b()) {
-                if (e.f31893c) {
-                    Log.e("TAG_PROXY_Response", "response code: " + aVar.a());
+                if (e.f67842c) {
+                    String str = "response code: " + aVar.a();
                 }
                 return "response code: " + aVar.a();
             } else {
                 String a3 = aVar.a("Content-Type", null);
                 if (!c(a3)) {
-                    if (e.f31893c) {
-                        Log.e("TAG_PROXY_Response", Part.CONTENT_TYPE + a3);
+                    if (e.f67842c) {
+                        String str2 = Part.CONTENT_TYPE + a3;
                     }
                     return Part.CONTENT_TYPE + a3;
                 }
                 int a4 = a(aVar);
                 if (a4 <= 0) {
-                    if (e.f31893c) {
-                        Log.e("TAG_PROXY_Response", "Content-Length: " + a4);
+                    if (e.f67842c) {
+                        String str3 = "Content-Length: " + a4;
                     }
                     return "Content-Length: " + a4;
                 } else if (z && ((a2 = aVar.a(Util.ACCEPT_RANGES, null)) == null || !a2.contains("bytes"))) {
-                    if (e.f31893c) {
-                        Log.e("TAG_PROXY_Response", "Accept-Ranges: " + a2);
+                    if (e.f67842c) {
+                        String str4 = "Accept-Ranges: " + a2;
                     }
                     return "Accept-Ranges: " + a2;
                 } else if (z2 && aVar.d() == null) {
-                    if (e.f31893c) {
-                        Log.e("TAG_PROXY_Response", "response body null");
-                    }
+                    boolean z4 = e.f67842c;
                     return "response body null";
                 } else {
                     return null;
@@ -490,16 +481,11 @@ public final class d {
         }
         if (b()) {
             com.bytedance.sdk.component.d.e.a(gVar);
-            if (e.f31893c) {
-                Log.e("TAG_PROXY_UTIL", "invoke in pool thread");
-                return;
-            }
+            boolean z = e.f67842c;
             return;
         }
         gVar.run();
-        if (e.f31893c) {
-            Log.e("TAG_PROXY_UTIL", "invoke calling thread");
-        }
+        boolean z2 = e.f67842c;
     }
 
     public static void a(Runnable runnable) {
@@ -510,39 +496,39 @@ public final class d {
         if (b()) {
             runnable.run();
         } else {
-            f31971b.post(runnable);
+            f67923b.post(runnable);
         }
     }
 
     public static List<i.b> a(List<i.b> list) {
         InterceptResult invokeL;
+        i.b bVar;
+        i.b bVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, list)) == null) {
             if (list == null || list.size() == 0) {
                 return null;
             }
-            if (e.f31893c) {
+            if (e.f67842c) {
                 int size = list.size();
                 for (int i2 = 0; i2 < size; i2++) {
-                    i.b bVar = list.get(i2);
-                    if (bVar != null) {
-                        Log.i("TAG_PROXY_PRE_FILTER", bVar.f31984a + ": " + bVar.f31984a);
+                    if (list.get(i2) != null) {
+                        String str = bVar2.f67936a + ": " + bVar2.f67936a;
                     }
                 }
             }
             ArrayList arrayList = new ArrayList();
-            for (i.b bVar2 : list) {
-                if ("Host".equals(bVar2.f31984a) || HTTP.CONN_KEEP_ALIVE.equals(bVar2.f31984a) || HTTP.CONN_DIRECTIVE.equals(bVar2.f31984a) || "Proxy-Connection".equals(bVar2.f31984a)) {
-                    arrayList.add(bVar2);
+            for (i.b bVar3 : list) {
+                if ("Host".equals(bVar3.f67936a) || HTTP.CONN_KEEP_ALIVE.equals(bVar3.f67936a) || HTTP.CONN_DIRECTIVE.equals(bVar3.f67936a) || "Proxy-Connection".equals(bVar3.f67936a)) {
+                    arrayList.add(bVar3);
                 }
             }
             list.removeAll(arrayList);
-            if (e.f31893c) {
+            if (e.f67842c) {
                 int size2 = list.size();
                 for (int i3 = 0; i3 < size2; i3++) {
-                    i.b bVar3 = list.get(i3);
-                    if (bVar3 != null) {
-                        Log.i("TAG_PROXY_POST_FILTER", bVar3.f31984a + ": " + bVar3.f31985b);
+                    if (list.get(i3) != null) {
+                        String str2 = bVar.f67936a + ": " + bVar.f67937b;
                     }
                 }
             }
@@ -588,8 +574,8 @@ public final class d {
                 }
                 f g2 = aVar.g();
                 if (g2 != null) {
-                    str3 = g2.f31905b;
-                    str2 = b(g2.f31908e);
+                    str3 = g2.f67855b;
+                    str2 = b(g2.f67858e);
                 } else {
                     str2 = "";
                     str3 = str2;

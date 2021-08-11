@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.model;
 
+import c.a.p0.j1.k.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,11 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.i1.k.b;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.AddMsgRecord.MsgRecord;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AddMsgRecordModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

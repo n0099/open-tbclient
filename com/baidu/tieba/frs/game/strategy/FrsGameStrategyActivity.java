@@ -6,14 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsGameStrategyActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +38,7 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
             intent.putExtra("fid", str);
             intent.putExtra("name", str2);
             if (!(context instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             context.startActivity(intent);
         }
@@ -62,7 +61,7 @@ public class FrsGameStrategyActivity extends BaseFragmentActivity {
             Bundle bundle2 = new Bundle();
             bundle2.putString("fid", getIntent().getStringExtra("fid"));
             bundle2.putString("name", getIntent().getStringExtra("name"));
-            bundle2.putString("key_from", "from_single_act");
+            bundle2.putString(FrsGameStrategyMainFragment.KEY_FROM, FrsGameStrategyMainFragment.FROM_SINGLE_ACT);
             frsGameStrategyMainFragment.setArguments(bundle2);
             FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
             beginTransaction.add(16908290, frsGameStrategyMainFragment);

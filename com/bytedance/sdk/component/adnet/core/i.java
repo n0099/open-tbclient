@@ -12,38 +12,38 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f28112a;
+    public final int f63954a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f28113b;
+    public final byte[] f63955b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Map<String, String> f28114c;
+    public final Map<String, String> f63956c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Header> f28115d;
+    public final List<Header> f63957d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f28116e;
+    public final boolean f63958e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final long f28117f;
+    public final long f63959f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public i(int i2, byte[] bArr, Map<String, String> map, boolean z, long j) {
-        this(i2, bArr, map, a(map), z, j);
+    public i(int i2, byte[] bArr, Map<String, String> map, boolean z, long j2) {
+        this(i2, bArr, map, a(map), z, j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bArr, map, Boolean.valueOf(z), Long.valueOf(j)};
+            Object[] objArr = {Integer.valueOf(i2), bArr, map, Boolean.valueOf(z), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -77,13 +77,13 @@ public class i {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public i(int i2, byte[] bArr, boolean z, long j, List<Header> list) {
-        this(i2, bArr, a(list), list, z, j);
+    public i(int i2, byte[] bArr, boolean z, long j2, List<Header> list) {
+        this(i2, bArr, a(list), list, z, j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bArr, Boolean.valueOf(z), Long.valueOf(j), list};
+            Object[] objArr = {Integer.valueOf(i2), bArr, Boolean.valueOf(z), Long.valueOf(j2), list};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -119,12 +119,12 @@ public class i {
         }
     }
 
-    public i(int i2, byte[] bArr, Map<String, String> map, List<Header> list, boolean z, long j) {
+    public i(int i2, byte[] bArr, Map<String, String> map, List<Header> list, boolean z, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bArr, map, list, Boolean.valueOf(z), Long.valueOf(j)};
+            Object[] objArr = {Integer.valueOf(i2), bArr, map, list, Boolean.valueOf(z), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -134,16 +134,16 @@ public class i {
                 return;
             }
         }
-        this.f28112a = i2;
-        this.f28113b = bArr;
-        this.f28114c = map;
+        this.f63954a = i2;
+        this.f63955b = bArr;
+        this.f63956c = map;
         if (list == null) {
-            this.f28115d = null;
+            this.f63957d = null;
         } else {
-            this.f28115d = Collections.unmodifiableList(list);
+            this.f63957d = Collections.unmodifiableList(list);
         }
-        this.f28116e = z;
-        this.f28117f = j;
+        this.f63958e = z;
+        this.f63959f = j2;
     }
 
     public static List<Header> a(Map<String, String> map) {

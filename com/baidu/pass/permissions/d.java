@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class d implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PermissionsHelperActivity f9396a;
+    public final /* synthetic */ PermissionsHelperActivity f44043a;
 
     public d(PermissionsHelperActivity permissionsHelperActivity) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public class d implements View.OnClickListener {
                 return;
             }
         }
-        this.f9396a = permissionsHelperActivity;
+        this.f44043a = permissionsHelperActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -39,8 +39,8 @@ public class d implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-            intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.f9396a.getPackageName(), null));
-            this.f9396a.startActivityForResult(intent, 8000);
+            intent.setData(Uri.fromParts(AsInstallService.SCHEME_PACKAGE_ADDED, this.f44043a.getPackageName(), null));
+            this.f44043a.startActivityForResult(intent, 8000);
         }
     }
 }

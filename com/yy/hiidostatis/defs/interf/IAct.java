@@ -1,4 +1,4 @@
 package com.yy.hiidostatis.defs.interf;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface IAct {
 }

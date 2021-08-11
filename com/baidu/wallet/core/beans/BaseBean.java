@@ -11,7 +11,6 @@ import com.baidu.apollon.eventbus.EventBus;
 import com.baidu.apollon.restnet.RestResponseEntity;
 import com.baidu.apollon.restnet.RestTemplate;
 import com.baidu.apollon.restnet.converter.GsonHttpMessageConverter;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.BussinessUtils;
 import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.apollon.utils.ResUtils;
@@ -22,14 +21,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.AccountManager;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.lollipop.json.JSONObject;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.VerSig;
 import com.baidu.wallet.utils.BdWalletUtils;
 import java.util.ArrayList;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseBean<T> extends NetworkBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMET_BEAN = 1;
@@ -79,8 +77,8 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mHttpContent : (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.lang.Class<E> */
-    /* JADX DEBUG: Multi-variable search result rejected for r9v0, resolved type: com.baidu.apollon.restnet.RestResponseEntity<? extends com.baidu.apollon.beans.BeanResponseBase> */
+    /* JADX DEBUG: Multi-variable search result rejected for r7v0, resolved type: java.lang.Class<E> */
+    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: com.baidu.apollon.restnet.RestResponseEntity<? extends com.baidu.apollon.beans.BeanResponseBase> */
     /* JADX WARN: Multi-variable type inference failed */
     @Override // com.baidu.apollon.beans.ApollonBean
     public <T, E> void handleResponse(Class<T> cls, Class<E> cls2, RestResponseEntity<? extends BeanResponseBase> restResponseEntity) {
@@ -95,8 +93,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                     int serverReturnValue = beanResponseBase.getServerReturnValue(cls);
                     if (serverReturnValue != 0) {
                         if (serverReturnValue == 5003) {
-                            DXMSdkSAUtils.onEvent(StatServiceEvent.INVALIDE_LOGIN_STATUS);
-                            PayStatisticsUtil.onEvent(StatServiceEvent.INVALIDE_LOGIN_STATUS);
+                            DXMSdkSAUtils.onEvent("#invalidLoginStatus");
                         }
                         String realResponseErrContent = beanResponseBase.getRealResponseErrContent();
                         this.mHttpContent = realResponseErrContent;
@@ -118,8 +115,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                     try {
                         str = new JSONObject(restResponseEntity.b()).getString(beanResponseBase.getNameOfRealResponseContent());
                         if ((needVerifySignature() || beanResponseBase.needVerifySignature()) && !VerSig.verify(beanResponseBase.signature, str, beanResponseBase.mdAlgorithm)) {
-                            DXMSdkSAUtils.onEvent(StatServiceEvent.VERIFY_SIGNATURE_FAILED);
-                            PayStatisticsUtil.onEvent(StatServiceEvent.VERIFY_SIGNATURE_FAILED);
+                            DXMSdkSAUtils.onEvent("#verify_sign_failed");
                             this.mRspCallback.onBeanExecFailure(getBeanId(), -4, ResUtils.getString(this.mContext, "ebpay_resolve_error"));
                             return;
                         }
@@ -194,6 +190,7 @@ public abstract class BaseBean<T> extends NetworkBean<T> {
                 ebpayHttpRequestInterceptor = new EbpayHttpRequestInterceptor();
             }
             arrayList.add(ebpayHttpRequestInterceptor);
+            arrayList.add(new a());
             this.mRestTemplate.setRequestInterceptor(arrayList);
             this.mRestTemplate.setMessageConverter(new GsonHttpMessageConverter());
         }

@@ -2,7 +2,6 @@ package androidx.core.os;
 
 import android.os.Build;
 import android.os.Trace;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -48,8 +47,7 @@ public final class TraceCompat {
             sAsyncTraceBeginMethod = Trace.class.getMethod("asyncTraceBegin", Long.TYPE, String.class, Integer.TYPE);
             sAsyncTraceEndMethod = Trace.class.getMethod("asyncTraceEnd", Long.TYPE, String.class, Integer.TYPE);
             sTraceCounterMethod = Trace.class.getMethod("traceCounter", Long.TYPE, String.class, Integer.TYPE);
-        } catch (Exception e2) {
-            Log.i(TAG, "Unable to initialize via reflection.", e2);
+        } catch (Exception unused) {
         }
     }
 
@@ -77,7 +75,6 @@ public final class TraceCompat {
                 try {
                     sAsyncTraceBeginMethod.invoke(null, Long.valueOf(sTraceTagApp), str, Integer.valueOf(i2));
                 } catch (Exception unused) {
-                    Log.v(TAG, "Unable to invoke asyncTraceBegin() via reflection.");
                 }
             }
         }
@@ -101,7 +98,6 @@ public final class TraceCompat {
                 try {
                     sAsyncTraceEndMethod.invoke(null, Long.valueOf(sTraceTagApp), str, Integer.valueOf(i2));
                 } catch (Exception unused) {
-                    Log.v(TAG, "Unable to invoke endAsyncSection() via reflection.");
                 }
             }
         }
@@ -127,7 +123,6 @@ public final class TraceCompat {
                 try {
                     return ((Boolean) sIsTagEnabledMethod.invoke(null, Long.valueOf(sTraceTagApp))).booleanValue();
                 } catch (Exception unused) {
-                    Log.v(TAG, "Unable to invoke isTagEnabled() via reflection.");
                 }
             }
             return false;
@@ -145,7 +140,6 @@ public final class TraceCompat {
                 try {
                     sTraceCounterMethod.invoke(null, Long.valueOf(sTraceTagApp), str, Integer.valueOf(i2));
                 } catch (Exception unused) {
-                    Log.v(TAG, "Unable to invoke traceCounter() via reflection.");
                 }
             }
         }

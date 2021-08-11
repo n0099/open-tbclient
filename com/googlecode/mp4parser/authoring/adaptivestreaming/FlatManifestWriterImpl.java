@@ -46,14 +46,14 @@ import kotlin.jvm.internal.ByteCompanionObject;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class FlatManifestWriterImpl extends AbstractManifestWriter {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
     public static final Logger LOG;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class DependentSubstreamMask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -577,21 +577,21 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, movie)) == null) {
             LinkedList linkedList = new LinkedList();
             LinkedList linkedList2 = new LinkedList();
-            long j = -1;
             long j2 = -1;
+            long j3 = -1;
             for (Track track : movie.getTracks()) {
                 if (track.getMediaHeaderBox() instanceof VideoMediaHeaderBox) {
                     this.videoFragmentsDurations = checkFragmentsAlign(this.videoFragmentsDurations, calculateFragmentDurations(track, movie));
                     linkedList.add(getVideoQuality(track, (VisualSampleEntry) track.getSampleDescriptionBox().getSampleEntry()));
-                    if (j == -1) {
-                        j = track.getTrackMetaData().getTimescale();
+                    if (j2 == -1) {
+                        j2 = track.getTrackMetaData().getTimescale();
                     }
                 }
                 if (track.getMediaHeaderBox() instanceof SoundMediaHeaderBox) {
                     this.audioFragmentsDurations = checkFragmentsAlign(this.audioFragmentsDurations, calculateFragmentDurations(track, movie));
                     linkedList2.add(getAudioQuality(track, (AudioSampleEntry) track.getSampleDescriptionBox().getSampleEntry()));
-                    if (j2 == -1) {
-                        j2 = track.getTrackMetaData().getTimescale();
+                    if (j3 == -1) {
+                        j3 = track.getTrackMetaData().getTimescale();
                     }
                 }
             }
@@ -608,7 +608,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 String str9 = "Type";
                 createElement2.setAttribute("Type", "video");
                 String str10 = "TimeScale";
-                createElement2.setAttribute("TimeScale", Long.toString(j));
+                createElement2.setAttribute("TimeScale", Long.toString(j2));
                 String str11 = "Chunks";
                 createElement2.setAttribute("Chunks", Integer.toString(this.videoFragmentsDurations.length));
                 String str12 = "Url";
@@ -680,7 +680,7 @@ public class FlatManifestWriterImpl extends AbstractManifestWriter {
                 if (this.audioFragmentsDurations != null) {
                     Element createElement5 = newDocument.createElement(str8);
                     createElement5.setAttribute(str9, MediaStreamTrack.AUDIO_TRACK_KIND);
-                    createElement5.setAttribute(str10, Long.toString(j2));
+                    createElement5.setAttribute(str10, Long.toString(j3));
                     createElement5.setAttribute(str11, Integer.toString(this.audioFragmentsDurations.length));
                     createElement5.setAttribute(str12, "audio/{bitrate}/{start time}");
                     createElement5.setAttribute(str13, Integer.toString(linkedList2.size()));

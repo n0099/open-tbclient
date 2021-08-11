@@ -18,7 +18,7 @@ import com.kwad.sdk.core.imageloader.utils.IoUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class BaseImageDecoder implements ImageDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_CANT_DECODE_IMAGE = "Image can't be decoded [%s]";
@@ -30,7 +30,7 @@ public class BaseImageDecoder implements ImageDecoder {
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean loggingEnabled;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class ExifInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public class BaseImageDecoder implements ImageDecoder {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class ImageFileInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

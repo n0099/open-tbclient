@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Log implements com.baidu.pass.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PASSPORT";
@@ -74,7 +74,7 @@ public class Log implements com.baidu.pass.a {
                     }
                     return stringBuffer.toString();
                 } catch (Throwable th) {
-                    android.util.Log.e(str, "converArrayToString t: " + th.toString());
+                    String str2 = "converArrayToString t: " + th.toString();
                     return "converArrayToString null";
                 }
             }
@@ -86,7 +86,7 @@ public class Log implements com.baidu.pass.a {
     public static void d(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, str, objArr) == null) && enabled) {
-            android.util.Log.d(str, a(str, objArr));
+            a(str, objArr);
         }
     }
 
@@ -107,14 +107,14 @@ public class Log implements com.baidu.pass.a {
     public static void i(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65545, null, str, objArr) == null) && enabled) {
-            android.util.Log.i(str, a(str, objArr));
+            a(str, objArr);
         }
     }
 
     public static void w(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65547, null, str, objArr) == null) && enabled) {
-            android.util.Log.w(str, a(str, objArr));
+            a(str, objArr);
         }
     }
 
@@ -135,7 +135,7 @@ public class Log implements com.baidu.pass.a {
     public static void e(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, objArr) == null) && enabled) {
-            android.util.Log.e(str, a(str, objArr));
+            a(str, objArr);
         }
     }
 

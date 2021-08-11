@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class IndoorPlanNode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7393a;
+    public LatLng f41654a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7394b;
+    public String f41655b;
 
     public IndoorPlanNode(LatLng latLng, String str) {
         Interceptable interceptable = $ic;
@@ -33,21 +33,21 @@ public class IndoorPlanNode {
                 return;
             }
         }
-        this.f7393a = null;
-        this.f7394b = null;
-        this.f7393a = latLng;
-        this.f7394b = str;
+        this.f41654a = null;
+        this.f41655b = null;
+        this.f41654a = latLng;
+        this.f41655b = str;
     }
 
     public String getFloor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7394b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41655b : (String) invokeV.objValue;
     }
 
     public LatLng getLocation() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7393a : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41654a : (LatLng) invokeV.objValue;
     }
 }

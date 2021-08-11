@@ -7,7 +7,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class TempletMsg extends NormalMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<TempletMsg> CREATOR;
@@ -43,7 +42,7 @@ public class TempletMsg extends NormalMsg {
     public String mTitle;
     public Video mVideo;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Commodity implements Parcelable, NoProGuard {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Commodity> CREATOR;
@@ -197,7 +196,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Image implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Image> CREATOR;
@@ -339,7 +338,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Link implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Link> CREATOR;
@@ -472,7 +471,7 @@ public class TempletMsg extends NormalMsg {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class Video implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<Video> CREATOR;
@@ -802,7 +801,7 @@ public class TempletMsg extends NormalMsg {
                     return false;
                 }
                 this.mDetailurl = jSONObject.optString("detail_url");
-                JSONObject optJSONObject = jSONObject.optJSONObject(Config.TRACE_VISIT_FIRST);
+                JSONObject optJSONObject = jSONObject.optJSONObject("first");
                 if (optJSONObject != null) {
                     this.mFirstName = optJSONObject.optString("value");
                     this.mFirstColor = optJSONObject.optString("color");
@@ -904,7 +903,7 @@ public class TempletMsg extends NormalMsg {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("value", str2);
                 jSONObject2.put("color", str3);
-                jSONObject.put(Config.TRACE_VISIT_FIRST, jSONObject2);
+                jSONObject.put("first", jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("value", str4);
                 jSONObject3.put("color", str5);

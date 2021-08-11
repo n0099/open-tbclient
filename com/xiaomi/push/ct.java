@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ct implements cr {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ cs f40225a;
+    public final /* synthetic */ cs f77077a;
 
     public ct(cs csVar) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class ct implements cr {
                 return;
             }
         }
-        this.f40225a = csVar;
+        this.f77077a = csVar;
     }
 
     @Override // com.xiaomi.push.cr

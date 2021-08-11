@@ -3,7 +3,6 @@ package com.baidu.searchbox.logsystem.util;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.JsonReader;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.DeviceUtil;
@@ -20,7 +19,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Common {
     public static /* synthetic */ Interceptable $ic;
     public static AppExtraCall sAppExtraCall;
@@ -28,12 +27,12 @@ public class Common {
     public static volatile Version sCommonVersion;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface AppExtraCall {
         JSONObject getAppExtraInfo();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Device {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +65,7 @@ public class Common {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Version {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SDK_VERSION = "sdkversion";
@@ -136,17 +135,14 @@ public class Common {
                     arrays = arrays.replace(PreferencesUtil.LEFT_MOUNT, "").replace(PreferencesUtil.RIGHT_MOUNT, "");
                 }
                 device.mCPU = str + ";" + num + ";" + f2 + ";" + arrays;
-                String prop = RomUtils.getProp("dalvik.vm.heapstartsize");
-                String prop2 = RomUtils.getProp("dalvik.vm.heapgrowthlimit");
-                String prop3 = RomUtils.getProp("dalvik.vm.heapsize");
-                device.mMemory = (prop + ";" + prop2 + ";" + prop3).replace("m", "");
+                device.mMemory = (RomUtils.getProp("dalvik.vm.heapstartsize") + ";" + RomUtils.getProp("dalvik.vm.heapgrowthlimit") + ";" + RomUtils.getProp("dalvik.vm.heapsize")).replace("m", "");
                 device.mModel = DeviceUtil.BrandInfo.getDeviceModel();
                 device.mOSVersion = DeviceUtil.OSInfo.getOsVersion();
                 if (sCommonDevice == null) {
                     sCommonDevice = device;
                 }
                 if (LLog.sDebug) {
-                    Log.e("prop", "cpu:" + sCommonDevice.mCPU + ", Model:" + sCommonDevice.mModel + ", OSVersion:" + sCommonDevice.mOSVersion + ", memory:" + sCommonDevice.mMemory);
+                    String str2 = "cpu:" + sCommonDevice.mCPU + ", Model:" + sCommonDevice.mModel + ", OSVersion:" + sCommonDevice.mOSVersion + ", memory:" + sCommonDevice.mMemory;
                 }
             }
             return sCommonDevice;
@@ -164,28 +160,28 @@ public class Common {
                 Version version = new Version();
                 try {
                     jsonReader = new JsonReader(new InputStreamReader(AppRuntime.getAppContext().getAssets().open("loki_config", 3), "UTF-8"));
-                    try {
-                        jsonReader.beginObject();
-                        while (true) {
-                            if (!jsonReader.hasNext()) {
-                                break;
-                            } else if ("sdkversion".equals(jsonReader.nextName())) {
-                                version.mSDKVersion = jsonReader.nextString();
-                                break;
-                            }
-                        }
-                        jsonReader.endObject();
-                    } catch (IOException e3) {
-                        e2 = e3;
-                        e2.printStackTrace();
-                        Closeables.closeSafely(jsonReader);
-                        version.mAppVersion = Utility.getAppVersion(AppRuntime.getAppContext());
-                        sCommonVersion = version;
-                        return sCommonVersion;
-                    }
-                } catch (IOException e4) {
+                } catch (IOException e3) {
                     jsonReader = null;
+                    e2 = e3;
+                }
+                try {
+                    jsonReader.beginObject();
+                    while (true) {
+                        if (!jsonReader.hasNext()) {
+                            break;
+                        } else if ("sdkversion".equals(jsonReader.nextName())) {
+                            version.mSDKVersion = jsonReader.nextString();
+                            break;
+                        }
+                    }
+                    jsonReader.endObject();
+                } catch (IOException e4) {
                     e2 = e4;
+                    e2.printStackTrace();
+                    Closeables.closeSafely(jsonReader);
+                    version.mAppVersion = Utility.getAppVersion(AppRuntime.getAppContext());
+                    sCommonVersion = version;
+                    return sCommonVersion;
                 }
                 version.mAppVersion = Utility.getAppVersion(AppRuntime.getAppContext());
                 sCommonVersion = version;

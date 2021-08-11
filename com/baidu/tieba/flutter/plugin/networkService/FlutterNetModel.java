@@ -1,6 +1,9 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.b;
+import c.a.e.e.m.e;
+import c.a.e.e.p.l;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
@@ -14,12 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
-import d.a.d.e.m.e;
-import d.a.d.e.p.l;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FlutterNetModel implements NetworkServicePlugin.NetModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TIMOUT_MIN = 10;
@@ -36,7 +36,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
     public int timeout;
     public Runnable timeoutRunnable;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class NetAsyncTask extends BdAsyncTask<Object, String, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
                     HashMap<String, String> hashMap = new HashMap<>();
                     hashMap.put("server", this.flutterNetModel.getHttpUrl());
                     hashMap.put(RetrieveTaskManager.KEY, this.flutterNetModel.getHttpUrl());
-                    hashMap.put("state", this.httpNetContext.getStat().stat.f41713h);
+                    hashMap.put("state", this.httpNetContext.getStat().stat.f2255h);
                     if (this.httpNetContext.getPerformance() != null && this.flutterNetModel.getStartRequestTime() > 0 && this.httpNetContext.getPerformance().containsKey("startTime")) {
                         long f2 = b.f(this.httpNetContext.getPerformance().get("startTime"), 0L) - this.flutterNetModel.getStartRequestTime();
                         if (f2 > 0) {
@@ -147,7 +147,7 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface NetResponseCallback {
         void onHttpResponseMessage(HashMap<String, String> hashMap, HashMap<String, String> hashMap2, int i2, String str, String str2, String str3);
     }
@@ -359,10 +359,10 @@ public class FlutterNetModel implements NetworkServicePlugin.NetModel {
         }
     }
 
-    public void setStartRequestTime(long j) {
+    public void setStartRequestTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.startRequestTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.startRequestTime = j2;
         }
     }
 }

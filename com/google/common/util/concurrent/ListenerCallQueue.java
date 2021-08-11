@@ -1,6 +1,8 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.app.NotificationCompatJellybean;
+import c.i.d.a.n;
+import c.i.d.c.z0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,8 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.n;
-import d.f.d.c.z0;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,19 +18,19 @@ import java.util.Queue;
 import java.util.concurrent.Executor;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ListenerCallQueue<L> {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<PerListenerQueue<L>> listeners;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface Event<L> {
         void call(L l);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class PerListenerQueue<L> implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

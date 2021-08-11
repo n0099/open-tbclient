@@ -1,28 +1,27 @@
 package com.bytedance.sdk.openadsdk.preload.geckox.k.a;
 
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @c(a = "gecko_accesskey")
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f32438a;
-    @c(a = IAdRequestParam.OS)
+    public List<String> f68399a;
+    @c(a = "os")
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32439b;
+    public int f68400b;
     @c(a = "msg_type")
 
     /* renamed from: c  reason: collision with root package name */
-    public int f32440c;
+    public int f68401c;
 
     public a(List<String> list) {
         Interceptable interceptable = $ic;
@@ -39,8 +38,8 @@ public class a {
                 return;
             }
         }
-        this.f32439b = 0;
-        this.f32440c = 1;
-        this.f32438a = list;
+        this.f68400b = 0;
+        this.f68401c = 1;
+        this.f68399a = list;
     }
 }

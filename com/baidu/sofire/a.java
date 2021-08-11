@@ -9,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.StatusCode;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +21,7 @@ public final class a {
         if (interceptable == null || interceptable.invokeLL(65536, null, context, intent) == null) {
             try {
                 String[] g2 = com.baidu.sofire.utility.c.g(context);
-                com.baidu.sofire.core.d.a(context, 0, g2[0], g2[1], StatusCode.SERVICE_CODE_CARD_MAYBE_ERR_AND_NOT_SUPPORT);
+                com.baidu.sofire.core.d.a(context, 0, g2[0], g2[1], 100028);
                 int i2 = 0;
                 while (true) {
                     Thread.sleep(500L);
@@ -39,7 +38,7 @@ public final class a {
                         break;
                     }
                 }
-                com.baidu.sofire.core.d.a((int) StatusCode.SERVICE_CODE_CARD_MAYBE_ERR_AND_NOT_SUPPORT, "onReceiveAwakeMessage", new Callback() { // from class: com.baidu.sofire.a.1
+                com.baidu.sofire.core.d.a(100028, "onReceiveAwakeMessage", new Callback() { // from class: com.baidu.sofire.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 

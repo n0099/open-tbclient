@@ -3,9 +3,10 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class NotificationStyle implements Parcelable {
     public static final String BANNER_IMAGE_URL = "bi";
     public static final String BASE_STYLE = "bs";
@@ -56,7 +57,7 @@ public class NotificationStyle implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.h.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                c.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -90,7 +91,7 @@ public class NotificationStyle implements Parcelable {
             return notificationStyle;
         }
         str = "no such tag notification_style";
-        d.h.a.a.a.b(TAG, str);
+        c.l.a.a.a.b(TAG, str);
         return notificationStyle;
     }
 
@@ -140,7 +141,7 @@ public class NotificationStyle implements Parcelable {
     }
 
     public String toString() {
-        return "NotificationStyle{baseStyle=" + this.baseStyle + ", innerStyle=" + this.innerStyle + ", expandableText='" + this.expandableText + "', expandableImageUrl='" + this.expandableImageUrl + "', bannerImageUrl='" + this.bannerImageUrl + "'}";
+        return "NotificationStyle{baseStyle=" + this.baseStyle + ", innerStyle=" + this.innerStyle + ", expandableText='" + this.expandableText + ExtendedMessageFormat.QUOTE + ", expandableImageUrl='" + this.expandableImageUrl + ExtendedMessageFormat.QUOTE + ", bannerImageUrl='" + this.bannerImageUrl + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable

@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class DefaultPoolExecutor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CPU_COUNT;

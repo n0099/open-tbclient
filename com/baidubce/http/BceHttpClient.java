@@ -42,7 +42,7 @@ import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
 @SuppressLint({"NewApi"})
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BceHttpClient {
     public static /* synthetic */ Interceptable $ic;
     public static final HttpClientFactory httpClientFactory;
@@ -215,8 +215,8 @@ public class BceHttpClient {
         this.signer = signer;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0150  */
-    /* JADX WARN: Removed duplicated region for block: B:90:0x018a A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x014f  */
+    /* JADX WARN: Removed duplicated region for block: B:90:0x0189 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -236,12 +236,12 @@ public class BceHttpClient {
             credentials = internalRequest.getCredentials();
         }
         BceCredentials bceCredentials = credentials;
-        long j = 0;
+        long j2 = 0;
         int i2 = 1;
         while (true) {
             try {
-                j = Calendar.getInstance().getTimeInMillis();
-                Date date = new Date(this.diffMillis + j);
+                j2 = Calendar.getInstance().getTimeInMillis();
+                Date date = new Date(this.diffMillis + j2);
                 SignOptions signOptions = internalRequest.getSignOptions() == null ? SignOptions.DEFAULT : internalRequest.getSignOptions();
                 signOptions.setTimestamp(date);
                 internalRequest.setSignOptions(signOptions);
@@ -290,7 +290,7 @@ public class BceHttpClient {
                     bceServiceException = bceServiceException2;
                     if (!"".equals("") && parseRfc822Date != null) {
                         synchronized (this) {
-                            this.diffMillis = parseRfc822Date.getTime() - j;
+                            this.diffMillis = parseRfc822Date.getTime() - j2;
                         }
                         bceServiceException = bceServiceException2;
                     }
@@ -334,7 +334,7 @@ public class BceHttpClient {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class BceServiceRequestBody<T extends AbstractBceRequest> extends RequestBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -403,19 +403,19 @@ public class BceHttpClient {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
                 long contentLength = contentLength();
                 Source source = Okio.source(this.restartableInputStream);
-                long j = 0;
-                while (j < contentLength) {
-                    long read = source.read(bufferedSink.buffer(), Math.min(contentLength - j, this.this$0.config.getUploadSegmentPart()));
+                long j2 = 0;
+                while (j2 < contentLength) {
+                    long read = source.read(bufferedSink.buffer(), Math.min(contentLength - j2, this.this$0.config.getUploadSegmentPart()));
                     if (read == -1) {
                         break;
                     }
-                    long j2 = j + read;
+                    long j3 = j2 + read;
                     bufferedSink.flush();
                     BceProgressCallback<T> bceProgressCallback = this.callback;
                     if (bceProgressCallback != null) {
-                        bceProgressCallback.onProgress(this.request, j2, contentLength);
+                        bceProgressCallback.onProgress(this.request, j3, contentLength);
                     }
-                    j = j2;
+                    j2 = j3;
                 }
                 if (source != null) {
                     source.close();

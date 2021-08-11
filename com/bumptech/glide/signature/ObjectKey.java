@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Key;
 import com.bumptech.glide.util.Preconditions;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public final class ObjectKey implements Key {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +59,7 @@ public final class ObjectKey implements Key {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ObjectKey{object=" + this.object + '}';
+            return "ObjectKey{object=" + this.object + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

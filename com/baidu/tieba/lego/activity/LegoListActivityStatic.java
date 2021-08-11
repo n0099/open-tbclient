@@ -1,5 +1,11 @@
 package com.baidu.tieba.lego.activity;
 
+import c.a.o0.s.q.c2;
+import c.a.p0.o1.l;
+import c.a.p0.o1.m.c;
+import c.a.p0.o1.m.e;
+import c.a.p0.o1.o.d;
+import c.a.p0.o1.r.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -13,18 +19,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
-import d.a.q0.n1.l;
-import d.a.q0.n1.m.c;
-import d.a.q0.n1.m.e;
-import d.a.q0.n1.o.d;
-import d.a.q0.n1.r.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LegoListActivityStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a implements CustomMessageTask.CustomRunnable<LegoListActivityConfig> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,20 +70,20 @@ public class LegoListActivityStatic {
                 return;
             }
         }
-        b.f61313a.set(new l());
+        b.f22770a.set(new l());
         TbConfig.setLegoLibVersion("3.0.0");
-        d.a.q0.n1.o.b.h().g(d.f());
+        c.a.p0.o1.o.b.h().g(d.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        d.a.q0.n1.m.b.a().b(new e());
-        d.a.q0.n1.m.a.a().b(new c());
-        d.a.q0.n1.m.a.a().b(new d.a.q0.n1.m.d());
-        d.a.p0.c.c.f52156a.set(d.a.q0.n1.m.b.a());
-        d.a.p0.c.b.f52154a.set(d.a.q0.n1.m.a.a());
-        b2.I3.set(true);
+        c.a.p0.o1.m.b.a().b(new e());
+        c.a.p0.o1.m.a.a().b(new c());
+        c.a.p0.o1.m.a.a().b(new c.a.p0.o1.m.d());
+        c.a.o0.c.c.f12678a.set(c.a.p0.o1.m.b.a());
+        c.a.o0.c.b.f12676a.set(c.a.p0.o1.m.a.a());
+        c2.K3.set(true);
     }
 
     public LegoListActivityStatic() {

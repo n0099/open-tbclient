@@ -10,7 +10,6 @@ import com.baidu.mobads.container.adrequest.AdParamInfo;
 import com.baidu.mobads.container.adrequest.IXAdInstanceInfo;
 import com.baidu.mobads.container.util.AdDownloadApkUtils;
 import com.baidu.mobads.sdk.internal.ISecurityInfo;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SkyDexFeedNetworkResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +31,7 @@ public class SkyDexFeedNetworkResponse {
     public Object response;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class MaterialType {
         public static final /* synthetic */ MaterialType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -576,7 +575,7 @@ public class SkyDexFeedNetworkResponse {
     public void onStart(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, context) == null) {
-            SkyReflectionUtil.invoke(this.response, MissionEvent.MESSAGE_START, new Class[]{Context.class}, new Object[]{context});
+            SkyReflectionUtil.invoke(this.response, "onStart", new Class[]{Context.class}, new Object[]{context});
         }
     }
 

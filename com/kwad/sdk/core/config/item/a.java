@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class a<T> extends b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public abstract class a<T> extends b<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            DevelopMangerPlugin.DevelopValue a2 = (!com.kwad.sdk.b.f34059b.booleanValue() || com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class) == null) ? null : ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a(b());
+            DevelopMangerPlugin.DevelopValue a2 = (!com.kwad.sdk.b.f70787b.booleanValue() || com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class) == null) ? null : ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a(b());
             return a2 != null ? (T) a2.getValue() : (T) super.a();
         }
         return (T) invokeV.objValue;

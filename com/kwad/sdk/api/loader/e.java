@@ -26,21 +26,21 @@ import java.net.URLConnection;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f33993a;
+    public String f70721a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33994b;
+    public String f70722b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f33995c;
+    public int f70723c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(a.b bVar);
 
@@ -62,8 +62,8 @@ public class e {
                 return;
             }
         }
-        this.f33994b = str;
-        this.f33993a = str;
+        this.f70722b = str;
+        this.f70721a = str;
     }
 
     private String a() {
@@ -72,7 +72,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             Context context = Loader.get().getContext();
-            int i3 = com.kwad.sdk.api.a.f33953a;
+            int i3 = com.kwad.sdk.api.a.f70680a;
             String valueOf = String.valueOf(Loader.get().a(context));
             IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
             if (ksAdSDKImpl != null) {
@@ -183,10 +183,10 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            if (TextUtils.isEmpty(this.f33993a)) {
+            if (TextUtils.isEmpty(this.f70721a)) {
                 return null;
             }
-            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f33993a, 10000, 30000, false);
+            HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f70721a, 10000, 30000, false);
             httpURLConnection.setRequestMethod("POST");
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setInstanceFollowRedirects(true);
@@ -218,9 +218,9 @@ public class e {
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {
                         throw new RuntimeException("response code = " + responseCode);
-                    } else if (this.f33995c < 21) {
-                        this.f33993a = httpURLConnection.getHeaderField("Location");
-                        this.f33995c++;
+                    } else if (this.f70723c < 21) {
+                        this.f70721a = httpURLConnection.getHeaderField("Location");
+                        this.f70723c++;
                         b(aVar);
                     }
                 }
@@ -256,10 +256,10 @@ public class e {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ a f33996a;
+                public final /* synthetic */ a f70724a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ e f33997b;
+                public final /* synthetic */ e f70725b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -276,15 +276,15 @@ public class e {
                             return;
                         }
                     }
-                    this.f33997b = this;
-                    this.f33996a = aVar;
+                    this.f70725b = this;
+                    this.f70724a = aVar;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f33997b.b(this.f33996a);
+                        this.f70725b.b(this.f70724a);
                     }
                 }
             });

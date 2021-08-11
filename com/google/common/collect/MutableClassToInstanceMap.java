@@ -1,6 +1,11 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.n;
+import c.i.d.c.d0;
+import c.i.d.c.e0;
+import c.i.d.c.j0;
+import c.i.d.c.m1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,24 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.n;
-import d.f.d.c.d0;
-import d.f.d.c.e0;
-import d.f.d.c.j0;
-import d.f.d.c.m1;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B> implements Object<B>, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<Class<? extends B>, B> delegate;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class SerializedForm<B> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -57,13 +57,13 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a extends e0<Class<? extends B>, B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map.Entry f33587e;
+        public final /* synthetic */ Map.Entry f70312e;
 
         public a(Map.Entry entry) {
             Interceptable interceptable = $ic;
@@ -80,19 +80,19 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
                     return;
                 }
             }
-            this.f33587e = entry;
+            this.f70312e = entry;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.f.d.c.h0
+        @Override // c.i.d.c.h0
         /* renamed from: d */
         public Map.Entry<Class<? extends B>, B> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33587e : (Map.Entry) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f70312e : (Map.Entry) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.e0, java.util.Map.Entry
+        @Override // c.i.d.c.e0, java.util.Map.Entry
         public B setValue(B b2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -100,15 +100,15 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class b extends j0<Map.Entry<Class<? extends B>, B>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MutableClassToInstanceMap f33588e;
+        public final /* synthetic */ MutableClassToInstanceMap f70313e;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public class a extends m1<Map.Entry<Class<? extends B>, B>, Map.Entry<Class<? extends B>, B>> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -134,7 +134,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.f.d.c.m1
+            @Override // c.i.d.c.m1
             /* renamed from: b */
             public Map.Entry<Class<? extends B>, B> a(Map.Entry<Class<? extends B>, B> entry) {
                 InterceptResult invokeL;
@@ -158,24 +158,24 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
                     return;
                 }
             }
-            this.f33588e = mutableClassToInstanceMap;
+            this.f70313e = mutableClassToInstanceMap;
         }
 
-        @Override // d.f.d.c.y, java.util.Collection, java.lang.Iterable, java.util.Set
+        @Override // c.i.d.c.y, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
         public Iterator<Map.Entry<Class<? extends B>, B>> iterator() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new a(this, delegate().iterator()) : (Iterator) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
+        @Override // c.i.d.c.y, java.util.Collection
         public Object[] toArray() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? standardToArray() : (Object[]) invokeV.objValue;
         }
 
-        @Override // d.f.d.c.y, java.util.Collection, java.util.Set
+        @Override // c.i.d.c.y, java.util.Collection
         public <T> T[] toArray(T[] tArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -183,11 +183,11 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.f.d.c.j0, d.f.d.c.y, d.f.d.c.h0
+        @Override // c.i.d.c.j0, c.i.d.c.y, c.i.d.c.h0
         public Set<Map.Entry<Class<? extends B>, B>> delegate() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33588e.delegate().entrySet() : (Set) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f70313e.delegate().entrySet() : (Set) invokeV.objValue;
         }
     }
 
@@ -213,7 +213,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
     public static <B, T extends B> T cast(Class<T> cls, B b2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, b2)) == null) ? (T) d.f.d.g.a.d(cls).cast(b2) : (T) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, b2)) == null) ? (T) c.i.d.g.a.d(cls).cast(b2) : (T) invokeLL.objValue;
     }
 
     public static <B> Map.Entry<Class<? extends B>, B> checkedEntry(Map.Entry<Class<? extends B>, B> entry) {
@@ -234,7 +234,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
         return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? new SerializedForm(delegate()) : invokeV.objValue;
     }
 
-    @Override // d.f.d.c.d0, java.util.Map
+    @Override // c.i.d.c.d0, java.util.Map
     public Set<Map.Entry<Class<? extends B>, B>> entrySet() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -249,12 +249,12 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.f.d.c.d0, java.util.Map
+    @Override // c.i.d.c.d0, java.util.Map
     public /* bridge */ /* synthetic */ Object put(Object obj, Object obj2) {
         return put((Class<? extends Class<? extends B>>) obj, (Class<? extends B>) obj2);
     }
 
-    @Override // d.f.d.c.d0, java.util.Map
+    @Override // c.i.d.c.d0, java.util.Map
     public void putAll(Map<? extends Class<? extends B>, ? extends B> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
@@ -282,7 +282,7 @@ public final class MutableClassToInstanceMap<B> extends d0<Class<? extends B>, B
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.f.d.c.d0, d.f.d.c.h0
+    @Override // c.i.d.c.d0, c.i.d.c.h0
     public Map<Class<? extends B>, B> delegate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -10,7 +10,6 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.Signature;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -27,16 +26,16 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mobads.cid.cesium.c.d.d f8302a;
+    public com.baidu.mobads.cid.cesium.c.d.d f42592a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f8303b;
+    public List<b> f42593b;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -84,7 +83,7 @@ public class c {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            this.f8302a = new com.baidu.mobads.cid.cesium.c.d.e(d.a(), d.b());
+            this.f42592a = new com.baidu.mobads.cid.cesium.c.d.e(d.a(), d.b());
         }
     }
 
@@ -152,10 +151,10 @@ public class c {
                                     byte[] a2 = com.baidu.mobads.cid.cesium.d.a.a(string.getBytes("utf-8"));
                                     JSONObject jSONObject = new JSONObject(new String(a2));
                                     b bVar = new b();
-                                    bVar.f8236b = jSONObject.getInt("priority");
-                                    bVar.f8235a = resolveInfo.activityInfo.applicationInfo;
+                                    bVar.f42526b = jSONObject.getInt("priority");
+                                    bVar.f42525a = resolveInfo.activityInfo.applicationInfo;
                                     if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        bVar.f8238d = true;
+                                        bVar.f42528d = true;
                                     }
                                     if (z) {
                                         String string2 = bundle.getString("galaxy_sf");
@@ -168,9 +167,9 @@ public class c {
                                                 strArr[i2] = jSONArray.getString(i2);
                                             }
                                             if (a(strArr, a(packageInfo.signatures))) {
-                                                byte[] a3 = a(com.baidu.mobads.cid.cesium.d.a.a(string2.getBytes()), this.f8302a);
+                                                byte[] a3 = a(com.baidu.mobads.cid.cesium.d.a.a(string2.getBytes()), this.f42592a);
                                                 if (a3 != null && Arrays.equals(a3, com.baidu.mobads.cid.cesium.d.c.a(a2))) {
-                                                    bVar.f8237c = true;
+                                                    bVar.f42527c = true;
                                                 }
                                             }
                                         }
@@ -188,7 +187,7 @@ public class c {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ c f8304a;
+                public final /* synthetic */ c f42594a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -205,7 +204,7 @@ public class c {
                             return;
                         }
                     }
-                    this.f8304a = this;
+                    this.f42594a = this;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -215,15 +214,15 @@ public class c {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, bVar2, bVar3)) == null) {
-                        int i3 = bVar3.f8236b - bVar2.f8236b;
+                        int i3 = bVar3.f42526b - bVar2.f42526b;
                         if (i3 == 0) {
-                            if (bVar2.f8238d && bVar3.f8238d) {
+                            if (bVar2.f42528d && bVar3.f42528d) {
                                 return 0;
                             }
-                            if (bVar2.f8238d) {
+                            if (bVar2.f42528d) {
                                 return -1;
                             }
-                            if (bVar3.f8238d) {
+                            if (bVar3.f42528d) {
                                 return 1;
                             }
                         }
@@ -244,14 +243,12 @@ public class c {
             List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
             if (a2 == null || a2.size() == 0) {
                 for (int i2 = 0; i2 < 3; i2++) {
-                    Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
                 }
                 return false;
             }
-            boolean z = a2.get(0).f8237c;
+            boolean z = a2.get(0).f42527c;
             if (!z) {
                 for (int i3 = 0; i3 < 3; i3++) {
-                    Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
                 }
             }
             return z;
@@ -263,13 +260,13 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            List<b> list = this.f8303b;
+            List<b> list = this.f42593b;
             if (list != null) {
                 return list;
             }
             a(context);
             List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-            this.f8303b = a2;
+            this.f42593b = a2;
             return a2;
         }
         return (List) invokeL.objValue;

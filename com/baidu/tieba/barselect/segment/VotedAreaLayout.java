@@ -5,6 +5,9 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import c.a.e.e.p.l;
+import c.a.p0.x.b.d;
+import c.a.p0.x.b.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -14,19 +17,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.x.b.d;
-import d.a.q0.x.b.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VotedAreaLayout extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: h  reason: collision with root package name */
-    public Context f14500h;
+    /* renamed from: e  reason: collision with root package name */
+    public Context f49658e;
 
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f14501i;
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f49659f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VotedAreaLayout(Context context) {
@@ -52,14 +52,14 @@ public class VotedAreaLayout extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f14501i = (TextView) findViewById(R.id.vote_num);
+            this.f49659f = (TextView) findViewById(R.id.vote_num);
         }
     }
 
-    public void b() {
+    public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f14500h = getContext();
+            this.f49658e = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(0);
@@ -73,10 +73,10 @@ public class VotedAreaLayout extends CardBasicLayout {
         }
     }
 
-    public void c(int i2) {
+    public void onSkinChange(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f14501i, R.color.CAM_X0105, 1, i2);
+            SkinManager.setViewTextColor(this.f49659f, R.color.CAM_X0105, 1, i2);
             SkinManager.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i2);
         }
     }
@@ -86,10 +86,10 @@ public class VotedAreaLayout extends CardBasicLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048579, this, i2, fVar) == null) {
             super.setData(i2, fVar);
-            if (this.f14491f != null && this.f14492g != null && this.f14490e >= 0) {
-                TextView textView = this.f14501i;
-                textView.setText(StringHelper.numFormatOverWan(this.f14492g.m()) + "票");
-                c(TbadkCoreApplication.getInst().getSkinType());
+            if (this.mData != null && this.mElectionData != null && this.status >= 0) {
+                TextView textView = this.f49659f;
+                textView.setText(StringHelper.numFormatOverWan(this.mElectionData.m()) + "票");
+                onSkinChange(TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             setVisibility(8);
@@ -101,9 +101,9 @@ public class VotedAreaLayout extends CardBasicLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.f14492g = dVar;
-        TextView textView = this.f14501i;
-        textView.setText(StringHelper.numFormatOverWan(this.f14492g.m()) + "票");
+        this.mElectionData = dVar;
+        TextView textView = this.f49659f;
+        textView.setText(StringHelper.numFormatOverWan(this.mElectionData.m()) + "票");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -125,6 +125,6 @@ public class VotedAreaLayout extends CardBasicLayout {
                 return;
             }
         }
-        b();
+        initUI();
     }
 }

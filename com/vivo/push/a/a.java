@@ -8,13 +8,12 @@ import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.vivo.push.b;
 import com.vivo.push.util.p;
 import com.vivo.push.util.s;
 import com.vivo.push.y;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +107,7 @@ public final class a {
             Intent intent = new Intent(str);
             intent.setPackage(str2);
             try {
-                List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+                List<ResolveInfo> queryBroadcastReceivers = context.getPackageManager().queryBroadcastReceivers(intent, 576);
                 if (queryBroadcastReceivers != null && queryBroadcastReceivers.size() > 0) {
                     return true;
                 }

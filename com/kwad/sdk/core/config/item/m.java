@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class m extends b<String> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String[] f34397a;
+    public static volatile String[] f71134a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -37,7 +37,7 @@ public class m extends b<String> {
                 return;
             }
         }
-        f34397a = null;
+        f71134a = null;
     }
 
     private void a(String str) {
@@ -45,7 +45,7 @@ public class m extends b<String> {
         if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        f34397a = str.split(",");
+        f71134a = str.split(",");
     }
 
     @Override // com.kwad.sdk.core.config.item.b
@@ -80,16 +80,16 @@ public class m extends b<String> {
         }
     }
 
-    public boolean a(long j) {
+    public boolean a(long j2) {
         InterceptResult invokeJ;
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            if (f34397a == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+            if (f71134a == null) {
                 return false;
             }
-            for (String str : f34397a) {
-                if (str != null && String.valueOf(j).equals(str.trim())) {
+            for (String str : f71134a) {
+                if (str != null && String.valueOf(j2).equals(str.trim())) {
                     return true;
                 }
             }

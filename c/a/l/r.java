@@ -1,0 +1,158 @@
+package c.a.l;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import c.a.o0.s.q.c2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.InterviewLiveLayout;
+import com.baidu.card.view.RoundCornerFrameLayout;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.R;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes.dex */
+public class r extends t0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final int F;
+    public transient /* synthetic */ FieldHolder $fh;
+    public InterviewLiveLayout C;
+    public int D;
+    public TextView E;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1896322318, "Lc/a/l/r;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1896322318, "Lc/a/l/r;");
+                return;
+            }
+        }
+        F = c.a.e.e.p.l.k(TbadkCoreApplication.getInst()) - ((c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + c.a.e.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.D = 3;
+        z();
+    }
+
+    public void A(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.C.setFromCDN(z);
+        }
+    }
+
+    @Override // c.a.l.t0, c.a.l.a
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3627j : (View) invokeV.objValue;
+    }
+
+    @Override // c.a.l.a
+    public void k(c.a.p0.a0.b0<c.a.o0.s.q.a> b0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
+            this.C.setSubClickListener(b0Var);
+        }
+    }
+
+    @Override // c.a.l.t0, c.a.l.q
+    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
+            if (this.D != i2) {
+                SkinManager.setBackgroundResource(this.C, R.drawable.addresslist_item_bg);
+                this.C.onChangeSkinType(this.D);
+            }
+            this.D = i2;
+        }
+    }
+
+    @Override // c.a.l.t0
+    public c.a.p0.o2.q.a p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            c.a.p0.o2.q.b bVar = new c.a.p0.o2.q.b(this.f3547f, this.m);
+            bVar.setStageType("2003");
+            return bVar;
+        }
+        return (c.a.p0.o2.q.a) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.l.t0, c.a.l.p
+    /* renamed from: q */
+    public void onBindDataToView(c.a.o0.s.q.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.l = aVar;
+            if (aVar == null || aVar.getThreadData() == null) {
+                return;
+            }
+            c2 threadData = aVar.getThreadData();
+            if (threadData.o1() != null) {
+                this.C.setVisibility(8);
+                this.m.setVisibility(0);
+                this.E.setVisibility(8);
+                super.onBindDataToView(aVar);
+                return;
+            }
+            this.m.setVisibility(8);
+            this.C.setVisibility(0);
+            this.E.setVisibility(0);
+            this.C.onBindDataToView(aVar);
+            ThreadCardUtils.setTitle(this.k, threadData);
+            ThreadCardUtils.setAbstract(this.E, this.k, threadData, F);
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            View inflate = LayoutInflater.from(this.f3547f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
+            this.f3627j = inflate;
+            this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
+            this.E = (TextView) this.f3627j.findViewById(R.id.video_seg_abstract);
+            this.m = (RoundCornerFrameLayout) this.f3627j.findViewById(R.id.frame_video);
+            this.C = (InterviewLiveLayout) this.f3627j.findViewById(R.id.frame_interview_no_video);
+            c.a.p0.o2.q.a p = p();
+            this.n = p;
+            p.getMainView().setBackgroundResource(R.color.transparent);
+        }
+    }
+}

@@ -1,5 +1,11 @@
 package com.google.common.collect;
 
+import c.i.d.a.n;
+import c.i.d.c.d;
+import c.i.d.c.d1;
+import c.i.d.c.m;
+import c.i.d.c.o0;
+import c.i.d.c.s0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +15,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.Multisets;
 import com.google.common.primitives.Ints;
-import d.f.d.a.n;
-import d.f.d.c.d;
-import d.f.d.c.d1;
-import d.f.d.c.m;
-import d.f.d.c.o0;
-import d.f.d.c.s0;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -24,7 +24,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -35,13 +35,13 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
     public transient long size;
     public transient Class<E> type;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a extends EnumMultiset<E>.c<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ EnumMultiset f33366h;
+        public final /* synthetic */ EnumMultiset f70083h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(EnumMultiset enumMultiset) {
@@ -61,7 +61,7 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
                     return;
                 }
             }
-            this.f33366h = enumMultiset;
+            this.f70083h = enumMultiset;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -70,28 +70,28 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         public E a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (E) this.f33366h.enumConstants[i2] : (E) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (E) this.f70083h.enumConstants[i2] : (E) invokeI.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class b extends EnumMultiset<E>.c<s0.a<E>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ EnumMultiset f33367h;
+        public final /* synthetic */ EnumMultiset f70084h;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public class a extends Multisets.b<E> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f33368e;
+            public final /* synthetic */ int f70085e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ b f33369f;
+            public final /* synthetic */ b f70086f;
 
             public a(b bVar, int i2) {
                 Interceptable interceptable = $ic;
@@ -108,24 +108,24 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
                         return;
                     }
                 }
-                this.f33369f = bVar;
-                this.f33368e = i2;
+                this.f70086f = bVar;
+                this.f70085e = i2;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // d.f.d.c.s0.a
+            @Override // c.i.d.c.s0.a
             /* renamed from: a */
             public E getElement() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (E) this.f33369f.f33367h.enumConstants[this.f33368e] : (E) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (E) this.f70086f.f70084h.enumConstants[this.f70085e] : (E) invokeV.objValue;
             }
 
-            @Override // d.f.d.c.s0.a
+            @Override // c.i.d.c.s0.a
             public int getCount() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33369f.f33367h.counts[this.f33368e] : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70086f.f70084h.counts[this.f70085e] : invokeV.intValue;
             }
         }
 
@@ -147,7 +147,7 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
                     return;
                 }
             }
-            this.f33367h = enumMultiset;
+            this.f70084h = enumMultiset;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -160,19 +160,19 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public abstract class c<T> implements Iterator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f33370e;
+        public int f70087e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f33371f;
+        public int f70088f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ EnumMultiset f33372g;
+        public final /* synthetic */ EnumMultiset f70089g;
 
         public c(EnumMultiset enumMultiset) {
             Interceptable interceptable = $ic;
@@ -189,9 +189,9 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
                     return;
                 }
             }
-            this.f33372g = enumMultiset;
-            this.f33370e = 0;
-            this.f33371f = -1;
+            this.f70089g = enumMultiset;
+            this.f70087e = 0;
+            this.f70088f = -1;
         }
 
         public abstract T a(int i2);
@@ -201,13 +201,13 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                while (this.f33370e < this.f33372g.enumConstants.length) {
-                    int[] iArr = this.f33372g.counts;
-                    int i2 = this.f33370e;
+                while (this.f70087e < this.f70089g.enumConstants.length) {
+                    int[] iArr = this.f70089g.counts;
+                    int i2 = this.f70087e;
                     if (iArr[i2] > 0) {
                         return true;
                     }
-                    this.f33370e = i2 + 1;
+                    this.f70087e = i2 + 1;
                 }
                 return false;
             }
@@ -220,10 +220,10 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 if (hasNext()) {
-                    T a2 = a(this.f33370e);
-                    int i2 = this.f33370e;
-                    this.f33371f = i2;
-                    this.f33370e = i2 + 1;
+                    T a2 = a(this.f70087e);
+                    int i2 = this.f70087e;
+                    this.f70088f = i2;
+                    this.f70087e = i2 + 1;
                     return a2;
                 }
                 throw new NoSuchElementException();
@@ -235,13 +235,13 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                m.e(this.f33371f >= 0);
-                if (this.f33372g.counts[this.f33371f] > 0) {
-                    EnumMultiset.access$210(this.f33372g);
-                    this.f33372g.size -= this.f33372g.counts[this.f33371f];
-                    this.f33372g.counts[this.f33371f] = 0;
+                m.e(this.f70088f >= 0);
+                if (this.f70089g.counts[this.f70088f] > 0) {
+                    EnumMultiset.access$210(this.f70089g);
+                    this.f70089g.size -= this.f70089g.counts[this.f70088f];
+                    this.f70089g.counts[this.f70088f] = 0;
                 }
-                this.f33371f = -1;
+                this.f70088f = -1;
             }
         }
     }
@@ -319,7 +319,7 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.EnumMultiset<E extends java.lang.Enum<E>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.f.d.c.d, d.f.d.c.s0
+    @Override // c.i.d.c.d, c.i.d.c.s0
     public /* bridge */ /* synthetic */ int add(Object obj, int i2) {
         return add((EnumMultiset<E>) ((Enum) obj), i2);
     }
@@ -335,7 +335,7 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         }
     }
 
-    @Override // d.f.d.c.d, java.util.AbstractCollection, java.util.Collection
+    @Override // c.i.d.c.d, java.util.AbstractCollection, java.util.Collection
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -345,12 +345,12 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         }
     }
 
-    @Override // d.f.d.c.d, java.util.AbstractCollection, java.util.Collection, d.f.d.c.s0
+    @Override // c.i.d.c.d, java.util.AbstractCollection, java.util.Collection, c.i.d.c.s0
     public /* bridge */ /* synthetic */ boolean contains(Object obj) {
         return super.contains(obj);
     }
 
-    @Override // d.f.d.c.s0
+    @Override // c.i.d.c.s0
     public int count(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -363,50 +363,50 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         return invokeL.intValue;
     }
 
-    @Override // d.f.d.c.d
+    @Override // c.i.d.c.d
     public int distinctElements() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.distinctElements : invokeV.intValue;
     }
 
-    @Override // d.f.d.c.d
+    @Override // c.i.d.c.d
     public Iterator<E> elementIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new a(this) : (Iterator) invokeV.objValue;
     }
 
-    @Override // d.f.d.c.d, d.f.d.c.s0
+    @Override // c.i.d.c.d, c.i.d.c.s0
     public /* bridge */ /* synthetic */ Set elementSet() {
         return super.elementSet();
     }
 
-    @Override // d.f.d.c.d
+    @Override // c.i.d.c.d
     public Iterator<s0.a<E>> entryIterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? new b(this) : (Iterator) invokeV.objValue;
     }
 
-    @Override // d.f.d.c.d, d.f.d.c.s0
+    @Override // c.i.d.c.d, c.i.d.c.s0
     public /* bridge */ /* synthetic */ Set entrySet() {
         return super.entrySet();
     }
 
-    @Override // d.f.d.c.d, java.util.AbstractCollection, java.util.Collection
+    @Override // c.i.d.c.d, java.util.AbstractCollection, java.util.Collection
     public /* bridge */ /* synthetic */ boolean isEmpty() {
         return super.isEmpty();
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, d.f.d.c.s0
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable, c.i.d.c.s0
     public Iterator<E> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? Multisets.j(this) : (Iterator) invokeV.objValue;
     }
 
-    @Override // d.f.d.c.d, d.f.d.c.s0
+    @Override // c.i.d.c.d, c.i.d.c.s0
     public int remove(Object obj, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
@@ -440,12 +440,12 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.google.common.collect.EnumMultiset<E extends java.lang.Enum<E>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // d.f.d.c.d, d.f.d.c.s0
+    @Override // c.i.d.c.d, c.i.d.c.s0
     public /* bridge */ /* synthetic */ int setCount(Object obj, int i2) {
         return setCount((EnumMultiset<E>) ((Enum) obj), i2);
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, d.f.d.c.s0
+    @Override // java.util.AbstractCollection, java.util.Collection, c.i.d.c.s0
     public int size() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -476,14 +476,14 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
             }
             int ordinal = e2.ordinal();
             int i3 = this.counts[ordinal];
-            long j = i2;
-            long j2 = i3 + j;
-            n.h(j2 <= 2147483647L, "too many occurrences: %s", j2);
-            this.counts[ordinal] = (int) j2;
+            long j2 = i2;
+            long j3 = i3 + j2;
+            n.h(j3 <= 2147483647L, "too many occurrences: %s", j3);
+            this.counts[ordinal] = (int) j3;
             if (i3 == 0) {
                 this.distinctElements++;
             }
-            this.size += j;
+            this.size += j2;
             return i3;
         }
         return invokeLI.intValue;

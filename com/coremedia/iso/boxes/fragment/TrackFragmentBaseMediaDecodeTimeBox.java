@@ -13,10 +13,11 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "tfdt";
@@ -113,11 +114,11 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public void setBaseMediaDecodeTime(long j) {
+    public void setBaseMediaDecodeTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j)));
-            this.baseMediaDecodeTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j2)));
+            this.baseMediaDecodeTime = j2;
         }
     }
 
@@ -126,7 +127,7 @@ public class TrackFragmentBaseMediaDecodeTimeBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "TrackFragmentBaseMediaDecodeTimeBox{baseMediaDecodeTime=" + this.baseMediaDecodeTime + '}';
+            return "TrackFragmentBaseMediaDecodeTimeBox{baseMediaDecodeTime=" + this.baseMediaDecodeTime + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -19,28 +19,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f32510a;
+        public String f68472a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f32511b;
+        public String f68473b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f32512c;
+        public String f68474c;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -57,9 +56,9 @@ public class h {
                     return;
                 }
             }
-            this.f32510a = str;
-            this.f32511b = str2;
-            this.f32512c = str3;
+            this.f68472a = str;
+            this.f68473b = str2;
+            this.f68474c = str3;
         }
 
         public boolean equals(Object obj) {
@@ -69,8 +68,8 @@ public class h {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    String str2 = this.f32510a;
-                    return str2 != null && str2.equals(aVar.f32510a) && (str = this.f32512c) != null && str.equals(aVar.f32512c);
+                    String str2 = this.f68472a;
+                    return str2 != null && str2.equals(aVar.f68472a) && (str = this.f68474c) != null && str.equals(aVar.f68474c);
                 }
                 return super.equals(obj);
             }
@@ -82,7 +81,7 @@ public class h {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
-                    return "<" + this.f32510a + " name=\"" + this.f32511b + "\" path=\"" + this.f32512c + "\" />";
+                    return "<" + this.f68472a + " name=\"" + this.f68473b + "\" path=\"" + this.f68474c + "\" />";
                 } catch (Throwable unused) {
                     return super.toString();
                 }
@@ -91,8 +90,8 @@ public class h {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:110:0x02de  */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x02e6  */
+    /* JADX WARN: Removed duplicated region for block: B:110:0x02d3  */
+    /* JADX WARN: Removed duplicated region for block: B:112:0x02da  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -205,7 +204,7 @@ public class h {
                 boolean a4 = com.bytedance.sdk.openadsdk.core.g.d.a().a(a2, "android.permission.READ_PHONE_STATE");
                 boolean a5 = com.bytedance.sdk.openadsdk.core.g.d.a().a(a2, "android.permission.ACCESS_COARSE_LOCATION");
                 boolean a6 = com.bytedance.sdk.openadsdk.core.g.d.a().a(a2, "android.permission.ACCESS_FINE_LOCATION");
-                boolean a7 = com.bytedance.sdk.openadsdk.core.g.d.a().a(a2, StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+                boolean a7 = com.bytedance.sdk.openadsdk.core.g.d.a().a(a2, "android.permission.WRITE_EXTERNAL_STORAGE");
                 if (!a4) {
                     com.bytedance.sdk.component.utils.k.f("TTAdSdk-InitChecker", "动态权限没有获取，可能影响转化：android.permission.READ_PHONE_STATE");
                 } else {
@@ -252,7 +251,7 @@ public class h {
             arrayList.add(DefaultConnectivityMonitorFactory.NETWORK_PERMISSION);
             arrayList.add("android.permission.ACCESS_WIFI_STATE");
             arrayList.add("android.permission.READ_PHONE_STATE");
-            arrayList.add(StorageUtils.EXTERNAL_STORAGE_PERMISSION);
+            arrayList.add("android.permission.WRITE_EXTERNAL_STORAGE");
             arrayList.add("android.permission.REQUEST_INSTALL_PACKAGES");
             arrayList.add("android.permission.GET_TASKS");
             arrayList.add("android.permission.WAKE_LOCK");

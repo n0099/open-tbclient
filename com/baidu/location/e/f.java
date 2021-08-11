@@ -1,6 +1,5 @@
 package com.baidu.location.e;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,13 +8,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ e f6825a;
+    public final /* synthetic */ e f41064a;
 
     public f(e eVar) {
         Interceptable interceptable = $ic;
@@ -32,14 +31,14 @@ public class f implements Runnable {
                 return;
             }
         }
-        this.f6825a = eVar;
+        this.f41064a = eVar;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:114:0x011d A[EDGE_INSN: B:114:0x011d->B:83:0x011d ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x00fd A[LOOP:0: B:5:0x001c->B:67:0x00fd, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:71:0x0105  */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x010a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:97:0x0114 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:114:0x0118 A[EDGE_INSN: B:114:0x0118->B:83:0x0118 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x00f8 A[LOOP:0: B:5:0x001c->B:67:0x00f8, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:71:0x0100  */
+    /* JADX WARN: Removed duplicated region for block: B:93:0x0105 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:95:0x010f A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -51,22 +50,22 @@ public class f implements Runnable {
         InputStream inputStream2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f6825a.f6823h = k.e();
-            this.f6825a.b();
-            this.f6825a.a();
-            int i2 = this.f6825a.f6824i;
+            this.f41064a.f41061h = k.e();
+            this.f41064a.b();
+            this.f41064a.a();
+            int i2 = this.f41064a.f41062i;
             InputStream inputStream3 = null;
             HttpURLConnection httpURLConnection = null;
             while (i2 > 0) {
                 try {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f6825a.f6823h).openConnection();
+                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(this.f41064a.f41061h).openConnection();
                     try {
                         httpURLConnection2.setRequestMethod("GET");
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f6784b);
-                        httpURLConnection2.setReadTimeout(a.f6784b);
+                        httpURLConnection2.setConnectTimeout(a.f41020b);
+                        httpURLConnection2.setReadTimeout(a.f41020b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         if (k.ax != null) {
@@ -87,15 +86,15 @@ public class f implements Runnable {
                                     }
                                     inputStream2.close();
                                     byteArrayOutputStream.close();
-                                    this.f6825a.j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    this.f6825a.a(true);
+                                    this.f41064a.f41063j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
+                                    this.f41064a.a(true);
                                     httpURLConnection2.disconnect();
                                     z = true;
                                 } catch (Exception unused) {
                                     inputStream = inputStream2;
                                     httpURLConnection = httpURLConnection2;
                                     try {
-                                        Log.d(a.f6783a, "NetworkCommunicationException!");
+                                        String str = a.f41019a;
                                         if (httpURLConnection != null) {
                                             httpURLConnection.disconnect();
                                         }
@@ -205,8 +204,8 @@ public class f implements Runnable {
                 return;
             }
             e.p++;
-            e eVar = this.f6825a;
-            eVar.j = null;
+            e eVar = this.f41064a;
+            eVar.f41063j = null;
             eVar.a(false);
         }
     }

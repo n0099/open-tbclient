@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ufosdk.UfoSDK;
 import com.baidu.webkit.sdk.WebKitFactory;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class ak implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackFacePageActivity f23605a;
+    public final /* synthetic */ FeedbackFacePageActivity f59341a;
 
     public ak(FeedbackFacePageActivity feedbackFacePageActivity) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class ak implements View.OnClickListener {
                 return;
             }
         }
-        this.f23605a = feedbackFacePageActivity;
+        this.f59341a = feedbackFacePageActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -47,12 +47,12 @@ public final class ak implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             if (UfoSDK.clientid.length() == 0) {
-                Toast.makeText(this.f23605a.getApplicationContext(), com.baidu.ufosdk.f.s.a("62"), 1).show();
-                if (com.baidu.ufosdk.b.d.c(this.f23605a.getApplicationContext())) {
+                Toast.makeText(this.f59341a.getApplicationContext(), com.baidu.ufosdk.f.s.a("62"), 1).show();
+                if (com.baidu.ufosdk.b.d.c(this.f59341a.getApplicationContext())) {
                     new Thread(new al(this)).start();
                     return;
                 } else {
-                    Toast.makeText(this.f23605a.getApplicationContext(), com.baidu.ufosdk.f.s.a(WebKitFactory.OS_64), 1).show();
+                    Toast.makeText(this.f59341a.getApplicationContext(), com.baidu.ufosdk.f.s.a(WebKitFactory.OS_64), 1).show();
                     return;
                 }
             }
@@ -63,26 +63,26 @@ public final class ak implements View.OnClickListener {
                 String b2 = com.baidu.ufosdk.f.i.b(System.currentTimeMillis());
                 String str2 = UfoSDK.startStr;
                 if (str2.equals(b2 + "-enable")) {
-                    sharedPreferences = this.f23605a.f23539b;
+                    sharedPreferences = this.f59341a.f59270b;
                     if (!sharedPreferences.getBoolean("robotUv_has", false)) {
-                        sharedPreferences2 = this.f23605a.f23539b;
+                        sharedPreferences2 = this.f59341a.f59270b;
                         int i2 = sharedPreferences2.getInt("robotUv", 0);
-                        editor2 = this.f23605a.f23538a;
+                        editor2 = this.f59341a.f59269a;
                         editor2.putInt("robotUv", i2 + 1);
-                        editor3 = this.f23605a.f23538a;
+                        editor3 = this.f59341a.f59269a;
                         editor3.putBoolean("robotUv_has", true);
                     }
-                    editor = this.f23605a.f23538a;
+                    editor = this.f59341a.f59269a;
                     editor.commit();
                 }
                 Intent intent = new Intent();
-                intent.setClass(this.f23605a, FeedbackInputActivity.class);
-                str = this.f23605a.t;
+                intent.setClass(this.f59341a, FeedbackInputActivity.class);
+                str = this.f59341a.t;
                 intent.putExtra("msgid", str);
                 intent.putExtra("fromlist", "no");
                 intent.putExtra("from_facepage", true);
-                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-                this.f23605a.startActivity(intent);
+                intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59177j);
+                this.f59341a.startActivity(intent);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

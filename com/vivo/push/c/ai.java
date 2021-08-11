@@ -1,13 +1,12 @@
 package com.vivo.push.c;
 
-import com.baidu.android.imsdk.IMConstants;
-import com.baidu.mapapi.UIMsg;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ai {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -91,13 +90,13 @@ public final class ai {
                             case 2004:
                             case 2005:
                             case 2008:
-                            case UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE /* 2009 */:
+                            case 2009:
                             case 2010:
-                            case IMConstants.IM_MSG_TYPE_SHIELD /* 2011 */:
-                            case IMConstants.IM_MSG_TYPE_SHIELD_ME /* 2012 */:
-                            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME /* 2013 */:
-                            case IMConstants.IM_MSG_TYPE_UNSUBSCRIBE_ME_SEND_FAIL /* 2014 */:
-                            case 2015:
+                            case 2011:
+                            case 2012:
+                            case 2013:
+                            case 2014:
+                            case SpeedStatsStampTable.INIT_VERSION_STAMP_KEY /* 2015 */:
                                 break;
                             case 2006:
                                 ahVar = new a(yVar);

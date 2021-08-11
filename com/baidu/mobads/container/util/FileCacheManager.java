@@ -17,7 +17,7 @@ import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
 import java.util.Comparator;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FileCacheManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_CHECK_COMPLETION = 256;
@@ -27,12 +27,12 @@ public class FileCacheManager {
     public MyHandler mHandler;
     public IFileCacheCheckListener mListener;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface IFileCacheCheckListener {
         void checkFileCacheEnd();
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,14 +188,14 @@ public class FileCacheManager {
                                     return (interceptable3 == null || (invokeLL = interceptable3.invokeLL(1048576, this, file2, file3)) == null) ? Long.valueOf(file2.lastModified()).compareTo(Long.valueOf(file3.lastModified())) : invokeLL.intValue;
                                 }
                             });
-                            long j = 0;
+                            long j2 = 0;
                             for (int length = listFiles.length - 1; length >= 0; length--) {
                                 File file2 = listFiles[length];
                                 if (file2.exists()) {
-                                    if (file2.length() + j > FileCacheManager.MAX_CACHA_Byte) {
+                                    if (file2.length() + j2 > FileCacheManager.MAX_CACHA_Byte) {
                                         file2.delete();
                                     } else {
-                                        j += file2.length();
+                                        j2 += file2.length();
                                     }
                                 }
                             }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Feature {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -139,10 +139,10 @@ public class Feature {
         }
     }
 
-    public void setCtime(long j) {
+    public void setCtime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.ctime = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.ctime = j2;
         }
     }
 
@@ -188,10 +188,10 @@ public class Feature {
         }
     }
 
-    public void setUpdateTime(long j) {
+    public void setUpdateTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.updateTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            this.updateTime = j2;
         }
     }
 

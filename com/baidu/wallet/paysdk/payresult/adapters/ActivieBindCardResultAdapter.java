@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.BaseActivity;
+import com.dxmpay.wallet.core.BaseActivity;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ActivieBindCardResultAdapter extends PayResultAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class ActivieBindCardResultAdapter extends PayResultAdapter {
     public String getActionBarTextId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ebpay_bind_card_result" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "dxm_ebpay_bind_card_result" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.paysdk.payresult.adapters.BasePayResultAdapter, com.baidu.wallet.paysdk.payresult.adapters.IPayResultDataAdapter
@@ -46,7 +46,7 @@ public class ActivieBindCardResultAdapter extends PayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             super.getPaySuccessContents();
-            this.contents.put("mainTip", "ebpay_bind_card_success");
+            this.contents.put("mainTip", "dxm_ebpay_bind_card_success");
             return this.contents;
         }
         return (HashMap) invokeV.objValue;
@@ -58,7 +58,7 @@ public class ActivieBindCardResultAdapter extends PayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             super.getPayingContents();
-            this.contents.put("mainTip", "ebpay_bind_card_success");
+            this.contents.put("mainTip", "dxm_ebpay_bind_card_success");
             return this.contents;
         }
         return (HashMap) invokeV.objValue;

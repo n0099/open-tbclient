@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.os.Handler;
+import c.a.v0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,9 +17,8 @@ import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
 import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-import d.a.w0.b;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class OutputSurfaceWithFilter extends BaseOutputSurface {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

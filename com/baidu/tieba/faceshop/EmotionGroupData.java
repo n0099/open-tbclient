@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EmotionGroupData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_DOWNLOADED = 1;
@@ -121,10 +121,10 @@ public class EmotionGroupData implements Serializable {
         }
     }
 
-    public void setDownloadTime(long j) {
+    public void setDownloadTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.downloadTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.downloadTime = j2;
         }
     }
 

@@ -1,17 +1,18 @@
 package com.baidu.tieba.pb.data;
 
+import c.a.e.e.p.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
 import java.io.Serializable;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ContriInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +77,7 @@ public class ContriInfo implements Serializable {
         if (!k.isEmpty(optString) && (indexOf = this.afterMsg.indexOf("，")) >= 0) {
             StringBuilder sb = new StringBuilder();
             sb.append(this.afterMsg.substring(0, indexOf));
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             String str = this.afterMsg;
             sb.append(str.substring(indexOf + 1, str.length()));
             this.afterMsg = sb.toString();

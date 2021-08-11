@@ -4,48 +4,48 @@ import android.content.Context;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import java.io.FileDescriptor;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface c {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a(c cVar, int i2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(c cVar);
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.c.c$c  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0345c {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC1905c {
         boolean a(c cVar, int i2, int i3);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface d {
         boolean b(c cVar, int i2, int i3);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface e {
         void b(c cVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface f {
         void c(c cVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface g {
         void a(c cVar, int i2, int i3, int i4, int i5);
     }
 
     void a(float f2, float f3) throws Throwable;
 
-    void a(long j) throws Throwable;
+    void a(long j2) throws Throwable;
 
     @Deprecated
     void a(Context context, int i2) throws Throwable;
@@ -58,7 +58,7 @@ public interface c {
 
     void a(b bVar);
 
-    void a(InterfaceC0345c interfaceC0345c);
+    void a(InterfaceC1905c interfaceC1905c);
 
     void a(d dVar);
 

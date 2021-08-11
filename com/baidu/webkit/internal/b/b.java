@@ -15,7 +15,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,13 +22,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
 import java.net.URISyntaxException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class b extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String[] f27553a;
+    public final String[] f63381a;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -44,7 +43,7 @@ public final class b extends g {
                 return;
             }
         }
-        this.f27553a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
+        this.f63381a = new String[]{"market://", "http://market.android.com/search?q=", "https://market.android.com/search?q=", "http://market.android.com/details?id=", "https://market.android.com/details?id=", "http://play.google.com/store/search?q=", "https://play.google.com/store/search?q=", "http://play.google.com/store/apps/details?id=", "https://play.google.com/store/apps/details?id="};
     }
 
     private boolean a(String str) {
@@ -58,7 +57,7 @@ public final class b extends g {
         }
         int i2 = 0;
         while (true) {
-            String[] strArr = this.f27553a;
+            String[] strArr = this.f63381a;
             if (i2 >= strArr.length) {
                 return false;
             }
@@ -69,7 +68,7 @@ public final class b extends g {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0154  */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0152  */
     @SuppressLint({"NewApi"})
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -100,7 +99,7 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f27555a;
+                            public final /* synthetic */ b f63383a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -117,7 +116,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f27555a = this;
+                                this.f63383a = this;
                             }
 
                             @Override // android.content.DialogInterface.OnClickListener
@@ -131,7 +130,7 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ b f27554a;
+                            public final /* synthetic */ b f63382a;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -148,7 +147,7 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f27554a = this;
+                                this.f63382a = this;
                             }
 
                             @Override // android.content.DialogInterface.OnCancelListener
@@ -164,10 +163,10 @@ public final class b extends g {
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* renamed from: a  reason: collision with root package name */
-                            public final /* synthetic */ AlertDialog f27556a;
+                            public final /* synthetic */ AlertDialog f63384a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f27557b;
+                            public final /* synthetic */ b f63385b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -184,8 +183,8 @@ public final class b extends g {
                                         return;
                                     }
                                 }
-                                this.f27557b = this;
-                                this.f27556a = show;
+                                this.f63385b = this;
+                                this.f63384a = show;
                             }
 
                             @Override // java.lang.Runnable
@@ -193,13 +192,13 @@ public final class b extends g {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                                     try {
-                                        this.f27556a.dismiss();
+                                        this.f63384a.dismiss();
                                     } catch (Exception e2) {
                                         e2.printStackTrace();
                                     }
                                 }
                             }
-                        }, PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL);
+                        }, 4000L);
                         return true;
                     }
                     parseUri.addCategory("android.intent.category.BROWSABLE");

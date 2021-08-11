@@ -10,48 +10,39 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.c;
+import c.a.n0.a.d;
+import c.a.n0.a.e;
+import c.a.n0.a.f;
+import c.a.n0.a.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.c;
-import d.a.o0.a.d;
-import d.a.o0.a.e;
-import d.a.o0.a.f;
-import d.a.o0.a.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CommonEmptyView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrameLayout mBottomLayout;
+    public TextView mFeedbackBtn;
+    public ImageView mIcon;
+    public TextView mLinkText;
+    public TextView mRefreshTextBtn;
+    public TextView mSubTitle;
+    public TextView mTitle;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f11328e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f11329f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f11330g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f11331h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f11332i;
-    public FrameLayout j;
-    public TextView k;
-
-    /* loaded from: classes3.dex */
-    public class a implements d.a.o0.a.g2.a {
+    /* loaded from: classes6.dex */
+    public class a implements c.a.n0.a.g2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ CommonEmptyView f11333a;
+        public final /* synthetic */ CommonEmptyView f46037a;
 
         public a(CommonEmptyView commonEmptyView) {
             Interceptable interceptable = $ic;
@@ -68,7 +59,7 @@ public class CommonEmptyView extends RelativeLayout {
                     return;
                 }
             }
-            this.f11333a = commonEmptyView;
+            this.f46037a = commonEmptyView;
         }
     }
 
@@ -98,13 +89,13 @@ public class CommonEmptyView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(g.aiapps_common_empty_view, (ViewGroup) this, true);
             setBackground(context.getResources().getDrawable(c.aiapps_empty_layout_backgroud));
-            this.f11328e = (ImageView) findViewById(f.emptyview_image);
-            this.f11329f = (TextView) findViewById(f.emptyview_title);
-            this.f11330g = (TextView) findViewById(f.emptyview_subtitle);
-            this.f11331h = (TextView) findViewById(f.emptyview_link);
-            this.f11332i = (TextView) findViewById(f.emptyview_btn);
-            this.j = (FrameLayout) findViewById(f.emptyview_bottom_layout);
-            this.k = (TextView) findViewById(f.emptyview_problem_feedback);
+            this.mIcon = (ImageView) findViewById(f.emptyview_image);
+            this.mTitle = (TextView) findViewById(f.emptyview_title);
+            this.mSubTitle = (TextView) findViewById(f.emptyview_subtitle);
+            this.mLinkText = (TextView) findViewById(f.emptyview_link);
+            this.mRefreshTextBtn = (TextView) findViewById(f.emptyview_btn);
+            this.mBottomLayout = (FrameLayout) findViewById(f.emptyview_bottom_layout);
+            this.mFeedbackBtn = (TextView) findViewById(f.emptyview_problem_feedback);
             setPageResources();
         }
     }
@@ -114,7 +105,7 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            d.a.o0.a.c1.a.H().f(this, new a(this));
+            c.a.n0.a.c1.a.H().f(this, new a(this));
         }
     }
 
@@ -123,18 +114,18 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            FrameLayout frameLayout = this.j;
+            FrameLayout frameLayout = this.mBottomLayout;
             if (frameLayout == null || frameLayout.getLayoutParams() == null) {
                 return;
             }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.j.getLayoutParams();
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mBottomLayout.getLayoutParams();
             int i2 = configuration.orientation;
             if (i2 == 1) {
                 layoutParams.bottomMargin = getResources().getDimensionPixelOffset(d.aiapps_empty_view_bottom_margin_portrait);
             } else if (i2 == 2) {
                 layoutParams.bottomMargin = getResources().getDimensionPixelOffset(d.aiapps_empty_view_bottom_margin_landscape);
             }
-            this.j.setLayoutParams(layoutParams);
+            this.mBottomLayout.setLayoutParams(layoutParams);
         }
     }
 
@@ -143,57 +134,68 @@ public class CommonEmptyView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDetachedFromWindow();
-            d.a.o0.a.c1.a.H().g(this);
+            c.a.n0.a.c1.a.H().g(this);
+        }
+    }
+
+    public void resetIconWidthAndHeight() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mIcon.getLayoutParams();
+            int dimensionPixelSize = getResources().getDimensionPixelSize(d.aiapps_empty_view_icon_size) / 2;
+            layoutParams.width = dimensionPixelSize;
+            layoutParams.height = dimensionPixelSize;
+            this.mIcon.setLayoutParams(layoutParams);
         }
     }
 
     public void setButtonText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f11332i.setText(str);
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.mRefreshTextBtn.setText(str);
         }
     }
 
     public void setButtonTextColor(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, colorStateList) == null) {
-            this.f11332i.setTextColor(colorStateList);
+        if (interceptable == null || interceptable.invokeL(1048583, this, colorStateList) == null) {
+            this.mRefreshTextBtn.setTextColor(colorStateList);
         }
     }
 
     public void setIcon(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, drawable) == null) {
-            this.f11328e.setImageDrawable(drawable);
+        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
+            this.mIcon.setImageDrawable(drawable);
         }
     }
 
     public void setLinkClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onClickListener) == null) {
-            this.f11331h.setVisibility(0);
-            this.f11331h.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
+            this.mLinkText.setVisibility(0);
+            this.mLinkText.setOnClickListener(onClickListener);
         }
     }
 
     public void setPageResources() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             setBackgroundColor(-1);
-            TextView textView = this.f11329f;
+            TextView textView = this.mTitle;
             if (textView != null) {
                 textView.setTextColor(getResources().getColor(c.aiapps_emptyview_title_text_color));
             }
-            TextView textView2 = this.f11331h;
+            TextView textView2 = this.mLinkText;
             if (textView2 != null) {
                 textView2.setTextColor(getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
             }
-            TextView textView3 = this.f11332i;
+            TextView textView3 = this.mRefreshTextBtn;
             if (textView3 != null) {
                 textView3.setBackground(getResources().getDrawable(e.aiapps_emptyview_btn_bg));
-                this.f11332i.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color));
+                this.mRefreshTextBtn.setTextColor(getResources().getColorStateList(c.swan_app_emptyview_btn_text_color));
             }
-            TextView textView4 = this.f11330g;
+            TextView textView4 = this.mSubTitle;
             if (textView4 != null) {
                 textView4.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
             }
@@ -202,32 +204,32 @@ public class CommonEmptyView extends RelativeLayout {
 
     public void setSubTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f11330g.setVisibility(0);
-            this.f11330g.setText(str);
-            this.f11330g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.mSubTitle.setVisibility(0);
+            this.mSubTitle.setText(str);
+            this.mSubTitle.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
         }
     }
 
     public void setTextButtonClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onClickListener) == null) {
-            this.f11332i.setVisibility(0);
-            this.f11332i.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeL(1048590, this, onClickListener) == null) {
+            this.mRefreshTextBtn.setVisibility(0);
+            this.mRefreshTextBtn.setOnClickListener(onClickListener);
         }
     }
 
     public void setTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f11329f.setText(str);
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.mTitle.setText(str);
         }
     }
 
     public void setTitleColor(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.f11329f.setTextColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            this.mTitle.setTextColor(i2);
         }
     }
 
@@ -254,22 +256,22 @@ public class CommonEmptyView extends RelativeLayout {
 
     public void setButtonText(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f11332i.setText(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.mRefreshTextBtn.setText(i2);
         }
     }
 
     public void setIcon(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f11328e.setImageDrawable(getResources().getDrawable(i2));
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            this.mIcon.setImageDrawable(getResources().getDrawable(i2));
         }
     }
 
     public void setTitle(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f11329f.setText(i2);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.mTitle.setText(i2);
         }
     }
 
@@ -297,10 +299,10 @@ public class CommonEmptyView extends RelativeLayout {
 
     public void setSubTitle(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f11330g.setVisibility(0);
-            this.f11330g.setText(i2);
-            this.f11330g.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            this.mSubTitle.setVisibility(0);
+            this.mSubTitle.setText(i2);
+            this.mSubTitle.setTextColor(getContext().getResources().getColor(c.aiapps_emptyview_subtitle_text_color));
         }
     }
 }

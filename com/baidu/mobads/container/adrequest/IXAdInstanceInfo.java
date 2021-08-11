@@ -13,11 +13,11 @@ import java.util.List;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IXAdInstanceInfo {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class CreativeType {
         public static final /* synthetic */ CreativeType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -317,7 +317,7 @@ public interface IXAdInstanceInfo {
 
     void setAppPackageName(String str);
 
-    void setAppSize(long j);
+    void setAppSize(long j2);
 
     void setAutoOpen(boolean z);
 
@@ -349,7 +349,7 @@ public interface IXAdInstanceInfo {
 
     void setConfirmBorderPercent(String str);
 
-    void setCreateTime(long j);
+    void setCreateTime(long j2);
 
     void setCreativeType(CreativeType creativeType);
 

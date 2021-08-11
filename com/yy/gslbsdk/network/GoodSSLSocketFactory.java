@@ -25,7 +25,7 @@ import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class GoodSSLSocketFactory extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GoodSSLSocketFactory";

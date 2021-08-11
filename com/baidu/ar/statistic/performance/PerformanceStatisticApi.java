@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class PerformanceStatisticApi implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int xc;
     public boolean xd;
     public a xe;
-    public a.C0081a xf;
+    public a.C1628a xf;
     public f.a xg;
 
     public PerformanceStatisticApi() {
@@ -44,12 +44,12 @@ public class PerformanceStatisticApi implements f {
     private void gs() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && this.xf == null) {
-            a.C0081a c0081a = new a.C0081a();
-            this.xf = c0081a;
+            a.C1628a c1628a = new a.C1628a();
+            this.xf = c1628a;
             int i2 = this.xc + 1;
             this.xc = i2;
-            c0081a.xn = i2;
-            this.xe.xm.add(c0081a);
+            c1628a.xn = i2;
+            this.xe.xm.add(c1628a);
         }
     }
 
@@ -99,18 +99,18 @@ public class PerformanceStatisticApi implements f {
     }
 
     @Override // com.baidu.ar.statistic.f
-    public void recordAlgoTimeCost(String str, String str2, long j, int i2) {
+    public void recordAlgoTimeCost(String str, String str2, long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             try {
                 if (this.xd) {
                     gs();
-                    a.C0081a.C0082a c0082a = new a.C0081a.C0082a();
-                    c0082a.name = str;
-                    c0082a.xr = str2;
-                    c0082a.xs = j;
-                    c0082a.count = i2;
-                    this.xf.xq.add(c0082a);
+                    a.C1628a.C1629a c1629a = new a.C1628a.C1629a();
+                    c1629a.name = str;
+                    c1629a.xr = str2;
+                    c1629a.xs = j2;
+                    c1629a.count = i2;
+                    this.xf.xq.add(c1629a);
                 }
             } catch (RuntimeException e2) {
                 e2.printStackTrace();

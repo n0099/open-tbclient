@@ -584,11 +584,11 @@ public class VersionedParcelStream extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeLong(long j) {
+    public void writeLong(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
             try {
-                this.mCurrentOutput.writeLong(j);
+                this.mCurrentOutput.writeLong(j2);
             } catch (IOException e2) {
                 throw new VersionedParcel.ParcelException(e2);
             }
@@ -703,16 +703,16 @@ public class VersionedParcelStream extends VersionedParcel {
             }
 
             @Override // java.io.FilterInputStream, java.io.InputStream
-            public long skip(long j) throws IOException {
+            public long skip(long j2) throws IOException {
                 InterceptResult invokeJ;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeJ = interceptable2.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                if (interceptable2 == null || (invokeJ = interceptable2.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
                     VersionedParcelStream versionedParcelStream = this.this$0;
                     int i4 = versionedParcelStream.mFieldSize;
                     if (i4 != -1 && versionedParcelStream.mCount >= i4) {
                         throw new IOException();
                     }
-                    long skip = super.skip(j);
+                    long skip = super.skip(j2);
                     if (skip > 0) {
                         this.this$0.mCount += (int) skip;
                     }

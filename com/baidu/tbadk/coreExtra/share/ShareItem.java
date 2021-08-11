@@ -6,10 +6,13 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.k;
+import c.a.o0.s.q.c2;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
@@ -22,8 +25,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.p0.s.q.b2;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,7 +34,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ShareItem {
     public static /* synthetic */ Interceptable $ic;
     public static final String s0;
@@ -66,41 +67,43 @@ public class ShareItem {
     public boolean Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f12887a;
+    public boolean f47870a;
     public boolean a0;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f12888b;
+    public boolean f47871b;
     public boolean b0;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f12889c;
+    public boolean f47872c;
     public boolean c0;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f12890d;
+    public boolean f47873d;
     public boolean d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12891e;
+    public boolean f47874e;
     public int e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f12892f;
+    public boolean f47875f;
     public String f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f12893g;
+    public boolean f47876g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12894h;
+    public boolean f47877h;
     public boolean h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f12895i;
+    public boolean f47878i;
     public String i0;
-    public boolean j;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f47879j;
     public int j0;
     public boolean k;
     public String k0;
@@ -156,16 +159,16 @@ public class ShareItem {
                 return;
             }
         }
-        this.f12887a = false;
-        this.f12888b = false;
-        this.f12889c = false;
-        this.f12890d = false;
-        this.f12891e = false;
-        this.f12892f = false;
-        this.f12893g = false;
-        this.f12894h = false;
-        this.f12895i = false;
-        this.j = false;
+        this.f47870a = false;
+        this.f47871b = false;
+        this.f47872c = false;
+        this.f47873d = false;
+        this.f47874e = false;
+        this.f47875f = false;
+        this.f47876g = false;
+        this.f47877h = false;
+        this.f47878i = false;
+        this.f47879j = false;
         this.k = false;
         this.l = false;
         this.m = false;
@@ -352,7 +355,7 @@ public class ShareItem {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class ForwardInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -387,7 +390,7 @@ public class ShareItem {
         public static ForwardInfo generateForwardInfo(OriginalThreadInfo.ShareInfo shareInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, shareInfo)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shareInfo)) == null) {
                 if (shareInfo == null) {
                     return null;
                 }
@@ -407,56 +410,56 @@ public class ShareItem {
             return (ForwardInfo) invokeL.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(b2 b2Var) {
+        public static ForwardInfo generateForwardInfo(c2 c2Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, b2Var)) == null) ? generateForwardInfo(b2Var, 0) : (ForwardInfo) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c2Var)) == null) ? generateForwardInfo(c2Var, 0) : (ForwardInfo) invokeL.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(b2 b2Var, int i2) {
+        public static ForwardInfo generateForwardInfo(c2 c2Var, int i2) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, b2Var, i2)) == null) ? generateForwardInfo(b2Var, i2, null) : (ForwardInfo) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, c2Var, i2)) == null) ? generateForwardInfo(c2Var, i2, null) : (ForwardInfo) invokeLI.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(b2 b2Var, int i2, PostData postData) {
+        public static ForwardInfo generateForwardInfo(c2 c2Var, int i2, PostData postData) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, b2Var, i2, postData)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, c2Var, i2, postData)) == null) {
                 String str = null;
-                if (b2Var == null) {
+                if (c2Var == null) {
                     return null;
                 }
                 ForwardInfo forwardInfo = new ForwardInfo();
                 forwardInfo.isShareType = false;
-                if (b2Var.v1 && b2Var.u1 != null) {
+                if (c2Var.w1 && c2Var.v1 != null) {
                     forwardInfo.isShareType = true;
                 }
                 if (forwardInfo.isShareType) {
-                    BaijiahaoData baijiahaoData = b2Var.u1.p;
+                    BaijiahaoData baijiahaoData = c2Var.v1.p;
                     if (baijiahaoData != null && !TextUtils.isEmpty(baijiahaoData.oriUgcNid)) {
                         forwardInfo.isDynamic = true;
                     }
-                    forwardInfo.showText = b2Var.u1.c();
-                    OriginalThreadInfo originalThreadInfo = b2Var.u1;
-                    forwardInfo.showPicUrl = originalThreadInfo.f12279c;
-                    forwardInfo.showType = originalThreadInfo.f12277a;
+                    forwardInfo.showText = c2Var.v1.d();
+                    OriginalThreadInfo originalThreadInfo = c2Var.v1;
+                    forwardInfo.showPicUrl = originalThreadInfo.f47197c;
+                    forwardInfo.showType = originalThreadInfo.f47195a;
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
-                    forwardInfo.originalTid = originalThreadInfo.f12282f;
+                    forwardInfo.originalTid = originalThreadInfo.f47200f;
                     if (i2 == 1) {
                         if (postData != null && postData.K() != null) {
                             str = postData.K().toString();
-                        } else if (b2Var.h() != null) {
-                            str = b2Var.j().toString();
+                        } else if (c2Var.o() != null) {
+                            str = c2Var.p().toString();
                         }
-                    } else if (b2Var.z2() != null) {
-                        str = b2Var.z2().toString();
+                    } else if (c2Var.H2() != null) {
+                        str = c2Var.H2().toString();
                     }
                     if (!TextUtils.isEmpty(str)) {
                         forwardInfo.transmitOriginThreadComment = str;
                     }
-                    if (b2Var.H() != null && !TextUtils.isEmpty(b2Var.H().getName_show())) {
-                        forwardInfo.transmitThreadAuthorNameShow = b2Var.H().getName_show();
+                    if (c2Var.J() != null && !TextUtils.isEmpty(c2Var.J().getName_show())) {
+                        forwardInfo.transmitThreadAuthorNameShow = c2Var.J().getName_show();
                     }
                     if (i2 == 1 && postData != null && k.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.t() != null) {
                         forwardInfo.transmitThreadAuthorNameShow = postData.t().getName_show();
@@ -465,56 +468,56 @@ public class ShareItem {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {
-                    if (b2Var.J() != null && !TextUtils.isEmpty(b2Var.J().oriUgcNid)) {
+                    if (c2Var.L() != null && !TextUtils.isEmpty(c2Var.L().oriUgcNid)) {
                         forwardInfo.isDynamic = true;
                     }
-                    OriginalThreadInfo i3 = OriginalThreadInfo.i(b2Var);
-                    if (i3 != null) {
-                        forwardInfo.showText = i3.c();
-                        forwardInfo.showPicUrl = i3.f12279c;
-                        forwardInfo.showType = i3.f12277a;
+                    OriginalThreadInfo k = OriginalThreadInfo.k(c2Var);
+                    if (k != null) {
+                        forwardInfo.showText = k.d();
+                        forwardInfo.showPicUrl = k.f47197c;
+                        forwardInfo.showType = k.f47195a;
                     }
-                    forwardInfo.originalTid = b2Var.o1();
+                    forwardInfo.originalTid = c2Var.q1();
                 }
                 if (i2 == 1) {
-                    OriginalThreadInfo originalThreadInfo2 = b2Var.u1;
+                    OriginalThreadInfo originalThreadInfo2 = c2Var.v1;
                     if (originalThreadInfo2 != null && originalThreadInfo2.p != null) {
                         BaijiahaoData baijiahaoData2 = new BaijiahaoData();
                         forwardInfo.baijiahaoData = baijiahaoData2;
-                        BaijiahaoData baijiahaoData3 = b2Var.u1.p;
+                        BaijiahaoData baijiahaoData3 = c2Var.v1.p;
                         baijiahaoData2.oriUgcNid = baijiahaoData3.oriUgcNid;
                         baijiahaoData2.oriUgcTid = baijiahaoData3.oriUgcTid;
                         baijiahaoData2.oriUgcType = baijiahaoData3.oriUgcType;
                         baijiahaoData2.oriUgcVid = baijiahaoData3.oriUgcVid;
                         baijiahaoData2.forwardUrl = baijiahaoData3.forwardUrl;
-                    } else if (b2Var.J() != null) {
+                    } else if (c2Var.L() != null) {
                         BaijiahaoData baijiahaoData4 = new BaijiahaoData();
                         forwardInfo.baijiahaoData = baijiahaoData4;
-                        baijiahaoData4.oriUgcNid = b2Var.J().oriUgcNid;
-                        forwardInfo.baijiahaoData.oriUgcTid = b2Var.J().oriUgcTid;
-                        forwardInfo.baijiahaoData.oriUgcType = b2Var.J().oriUgcType;
-                        forwardInfo.baijiahaoData.oriUgcVid = b2Var.J().oriUgcVid;
-                        forwardInfo.baijiahaoData.forwardUrl = b2Var.J().forwardUrl;
+                        baijiahaoData4.oriUgcNid = c2Var.L().oriUgcNid;
+                        forwardInfo.baijiahaoData.oriUgcTid = c2Var.L().oriUgcTid;
+                        forwardInfo.baijiahaoData.oriUgcType = c2Var.L().oriUgcType;
+                        forwardInfo.baijiahaoData.oriUgcVid = c2Var.L().oriUgcVid;
+                        forwardInfo.baijiahaoData.forwardUrl = c2Var.L().forwardUrl;
                     }
-                } else if (b2Var.J() != null) {
+                } else if (c2Var.L() != null) {
                     BaijiahaoData baijiahaoData5 = new BaijiahaoData();
                     forwardInfo.baijiahaoData = baijiahaoData5;
-                    baijiahaoData5.oriUgcNid = b2Var.J().oriUgcNid;
-                    forwardInfo.baijiahaoData.oriUgcTid = b2Var.J().oriUgcTid;
-                    forwardInfo.baijiahaoData.oriUgcType = b2Var.J().oriUgcType;
-                    forwardInfo.baijiahaoData.oriUgcVid = b2Var.J().oriUgcVid;
-                    forwardInfo.baijiahaoData.forwardUrl = b2Var.J().forwardUrl;
+                    baijiahaoData5.oriUgcNid = c2Var.L().oriUgcNid;
+                    forwardInfo.baijiahaoData.oriUgcTid = c2Var.L().oriUgcTid;
+                    forwardInfo.baijiahaoData.oriUgcType = c2Var.L().oriUgcType;
+                    forwardInfo.baijiahaoData.oriUgcVid = c2Var.L().oriUgcVid;
+                    forwardInfo.baijiahaoData.forwardUrl = c2Var.L().forwardUrl;
                 }
-                if (b2Var.J() != null) {
-                    if (b2Var.J().oriUgcType == 2) {
-                        if (b2Var.m1() != null) {
-                            forwardInfo.video_duration = String.valueOf(b2Var.m1().video_duration);
+                if (c2Var.L() != null) {
+                    if (c2Var.L().oriUgcType == 2) {
+                        if (c2Var.o1() != null) {
+                            forwardInfo.video_duration = String.valueOf(c2Var.o1().video_duration);
                         }
-                    } else if ((b2Var.J().oriUgcType == 3 || b2Var.J().oriUgcType == 4) && b2Var.H() != null && !TextUtils.isEmpty(b2Var.H().getPortrait())) {
-                        if (b2Var.H().getPortrait().startsWith("http")) {
-                            forwardInfo.avatar = b2Var.H().getPortrait();
+                    } else if ((c2Var.L().oriUgcType == 3 || c2Var.L().oriUgcType == 4) && c2Var.J() != null && !TextUtils.isEmpty(c2Var.J().getPortrait())) {
+                        if (c2Var.J().getPortrait().startsWith("http")) {
+                            forwardInfo.avatar = c2Var.J().getPortrait();
                         } else {
-                            forwardInfo.avatar = TbConfig.getBigPhotoAdress() + b2Var.H().getPortrait() + ".jpg";
+                            forwardInfo.avatar = TbConfig.getBigPhotoAdress() + c2Var.J().getPortrait() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
                         }
                     }
                 }

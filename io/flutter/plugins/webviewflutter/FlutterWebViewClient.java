@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.graphics.Bitmap;
 import android.os.Build;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -23,7 +22,7 @@ import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterWebViewClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FlutterWebViewClient";
@@ -31,7 +30,7 @@ public class FlutterWebViewClient {
     public boolean hasNavigationDelegate;
     public final MethodChannel methodChannel;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class OnNavigationRequestResult implements MethodChannel.Result {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -396,7 +395,6 @@ public class FlutterWebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, webView, str)) == null) {
             if (this.hasNavigationDelegate) {
-                Log.w(TAG, "Using a navigationDelegate with an old webview implementation, pages with frames or iframes will not work");
                 notifyOnNavigationRequest(str, null, webView, true);
                 return true;
             }

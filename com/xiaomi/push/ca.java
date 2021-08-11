@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ca extends cc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,13 +39,13 @@ public class ca extends cc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i2)) == null) {
             com.xiaomi.channel.commonutils.logger.b.b("delete  messages when db size is too bigger");
-            String m214a = cg.a(context).m214a(str);
-            if (TextUtils.isEmpty(m214a)) {
+            String m217a = cg.a(context).m217a(str);
+            if (TextUtils.isEmpty(m217a)) {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
             sb.append("rowDataId in (select ");
-            sb.append("rowDataId from " + m214a);
+            sb.append("rowDataId from " + m217a);
             sb.append(" order by createTimeStamp asc");
             sb.append(" limit ?)");
             return new ca(str, sb.toString(), new String[]{String.valueOf(i2)}, "a job build to delete history message");
@@ -53,13 +53,13 @@ public class ca extends cc {
         return (ca) invokeLLI.objValue;
     }
 
-    private void a(long j) {
+    private void a(long j2) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65538, this, j) == null) || (strArr = ((cg.d) this).f186a) == null || strArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(65538, this, j2) == null) || (strArr = ((cg.d) this).f190a) == null || strArr.length <= 0) {
             return;
         }
-        strArr[0] = String.valueOf(j);
+        strArr[0] = String.valueOf(j2);
     }
 
     @Override // com.xiaomi.push.cg.a
@@ -67,16 +67,16 @@ public class ca extends cc {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, obj) == null) && (obj instanceof Long)) {
             long longValue = ((Long) obj).longValue();
-            long a2 = cm.a(m216a());
-            long j = by.f167a;
-            if (a2 <= j) {
+            long a2 = cm.a(m219a());
+            long j2 = by.f171a;
+            if (a2 <= j2) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
                 return;
             }
-            long j2 = (long) ((((a2 - j) * 1.2d) / j) * longValue);
-            a(j2);
+            long j3 = (long) ((((a2 - j2) * 1.2d) / j2) * longValue);
+            a(j3);
             bu a3 = bu.a(context);
-            a3.a("begin delete " + j2 + "noUpload messages , because db size is " + a2 + "B");
+            a3.a("begin delete " + j3 + "noUpload messages , because db size is " + a2 + "B");
             super.a(context, obj);
         }
     }

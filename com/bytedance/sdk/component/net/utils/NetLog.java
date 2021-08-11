@@ -1,6 +1,5 @@
 package com.bytedance.sdk.component.net.utils;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes9.dex */
 public class NetLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -119,13 +119,8 @@ public class NetLog {
 
     public static void logDirect(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) || str2 == null) {
-            return;
+        if ((interceptable != null && interceptable.invokeLL(65555, null, str, str2) != null) || str2 == null) {
         }
-        if (str == null) {
-            str = TAG;
-        }
-        Log.i(str, str2);
     }
 
     public static void openDebugMode() {
@@ -153,7 +148,7 @@ public class NetLog {
                 StringBuilder sb = new StringBuilder();
                 for (int i3 = 1; i3 < Math.min(i2, stackTrace.length); i3++) {
                     if (i3 > 1) {
-                        sb.append("\n");
+                        sb.append(StringUtils.LF);
                     }
                     sb.append(getSimpleClassName(stackTrace[i3].getClassName()));
                     sb.append(".");
@@ -180,86 +175,86 @@ public class NetLog {
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65560, null, str, str2) == null) || !DEBUG || str2 == null || sLevel > 2) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65560, null, str, str2) == null) && DEBUG && str2 != null) {
+            int i2 = sLevel;
         }
-        Log.v(str, str2);
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || !DEBUG || str2 == null || sLevel > 3) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && DEBUG && str2 != null) {
+            int i2 = sLevel;
         }
-        Log.d(str, str2);
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || !DEBUG || str2 == null || sLevel > 6) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && DEBUG && str2 != null) {
+            int i2 = sLevel;
         }
-        Log.e(str, str2);
     }
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) || !DEBUG || str2 == null || sLevel > 4) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && DEBUG && str2 != null) {
+            int i2 = sLevel;
         }
-        Log.i(str, str2);
     }
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65564, null, str, str2) == null) || !DEBUG || str2 == null || sLevel > 5) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65564, null, str, str2) == null) && DEBUG && str2 != null) {
+            int i2 = sLevel;
         }
-        Log.w(str, str2);
     }
 
     public static void v(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65561, null, str, str2, th) == null) && DEBUG) {
-            if (!(str2 == null && th == null) && sLevel <= 2) {
-                Log.v(str, str2, th);
+            if (str2 == null && th == null) {
+                return;
             }
+            int i2 = sLevel;
         }
     }
 
     public static void d(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && DEBUG) {
-            if (!(str2 == null && th == null) && sLevel <= 3) {
-                Log.d(str, str2, th);
+            if (str2 == null && th == null) {
+                return;
             }
+            int i2 = sLevel;
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65545, null, str, str2, th) == null) && DEBUG) {
-            if (!(str2 == null && th == null) && sLevel <= 6) {
-                Log.e(str, str2, th);
+            if (str2 == null && th == null) {
+                return;
             }
+            int i2 = sLevel;
         }
     }
 
     public static void i(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65552, null, str, str2, th) == null) && DEBUG) {
-            if (!(str2 == null && th == null) && sLevel <= 4) {
-                Log.i(str, str2, th);
+            if (str2 == null && th == null) {
+                return;
             }
+            int i2 = sLevel;
         }
     }
 
     public static void w(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(65565, null, str, str2, th) == null) && DEBUG) {
-            if (!(str2 == null && th == null) && sLevel <= 5) {
-                Log.w(str, str2, th);
+            if (str2 == null && th == null) {
+                return;
             }
+            int i2 = sLevel;
         }
     }
 
@@ -268,7 +263,7 @@ public class NetLog {
         if (!(interceptable == null || interceptable.invokeLL(65562, null, str, objArr) == null) || !DEBUG || objArr == null || sLevel > 2) {
             return;
         }
-        Log.v(str, formatMsgs(objArr));
+        formatMsgs(objArr);
     }
 
     public static void d(String str, Object... objArr) {
@@ -276,7 +271,7 @@ public class NetLog {
         if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, objArr) == null) || !DEBUG || objArr == null || sLevel > 3) {
             return;
         }
-        Log.v(str, formatMsgs(objArr));
+        formatMsgs(objArr);
     }
 
     public static void e(String str, Object... objArr) {
@@ -284,7 +279,7 @@ public class NetLog {
         if (!(interceptable == null || interceptable.invokeLL(65546, null, str, objArr) == null) || !DEBUG || objArr == null || sLevel > 6) {
             return;
         }
-        Log.v(str, formatMsgs(objArr));
+        formatMsgs(objArr);
     }
 
     public static void i(String str, Object... objArr) {
@@ -292,7 +287,7 @@ public class NetLog {
         if (!(interceptable == null || interceptable.invokeLL(65553, null, str, objArr) == null) || !DEBUG || objArr == null || sLevel > 4) {
             return;
         }
-        Log.v(str, formatMsgs(objArr));
+        formatMsgs(objArr);
     }
 
     public static void w(String str, Object... objArr) {
@@ -300,6 +295,6 @@ public class NetLog {
         if (!(interceptable == null || interceptable.invokeLL(65566, null, str, objArr) == null) || !DEBUG || objArr == null || sLevel > 5) {
             return;
         }
-        Log.v(str, formatMsgs(objArr));
+        formatMsgs(objArr);
     }
 }

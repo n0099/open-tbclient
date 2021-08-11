@@ -1,5 +1,5 @@
 package com.bytedance.sdk.component.image.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface h {
     String a();
 

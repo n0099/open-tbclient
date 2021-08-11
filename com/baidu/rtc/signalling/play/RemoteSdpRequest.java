@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.Logging;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RemoteSdpRequest implements IJsonSignalling {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RemoteSdpRequest";
@@ -19,12 +19,12 @@ public class RemoteSdpRequest implements IJsonSignalling {
     public final String streamUrl;
     public final long transactionId;
 
-    public RemoteSdpRequest(String str, long j, String str2) {
+    public RemoteSdpRequest(String str, long j2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), str2};
+            Object[] objArr = {str, Long.valueOf(j2), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,7 +35,7 @@ public class RemoteSdpRequest implements IJsonSignalling {
             }
         }
         this.sdp = str;
-        this.transactionId = j;
+        this.transactionId = j2;
         this.streamUrl = str2;
     }
 

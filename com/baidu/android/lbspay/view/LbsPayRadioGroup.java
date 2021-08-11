@@ -12,13 +12,13 @@ import com.baidu.android.lbspay.channelpay.ChannelPayUtil;
 import com.baidu.android.lbspay.network.NewCashierContent;
 import com.baidu.android.lbspay.utils.PayMode;
 import com.baidu.android.lbspay.view.PayChannelController;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+import com.dxmpay.apollon.utils.ResUtils;
+/* loaded from: classes4.dex */
 public class LbsPayRadioGroup extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,7 @@ public class LbsPayRadioGroup extends LinearLayout {
     public OnCheckedListener mCheckedListener;
     public PayChannelController.GetPayModeListener mGetPayModeListener;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class CheckedViewClickListener implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,7 +60,7 @@ public class LbsPayRadioGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface OnCheckedListener {
         void onChecked(ChannelViewBase channelViewBase);
     }

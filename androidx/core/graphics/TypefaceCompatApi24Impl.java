@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.CancellationSignal;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -68,7 +67,7 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
             method = Typeface.class.getMethod("createFromFamiliesWithDefault", Array.newInstance(cls, 1).getClass());
             constructor = constructor2;
         } catch (ClassNotFoundException | NoSuchMethodException e2) {
-            Log.e(TAG, e2.getClass().getName(), e2);
+            e2.getClass().getName();
             cls = null;
             method = null;
             method2 = null;
@@ -125,9 +124,7 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (sAddFontWeightStyle == null) {
-                Log.w(TAG, "Unable to collect necessary private methods.Fallback to legacy implementation.");
-            }
+            Method method = sAddFontWeightStyle;
             return sAddFontWeightStyle != null;
         }
         return invokeV.booleanValue;

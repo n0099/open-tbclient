@@ -2,7 +2,6 @@ package com.bytedance.sdk.openadsdk.preload.falconx.statistic;
 
 import android.os.Build;
 import androidx.annotation.Keep;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
 import com.bytedance.sdk.openadsdk.preload.a.a.c;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Common {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +19,7 @@ public class Common {
     public String deviceId;
     @c(a = "device_model")
     public String deviceModel;
-    @c(a = IAdRequestParam.OS)
+    @c(a = "os")
     public int os;
     @c(a = "region")
     public String region;

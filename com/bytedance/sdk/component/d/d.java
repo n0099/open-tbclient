@@ -12,12 +12,12 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ConcurrentLinkedQueue<com.bytedance.sdk.component.d.a.a> f28811a;
+    public static final ConcurrentLinkedQueue<com.bytedance.sdk.component.d.a.a> f64673a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,15 +33,15 @@ public class d {
                 return;
             }
         }
-        f28811a = new ConcurrentLinkedQueue<>();
+        f64673a = new ConcurrentLinkedQueue<>();
     }
 
-    public static void a(a aVar, long j, long j2) {
+    public static void a(a aVar, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{aVar, Long.valueOf(j), Long.valueOf(j2)}) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{aVar, Long.valueOf(j2), Long.valueOf(j3)}) == null) || aVar == null) {
             return;
         }
-        f28811a.offer(new com.bytedance.sdk.component.d.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j, j2));
+        f64673a.offer(new com.bytedance.sdk.component.d.a.a(aVar.a(), aVar.getCorePoolSize(), aVar.getMaximumPoolSize(), j2, j3));
         a(false);
     }
 
@@ -50,13 +50,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
             c g2 = e.g();
-            if ((z || f28811a.size() >= 60) && g2 != null) {
-                synchronized (f28811a) {
-                    if (f28811a.isEmpty()) {
+            if ((z || f64673a.size() >= 60) && g2 != null) {
+                synchronized (f64673a) {
+                    if (f64673a.isEmpty()) {
                         return;
                     }
-                    com.bytedance.sdk.component.d.a.a[] aVarArr = (com.bytedance.sdk.component.d.a.a[]) f28811a.toArray(new com.bytedance.sdk.component.d.a.a[f28811a.size()]);
-                    f28811a.clear();
+                    com.bytedance.sdk.component.d.a.a[] aVarArr = (com.bytedance.sdk.component.d.a.a[]) f64673a.toArray(new com.bytedance.sdk.component.d.a.a[f64673a.size()]);
+                    f64673a.clear();
                     int i2 = 0;
                     if (aVarArr.length != 0) {
                         HashMap hashMap = new HashMap();

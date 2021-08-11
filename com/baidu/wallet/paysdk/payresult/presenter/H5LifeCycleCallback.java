@@ -7,7 +7,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.NoProguard;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,10 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.BaiduWalletDelegate;
+import com.dxmpay.apollon.NoProguard;
+import com.dxmpay.wallet.api.BaiduWalletDelegate;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class H5LifeCycleCallback implements Application.ActivityLifecycleCallbacks, Parcelable, NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<H5LifeCycleCallback> CREATOR;

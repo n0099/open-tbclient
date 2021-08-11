@@ -1,5 +1,5 @@
 package com.qq.e.comm.constants;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface ErrorCode {
     public static final int AD_APP_ID_BLOCKED = 5019;
     public static final int AD_DATA_EXPIRE = 5012;
@@ -22,6 +22,7 @@ public interface ErrorCode {
     public static final int DOWNLOADED_NOT_INSTALL_APK_NULL = 5043;
     public static final int DOWNLOADED_NOT_INSTALL_APK_THROTTLING = 5041;
     public static final int ERROR_AD_ID = 5038;
+    @Deprecated
     public static final int EXPRESS_RENDER_FAIL = 5022;
     public static final int IMAGE_LOAD_ERROR = 5008;
     public static final int INIT_ERROR = 2001;
@@ -52,6 +53,7 @@ public interface ErrorCode {
     public static final int POSID_ERROR = 4003;
     public static final int POSID_NULL = 400101;
     public static final int RENDER_TYPE_POSTYPE_NOTMATCH = 5010;
+    @Deprecated
     public static final int RESOURCE_LOAD_ERROR = 5007;
     public static final int REWARD_PAGE_SHOW_ERROR = 5027;
     public static final int SCREEN_ORIENTATION_ERROR = 4008;
@@ -67,11 +69,10 @@ public interface ErrorCode {
     public static final int UNKNOWN_ERROR = 6000;
     public static final int VIDEO_DOWNLOAD_FAIL = 5002;
     public static final int VIDEO_DURATION_ERROR = 5040;
-    public static final int VIDEO_LOAD_TIMEOUT = 5046;
     public static final int VIDEO_PLAY_ERROR = 5003;
     public static final int VIDEO_URL_ERROR = 5020;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface PrivateError {
         public static final int AD_DATA_DESTROYED = 9003;
         public static final int LOAD_FAIL = 9001;
@@ -79,7 +80,7 @@ public interface ErrorCode {
         public static final int PARAM_ERROR = 9002;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface ServerError {
         public static final int NOT_SUPPORT_EXPRESS_VIDEO = 107035;
         public static final int ORENTATION_MISMATCH = 100159;

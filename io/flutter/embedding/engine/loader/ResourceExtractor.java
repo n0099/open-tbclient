@@ -5,7 +5,6 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
@@ -31,7 +30,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResourceExtractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] SUPPORTED_ABIS;
@@ -50,7 +49,7 @@ public class ResourceExtractor {
     @NonNull
     public final HashSet<String> mResources;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ExtractTask extends AsyncTask<Void, Void, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +129,7 @@ public class ResourceExtractor {
                         }
                     } catch (FileNotFoundException unused) {
                     } catch (IOException e2) {
-                        Log.w(ResourceExtractor.TAG, "Exception unpacking resources: " + e2.getMessage());
+                        String str2 = "Exception unpacking resources: " + e2.getMessage();
                         ResourceExtractor.deleteFiles(this.mDataDirPath, this.mResources);
                         return false;
                     }
@@ -156,7 +155,6 @@ public class ResourceExtractor {
                     try {
                         new File(file, checkTimestamp).createNewFile();
                     } catch (IOException unused) {
-                        Log.w(ResourceExtractor.TAG, "Failed to write resource timestamp");
                     }
                 }
                 return null;

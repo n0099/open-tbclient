@@ -42,7 +42,7 @@ import java.util.TimerTask;
 import java.util.TreeSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class MultiSrcBinaryReqTask extends BinaryReqTask {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -111,7 +111,7 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
 
     private void checkAndAdjustByAverageSpeed() {
         List<WeakReference<AsyncHttpRequest>> taskHttpRequestList;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (taskHttpRequestList = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().getTaskHttpRequestList(this.myContext)) == null) {
             return;
@@ -125,17 +125,17 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
                     long testConfigurationGetLong = DownPrefUtils.testConfigurationGetLong(this.mContext, DownPrefUtils.PREF_CONFIG_DOWNLOAD_SPEED_OFFSET_MAX, 10L);
                     long testConfigurationGetLong2 = DownPrefUtils.testConfigurationGetLong(this.mContext, DownPrefUtils.PREF_CONFIG_DOWNLOAD_SPEED_OFFSET_MIN, 20L) * 1024;
                     if (!firstAvailableDownloadIpInfo.mUrl.equals(multiSrcAsyncHttpRequest.mRequestUrl) && testAverageSpeed != 0) {
-                        long j2 = multiSrcAsyncHttpRequest.mAverageSpeed;
-                        if ((j2 / testAverageSpeed) * 100 < 100 - testConfigurationGetLong && testAverageSpeed - j2 > testConfigurationGetLong2) {
+                        long j3 = multiSrcAsyncHttpRequest.mAverageSpeed;
+                        if ((j3 / testAverageSpeed) * 100 < 100 - testConfigurationGetLong && testAverageSpeed - j3 > testConfigurationGetLong2) {
                             long segEndByPos = this.mProgressInfo.getSegEndByPos(multiSrcAsyncHttpRequest.mCurFilePos);
-                            long j3 = multiSrcAsyncHttpRequest.mAverageSpeed;
-                            if (j3 == 0) {
-                                j = 2147483647L;
+                            long j4 = multiSrcAsyncHttpRequest.mAverageSpeed;
+                            if (j4 == 0) {
+                                j2 = 2147483647L;
                             } else {
-                                long j4 = multiSrcAsyncHttpRequest.mRequestBytes;
-                                j = ((segEndByPos - j4) / j3) - ((segEndByPos - j4) / testAverageSpeed);
+                                long j5 = multiSrcAsyncHttpRequest.mRequestBytes;
+                                j2 = ((segEndByPos - j5) / j4) - ((segEndByPos - j5) / testAverageSpeed);
                             }
-                            if (j > 5) {
+                            if (j2 > 5) {
                                 MultiSrcTaskMsg multiSrcTaskMsg = new MultiSrcTaskMsg();
                                 multiSrcTaskMsg.mTask = this;
                                 multiSrcTaskMsg.request = multiSrcAsyncHttpRequest;
@@ -669,10 +669,10 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
             if (this.mProgressInfo.getSegmentCount() > 0) {
                 ConnectManager.NetWorkType netWorkType = TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().getNetWorkType();
                 for (ProgressInfo.Segment segment : this.mProgressInfo.getSegments()) {
-                    long j = segment.current;
-                    long j2 = segment.end;
-                    if (j < j2) {
-                        startSegment(j, j2, 0);
+                    long j2 = segment.current;
+                    long j3 = segment.end;
+                    if (j2 < j3) {
+                        startSegment(j2, j3, 0);
                         if (netWorkType == ConnectManager.NetWorkType.TYPE_2G) {
                             return;
                         }
@@ -808,17 +808,17 @@ public class MultiSrcBinaryReqTask extends BinaryReqTask {
         }
     }
 
-    public void savePriorityDownloadIpConnectTime(String str, long j) {
+    public void savePriorityDownloadIpConnectTime(String str, long j2) {
         TreeSet<HttpDNSInfo> treeSet;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048590, this, str, j) == null) || (treeSet = this.mPriorityHttpDNSInfoSet) == null || treeSet.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048590, this, str, j2) == null) || (treeSet = this.mPriorityHttpDNSInfoSet) == null || treeSet.size() <= 0) {
             return;
         }
         Iterator<HttpDNSInfo> it = this.mPriorityHttpDNSInfoSet.iterator();
         while (it.hasNext()) {
             HttpDNSInfo next = it.next();
             if (str.equals(next.mUrl)) {
-                next.mHttpConnectTime.add(Long.valueOf(j));
+                next.mHttpConnectTime.add(Long.valueOf(j2));
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.baidu.tieba.imageProblem.httpNet;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,11 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CdnCacheItem implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TB_CDNCACHEITEM_ERROR = -1;
@@ -37,7 +37,7 @@ public class CdnCacheItem implements Serializable {
     public long mobileLastTachometerTime;
 
     /* renamed from: com.baidu.tieba.imageProblem.httpNet.CdnCacheItem$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -374,7 +374,7 @@ public class CdnCacheItem implements Serializable {
         return invokeCommon.intValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class TBIPListItem implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -99289965442562023L;

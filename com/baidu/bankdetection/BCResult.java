@@ -2,7 +2,6 @@ package com.baidu.bankdetection;
 
 import android.graphics.Bitmap;
 import android.os.Environment;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class BCResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +100,7 @@ public class BCResult {
         if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
             return;
         }
-        Log.i("BCResult", "nLineStart = " + this.nLineStart + ", nLineEnd = " + this.nLineEnd);
+        String str = "nLineStart = " + this.nLineStart + ", nLineEnd = " + this.nLineEnd;
         int i2 = this.nDstWidth * this.nDstHeight;
         int[] iArr = new int[i2];
         for (int i3 = 0; i3 < i2; i3++) {
@@ -134,10 +133,8 @@ public class BCResult {
                 iArr[((i9 + i7) * i10) + iArr3[i11 - 1]] = -65536;
                 i7++;
             } else {
-                Bitmap createBitmap = Bitmap.createBitmap(iArr, this.nDstWidth, this.nDstHeight, Bitmap.Config.ARGB_8888);
-                String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
                 try {
-                    createBitmap.compress(Bitmap.CompressFormat.JPEG, 90, new FileOutputStream(new File(absolutePath + "/bankcard/card.jpg")));
+                    Bitmap.createBitmap(iArr, this.nDstWidth, this.nDstHeight, Bitmap.Config.ARGB_8888).compress(Bitmap.CompressFormat.JPEG, 90, new FileOutputStream(new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/bankcard/card.jpg")));
                     return;
                 } catch (FileNotFoundException e2) {
                     e2.printStackTrace();

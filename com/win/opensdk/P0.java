@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class P0 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ S0 f39617a;
+    public final /* synthetic */ S0 f76453a;
 
     public P0(S0 s0) {
         Interceptable interceptable = $ic;
@@ -29,17 +29,17 @@ public class P0 extends Handler {
                 return;
             }
         }
-        this.f39617a = s0;
+        this.f76453a = s0;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 11) {
-            this.f39617a.f39667e = true;
-            this.f39617a.k.removeMessages(11);
-            Z0.a(this.f39617a.f39664b).a(new a1(this.f39617a.f39668f), 2002, (this.f39617a.b() ? this.f39617a.f39668f.getWt() : 0) * 1000).a();
-            this.f39617a.f39670h.onFail(PBError.TIMEOUT);
+            this.f76453a.f76505e = true;
+            this.f76453a.k.removeMessages(11);
+            Z0.a(this.f76453a.f76502b).a(new a1(this.f76453a.f76506f), 2002, (this.f76453a.b() ? this.f76453a.f76506f.getWt() : 0) * 1000).a();
+            this.f76453a.f76508h.onFail(PBError.TIMEOUT);
         }
     }
 }

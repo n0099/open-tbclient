@@ -1,6 +1,8 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.b.d;
+import c.a.o0.s.q.t0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -10,9 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b.d;
-import d.a.p0.s.q.s0;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class DialogLoginHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIALOG_TYPE_ONE_KEY = "yijiandenglu";
@@ -56,13 +56,13 @@ public class DialogLoginHelper {
         }
     }
 
-    public static boolean checkUpIsLogin(s0 s0Var) {
+    public static boolean checkUpIsLogin(t0 t0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, s0Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t0Var)) == null) {
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (!isLogin) {
-                skipToLoginDialogActivity(s0Var);
+                skipToLoginDialogActivity(t0Var);
             }
             return isLogin;
         }
@@ -72,14 +72,14 @@ public class DialogLoginHelper {
     public static String getOneKeyLoginActivityLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.v() ? "new_start_1" : d.w() ? "new_start_2" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? d.w() ? "new_start_1" : d.x() ? "new_start_2" : "" : (String) invokeV.objValue;
     }
 
-    public static void skipToLoginDialogActivity(s0 s0Var) {
+    public static void skipToLoginDialogActivity(t0 t0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, s0Var) == null) || s0Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, t0Var) == null) || t0Var == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2921530, s0Var));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2921530, t0Var));
     }
 }

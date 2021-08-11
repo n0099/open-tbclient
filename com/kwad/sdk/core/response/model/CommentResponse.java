@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class CommentResponse extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 7438022026198734874L;

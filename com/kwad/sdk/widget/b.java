@@ -19,28 +19,28 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public float[] f36857a;
+    public float[] f73681a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f36858b;
+    public float f73682b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Path f36859c;
+    public Path f73683c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Paint f36860d;
+    public Paint f73684d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RectF f36861e;
+    public RectF f73685e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f36862f;
+    public boolean f73686f;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -55,15 +55,15 @@ public class b {
                 return;
             }
         }
-        this.f36857a = new float[8];
+        this.f73681a = new float[8];
     }
 
     private float[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            float[] fArr = this.f36857a;
-            float f2 = this.f36858b;
+            float[] fArr = this.f73681a;
+            float f2 = this.f73682b;
             fArr[0] = f2;
             fArr[1] = f2;
             fArr[2] = f2;
@@ -82,11 +82,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             try {
-                this.f36859c.reset();
+                this.f73683c.reset();
             } catch (Exception unused) {
             }
-            this.f36859c.addRoundRect(this.f36861e, a(), Path.Direction.CW);
-            return this.f36859c;
+            this.f73683c.addRoundRect(this.f73685e, a(), Path.Direction.CW);
+            return this.f73683c;
         }
         return (Path) invokeV.objValue;
     }
@@ -94,14 +94,14 @@ public class b {
     public void a(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-            this.f36858b = f2;
+            this.f73682b = f2;
         }
     }
 
     public void a(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.f36861e.set(0.0f, 0.0f, i2, i3);
+            this.f73685e.set(0.0f, 0.0f, i2, i3);
         }
     }
 
@@ -114,22 +114,22 @@ public class b {
                 int[] iArr = {i2, i3};
                 Arrays.sort(iArr);
                 TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-                this.f36858b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i2), 0);
-                this.f36862f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i3), true);
+                this.f73682b = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, i2), 0);
+                this.f73686f = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, i3), true);
                 obtainStyledAttributes.recycle();
             }
-            this.f36859c = new Path();
-            this.f36860d = new Paint(1);
-            this.f36861e = new RectF();
-            this.f36860d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
+            this.f73683c = new Path();
+            this.f73684d = new Paint(1);
+            this.f73685e = new RectF();
+            this.f73684d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
         }
     }
 
     public void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) && this.f36862f) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) && this.f73686f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.saveLayer(this.f36861e, null, 31);
+                canvas.saveLayer(this.f73685e, null, 31);
                 return;
             }
             canvas.save();
@@ -139,9 +139,9 @@ public class b {
 
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) && this.f36862f) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) && this.f73686f) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.drawPath(b(), this.f36860d);
+                canvas.drawPath(b(), this.f73684d);
             }
             canvas.restore();
         }
@@ -151,7 +151,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.saveLayer(this.f36861e, null, 31);
+                canvas.saveLayer(this.f73685e, null, 31);
                 return;
             }
             canvas.save();
@@ -163,7 +163,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) {
             if (Build.VERSION.SDK_INT < 28) {
-                canvas.drawPath(b(), this.f36860d);
+                canvas.drawPath(b(), this.f73684d);
             }
             canvas.restore();
         }

@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.component.reward.top;
 
 import android.view.View;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface a<T extends View> {
     void a();
 

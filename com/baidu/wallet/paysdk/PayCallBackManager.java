@@ -5,12 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.pay.BindBack;
 import com.baidu.android.pay.PayCallBack;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,29 +17,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.controllers.PayController;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
-import com.baidu.wallet.core.BaseActivity;
-import com.baidu.wallet.core.NoProguard;
-import com.baidu.wallet.core.utils.BaiduWalletUtils;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.wallet.core.BaseActivity;
+import com.dxmpay.wallet.core.NoProguard;
+import com.dxmpay.wallet.core.utils.BaiduWalletUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
 import com.google.protobuf.CodedInputStream;
+import com.tencent.connect.common.Constants;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class PayCallBackManager implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isClientDead;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class PayStateModle implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PAY_STATUS_CANCEL = 2;
@@ -156,7 +151,7 @@ public final class PayCallBackManager implements NoProguard {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x004b  */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x0054  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -165,6 +160,7 @@ public final class PayCallBackManager implements NoProguard {
         if (interceptable == null || interceptable.invokeLIL(65538, null, context, i2, str) == null) {
             PayCallBack payBack = BaiduPay.getInstance().getPayBack();
             if (payBack != null) {
+                StatHelper.payEventEndWithValues(PayStatServiceEvent.PAY_DURATION, null, new String[0]);
                 payBack.onPayResult(i2, str);
             } else {
                 BaiduPay.IBindCardCallback bindCallback = BaiduPay.getInstance().getBindCallback();
@@ -178,23 +174,23 @@ public final class PayCallBackManager implements NoProguard {
                 } else {
                     BindBack bindCallbackExt = BaiduPay.getInstance().getBindCallbackExt();
                     if (bindCallbackExt != null) {
-                        StatisticManager.onEvent(StatServiceEvent.EVENT_API_ONPAYRESULT);
+                        StatisticManager.onEvent("#onPayResult");
                         bindCallbackExt.onBindResult(i2, str);
                     }
                 }
                 if (PayDataCache.getInstance().isRemotePay()) {
                     if (BaiduPay.getInstance().getRemotePayContext() != null) {
-                        try {
-                            if (i2 != 1000) {
+                        if (i2 != 1000) {
+                            try {
                                 try {
                                     b(BaiduPay.getInstance().getRemotePayContext(), i2, str);
                                 } catch (Exception e2) {
                                     e2.printStackTrace();
-                                    PayStatisticsUtil.onEventWithValue(StatServiceEvent.REMOTE_GO_BACK_REMOTE_PAY_CATCH, e2.getMessage());
+                                    StatisticManager.onEventWithValue("remoteGobackToRemotePayCatch", e2.getMessage());
                                 }
+                            } finally {
+                                BaiduPay.getInstance().resetRemotePayContext();
                             }
-                        } finally {
-                            BaiduPay.getInstance().resetRemotePayContext();
                         }
                     }
                     PayDataCache.getInstance().setIsRemotePay(false);
@@ -233,7 +229,7 @@ public final class PayCallBackManager implements NoProguard {
             intent.putExtra("payresult", str);
         }
         if (!BaiduWalletUtils.isActivity(context)) {
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
         }
         intent.addFlags(536870912);
         intent.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
@@ -245,43 +241,44 @@ public final class PayCallBackManager implements NoProguard {
     public static void callBackClientCancel(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
-            List<String> collectData = StatHelper.collectData(StatHelper.getOrderNo(), StatHelper.getHasPwd(), StatHelper.getPayType(), StatHelper.getPayWay());
-            HashMap hashMap = new HashMap();
-            hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, StatHelper.getSpNo());
-            hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
-            if (StatHelper.isPrecashierPay(StatHelper.getOrderNo())) {
-                hashMap.put("pay_category", "1");
-            }
             if (PayDataCache.getInstance().isFromPreCashier()) {
-                StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_PAY, collectData, hashMap);
-                StatisticManager.onEventWithValues(PayStatServiceEvent.PERCASHIER_PAY_FAILED, collectData, hashMap);
+                StatHelper.statServiceEvent(PayStatServiceEvent.PERCASHIER_PAY);
+                StatHelper.statServiceEvent(PayStatServiceEvent.PERCASHIER_PAY_FAILED);
             } else {
-                StatisticManager.onEventWithValues(PayStatServiceEvent.STD_PAY, collectData, hashMap);
-                StatisticManager.onEventWithValues(PayStatServiceEvent.STD_PAY_FAILED, collectData, hashMap);
+                StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY);
+                StatHelper.statServiceEvent(PayStatServiceEvent.STD_PAY_FAILED);
             }
-            PayStatisticsUtil.onEventWithValue(StatServiceEvent.EVENT_PAY_END_CALLBACK, str);
-            a(context, 2, new PayStateModle(2, "").toString());
+            StatisticManager.onEventWithValue("#callBackClientCancel", str);
+            PayStateModle payStateModle = new PayStateModle(2, "");
+            StatHelper.cacheCodeAndMsg("2", payStateModle.toString());
+            a(context, 2, payStateModle.toString());
         }
     }
 
     public static void callBackClientClear(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, str) == null) {
-            a(context, 1000, new PayStateModle(1000, "").toString());
+            PayStateModle payStateModle = new PayStateModle(1000, "");
+            StatHelper.cacheCodeAndMsg(Constants.DEFAULT_UIN, payStateModle.toString());
+            a(context, 1000, payStateModle.toString());
         }
     }
 
     public static void callBackClientPaying(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, context) == null) {
-            a(context, 1, new PayStateModle(1, "").toString());
+            PayStateModle payStateModle = new PayStateModle(1, "");
+            StatHelper.cacheCodeAndMsg("1", "paying");
+            a(context, 1, payStateModle.toString());
         }
     }
 
     public static void callBackClientSuccess(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, str) == null) {
-            a(context, 0, new PayStateModle(0, str).toString());
+            PayStateModle payStateModle = new PayStateModle(0, str);
+            StatHelper.cacheCodeAndMsg("0", "paySuccess");
+            a(context, 0, payStateModle.toString());
         }
     }
 }

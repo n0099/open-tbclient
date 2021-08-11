@@ -15,42 +15,42 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c extends com.baidu.mobads.cid.cesium.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public a.C0125a f8256d;
+    public a.C1673a f42546d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f8257e;
+    public a f42547e;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f8258a;
+        public final /* synthetic */ c f42548a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.mobads.cid.cesium.f.b f8259b;
+        public com.baidu.mobads.cid.cesium.f.b f42549b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f8260c;
+        public long f42550c;
 
         /* renamed from: d  reason: collision with root package name */
-        public g.a f8261d;
+        public g.a f42551d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f8262e;
+        public boolean f42552e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f8263f;
+        public boolean f42553f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f8264g;
+        public int f42554g;
 
         public a(c cVar) {
             Interceptable interceptable = $ic;
@@ -67,9 +67,9 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
                     return;
                 }
             }
-            this.f8258a = cVar;
-            this.f8259b = new com.baidu.mobads.cid.cesium.f.b();
-            this.f8263f = true;
+            this.f42548a = cVar;
+            this.f42549b = new com.baidu.mobads.cid.cesium.f.b();
+            this.f42553f = true;
         }
 
         private boolean a(String str) {
@@ -79,10 +79,10 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
-                        this.f8260c = jSONObject.getLong("pub_lst_ts");
-                        this.f8261d = g.a(jSONObject.getString("pub_info"));
-                        this.f8264g = jSONObject.getInt("d_form_ver");
-                        this.f8262e = false;
+                        this.f42550c = jSONObject.getLong("pub_lst_ts");
+                        this.f42551d = g.a(jSONObject.getString("pub_info"));
+                        this.f42554g = jSONObject.getInt("d_form_ver");
+                        this.f42552e = false;
                         return true;
                     } catch (Exception unused) {
                     }
@@ -95,15 +95,15 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f8260c : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42550c : invokeV.longValue;
         }
 
         public boolean a(PackageInfo packageInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo)) == null) {
-                String a2 = this.f8258a.f8256d.a(new File(packageInfo.applicationInfo.dataDir)).a("pub.dat", true);
-                this.f8263f = false;
+                String a2 = this.f42548a.f42546d.a(new File(packageInfo.applicationInfo.dataDir)).a("pub.dat", true);
+                this.f42553f = false;
                 return a(a2);
             }
             return invokeL.booleanValue;
@@ -112,39 +112,39 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         public g.a b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8261d : (g.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42551d : (g.a) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class b extends a.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ c f8265a;
+        public final /* synthetic */ c f42555a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f8266b;
+        public int f42556b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f8267c;
+        public String f42557c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f8268d;
+        public long f42558d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f8269e;
+        public long f42559e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f8270f;
+        public long f42560f;
 
         /* renamed from: g  reason: collision with root package name */
-        public g.a f8271g;
+        public g.a f42561g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(c cVar, String str) {
-            super(cVar.f8256d, str);
+            super(cVar.f42546d, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -155,13 +155,13 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((a.C0125a) objArr2[0], (String) objArr2[1]);
+                    super((a.C1673a) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f8265a = cVar;
+            this.f42555a = cVar;
         }
 
         public void a(a aVar) {
@@ -176,21 +176,21 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         public void a(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-                this.f8267c = jSONObject.getString("pkg");
-                this.f8269e = jSONObject.getInt("tar_pkg_lst_pub_ts");
-                this.f8268d = jSONObject.getLong("last_fe_ts");
-                this.f8271g = g.a(jSONObject.getString("info"));
-                this.f8270f = jSONObject.getLong("tar_pkg_lst_up_ts");
-                this.f8266b = jSONObject.getInt("d_form_ver");
+                this.f42557c = jSONObject.getString("pkg");
+                this.f42559e = jSONObject.getInt("tar_pkg_lst_pub_ts");
+                this.f42558d = jSONObject.getLong("last_fe_ts");
+                this.f42561g = g.a(jSONObject.getString("info"));
+                this.f42560f = jSONObject.getLong("tar_pkg_lst_up_ts");
+                this.f42556b = jSONObject.getInt("d_form_ver");
             }
         }
 
-        public boolean a(long j) {
+        public boolean a(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-                if (this.f8268d != j) {
-                    this.f8268d = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+                if (this.f42558d != j2) {
+                    this.f42558d = j2;
                     a(true);
                     return true;
                 }
@@ -203,10 +203,10 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
-                if (aVar.equals(this.f8271g)) {
+                if (aVar.equals(this.f42561g)) {
                     return false;
                 }
-                this.f8271g = aVar;
+                this.f42561g = aVar;
                 a(true);
                 return true;
             }
@@ -217,10 +217,10 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                if (str.equals(this.f8267c)) {
+                if (str.equals(this.f42557c)) {
                     return false;
                 }
-                this.f8267c = str;
+                this.f42557c = str;
                 a(true);
                 return true;
             }
@@ -231,21 +231,21 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         public void b(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-                jSONObject.put("pkg", this.f8267c);
-                jSONObject.put("last_fe_ts", this.f8268d);
-                jSONObject.put("tar_pkg_lst_pub_ts", this.f8269e);
-                jSONObject.put("info", this.f8271g.b());
-                jSONObject.put("tar_pkg_lst_up_ts", this.f8270f);
+                jSONObject.put("pkg", this.f42557c);
+                jSONObject.put("last_fe_ts", this.f42558d);
+                jSONObject.put("tar_pkg_lst_pub_ts", this.f42559e);
+                jSONObject.put("info", this.f42561g.b());
+                jSONObject.put("tar_pkg_lst_up_ts", this.f42560f);
                 jSONObject.put("d_form_ver", 1);
             }
         }
 
-        public boolean b(long j) {
+        public boolean b(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
-                if (this.f8269e != j) {
-                    this.f8269e = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
+                if (this.f42559e != j2) {
+                    this.f42559e = j2;
                     a(true);
                     return true;
                 }
@@ -257,15 +257,15 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         public String c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f8267c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f42557c : (String) invokeV.objValue;
         }
 
-        public boolean c(long j) {
+        public boolean c(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-                if (this.f8270f != j) {
-                    this.f8270f = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
+                if (this.f42560f != j2) {
+                    this.f42560f = j2;
                     a(true);
                     return true;
                 }
@@ -277,13 +277,13 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         public g.a d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f8271g : (g.a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f42561g : (g.a) invokeV.objValue;
         }
 
         public long e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f8270f : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f42560f : invokeV.longValue;
         }
     }
 
@@ -304,7 +304,7 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
                 return;
             }
         }
-        this.f8257e = new a(this);
+        this.f42547e = new a(this);
     }
 
     @Override // com.baidu.mobads.cid.cesium.b.a
@@ -316,14 +316,14 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, dVar)) == null) {
             b bVar = null;
             try {
-                packageInfo = this.f8240a.f8244a.getPackageManager().getPackageInfo(str, 0);
+                packageInfo = this.f42530a.f42534a.getPackageManager().getPackageInfo(str, 0);
             } catch (PackageManager.NameNotFoundException unused) {
                 packageInfo = null;
             }
             if (packageInfo == null) {
                 return a.e.a(-2);
             }
-            if (dVar.f8250a) {
+            if (dVar.f42540a) {
                 bVar = new b(this, str);
                 bVar.a();
                 if (str.equals(bVar.c()) && packageInfo.lastUpdateTime == bVar.e()) {
@@ -333,7 +333,7 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
             }
             a aVar = new a(this);
             if (aVar.a(packageInfo)) {
-                if (dVar.f8250a && bVar != null) {
+                if (dVar.f42540a && bVar != null) {
                     bVar.a(aVar);
                     bVar.a(System.currentTimeMillis());
                     bVar.c(packageInfo.lastUpdateTime);
@@ -352,7 +352,7 @@ public class c extends com.baidu.mobads.cid.cesium.b.a {
     public void a(a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f8256d = this.f8241b.a("isc");
+            this.f42546d = this.f42531b.a("isc");
         }
     }
 }

@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class BIMRtcPbGenerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_NAME = "bim_rtc";
@@ -63,10 +63,10 @@ public final class BIMRtcPbGenerator {
         }
     }
 
-    private IMPushPb.Action generateRequestAction(String str, String str2, long j, long j2, long j3, String str3, long j4) {
+    private IMPushPb.Action generateRequestAction(String str, String str2, long j2, long j3, long j4, String str3, long j5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j).setResponseTime(j2).setErrorCode(j3).setExt(str3).setAliasId(j4).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str3, Long.valueOf(j5)})) == null) ? IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.REQUEST).setRequest(IMPushPb.Request.newBuilder().setMethod(str).setRequestId(str2).setTimestamp(j2).setResponseTime(j3).setErrorCode(j4).setExt(str3).setAliasId(j5).build()).build() : (IMPushPb.Action) invokeCommon.objValue;
     }
 
     private IMPushPb.Common getIMCommon(Context context) {
@@ -134,10 +134,10 @@ public final class BIMRtcPbGenerator {
         }
     }
 
-    private void putRequestToAction(String str, String str2, long j, long j2, long j3, String str3, long j4) {
+    private void putRequestToAction(String str, String str2, long j2, long j3, long j4, String str3, long j5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str3, Long.valueOf(j4)}) == null) {
-            putActions(generateRequestAction(str, str2, j, j2, j3, str3, j4));
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str3, Long.valueOf(j5)}) == null) {
+            putActions(generateRequestAction(str, str2, j2, j3, j4, str3, j5));
         }
     }
 

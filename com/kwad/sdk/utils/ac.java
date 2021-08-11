@@ -13,7 +13,6 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.fragment.FileProvider;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -177,7 +176,7 @@ public class ac {
             try {
                 File file = new File(str);
                 Intent intent = new Intent("android.intent.action.VIEW");
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
                 intent.addFlags(3);
                 Uri uriForFile = Build.VERSION.SDK_INT >= 24 ? FileProvider.getUriForFile(context, context.getPackageName() + ".adFileProvider", file) : Uri.fromFile(file);
                 intent.setDataAndType(uriForFile, "application/vnd.android.package-archive");

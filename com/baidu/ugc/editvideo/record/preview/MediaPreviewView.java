@@ -8,6 +8,10 @@ import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.util.AttributeSet;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.a;
+import c.a.v0.t.h;
+import c.a.v0.t.v;
+import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,14 +23,10 @@ import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
 import com.baidu.ugc.editvideo.record.processor.IEffectProcessor;
 import com.baidu.ugc.editvideo.record.renderer.IMediaRenderer;
 import com.baidu.ugc.editvideo.record.renderer.MediaGLRenderer;
-import d.a.a0.b.a.e;
-import d.a.w0.a;
-import d.a.w0.t.h;
-import d.a.w0.t.v;
 import java.util.List;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.OnFrameAvailableListener, GLSurfaceView.Renderer, IMediaLifeCycle, MediaGLRenderer.OnDrawFrameFrequencyListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,7 +47,7 @@ public class MediaPreviewView extends GLSurfaceView implements SurfaceTexture.On
     public float mTx;
     public float mTy;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface OnSurfaceTextureCreateListener {
         void onSurfaceTextureCreate(SurfaceTexture surfaceTexture, int i2);
     }

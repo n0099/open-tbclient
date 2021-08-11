@@ -4,21 +4,21 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
+import c.a.m.f;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.l.f;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f2610a = false;
+    public static final boolean f36485a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f2611b = "Util";
+    public static final String f36486b = "Util";
     public transient /* synthetic */ FieldHolder $fh;
 
     public Util() {

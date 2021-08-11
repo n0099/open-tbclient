@@ -5,12 +5,12 @@ import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f27979a;
+    public static boolean f63816a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -25,7 +25,7 @@ public class y {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("{\"code\":");
-            sb.append(th instanceof s ? ((s) th).f27947a : 0);
+            sb.append(th instanceof s ? ((s) th).f63784a : 0);
             sb.append("}");
             return sb.toString();
         }
@@ -39,7 +39,7 @@ public class y {
             if (TextUtils.isEmpty(str)) {
                 return "{\"code\":1}";
             }
-            String substring = f27979a ? str.substring(1, str.length() - 1) : "";
+            String substring = f63816a ? str.substring(1, str.length() - 1) : "";
             String str2 = "{\"code\":1,\"__data\":" + str;
             if (!substring.isEmpty()) {
                 return str2 + "," + substring + "}";
@@ -52,7 +52,7 @@ public class y {
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
-            f27979a = z;
+            f63816a = z;
         }
     }
 }

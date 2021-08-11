@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.baidu.wallet.paysdk.datamodel.ErrorContentResponse;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class QrLoginAction {
     public static final /* synthetic */ QrLoginAction[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

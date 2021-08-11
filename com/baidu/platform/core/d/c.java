@@ -11,6 +11,7 @@ import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.mapapi.search.route.DrivingRouteResult;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +23,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -286,7 +287,7 @@ public class c extends k {
                 if (optJSONObject2 == null) {
                     return false;
                 }
-                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("option");
+                JSONObject optJSONObject3 = optJSONObject2.optJSONObject(SpeedStatsUtils.UBC_KEY_OPTION);
                 JSONObject optJSONObject4 = optJSONObject2.optJSONObject("content");
                 if (optJSONObject3 == null || optJSONObject4 == null) {
                     return false;

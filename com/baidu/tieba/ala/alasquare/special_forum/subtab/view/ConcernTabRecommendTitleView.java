@@ -3,6 +3,8 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import c.a.p0.a0.b;
+import c.a.p0.v.d.g.c.g;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -14,27 +16,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a0.b;
-import d.a.q0.v.d.f.c.g;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ConcernTabRecommendTitleView extends b<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewHolder m;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public View f14199a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public TextView f14200b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public View f14201c;
+        public View devider;
+        public View root;
+        public TextView textView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -54,9 +48,9 @@ public class ConcernTabRecommendTitleView extends b<g> {
                     return;
                 }
             }
-            this.f14199a = view;
-            this.f14200b = (TextView) view.findViewById(R.id.title);
-            this.f14201c = this.f14199a.findViewById(R.id.divider);
+            this.root = view;
+            this.textView = (TextView) view.findViewById(R.id.title);
+            this.devider = this.root.findViewById(R.id.divider);
         }
     }
 
@@ -79,22 +73,22 @@ public class ConcernTabRecommendTitleView extends b<g> {
                 return;
             }
         }
-        this.m = new ViewHolder(k());
-        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.m = new ViewHolder(j());
+        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.q0.a0.b
-    public int g() {
+    @Override // c.a.p0.a0.b
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.special_bar_concern_recommend_title : invokeV.intValue;
     }
 
-    @Override // d.a.q0.a0.b
-    public void m(TbPageContext<?> tbPageContext, int i2) {
+    @Override // c.a.p0.a0.b
+    public void l(TbPageContext<?> tbPageContext, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            SkinManager.setViewTextColor(this.m.f14200b, R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.m.textView, R.color.CAM_X0109);
         }
     }
 
@@ -106,18 +100,18 @@ public class ConcernTabRecommendTitleView extends b<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.q0.a0.b
-    /* renamed from: q */
-    public void l(g gVar) {
+    @Override // c.a.p0.a0.b
+    /* renamed from: p */
+    public void k(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (viewHolder = this.m) == null) {
             return;
         }
-        if (gVar.f65174e) {
-            viewHolder.f14201c.setVisibility(0);
+        if (gVar.f24989e) {
+            viewHolder.devider.setVisibility(0);
         } else {
-            viewHolder.f14201c.setVisibility(8);
+            viewHolder.devider.setVisibility(8);
         }
     }
 }

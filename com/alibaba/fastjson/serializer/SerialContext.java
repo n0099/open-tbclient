@@ -1,13 +1,12 @@
 package com.alibaba.fastjson.serializer;
 
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class SerialContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +92,7 @@ public class SerialContext {
                 sb.append(((Integer) this.fieldName).intValue());
                 sb.append(']');
             } else {
-                sb.append(IStringUtil.EXTENSION_SEPARATOR);
+                sb.append('.');
                 String obj2 = this.fieldName.toString();
                 int i2 = 0;
                 while (true) {

@@ -40,7 +40,7 @@ import com.bytedance.sdk.openadsdk.q.s;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,32 +53,34 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public AtomicBoolean G;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f30831a;
+    public final Context f66757a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final m f30832b;
+    public final m f66758b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c f30833c;
+    public c f66759c;
 
     /* renamed from: d  reason: collision with root package name */
-    public FrameLayout f30834d;
+    public FrameLayout f66760d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30835e;
+    public boolean f66761e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f30836f;
+    public RelativeLayout f66762f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f30837g;
+    public ImageView f66763g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f30838h;
+    public ImageView f66764h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f30839i;
-    public boolean j;
+    public ImageView f66765i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f66766j;
     public String k;
     public int l;
     public AtomicBoolean m;
@@ -96,12 +98,12 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public final w y;
     public boolean z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void a(boolean z, long j, long j2, long j3, boolean z2);
+        void a(boolean z, long j2, long j3, long j4, boolean z2);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(View view, int i2);
     }
@@ -129,41 +131,41 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
 
     private void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, this, z) == null) || this.f30832b == null || this.f30833c == null) {
+        if (!(interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, this, z) == null) || this.f66758b == null || this.f66759c == null) {
             return;
         }
         boolean q = q();
         r();
-        if (q && this.f30833c.x()) {
-            k.b("NativeVideoAdView", "changeVideoStatus---isFromDetailPage()=" + q + "，mNativeVideoController.isPlayComplete()=" + this.f30833c.x());
+        if (q && this.f66759c.x()) {
+            k.b("NativeVideoAdView", "changeVideoStatus---isFromDetailPage()=" + q + "，mNativeVideoController.isPlayComplete()=" + this.f66759c.x());
             b(true);
             e();
-        } else if (z && !this.f30833c.x() && !this.f30833c.u()) {
-            if (this.f30833c.v() != null && this.f30833c.v().i()) {
+        } else if (z && !this.f66759c.x() && !this.f66759c.u()) {
+            if (this.f66759c.v() != null && this.f66759c.v().i()) {
                 if (this.q) {
                     if ("ALP-AL00".equals(this.A)) {
-                        this.f30833c.k();
+                        this.f66759c.k();
                     } else {
                         if (!com.bytedance.sdk.openadsdk.core.h.d().u()) {
                             q = true;
                         }
-                        ((g) this.f30833c).f(q);
+                        ((g) this.f66759c).f(q);
                     }
                     c.b bVar = this.C;
                     if (bVar != null) {
                         bVar.g_();
                     }
                 }
-            } else if (this.q && this.f30833c.v() == null) {
+            } else if (this.q && this.f66759c.v() == null) {
                 if (!this.D.get()) {
                     this.D.set(true);
                 }
                 this.G.set(false);
                 d();
             }
-        } else if (this.f30833c.v() == null || !this.f30833c.v().g()) {
+        } else if (this.f66759c.v() == null || !this.f66759c.v().g()) {
         } else {
-            this.f30833c.i();
+            this.f66759c.i();
             c.b bVar2 = this.C;
             if (bVar2 != null) {
                 bVar2.f_();
@@ -182,7 +184,7 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            addView(a(this.f30831a));
+            addView(a(this.f66757a));
             l();
         }
     }
@@ -192,26 +194,26 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || !(this instanceof NativeDrawVideoTsView) || this.m.get() || com.bytedance.sdk.openadsdk.core.h.d().v() == null) {
             return;
         }
-        this.f30839i.setImageBitmap(com.bytedance.sdk.openadsdk.core.h.d().v());
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f30839i.getLayoutParams();
+        this.f66765i.setImageBitmap(com.bytedance.sdk.openadsdk.core.h.d().v());
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f66765i.getLayoutParams();
         int b2 = (int) s.b(getContext(), this.l);
         layoutParams.width = b2;
         layoutParams.height = b2;
-        this.f30839i.setLayoutParams(layoutParams);
+        this.f66765i.setLayoutParams(layoutParams);
         this.m.set(true);
     }
 
     private void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.f30833c = a(this.f30831a, this.f30834d, this.f30832b, this.k, !w(), this.t, this.u);
+            this.f66759c = a(this.f66757a, this.f66760d, this.f66758b, this.k, !w(), this.t, this.u);
             m();
             this.p.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this) { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ NativeVideoTsView f30840a;
+                public final /* synthetic */ NativeVideoTsView f66767a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -228,16 +230,16 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
                             return;
                         }
                     }
-                    this.f30840a = this;
+                    this.f66767a = this;
                 }
 
                 @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                 public void onGlobalLayout() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        NativeVideoTsView nativeVideoTsView = this.f30840a;
-                        ((g) nativeVideoTsView.f30833c).a(nativeVideoTsView.p.getWidth(), this.f30840a.p.getHeight());
-                        this.f30840a.p.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                        NativeVideoTsView nativeVideoTsView = this.f66767a;
+                        ((g) nativeVideoTsView.f66759c).a(nativeVideoTsView.p.getWidth(), this.f66767a.p.getHeight());
+                        this.f66767a.p.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                     }
                 }
             });
@@ -247,12 +249,12 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     private void m() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (cVar = this.f30833c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65547, this) == null) || (cVar = this.f66759c) == null) {
             return;
         }
         cVar.d(this.q);
-        ((g) this.f30833c).a((g.a) this);
-        this.f30833c.a(this);
+        ((g) this.f66759c).a((g.a) this);
+        this.f66759c.a(this);
     }
 
     private void n() {
@@ -269,7 +271,7 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             if (!this.D.get()) {
                 this.D.set(true);
-                c cVar = this.f30833c;
+                c cVar = this.f66759c;
                 if (cVar != null) {
                     cVar.a(true, 3);
                 }
@@ -310,21 +312,21 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     private void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            if (this.f30833c == null || w() || !com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_is_update_flag", false)) {
+            if (this.f66759c == null || w() || !com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_is_update_flag", false)) {
                 return;
             }
             boolean a2 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_native_video_complete", false);
             long a3 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_current_play_position", -1L);
-            long a4 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_total_play_duration", this.f30833c.q());
-            long a5 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_duration", this.f30833c.t());
-            this.f30833c.c(a2);
+            long a4 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_total_play_duration", this.f66759c.q());
+            long a5 = com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_duration", this.f66759c.t());
+            this.f66759c.c(a2);
             if (a2) {
-                this.f30833c.a(a5);
+                this.f66759c.a(a5);
             } else {
-                this.f30833c.a(a3);
+                this.f66759c.a(a3);
             }
-            this.f30833c.b(a4);
-            this.f30833c.c(a5);
+            this.f66759c.b(a4);
+            this.f66759c.c(a5);
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_multi_native_video_data", "key_video_is_update_flag", Boolean.FALSE);
             k.f("MultiProcess", "onResumeFeedNativeVideoControllerData-isComplete=" + a2 + ",position=" + a3 + ",totalPlayDuration=" + a4 + ",duration=" + a5);
         }
@@ -333,19 +335,19 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     private boolean t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) ? 2 == o.h().d(q.d(this.f30832b.ao())) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) ? 2 == o.h().d(q.d(this.f66758b.ao())) : invokeV.booleanValue;
     }
 
     private boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) ? 5 == o.h().d(q.d(this.f30832b.ao())) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) ? 5 == o.h().d(q.d(this.f66758b.ao())) : invokeV.booleanValue;
     }
 
     private boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? this.f30835e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? this.f66761e : invokeV.booleanValue;
     }
 
     private boolean w() {
@@ -357,8 +359,8 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     private void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            s.e(this.f30838h);
-            s.e(this.f30836f);
+            s.e(this.f66764h);
+            s.e(this.f66762f);
         }
     }
 
@@ -372,32 +374,32 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public void b() {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (mVar = this.f30832b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (mVar = this.f66758b) == null) {
             return;
         }
         int d2 = q.d(mVar.ao());
         int d3 = o.h().d(d2);
         if (d3 == 1) {
-            this.q = n.d(this.f30831a);
+            this.q = n.d(this.f66757a);
         } else if (d3 == 2) {
-            this.q = n.e(this.f30831a) || n.d(this.f30831a) || n.f(this.f30831a);
+            this.q = n.e(this.f66757a) || n.d(this.f66757a) || n.f(this.f66757a);
         } else if (d3 == 3) {
             this.q = false;
         } else if (d3 == 4) {
             this.n = true;
         } else if (d3 == 5) {
-            this.q = n.d(this.f30831a) || n.f(this.f30831a);
+            this.q = n.d(this.f66757a) || n.f(this.f66757a);
         }
         if (!this.r) {
-            this.f30835e = o.h().b(d2);
+            this.f66761e = o.h().b(d2);
         } else {
-            this.f30835e = false;
+            this.f66761e = false;
         }
         if ("splash_ad".equals(this.k)) {
             this.q = true;
-            this.f30835e = true;
+            this.f66761e = true;
         }
-        c cVar = this.f30833c;
+        c cVar = this.f66759c;
         if (cVar != null) {
             cVar.d(this.q);
         }
@@ -407,56 +409,56 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-    public void b(long j, int i2) {
+    public void b(long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            c cVar = this.f30833c;
+            c cVar = this.f66759c;
             if (cVar == null) {
                 l();
             } else if ((cVar instanceof g) && !w()) {
-                ((g) this.f30833c).g();
+                ((g) this.f66759c).g();
             }
-            if (this.f30833c == null || !this.D.get()) {
+            if (this.f66759c == null || !this.D.get()) {
                 return;
             }
             this.D.set(false);
             b();
             if (i()) {
-                s.a((View) this.f30836f, 8);
-                ImageView imageView = this.f30838h;
+                s.a((View) this.f66762f, 8);
+                ImageView imageView = this.f66764h;
                 if (imageView != null) {
                     s.a((View) imageView, 8);
                 }
-                m mVar = this.f30832b;
+                m mVar = this.f66758b;
                 if (mVar != null && mVar.V() != null) {
                     com.bytedance.sdk.openadsdk.n.f.b bVar = new com.bytedance.sdk.openadsdk.n.f.b();
-                    bVar.a(TextUtils.isEmpty(this.s) ? this.f30832b.V().i() : this.s);
-                    bVar.d(this.f30832b.ak());
+                    bVar.a(TextUtils.isEmpty(this.s) ? this.f66758b.V().i() : this.s);
+                    bVar.d(this.f66758b.ak());
                     bVar.b(this.p.getWidth());
                     bVar.c(this.p.getHeight());
-                    bVar.e(this.f30832b.ao());
+                    bVar.e(this.f66758b.ao());
                     bVar.a(0L);
                     bVar.a(v());
                     bVar.c(CacheDirConstants.getFeedCacheDir());
-                    bVar.b(this.f30832b.V().l());
-                    this.f30833c.a(bVar);
-                    this.f30833c.c(false);
+                    bVar.b(this.f66758b.V().l());
+                    this.f66759c.a(bVar);
+                    this.f66759c.c(false);
                     return;
                 }
                 k.f("NativeVideoAdView", "attachTask materialMeta.getVideo() is null !!");
-            } else if (this.f30833c.x()) {
-                k.b("NativeVideoAdView", "attachTask-mNativeVideoController.isPlayComplete()=" + this.f30833c.x());
+            } else if (this.f66759c.x()) {
+                k.b("NativeVideoAdView", "attachTask-mNativeVideoController.isPlayComplete()=" + this.f66759c.x());
                 b(true);
             } else {
                 k.c("NativeVideoAdView", "attachTask.......mRlImgCover.....VISIBLE");
                 h();
-                s.a((View) this.f30836f, 0);
+                s.a((View) this.f66762f, 0);
             }
         }
     }
@@ -475,24 +477,24 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public c getNativeVideoController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f30833c : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f66759c : (c) invokeV.objValue;
     }
 
     public void h() {
         ViewStub viewStub;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.f30831a == null || (viewStub = this.B) == null || viewStub.getParent() == null || this.f30832b == null || this.f30836f != null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || this.f66757a == null || (viewStub = this.B) == null || viewStub.getParent() == null || this.f66758b == null || this.f66762f != null) {
             return;
         }
-        this.f30836f = (RelativeLayout) this.B.inflate();
-        this.f30837g = (ImageView) findViewById(t.e(this.f30831a, "tt_native_video_img_id"));
-        ImageView imageView = (ImageView) findViewById(t.e(this.f30831a, "tt_native_video_play"));
-        this.f30839i = imageView;
-        if (this.j) {
+        this.f66762f = (RelativeLayout) this.B.inflate();
+        this.f66763g = (ImageView) findViewById(t.e(this.f66757a, "tt_native_video_img_id"));
+        ImageView imageView = (ImageView) findViewById(t.e(this.f66757a, "tt_native_video_play"));
+        this.f66765i = imageView;
+        if (this.f66766j) {
             s.a((View) imageView, 0);
         }
-        if (this.f30832b.V() != null && this.f30832b.V().h() != null) {
-            ImageLoaderWrapper.from(this.f30832b.V().h()).to(this.f30837g);
+        if (this.f66758b.V() != null && this.f66758b.V().h() != null) {
+            ImageLoaderWrapper.from(this.f66758b.V().h()).to(this.f66763g);
         }
         k();
     }
@@ -507,7 +509,7 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         c cVar;
         i w;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (cVar = this.f30833c) == null || (w = cVar.w()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (cVar = this.f66759c) == null || (w = cVar.w()) == null) {
             return;
         }
         w.e();
@@ -554,8 +556,8 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, motionEvent)) == null) {
-            if (!this.r && (aVar = this.o) != null && (cVar = this.f30833c) != null) {
-                aVar.a(cVar.x(), this.f30833c.t(), this.f30833c.q(), this.f30833c.n(), this.q);
+            if (!this.r && (aVar = this.o) != null && (cVar = this.f66759c) != null) {
+                aVar.a(cVar.x(), this.f66759c.t(), this.f66759c.q(), this.f66759c.n(), this.q);
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -581,17 +583,17 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             super.onWindowFocusChanged(z);
             s();
-            if (q() && (cVar4 = this.f30833c) != null && cVar4.x()) {
+            if (q() && (cVar4 = this.f66759c) != null && cVar4.x()) {
                 r();
-                s.a((View) this.f30836f, 8);
+                s.a((View) this.f66762f, 8);
                 b(true);
                 e();
                 return;
             }
             b();
-            if (!w() && i() && (cVar2 = this.f30833c) != null && !cVar2.u()) {
+            if (!w() && i() && (cVar2 = this.f66759c) != null && !cVar2.u()) {
                 if (this.y != null) {
-                    if (z && (cVar3 = this.f30833c) != null && !cVar3.x()) {
+                    if (z && (cVar3 = this.f66759c) != null && !cVar3.x()) {
                         this.y.obtainMessage(1).sendToTarget();
                         return;
                     }
@@ -600,7 +602,7 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
                 }
             } else if (i()) {
             } else {
-                if (!z && (cVar = this.f30833c) != null && cVar.v() != null && this.f30833c.v().g()) {
+                if (!z && (cVar = this.f66759c) != null && cVar.v() != null && this.f66759c.v().g()) {
                     this.y.removeMessages(1);
                     c(false);
                 } else if (z) {
@@ -623,35 +625,35 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
             if (this.E) {
                 this.E = i2 == 0;
             }
-            if (q() && (cVar3 = this.f30833c) != null && cVar3.x()) {
+            if (q() && (cVar3 = this.f66759c) != null && cVar3.x()) {
                 r();
-                s.a((View) this.f30836f, 8);
+                s.a((View) this.f66762f, 8);
                 b(true);
                 e();
                 return;
             }
             b();
-            if (w() || !i() || (cVar = this.f30833c) == null || cVar.u() || (mVar = this.f30832b) == null) {
+            if (w() || !i() || (cVar = this.f66759c) == null || cVar.u() || (mVar = this.f66758b) == null) {
                 return;
             }
             if (this.w && mVar.V() != null) {
                 com.bytedance.sdk.openadsdk.n.f.b bVar = new com.bytedance.sdk.openadsdk.n.f.b();
-                bVar.a(TextUtils.isEmpty(this.s) ? this.f30832b.V().i() : this.s);
-                bVar.d(this.f30832b.ak());
+                bVar.a(TextUtils.isEmpty(this.s) ? this.f66758b.V().i() : this.s);
+                bVar.d(this.f66758b.ak());
                 bVar.b(this.p.getWidth());
                 bVar.c(this.p.getHeight());
-                bVar.e(this.f30832b.ao());
+                bVar.e(this.f66758b.ao());
                 bVar.a(this.x);
                 bVar.a(v());
                 bVar.c(CacheDirConstants.getFeedCacheDir());
-                bVar.b(this.f30832b.V().l());
-                this.f30833c.a(bVar);
+                bVar.b(this.f66758b.V().l());
+                this.f66759c.a(bVar);
                 this.w = false;
-                s.a((View) this.f30836f, 8);
+                s.a((View) this.f66762f, 8);
             } else {
                 k.f("NativeVideoAdView", "attachTask materialMeta.getVideo() is null !!");
             }
-            if (i2 != 0 || this.y == null || (cVar2 = this.f30833c) == null || cVar2.x()) {
+            if (i2 != 0 || this.y == null || (cVar2 = this.f66759c) == null || cVar2.x()) {
                 return;
             }
             this.y.obtainMessage(1).sendToTarget();
@@ -668,7 +670,7 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public void setDrawVideoListener(TTDrawFeedAd.DrawVideoListener drawVideoListener) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, drawVideoListener) == null) || (cVar = this.f30833c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, drawVideoListener) == null) || (cVar = this.f66759c) == null) {
             return;
         }
         ((g) cVar).a(drawVideoListener);
@@ -677,31 +679,31 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public void setIsAutoPlay(boolean z) {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048605, this, z) == null) || this.z || (mVar = this.f30832b) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048605, this, z) == null) || this.z || (mVar = this.f66758b) == null) {
             return;
         }
         int d2 = o.h().d(q.d(mVar.ao()));
-        if (z && d2 != 4 && (!n.e(this.f30831a) ? !(!n.f(this.f30831a) ? n.d(this.f30831a) : t() || u()) : !t())) {
+        if (z && d2 != 4 && (!n.e(this.f66757a) ? !(!n.f(this.f66757a) ? n.d(this.f66757a) : t() || u()) : !t())) {
             z = false;
         }
         this.q = z;
-        c cVar = this.f30833c;
+        c cVar = this.f66759c;
         if (cVar != null) {
             cVar.d(z);
         }
         if (!this.q) {
             h();
-            RelativeLayout relativeLayout = this.f30836f;
+            RelativeLayout relativeLayout = this.f66762f;
             if (relativeLayout != null) {
                 s.a((View) relativeLayout, 0);
-                if (this.f30832b.V() != null) {
-                    ImageLoaderWrapper.from(this.f30832b.V().h()).to(this.f30837g);
+                if (this.f66758b.V() != null) {
+                    ImageLoaderWrapper.from(this.f66758b.V().h()).to(this.f66763g);
                 } else {
                     k.f("NativeVideoAdView", "attachTask materialMeta.getVideo() is null !!");
                 }
             }
         } else {
-            s.a((View) this.f30836f, 8);
+            s.a((View) this.f66762f, 8);
         }
         this.z = true;
     }
@@ -709,8 +711,8 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public void setIsQuiet(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048606, this, z) == null) {
-            this.f30835e = z;
-            c cVar = this.f30833c;
+            this.f66761e = z;
+            c cVar = this.f66759c;
             if (cVar != null) {
                 cVar.b(z);
             }
@@ -720,7 +722,7 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public void setNativeVideoAdListener(c.a aVar) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048607, this, aVar) == null) || (cVar = this.f30833c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048607, this, aVar) == null) || (cVar = this.f66759c) == null) {
             return;
         }
         cVar.a(aVar);
@@ -729,21 +731,21 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public void setNativeVideoController(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048608, this, cVar) == null) {
-            this.f30833c = cVar;
+            this.f66759c = cVar;
         }
     }
 
     public void setNeedNativeVideoPlayBtnVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
-            this.j = z;
+            this.f66766j = z;
         }
     }
 
     public void setVideoAdClickListener(b bVar) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048610, this, bVar) == null) || (cVar = this.f30833c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048610, this, bVar) == null) || (cVar = this.f66759c) == null) {
             return;
         }
         ((g) cVar).a(bVar);
@@ -756,13 +758,13 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         }
     }
 
-    public void setVideoAdLoadListener(c.InterfaceC0347c interfaceC0347c) {
+    public void setVideoAdLoadListener(c.InterfaceC1907c interfaceC1907c) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048612, this, interfaceC0347c) == null) || (cVar = this.f30833c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048612, this, interfaceC1907c) == null) || (cVar = this.f66759c) == null) {
             return;
         }
-        cVar.a(interfaceC0347c);
+        cVar.a(interfaceC1907c);
     }
 
     public void setVideoCacheUrl(String str) {
@@ -805,10 +807,10 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-    public void a(long j, int i2) {
+    public void a(long j2, int i2) {
         c.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) || (bVar = this.C) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) || (bVar = this.C) == null) {
             return;
         }
         bVar.h_();
@@ -854,12 +856,12 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
             }
         }
         this.q = true;
-        this.f30835e = true;
+        this.f66761e = true;
         this.r = false;
         this.t = false;
         this.u = true;
         this.v = false;
-        this.j = true;
+        this.f66766j = true;
         this.k = "embeded_ad";
         this.l = 50;
         this.w = true;
@@ -872,8 +874,8 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         this.E = true;
         this.G = new AtomicBoolean(false);
         this.k = str;
-        this.f30831a = context;
-        this.f30832b = mVar;
+        this.f66757a = context;
+        this.f66758b = mVar;
         this.r = z;
         this.v = z2;
         this.t = z3;
@@ -884,13 +886,13 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.c.a
-    public void a(long j, long j2) {
+    public void a(long j2, long j3) {
         c.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (bVar = this.C) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (bVar = this.C) == null) {
             return;
         }
-        bVar.a(j, j2);
+        bVar.a(j2, j3);
     }
 
     private View a(Context context) {
@@ -899,21 +901,21 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
             FrameLayout frameLayout = new FrameLayout(context);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            frameLayout.setId(t.e(this.f30831a, "tt_native_video_layout"));
+            frameLayout.setId(t.e(this.f66757a, "tt_native_video_layout"));
             layoutParams.gravity = 17;
             frameLayout.setVisibility(8);
             this.p = frameLayout;
             FrameLayout frameLayout2 = new FrameLayout(context);
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
-            frameLayout2.setId(t.e(this.f30831a, "tt_native_video_frame"));
+            frameLayout2.setId(t.e(this.f66757a, "tt_native_video_frame"));
             layoutParams2.gravity = 17;
             frameLayout2.setLayoutParams(layoutParams2);
             frameLayout.addView(frameLayout2);
-            this.f30834d = frameLayout2;
+            this.f66760d = frameLayout2;
             ViewStub viewStub = new ViewStub(context);
             FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-1, -1);
-            viewStub.setId(t.e(this.f30831a, "tt_native_video_img_cover_viewStub"));
-            viewStub.setLayoutResource(t.f(this.f30831a, "tt_native_video_img_cover_layout"));
+            viewStub.setId(t.e(this.f66757a, "tt_native_video_img_cover_viewStub"));
+            viewStub.setLayoutResource(t.f(this.f66757a, "tt_native_video_img_cover_layout"));
             viewStub.setLayoutParams(layoutParams3);
             frameLayout.addView(viewStub);
             this.B = viewStub;
@@ -927,8 +929,8 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || n.c(o.a()) == 0) {
             return;
         }
-        if (this.f30833c.v() != null) {
-            if (this.f30833c.v().g() && i2 == 2) {
+        if (this.f66759c.v() != null) {
+            if (this.f66759c.v().g() && i2 == 2) {
                 c(false);
                 w wVar = this.y;
                 if (wVar != null) {
@@ -936,7 +938,7 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
                 }
                 a(true);
                 return;
-            } else if (this.f30833c.v().i() && i2 == 3) {
+            } else if (this.f66759c.v().i() && i2 == 3) {
                 this.q = true;
                 c(true);
                 b();
@@ -952,20 +954,20 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
             return;
         }
         this.G.set(true);
-        m mVar = this.f30832b;
+        m mVar = this.f66758b;
         if (mVar != null && mVar.V() != null) {
             x();
             com.bytedance.sdk.openadsdk.n.f.b bVar = new com.bytedance.sdk.openadsdk.n.f.b();
-            bVar.a(TextUtils.isEmpty(this.s) ? this.f30832b.V().i() : this.s);
-            bVar.d(this.f30832b.ak());
+            bVar.a(TextUtils.isEmpty(this.s) ? this.f66758b.V().i() : this.s);
+            bVar.d(this.f66758b.ak());
             bVar.b(this.p.getWidth());
             bVar.c(this.p.getHeight());
-            bVar.e(this.f30832b.ao());
+            bVar.e(this.f66758b.ao());
             bVar.a(this.x);
             bVar.a(v());
             bVar.c(CacheDirConstants.getFeedCacheDir());
-            bVar.b(this.f30832b.V().l());
-            this.f30833c.a(bVar);
+            bVar.b(this.f66758b.V().l());
+            this.f66759c.a(bVar);
         } else {
             k.f("NativeVideoAdView", "attachTask materialMeta.getVideo() is null !!");
         }
@@ -982,40 +984,40 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, viewGroup, mVar, str, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) ? new g(context, viewGroup, mVar, str, z, z2, z3) : (c) invokeCommon.objValue;
     }
 
-    public boolean a(long j, boolean z, boolean z2) {
+    public boolean a(long j2, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             boolean z3 = false;
             this.p.setVisibility(0);
-            if (this.f30833c == null) {
-                this.f30833c = new g(this.f30831a, this.f30834d, this.f30832b, this.k, this.t, this.u);
+            if (this.f66759c == null) {
+                this.f66759c = new g(this.f66757a, this.f66760d, this.f66758b, this.k, this.t, this.u);
                 m();
             }
-            this.x = j;
+            this.x = j2;
             if (w()) {
-                this.f30833c.a(false);
-                m mVar = this.f30832b;
+                this.f66759c.a(false);
+                m mVar = this.f66758b;
                 if (mVar != null && mVar.V() != null) {
                     com.bytedance.sdk.openadsdk.n.f.b bVar = new com.bytedance.sdk.openadsdk.n.f.b();
-                    bVar.a(TextUtils.isEmpty(this.s) ? this.f30832b.V().i() : this.s);
-                    bVar.d(this.f30832b.ak());
+                    bVar.a(TextUtils.isEmpty(this.s) ? this.f66758b.V().i() : this.s);
+                    bVar.d(this.f66758b.ak());
                     bVar.b(this.p.getWidth());
                     bVar.c(this.p.getHeight());
-                    bVar.e(this.f30832b.ao());
-                    bVar.a(j);
+                    bVar.e(this.f66758b.ao());
+                    bVar.a(j2);
                     bVar.a(v());
                     bVar.c(CacheDirConstants.getFeedCacheDir());
-                    bVar.b(this.f30832b.V().l());
-                    z3 = this.f30833c.a(bVar);
+                    bVar.b(this.f66758b.V().l());
+                    z3 = this.f66759c.a(bVar);
                 }
-                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-                if (((i2 > 0 && !z && !z2) || (i2 > 0 && z && !this.v)) && this.f30833c != null) {
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+                if (((i2 > 0 && !z && !z2) || (i2 > 0 && z && !this.v)) && this.f66759c != null) {
                     o.a aVar = new o.a();
-                    aVar.a(this.f30833c.n());
-                    aVar.c(this.f30833c.q());
-                    aVar.b(this.f30833c.o());
-                    com.bytedance.sdk.openadsdk.e.a.a.c(this.f30831a, this.f30833c.w(), aVar);
+                    aVar.a(this.f66759c.n());
+                    aVar.c(this.f66759c.q());
+                    aVar.b(this.f66759c.o());
+                    com.bytedance.sdk.openadsdk.e.a.a.c(this.f66757a, this.f66759c.w(), aVar);
                 }
                 return z3;
             }
@@ -1029,8 +1031,8 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
         if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || n.c(com.bytedance.sdk.openadsdk.core.o.a()) == 0) {
             return;
         }
-        if (this.f30833c.v() != null) {
-            if (this.f30833c.v().g()) {
+        if (this.f66759c.v() != null) {
+            if (this.f66759c.v().g()) {
                 c(false);
                 w wVar = this.y;
                 if (wVar != null) {
@@ -1038,7 +1040,7 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
                 }
                 a(true);
                 return;
-            } else if (this.f30833c.v().i()) {
+            } else if (this.f66759c.v().i()) {
                 this.q = true;
                 c(true);
                 b();
@@ -1054,21 +1056,21 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
             return;
         }
         this.G.set(true);
-        m mVar = this.f30832b;
+        m mVar = this.f66758b;
         if (mVar != null && mVar.V() != null) {
             x();
             com.bytedance.sdk.openadsdk.n.f.b bVar = new com.bytedance.sdk.openadsdk.n.f.b();
-            bVar.a(TextUtils.isEmpty(this.s) ? this.f30832b.V().i() : this.s);
-            bVar.a(this.f30832b.V().i());
-            bVar.d(this.f30832b.ak());
+            bVar.a(TextUtils.isEmpty(this.s) ? this.f66758b.V().i() : this.s);
+            bVar.a(this.f66758b.V().i());
+            bVar.d(this.f66758b.ak());
             bVar.b(this.p.getWidth());
             bVar.c(this.p.getHeight());
-            bVar.e(this.f30832b.ao());
+            bVar.e(this.f66758b.ao());
             bVar.a(this.x);
             bVar.a(v());
             bVar.c(CacheDirConstants.getFeedCacheDir());
-            bVar.b(this.f30832b.V().l());
-            this.f30833c.a(bVar);
+            bVar.b(this.f66758b.V().l());
+            this.f66759c.a(bVar);
         } else {
             k.f("NativeVideoAdView", "attachTask materialMeta.getVideo() is null !!");
         }
@@ -1082,11 +1084,11 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public void b(boolean z) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (cVar = this.f30833c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (cVar = this.f66759c) == null) {
             return;
         }
         cVar.c(z);
-        i w = this.f30833c.w();
+        i w = this.f66759c.w();
         if (w != null) {
             w.w();
             View s = w.s();
@@ -1096,7 +1098,7 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
                 }
                 s.setVisibility(0);
                 addView(s);
-                w.a(this.f30832b, new WeakReference<>(this.f30831a), false);
+                w.a(this.f66758b, new WeakReference<>(this.f66757a), false);
             }
         }
     }
@@ -1120,26 +1122,26 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            if (this.f30838h == null) {
-                this.f30838h = new ImageView(getContext());
+            if (this.f66764h == null) {
+                this.f66764h = new ImageView(getContext());
                 if (com.bytedance.sdk.openadsdk.core.h.d().v() != null) {
-                    this.f30838h.setImageBitmap(com.bytedance.sdk.openadsdk.core.h.d().v());
+                    this.f66764h.setImageBitmap(com.bytedance.sdk.openadsdk.core.h.d().v());
                 } else {
-                    this.f30838h.setImageResource(t.d(com.bytedance.sdk.openadsdk.core.o.a(), "tt_new_play_video"));
+                    this.f66764h.setImageResource(t.d(com.bytedance.sdk.openadsdk.core.o.a(), "tt_new_play_video"));
                 }
-                this.f30838h.setScaleType(ImageView.ScaleType.FIT_XY);
+                this.f66764h.setScaleType(ImageView.ScaleType.FIT_XY);
                 int b2 = (int) s.b(getContext(), this.l);
                 int b3 = (int) s.b(getContext(), 10.0f);
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(b2, b2);
                 layoutParams.gravity = 17;
                 layoutParams.rightMargin = b3;
                 layoutParams.bottomMargin = b3;
-                this.p.addView(this.f30838h, layoutParams);
+                this.p.addView(this.f66764h, layoutParams);
             }
             if (z) {
-                this.f30838h.setVisibility(0);
+                this.f66764h.setVisibility(0);
             } else {
-                this.f30838h.setVisibility(8);
+                this.f66764h.setVisibility(8);
             }
         }
     }
@@ -1147,7 +1149,7 @@ public class NativeVideoTsView extends FrameLayout implements w.a, c.a, g.a {
     public void a(int i2, int i3) {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) || (cVar = this.f30833c) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) || (cVar = this.f66759c) == null) {
             return;
         }
         ((g) cVar).a(i2, i3);

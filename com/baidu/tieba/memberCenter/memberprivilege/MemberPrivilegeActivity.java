@@ -5,6 +5,9 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.k;
+import c.a.p0.w1.g.a;
+import c.a.p0.w1.g.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -30,11 +33,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.q0.v1.g.a;
-import d.a.q0.v1.g.d;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +44,13 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     public d mMemberPrivilegeView;
     public HttpMessageListener mRequestMemberPrivilegelistener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPrivilegeActivity f18719a;
+        public final /* synthetic */ MemberPrivilegeActivity f54063a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
@@ -70,7 +70,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     return;
                 }
             }
-            this.f18719a = memberPrivilegeActivity;
+            this.f54063a = memberPrivilegeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,33 +78,33 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                MemberPrivilegeActivity memberPrivilegeActivity = this.f18719a;
-                memberPrivilegeActivity.hideLoadingView(memberPrivilegeActivity.mMemberPrivilegeView.f());
+                MemberPrivilegeActivity memberPrivilegeActivity = this.f54063a;
+                memberPrivilegeActivity.hideLoadingView(memberPrivilegeActivity.mMemberPrivilegeView.e());
                 if ((httpResponsedMessage instanceof ResponseMemberPrivilegeMessage) && httpResponsedMessage.getCmd() == 1001531) {
                     int error = httpResponsedMessage.getError();
                     ResponseMemberPrivilegeMessage responseMemberPrivilegeMessage = (ResponseMemberPrivilegeMessage) httpResponsedMessage;
                     if (error != 0) {
-                        this.f18719a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.f18719a.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
+                        this.f54063a.showToast(StringUtils.isNull(responseMemberPrivilegeMessage.getErrorString()) ? this.f54063a.getResources().getString(R.string.neterror) : responseMemberPrivilegeMessage.getErrorString());
                         return;
                     }
-                    d.a.q0.v1.g.a aVar = responseMemberPrivilegeMessage.mData;
+                    c.a.p0.w1.g.a aVar = responseMemberPrivilegeMessage.mData;
                     if (aVar != null) {
-                        this.f18719a.mMemberPrivilegeView.e().h(aVar);
+                        this.f54063a.mMemberPrivilegeView.d().h(aVar);
                     } else {
-                        this.f18719a.showToast(R.string.neterror);
+                        this.f54063a.showToast(R.string.neterror);
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPrivilegeActivity f18720a;
+        public final /* synthetic */ MemberPrivilegeActivity f54064a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
@@ -124,7 +124,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     return;
                 }
             }
-            this.f18720a = memberPrivilegeActivity;
+            this.f54064a = memberPrivilegeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -134,17 +134,17 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || ((Integer) customResponsedMessage.getData()) == null) {
                 return;
             }
-            this.f18720a.requestMemberPrivilegeData();
+            this.f54064a.requestMemberPrivilegeData();
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPrivilegeActivity f18721a;
+        public final /* synthetic */ MemberPrivilegeActivity f54065a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(MemberPrivilegeActivity memberPrivilegeActivity, int i2) {
@@ -164,7 +164,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
                     return;
                 }
             }
-            this.f18721a = memberPrivilegeActivity;
+            this.f54065a = memberPrivilegeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -174,7 +174,7 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            this.f18721a.requestMemberPrivilegeData();
+            this.f54065a.requestMemberPrivilegeData();
         }
     }
 
@@ -258,27 +258,27 @@ public class MemberPrivilegeActivity extends BaseActivity<MemberPrivilegeActivit
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || i2 == 0 || 1 == this.mMemberPrivilegeView.e().getItemViewType(i2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || i2 == 0 || 1 == this.mMemberPrivilegeView.d().getItemViewType(i2)) {
             return;
         }
-        String str = ((a.C1800a) this.mMemberPrivilegeView.e().getItem(i2)).f65837d;
-        String str2 = ((a.C1800a) this.mMemberPrivilegeView.e().getItem(i2)).f65835b;
+        String str = ((a.C1296a) this.mMemberPrivilegeView.d().getItem(i2)).f27669d;
+        String str2 = ((a.C1296a) this.mMemberPrivilegeView.d().getItem(i2)).f27667b;
         if (k.isEmpty(str)) {
             return;
         }
         if (isBubbleLink(str)) {
             sendMessage(new CustomMessage(2002001, new BubbleChooseActivityConfig(getPageContext().getPageActivity())));
         } else {
-            d.a.p0.m.a.o(getPageContext().getPageActivity(), str2, str, true, true, true);
+            c.a.o0.m.a.o(getPageContext().getPageActivity(), str2, str, true, true, true);
         }
     }
 
     public void requestMemberPrivilegeData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            showLoadingView(this.mMemberPrivilegeView.f(), true);
+            showLoadingView(this.mMemberPrivilegeView.e(), true);
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MEMBER_PRIVILEGE_CMD);
             httpMessage.addParam("st_type", "shop");
             sendMessage(httpMessage);

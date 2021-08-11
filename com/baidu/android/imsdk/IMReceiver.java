@@ -3,6 +3,7 @@ package com.baidu.android.imsdk;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import c.a.t.a;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -14,8 +15,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.u.a;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMReceiver";

@@ -19,16 +19,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSliderTouchListener> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface OnChangeListener extends BaseOnChangeListener<RangeSlider> {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface OnSliderTouchListener extends BaseOnSliderTouchListener<RangeSlider> {
     }
 

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObject {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<GroupInfo> CREATOR;
@@ -285,17 +285,17 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         }
     }
 
-    public void setBuid(long j) {
+    public void setBuid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
-            this.mBduid = j;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
+            this.mBduid = j2;
         }
     }
 
-    public void setCreateTime(long j) {
+    public void setCreateTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048603, this, j) == null) {
-            this.mCreateTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048603, this, j2) == null) {
+            this.mCreateTime = j2;
         }
     }
 
@@ -348,24 +348,24 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         }
     }
 
-    public void setInfoVersion(long j) {
+    public void setInfoVersion(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048611, this, j) == null) {
-            this.mInfoVersion = j;
+        if (interceptable == null || interceptable.invokeJ(1048611, this, j2) == null) {
+            this.mInfoVersion = j2;
         }
     }
 
-    public void setLocalInfoVersion(long j) {
+    public void setLocalInfoVersion(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048612, this, j) == null) {
-            this.mLocalInfoVersion = j;
+        if (interceptable == null || interceptable.invokeJ(1048612, this, j2) == null) {
+            this.mLocalInfoVersion = j2;
         }
     }
 
-    public void setLocalMembersVersion(long j) {
+    public void setLocalMembersVersion(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048613, this, j) == null) {
-            this.mLocalMembersVersion = j;
+        if (interceptable == null || interceptable.invokeJ(1048613, this, j2) == null) {
+            this.mLocalMembersVersion = j2;
         }
     }
 
@@ -376,17 +376,17 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         }
     }
 
-    public void setMarkTopTime(long j) {
+    public void setMarkTopTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
-            this.mMarkTopTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048615, this, j2) == null) {
+            this.mMarkTopTime = j2;
         }
     }
 
-    public void setMembersVersion(long j) {
+    public void setMembersVersion(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
-            this.mMembersVersion = j;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
+            this.mMembersVersion = j2;
         }
     }
 
@@ -411,10 +411,10 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         }
     }
 
-    public void setUk(long j) {
+    public void setUk(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048620, this, j) == null) {
-            this.mUk = j;
+        if (interceptable == null || interceptable.invokeJ(1048620, this, j2) == null) {
+            this.mUk = j2;
         }
     }
 

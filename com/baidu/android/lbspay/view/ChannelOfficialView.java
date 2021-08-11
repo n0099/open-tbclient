@@ -16,15 +16,15 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.network.NewCashierContent;
-import com.baidu.apollon.base.widget.NetImageView;
-import com.baidu.apollon.utils.DisplayUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes.dex */
+import com.dxmpay.apollon.base.widget.NetImageView;
+import com.dxmpay.apollon.utils.DisplayUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.core.utils.LogUtil;
+/* loaded from: classes4.dex */
 public class ChannelOfficialView extends ChannelViewBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

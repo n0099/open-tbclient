@@ -11,14 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ParcelItem implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ParcelItem> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Bundle f7239a;
+    public Bundle f41497a;
 
     static {
         InterceptResult invokeClinit;
@@ -63,13 +63,13 @@ public class ParcelItem implements Parcelable {
     public Bundle getBundle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f7239a : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41497a : (Bundle) invokeV.objValue;
     }
 
     public void setBundle(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            this.f7239a = bundle;
+            this.f41497a = bundle;
         }
     }
 
@@ -77,7 +77,7 @@ public class ParcelItem implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
-            parcel.writeBundle(this.f7239a);
+            parcel.writeBundle(this.f41497a);
         }
     }
 }

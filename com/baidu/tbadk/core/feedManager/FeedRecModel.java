@@ -18,27 +18,27 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Personalized.DataRes;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f12338e;
+    public b f47283e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12339f;
+    public int f47284f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.d.c.g.a f12340g;
+    public c.a.e.c.g.a f47285g;
 
-    /* loaded from: classes3.dex */
-    public class a extends d.a.d.c.g.a {
+    /* loaded from: classes6.dex */
+    public class a extends c.a.e.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FeedRecModel f12341a;
+        public final /* synthetic */ FeedRecModel f47286a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(FeedRecModel feedRecModel, int i2, int i3) {
@@ -59,19 +59,19 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                     return;
                 }
             }
-            this.f12341a = feedRecModel;
+            this.f47286a = feedRecModel;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:23:0x0040  */
         /* JADX WARN: Removed duplicated region for block: B:24:0x0052  */
-        @Override // d.a.d.c.g.a
+        @Override // c.a.e.c.g.a
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.f12341a.f12338e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || this.f47286a.f47283e == null) {
                 return;
             }
             if (responsedMessage.getOrginalMessage() != null) {
@@ -82,7 +82,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                     z = feedRecRequest.getNeedForumlist() == 1;
                     r1 = z2;
                     if (responsedMessage.getError() == 0) {
-                        this.f12341a.f12338e.onLoadError(responsedMessage.getError(), responsedMessage.getErrorString());
+                        this.f47286a.f47283e.onLoadError(responsedMessage.getError(), responsedMessage.getErrorString());
                         return;
                     }
                     DataRes dataRes = null;
@@ -92,7 +92,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                         dataRes = ((RecPersonalizeHttpResponse) responsedMessage).getResultData();
                     }
                     BdLog.e("FeedRecManager.getInstance().getRecFeedData() :" + dataRes);
-                    this.f12341a.f12338e.a(dataRes, r1, z);
+                    this.f47286a.f47283e.a(dataRes, r1, z);
                     return;
                 }
             }
@@ -102,7 +102,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void a(DataRes dataRes, boolean z, boolean z2);
 
@@ -122,12 +122,12 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
                 return;
             }
         }
-        this.f12339f = 1;
-        this.f12340g = new a(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
+        this.f47284f = 1;
+        this.f47285g = new a(this, CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, 309264);
         setUniqueId(BdUniqueId.gen());
         x();
         y();
-        registerListener(this.f12340g);
+        registerListener(this.f47285g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -136,8 +136,8 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             FeedRecRequest feedRecRequest = new FeedRecRequest();
-            int i2 = this.f12339f;
-            this.f12339f = i2 + 1;
+            int i2 = this.f47284f;
+            this.f47284f = i2 + 1;
             feedRecRequest.setRequestTime(i2);
             feedRecRequest.setSourceFrom(TbSingleton.getInstance().getInvokeSource());
             feedRecRequest.setNetType(NetMessage.NetType.HTTP);
@@ -161,7 +161,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, d.a.q0.h3.d0.a.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RECOMMEND_PERSONALIZE, c.a.p0.i3.d0.a.a(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, 309264));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);
             tbHttpMessageTask.setPriority(4);
@@ -172,7 +172,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d.a.p0.x0.b bVar = new d.a.p0.x0.b(309264);
+            c.a.o0.x0.b bVar = new c.a.o0.x0.b(309264);
             bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
             bVar.g(true);
             bVar.setPriority(4);
@@ -183,7 +183,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
     public void z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.f12338e = bVar;
+            this.f47283e = bVar;
         }
     }
 }

@@ -14,7 +14,7 @@ import com.googlecode.mp4parser.DataSource;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "amf0";
@@ -63,14 +63,14 @@ public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(8);
             dataSource.read(allocate);
             allocate.position(6);
             this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
-            parseContainer(dataSource, j - 8, boxParser);
+            parseContainer(dataSource, j2 - 8, boxParser);
         }
     }
 }

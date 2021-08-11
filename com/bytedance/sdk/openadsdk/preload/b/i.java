@@ -7,24 +7,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class i implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public e f32292a;
+    public e f68251a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f32293b;
+    public int f68252b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<h> f32294c;
+    public List<h> f68253c;
 
     /* renamed from: d  reason: collision with root package name */
-    public d f32295d;
+    public d f68254d;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,19 +65,19 @@ public final class i implements b {
                 return;
             }
         }
-        this.f32294c = list;
-        this.f32293b = i2;
-        this.f32292a = eVar;
-        this.f32295d = dVar;
+        this.f68253c = list;
+        this.f68252b = i2;
+        this.f68251a = eVar;
+        this.f68254d = dVar;
     }
 
     private d c(Class cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, cls)) == null) {
-            d dVar = this.f32295d;
+            d dVar = this.f68254d;
             while (dVar != null && dVar.getClass() != cls) {
-                dVar = dVar.f32273a;
+                dVar = dVar.f68232a;
             }
             return dVar;
         }
@@ -91,21 +91,21 @@ public final class i implements b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            d dVar = this.f32295d;
+            d dVar = this.f68254d;
             if (dVar != null) {
-                dVar.f32275c = obj;
+                dVar.f68234c = obj;
                 dVar.f();
             }
-            if (this.f32293b >= this.f32294c.size()) {
+            if (this.f68252b >= this.f68253c.size()) {
                 return obj;
             }
-            h hVar = this.f32294c.get(this.f32293b);
+            h hVar = this.f68253c.get(this.f68252b);
             Class<? extends d> a2 = hVar.a();
-            d dVar2 = (d) this.f32292a.a(a2);
+            d dVar2 = (d) this.f68251a.a(a2);
             if (dVar2 != null) {
                 com.bytedance.sdk.openadsdk.preload.b.b.a b2 = hVar.b();
-                i iVar = new i(this.f32294c, this.f32293b + 1, this.f32292a, dVar2);
-                dVar2.a(iVar, this.f32295d, obj, b2, hVar.c());
+                i iVar = new i(this.f68253c, this.f68252b + 1, this.f68251a, dVar2);
+                dVar2.a(iVar, this.f68254d, obj, b2, hVar.c());
                 dVar2.d();
                 try {
                     Object a_ = dVar2.a_(iVar, obj);
@@ -131,7 +131,7 @@ public final class i implements b {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cls)) == null) {
             d c2 = c(cls);
             if (c2 != null) {
-                return c2.f32275c;
+                return c2.f68234c;
             }
             throw new IllegalArgumentException("can not find pre Interceptor , class:" + cls);
         }
@@ -145,7 +145,7 @@ public final class i implements b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
             d c2 = c(cls);
             if (c2 != null) {
-                return c2.f32274b;
+                return c2.f68233b;
             }
             throw new IllegalArgumentException("can not find pre Interceptor , class:" + cls);
         }

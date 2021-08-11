@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AlaUtilHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -148,11 +148,11 @@ public class AlaUtilHelper {
             return;
         }
         if (z2 && str.toLowerCase().startsWith("http")) {
-            tbImageView.M(str, 10, false);
+            tbImageView.startLoad(str, 10, false);
         } else if (z) {
-            tbImageView.M(str, 25, false);
+            tbImageView.startLoad(str, 25, false);
         } else {
-            tbImageView.M(str, 12, false);
+            tbImageView.startLoad(str, 12, false);
         }
     }
 
@@ -162,11 +162,11 @@ public class AlaUtilHelper {
             return;
         }
         if (str.toLowerCase().startsWith("http")) {
-            tbImageView.M(str, 10, false);
+            tbImageView.startLoad(str, 10, false);
         } else if (z) {
-            tbImageView.M(str, 25, false);
+            tbImageView.startLoad(str, 25, false);
         } else {
-            tbImageView.M(str, 12, false);
+            tbImageView.startLoad(str, 12, false);
         }
     }
 }

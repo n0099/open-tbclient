@@ -6,6 +6,8 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.util.AttributeSet;
 import android.widget.CheckBox;
+import c.a.e.e.p.l;
+import c.a.p0.i3.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -17,37 +19,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.q0.h3.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class NEGFeedBackReasonCheckBox extends CheckBox {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f13699e;
+    public Context f48812e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13700f;
+    public int f48813f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GradientDrawable f13701g;
+    public GradientDrawable f48814g;
 
     /* renamed from: h  reason: collision with root package name */
-    public GradientDrawable f13702h;
+    public GradientDrawable f48815h;
 
     /* renamed from: i  reason: collision with root package name */
-    public GradientDrawable f13703i;
-    public StateListDrawable j;
+    public GradientDrawable f48816i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public StateListDrawable f48817j;
     public CustomMessageListener k;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ NEGFeedBackReasonCheckBox f13704a;
+        public final /* synthetic */ NEGFeedBackReasonCheckBox f48818a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(NEGFeedBackReasonCheckBox nEGFeedBackReasonCheckBox, int i2) {
@@ -67,7 +69,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                     return;
                 }
             }
-            this.f13704a = nEGFeedBackReasonCheckBox;
+            this.f48818a = nEGFeedBackReasonCheckBox;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,7 +77,7 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer)) {
-                this.f13704a.a();
+                this.f48818a.changeSkinType();
             }
         }
     }
@@ -98,60 +100,60 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f13699e = null;
-        this.f13700f = 3;
+        this.f48812e = null;
+        this.f48813f = 3;
         this.k = new a(this, 2001304);
-        this.f13699e = context;
-        b();
+        this.f48812e = context;
+        a();
     }
 
-    public void a() {
-        int skinType;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f13700f) {
-            return;
-        }
-        c(R.string.J_X07, l.g(this.f13699e, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
-        SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0302, R.color.CAM_X0105);
-        this.f13700f = skinType;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int g2 = l.g(this.f13699e, R.dimen.ds24);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int g2 = l.g(this.f48812e, R.dimen.ds24);
             setPadding(g2, 0, g2, 0);
             setButtonDrawable((Drawable) null);
         }
     }
 
-    public final void c(int i2, int i3, int i4, int i5, int i6) {
+    public final void b(int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
             int parseInt = Integer.parseInt(TbadkCoreApplication.getInst().getResources().getString(i2).split(",")[0]);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            this.f13701g = gradientDrawable;
+            this.f48814g = gradientDrawable;
             gradientDrawable.setShape(0);
             float f2 = parseInt;
-            this.f13701g.setCornerRadius(f2);
-            this.f13701g.setStroke(i3, SkinManager.getColor(i4));
+            this.f48814g.setCornerRadius(f2);
+            this.f48814g.setStroke(i3, SkinManager.getColor(i4));
             GradientDrawable gradientDrawable2 = new GradientDrawable();
-            this.f13702h = gradientDrawable2;
+            this.f48815h = gradientDrawable2;
             gradientDrawable2.setShape(0);
-            this.f13702h.setCornerRadius(f2);
-            this.f13702h.setStroke(i3, c.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_PRESS));
+            this.f48815h.setCornerRadius(f2);
+            this.f48815h.setStroke(i3, c.a(SkinManager.getColor(i5), SkinManager.RESOURCE_ALPHA_PRESS));
             GradientDrawable gradientDrawable3 = new GradientDrawable();
-            this.f13703i = gradientDrawable3;
+            this.f48816i = gradientDrawable3;
             gradientDrawable3.setShape(0);
-            this.f13703i.setCornerRadius(f2);
-            this.f13703i.setStroke(i3, c.a(SkinManager.getColor(i6), SkinManager.RESOURCE_ALPHA_DISABLE));
+            this.f48816i.setCornerRadius(f2);
+            this.f48816i.setStroke(i3, c.a(SkinManager.getColor(i6), SkinManager.RESOURCE_ALPHA_DISABLE));
             StateListDrawable stateListDrawable = new StateListDrawable();
-            this.j = stateListDrawable;
-            stateListDrawable.addState(new int[]{16842912}, this.f13702h);
-            this.j.addState(new int[]{-16842910}, this.f13703i);
-            this.j.addState(new int[0], this.f13701g);
-            setBackgroundDrawable(this.j);
+            this.f48817j = stateListDrawable;
+            stateListDrawable.addState(new int[]{16842912}, this.f48815h);
+            this.f48817j.addState(new int[]{-16842910}, this.f48816i);
+            this.f48817j.addState(new int[0], this.f48814g);
+            setBackgroundDrawable(this.f48817j);
         }
+    }
+
+    public void changeSkinType() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f48813f) {
+            return;
+        }
+        b(R.string.J_X07, l.g(this.f48812e, R.dimen.L_X01), R.color.CAM_X0902, R.color.CAM_X0302, R.color.CAM_X0902);
+        SkinManager.setViewCheckedTextColorSelector(this, R.color.CAM_X0105, R.color.CAM_X0302, R.color.CAM_X0105);
+        this.f48813f = skinType;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -191,11 +193,11 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f13699e = null;
-        this.f13700f = 3;
+        this.f48812e = null;
+        this.f48813f = 3;
         this.k = new a(this, 2001304);
-        this.f13699e = context;
-        b();
+        this.f48812e = context;
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -217,10 +219,10 @@ public class NEGFeedBackReasonCheckBox extends CheckBox {
                 return;
             }
         }
-        this.f13699e = null;
-        this.f13700f = 3;
+        this.f48812e = null;
+        this.f48813f = 3;
         this.k = new a(this, 2001304);
-        this.f13699e = context;
-        b();
+        this.f48812e = context;
+        a();
     }
 }

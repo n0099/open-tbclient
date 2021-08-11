@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,31 +23,31 @@ import java.io.InputStream;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39213c;
+    public static String f76044c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39214a;
+    public String f76045a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f39215b;
+    public d f76046b;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f39216d;
+    public long f76047d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Handler f39217e;
+    public Handler f76048e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WeakReference<Activity> f39218f;
+    public WeakReference<Activity> f76049f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f39219g;
+    public Runnable f76050g;
 
     public c(Activity activity) {
         Interceptable interceptable = $ic;
@@ -63,12 +64,12 @@ public class c {
                 return;
             }
         }
-        this.f39219g = new Runnable(this) { // from class: com.tencent.open.utils.c.2
+        this.f76050g = new Runnable(this) { // from class: com.tencent.open.utils.c.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f39221a;
+            public final /* synthetic */ c f76052a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -85,7 +86,7 @@ public class c {
                         return;
                     }
                 }
-                this.f39221a = this;
+                this.f76052a = this;
             }
 
             @Override // java.lang.Runnable
@@ -94,14 +95,14 @@ public class c {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                     SLog.v("AsynLoadImg", "saveFileRunnable:");
-                    String str = "share_qq_" + l.f(this.f39221a.f39214a) + ".jpg";
-                    String str2 = c.f39213c + str;
+                    String str = "share_qq_" + l.f(this.f76052a.f76045a) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                    String str2 = c.f76044c + str;
                     File file = new File(str2);
-                    Message obtainMessage = this.f39221a.f39217e.obtainMessage();
+                    Message obtainMessage = this.f76052a.f76048e.obtainMessage();
                     if (!file.exists()) {
-                        Bitmap a2 = c.a(this.f39221a.f39214a);
+                        Bitmap a2 = c.a(this.f76052a.f76045a);
                         if (a2 != null) {
-                            z = this.f39221a.a(a2, str);
+                            z = this.f76052a.a(a2, str);
                         } else {
                             SLog.v("AsynLoadImg", "saveFileRunnable:get bmp fail---");
                             z = false;
@@ -112,23 +113,23 @@ public class c {
                         } else {
                             obtainMessage.arg1 = 1;
                         }
-                        SLog.v("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.f39221a.f39216d));
+                        SLog.v("AsynLoadImg", "file not exists: download time:" + (System.currentTimeMillis() - this.f76052a.f76047d));
                     } else {
                         obtainMessage.arg1 = 0;
                         obtainMessage.obj = str2;
-                        SLog.v("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.f39221a.f39216d));
+                        SLog.v("AsynLoadImg", "file exists: time:" + (System.currentTimeMillis() - this.f76052a.f76047d));
                     }
-                    this.f39221a.f39217e.sendMessage(obtainMessage);
+                    this.f76052a.f76048e.sendMessage(obtainMessage);
                 }
             }
         };
-        this.f39218f = new WeakReference<>(activity);
-        this.f39217e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.c.1
+        this.f76049f = new WeakReference<>(activity);
+        this.f76048e = new Handler(this, activity.getMainLooper()) { // from class: com.tencent.open.utils.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ c f39220a;
+            public final /* synthetic */ c f76051a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             {
@@ -148,7 +149,7 @@ public class c {
                         return;
                     }
                 }
-                this.f39220a = this;
+                this.f76051a = this;
             }
 
             @Override // android.os.Handler
@@ -157,9 +158,9 @@ public class c {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     SLog.v("AsynLoadImg", "handleMessage:" + message.arg1);
                     if (message.arg1 == 0) {
-                        this.f39220a.f39215b.a(message.arg1, (String) message.obj);
+                        this.f76051a.f76046b.a(message.arg1, (String) message.obj);
                     } else {
-                        this.f39220a.f39215b.a(message.arg1, (String) null);
+                        this.f76051a.f76046b.a(message.arg1, (String) null);
                     }
                 }
             }
@@ -175,8 +176,8 @@ public class c {
                     dVar.a(2, (String) null);
                     return;
                 }
-                if (this.f39218f.get() != null) {
-                    Activity activity = this.f39218f.get();
+                if (this.f76049f.get() != null) {
+                    Activity activity = this.f76049f.get();
                     File h2 = l.h(activity, "Images");
                     File externalStorageDirectory = Environment.getExternalStorageDirectory();
                     if (h2 == null) {
@@ -187,12 +188,12 @@ public class c {
                     StringBuilder sb = new StringBuilder();
                     sb.append(i.c(activity) ? h2.getAbsolutePath() : externalStorageDirectory.getAbsolutePath());
                     sb.append("/tmp/");
-                    f39213c = sb.toString();
+                    f76044c = sb.toString();
                 }
-                this.f39216d = System.currentTimeMillis();
-                this.f39214a = str;
-                this.f39215b = dVar;
-                new Thread(this.f39219g).start();
+                this.f76047d = System.currentTimeMillis();
+                this.f76045a = str;
+                this.f76046b = dVar;
+                new Thread(this.f76050g).start();
                 return;
             }
             dVar.a(1, (String) null);
@@ -204,7 +205,7 @@ public class c {
         BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, str)) == null) {
-            String str2 = f39213c;
+            String str2 = f76044c;
             BufferedOutputStream bufferedOutputStream2 = null;
             try {
                 try {

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.FlutterJNI;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class VsyncWaiter {
     public static /* synthetic */ Interceptable $ic;
     public static VsyncWaiter instance;
@@ -57,10 +57,10 @@ public class VsyncWaiter {
             }
 
             @Override // io.flutter.embedding.engine.FlutterJNI.AsyncWaitForVsyncDelegate
-            public void asyncWaitForVsync(long j) {
+            public void asyncWaitForVsync(long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeJ(1048576, this, j) == null) {
-                    Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback(this, j) { // from class: io.flutter.view.VsyncWaiter.1.1
+                if (interceptable2 == null || interceptable2.invokeJ(1048576, this, j2) == null) {
+                    Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback(this, j2) { // from class: io.flutter.view.VsyncWaiter.1.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass1 this$1;
@@ -71,7 +71,7 @@ public class VsyncWaiter {
                             if (interceptable3 != null) {
                                 InitContext newInitContext2 = TitanRuntime.newInitContext();
                                 newInitContext2.initArgs = r2;
-                                Object[] objArr2 = {this, Long.valueOf(j)};
+                                Object[] objArr2 = {this, Long.valueOf(j2)};
                                 interceptable3.invokeUnInit(65536, newInitContext2);
                                 int i4 = newInitContext2.flag;
                                 if ((i4 & 1) != 0) {
@@ -82,14 +82,14 @@ public class VsyncWaiter {
                                 }
                             }
                             this.this$1 = this;
-                            this.val$cookie = j;
+                            this.val$cookie = j2;
                         }
 
                         @Override // android.view.Choreographer.FrameCallback
-                        public void doFrame(long j2) {
+                        public void doFrame(long j3) {
                             Interceptable interceptable3 = $ic;
-                            if (interceptable3 == null || interceptable3.invokeJ(1048576, this, j2) == null) {
-                                FlutterJNI.nativeOnVsync(j2, j2 + ((long) (1.0E9d / this.this$1.this$0.windowManager.getDefaultDisplay().getRefreshRate())), this.val$cookie);
+                            if (interceptable3 == null || interceptable3.invokeJ(1048576, this, j3) == null) {
+                                FlutterJNI.nativeOnVsync(j3, j3 + ((long) (1.0E9d / this.this$1.this$0.windowManager.getDefaultDisplay().getRefreshRate())), this.val$cookie);
                             }
                         }
                     });

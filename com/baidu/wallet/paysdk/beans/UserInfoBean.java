@@ -1,32 +1,23 @@
 package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.NoProguard;
-import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
+import com.baidu.wallet.paysdk.datamodel.UserInfoContentResponse;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.core.NoProguard;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implements NoProguard {
+/* loaded from: classes8.dex */
+public class UserInfoBean extends BaseBean<UserInfoContentResponse> implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public int f26106a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public String f26107b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public String f26108c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> UserInfoBean(Context context) {
@@ -46,38 +37,29 @@ public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implemen
                 return;
             }
         }
-        this.f26106a = 0;
-        this.f26107b = "";
-        this.f26108c = "";
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.execBean(DirectPayContentResponse.class);
+            super.execBean(UserInfoContentResponse.class);
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("is_unify_account", String.valueOf(this.f26106a)));
-            if (!TextUtils.isEmpty(this.f26107b)) {
-                arrayList.add(new RestNameValuePair("sdk_from", this.f26107b));
-            }
-            if (!TextUtils.isEmpty(this.f26108c)) {
-                arrayList.add(new RestNameValuePair("sdk_service", this.f26108c));
-            }
+            arrayList.add(new RestNameValuePair("source_flag", "3"));
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -87,7 +69,7 @@ public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implemen
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -95,20 +77,5 @@ public class UserInfoBean extends PayBaseBean<DirectPayContentResponse> implemen
             return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_USER_INFO;
         }
         return (String) invokeV.objValue;
-    }
-
-    public void setCheckPrePassSign(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
-            this.f26106a = i2;
-            this.f26107b = str;
-        }
-    }
-
-    public void setSdkServiceForMyBankFragment(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f26108c = str;
-        }
     }
 }

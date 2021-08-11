@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.Process;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
@@ -23,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class f extends Service {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean isServing = false;
@@ -33,13 +32,13 @@ public class f extends Service {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LLSInterface f6844a;
+    public LLSInterface f41084a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LLSInterface f6845b;
+    public LLSInterface f41085b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LLSInterface f6846c;
+    public LLSInterface f41086c;
 
     static {
         InterceptResult invokeClinit;
@@ -69,9 +68,9 @@ public class f extends Service {
                 return;
             }
         }
-        this.f6844a = null;
-        this.f6845b = null;
-        this.f6846c = null;
+        this.f41084a = null;
+        this.f41085b = null;
+        this.f41086c = null;
     }
 
     private boolean a(File file) {
@@ -129,7 +128,7 @@ public class f extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            LLSInterface lLSInterface = this.f6846c;
+            LLSInterface lLSInterface = this.f41086c;
             if (lLSInterface != null) {
                 return lLSInterface.onBind(intent);
             }
@@ -144,12 +143,12 @@ public class f extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (isServing) {
-                Log.d("baidu_location_service", "baidu location service can not start again ...20190306..." + Process.myPid());
+                String str = "baidu location service can not start again ...20190306..." + Process.myPid();
                 return;
             }
             mC = getApplicationContext();
             System.currentTimeMillis();
-            this.f6845b = new com.baidu.location.d.a();
+            this.f41085b = new com.baidu.location.d.a();
             try {
                 File file = new File(k.j() + File.separator + replaceFileName);
                 File file2 = new File(k.j() + File.separator + "app.jar");
@@ -161,22 +160,22 @@ public class f extends Service {
                 }
                 if (file2.exists()) {
                     if (a(new File(k.j() + File.separator + "app.jar"))) {
-                        this.f6844a = (LLSInterface) new DexClassLoader(k.j() + File.separator + "app.jar", k.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+                        this.f41084a = (LLSInterface) new DexClassLoader(k.j() + File.separator + "app.jar", k.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
                     }
                 }
             } catch (Exception unused) {
-                this.f6844a = null;
+                this.f41084a = null;
             }
-            LLSInterface lLSInterface = this.f6844a;
-            if (lLSInterface == null || lLSInterface.getVersion() < this.f6845b.getVersion()) {
-                this.f6846c = this.f6845b;
-                this.f6844a = null;
+            LLSInterface lLSInterface = this.f41084a;
+            if (lLSInterface == null || lLSInterface.getVersion() < this.f41085b.getVersion()) {
+                this.f41086c = this.f41085b;
+                this.f41084a = null;
             } else {
-                this.f6846c = this.f6844a;
-                this.f6845b = null;
+                this.f41086c = this.f41084a;
+                this.f41085b = null;
             }
             isServing = true;
-            this.f6846c.onCreate(this);
+            this.f41086c.onCreate(this);
         }
     }
 
@@ -185,7 +184,7 @@ public class f extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             isServing = false;
-            LLSInterface lLSInterface = this.f6846c;
+            LLSInterface lLSInterface = this.f41086c;
             if (lLSInterface != null) {
                 lLSInterface.onDestroy();
             }
@@ -214,7 +213,7 @@ public class f extends Service {
                     e2.printStackTrace();
                 }
             }
-            return this.f6846c.onStartCommand(intent, i2, i3);
+            return this.f41086c.onStartCommand(intent, i2, i3);
         }
         return invokeLII.intValue;
     }
@@ -223,7 +222,7 @@ public class f extends Service {
     public void onTaskRemoved(Intent intent) {
         LLSInterface lLSInterface;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (lLSInterface = this.f6846c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, intent) == null) || (lLSInterface = this.f41086c) == null) {
             return;
         }
         lLSInterface.onTaskRemoved(intent);

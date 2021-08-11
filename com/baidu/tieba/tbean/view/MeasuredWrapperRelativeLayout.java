@@ -8,23 +8,24 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f21395e;
+    public a f56903e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f21396f;
+    public int f56904f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f21397g;
+    public boolean f56905g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(boolean z, int i2);
     }
@@ -54,9 +55,9 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
             int size = View.MeasureSpec.getSize(i2);
-            int i3 = this.f21396f;
+            int i3 = this.f56904f;
             if (i3 == 0) {
-                this.f21396f = size;
+                this.f56904f = size;
             } else if (i3 == size) {
             } else {
                 int i4 = i3 - size;
@@ -64,12 +65,12 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
                     return;
                 }
                 if (i4 > 0) {
-                    this.f21397g = true;
+                    this.f56905g = true;
                 } else {
-                    this.f21397g = false;
+                    this.f56905g = false;
                 }
-                b(this.f21397g, Math.abs(i4));
-                this.f21396f = size;
+                b(this.f56905g, Math.abs(i4));
+                this.f56904f = size;
             }
         }
     }
@@ -77,16 +78,22 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
     public final void b(boolean z, int i2) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (aVar = this.f21395e) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (aVar = this.f56903e) == null) {
             return;
         }
         aVar.a(z, i2);
     }
 
+    public boolean isKeyBoardVisibile() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56905g : invokeV.booleanValue;
+    }
+
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
             a(getContext(), i3);
             super.onMeasure(i2, i3);
         }
@@ -94,8 +101,8 @@ public class MeasuredWrapperRelativeLayout extends RelativeLayout {
 
     public void setKeyBoardListener(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f21395e = aVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.f56903e = aVar;
         }
     }
 

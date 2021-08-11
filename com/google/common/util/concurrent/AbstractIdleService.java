@@ -1,6 +1,7 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,18 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.util.concurrent.Service;
-import d.f.d.a.r;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractIdleService implements Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Service delegate;
     public final r<String> threadNameSupplier;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public final class DelegateService extends AbstractService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +138,7 @@ public abstract class AbstractIdleService implements Service {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public final class ThreadNameSupplier implements r<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -163,7 +163,7 @@ public abstract class AbstractIdleService implements Service {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.f.d.a.r
+        @Override // c.i.d.a.r
         public String get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -314,18 +314,18 @@ public abstract class AbstractIdleService implements Service {
     }
 
     @Override // com.google.common.util.concurrent.Service
-    public final void awaitRunning(long j, TimeUnit timeUnit) throws TimeoutException {
+    public final void awaitRunning(long j2, TimeUnit timeUnit) throws TimeoutException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit) == null) {
-            this.delegate.awaitRunning(j, timeUnit);
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit) == null) {
+            this.delegate.awaitRunning(j2, timeUnit);
         }
     }
 
     @Override // com.google.common.util.concurrent.Service
-    public final void awaitTerminated(long j, TimeUnit timeUnit) throws TimeoutException {
+    public final void awaitTerminated(long j2, TimeUnit timeUnit) throws TimeoutException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048580, this, j, timeUnit) == null) {
-            this.delegate.awaitTerminated(j, timeUnit);
+        if (interceptable == null || interceptable.invokeJL(1048580, this, j2, timeUnit) == null) {
+            this.delegate.awaitTerminated(j2, timeUnit);
         }
     }
 }

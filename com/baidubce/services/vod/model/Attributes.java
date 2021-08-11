@@ -6,9 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Attributes {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +86,7 @@ public class Attributes {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "Attributes { \n      title = " + this.title + "\n      description = " + this.description + "\n      sourceExtension = " + this.sourceExtension + "\n    }";
+            return "Attributes { \n      title = " + this.title + StringUtils.LF + "      description = " + this.description + StringUtils.LF + "      sourceExtension = " + this.sourceExtension + StringUtils.LF + "    }";
         }
         return (String) invokeV.objValue;
     }

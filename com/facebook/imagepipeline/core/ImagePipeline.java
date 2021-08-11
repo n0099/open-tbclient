@@ -2,8 +2,6 @@ package com.facebook.imagepipeline.core;
 
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
-import c.d;
-import c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -39,13 +37,15 @@ import com.facebook.imagepipeline.producers.ThreadHandoffProducerQueue;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
+import e.d;
+import e.e;
 import java.util.Set;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ImagePipeline {
     public static /* synthetic */ Interceptable $ic;
     public static final CancellationException PREFETCH_EXCEPTION;
@@ -64,7 +64,7 @@ public class ImagePipeline {
     public final ThreadHandoffProducerQueue mThreadHandoffProducerQueue;
 
     /* renamed from: com.facebook.imagepipeline.core.ImagePipeline$8  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass8 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$request$ImageRequest$CacheChoice;
         public static /* synthetic */ Interceptable $ic;
@@ -757,7 +757,7 @@ public class ImagePipeline {
         } : (Supplier) invokeLLLL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: c.d<java.lang.Boolean, c.e<java.lang.Boolean>>, c.d<java.lang.Boolean, c.e<TContinuationResult>> */
+    /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: e.d<java.lang.Boolean, e.e<java.lang.Boolean>>, e.d<java.lang.Boolean, e.e<TContinuationResult>> */
     public DataSource<Boolean> isInDiskCache(ImageRequest imageRequest) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -791,7 +791,7 @@ public class ImagePipeline {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.d
+                @Override // e.d
                 public e<Boolean> then(e<Boolean> eVar) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;
@@ -829,7 +829,7 @@ public class ImagePipeline {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.d
+                @Override // e.d
                 public Void then(e<Boolean> eVar) throws Exception {
                     InterceptResult invokeL2;
                     Interceptable interceptable2 = $ic;

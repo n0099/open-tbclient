@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class z0 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ A0 f39995a;
+    public final /* synthetic */ A0 f76846a;
 
     public z0(A0 a0) {
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class z0 implements Runnable {
                 return;
             }
         }
-        this.f39995a = a0;
+        this.f76846a = a0;
     }
 
     @Override // java.lang.Runnable
@@ -36,11 +36,11 @@ public class z0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                View rootView = this.f39995a.f39537a.getRootView();
+                View rootView = this.f76846a.f76371a.getRootView();
                 if (rootView == null || rootView.getVisibility() != 0) {
                     return;
                 }
-                Z0.a(this.f39995a.f39538b.f39565a).a(new a1(this.f39995a.f39538b.f39567c), this.f39995a.f39537a.getWidth(), this.f39995a.f39537a.getHeight()).a();
+                Z0.a(this.f76846a.f76372b.f76400a).a(new a1(this.f76846a.f76372b.f76402c), this.f76846a.f76371a.getWidth(), this.f76846a.f76371a.getHeight()).a();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

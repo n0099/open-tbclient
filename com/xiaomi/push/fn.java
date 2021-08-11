@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class fn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

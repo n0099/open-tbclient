@@ -2,6 +2,8 @@ package com.baidu.tbadk;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.c;
+import c.a.e.e.p.l;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,10 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.c;
-import d.a.d.e.p.l;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TiebaIMConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_DOUBLE_FOLLOW_LIST = "c/u/user/get_double_follows";

@@ -10,7 +10,7 @@ import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.c.g;
 import com.sdk.base.module.manager.SDKManager;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a<T> extends com.sdk.base.framework.d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,18 +34,18 @@ public class a<T> extends com.sdk.base.framework.d.a<T> {
                 return;
             }
         }
-        if (!f.f38386d) {
-            this.f38393b = g.f38389b.a();
-            this.f38394c = g.f38388a.a();
+        if (!f.f75171d) {
+            this.f75178b = g.f75174b.a();
+            this.f75179c = g.f75173a.a();
             return;
         }
         String testHost = SDKManager.getTestHost();
         String statisticalTestHost = SDKManager.getStatisticalTestHost();
-        this.f38394c = c.b(statisticalTestHost).booleanValue() ? statisticalTestHost : g.f38388a.a();
+        this.f75179c = c.b(statisticalTestHost).booleanValue() ? statisticalTestHost : g.f75173a.a();
         if (c.b(testHost).booleanValue()) {
-            this.f38393b = testHost;
+            this.f75178b = testHost;
         } else {
-            this.f38393b = g.f38389b.a();
+            this.f75178b = g.f75174b.a();
         }
     }
 }

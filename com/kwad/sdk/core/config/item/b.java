@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public T f34387a;
+    public T f71124a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34388b;
+    public String f71125b;
 
     /* renamed from: c  reason: collision with root package name */
-    public T f34389c;
+    public T f71126c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public b(String str, T t) {
@@ -58,9 +58,9 @@ public abstract class b<T> {
                 return;
             }
         }
-        this.f34388b = str;
-        this.f34389c = t;
-        this.f34387a = t2;
+        this.f71125b = str;
+        this.f71126c = t;
+        this.f71124a = t2;
         com.kwad.sdk.core.config.b.a(this);
     }
 
@@ -68,7 +68,7 @@ public abstract class b<T> {
     public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34389c : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f71126c : (T) invokeV.objValue;
     }
 
     public abstract void a(SharedPreferences.Editor editor);
@@ -78,7 +78,7 @@ public abstract class b<T> {
     public void a(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            this.f34389c = t;
+            this.f71126c = t;
         }
     }
 
@@ -87,12 +87,12 @@ public abstract class b<T> {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34388b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f71125b : (String) invokeV.objValue;
     }
 
     public T c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34387a : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f71124a : (T) invokeV.objValue;
     }
 }

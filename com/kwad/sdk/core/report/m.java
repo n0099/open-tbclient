@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class m extends com.kwad.sdk.core.network.a<n> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,20 +87,20 @@ public abstract class m extends com.kwad.sdk.core.network.a<n> {
             }
             try {
                 cVar = KsAdSDKImpl.get().getProxyForHttp().doPost(str, (Map<String, String>) null, b2.e());
-                if (cVar == null || cVar.f34859a != 200) {
+                if (cVar == null || cVar.f71602a != 200) {
                     str2 = "report fail result is null";
                 } else {
-                    str2 = "report success actionType:" + b2.f35082b;
+                    str2 = "report success actionType:" + b2.f71831b;
                 }
                 com.kwad.sdk.core.d.a.a("ReportNetwork", str2);
                 a(b2);
             } catch (Exception e3) {
                 e = e3;
                 com.kwad.sdk.core.d.a.a(e);
-                if (com.kwad.sdk.b.f34059b.booleanValue()) {
+                if (com.kwad.sdk.b.f70787b.booleanValue()) {
                 }
             }
-            if (com.kwad.sdk.b.f34059b.booleanValue()) {
+            if (com.kwad.sdk.b.f70787b.booleanValue()) {
                 return;
             }
             BaseResultData baseResultData = new BaseResultData(this) { // from class: com.kwad.sdk.core.report.ReportNetwork$1
@@ -136,7 +136,7 @@ public abstract class m extends com.kwad.sdk.core.network.a<n> {
             };
             if (cVar != null) {
                 try {
-                    baseResultData.parseJson(new JSONObject(cVar.f34860b));
+                    baseResultData.parseJson(new JSONObject(cVar.f71603b));
                 } catch (JSONException e4) {
                     e4.printStackTrace();
                 }

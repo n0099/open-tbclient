@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SearchType f9433a;
+    public SearchType f44082a;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public abstract class d {
     public SearchType a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9433a : (SearchType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44082a : (SearchType) invokeV.objValue;
     }
 
     public abstract void a(SearchResult searchResult, Object obj);
@@ -44,7 +44,7 @@ public abstract class d {
     public void a(SearchType searchType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, searchType) == null) {
-            this.f9433a = searchType;
+            this.f44082a = searchType;
         }
     }
 

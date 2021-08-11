@@ -16,14 +16,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadListenerBunch implements DownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final DownloadListener[] listenerList;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,31 +167,31 @@ public class DownloadListenerBunch implements DownloadListener {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchEnd(@NonNull DownloadTask downloadTask, int i2, long j) {
+    public void fetchEnd(@NonNull DownloadTask downloadTask, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.fetchEnd(downloadTask, i2, j);
+                downloadListener.fetchEnd(downloadTask, i2, j2);
             }
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchProgress(@NonNull DownloadTask downloadTask, int i2, long j) {
+    public void fetchProgress(@NonNull DownloadTask downloadTask, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.fetchProgress(downloadTask, i2, j);
+                downloadListener.fetchProgress(downloadTask, i2, j2);
             }
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchStart(@NonNull DownloadTask downloadTask, int i2, long j) {
+    public void fetchStart(@NonNull DownloadTask downloadTask, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
             for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.fetchStart(downloadTask, i2, j);
+                downloadListener.fetchStart(downloadTask, i2, j2);
             }
         }
     }

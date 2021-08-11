@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class cb implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f23656a;
+    public final /* synthetic */ FeedbackInputActivity f59392a;
 
     public cb(FeedbackInputActivity feedbackInputActivity) {
         Interceptable interceptable = $ic;
@@ -29,16 +29,16 @@ public final class cb implements View.OnClickListener {
                 return;
             }
         }
-        this.f23656a = feedbackInputActivity;
+        this.f59392a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            Intent intent = new Intent(this.f23656a, FeedbackListActivity.class);
-            intent.putExtra("feedback_channel", com.baidu.ufosdk.b.j);
-            this.f23656a.startActivity(intent);
+            Intent intent = new Intent(this.f59392a, FeedbackListActivity.class);
+            intent.putExtra("feedback_channel", com.baidu.ufosdk.b.f59177j);
+            this.f59392a.startActivity(intent);
         }
     }
 }

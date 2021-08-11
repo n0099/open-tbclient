@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class NetworkQuality {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BAD_NETWORK_QUALITY = 2;
@@ -37,7 +37,7 @@ public class NetworkQuality {
     public static WeakNetCheckConfig sWeakNetCheckConfig;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static abstract class NetworkQualityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -250,7 +250,7 @@ public class NetworkQuality {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class WeakNetCheckConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long DEFAULT_TTFB_EXPIRE_TIME = 1000;
@@ -282,12 +282,12 @@ public class NetworkQuality {
             this.sdtProbeDomains = new ArrayList();
         }
 
-        public WeakNetCheckConfig(long j, long j2, long j3, List<String> list, boolean z, boolean z2) {
+        public WeakNetCheckConfig(long j2, long j3, long j4, List<String> list, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), list, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -301,14 +301,14 @@ public class NetworkQuality {
             this.weakTtfbThresholdMillis = 1000L;
             this.nqeWeakTtfbThresholdMillis = 1000L;
             this.sdtProbeDomains = new ArrayList();
-            if (j > 0) {
-                this.goodTtfbThresholdMillis = j;
-            }
             if (j2 > 0) {
-                this.weakTtfbThresholdMillis = j2;
+                this.goodTtfbThresholdMillis = j2;
             }
             if (j3 > 0) {
-                this.nqeWeakTtfbThresholdMillis = j3;
+                this.weakTtfbThresholdMillis = j3;
+            }
+            if (j4 > 0) {
+                this.nqeWeakTtfbThresholdMillis = j4;
             }
             if (list != null && !list.isEmpty()) {
                 ArrayList arrayList = new ArrayList();

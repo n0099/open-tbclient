@@ -20,7 +20,7 @@ import java.security.NoSuchAlgorithmException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMGetOneShieldAndTopRequest";
@@ -39,12 +39,12 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
     public long mShieldTime;
 
     @Deprecated
-    public IMGetOneShieldAndTopRequest(Context context, long j, String str) {
+    public IMGetOneShieldAndTopRequest(Context context, long j2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), str};
+            Object[] objArr = {context, Long.valueOf(j2), str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -63,9 +63,9 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         this.mGraphicStatus = 1;
         this.mCommodityStatus = 1;
         this.mContext = context;
-        this.mContacter = j;
+        this.mContacter = j2;
         this.mKey = str;
-        int i4 = (j & Constants.PAFLAG) != 0 ? 1 : 0;
+        int i4 = (j2 & Constants.PAFLAG) != 0 ? 1 : 0;
         this.mChatType = i4;
         this.mContacterType = getContacterType(i4);
     }
@@ -195,12 +195,12 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         }
     }
 
-    public IMGetOneShieldAndTopRequest(Context context, long j, int i2, String str) {
+    public IMGetOneShieldAndTopRequest(Context context, long j2, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), str};
+            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -219,7 +219,7 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
         this.mGraphicStatus = 1;
         this.mCommodityStatus = 1;
         this.mContext = context;
-        this.mContacter = j;
+        this.mContacter = j2;
         this.mKey = str;
         this.mChatType = i2;
         this.mContacterType = getContacterType(i2);

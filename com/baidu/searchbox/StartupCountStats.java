@@ -2,7 +2,6 @@ package com.baidu.searchbox;
 
 import android.app.Activity;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -20,7 +19,7 @@ import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class StartupCountStats extends SimpleActivityLifeCycle implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -41,7 +40,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     public static UBCManager ubc;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class ExtDataCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +69,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class StatsRule {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -261,9 +260,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
     public static void startTiming() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            if (DEBUG) {
-                Log.d(TAG, "App使用时长统计开始：startTiming");
-            }
+            boolean z = DEBUG;
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("duration", "0");
@@ -283,9 +280,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
         ubc.flowSetValueWithDuration(flow, generateValueJson());
         ubc.flowEnd(sFlow);
         sFlow = null;
-        if (DEBUG) {
-            Log.d(TAG, "App使用时长统计结束：stopTiming");
-        }
+        boolean z = DEBUG;
     }
 
     public static void updateTiming() {
@@ -294,9 +289,7 @@ public class StartupCountStats extends SimpleActivityLifeCycle implements NoProG
             return;
         }
         ubc.flowSetValueWithDuration(sFlow, generateValueJson());
-        if (DEBUG) {
-            Log.d(TAG, "App使用时长统计更新（最小间隔5分钟）：updateTiming");
-        }
+        boolean z = DEBUG;
     }
 
     @Override // com.baidu.searchbox.appframework.SimpleActivityLifeCycle, com.baidu.searchbox.appframework.BdBoxActivityLifecycle.IActivityLifecycle

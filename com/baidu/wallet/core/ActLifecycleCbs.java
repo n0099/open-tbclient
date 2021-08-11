@@ -9,7 +9,6 @@ import android.os.HandlerThread;
 import androidx.core.view.InputDeviceCompat;
 import androidx.lifecycle.SavedStateHandle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,41 +16,47 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.BaiduWalletServiceProviderMap;
+import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
+import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.router.LocalRouter;
 import com.baidu.wallet.router.RouterCallback;
 import com.baidu.wallet.router.RouterRequest;
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24780a;
+    public static final String f60491a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f24781b = "#invoke_config_impact_js_result";
+    public static final String f60492b = "#invoke_config_impact_js_result";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f24782c;
+    public static int f60493c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<b> f24783d;
+    public boolean f60494d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HandlerThread f24784e;
+    public ArrayList<b> f60495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Handler f24785f;
+    public HandlerThread f60496f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Runnable f24786g;
+    public Handler f60497g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Runnable f60498h;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class FROM {
         public static final /* synthetic */ FROM[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -110,31 +115,31 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         boolean onInvoke(Context context, FROM from);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public a f24790a;
+        public a f60502a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f24791b;
+        public long f60503b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f24792c;
+        public long f60504c;
 
-        public b(a aVar, long j) {
+        public b(a aVar, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Long.valueOf(j)};
+                Object[] objArr = {aVar, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -144,18 +149,18 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                     return;
                 }
             }
-            this.f24790a = aVar;
-            this.f24791b = j;
-            this.f24792c = System.currentTimeMillis();
+            this.f60502a = aVar;
+            this.f60503b = j2;
+            this.f60504c = System.currentTimeMillis();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final ActLifecycleCbs f24793a;
+        public static final ActLifecycleCbs f60505a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -171,7 +176,7 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                     return;
                 }
             }
-            f24793a = new ActLifecycleCbs();
+            f60505a = new ActLifecycleCbs();
         }
 
         public c() {
@@ -202,8 +207,8 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        f24780a = ActLifecycleCbs.class.getName();
-        f24782c = 30000;
+        f60491a = ActLifecycleCbs.class.getName();
+        f60493c = 30000;
     }
 
     public ActLifecycleCbs() {
@@ -219,13 +224,18 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.f24783d = new ArrayList<>();
+        this.f60494d = false;
+        this.f60495e = new ArrayList<>();
     }
 
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.f24785f.removeCallbacksAndMessages(null);
+            Handler handler = this.f60497g;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+            this.f60498h = null;
         }
     }
 
@@ -280,6 +290,7 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
     public void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+            LogUtil.d("poll", "onActivityStopped activity = " + activity.getLocalClassName());
             com.baidu.wallet.core.a.a();
         }
     }
@@ -287,69 +298,72 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
     public static ActLifecycleCbs a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f24793a : (ActLifecycleCbs) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.f60505a : (ActLifecycleCbs) invokeV.objValue;
     }
 
     public void a(Application application) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, application) == null) || application == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, application) == null) || this.f60494d || application == null) {
             return;
         }
-        application.registerActivityLifecycleCallbacks(this);
         HandlerThread handlerThread = new HandlerThread("poll");
-        this.f24784e = handlerThread;
+        this.f60496f = handlerThread;
         handlerThread.start();
-        this.f24785f = new Handler(this.f24784e.getLooper());
-        com.baidu.wallet.core.a.a(application);
-        LocalRouter.getInstance(application).route(application, new RouterRequest().provider(BaiduWalletServiceProviderMap.PLUGIN_LANGBRIGE).action("langbrige_getToImapctJsFiles").data("configs", new String[]{"config.json"}).data(SavedStateHandle.KEYS, new String[]{"common", "multi-webview"}), new RouterCallback(this) { // from class: com.baidu.wallet.core.ActLifecycleCbs.1
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+        try {
+            this.f60497g = new Handler(this.f60496f.getLooper());
+            com.baidu.wallet.core.a.a(application);
+            LocalRouter.getInstance(application).route(application, new RouterRequest().provider("langbrige").action("langbrige_getToImapctJsFiles").data("configs", new String[]{"config.json"}).data(SavedStateHandle.KEYS, new String[]{"common", "multi-webview"}), new RouterCallback(this) { // from class: com.baidu.wallet.core.ActLifecycleCbs.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
 
-            /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ActLifecycleCbs f24787a;
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ ActLifecycleCbs f60499a;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f60499a = this;
+                }
+
+                @Override // com.baidu.wallet.router.RouterCallback
+                public void onResult(int i2, HashMap hashMap) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, hashMap) == null) {
+                        LogUtil.d("jsHook", "routercb resultCode = " + i2);
                     }
                 }
-                this.f24787a = this;
-            }
-
-            @Override // com.baidu.wallet.router.RouterCallback
-            public void onResult(int i2, HashMap hashMap) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, hashMap) == null) {
-                    LogUtil.d("jsHook", "routercb resultCode = " + i2);
-                    PayStatisticsUtil.onEventWithValue(ActLifecycleCbs.f24781b, String.valueOf(i2));
-                }
-            }
-        });
+            });
+            application.registerActivityLifecycleCallbacks(this);
+            this.f60494d = true;
+        } catch (Exception e2) {
+            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.POLL_INIT_EXCEPTION, Arrays.asList(e2.getMessage()));
+        }
     }
 
-    public void a(a aVar, long j) {
+    public void a(a aVar, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, j) == null) || aVar == null) {
-            return;
-        }
-        for (int i2 = 0; i2 < this.f24783d.size(); i2++) {
-            b bVar = this.f24783d.get(i2);
-            if (bVar != null && aVar == bVar.f24790a) {
-                bVar.f24791b = j;
-                return;
+        if ((interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, j2) == null) && this.f60494d && aVar != null) {
+            for (int i2 = 0; i2 < this.f60495e.size(); i2++) {
+                b bVar = this.f60495e.get(i2);
+                if (bVar != null && aVar == bVar.f60502a) {
+                    bVar.f60503b = j2;
+                    return;
+                }
             }
+            this.f60495e.add(new b(aVar, j2));
         }
-        this.f24783d.add(new b(aVar, j));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -357,11 +371,11 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, from) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            if (this.f24783d != null) {
-                for (int i2 = 0; i2 < this.f24783d.size(); i2++) {
-                    b bVar = this.f24783d.get(i2);
-                    if (bVar != null && currentTimeMillis - bVar.f24792c >= bVar.f24791b && bVar.f24790a.onInvoke(context, from)) {
-                        bVar.f24792c = currentTimeMillis;
+            if (this.f60495e != null) {
+                for (int i2 = 0; i2 < this.f60495e.size(); i2++) {
+                    b bVar = this.f60495e.get(i2);
+                    if (bVar != null && currentTimeMillis - bVar.f60504c >= bVar.f60503b && bVar.f60502a.onInvoke(context, from)) {
+                        bVar.f60504c = currentTimeMillis;
                     }
                 }
             }
@@ -372,23 +386,24 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
     public void a(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, activity) == null) {
-            if (this.f24786g == null) {
-                this.f24786g = new Runnable(this, activity) { // from class: com.baidu.wallet.core.ActLifecycleCbs.2
+            WeakReference weakReference = new WeakReference(activity);
+            if (this.f60498h == null) {
+                this.f60498h = new Runnable(this, weakReference) { // from class: com.baidu.wallet.core.ActLifecycleCbs.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Activity f24788a;
+                    public final /* synthetic */ WeakReference f60500a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ActLifecycleCbs f24789b;
+                    public final /* synthetic */ ActLifecycleCbs f60501b;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, activity};
+                            Object[] objArr = {this, weakReference};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -398,22 +413,27 @@ public class ActLifecycleCbs implements Application.ActivityLifecycleCallbacks {
                                 return;
                             }
                         }
-                        this.f24789b = this;
-                        this.f24788a = activity;
+                        this.f60501b = this;
+                        this.f60500a = weakReference;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
+                        Activity activity2;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            LogUtil.d("poll", "任务轮询30s一次");
-                            this.f24789b.a(this.f24788a, FROM.POLL);
-                            this.f24789b.a(this.f24788a);
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (activity2 = (Activity) this.f60500a.get()) == null) {
+                            return;
                         }
+                        LogUtil.d("poll", "任务轮询30s一次");
+                        this.f60501b.a(activity2, FROM.POLL);
+                        this.f60501b.a(activity2);
                     }
                 };
             }
-            this.f24785f.postDelayed(this.f24786g, f24782c);
+            Handler handler = this.f60497g;
+            if (handler != null) {
+                handler.postDelayed(this.f60498h, f60493c);
+            }
         }
     }
 }

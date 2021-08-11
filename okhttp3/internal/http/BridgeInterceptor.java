@@ -21,7 +21,7 @@ import okhttp3.internal.Version;
 import okio.GzipSource;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class BridgeInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,7 +57,7 @@ public final class BridgeInterceptor implements Interceptor {
                 }
                 Cookie cookie = list.get(i2);
                 sb.append(cookie.name());
-                sb.append(a.f1923h);
+                sb.append(a.f35773h);
                 sb.append(cookie.value());
             }
             return sb.toString();

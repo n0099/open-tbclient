@@ -5,19 +5,19 @@ import android.webkit.WebView;
 import com.baidu.wallet.core.NoProguard;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface IOfflineCache extends NoProguard {
     JSONObject getOfflineCacheInfo(String str);
 
     void handleCreateLangbirdge(String str, WebView webView);
 
-    void handleFinishLangbirdge(long j);
+    void handleFinishLangbirdge(long j2);
 
     void handleFinishPage(String str);
 
-    void handleLoadUrl(long j, String str);
+    void handleLoadUrl(long j2, String str);
 
-    void handleStartLangbirdge(long j, String str);
+    void handleStartLangbirdge(long j2, String str);
 
     void handleStartPage(String str);
 

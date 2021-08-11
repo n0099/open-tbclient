@@ -6,32 +6,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f2132c = 1;
+    public static final int f35980c = 1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f2133d = 2;
+    public static final int f35981d = 2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f2134e = 3;
+    public static final int f35982e = 3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f2135f = "APPKEY_ERROR";
+    public static final String f35983f = "APPKEY_ERROR";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f2136g = "SUCCESS";
+    public static final String f35984g = "SUCCESS";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2137h;
+    public String f35985h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f2138i;
-    public String j;
+    public String f35986i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f35987j;
     public String k;
     public String l;
     public String m;
@@ -58,13 +60,13 @@ public class c extends a {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2130a ? com.alipay.security.mobile.module.a.a.a(this.f2137h) ? 2 : 1 : f2135f.equals(this.f2131b) ? 3 : 2 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f35978a ? com.alipay.security.mobile.module.a.a.a(this.f35985h) ? 2 : 1 : f35983f.equals(this.f35979b) ? 3 : 2 : invokeV.intValue;
     }
 
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.j) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(this.f35987j) : invokeV.booleanValue;
     }
 
     public String c() {

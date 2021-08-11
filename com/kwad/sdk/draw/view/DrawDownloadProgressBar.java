@@ -15,19 +15,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.core.page.widget.TextProgressBar;
 import com.kwad.sdk.utils.av;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DrawDownloadProgressBar extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35709a;
+    public Context f72475a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextProgressBar f35710b;
+    public TextProgressBar f72476b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f35711c;
+    public View f72477c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DrawDownloadProgressBar(@NonNull Context context) {
@@ -97,17 +97,17 @@ public class DrawDownloadProgressBar extends FrameLayout {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            this.f35709a = context;
+            this.f72475a = context;
             FrameLayout.inflate(context, R.layout.ksad_draw_download_bar, this);
-            this.f35710b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
+            this.f72476b = (TextProgressBar) findViewById(R.id.ksad_download_progress);
             View findViewById = findViewById(R.id.ksad_download_progress_cover);
-            this.f35711c = findViewById;
+            this.f72477c = findViewById;
             findViewById.setOnClickListener(new View.OnClickListener(this) { // from class: com.kwad.sdk.draw.view.DrawDownloadProgressBar.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ DrawDownloadProgressBar f35712a;
+                public final /* synthetic */ DrawDownloadProgressBar f72478a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -124,14 +124,14 @@ public class DrawDownloadProgressBar extends FrameLayout {
                             return;
                         }
                     }
-                    this.f35712a = this;
+                    this.f72478a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f35712a.performClick();
+                        this.f72478a.performClick();
                     }
                 }
             });
@@ -144,34 +144,34 @@ public class DrawDownloadProgressBar extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
             if (i2 == 0 || i2 == getMax()) {
-                view = this.f35711c;
+                view = this.f72477c;
                 i3 = 0;
             } else {
-                view = this.f35711c;
+                view = this.f72477c;
                 i3 = 8;
             }
             view.setVisibility(i3);
-            this.f35710b.a(str, i2);
+            this.f72476b.a(str, i2);
         }
     }
 
     public int getMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35710b.getMax() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f72476b.getMax() : invokeV.intValue;
     }
 
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f35710b.setTextColor(i2);
+            this.f72476b.setTextColor(i2);
         }
     }
 
     public void setTextSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f35710b.setTextDimen(av.a(getContext(), i2));
+            this.f72476b.setTextDimen(av.a(getContext(), i2));
         }
     }
 }

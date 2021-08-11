@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class f extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d f6597a;
+    public final /* synthetic */ d f40824a;
 
     public f(d dVar) {
         Interceptable interceptable = $ic;
@@ -28,14 +28,14 @@ public class f extends Thread {
                 return;
             }
         }
-        this.f6597a = dVar;
+        this.f40824a = dVar;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f6597a.a(new File(com.baidu.location.e.k.k() + "/baidu/tempdata", "intime.dat"), "https://itsdata.map.baidu.com/long-conn-gps/sdk.php");
+            this.f40824a.a(new File(com.baidu.location.e.k.k() + "/baidu/tempdata", "intime.dat"), "https://itsdata.map.baidu.com/long-conn-gps/sdk.php");
         }
     }
 }

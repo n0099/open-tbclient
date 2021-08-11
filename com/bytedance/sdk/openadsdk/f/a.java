@@ -32,27 +32,27 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String[] f31556a;
+    public static String[] f67499a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f31557b;
+    public File f67500b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map.Entry<String, JSONObject> f31558c;
+    public Map.Entry<String, JSONObject> f67501c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.f.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0354a {
+    /* loaded from: classes9.dex */
+    public static class C1914a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static a f31561a;
+        public static a f67504a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -68,7 +68,7 @@ public class a {
                     return;
                 }
             }
-            f31561a = new a();
+            f67504a = new a();
         }
     }
 
@@ -85,13 +85,13 @@ public class a {
                 return;
             }
         }
-        f31556a = new String[]{"gecko-pangle-lf.snssdk.com", "gecko-pangle-hl.snssdk.com", "gecko-pangle-lq.snssdk.com"};
+        f67499a = new String[]{"gecko-pangle-lf.snssdk.com", "gecko-pangle-hl.snssdk.com", "gecko-pangle-lq.snssdk.com"};
     }
 
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C0354a.f31561a : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? C1914a.f67504a : (a) invokeV.objValue;
     }
 
     private String c() {
@@ -104,11 +104,11 @@ public class a {
             sb.append(I == null ? 0 : I.length);
             k.b("GeckoHub", sb.toString());
             if (I == null) {
-                I = f31556a;
+                I = f67499a;
             }
             String str = I[new SecureRandom().nextInt(I.length)];
             if (TextUtils.isEmpty(str)) {
-                str = f31556a[new SecureRandom().nextInt(f31556a.length)];
+                str = f67499a[new SecureRandom().nextInt(f67499a.length)];
             }
             k.b("GeckoHub", "GeckoLog:random host " + str);
             return str;
@@ -121,7 +121,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                return new com.bytedance.sdk.openadsdk.preload.falconx.a.a(o.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f31557b);
+                return new com.bytedance.sdk.openadsdk.preload.falconx.a.a(o.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f67500b);
             } catch (Throwable th) {
                 k.c("GeckoHub", "getGeckoResLoader error", th);
                 return null;
@@ -143,7 +143,7 @@ public class a {
                 return;
             }
         }
-        this.f31557b = new File(o.a().getCacheDir() + File.separator + "gecko");
+        this.f67500b = new File(o.a().getCacheDir() + File.separator + "gecko");
         if (h.d().x()) {
             b.a();
         }
@@ -157,15 +157,15 @@ public class a {
                 k.b("GeckoHub", "no did so don't preload");
                 return;
             }
-            com.bytedance.sdk.openadsdk.preload.geckox.a a3 = com.bytedance.sdk.openadsdk.preload.geckox.a.a(new b.a(o.a()).b("4ab312f7094810afa84659d3dc6cf0fe").a("4ab312f7094810afa84659d3dc6cf0fe").a(Long.parseLong("1371")).b(a2).a("9999999.0.0").a(new a.C0367a().a(20).a(com.bytedance.sdk.openadsdk.preload.geckox.a.a.b.f32331c).a()).a(this.f31557b).a(false).c(c()).b(e.a()).a(e.a()).a(new com.bytedance.sdk.openadsdk.preload.geckox.statistic.a(this, map) { // from class: com.bytedance.sdk.openadsdk.f.a.1
+            com.bytedance.sdk.openadsdk.preload.geckox.a a3 = com.bytedance.sdk.openadsdk.preload.geckox.a.a(new b.a(o.a()).b("4ab312f7094810afa84659d3dc6cf0fe").a("4ab312f7094810afa84659d3dc6cf0fe").a(Long.parseLong("1371")).b(a2).a("9999999.0.0").a(new a.C1927a().a(20).a(com.bytedance.sdk.openadsdk.preload.geckox.a.a.b.f68290c).a()).a(this.f67500b).a(false).c(c()).b(e.a()).a(e.a()).a(new com.bytedance.sdk.openadsdk.preload.geckox.statistic.a(this, map) { // from class: com.bytedance.sdk.openadsdk.f.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Map f31559a;
+                public final /* synthetic */ Map f67502a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f31560b;
+                public final /* synthetic */ a f67503b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -182,15 +182,15 @@ public class a {
                             return;
                         }
                     }
-                    this.f31560b = this;
-                    this.f31559a = map;
+                    this.f67503b = this;
+                    this.f67502a = map;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.preload.geckox.statistic.a
                 public void a(String str, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeLL(1048576, this, str, jSONObject) == null) && "geckosdk_update_stats".equals(str)) {
-                        m mVar = (m) this.f31559a.get(jSONObject.optString("channel"));
+                        m mVar = (m) this.f67502a.get(jSONObject.optString("channel"));
                         if (mVar != null) {
                             d.a.a(str, jSONObject, mVar);
                         }
@@ -239,17 +239,17 @@ public class a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, this, str, str2)) == null) {
             if (str != null && str2 != null) {
                 try {
-                    if (this.f31558c == null || !str.equals(this.f31558c.getKey())) {
+                    if (this.f67501c == null || !str.equals(this.f67501c.getKey())) {
                         k.b("GeckoHub", "refresh cache manifest");
-                        com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar = new com.bytedance.sdk.openadsdk.preload.falconx.a.a(o.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f31557b);
+                        com.bytedance.sdk.openadsdk.preload.falconx.a.a aVar = new com.bytedance.sdk.openadsdk.preload.falconx.a.a(o.a(), "4ab312f7094810afa84659d3dc6cf0fe", this.f67500b);
                         String a2 = com.bytedance.sdk.openadsdk.n.g.a.a(aVar.a(str + "/manifest.json"));
                         if (TextUtils.isEmpty(a2)) {
                             k.f("GeckoHub", "getFileInfoInManifest error null");
                             return null;
                         }
-                        this.f31558c = new AbstractMap.SimpleEntry(str, new JSONObject(a2));
+                        this.f67501c = new AbstractMap.SimpleEntry(str, new JSONObject(a2));
                     }
-                    JSONObject value = this.f31558c.getValue();
+                    JSONObject value = this.f67501c.getValue();
                     String a3 = com.bytedance.sdk.component.utils.e.a(str2);
                     if (value.has(a3)) {
                         return value.getJSONObject(a3);

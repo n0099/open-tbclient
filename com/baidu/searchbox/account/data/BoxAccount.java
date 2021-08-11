@@ -9,9 +9,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BoxAccount {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +59,7 @@ public class BoxAccount {
     public String uk;
     public int vip;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class ErrorBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -429,10 +430,10 @@ public class BoxAccount {
         }
     }
 
-    public void setDeadline(long j) {
+    public void setDeadline(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
-            this.deadline = j;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
+            this.deadline = j2;
         }
     }
 
@@ -614,7 +615,7 @@ public class BoxAccount {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
-            return "BoxAccount{uid='" + this.uid + "', displayname='" + this.displayname + "', portrait='" + this.portrait + "', nickname='" + this.nickname + "'}";
+            return "BoxAccount{uid='" + this.uid + ExtendedMessageFormat.QUOTE + ", displayname='" + this.displayname + ExtendedMessageFormat.QUOTE + ", portrait='" + this.portrait + ExtendedMessageFormat.QUOTE + ", nickname='" + this.nickname + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

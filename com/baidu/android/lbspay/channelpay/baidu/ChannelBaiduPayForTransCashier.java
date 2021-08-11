@@ -16,22 +16,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
-import com.baidu.wallet.api.WalletLoginHelper;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.datamodel.PrecashierCreateOrderResponse;
-import com.baidu.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.api.WalletLoginHelper;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ChannelBaiduPayForTransCashier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static ChannelBaiduPayForTransCashier f2693a;
+        public static ChannelBaiduPayForTransCashier f36568a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,14 +47,14 @@ public class ChannelBaiduPayForTransCashier {
                     return;
                 }
             }
-            f2693a = new ChannelBaiduPayForTransCashier();
+            f36568a = new ChannelBaiduPayForTransCashier();
         }
     }
 
     public static ChannelBaiduPayForTransCashier getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f2693a : (ChannelBaiduPayForTransCashier) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f36568a : (ChannelBaiduPayForTransCashier) invokeV.objValue;
     }
 
     private String getNotify(String str) {
@@ -129,10 +129,10 @@ public class ChannelBaiduPayForTransCashier {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f2691a;
+            public final /* synthetic */ Context f36566a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ ChannelBaiduPayForTransCashier f2692b;
+            public final /* synthetic */ ChannelBaiduPayForTransCashier f36567b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -149,8 +149,8 @@ public class ChannelBaiduPayForTransCashier {
                         return;
                     }
                 }
-                this.f2692b = this;
-                this.f2691a = context;
+                this.f36567b = this;
+                this.f36566a = context;
             }
 
             @Override // com.baidu.android.pay.PayCallBack
@@ -167,7 +167,7 @@ public class ChannelBaiduPayForTransCashier {
             public void onPayResult(int i2, String str3) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str3) == null) {
-                    this.f2692b.handlepayResult(this.f2691a, i2, str3);
+                    this.f36567b.handlepayResult(this.f36566a, i2, str3);
                 }
             }
         }, new HashMap(), precashierCreateOrderResponse, null);

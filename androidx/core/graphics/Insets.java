@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public final class Insets {
     public static /* synthetic */ Interceptable $ic;
@@ -127,7 +128,7 @@ public final class Insets {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "Insets{left=" + this.left + ", top=" + this.top + ", right=" + this.right + ", bottom=" + this.bottom + '}';
+            return "Insets{left=" + this.left + ", top=" + this.top + ", right=" + this.right + ", bottom=" + this.bottom + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

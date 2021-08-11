@@ -3,7 +3,6 @@ package com.tencent.mm.sdk.a;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,27 +11,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.channel.MMessageActV2;
 import com.tencent.mm.sdk.a.a.b;
 import com.tencent.mm.sdk.b.c;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.mm.sdk.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static class C0523a {
+    /* loaded from: classes10.dex */
+    public static class C2083a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int flags;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f39058h;
+        public String f75882h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f39059i;
-        public String j;
+        public String f75883i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public String f75884j;
         public Bundle k;
 
-        public C0523a() {
+        public C2083a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -49,35 +50,35 @@ public final class a {
         }
     }
 
-    public static boolean a(Context context, C0523a c0523a) {
+    public static boolean a(Context context, C2083a c2083a) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c0523a)) == null) {
-            if (context == null || c0523a == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, c2083a)) == null) {
+            if (context == null || c2083a == null) {
                 com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid argument");
                 return false;
-            } else if (c.a(c0523a.f39058h)) {
-                com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c0523a.f39058h);
+            } else if (c.a(c2083a.f75882h)) {
+                com.tencent.mm.sdk.b.a.a(MMessageActV2.TAG, "send fail, invalid targetPkgName, targetPkgName = " + c2083a.f75882h);
                 return false;
             } else {
-                if (c.a(c0523a.f39059i)) {
-                    c0523a.f39059i = c0523a.f39058h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
+                if (c.a(c2083a.f75883i)) {
+                    c2083a.f75883i = c2083a.f75882h + MMessageActV2.DEFAULT_ENTRY_CLASS_NAME;
                 }
-                com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c0523a.f39058h + ", targetClassName = " + c0523a.f39059i);
+                com.tencent.mm.sdk.b.a.c(MMessageActV2.TAG, "send, targetPkgName = " + c2083a.f75882h + ", targetClassName = " + c2083a.f75883i);
                 Intent intent = new Intent();
-                intent.setClassName(c0523a.f39058h, c0523a.f39059i);
-                Bundle bundle = c0523a.k;
+                intent.setClassName(c2083a.f75882h, c2083a.f75883i);
+                Bundle bundle = c2083a.k;
                 if (bundle != null) {
                     intent.putExtras(bundle);
                 }
                 String packageName = context.getPackageName();
                 intent.putExtra("_mmessage_sdkVersion", 570490883);
                 intent.putExtra("_mmessage_appPackage", packageName);
-                intent.putExtra("_mmessage_content", c0523a.j);
-                intent.putExtra("_mmessage_checksum", b.a(c0523a.j, 570490883, packageName));
-                int i2 = c0523a.flags;
+                intent.putExtra("_mmessage_content", c2083a.f75884j);
+                intent.putExtra("_mmessage_checksum", b.a(c2083a.f75884j, 570490883, packageName));
+                int i2 = c2083a.flags;
                 if (i2 == -1) {
-                    intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT).addFlags(134217728);
+                    intent.addFlags(268435456).addFlags(134217728);
                 } else {
                     intent.setFlags(i2);
                 }

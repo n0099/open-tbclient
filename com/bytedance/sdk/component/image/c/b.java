@@ -23,38 +23,40 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile b f28957a;
+    public static volatile b f64822a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, List<a>> f28958b;
+    public Map<String, List<a>> f64823b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LoadConfig f28959c;
+    public final LoadConfig f64824c;
 
     /* renamed from: d  reason: collision with root package name */
-    public IMemoryCache f28960d;
+    public IMemoryCache f64825d;
 
     /* renamed from: e  reason: collision with root package name */
-    public IRawCache f28961e;
+    public IRawCache f64826e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IDiskCache f28962f;
+    public IDiskCache f64827f;
 
     /* renamed from: g  reason: collision with root package name */
-    public IHttpClient f28963g;
+    public IHttpClient f64828g;
 
     /* renamed from: h  reason: collision with root package name */
-    public IKeyGenerator f28964h;
+    public IKeyGenerator f64829h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ExecutorService f28965i;
-    public CacheConfig j;
+    public ExecutorService f64830i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public CacheConfig f64831j;
 
     public b(Context context, LoadConfig loadConfig) {
         Interceptable interceptable = $ic;
@@ -71,30 +73,30 @@ public class b {
                 return;
             }
         }
-        this.f28958b = new ConcurrentHashMap();
-        this.f28959c = (LoadConfig) d.a(loadConfig);
+        this.f64823b = new ConcurrentHashMap();
+        this.f64824c = (LoadConfig) d.a(loadConfig);
         CacheConfig cacheConfig = loadConfig.getCacheConfig();
-        this.j = cacheConfig;
+        this.f64831j = cacheConfig;
         if (cacheConfig == null) {
-            this.j = CacheConfig.getDefault(context);
+            this.f64831j = CacheConfig.getDefault(context);
         }
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (b) d.a(f28957a, "ImageFactory was not initialized!") : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? (b) d.a(f64822a, "ImageFactory was not initialized!") : (b) invokeV.objValue;
     }
 
     private IMemoryCache i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            IMemoryCache memoryCache = this.f28959c.getMemoryCache();
+            IMemoryCache memoryCache = this.f64824c.getMemoryCache();
             if (memoryCache != null) {
                 return com.bytedance.sdk.component.image.c.a.b.a.a(memoryCache);
             }
-            return com.bytedance.sdk.component.image.c.a.b.a.a(this.j.getMemoryCacheSize());
+            return com.bytedance.sdk.component.image.c.a.b.a.a(this.f64831j.getMemoryCacheSize());
         }
         return (IMemoryCache) invokeV.objValue;
     }
@@ -103,8 +105,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            IRawCache rawCache = this.f28959c.getRawCache();
-            return rawCache != null ? rawCache : e.a(this.j.getMemoryCacheSize());
+            IRawCache rawCache = this.f64824c.getRawCache();
+            return rawCache != null ? rawCache : e.a(this.f64831j.getMemoryCacheSize());
         }
         return (IRawCache) invokeV.objValue;
     }
@@ -113,8 +115,8 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            IDiskCache diskCache = this.f28959c.getDiskCache();
-            return diskCache != null ? diskCache : new com.bytedance.sdk.component.image.c.a.a.b(this.j.getCacheDir(), this.j.getFileCacheSize(), g());
+            IDiskCache diskCache = this.f64824c.getDiskCache();
+            return diskCache != null ? diskCache : new com.bytedance.sdk.component.image.c.a.a.b(this.f64831j.getCacheDir(), this.f64831j.getFileCacheSize(), g());
         }
         return (IDiskCache) invokeV.objValue;
     }
@@ -123,7 +125,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) {
-            IHttpClient httpClient = this.f28959c.getHttpClient();
+            IHttpClient httpClient = this.f64824c.getHttpClient();
             return httpClient == null ? com.bytedance.sdk.component.image.b.b.a() : httpClient;
         }
         return (IHttpClient) invokeV.objValue;
@@ -133,7 +135,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
-            IKeyGenerator keyGenerator = this.f28959c.getKeyGenerator();
+            IKeyGenerator keyGenerator = this.f64824c.getKeyGenerator();
             return keyGenerator != null ? keyGenerator : com.bytedance.sdk.component.image.a.b.a();
         }
         return (IKeyGenerator) invokeV.objValue;
@@ -143,7 +145,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            ExecutorService threadPool = this.f28959c.getThreadPool();
+            ExecutorService threadPool = this.f64824c.getThreadPool();
             return threadPool != null ? threadPool : com.bytedance.sdk.component.image.a.c.a();
         }
         return (ExecutorService) invokeV.objValue;
@@ -153,10 +155,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f28960d == null) {
-                this.f28960d = i();
+            if (this.f64825d == null) {
+                this.f64825d = i();
             }
-            return this.f28960d;
+            return this.f64825d;
         }
         return (IMemoryCache) invokeV.objValue;
     }
@@ -165,10 +167,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f28961e == null) {
-                this.f28961e = j();
+            if (this.f64826e == null) {
+                this.f64826e = j();
             }
-            return this.f28961e;
+            return this.f64826e;
         }
         return (IRawCache) invokeV.objValue;
     }
@@ -177,10 +179,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f28962f == null) {
-                this.f28962f = k();
+            if (this.f64827f == null) {
+                this.f64827f = k();
             }
-            return this.f28962f;
+            return this.f64827f;
         }
         return (IDiskCache) invokeV.objValue;
     }
@@ -189,10 +191,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.f28963g == null) {
-                this.f28963g = l();
+            if (this.f64828g == null) {
+                this.f64828g = l();
             }
-            return this.f28963g;
+            return this.f64828g;
         }
         return (IHttpClient) invokeV.objValue;
     }
@@ -201,10 +203,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.f28964h == null) {
-                this.f28964h = m();
+            if (this.f64829h == null) {
+                this.f64829h = m();
             }
-            return this.f28964h;
+            return this.f64829h;
         }
         return (IKeyGenerator) invokeV.objValue;
     }
@@ -213,10 +215,10 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f28965i == null) {
-                this.f28965i = n();
+            if (this.f64830i == null) {
+                this.f64830i = n();
             }
-            return this.f28965i;
+            return this.f64830i;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -224,14 +226,14 @@ public class b {
     public Map<String, List<a>> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f28958b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f64823b : (Map) invokeV.objValue;
     }
 
     public static synchronized void a(Context context, LoadConfig loadConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, loadConfig) == null) {
             synchronized (b.class) {
-                f28957a = new b(context, loadConfig);
+                f64822a = new b(context, loadConfig);
                 c.a(loadConfig.getLog());
             }
         }
@@ -243,11 +245,11 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
             ImageView.ScaleType f2 = aVar.f();
             if (f2 == null) {
-                f2 = com.bytedance.sdk.component.image.c.b.a.f28966a;
+                f2 = com.bytedance.sdk.component.image.c.b.a.f64832a;
             }
             Bitmap.Config g2 = aVar.g();
             if (g2 == null) {
-                g2 = com.bytedance.sdk.component.image.c.b.a.f28967b;
+                g2 = com.bytedance.sdk.component.image.c.b.a.f64833b;
             }
             return new com.bytedance.sdk.component.image.c.b.a(aVar.h(), aVar.i(), f2, g2);
         }

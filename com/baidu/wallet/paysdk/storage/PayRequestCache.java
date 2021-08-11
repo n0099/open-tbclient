@@ -13,34 +13,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.CardData;
-import com.baidu.wallet.core.NoProguard;
-import com.baidu.wallet.core.beans.BeanRequestBase;
-import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
+import com.dxmpay.wallet.core.NoProguard;
+import com.dxmpay.wallet.core.beans.BeanRequestBase;
+import com.dxmpay.wallet.core.utils.LogUtil;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class PayRequestCache implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, BeanRequestBase> f26496a;
+    public final HashMap<String, BeanRequestBase> f62393a;
 
     /* renamed from: com.baidu.wallet.paysdk.storage.PayRequestCache$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class BindCategory {
         public static final /* synthetic */ BindCategory[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -125,12 +125,12 @@ public final class PayRequestCache implements NoProguard {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayRequestCache f26497a;
+        public static PayRequestCache f62394a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -146,7 +146,7 @@ public final class PayRequestCache implements NoProguard {
                     return;
                 }
             }
-            f26497a = new PayRequestCache(null);
+            f62394a = new PayRequestCache(null);
         }
     }
 
@@ -170,7 +170,7 @@ public final class PayRequestCache implements NoProguard {
     public static PayRequestCache getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f26497a : (PayRequestCache) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f62394a : (PayRequestCache) invokeV.objValue;
     }
 
     public void addBeanRequestToCache(String str, BeanRequestBase beanRequestBase) {
@@ -178,17 +178,17 @@ public final class PayRequestCache implements NoProguard {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, beanRequestBase) == null) || str == null || str.equals("") || beanRequestBase == null) {
             return;
         }
-        this.f26496a.put(str, beanRequestBase);
+        this.f62393a.put(str, beanRequestBase);
     }
 
     public void clearPaySdkRequestCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LogUtil.e(PayRequestCache.class.getSimpleName(), "clearPaySdkRequestCache", null);
-            Set<String> keySet = this.f26496a.keySet();
+            Set<String> keySet = this.f62393a.keySet();
             HashSet<String> hashSet = new HashSet();
             for (String str : keySet) {
-                if (this.f26496a.get(str) != null && this.f26496a.get(str).mBelongPaySdk) {
+                if (this.f62393a.get(str) != null && this.f62393a.get(str).mBelongPaySdk) {
                     hashSet.add(str);
                 }
             }
@@ -201,7 +201,7 @@ public final class PayRequestCache implements NoProguard {
     public void clearRequestCache() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f26496a.clear();
+            this.f62393a.clear();
         }
     }
 
@@ -212,7 +212,7 @@ public final class PayRequestCache implements NoProguard {
             if (str == null || str.equals("")) {
                 return null;
             }
-            return this.f26496a.get(str);
+            return this.f62393a.get(str);
         }
         return (BeanRequestBase) invokeL.objValue;
     }
@@ -225,7 +225,7 @@ public final class PayRequestCache implements NoProguard {
                 return BindCategory.Other;
             }
             BindCategory bindCategory = BindCategory.Other;
-            String stringExtra = intent.getStringExtra(com.baidu.wallet.api.Constants.BDL_KEY_FROM);
+            String stringExtra = intent.getStringExtra("baidu.wallet.from");
             if (!TextUtils.isEmpty(stringExtra)) {
                 try {
                     bindCategory = BindCategory.valueOf(stringExtra);
@@ -320,7 +320,7 @@ public final class PayRequestCache implements NoProguard {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f26496a.remove(str);
+        this.f62393a.remove(str);
     }
 
     public PayRequestCache() {
@@ -336,6 +336,6 @@ public final class PayRequestCache implements NoProguard {
                 return;
             }
         }
-        this.f26496a = new HashMap<>();
+        this.f62393a = new HashMap<>();
     }
 }

@@ -22,7 +22,7 @@ import java.io.Writer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XAdPersistData {
     public static /* synthetic */ Interceptable $ic = null;
     public static String SEPERATOR = ":";

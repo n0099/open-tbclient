@@ -1,6 +1,5 @@
 package com.baidu.platform.core.f;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.CoordType;
@@ -25,12 +24,12 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class c extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9470b = "c";
+    public static final String f44119b = "c";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -115,8 +114,7 @@ public class c extends com.baidu.platform.base.d {
                     suggestionResult.error = optInt != 1 ? optInt != 2 ? SearchResult.ERRORNO.RESULT_NOT_FOUND : SearchResult.ERRORNO.SEARCH_OPTION_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
                     return false;
                 }
-            } catch (JSONException e2) {
-                Log.e(f9470b, "Parse sug search error", e2);
+            } catch (JSONException unused) {
             }
             suggestionResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return false;
@@ -172,8 +170,7 @@ public class c extends com.baidu.platform.base.d {
             if (str != null && !str.isEmpty()) {
                 try {
                     jSONObject = new JSONObject(str);
-                } catch (JSONException e2) {
-                    Log.e(f9470b, "Parse suggestion search result error", e2);
+                } catch (JSONException unused) {
                 }
                 if (jSONObject.length() != 0) {
                     if (jSONObject.has("SDK_InnerError")) {

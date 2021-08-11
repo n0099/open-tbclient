@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PrivilegeTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f18663e;
+    public a f53970e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(CharSequence charSequence, int i2, int i3, int i4);
     }
@@ -56,12 +56,18 @@ public class PrivilegeTextView extends TextView {
         return invokeV.intValue;
     }
 
+    public boolean isOverFlowed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getPaint().measureText(getText().toString()) > ((float) getAvailableWidth()) : invokeV.booleanValue;
+    }
+
     @Override // android.widget.TextView
     public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
             super.onTextChanged(charSequence, i2, i3, i4);
-            a aVar = this.f18663e;
+            a aVar = this.f53970e;
             if (aVar != null) {
                 aVar.a(charSequence, i2, i3, i4);
             }
@@ -70,8 +76,8 @@ public class PrivilegeTextView extends TextView {
 
     public void setTextChangeListener(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f18663e = aVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.f53970e = aVar;
         }
     }
 

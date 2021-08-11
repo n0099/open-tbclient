@@ -33,7 +33,7 @@ import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SHARE_URL = "https://service.weibo.com/share/mobilesdk.php";

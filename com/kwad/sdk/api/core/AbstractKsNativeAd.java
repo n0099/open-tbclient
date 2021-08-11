@@ -15,7 +15,7 @@ import com.kwad.sdk.api.KsNativeAd;
 import com.kwad.sdk.api.loader.Wrapper;
 @KsAdSdkDynamicApi
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractKsNativeAd implements KsNativeAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

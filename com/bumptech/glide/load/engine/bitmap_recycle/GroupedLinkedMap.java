@@ -13,14 +13,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public class GroupedLinkedMap<K extends Poolable, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final LinkedEntry<K, V> head;
     public final Map<K, LinkedEntry<K, V>> keyToEntry;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class LinkedEntry<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -221,7 +222,7 @@ public class GroupedLinkedMap<K extends Poolable, V> {
             boolean z = false;
             for (LinkedEntry linkedEntry = this.head.next; !linkedEntry.equals(this.head); linkedEntry = linkedEntry.next) {
                 z = true;
-                sb.append('{');
+                sb.append(ExtendedMessageFormat.START_FE);
                 sb.append(linkedEntry.key);
                 sb.append(':');
                 sb.append(linkedEntry.size());

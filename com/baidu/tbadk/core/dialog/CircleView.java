@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static int l = 360;
@@ -23,20 +23,22 @@ public class CircleView extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12301e;
+    public int f47231e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12302f;
+    public int f47232f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12303g;
+    public int f47233g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f12304h;
+    public Paint f47234h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Paint f12305i;
-    public RectF j;
+    public Paint f47235i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public RectF f47236j;
     public int k;
 
     static {
@@ -74,30 +76,30 @@ public class CircleView extends View {
             }
         }
         this.k = 0;
-        a();
+        init();
     }
 
-    public void a() {
+    public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f12301e = getResources().getDimensionPixelSize(R.dimen.ds100);
-            this.f12302f = getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f12303g = getResources().getDimensionPixelSize(R.dimen.ds2);
+            this.f47231e = getResources().getDimensionPixelSize(R.dimen.ds100);
+            this.f47232f = getResources().getDimensionPixelSize(R.dimen.ds4);
+            this.f47233g = getResources().getDimensionPixelSize(R.dimen.ds2);
             Paint paint = new Paint();
-            this.f12304h = paint;
-            paint.setStrokeWidth(this.f12302f);
-            this.f12304h.setColor(getResources().getColor(R.color.CAM_X0111));
-            this.f12304h.setStyle(Paint.Style.STROKE);
-            this.f12304h.setAntiAlias(true);
+            this.f47234h = paint;
+            paint.setStrokeWidth(this.f47232f);
+            this.f47234h.setColor(getResources().getColor(R.color.CAM_X0111));
+            this.f47234h.setStyle(Paint.Style.STROKE);
+            this.f47234h.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f12305i = paint2;
-            paint2.setStrokeWidth(this.f12303g);
-            this.f12305i.setColor(getResources().getColor(R.color.common_color_10042));
-            this.f12305i.setStyle(Paint.Style.STROKE);
-            this.f12305i.setAntiAlias(true);
-            int i2 = this.f12302f;
-            int i3 = this.f12301e;
-            this.j = new RectF(i2, i2, i3 + i2, i3 + i2);
+            this.f47235i = paint2;
+            paint2.setStrokeWidth(this.f47233g);
+            this.f47235i.setColor(getResources().getColor(R.color.common_color_10042));
+            this.f47235i.setStyle(Paint.Style.STROKE);
+            this.f47235i.setAntiAlias(true);
+            int i2 = this.f47232f;
+            int i3 = this.f47231e;
+            this.f47236j = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
 
@@ -105,8 +107,8 @@ public class CircleView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.j, 0.0f, l, false, this.f12305i);
-            canvas.drawArc(this.j, 270.0f, (l * this.k) / m, false, this.f12304h);
+            canvas.drawArc(this.f47236j, 0.0f, l, false, this.f47235i);
+            canvas.drawArc(this.f47236j, 270.0f, (l * this.k) / m, false, this.f47234h);
         }
     }
 
@@ -138,7 +140,7 @@ public class CircleView extends View {
             }
         }
         this.k = 0;
-        a();
+        init();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -160,6 +162,6 @@ public class CircleView extends View {
             }
         }
         this.k = 0;
-        a();
+        init();
     }
 }

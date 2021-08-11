@@ -6,7 +6,6 @@ import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.util.Log;
 import android.view.ActionProvider;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -622,8 +621,7 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
                     this.mSetExclusiveCheckableMethod = this.mWrappedObject.getClass().getDeclaredMethod("setExclusiveCheckable", Boolean.TYPE);
                 }
                 this.mSetExclusiveCheckableMethod.invoke(this.mWrappedObject, Boolean.valueOf(z));
-            } catch (Exception e2) {
-                Log.w(LOG_TAG, "Error while calling setExclusiveCheckable", e2);
+            } catch (Exception unused) {
             }
         }
     }

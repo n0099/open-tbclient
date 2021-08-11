@@ -21,11 +21,13 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import c.a.e.e.p.l;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.WriteImageActivityConfig;
 import com.baidu.tbadk.core.service.TiebaPrepareImageService;
@@ -40,11 +42,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CANCEL_TEXT = "cancel_text";
@@ -91,13 +92,13 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
     public int requestCode;
     public final Object writeLock;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteImageActivity f23027e;
+        public final /* synthetic */ WriteImageActivity f58696e;
 
         public a(WriteImageActivity writeImageActivity) {
             Interceptable interceptable = $ic;
@@ -114,31 +115,31 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     return;
                 }
             }
-            this.f23027e = writeImageActivity;
+            this.f58696e = writeImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f23027e.mNavigationBar.getVisibility() == 0) {
-                    this.f23027e.mNavigationBar.setVisibility(8);
-                    this.f23027e.mBeautifyRotateView.setVisibility(8);
+                if (this.f58696e.mNavigationBar.getVisibility() == 0) {
+                    this.f58696e.mNavigationBar.setVisibility(8);
+                    this.f58696e.mBeautifyRotateView.setVisibility(8);
                     return;
                 }
-                this.f23027e.mNavigationBar.setVisibility(0);
-                this.f23027e.mBeautifyRotateView.setVisibility(0);
+                this.f58696e.mNavigationBar.setVisibility(0);
+                this.f58696e.mBeautifyRotateView.setVisibility(0);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteImageActivity f23028e;
+        public final /* synthetic */ WriteImageActivity f58697e;
 
         public b(WriteImageActivity writeImageActivity) {
             Interceptable interceptable = $ic;
@@ -155,23 +156,23 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     return;
                 }
             }
-            this.f23028e = writeImageActivity;
+            this.f58697e = writeImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!this.f23028e.isFromFrs) {
-                    if (this.f23028e.requestCode == 12003) {
+                if (!this.f58697e.isFromFrs) {
+                    if (this.f58697e.requestCode == 12003) {
                         Intent intent = new Intent();
-                        if (this.f23028e.mProgress.getVisibility() == 0) {
+                        if (this.f58697e.mProgress.getVisibility() == 0) {
                             return;
                         }
-                        if (this.f23028e.isEdited && this.f23028e.mPreparedBitmap != null && !this.f23028e.mPreparedBitmap.isRecycled()) {
+                        if (this.f58697e.isEdited && this.f58697e.mPreparedBitmap != null && !this.f58697e.mPreparedBitmap.isRecycled()) {
                             Date date = new Date();
-                            String str = "tieba" + String.valueOf(date.getTime()) + ".jpg";
-                            if (this.f23028e.saveFile(str)) {
+                            String str = "tieba" + String.valueOf(date.getTime()) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                            if (this.f58697e.saveFile(str)) {
                                 intent.putExtra(WriteImageActivity.CHANGE_FLAG, true);
                                 intent.putExtra("file_name", str);
                             } else {
@@ -180,25 +181,25 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         } else {
                             intent.putExtra(WriteImageActivity.CHANGE_FLAG, false);
                         }
-                        this.f23028e.setResult(-1, intent);
+                        this.f58697e.setResult(-1, intent);
                     } else {
-                        this.f23028e.setResult(0, new Intent());
+                        this.f58697e.setResult(0, new Intent());
                     }
                 } else {
-                    this.f23028e.setResult(0, new Intent());
+                    this.f58697e.setResult(0, new Intent());
                 }
-                this.f23028e.finish();
+                this.f58697e.finish();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteImageActivity f23029e;
+        public final /* synthetic */ WriteImageActivity f58698e;
 
         public c(WriteImageActivity writeImageActivity) {
             Interceptable interceptable = $ic;
@@ -215,25 +216,25 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     return;
                 }
             }
-            this.f23029e = writeImageActivity;
+            this.f58698e = writeImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!this.f23029e.isFromFrs) {
-                    if (this.f23029e.requestCode == 12003) {
+                if (!this.f58698e.isFromFrs) {
+                    if (this.f58698e.requestCode == 12003) {
                         Intent intent = new Intent();
                         intent.putExtra("delete", true);
-                        this.f23029e.setResult(-1, intent);
+                        this.f58698e.setResult(-1, intent);
                     } else {
                         Intent intent2 = new Intent();
-                        if (this.f23029e.isEdited) {
-                            if (this.f23029e.mPreparedBitmap != null && !this.f23029e.mPreparedBitmap.isRecycled()) {
+                        if (this.f58698e.isEdited) {
+                            if (this.f58698e.mPreparedBitmap != null && !this.f58698e.mPreparedBitmap.isRecycled()) {
                                 Date date = new Date();
-                                String str = "tieba" + String.valueOf(date.getTime()) + ".jpg";
-                                if (this.f23029e.saveFile(str)) {
+                                String str = "tieba" + String.valueOf(date.getTime()) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                                if (this.f58698e.saveFile(str)) {
                                     intent2.putExtra(WriteImageActivity.CHANGE_FLAG, true);
                                     intent2.putExtra("file_name", str);
                                 } else {
@@ -243,35 +244,35 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                                 intent2.putExtra(WriteImageActivity.CHANGE_FLAG, false);
                             }
                         } else {
-                            intent2.setData(this.f23029e.getIntent().getData());
-                            this.f23029e.setResult(-1, intent2);
+                            intent2.setData(this.f58698e.getIntent().getData());
+                            this.f58698e.setResult(-1, intent2);
                         }
-                        this.f23029e.setResult(-1, intent2);
+                        this.f58698e.setResult(-1, intent2);
                     }
-                    this.f23029e.finish();
+                    this.f58698e.finish();
                     return;
                 }
                 Intent intent3 = new Intent();
-                if (this.f23029e.isEdited && this.f23029e.mPreparedBitmap != null && !this.f23029e.mPreparedBitmap.isRecycled()) {
+                if (this.f58698e.isEdited && this.f58698e.mPreparedBitmap != null && !this.f58698e.mPreparedBitmap.isRecycled()) {
                     Date date2 = new Date();
-                    String str2 = "tieba" + String.valueOf(date2.getTime()) + ".jpg";
-                    if (this.f23029e.saveFile(str2)) {
+                    String str2 = "tieba" + String.valueOf(date2.getTime()) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                    if (this.f58698e.saveFile(str2)) {
                         intent3.putExtra("filename", str2);
                     }
                 }
-                this.f23029e.setResult(-1, intent3);
-                this.f23029e.finish();
+                this.f58698e.setResult(-1, intent3);
+                this.f58698e.finish();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteImageActivity f23030e;
+        public final /* synthetic */ WriteImageActivity f58699e;
 
         public d(WriteImageActivity writeImageActivity) {
             Interceptable interceptable = $ic;
@@ -288,33 +289,33 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     return;
                 }
             }
-            this.f23030e = writeImageActivity;
+            this.f58699e = writeImageActivity;
         }
 
         @Override // android.widget.CompoundButton.OnCheckedChangeListener
         public void onCheckedChanged(CompoundButton compoundButton, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLZ(1048576, this, compoundButton, z) == null) && z) {
-                if (compoundButton == this.f23030e.mBtnBeautify) {
-                    this.f23030e.mBeautifyView.setVisibility(0);
-                    this.f23030e.mRotateView.setVisibility(8);
-                    this.f23030e.mTitleText.setText(this.f23030e.getPageContext().getString(R.string.beautify));
-                } else if (compoundButton == this.f23030e.mBtnRotate) {
-                    this.f23030e.mBeautifyView.setVisibility(8);
-                    this.f23030e.mRotateView.setVisibility(0);
-                    this.f23030e.mTitleText.setText(this.f23030e.getPageContext().getString(R.string.rotate));
+                if (compoundButton == this.f58699e.mBtnBeautify) {
+                    this.f58699e.mBeautifyView.setVisibility(0);
+                    this.f58699e.mRotateView.setVisibility(8);
+                    this.f58699e.mTitleText.setText(this.f58699e.getPageContext().getString(R.string.beautify));
+                } else if (compoundButton == this.f58699e.mBtnRotate) {
+                    this.f58699e.mBeautifyView.setVisibility(8);
+                    this.f58699e.mRotateView.setVisibility(0);
+                    this.f58699e.mTitleText.setText(this.f58699e.getPageContext().getString(R.string.rotate));
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteImageActivity f23031e;
+        public final /* synthetic */ WriteImageActivity f58700e;
 
         public e(WriteImageActivity writeImageActivity) {
             Interceptable interceptable = $ic;
@@ -331,30 +332,30 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     return;
                 }
             }
-            this.f23031e = writeImageActivity;
+            this.f58700e = writeImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23031e.mProgress.getVisibility() == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f58700e.mProgress.getVisibility() == 0) {
                 return;
             }
-            if ((this.f23031e.mBitmap == null && this.f23031e.mPreparedBitmap == null) || view.getTag() == null) {
+            if ((this.f58700e.mBitmap == null && this.f58700e.mPreparedBitmap == null) || view.getTag() == null) {
                 return;
             }
-            this.f23031e.isEdited = false;
-            this.f23031e.startFilterTask(view.getTag().toString());
+            this.f58700e.isEdited = false;
+            this.f58700e.startFilterTask(view.getTag().toString());
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteImageActivity f23032e;
+        public final /* synthetic */ WriteImageActivity f58701e;
 
         public f(WriteImageActivity writeImageActivity) {
             Interceptable interceptable = $ic;
@@ -371,23 +372,23 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     return;
                 }
             }
-            this.f23032e = writeImageActivity;
+            this.f58701e = writeImageActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (!this.f23032e.isFromFrs) {
-                    if (this.f23032e.requestCode == 12003) {
+                if (!this.f58701e.isFromFrs) {
+                    if (this.f58701e.requestCode == 12003) {
                         Intent intent = new Intent();
-                        if (this.f23032e.mProgress.getVisibility() == 0) {
+                        if (this.f58701e.mProgress.getVisibility() == 0) {
                             return;
                         }
-                        if (this.f23032e.isEdited && this.f23032e.mPreparedBitmap != null && !this.f23032e.mPreparedBitmap.isRecycled()) {
+                        if (this.f58701e.isEdited && this.f58701e.mPreparedBitmap != null && !this.f58701e.mPreparedBitmap.isRecycled()) {
                             Date date = new Date();
-                            String str = "tieba" + String.valueOf(date.getTime()) + ".jpg";
-                            if (this.f23032e.saveFile(str)) {
+                            String str = "tieba" + String.valueOf(date.getTime()) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                            if (this.f58701e.saveFile(str)) {
                                 intent.putExtra(WriteImageActivity.CHANGE_FLAG, true);
                                 intent.putExtra("file_name", str);
                             } else {
@@ -396,37 +397,37 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                         } else {
                             intent.putExtra(WriteImageActivity.CHANGE_FLAG, false);
                         }
-                        this.f23032e.setResult(-1, intent);
+                        this.f58701e.setResult(-1, intent);
                     } else {
-                        this.f23032e.setResult(0, new Intent());
+                        this.f58701e.setResult(0, new Intent());
                     }
                 } else {
-                    this.f23032e.setResult(0, new Intent());
+                    this.f58701e.setResult(0, new Intent());
                 }
-                this.f23032e.finish();
+                this.f58701e.finish();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class g extends BdAsyncTask<String, Void, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f23033a;
+        public String f58702a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Bitmap f23034b;
+        public Bitmap f58703b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Boolean f23035c;
+        public Boolean f58704c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Boolean f23036d;
+        public Boolean f58705d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteImageActivity f23037e;
+        public final /* synthetic */ WriteImageActivity f58706e;
 
         public g(WriteImageActivity writeImageActivity) {
             Interceptable interceptable = $ic;
@@ -443,10 +444,10 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     return;
                 }
             }
-            this.f23037e = writeImageActivity;
+            this.f58706e = writeImageActivity;
             Boolean bool = Boolean.FALSE;
-            this.f23035c = bool;
-            this.f23036d = bool;
+            this.f58704c = bool;
+            this.f58705d = bool;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -456,41 +457,41 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                this.f23033a = strArr[0];
-                if (this.f23037e.mBitmap == null && this.f23037e.mPreparedBitmap == null) {
+                this.f58702a = strArr[0];
+                if (this.f58706e.mBitmap == null && this.f58706e.mPreparedBitmap == null) {
                     return null;
                 }
-                if (!this.f23033a.equals("0") && !this.f23033a.equals("1")) {
-                    if (this.f23033a.equals("2") || this.f23033a.equals("3")) {
-                        this.f23036d = Boolean.TRUE;
+                if (!this.f58702a.equals("0") && !this.f58702a.equals("1")) {
+                    if (this.f58702a.equals("2") || this.f58702a.equals("3")) {
+                        this.f58705d = Boolean.TRUE;
                     }
                 } else {
-                    this.f23035c = Boolean.TRUE;
+                    this.f58704c = Boolean.TRUE;
                 }
-                if (this.f23035c.booleanValue() || this.f23036d.booleanValue()) {
-                    if (this.f23037e.mPreparedBitmap == null || this.f23037e.mPreparedBitmap.isRecycled()) {
-                        if (!this.f23037e.mBitmap.isRecycled()) {
-                            this.f23034b = this.f23037e.mBitmap.copy(this.f23037e.mBitmap.getConfig(), true);
+                if (this.f58704c.booleanValue() || this.f58705d.booleanValue()) {
+                    if (this.f58706e.mPreparedBitmap == null || this.f58706e.mPreparedBitmap.isRecycled()) {
+                        if (!this.f58706e.mBitmap.isRecycled()) {
+                            this.f58703b = this.f58706e.mBitmap.copy(this.f58706e.mBitmap.getConfig(), true);
                         }
                     } else {
-                        this.f23034b = this.f23037e.mPreparedBitmap.copy(this.f23037e.mPreparedBitmap.getConfig(), true);
+                        this.f58703b = this.f58706e.mPreparedBitmap.copy(this.f58706e.mPreparedBitmap.getConfig(), true);
                     }
-                } else if (!this.f23037e.mBitmap.isRecycled()) {
-                    this.f23034b = this.f23037e.mBitmap.copy(this.f23037e.mBitmap.getConfig(), true);
+                } else if (!this.f58706e.mBitmap.isRecycled()) {
+                    this.f58703b = this.f58706e.mBitmap.copy(this.f58706e.mBitmap.getConfig(), true);
                 }
-                Bitmap bitmap = this.f23034b;
+                Bitmap bitmap = this.f58703b;
                 if (bitmap == null) {
                     return null;
                 }
-                if (bitmap.getWidth() > 2000 || this.f23034b.getHeight() > 2000) {
-                    this.f23034b = BitmapHelper.resizeBitmap(this.f23034b, 2000);
+                if (bitmap.getWidth() > 2000 || this.f58703b.getHeight() > 2000) {
+                    this.f58703b = BitmapHelper.resizeBitmap(this.f58703b, 2000);
                 }
-                if (this.f23035c.booleanValue()) {
-                    this.f23034b = BitmapHelper.rotateBitmap(this.f23034b, Integer.parseInt(this.f23033a));
-                } else if (this.f23036d.booleanValue()) {
-                    this.f23034b = BitmapHelper.reversalBitmap(this.f23034b, Integer.parseInt(this.f23033a));
+                if (this.f58704c.booleanValue()) {
+                    this.f58703b = BitmapHelper.rotateBitmap(this.f58703b, Integer.parseInt(this.f58702a));
+                } else if (this.f58705d.booleanValue()) {
+                    this.f58703b = BitmapHelper.reversalBitmap(this.f58703b, Integer.parseInt(this.f58702a));
                 }
-                return this.f23034b;
+                return this.f58703b;
             }
             return (Bitmap) invokeL.objValue;
         }
@@ -499,17 +500,17 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                Bitmap bitmap = this.f23034b;
+                Bitmap bitmap = this.f58703b;
                 if (bitmap != null && !bitmap.isRecycled()) {
-                    Bitmap bitmap2 = this.f23037e.mPreparedBitmap;
-                    Bitmap bitmap3 = this.f23034b;
+                    Bitmap bitmap2 = this.f58706e.mPreparedBitmap;
+                    Bitmap bitmap3 = this.f58703b;
                     if (bitmap2 != bitmap3) {
                         bitmap3.recycle();
                     }
                 }
-                this.f23034b = null;
-                this.f23037e.mProgress.setVisibility(8);
-                this.f23037e.mTitleRightBtn.setEnabled(true);
+                this.f58703b = null;
+                this.f58706e.mProgress.setVisibility(8);
+                this.f58706e.mTitleRightBtn.setEnabled(true);
                 super.cancel(true);
             }
         }
@@ -518,8 +519,8 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f23037e.mProgress.setVisibility(0);
-                this.f23037e.mTitleRightBtn.setEnabled(false);
+                this.f58706e.mProgress.setVisibility(0);
+                this.f58706e.mTitleRightBtn.setEnabled(false);
             }
         }
 
@@ -528,30 +529,30 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         public void onPostExecute(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
-                this.f23037e.mProgress.setVisibility(8);
-                this.f23037e.mTitleRightBtn.setEnabled(true);
+                this.f58706e.mProgress.setVisibility(8);
+                this.f58706e.mTitleRightBtn.setEnabled(true);
                 if (bitmap == null || bitmap.isRecycled()) {
                     return;
                 }
-                this.f23037e.isEdited = true;
-                this.f23037e.mImage.setImageBitmap(bitmap);
-                if (this.f23037e.mBitmap != null && (this.f23035c.booleanValue() || this.f23036d.booleanValue())) {
-                    if (this.f23037e.mBitmap.getWidth() > 2000 || this.f23037e.mBitmap.getHeight() > 2000) {
-                        WriteImageActivity writeImageActivity = this.f23037e;
+                this.f58706e.isEdited = true;
+                this.f58706e.mImage.setImageBitmap(bitmap);
+                if (this.f58706e.mBitmap != null && (this.f58704c.booleanValue() || this.f58705d.booleanValue())) {
+                    if (this.f58706e.mBitmap.getWidth() > 2000 || this.f58706e.mBitmap.getHeight() > 2000) {
+                        WriteImageActivity writeImageActivity = this.f58706e;
                         writeImageActivity.mBitmap = BitmapHelper.resizeBitmap(writeImageActivity.mBitmap, 2000);
                     }
-                    if (this.f23035c.booleanValue()) {
-                        WriteImageActivity writeImageActivity2 = this.f23037e;
-                        writeImageActivity2.mBitmap = BitmapHelper.rotateBitmap(writeImageActivity2.mBitmap, Integer.parseInt(this.f23033a));
-                    } else if (this.f23036d.booleanValue()) {
-                        WriteImageActivity writeImageActivity3 = this.f23037e;
-                        writeImageActivity3.mBitmap = BitmapHelper.reversalBitmap(writeImageActivity3.mBitmap, Integer.parseInt(this.f23033a));
+                    if (this.f58704c.booleanValue()) {
+                        WriteImageActivity writeImageActivity2 = this.f58706e;
+                        writeImageActivity2.mBitmap = BitmapHelper.rotateBitmap(writeImageActivity2.mBitmap, Integer.parseInt(this.f58702a));
+                    } else if (this.f58705d.booleanValue()) {
+                        WriteImageActivity writeImageActivity3 = this.f58706e;
+                        writeImageActivity3.mBitmap = BitmapHelper.reversalBitmap(writeImageActivity3.mBitmap, Integer.parseInt(this.f58702a));
                     }
                 }
-                if (this.f23037e.mPreparedBitmap != null && !this.f23037e.mPreparedBitmap.isRecycled()) {
-                    this.f23037e.mPreparedBitmap.recycle();
+                if (this.f58706e.mPreparedBitmap != null && !this.f58706e.mPreparedBitmap.isRecycled()) {
+                    this.f58706e.mPreparedBitmap.recycle();
                 }
-                this.f23037e.mPreparedBitmap = bitmap;
+                this.f58706e.mPreparedBitmap = bitmap;
             }
         }
 
@@ -560,13 +561,13 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class h extends BdAsyncTask<Object, Integer, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WriteImageActivity f23038a;
+        public final /* synthetic */ WriteImageActivity f58707a;
 
         public h(WriteImageActivity writeImageActivity) {
             Interceptable interceptable = $ic;
@@ -583,7 +584,7 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
                     return;
                 }
             }
-            this.f23038a = writeImageActivity;
+            this.f58707a = writeImageActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -621,8 +622,8 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f23038a.mTask = null;
-                this.f23038a.mProgress.setVisibility(8);
+                this.f58707a.mTask = null;
+                this.f58707a.mProgress.setVisibility(8);
                 super.cancel(true);
             }
         }
@@ -631,8 +632,8 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                this.f23038a.mProgress.setVisibility(0);
-                this.f23038a.mTitleRightBtn.setEnabled(false);
+                this.f58707a.mProgress.setVisibility(0);
+                this.f58707a.mTitleRightBtn.setEnabled(false);
                 super.onPreExecute();
             }
         }
@@ -647,19 +648,19 @@ public class WriteImageActivity extends BaseActivity<WriteImageActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bitmap) == null) {
                 super.onPostExecute((h) bitmap);
-                this.f23038a.mTitleRightBtn.setEnabled(true);
-                this.f23038a.mTask = null;
-                this.f23038a.mBitmap = bitmap;
-                this.f23038a.mProgress.setVisibility(8);
+                this.f58707a.mTitleRightBtn.setEnabled(true);
+                this.f58707a.mTask = null;
+                this.f58707a.mBitmap = bitmap;
+                this.f58707a.mProgress.setVisibility(8);
                 if (bitmap == null || bitmap.isRecycled()) {
                     return;
                 }
-                this.f23038a.mImage.setImageBitmap(bitmap);
+                this.f58707a.mImage.setImageBitmap(bitmap);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class i extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -41,36 +41,39 @@ import java.util.concurrent.TimeUnit;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 import okhttp3.internal.connection.RealConnection;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class c extends g.b implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f28284a;
+    public boolean f64130a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28285b;
+    public int f64131b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28286c;
+    public int f64132c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<Reference<g>> f28287d;
+    public final List<Reference<g>> f64133d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f28288e;
+    public long f64134e;
 
     /* renamed from: g  reason: collision with root package name */
-    public final j f28289g;
+    public final j f64135g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final ad f28290h;
+    public final ad f64136h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Socket f28291i;
-    public Socket j;
+    public Socket f64137i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public Socket f64138j;
     public r k;
     public x l;
     public com.bytedance.sdk.component.b.b.a.e.g m;
@@ -92,17 +95,17 @@ public final class c extends g.b implements i {
                 return;
             }
         }
-        this.f28286c = 1;
-        this.f28287d = new ArrayList();
-        this.f28288e = Long.MAX_VALUE;
-        this.f28289g = jVar;
-        this.f28290h = adVar;
+        this.f64132c = 1;
+        this.f64133d = new ArrayList();
+        this.f64134e = Long.MAX_VALUE;
+        this.f64135g = jVar;
+        this.f64136h = adVar;
     }
 
     private z f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? new z.a().a(this.f28290h.a().a()).a("Host", com.bytedance.sdk.component.b.b.a.c.a(this.f28290h.a().a(), true)).a("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).a("User-Agent", com.bytedance.sdk.component.b.b.a.d.a()).d() : (z) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this)) == null) ? new z.a().a(this.f64136h.a().a()).a("Host", com.bytedance.sdk.component.b.b.a.c.a(this.f64136h.a().a(), true)).a("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).a("User-Agent", com.bytedance.sdk.component.b.b.a.d.a()).d() : (z) invokeV.objValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:20:0x0081 A[Catch: IOException -> 0x00e5, TRY_LEAVE, TryCatch #0 {IOException -> 0x00e5, blocks: (B:18:0x0079, B:20:0x0081), top: B:63:0x0079 }] */
@@ -117,11 +120,11 @@ public final class c extends g.b implements i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), eVar, pVar}) == null) {
             if (this.l == null) {
-                List<k> f2 = this.f28290h.a().f();
+                List<k> f2 = this.f64136h.a().f();
                 b bVar = new b(f2);
-                if (this.f28290h.a().i() == null) {
-                    if (f2.contains(k.f28664c)) {
-                        String g2 = this.f28290h.a().a().g();
+                if (this.f64136h.a().i() == null) {
+                    if (f2.contains(k.f64522c)) {
+                        String g2 = this.f64136h.a().a().g();
                         if (!com.bytedance.sdk.component.b.b.a.g.e.b().b(g2)) {
                             throw new e(new UnknownServiceException("CLEARTEXT communication to " + g2 + " not permitted by network security policy"));
                         }
@@ -132,15 +135,15 @@ public final class c extends g.b implements i {
                 e eVar2 = null;
                 do {
                     try {
-                        if (!this.f28290h.d()) {
+                        if (!this.f64136h.d()) {
                             a(i2, i3, i4, eVar, pVar);
-                            if (this.f28291i == null) {
-                                if (!this.f28290h.d() && this.f28291i == null) {
+                            if (this.f64137i == null) {
+                                if (!this.f64136h.d() && this.f64137i == null) {
                                     throw new e(new ProtocolException("Too many tunnel connections attempted: 21"));
                                 }
                                 if (this.m != null) {
-                                    synchronized (this.f28289g) {
-                                        this.f28286c = this.m.a();
+                                    synchronized (this.f64135g) {
+                                        this.f64132c = this.m.a();
                                     }
                                     return;
                                 }
@@ -151,16 +154,16 @@ public final class c extends g.b implements i {
                                 a(i2, i3, eVar, pVar);
                             } catch (IOException e2) {
                                 e = e2;
-                                com.bytedance.sdk.component.b.b.a.c.a(this.j);
-                                com.bytedance.sdk.component.b.b.a.c.a(this.f28291i);
-                                this.j = null;
-                                this.f28291i = null;
+                                com.bytedance.sdk.component.b.b.a.c.a(this.f64138j);
+                                com.bytedance.sdk.component.b.b.a.c.a(this.f64137i);
+                                this.f64138j = null;
+                                this.f64137i = null;
                                 this.n = null;
                                 this.o = null;
                                 this.k = null;
                                 this.l = null;
                                 this.m = null;
-                                pVar.a(eVar, this.f28290h.c(), this.f28290h.b(), null, e);
+                                pVar.a(eVar, this.f64136h.c(), this.f64136h.b(), null, e);
                                 if (eVar2 == null) {
                                     eVar2 = new e(e);
                                 } else {
@@ -170,11 +173,11 @@ public final class c extends g.b implements i {
                                     throw eVar2;
                                 }
                                 do {
-                                    if (!this.f28290h.d()) {
+                                    if (!this.f64136h.d()) {
                                     }
                                     a(bVar, eVar, pVar);
-                                    pVar.a(eVar, this.f28290h.c(), this.f28290h.b(), this.l);
-                                    if (!this.f28290h.d()) {
+                                    pVar.a(eVar, this.f64136h.c(), this.f64136h.b(), this.l);
+                                    if (!this.f64136h.d()) {
                                     }
                                     if (this.m != null) {
                                     }
@@ -183,8 +186,8 @@ public final class c extends g.b implements i {
                             }
                         }
                         a(bVar, eVar, pVar);
-                        pVar.a(eVar, this.f28290h.c(), this.f28290h.b(), this.l);
-                        if (!this.f28290h.d()) {
+                        pVar.a(eVar, this.f64136h.c(), this.f64136h.b(), this.l);
+                        if (!this.f64136h.d()) {
                         }
                         if (this.m != null) {
                         }
@@ -201,14 +204,14 @@ public final class c extends g.b implements i {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            com.bytedance.sdk.component.b.b.a.c.a(this.f28291i);
+            com.bytedance.sdk.component.b.b.a.c.a(this.f64137i);
         }
     }
 
     public Socket c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.j : (Socket) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f64138j : (Socket) invokeV.objValue;
     }
 
     public r d() {
@@ -229,19 +232,19 @@ public final class c extends g.b implements i {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("Connection{");
-            sb.append(this.f28290h.a().a().g());
+            sb.append(this.f64136h.a().a().g());
             sb.append(":");
-            sb.append(this.f28290h.a().a().h());
+            sb.append(this.f64136h.a().a().h());
             sb.append(", proxy=");
-            sb.append(this.f28290h.b());
+            sb.append(this.f64136h.b());
             sb.append(" hostAddress=");
-            sb.append(this.f28290h.c());
+            sb.append(this.f64136h.c());
             sb.append(" cipherSuite=");
             r rVar = this.k;
             sb.append(rVar != null ? rVar.a() : "none");
             sb.append(" protocol=");
             sb.append(this.l);
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -258,11 +261,11 @@ public final class c extends g.b implements i {
                 if (f2 == null) {
                     return;
                 }
-                com.bytedance.sdk.component.b.b.a.c.a(this.f28291i);
-                this.f28291i = null;
+                com.bytedance.sdk.component.b.b.a.c.a(this.f64137i);
+                this.f64137i = null;
                 this.o = null;
                 this.n = null;
-                pVar.a(eVar, this.f28290h.c(), this.f28290h.b(), null);
+                pVar.a(eVar, this.f64136h.c(), this.f64136h.b(), null);
             }
         }
     }
@@ -270,22 +273,22 @@ public final class c extends g.b implements i {
     private void a(int i2, int i3, com.bytedance.sdk.component.b.b.e eVar, p pVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), eVar, pVar}) == null) {
-            Proxy b2 = this.f28290h.b();
-            this.f28291i = (b2.type() == Proxy.Type.DIRECT || b2.type() == Proxy.Type.HTTP) ? this.f28290h.a().c().createSocket() : new Socket(b2);
-            pVar.a(eVar, this.f28290h.c(), b2);
-            this.f28291i.setSoTimeout(i3);
+            Proxy b2 = this.f64136h.b();
+            this.f64137i = (b2.type() == Proxy.Type.DIRECT || b2.type() == Proxy.Type.HTTP) ? this.f64136h.a().c().createSocket() : new Socket(b2);
+            pVar.a(eVar, this.f64136h.c(), b2);
+            this.f64137i.setSoTimeout(i3);
             try {
-                com.bytedance.sdk.component.b.b.a.g.e.b().a(this.f28291i, this.f28290h.c(), i2);
+                com.bytedance.sdk.component.b.b.a.g.e.b().a(this.f64137i, this.f64136h.c(), i2);
                 try {
-                    this.n = l.a(l.b(this.f28291i));
-                    this.o = l.a(l.a(this.f28291i));
+                    this.n = l.a(l.b(this.f64137i));
+                    this.o = l.a(l.a(this.f64137i));
                 } catch (NullPointerException e2) {
                     if (RealConnection.NPE_THROW_WITH_NULL.equals(e2.getMessage())) {
                         throw new IOException(e2);
                     }
                 }
             } catch (ConnectException e3) {
-                ConnectException connectException = new ConnectException("Failed to connect to " + this.f28290h.c());
+                ConnectException connectException = new ConnectException("Failed to connect to " + this.f64136h.c());
                 connectException.initCause(e3);
                 throw connectException;
             }
@@ -295,17 +298,17 @@ public final class c extends g.b implements i {
     private void a(b bVar, com.bytedance.sdk.component.b.b.e eVar, p pVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, this, bVar, eVar, pVar) == null) {
-            if (this.f28290h.a().i() == null) {
-                this.l = x.f28754b;
-                this.j = this.f28291i;
+            if (this.f64136h.a().i() == null) {
+                this.l = x.f64616b;
+                this.f64138j = this.f64137i;
                 return;
             }
             pVar.b(eVar);
             a(bVar);
             pVar.a(eVar, this.k);
-            if (this.l == x.f28756d) {
-                this.j.setSoTimeout(0);
-                com.bytedance.sdk.component.b.b.a.e.g a2 = new g.a(true).a(this.j, this.f28290h.a().a().g(), this.n, this.o).a(this).a();
+            if (this.l == x.f64618d) {
+                this.f64138j.setSoTimeout(0);
+                com.bytedance.sdk.component.b.b.a.e.g a2 = new g.a(true).a(this.f64138j, this.f64136h.a().a().g(), this.n, this.o).a(this).a();
                 this.m = a2;
                 a2.c();
             }
@@ -316,11 +319,11 @@ public final class c extends g.b implements i {
         SSLSocket sSLSocket;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bVar) == null) {
-            com.bytedance.sdk.component.b.b.a a2 = this.f28290h.a();
+            com.bytedance.sdk.component.b.b.a a2 = this.f64136h.a();
             SSLSocket sSLSocket2 = null;
             try {
                 try {
-                    sSLSocket = (SSLSocket) a2.i().createSocket(this.f28291i, a2.a().g(), a2.a().h(), true);
+                    sSLSocket = (SSLSocket) a2.i().createSocket(this.f64137i, a2.a().g(), a2.a().h(), true);
                 } catch (AssertionError e2) {
                     e = e2;
                 }
@@ -337,11 +340,11 @@ public final class c extends g.b implements i {
                 if (a2.j().verify(a2.a().g(), sSLSocket.getSession())) {
                     a2.k().a(a2.a().g(), a4.b());
                     String a5 = a3.d() ? com.bytedance.sdk.component.b.b.a.g.e.b().a(sSLSocket) : null;
-                    this.j = sSLSocket;
+                    this.f64138j = sSLSocket;
                     this.n = l.a(l.b(sSLSocket));
-                    this.o = l.a(l.a(this.j));
+                    this.o = l.a(l.a(this.f64138j));
                     this.k = a4;
-                    this.l = a5 != null ? x.a(a5) : x.f28754b;
+                    this.l = a5 != null ? x.a(a5) : x.f64616b;
                     if (sSLSocket != null) {
                         com.bytedance.sdk.component.b.b.a.g.e.b().b(sSLSocket);
                         return;
@@ -396,7 +399,7 @@ public final class c extends g.b implements i {
                 }
                 throw new IOException("TLS tunnel buffered too many bytes!");
             } else if (c2 == 407) {
-                z a4 = this.f28290h.a().d().a(this.f28290h, a2);
+                z a4 = this.f64136h.a().d().a(this.f64136h, a2);
                 if (a4 != null) {
                     if (IntentConfig.CLOSE.equalsIgnoreCase(a2.a(HTTP.CONN_DIRECTIVE))) {
                         return a4;
@@ -415,13 +418,13 @@ public final class c extends g.b implements i {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, aVar, adVar)) == null) {
-            if (this.f28287d.size() >= this.f28286c || this.f28284a || !com.bytedance.sdk.component.b.b.a.a.f28240a.a(this.f28290h.a(), aVar)) {
+            if (this.f64133d.size() >= this.f64132c || this.f64130a || !com.bytedance.sdk.component.b.b.a.a.f64084a.a(this.f64136h.a(), aVar)) {
                 return false;
             }
             if (aVar.a().g().equals(a().a().a().g())) {
                 return true;
             }
-            if (this.m != null && adVar != null && adVar.b().type() == Proxy.Type.DIRECT && this.f28290h.b().type() == Proxy.Type.DIRECT && this.f28290h.c().equals(adVar.c()) && adVar.a().j() == com.bytedance.sdk.component.b.b.a.i.e.f28580a && a(aVar.a())) {
+            if (this.m != null && adVar != null && adVar.b().type() == Proxy.Type.DIRECT && this.f64136h.b().type() == Proxy.Type.DIRECT && this.f64136h.c().equals(adVar.c()) && adVar.a().j() == com.bytedance.sdk.component.b.b.a.i.e.f64434a && a(aVar.a())) {
                 try {
                     aVar.k().a(aVar.a().g(), d().b());
                     return true;
@@ -438,13 +441,13 @@ public final class c extends g.b implements i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, tVar)) == null) {
-            if (tVar.h() != this.f28290h.a().a().h()) {
+            if (tVar.h() != this.f64136h.a().a().h()) {
                 return false;
             }
-            if (tVar.g().equals(this.f28290h.a().a().g())) {
+            if (tVar.g().equals(this.f64136h.a().a().g())) {
                 return true;
             }
-            return this.k != null && com.bytedance.sdk.component.b.b.a.i.e.f28580a.a(tVar.g(), (X509Certificate) this.k.b().get(0));
+            return this.k != null && com.bytedance.sdk.component.b.b.a.i.e.f64434a.a(tVar.g(), (X509Certificate) this.k.b().get(0));
         }
         return invokeL.booleanValue;
     }
@@ -456,7 +459,7 @@ public final class c extends g.b implements i {
             if (this.m != null) {
                 return new com.bytedance.sdk.component.b.b.a.e.f(wVar, aVar, gVar, this.m);
             }
-            this.j.setSoTimeout(aVar.c());
+            this.f64138j.setSoTimeout(aVar.c());
             this.n.a().a(aVar.c(), TimeUnit.MILLISECONDS);
             this.o.a().a(aVar.d(), TimeUnit.MILLISECONDS);
             return new com.bytedance.sdk.component.b.b.a.d.a(wVar, gVar, this.n, this.o);
@@ -468,14 +471,14 @@ public final class c extends g.b implements i {
     public ad a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28290h : (ad) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64136h : (ad) invokeV.objValue;
     }
 
     public boolean a(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            if (this.j.isClosed() || this.j.isInputShutdown() || this.j.isOutputShutdown()) {
+            if (this.f64138j.isClosed() || this.f64138j.isInputShutdown() || this.f64138j.isOutputShutdown()) {
                 return false;
             }
             com.bytedance.sdk.component.b.b.a.e.g gVar = this.m;
@@ -484,12 +487,12 @@ public final class c extends g.b implements i {
             }
             if (z) {
                 try {
-                    int soTimeout = this.j.getSoTimeout();
+                    int soTimeout = this.f64138j.getSoTimeout();
                     try {
-                        this.j.setSoTimeout(1);
+                        this.f64138j.setSoTimeout(1);
                         return !this.n.e();
                     } finally {
-                        this.j.setSoTimeout(soTimeout);
+                        this.f64138j.setSoTimeout(soTimeout);
                     }
                 } catch (SocketTimeoutException unused) {
                 } catch (IOException unused2) {
@@ -505,7 +508,7 @@ public final class c extends g.b implements i {
     public void a(com.bytedance.sdk.component.b.b.a.e.i iVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
-            iVar.a(com.bytedance.sdk.component.b.b.a.e.b.f28382e);
+            iVar.a(com.bytedance.sdk.component.b.b.a.e.b.f64232e);
         }
     }
 
@@ -513,8 +516,8 @@ public final class c extends g.b implements i {
     public void a(com.bytedance.sdk.component.b.b.a.e.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, gVar) == null) {
-            synchronized (this.f28289g) {
-                this.f28286c = gVar.a();
+            synchronized (this.f64135g) {
+                this.f64132c = gVar.a();
             }
         }
     }

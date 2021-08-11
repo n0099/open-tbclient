@@ -12,7 +12,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.FocusFinder;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -1325,7 +1324,7 @@ public class ViewPager extends ViewGroup {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00d3  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00cd  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1359,7 +1358,7 @@ public class ViewPager extends ViewGroup {
                             sb.append(" => ");
                             sb.append(parent2.getClass().getSimpleName());
                         }
-                        Log.e(TAG, "arrowScroll tried to find focus based on non-child current focused view " + sb.toString());
+                        String str = "arrowScroll tried to find focus based on non-child current focused view " + sb.toString();
                     }
                 }
                 findNextFocus = FocusFinder.getInstance().findNextFocus(this, findFocus, i2);
@@ -2676,7 +2675,7 @@ public class ViewPager extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
             if (i2 < 1) {
-                Log.w(TAG, "Requested offscreen page limit " + i2 + " too small; defaulting to 1");
+                String str = "Requested offscreen page limit " + i2 + " too small; defaulting to 1";
                 i2 = 1;
             }
             if (i2 != this.mOffscreenPageLimit) {

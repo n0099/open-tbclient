@@ -1,9 +1,13 @@
 package com.baidu.ugc.editvideo.data;
 
+import c.a.v0.t.e;
+import c.a.v0.t.l;
+import c.a.v0.t.w;
+import com.baidu.adp.widget.HorizontalTranslateLayout;
+import com.baidu.adp.widget.VerticalTranslateLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.bean.AddressField;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,39 +15,37 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.producers.ProducerConstants;
 import com.google.gson.annotations.SerializedName;
-import com.kwad.sdk.core.config.item.TipsConfigItem;
-import d.a.w0.t.l;
-import d.a.w0.t.w;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class TextWordsEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<TextFontEntity> mCoverFontList;
     public List<TextStyleEntity> mCoverStyleList;
+    public List<TextColorEntity> mCoverTextColorList;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class StyleBackgroudInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         @SerializedName("alpha")
         public String mBackgroudAlpha;
-        @SerializedName(TipsConfigItem.TipConfigData.BOTTOM)
+        @SerializedName("bottom")
         public int mBackgroudBottom;
         @SerializedName("color")
         public String mBackgroudColor;
         @SerializedName("imageUrl")
         public String mBackgroudImageUrl;
-        @SerializedName(CustomDialogData.POS_LEFT)
+        @SerializedName("left")
         public int mBackgroudLeft;
-        @SerializedName("right")
+        @SerializedName(HorizontalTranslateLayout.RIGHT)
         public int mBackgroudRight;
-        @SerializedName("top")
+        @SerializedName(VerticalTranslateLayout.TOP)
         public int mBackgroudTop;
         @SerializedName("width")
         public int mBackgroudWidth;
@@ -87,10 +89,10 @@ public class TextWordsEntity {
                     styleBackgroudInfoEntity.mBackgroudAlpha = jSONObject.optString("alpha");
                     styleBackgroudInfoEntity.mBackgroudImageUrl = jSONObject.optString("imageUrl");
                     styleBackgroudInfoEntity.mLocalParentFile = jSONObject.optString("localParentFile");
-                    styleBackgroudInfoEntity.mBackgroudLeft = jSONObject.optInt(CustomDialogData.POS_LEFT);
-                    styleBackgroudInfoEntity.mBackgroudTop = jSONObject.optInt("top");
-                    styleBackgroudInfoEntity.mBackgroudRight = jSONObject.optInt("right");
-                    styleBackgroudInfoEntity.mBackgroudBottom = jSONObject.optInt(TipsConfigItem.TipConfigData.BOTTOM);
+                    styleBackgroudInfoEntity.mBackgroudLeft = jSONObject.optInt("left");
+                    styleBackgroudInfoEntity.mBackgroudTop = jSONObject.optInt(VerticalTranslateLayout.TOP);
+                    styleBackgroudInfoEntity.mBackgroudRight = jSONObject.optInt(HorizontalTranslateLayout.RIGHT);
+                    styleBackgroudInfoEntity.mBackgroudBottom = jSONObject.optInt("bottom");
                     styleBackgroudInfoEntity.mBackgroudWidth = jSONObject.optInt("width");
                     styleBackgroudInfoEntity.mImageType = jSONObject.optInt(ProducerConstants.EXTRA_IMAGE_TYPE);
                     JSONArray optJSONArray = jSONObject.optJSONArray("stretchableX");
@@ -137,10 +139,10 @@ public class TextWordsEntity {
                     jSONObject.put("alpha", styleBackgroudInfoEntity.mBackgroudAlpha);
                     jSONObject.put("imageUrl", styleBackgroudInfoEntity.mBackgroudImageUrl);
                     jSONObject.put("localParentFile", styleBackgroudInfoEntity.mLocalParentFile);
-                    jSONObject.put(CustomDialogData.POS_LEFT, styleBackgroudInfoEntity.mBackgroudLeft);
-                    jSONObject.put("top", styleBackgroudInfoEntity.mBackgroudTop);
-                    jSONObject.put("right", styleBackgroudInfoEntity.mBackgroudRight);
-                    jSONObject.put(TipsConfigItem.TipConfigData.BOTTOM, styleBackgroudInfoEntity.mBackgroudBottom);
+                    jSONObject.put("left", styleBackgroudInfoEntity.mBackgroudLeft);
+                    jSONObject.put(VerticalTranslateLayout.TOP, styleBackgroudInfoEntity.mBackgroudTop);
+                    jSONObject.put(HorizontalTranslateLayout.RIGHT, styleBackgroudInfoEntity.mBackgroudRight);
+                    jSONObject.put("bottom", styleBackgroudInfoEntity.mBackgroudBottom);
                     jSONObject.put("width", styleBackgroudInfoEntity.mBackgroudWidth);
                     jSONObject.put(ProducerConstants.EXTRA_IMAGE_TYPE, styleBackgroudInfoEntity.mImageType);
                     JSONArray jSONArray = new JSONArray();
@@ -202,7 +204,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class StyleShadowInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -278,7 +280,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class StyleStrokeInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -344,7 +346,7 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class StyleTextInfoEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -406,7 +408,71 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
+    public static class TextColorEntity {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String mAlpha;
+        public String mColor;
+        public int mColorInfo;
+
+        public TextColorEntity() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static TextColorEntity parse(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                TextColorEntity textColorEntity = new TextColorEntity();
+                try {
+                    textColorEntity.mColor = jSONObject.optString("color");
+                    String optString = jSONObject.optString("alpha");
+                    textColorEntity.mAlpha = optString;
+                    textColorEntity.mColorInfo = e.b(textColorEntity.mColor, optString);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return textColorEntity;
+            }
+            return (TextColorEntity) invokeL.objValue;
+        }
+
+        public static JSONObject toJson(TextColorEntity textColorEntity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, textColorEntity)) == null) {
+                if (textColorEntity == null) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("color", textColorEntity.mColor);
+                    jSONObject.put("alpha", textColorEntity.mAlpha);
+                    jSONObject.put("color_info", textColorEntity.mColorInfo);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
     public static class TextFontEntity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -525,9 +591,15 @@ public class TextWordsEntity {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class TextStyleEntity {
         public static /* synthetic */ Interceptable $ic = null;
+        public static final int TEXT_STYLE_TYPE_1 = 1;
+        public static final int TEXT_STYLE_TYPE_2 = 2;
+        public static final int TEXT_STYLE_TYPE_3 = 3;
+        public static final int TEXT_STYLE_TYPE_4 = 4;
+        public static final int TEXT_STYLE_TYPE_5 = 5;
+        public static final int TEXT_STYLE_TYPE_NONE = 0;
         public static final String TEXT_TYPE_HORIZONTAL = "1";
         public static final String TEXT_TYPE_NONE = "0";
         public static final String TEXT_TYPE_VERTICAL = "2";
@@ -546,6 +618,8 @@ public class TextWordsEntity {
         public List<StyleStrokeInfoEntity> mStrokeInfoList;
         @SerializedName("text_infos")
         public List<StyleTextInfoEntity> mTextInfoList;
+        @SerializedName("type")
+        public int mTextStyleType;
         @SerializedName("text_type")
         public String mTextType;
 
@@ -563,6 +637,7 @@ public class TextWordsEntity {
                 }
             }
             this.mTextType = "0";
+            this.mTextStyleType = 0;
         }
 
         public static TextStyleEntity parse(JSONObject jSONObject) {
@@ -584,6 +659,7 @@ public class TextWordsEntity {
                     textStyleEntity.mName = jSONObject.optString("name");
                     textStyleEntity.mIconUrl = jSONObject.optString("icon_url");
                     textStyleEntity.mTextType = jSONObject.optString("text_type");
+                    textStyleEntity.mTextStyleType = jSONObject.optInt("type");
                     if (jSONObject.has("text_infos") && (optJSONArray3 = jSONObject.optJSONArray("text_infos")) != null && optJSONArray3.length() > 0) {
                         textStyleEntity.mTextInfoList = new ArrayList();
                         for (int i2 = 0; i2 < optJSONArray3.length(); i2++) {
@@ -635,6 +711,7 @@ public class TextWordsEntity {
                     jSONObject.put("name", textStyleEntity.mName);
                     jSONObject.put("icon_url", textStyleEntity.mIconUrl);
                     jSONObject.put("text_type", textStyleEntity.mTextType);
+                    jSONObject.put("type", textStyleEntity.mTextStyleType);
                     if (textStyleEntity.mTextInfoList != null && textStyleEntity.mTextInfoList.size() > 0) {
                         JSONArray jSONArray = new JSONArray();
                         for (StyleTextInfoEntity styleTextInfoEntity : textStyleEntity.mTextInfoList) {
@@ -683,28 +760,39 @@ public class TextWordsEntity {
     public static TextWordsEntity parse(JSONObject jSONObject) {
         InterceptResult invokeL;
         JSONArray optJSONArray;
-        TextFontEntity parse;
+        TextColorEntity parse;
         JSONArray optJSONArray2;
-        TextStyleEntity parse2;
+        TextFontEntity parse2;
+        JSONArray optJSONArray3;
+        TextStyleEntity parse3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
             TextWordsEntity textWordsEntity = new TextWordsEntity();
             try {
-                if (jSONObject.has("style") && (optJSONArray2 = jSONObject.optJSONArray("style")) != null && optJSONArray2.length() > 0) {
+                if (jSONObject.has("style") && (optJSONArray3 = jSONObject.optJSONArray("style")) != null && optJSONArray3.length() > 0) {
                     textWordsEntity.mCoverStyleList = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
-                        if (optJSONObject != null && (parse2 = TextStyleEntity.parse(optJSONObject)) != null) {
-                            textWordsEntity.mCoverStyleList.add(parse2);
+                    for (int i2 = 0; i2 < optJSONArray3.length(); i2++) {
+                        JSONObject optJSONObject = optJSONArray3.optJSONObject(i2);
+                        if (optJSONObject != null && (parse3 = TextStyleEntity.parse(optJSONObject)) != null) {
+                            textWordsEntity.mCoverStyleList.add(parse3);
                         }
                     }
                 }
-                if (jSONObject.has("font") && (optJSONArray = jSONObject.optJSONArray("font")) != null && optJSONArray.length() > 0) {
+                if (jSONObject.has("font") && (optJSONArray2 = jSONObject.optJSONArray("font")) != null && optJSONArray2.length() > 0) {
                     textWordsEntity.mCoverFontList = new ArrayList();
-                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
-                        if (optJSONObject2 != null && (parse = TextFontEntity.parse(optJSONObject2)) != null) {
-                            textWordsEntity.mCoverFontList.add(parse);
+                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                        if (optJSONObject2 != null && (parse2 = TextFontEntity.parse(optJSONObject2)) != null) {
+                            textWordsEntity.mCoverFontList.add(parse2);
+                        }
+                    }
+                }
+                if (jSONObject.has("color") && (optJSONArray = jSONObject.optJSONArray("color")) != null && optJSONArray.length() > 0) {
+                    textWordsEntity.mCoverTextColorList = new ArrayList();
+                    for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                        JSONObject optJSONObject3 = optJSONArray.optJSONObject(i4);
+                        if (optJSONObject3 != null && (parse = TextColorEntity.parse(optJSONObject3)) != null) {
+                            textWordsEntity.mCoverTextColorList.add(parse);
                         }
                     }
                 }

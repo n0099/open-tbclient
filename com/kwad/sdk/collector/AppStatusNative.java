@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.collector.model.jni.RulesTargetNative;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AppStatusNative {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,25 +42,25 @@ public class AppStatusNative {
 
     public static native String appRunningInfoGetPackageName(com.kwad.sdk.collector.model.jni.b bVar);
 
-    public static native void appRunningInfoSetLastRunningTime(com.kwad.sdk.collector.model.jni.b bVar, long j);
+    public static native void appRunningInfoSetLastRunningTime(com.kwad.sdk.collector.model.jni.b bVar, long j2);
 
-    public static native long nativeCreateAnalyseTask(long j, String[] strArr, long j2);
+    public static native long nativeCreateAnalyseTask(long j2, String[] strArr, long j3);
 
-    public static native long nativeCreateAppRunningInfo(long j, String str, String str2);
+    public static native long nativeCreateAppRunningInfo(long j2, String str, String str2);
 
     public static native long nativeCreateRulesTarget();
 
     public static native long nativeCreateUploadEntry();
 
-    public static native void nativeDeleteAnalyseTask(long j);
+    public static native void nativeDeleteAnalyseTask(long j2);
 
-    public static native void nativeDeleteAppRunningInfo(long j);
+    public static native void nativeDeleteAppRunningInfo(long j2);
 
-    public static native void nativeDeleteRulesTarget(long j);
+    public static native void nativeDeleteRulesTarget(long j2);
 
-    public static native void nativeDeleteUploadEntry(long j);
+    public static native void nativeDeleteUploadEntry(long j2);
 
-    public static native long[] nativeGetUploadEntry(long[] jArr, long j, String str);
+    public static native long[] nativeGetUploadEntry(long[] jArr, long j2, String str);
 
     public static native String rulesTargetGetPackageName(RulesTargetNative rulesTargetNative);
 

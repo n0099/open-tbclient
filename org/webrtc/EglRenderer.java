@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.RendererCommon;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class EglRenderer implements VideoSink {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long LOG_INTERVAL_SEC = 4;
@@ -65,7 +65,7 @@ public class EglRenderer implements VideoSink {
     public long statisticsStartTimeNs;
     public boolean usePresentationTimeStamp;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class EglSurfaceCreation implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -120,12 +120,12 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface FrameListener {
         void onFrame(Bitmap bitmap);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class FrameListenerAndParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +156,7 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class HandlerWithExceptionCallback extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -263,14 +263,14 @@ public class EglRenderer implements VideoSink {
         this.name = str;
     }
 
-    private String averageTimeAsString(long j, int i2) {
+    private String averageTimeAsString(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             if (i2 <= 0) {
                 return AdParamInfo.AdClickActionString.AD_CLICK_ACTION_NA;
             }
-            return TimeUnit.NANOSECONDS.toMicros(j / i2) + " us";
+            return TimeUnit.NANOSECONDS.toMicros(j2 / i2) + " us";
         }
         return (String) invokeCommon.objValue;
     }
@@ -370,12 +370,12 @@ public class EglRenderer implements VideoSink {
             DecimalFormat decimalFormat = new DecimalFormat("#.0");
             long nanoTime = System.nanoTime();
             synchronized (this.statisticsLock) {
-                long j = nanoTime - this.statisticsStartTimeNs;
-                if (j <= 0) {
+                long j2 = nanoTime - this.statisticsStartTimeNs;
+                if (j2 <= 0) {
                     return;
                 }
-                float nanos = ((float) (this.framesRendered * TimeUnit.SECONDS.toNanos(1L))) / ((float) j);
-                logD("Duration: " + TimeUnit.NANOSECONDS.toMillis(j) + " ms. Frames received: " + this.framesReceived + ". Dropped: " + this.framesDropped + ". Rendered: " + this.framesRendered + ". Render fps: " + decimalFormat.format(nanos) + ". Average render time: " + averageTimeAsString(this.renderTimeNs, this.framesRendered) + ". Average swapBuffer time: " + averageTimeAsString(this.renderSwapBufferTimeNs, this.framesRendered) + ".");
+                float nanos = ((float) (this.framesRendered * TimeUnit.SECONDS.toNanos(1L))) / ((float) j2);
+                logD("Duration: " + TimeUnit.NANOSECONDS.toMillis(j2) + " ms. Frames received: " + this.framesReceived + ". Dropped: " + this.framesDropped + ". Rendered: " + this.framesRendered + ". Render fps: " + decimalFormat.format(nanos) + ". Average render time: " + averageTimeAsString(this.renderTimeNs, this.framesRendered) + ". Average swapBuffer time: " + averageTimeAsString(this.renderSwapBufferTimeNs, this.framesRendered) + ".");
                 resetStatistics(nanoTime);
             }
         }
@@ -462,9 +462,9 @@ public class EglRenderer implements VideoSink {
                                 if (nanoTime < this.nextFrameTimeNs) {
                                     logD("Skipping frame rendering - fps reduction is active.");
                                 } else {
-                                    long j = this.nextFrameTimeNs + this.minRenderPeriodNs;
-                                    this.nextFrameTimeNs = j;
-                                    this.nextFrameTimeNs = Math.max(j, nanoTime);
+                                    long j2 = this.nextFrameTimeNs + this.minRenderPeriodNs;
+                                    this.nextFrameTimeNs = j2;
+                                    this.nextFrameTimeNs = Math.max(j2, nanoTime);
                                 }
                             }
                             z = true;
@@ -514,11 +514,11 @@ public class EglRenderer implements VideoSink {
         }
     }
 
-    private void resetStatistics(long j) {
+    private void resetStatistics(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65559, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65559, this, j2) == null) {
             synchronized (this.statisticsLock) {
-                this.statisticsStartTimeNs = j;
+                this.statisticsStartTimeNs = j2;
                 this.framesReceived = 0;
                 this.framesDropped = 0;
                 this.framesRendered = 0;
@@ -858,13 +858,13 @@ public class EglRenderer implements VideoSink {
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
             logD("setFpsReduction: " + f2);
             synchronized (this.fpsReductionLock) {
-                long j = this.minRenderPeriodNs;
+                long j2 = this.minRenderPeriodNs;
                 if (f2 <= 0.0f) {
                     this.minRenderPeriodNs = Long.MAX_VALUE;
                 } else {
                     this.minRenderPeriodNs = ((float) TimeUnit.SECONDS.toNanos(1L)) / f2;
                 }
-                if (this.minRenderPeriodNs != j) {
+                if (this.minRenderPeriodNs != j2) {
                     this.nextFrameTimeNs = System.nanoTime();
                 }
             }

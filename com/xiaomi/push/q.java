@@ -6,22 +6,22 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class q implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ p f40812a;
+    public final /* synthetic */ p f77687a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f828a;
+    public final /* synthetic */ String f832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f40813b;
+    public final /* synthetic */ String f77688b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f40814c;
+    public final /* synthetic */ String f77689c;
 
     public q(p pVar, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -38,10 +38,10 @@ public class q implements Runnable {
                 return;
             }
         }
-        this.f40812a = pVar;
-        this.f828a = str;
-        this.f40813b = str2;
-        this.f40814c = str3;
+        this.f77687a = pVar;
+        this.f832a = str;
+        this.f77688b = str2;
+        this.f77689c = str3;
     }
 
     @Override // java.lang.Runnable
@@ -49,9 +49,9 @@ public class q implements Runnable {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            context = this.f40812a.f821a;
-            SharedPreferences.Editor edit = context.getSharedPreferences(this.f828a, 4).edit();
-            edit.putString(this.f40813b, this.f40814c);
+            context = this.f77687a.f825a;
+            SharedPreferences.Editor edit = context.getSharedPreferences(this.f832a, 4).edit();
+            edit.putString(this.f77688b, this.f77689c);
             edit.commit();
         }
     }

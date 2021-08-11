@@ -15,7 +15,6 @@ import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.fsg.base.router.RouterCallback;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -28,15 +27,15 @@ import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.io.File;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f4700a;
+    public static final char[] f38684a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f4701b;
+    public static String f38685b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,8 +51,8 @@ public final class j {
                 return;
             }
         }
-        f4700a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-        f4701b = "";
+        f38684a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f38685b = "";
     }
 
     public static Object a(Object obj, String str, Class[] clsArr, Object[] objArr) {
@@ -109,14 +108,14 @@ public final class j {
             try {
                 if (Build.VERSION.SDK_INT >= 24) {
                     intent.setFlags(RouterCallback.CODE_ERROR);
-                    String str = f4701b;
-                    if (TextUtils.isEmpty(f4701b)) {
+                    String str = f38685b;
+                    if (TextUtils.isEmpty(f38685b)) {
                         str = context.getPackageName() + ".fileprovider";
                     }
                     intent.setDataAndType(FileProvider.getUriForFile(context, str, file), "application/vnd.android.package-archive");
                 } else {
                     intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                    intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                    intent.setFlags(268435456);
                 }
                 LogUtil.logD("Utility", "启动系统安装界面");
                 context.startActivity(intent);
@@ -132,7 +131,7 @@ public final class j {
     public static void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str) == null) {
-            f4701b = str;
+            f38685b = str;
         }
     }
 

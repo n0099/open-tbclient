@@ -21,7 +21,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes4.dex */
 public class Layer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +54,7 @@ public class Layer {
     public final AnimatableTransform transform;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class LayerType {
         public static final /* synthetic */ LayerType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -123,7 +124,7 @@ public class Layer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class MatteType {
         public static final /* synthetic */ MatteType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -190,12 +191,12 @@ public class Layer {
         }
     }
 
-    public Layer(List<ContentModel> list, LottieComposition lottieComposition, String str, long j, LayerType layerType, long j2, @Nullable String str2, List<Mask> list2, AnimatableTransform animatableTransform, int i2, int i3, int i4, float f2, float f3, int i5, int i6, @Nullable AnimatableTextFrame animatableTextFrame, @Nullable AnimatableTextProperties animatableTextProperties, List<Keyframe<Float>> list3, MatteType matteType, @Nullable AnimatableFloatValue animatableFloatValue, boolean z) {
+    public Layer(List<ContentModel> list, LottieComposition lottieComposition, String str, long j2, LayerType layerType, long j3, @Nullable String str2, List<Mask> list2, AnimatableTransform animatableTransform, int i2, int i3, int i4, float f2, float f3, int i5, int i6, @Nullable AnimatableTextFrame animatableTextFrame, @Nullable AnimatableTextProperties animatableTextProperties, List<Keyframe<Float>> list3, MatteType matteType, @Nullable AnimatableFloatValue animatableFloatValue, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, lottieComposition, str, Long.valueOf(j), layerType, Long.valueOf(j2), str2, list2, animatableTransform, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i5), Integer.valueOf(i6), animatableTextFrame, animatableTextProperties, list3, matteType, animatableFloatValue, Boolean.valueOf(z)};
+            Object[] objArr = {list, lottieComposition, str, Long.valueOf(j2), layerType, Long.valueOf(j3), str2, list2, animatableTransform, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), Float.valueOf(f3), Integer.valueOf(i5), Integer.valueOf(i6), animatableTextFrame, animatableTextProperties, list3, matteType, animatableFloatValue, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i7 = newInitContext.flag;
             if ((i7 & 1) != 0) {
@@ -208,9 +209,9 @@ public class Layer {
         this.shapes = list;
         this.composition = lottieComposition;
         this.layerName = str;
-        this.layerId = j;
+        this.layerId = j2;
         this.layerType = layerType;
-        this.parentId = j2;
+        this.parentId = j3;
         this.refId = str2;
         this.masks = list2;
         this.transform = animatableTransform;
@@ -378,7 +379,7 @@ public class Layer {
             StringBuilder sb = new StringBuilder();
             sb.append(str);
             sb.append(getName());
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             Layer layerModelForId = this.composition.layerModelForId(getParentId());
             if (layerModelForId != null) {
                 sb.append("\t\tParents: ");
@@ -390,13 +391,13 @@ public class Layer {
                     layerModelForId2 = this.composition.layerModelForId(layerModelForId2.getParentId());
                 }
                 sb.append(str);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             if (!getMasks().isEmpty()) {
                 sb.append(str);
                 sb.append("\tMasks: ");
                 sb.append(getMasks().size());
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             if (getSolidWidth() != 0 && getSolidHeight() != 0) {
                 sb.append(str);
@@ -410,7 +411,7 @@ public class Layer {
                     sb.append(str);
                     sb.append("\t\t");
                     sb.append(contentModel);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
             }
             return sb.toString();

@@ -11,7 +11,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import com.sina.weibo.sdk.utils.LogUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class NetStateManager {
     public static /* synthetic */ Interceptable $ic;
     public static NetState CUR_NETSTATE;
@@ -30,7 +29,7 @@ public class NetStateManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class NetState {
         public static final /* synthetic */ NetState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -91,7 +90,7 @@ public class NetStateManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class NetStateReceive extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -170,7 +169,7 @@ public class NetStateManager {
             Pair<String, Integer> pair = null;
             Cursor query = context != null ? context.getContentResolver().query(parse, null, null, null, null) : null;
             if (query != null && query.moveToFirst()) {
-                String string = query.getString(query.getColumnIndex(IMTrack.AckBuilder.PROXY_TYPE));
+                String string = query.getString(query.getColumnIndex("proxy"));
                 if (string != null && string.trim().length() > 0) {
                     pair = new Pair<>(string, 80);
                 }

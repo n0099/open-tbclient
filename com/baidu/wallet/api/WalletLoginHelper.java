@@ -2,11 +2,18 @@ package com.baidu.wallet.api;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
+import com.baidu.apollon.utils.DxmApplicationContextImpl;
 import com.baidu.apollon.utils.GlobalUtils;
 import com.baidu.apollon.utils.ResUtils;
+import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.sapi2.SapiConfiguration;
+import com.baidu.sapi2.callback.GlobalCallback;
 import com.baidu.sapi2.openbduss.PASSMethodCallTransfer;
+import com.baidu.sapi2.utils.enums.BindType;
+import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.sapi2.utils.enums.Switch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.WalletApiExtListener;
 import com.baidu.wallet.base.datamodel.AccountManager;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
+import com.baidu.wallet.core.DebugConfig;
 import com.baidu.wallet.core.beans.BeanConstants;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.passport.LoginImpl;
@@ -26,38 +33,45 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, WalletApiExtListener.LoginstatuSyncListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DYNAMIC_CALL_PASS_TYPE_ALL = 28;
     public static final int DYNAMIC_CALL_PASS_TYPE_BDUSS = 27;
     public static final int DYNAMIC_CALL_PASS_TYPE_UID = 26;
+    public static final int OTHRE = 0;
+    public static final int SDK_AFTER_LOGIN = 6;
+    public static final int SDK_LANGBRIDGE_ENTRANCE_FLAG = 1;
+    public static final int SDK_SCANCODE_ENTRANCE_FLAG = 2;
+    public static final int SDK_START_SYNC_STATUS_FLAG = 4;
+    public static final int SDK_START_VERIFY_LOGINSTATUS_FLAG = 5;
+    public static final int SDK_SYNC_STATUS_FLAG = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static WalletLoginHelper f24057c;
+    public static WalletLoginHelper f59793c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WalletApiExtListener.LoginstatuSyncListener f24058a;
+    public WalletApiExtListener.LoginstatuSyncListener f59794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f24059b;
+    public final String f59795b;
 
     /* renamed from: d  reason: collision with root package name */
-    public IWalletLoginListener f24060d;
+    public IWalletLoginListener f59796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f24061e;
+    public Context f59797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IWalletListener f24062f;
+    public IWalletListener f59798f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final WalletLoginHelper f24066a;
+        public static final WalletLoginHelper f59806a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -73,7 +87,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
                     return;
                 }
             }
-            f24066a = new WalletLoginHelper();
+            f59806a = new WalletLoginHelper();
         }
 
         public a() {
@@ -94,7 +108,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public static final WalletLoginHelper getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f24066a : (WalletLoginHelper) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? a.f59806a : (WalletLoginHelper) invokeV.objValue;
     }
 
     public void clearOpenBduss() {
@@ -104,16 +118,35 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
         }
     }
 
+    public void configPass(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            Domain domain = Domain.DOMAIN_ONLINE;
+            String environment = DebugConfig.getInstance(context).getEnvironment();
+            boolean z = true;
+            if ("QA".equalsIgnoreCase(environment)) {
+                domain = Domain.DOMAIN_QA;
+            } else if ("RD".equalsIgnoreCase(environment)) {
+                domain = Domain.DOMAIN_QA;
+            } else {
+                z = false;
+            }
+            SapiConfiguration.Builder initialShareStrategy = new SapiConfiguration.Builder(context).setProductLineInfo("bdwalletsdk", "1", "3s9y80v8ipz8huoh9k06hurn2lia5eez").setRuntimeEnvironment(domain).setSocialBindType(BindType.EXPLICIT).initialShareStrategy(LoginShareStrategy.DISABLED);
+            Switch r1 = Switch.ON;
+            SapiAccountManager.getInstance().init(initialShareStrategy.smsLoginConfig(new SapiConfiguration.SmsLoginConfig(r1, r1, r1)).configurableViewLayout(Switch.ON).setSupportFaceLogin(false).sofireSdkConfig("600000", "69a0826db896e8c99e5d7bf63a14de3d", 600000).debug(z).build());
+        }
+    }
+
     public void dynamicCallPass(Object obj, Object[] objArr, int i2, int i3, String str, Class<?>[] clsArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, new Object[]{obj, objArr, Integer.valueOf(i2), Integer.valueOf(i3), str, clsArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{obj, objArr, Integer.valueOf(i2), Integer.valueOf(i3), str, clsArr}) == null) {
             objArr[i3] = a(i2);
             new PASSMethodCallTransfer().dynamicCallMethod(obj, objArr, str, new PASSMethodCallTransfer.DynamicCallbak(this) { // from class: com.baidu.wallet.api.WalletLoginHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WalletLoginHelper f24063a;
+                public final /* synthetic */ WalletLoginHelper f59799a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -130,7 +163,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
                             return;
                         }
                     }
-                    this.f24063a = this;
+                    this.f59799a = this;
                 }
 
                 @Override // com.baidu.sapi2.openbduss.PASSMethodCallTransfer.DynamicCallbak
@@ -147,7 +180,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public int getBdussState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? SapiAccountManager.getInstance().getAccountService().getBdussState() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? SapiAccountManager.getInstance().getAccountService().getBdussState() : invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletLoginListener
@@ -155,8 +188,8 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public Map<String, String> getLoginData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            IWalletLoginListener iWalletLoginListener = this.f24060d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            IWalletLoginListener iWalletLoginListener = this.f59796d;
             if (iWalletLoginListener == null) {
                 return Collections.emptyMap();
             }
@@ -170,8 +203,8 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public String getLoginStoken(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            IWalletLoginListener iWalletLoginListener = this.f24060d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            IWalletLoginListener iWalletLoginListener = this.f59796d;
             if (iWalletLoginListener == null) {
                 return PassLoginUtil.getInstance().getLoginStoken(str);
             }
@@ -184,8 +217,8 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public String getLoginToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            IWalletLoginListener iWalletLoginListener = this.f24060d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            IWalletLoginListener iWalletLoginListener = this.f59796d;
             if (iWalletLoginListener == null) {
                 return PassLoginUtil.getInstance().getLoginToken();
             }
@@ -198,21 +231,21 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public int getLoginType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletLoginListener
-    public void getOpenBduss(boolean z, ILoginBackListener iLoginBackListener) {
+    public void getOpenBduss(boolean z, ILoginBackListener iLoginBackListener, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048586, this, z, iLoginBackListener) == null) {
-            IWalletLoginListener iWalletLoginListener = this.f24060d;
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), iLoginBackListener, Integer.valueOf(i2)}) == null) {
+            IWalletLoginListener iWalletLoginListener = this.f59796d;
             if (iWalletLoginListener == null) {
-                PassLoginUtil.getInstance().getOpenBduss(z, iLoginBackListener);
+                PassLoginUtil.getInstance().getOpenBduss(z, iLoginBackListener, i2);
             } else {
-                iWalletLoginListener.getOpenBduss(z, iLoginBackListener);
+                iWalletLoginListener.getOpenBduss(z, iLoginBackListener, i2);
             }
         }
     }
@@ -221,8 +254,8 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public String getOpenLoginToken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            IWalletLoginListener iWalletLoginListener = this.f24060d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            IWalletLoginListener iWalletLoginListener = this.f59796d;
             if (iWalletLoginListener == null) {
                 return PassLoginUtil.getInstance().getLoginOpenToken();
             }
@@ -234,7 +267,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public String getPassUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             Map<String, String> loginData = getLoginData();
             if (loginData != null) {
                 return loginData.get("pass_uid");
@@ -247,7 +280,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public String getPassUserName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             Map<String, String> loginData = getLoginData();
             if (loginData != null) {
                 return loginData.get("pass_user_name");
@@ -260,20 +293,20 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public WalletApiExtListener.LoginstatuSyncListener getSyncLoginListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f24058a : (WalletApiExtListener.LoginstatuSyncListener) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f59794a : (WalletApiExtListener.LoginstatuSyncListener) invokeV.objValue;
     }
 
     @Override // com.baidu.wallet.api.IWalletStoken
     public String getTpl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? BeanConstants.CHANNEL_ID_WALLET_APP.equals(BeanConstants.CHANNEL_ID) ? "baiduwalletapp" : "bdwalletsdk" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? "walletapp".equals(BeanConstants.CHANNEL_ID) ? "baiduwalletapp" : "bdwalletsdk" : (String) invokeV.objValue;
     }
 
     public String getUnionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             try {
                 Map<String, String> loginData = getLoginData();
                 if (loginData != null) {
@@ -291,11 +324,10 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     @Override // com.baidu.wallet.api.IWalletLoginListener
     public void handlerWalletError(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            DXMSdkSAUtils.onEvent(StatServiceEvent.EVENT_API_HANDLERWALLETERROR);
-            PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_API_HANDLERWALLETERROR);
+        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
+            DXMSdkSAUtils.onEvent("#handlerWalletError");
             onHandleWalletError(i2);
-            IWalletLoginListener iWalletLoginListener = this.f24060d;
+            IWalletLoginListener iWalletLoginListener = this.f59796d;
             if (iWalletLoginListener != null) {
                 iWalletLoginListener.handlerWalletError(i2);
             }
@@ -304,18 +336,18 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
 
     public void init(Context context, IWalletListener iWalletListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, context, iWalletListener) == null) {
-            this.f24062f = iWalletListener;
-            this.f24060d = new LoginImpl(context);
+        if (interceptable == null || interceptable.invokeLL(1048596, this, context, iWalletListener) == null) {
+            this.f59798f = iWalletListener;
+            this.f59796d = new LoginImpl(context);
             PassLoginUtil.getInstance().init();
-            this.f24061e = context.getApplicationContext();
+            this.f59797e = DxmApplicationContextImpl.getApplicationContext(context);
         }
     }
 
     public boolean isInnerPassLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -325,8 +357,8 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public boolean isLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            IWalletLoginListener iWalletLoginListener = this.f24060d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            IWalletLoginListener iWalletLoginListener = this.f59796d;
             if (iWalletLoginListener == null) {
                 return PassLoginUtil.getInstance().isLogin();
             }
@@ -339,8 +371,8 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public boolean isPassLogin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            IWalletLoginListener iWalletLoginListener = this.f24060d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            IWalletLoginListener iWalletLoginListener = this.f59796d;
             if (iWalletLoginListener == null) {
                 return PassLoginUtil.getInstance().isPassLogin();
             }
@@ -352,19 +384,19 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     @Override // com.baidu.wallet.api.IWalletHostListener
     public void login(ILoginBackListener iLoginBackListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, iLoginBackListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, iLoginBackListener) == null) {
             clearOpenBduss();
             if (isPassLogin()) {
                 if (iLoginBackListener != null) {
                     iLoginBackListener.onSuccess(0, "");
                 }
             } else if (isInnerPassLogin()) {
-                IWalletLoginListener iWalletLoginListener = this.f24060d;
+                IWalletLoginListener iWalletLoginListener = this.f59796d;
                 if (iWalletLoginListener != null) {
                     iWalletLoginListener.login(iLoginBackListener);
                 }
             } else {
-                IWalletListener iWalletListener = this.f24062f;
+                IWalletListener iWalletListener = this.f59798f;
                 if (iWalletListener != null) {
                     iWalletListener.login(iLoginBackListener);
                 } else if (iLoginBackListener != null) {
@@ -376,7 +408,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
 
     public void logout() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             PassLoginUtil.getInstance().logout();
         }
     }
@@ -385,7 +417,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public void onHandleWalletError(int i2) {
         WalletApiExtListener.LoginstatuSyncListener loginstatuSyncListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048602, this, i2) == null) || (loginstatuSyncListener = this.f24058a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048604, this, i2) == null) || (loginstatuSyncListener = this.f59794a) == null) {
             return;
         }
         loginstatuSyncListener.onHandleWalletError(i2);
@@ -395,7 +427,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public void onLoginChanaged(Context context, Map<String, String> map) {
         IWalletLoginListener iWalletLoginListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048603, this, context, map) == null) || (iWalletLoginListener = this.f24060d) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048605, this, context, map) == null) || (iWalletLoginListener = this.f59796d) == null) {
             return;
         }
         iWalletLoginListener.onLoginChanaged(context, map);
@@ -405,7 +437,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public void onWebViewLogout(Context context) {
         WalletApiExtListener.LoginstatuSyncListener loginstatuSyncListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, context) == null) || (loginstatuSyncListener = this.f24058a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048606, this, context) == null) || (loginstatuSyncListener = this.f59794a) == null) {
             return;
         }
         loginstatuSyncListener.onWebViewLogout(context);
@@ -413,17 +445,17 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
 
     public void onlyLogin(ILoginBackListener iLoginBackListener, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048606, this, iLoginBackListener, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048608, this, iLoginBackListener, str) == null) {
             clearOpenBduss();
             if (isInnerPassLogin()) {
-                IWalletLoginListener iWalletLoginListener = this.f24060d;
+                IWalletLoginListener iWalletLoginListener = this.f59796d;
                 if (iWalletLoginListener != null) {
                     iWalletLoginListener.login(iLoginBackListener, str);
                     return;
                 }
                 return;
             }
-            IWalletListener iWalletListener = this.f24062f;
+            IWalletListener iWalletListener = this.f59798f;
             if (iWalletListener == null) {
                 if (iLoginBackListener != null) {
                     iLoginBackListener.onFail(-1, "");
@@ -436,23 +468,83 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
         }
     }
 
-    public void setIntervalDuration(long j) {
+    public void registerGlobalCallback(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
-            PassLoginUtil.getInstance().setIntervalDuration(j);
+        if (interceptable == null || interceptable.invokeL(1048609, this, context) == null) {
+            SapiAccountManager.setGlobalCallback(new GlobalCallback(this, context) { // from class: com.baidu.wallet.api.WalletLoginHelper.4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                /* renamed from: a  reason: collision with root package name */
+                public final /* synthetic */ Context f59804a;
+
+                /* renamed from: b  reason: collision with root package name */
+                public final /* synthetic */ WalletLoginHelper f59805b;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.f59805b = this;
+                    this.f59804a = context;
+                }
+
+                @Override // com.baidu.sapi2.callback.GlobalCallback
+                public void onLoginStatusChange() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        LogUtil.d(this.f59805b.f59795b, "loginstate change");
+                    }
+                }
+
+                @Override // com.baidu.sapi2.callback.GlobalCallback
+                public void onLogoutSuccess(SapiAccount sapiAccount) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiAccount) == null) {
+                        super.onLogoutSuccess(sapiAccount);
+                        LogUtil.d(this.f59805b.f59795b, "logout success");
+                    }
+                }
+
+                @Override // com.baidu.sapi2.callback.GlobalCallback
+                public void onNeedInitPassSdk() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
+                        this.f59805b.configPass(this.f59804a);
+                    }
+                }
+            });
+        }
+    }
+
+    public void setIntervalDuration(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048610, this, j2) == null) {
+            PassLoginUtil.getInstance().setIntervalDuration(j2);
         }
     }
 
     public void setLoginSyncListener(WalletApiExtListener.LoginstatuSyncListener loginstatuSyncListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, loginstatuSyncListener) == null) {
-            this.f24058a = loginstatuSyncListener;
+        if (interceptable == null || interceptable.invokeL(1048611, this, loginstatuSyncListener) == null) {
+            this.f59794a = loginstatuSyncListener;
         }
     }
 
     public void setOpenBdussErrorCodeShowFlag(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048609, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
             PassLoginUtil.getInstance().setErrorCodeSwitchFlag(z);
         }
     }
@@ -461,26 +553,25 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public boolean startPage(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) {
-            if (this.f24061e == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) {
+            if (this.f59797e == null) {
                 return false;
             }
-            DXMSdkSAUtils.onEvent(StatServiceEvent.EVENT_API_STARTPAGE);
-            PayStatisticsUtil.onEvent(StatServiceEvent.EVENT_API_STARTPAGE);
+            DXMSdkSAUtils.onEvent("#startPage");
             if (isInnerPassLogin()) {
-                IWalletLoginListener iWalletLoginListener = this.f24060d;
+                IWalletLoginListener iWalletLoginListener = this.f59796d;
                 if (iWalletLoginListener != null && !iWalletLoginListener.startPage(str)) {
-                    BaiduWalletDelegate.getInstance().openH5Module(this.f24061e, str, true);
+                    BaiduWalletDelegate.getInstance().openH5Module(this.f59797e, str, true);
                 }
             } else {
-                IWalletListener iWalletListener = this.f24062f;
+                IWalletListener iWalletListener = this.f59798f;
                 if (iWalletListener != null) {
                     if (!iWalletListener.startPage(str)) {
-                        BaiduWalletDelegate.getInstance().openH5Module(this.f24061e, str, true);
+                        BaiduWalletDelegate.getInstance().openH5Module(this.f59797e, str, true);
                     }
                 } else {
-                    LogUtil.d(this.f24059b, "mWalletListener is null");
-                    Context context = this.f24061e;
+                    LogUtil.d(this.f59795b, "mWalletListener is null");
+                    Context context = this.f59797e;
                     GlobalUtils.toast(context, ResUtils.getString(context, "bd_wallet_load_fail"));
                 }
             }
@@ -489,26 +580,32 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
         return invokeL.booleanValue;
     }
 
-    public void syncH5LoginStatus(Context context) {
+    public void syncH5LoginStatus(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, context) == null) {
-            int bdussState = SapiAccountManager.getInstance().getAccountService().getBdussState();
-            String str = this.f24059b;
-            LogUtil.d(str, "syncH5login bdussState = " + bdussState);
+        if (interceptable == null || interceptable.invokeLL(1048614, this, context, str) == null) {
+            int bdussState = getBdussState();
+            String str2 = this.f59795b;
+            LogUtil.d(str2, "syncH5login bdussState = " + bdussState);
             if (bdussState == 2 || bdussState == 4) {
-                syncLoginStatus(context, "", new WalletApiExtListener.SyncLoginStatusCb(this) { // from class: com.baidu.wallet.api.WalletLoginHelper.3
+                syncLoginStatus(context, "", new WalletApiExtListener.SyncLoginStatusCb(this, str, bdussState) { // from class: com.baidu.wallet.api.WalletLoginHelper.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ WalletLoginHelper f24065a;
+                    public final /* synthetic */ String f59801a;
+
+                    /* renamed from: b  reason: collision with root package name */
+                    public final /* synthetic */ int f59802b;
+
+                    /* renamed from: c  reason: collision with root package name */
+                    public final /* synthetic */ WalletLoginHelper f59803c;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
+                            Object[] objArr = {this, str, Integer.valueOf(bdussState)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -518,31 +615,33 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
                                 return;
                             }
                         }
-                        this.f24065a = this;
+                        this.f59803c = this;
+                        this.f59801a = str;
+                        this.f59802b = bdussState;
                     }
 
                     @Override // com.baidu.wallet.api.WalletApiExtListener.SyncLoginStatusCb
                     public void onResult(WalletApiExtListener.SyncLoginStatusCb.SyncResult syncResult) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, syncResult) == null) {
-                            String str2 = this.f24065a.f24059b;
-                            LogUtil.d(str2, "syncH5logoin onResult code = " + syncResult);
-                            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.SYNC_H5_LOGINSTATE_RESULT, Arrays.asList(String.valueOf(syncResult.getVal())));
-                            PayStatisticsUtil.onEventWithValue(StatServiceEvent.SYNC_H5_LOGINSTATE_RESULT, String.valueOf(syncResult.getVal()));
+                            String str3 = this.f59803c.f59795b;
+                            LogUtil.d(str3, "syncH5logoin onResult code = " + syncResult);
+                            DXMSdkSAUtils.onEventWithValues("DXMSyncH5LoginState", Arrays.asList(String.valueOf(syncResult.getVal()), this.f59801a, String.valueOf(this.f59802b)));
                             if (syncResult == WalletApiExtListener.SyncLoginStatusCb.SyncResult.SUCCESS) {
-                                WalletLoginHelper.getInstance().getOpenBduss(false, null);
+                                WalletLoginHelper.getInstance().getOpenBduss(false, null, 3);
+                                com.dxmpay.wallet.api.WalletLoginHelper.getInstance().getOpenBduss(false, null);
                             }
                         }
                     }
                 });
             } else if (bdussState == 3) {
-                String str2 = this.f24059b;
-                LogUtil.d(str2, "syncH5login = " + bdussState + " ; invoke logout");
-                DXMSdkSAUtils.onEvent(StatServiceEvent.INVOKE_PASS_LOGOUT);
-                PayStatisticsUtil.onEvent(StatServiceEvent.INVOKE_PASS_LOGOUT);
+                String str3 = this.f59795b;
+                LogUtil.d(str3, "syncH5login = " + bdussState + " ; invoke logout");
+                DXMSdkSAUtils.onEventWithValues("#invokePassLogout", Arrays.asList(String.valueOf(str)));
                 onWebViewLogout(context);
                 logout();
                 AccountManager.getInstance(context).logout();
+                com.dxmpay.wallet.api.WalletLoginHelper.getInstance().logout(false);
             }
         }
     }
@@ -551,7 +650,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public void syncLoginStatus(Context context, String str, WalletApiExtListener.SyncLoginStatusCb syncLoginStatusCb) {
         WalletApiExtListener.LoginstatuSyncListener loginstatuSyncListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048612, this, context, str, syncLoginStatusCb) == null) || (loginstatuSyncListener = this.f24058a) == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(1048615, this, context, str, syncLoginStatusCb) == null) || (loginstatuSyncListener = this.f59794a) == null) {
             return;
         }
         loginstatuSyncListener.syncLoginStatus(context, str, syncLoginStatusCb);
@@ -559,10 +658,10 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
 
     public void verifyPassLogin(ILoginBackListener iLoginBackListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, iLoginBackListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, iLoginBackListener) == null) {
             clearOpenBduss();
             if (isPassLogin()) {
-                getOpenBduss(true, iLoginBackListener);
+                getOpenBduss(true, iLoginBackListener, 5);
             } else if (iLoginBackListener != null) {
                 iLoginBackListener.onFail(-1, "");
             }
@@ -582,7 +681,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
                 return;
             }
         }
-        this.f24059b = WalletLoginHelper.class.getSimpleName();
+        this.f59795b = WalletLoginHelper.class.getSimpleName();
     }
 
     private PASSMethodCallTransfer.ParamsWap a(int i2) {
@@ -607,7 +706,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
 
     public void logout(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             PassLoginUtil.getInstance().logout(z);
         }
     }
@@ -616,8 +715,8 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public Map<String, String> getLoginData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            IWalletLoginListener iWalletLoginListener = this.f24060d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            IWalletLoginListener iWalletLoginListener = this.f59796d;
             if (iWalletLoginListener == null) {
                 return Collections.emptyMap();
             }
@@ -630,8 +729,8 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     public String getLoginStoken() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            IWalletLoginListener iWalletLoginListener = this.f24060d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            IWalletLoginListener iWalletLoginListener = this.f59796d;
             if (iWalletLoginListener == null) {
                 return PassLoginUtil.getInstance().getLoginStoken(getTpl());
             }
@@ -640,9 +739,17 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
         return (String) invokeV.objValue;
     }
 
+    @Override // com.baidu.wallet.api.IWalletLoginListener
+    public void getOpenBduss(boolean z, ILoginBackListener iLoginBackListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048587, this, z, iLoginBackListener) == null) {
+            getOpenBduss(z, iLoginBackListener, 0);
+        }
+    }
+
     public void dynamicCallPass(Object obj, Object[] objArr, int i2, int i3, int i4, String str, Class<?>[] clsArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{obj, objArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, clsArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, new Object[]{obj, objArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, clsArr}) == null) {
             if (i2 == 28) {
                 objArr[i3] = a(26);
                 objArr[i4] = a(27);
@@ -652,7 +759,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WalletLoginHelper f24064a;
+                public final /* synthetic */ WalletLoginHelper f59800a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -669,7 +776,7 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
                             return;
                         }
                     }
-                    this.f24064a = this;
+                    this.f59800a = this;
                 }
 
                 @Override // com.baidu.sapi2.openbduss.PASSMethodCallTransfer.DynamicCallbak
@@ -685,10 +792,10 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
 
     public void verifyPassLogin(boolean z, ILoginBackListener iLoginBackListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048614, this, z, iLoginBackListener) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048617, this, z, iLoginBackListener) == null) {
             clearOpenBduss();
             if (isPassLogin()) {
-                getOpenBduss(z, iLoginBackListener);
+                getOpenBduss(z, iLoginBackListener, 5);
             } else if (iLoginBackListener != null) {
                 iLoginBackListener.onFail(-1, "未登录");
             }
@@ -698,19 +805,19 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
     @Override // com.baidu.wallet.api.IWalletHostListener2
     public void login(ILoginBackListener iLoginBackListener, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, iLoginBackListener, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048601, this, iLoginBackListener, str) == null) {
             clearOpenBduss();
             if (isPassLogin()) {
                 if (iLoginBackListener != null) {
                     iLoginBackListener.onSuccess(0, "");
                 }
             } else if (isInnerPassLogin()) {
-                IWalletLoginListener iWalletLoginListener = this.f24060d;
+                IWalletLoginListener iWalletLoginListener = this.f59796d;
                 if (iWalletLoginListener != null) {
                     iWalletLoginListener.login(iLoginBackListener, str);
                 }
             } else {
-                IWalletListener iWalletListener = this.f24062f;
+                IWalletListener iWalletListener = this.f59798f;
                 if (iWalletListener == null) {
                     if (iLoginBackListener != null) {
                         iLoginBackListener.onFail(-1, "");
@@ -726,17 +833,17 @@ public class WalletLoginHelper implements IWalletLoginListener, IWalletStoken, W
 
     public void onlyLogin(ILoginBackListener iLoginBackListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, iLoginBackListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, iLoginBackListener) == null) {
             clearOpenBduss();
             if (isInnerPassLogin()) {
-                IWalletLoginListener iWalletLoginListener = this.f24060d;
+                IWalletLoginListener iWalletLoginListener = this.f59796d;
                 if (iWalletLoginListener != null) {
                     iWalletLoginListener.login(iLoginBackListener);
                     return;
                 }
                 return;
             }
-            IWalletListener iWalletListener = this.f24062f;
+            IWalletListener iWalletListener = this.f59798f;
             if (iWalletListener == null) {
                 if (iLoginBackListener != null) {
                     iLoginBackListener.onFail(-1, "");

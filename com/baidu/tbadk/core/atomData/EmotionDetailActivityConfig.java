@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EmotionDetailActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMOTION_FROM_PACKAGE = "from_package";
@@ -19,13 +19,13 @@ public class EmotionDetailActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionDetailActivityConfig(Context context, int i2, long j, boolean z) {
+    public EmotionDetailActivityConfig(Context context, int i2, long j2, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z)};
+            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -38,7 +38,7 @@ public class EmotionDetailActivityConfig extends IntentConfig {
         }
         Intent intent = getIntent();
         intent.putExtra("pck_id", i2);
-        intent.putExtra(EMOTION_PIC_ID_KEY, j);
+        intent.putExtra(EMOTION_PIC_ID_KEY, j2);
         intent.putExtra(EMOTION_IS_GIF_KEY, z);
     }
 
@@ -53,13 +53,13 @@ public class EmotionDetailActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmotionDetailActivityConfig(Context context, int i2, long j, int i3, boolean z) {
+    public EmotionDetailActivityConfig(Context context, int i2, long j2, int i3, boolean z) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Boolean.valueOf(z)};
+            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -73,7 +73,7 @@ public class EmotionDetailActivityConfig extends IntentConfig {
         Intent intent = getIntent();
         setRequestCode(i3);
         intent.putExtra("pck_id", i2);
-        intent.putExtra(EMOTION_PIC_ID_KEY, j);
+        intent.putExtra(EMOTION_PIC_ID_KEY, j2);
         intent.putExtra(EMOTION_IS_GIF_KEY, z);
         setIntentAction(IntentAction.ActivityForResult);
     }

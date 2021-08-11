@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MessageHandleService;
 import com.xiaomi.push.el;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class PushMessageReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -23,7 +23,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.Iterator;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class StandardGifDecoder implements GifDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES_PER_INTEGER = 4;
@@ -738,8 +738,7 @@ public class StandardGifDecoder implements GifDecoder {
             synchronized (this) {
                 if (this.header.frameCount <= 0 || this.framePointer < 0) {
                     if (Log.isLoggable(TAG, 3)) {
-                        String str = TAG;
-                        Log.d(str, "Unable to decode frame, frameCount=" + this.header.frameCount + ", framePointer=" + this.framePointer);
+                        String str = "Unable to decode frame, frameCount=" + this.header.frameCount + ", framePointer=" + this.framePointer;
                     }
                     this.status = 1;
                 }
@@ -755,8 +754,7 @@ public class StandardGifDecoder implements GifDecoder {
                     this.act = iArr;
                     if (iArr == null) {
                         if (Log.isLoggable(TAG, 3)) {
-                            String str2 = TAG;
-                            Log.d(str2, "No valid color table found for frame #" + this.framePointer);
+                            String str2 = "No valid color table found for frame #" + this.framePointer;
                         }
                         this.status = 1;
                         return null;
@@ -770,8 +768,7 @@ public class StandardGifDecoder implements GifDecoder {
                     return setPixels(gifFrame, gifFrame2);
                 }
                 if (Log.isLoggable(TAG, 3)) {
-                    String str3 = TAG;
-                    Log.d(str3, "Unable to decode frame, status=" + this.status);
+                    String str3 = "Unable to decode frame, status=" + this.status;
                 }
                 return null;
             }
@@ -828,8 +825,7 @@ public class StandardGifDecoder implements GifDecoder {
                     }
                     byteArrayOutputStream.flush();
                     read(byteArrayOutputStream.toByteArray());
-                } catch (IOException e2) {
-                    Log.w(TAG, "Error reading data from stream", e2);
+                } catch (IOException unused) {
                 }
             } else {
                 this.status = 2;
@@ -837,8 +833,7 @@ public class StandardGifDecoder implements GifDecoder {
             if (inputStream != null) {
                 try {
                     inputStream.close();
-                } catch (IOException e3) {
-                    Log.w(TAG, "Error closing stream", e3);
+                } catch (IOException unused2) {
                 }
             }
             return this.status;

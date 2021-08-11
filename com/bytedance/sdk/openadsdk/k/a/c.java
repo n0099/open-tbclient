@@ -3,6 +3,7 @@ package com.bytedance.sdk.openadsdk.k.a;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.launch.stats.ActivitySpeedStats;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,16 +16,16 @@ import com.bytedance.sdk.component.image.b.e;
 import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.e.t;
 import com.bytedance.sdk.openadsdk.k.a.a;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile int f31646a;
+    public static volatile int f67590a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public t f31647b;
+    public t f67591b;
 
     static {
         InterceptResult invokeClinit;
@@ -60,12 +61,12 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65539, this, imageResponse) == null) && (httpTime = imageResponse.getHttpTime()) != null && d()) {
             if (imageResponse.isLocal()) {
-                k.b("splashLoadAd", " GiftLoader doTask  缓存存在，直接返回缓存数据");
-                f31646a = 1;
+                k.b(ActivitySpeedStats.SPLASH_LOADAD_DURATION, " GiftLoader doTask  缓存存在，直接返回缓存数据");
+                f67590a = 1;
                 a(true);
             } else {
-                k.b("splashLoadAd", " GiftLoader doTask  缓存存在，直接返回缓存数据");
-                f31646a = 2;
+                k.b(ActivitySpeedStats.SPLASH_LOADAD_DURATION, " GiftLoader doTask  缓存存在，直接返回缓存数据");
+                f67590a = 2;
                 a(false);
             }
             a(httpTime.a());
@@ -76,7 +77,7 @@ public class c extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this)) == null) {
-            t tVar = this.f31647b;
+            t tVar = this.f67591b;
             return tVar != null && tVar.z();
         }
         return invokeV.booleanValue;
@@ -86,38 +87,38 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) && d()) {
             long currentTimeMillis = System.currentTimeMillis();
-            t tVar = this.f31647b;
+            t tVar = this.f67591b;
             tVar.g(currentTimeMillis - tVar.t());
-            this.f31647b.l(currentTimeMillis);
+            this.f67591b.l(currentTimeMillis);
         }
     }
 
     public t c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f31647b : (t) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f67591b : (t) invokeV.objValue;
     }
 
-    private void a(long j) {
+    private void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
-            this.f31647b.n(j);
-            t tVar = this.f31647b;
-            tVar.h(j - tVar.v());
+        if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
+            this.f67591b.n(j2);
+            t tVar = this.f67591b;
+            tVar.h(j2 - tVar.v());
         }
     }
 
     private void a(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, this, z) == null) && d()) {
-            this.f31647b.a(z);
+            this.f67591b.a(z);
         }
     }
 
     public void a(t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tVar) == null) {
-            this.f31647b = tVar;
+            this.f67591b = tVar;
         }
     }
 

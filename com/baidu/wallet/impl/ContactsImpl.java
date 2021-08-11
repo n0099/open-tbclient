@@ -1,6 +1,7 @@
 package com.baidu.wallet.impl;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ContactsImpl implements IContacts {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -438,11 +439,15 @@ public class ContactsImpl implements IContacts {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, activity, i2)) == null) {
             Intent intent = new Intent("android.intent.action.PICK");
             intent.setData(ContactsContract.Contacts.CONTENT_URI);
-            if (activity == null || intent.resolveActivity(activity.getPackageManager()) == null) {
-                return false;
+            if (activity != null) {
+                try {
+                    activity.startActivityForResult(intent, i2);
+                    return true;
+                } catch (ActivityNotFoundException e2) {
+                    e2.printStackTrace();
+                }
             }
-            activity.startActivityForResult(intent, i2);
-            return true;
+            return false;
         }
         return invokeLI.booleanValue;
     }
@@ -454,11 +459,15 @@ public class ContactsImpl implements IContacts {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, activity, i2)) == null) {
             Intent intent = new Intent("android.intent.action.PICK");
             intent.setType("vnd.android.cursor.dir/phone_v2");
-            if (activity == null || intent.resolveActivity(activity.getPackageManager()) == null) {
-                return false;
+            if (activity != null) {
+                try {
+                    activity.startActivityForResult(intent, i2);
+                    return true;
+                } catch (ActivityNotFoundException e2) {
+                    e2.printStackTrace();
+                }
             }
-            activity.startActivityForResult(intent, i2);
-            return true;
+            return false;
         }
         return invokeLI.booleanValue;
     }

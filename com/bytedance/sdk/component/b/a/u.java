@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.charset.Charset;
 import kotlin.UShort;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class u {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f28230a;
+    public static final Charset f64073a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public final class u {
                 return;
             }
         }
-        f28230a = Charset.forName("UTF-8");
+        f64073a = Charset.forName("UTF-8");
     }
 
     public static int a(int i2) {
@@ -49,11 +49,11 @@ public final class u {
         return invokeCommon.shortValue;
     }
 
-    public static void a(long j, long j2, long j3) {
+    public static void a(long j2, long j3, long j4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
-                throw new ArrayIndexOutOfBoundsException(String.format("size=%s offset=%s byteCount=%s", Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)));
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+            if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
+                throw new ArrayIndexOutOfBoundsException(String.format("size=%s offset=%s byteCount=%s", Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)));
             }
         }
     }

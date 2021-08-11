@@ -16,19 +16,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gq;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class TrafficProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final UriMatcher f40810a;
+    public static final UriMatcher f77685a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f824a;
+    public static final Uri f828a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public SQLiteOpenHelper f825a;
+    public SQLiteOpenHelper f829a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,11 +43,11 @@ public class TrafficProvider extends ContentProvider {
                 return;
             }
         }
-        f824a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
+        f828a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
         UriMatcher uriMatcher = new UriMatcher(-1);
-        f40810a = uriMatcher;
+        f77685a = uriMatcher;
         uriMatcher.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
-        f40810a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
+        f77685a.addURI("com.xiaomi.push.providers.TrafficProvider", "update_imsi", 2);
     }
 
     public TrafficProvider() {
@@ -89,7 +89,7 @@ public class TrafficProvider extends ContentProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri)) == null) {
-            if (f40810a.match(uri) == 1) {
+            if (f77685a.match(uri) == 1) {
                 return "vnd.android.cursor.dir/vnd.xiaomi.push.traffic";
             }
             throw new IllegalArgumentException("Unknown URI " + uri);
@@ -112,7 +112,7 @@ public class TrafficProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.f825a = new a(getContext());
+            this.f829a = new a(getContext());
             return true;
         }
         return invokeV.booleanValue;
@@ -124,11 +124,11 @@ public class TrafficProvider extends ContentProvider {
         Cursor query;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, uri, strArr, str, strArr2, str2)) == null) {
-            synchronized (a.f826a) {
-                if (f40810a.match(uri) != 1) {
+            synchronized (a.f830a) {
+                if (f77685a.match(uri) != 1) {
                     throw new IllegalArgumentException("Unknown URI " + uri);
                 }
-                query = this.f825a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+                query = this.f829a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
             }
             return query;
         }
@@ -140,8 +140,8 @@ public class TrafficProvider extends ContentProvider {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, uri, contentValues, str, strArr)) == null) {
-            if (f40810a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
-                gq.m360a(contentValues.getAsString(BaseStatisContent.IMSI));
+            if (f77685a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
+                gq.m363a(contentValues.getAsString(BaseStatisContent.IMSI));
                 return 0;
             }
             return 0;

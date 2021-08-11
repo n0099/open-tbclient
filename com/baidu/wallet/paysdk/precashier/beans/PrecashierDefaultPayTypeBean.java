@@ -3,27 +3,27 @@ package com.baidu.wallet.paysdk.precashier.beans;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
-import com.baidu.wallet.paysdk.beans.PayOtherBean;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.core.beans.OtherBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
+/* loaded from: classes8.dex */
+public class PrecashierDefaultPayTypeBean extends OtherBean<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26357a;
+    public String f62259a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PrecashierDefaultPayTypeBean(Context context) {
@@ -75,7 +75,7 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         return (List) invokeLL.objValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.beans.PayOtherBean, com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -83,17 +83,17 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.beans.PayOtherBean, com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            if (this.f26357a == null) {
+            if (this.f62259a == null) {
                 return arrayList;
             }
             try {
-                a(arrayList, new JSONObject(this.f26357a));
+                a(arrayList, new JSONObject(this.f62259a));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -102,7 +102,7 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.beans.PayOtherBean, com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -112,7 +112,7 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.beans.PayOtherBean, com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -122,7 +122,7 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.beans.PayOtherBean, com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public boolean needNonce() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -137,6 +137,6 @@ public class PrecashierDefaultPayTypeBean extends PayOtherBean<String> {
         if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
-        this.f26357a = str;
+        this.f62259a = str;
     }
 }

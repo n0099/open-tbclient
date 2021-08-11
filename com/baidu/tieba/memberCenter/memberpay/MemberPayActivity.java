@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.t.c.u;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -37,8 +38,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.t.c.u;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MemberPayActivity extends BaseActivity<MemberPayActivity> implements RadioGroup.OnCheckedChangeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static String AUTO_PAY_AGREEMENT_JUMP_URL = "https://tieba.baidu.com/tb/viprenew_eula_mobile.html";
@@ -65,13 +65,13 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     public String mStType;
     public int mWantedMemberType;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPayActivity f18686a;
+        public final /* synthetic */ MemberPayActivity f54028a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MemberPayActivity memberPayActivity, int i2) {
@@ -91,7 +91,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                     return;
                 }
             }
-            this.f18686a = memberPayActivity;
+            this.f54028a = memberPayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -110,14 +110,14 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                             }
                             return;
                         }
-                        this.f18686a.addPaySussStats();
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(this.f18686a.mCurrentShowType)));
-                        this.f18686a.setResult(-1);
-                        d.a.p0.s.d0.b.j().t("show_member_deid_line", true);
-                        if (this.f18686a.mIsClose) {
-                            this.f18686a.closeActivity();
+                        this.f54028a.addPaySussStats();
+                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001194, Integer.valueOf(this.f54028a.mCurrentShowType)));
+                        this.f54028a.setResult(-1);
+                        c.a.o0.s.d0.b.j().t("show_member_deid_line", true);
+                        if (this.f54028a.mIsClose) {
+                            this.f54028a.closeActivity();
                         } else {
-                            this.f18686a.requestMemberPayInfo();
+                            this.f54028a.requestMemberPayInfo();
                         }
                     }
                 }
@@ -125,13 +125,13 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPayActivity f18687a;
+        public final /* synthetic */ MemberPayActivity f54029a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(MemberPayActivity memberPayActivity, int i2) {
@@ -151,7 +151,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                     return;
                 }
             }
-            this.f18687a = memberPayActivity;
+            this.f54029a = memberPayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -159,35 +159,35 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
-                this.f18687a.closeLoadingDialog();
+                this.f54029a.closeLoadingDialog();
                 if ((httpResponsedMessage instanceof ResponseMemberPayMessage) && httpResponsedMessage.getCmd() == 1001532) {
                     ResponseMemberPayMessage responseMemberPayMessage = (ResponseMemberPayMessage) httpResponsedMessage;
                     if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                         if (responseMemberPayMessage.getMemberPayResult() != null) {
-                            this.f18687a.mMemberPayView.setDataAndRefreshUI(responseMemberPayMessage.getMemberPayResult());
-                            this.f18687a.mLoadFinished = true;
+                            this.f54029a.mMemberPayView.setDataAndRefreshUI(responseMemberPayMessage.getMemberPayResult());
+                            this.f54029a.mLoadFinished = true;
                             return;
                         }
-                        this.f18687a.showToast(R.string.neterror);
+                        this.f54029a.showToast(R.string.neterror);
                         return;
                     }
                     String errorString = responseMemberPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.f18687a.getResources().getString(R.string.neterror);
+                        errorString = this.f54029a.getResources().getString(R.string.neterror);
                     }
-                    this.f18687a.showToast(errorString);
+                    this.f54029a.showToast(errorString);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPayActivity f18688a;
+        public final /* synthetic */ MemberPayActivity f54030a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(MemberPayActivity memberPayActivity, int i2) {
@@ -207,28 +207,28 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                     return;
                 }
             }
-            this.f18688a = memberPayActivity;
+            this.f54030a = memberPayActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016525 || this.f18688a.mMemberPayView == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016525 || this.f54030a.mMemberPayView == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean)) {
                 return;
             }
-            this.f18688a.mMemberPayView.g(((Boolean) customResponsedMessage.getData()).booleanValue());
-            this.f18688a.showToast(R.string.tips_auto_pay_succ);
+            this.f54030a.mMemberPayView.refreshAutoPayItemUI(((Boolean) customResponsedMessage.getData()).booleanValue());
+            this.f54030a.showToast(R.string.tips_auto_pay_succ);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements d.a.p0.n0.a {
+    /* loaded from: classes7.dex */
+    public class d implements c.a.o0.n0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberPayActivity f18689a;
+        public final /* synthetic */ MemberPayActivity f54031a;
 
         public d(MemberPayActivity memberPayActivity) {
             Interceptable interceptable = $ic;
@@ -245,43 +245,43 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                     return;
                 }
             }
-            this.f18689a = memberPayActivity;
+            this.f54031a = memberPayActivity;
         }
 
-        @Override // d.a.p0.n0.a
+        @Override // c.a.o0.n0.a
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.a.p0.n0.d c2 = d.a.p0.n0.d.c();
-                c2.b("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + this.f18689a.mReferPage + "&click_zone=" + this.f18689a.mClickZone, this.f18689a.getPageContext());
-                this.f18689a.finish();
+                c.a.o0.n0.d c2 = c.a.o0.n0.d.c();
+                c2.b("http://tieba.baidu.com/mo/q/tbeantshow?refer_page=" + this.f54031a.mReferPage + "&click_zone=" + this.f54031a.mClickZone, this.f54031a.getPageContext());
+                this.f54031a.finish();
             }
         }
 
-        @Override // d.a.p0.n0.a
+        @Override // c.a.o0.n0.a
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f18689a.requestMemberPayInfo();
+                this.f54031a.requestMemberPayInfo();
             }
         }
 
-        @Override // d.a.p0.n0.a
+        @Override // c.a.o0.n0.a
         public void onError(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.f18689a.requestMemberPayInfo();
+                this.f54031a.requestMemberPayInfo();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class e implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MemberPayActivity f18690e;
+        public final /* synthetic */ MemberPayActivity f54032e;
 
         public e(MemberPayActivity memberPayActivity) {
             Interceptable interceptable = $ic;
@@ -298,14 +298,14 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
                     return;
                 }
             }
-            this.f18690e = memberPayActivity;
+            this.f54032e = memberPayActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void b(boolean z) {
+        public void onNetworkChange(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.f18690e.mLoadFinished) {
-                this.f18690e.requestMemberPayInfo();
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.f54032e.mLoadFinished) {
+                this.f54032e.requestMemberPayInfo();
             }
         }
     }
@@ -488,7 +488,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
             if (memberPayView == null || memberPayView.getNoNetworkView() == null) {
                 return;
             }
-            this.mMemberPayView.getNoNetworkView().a(this.mNetworkChangeListener);
+            this.mMemberPayView.getNoNetworkView().addNetworkChangeListener(this.mNetworkChangeListener);
         }
     }
 
@@ -530,7 +530,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mClickZone : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.p0.m0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -544,17 +544,17 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public d.a.p0.m0.d getPageStayDurationItem() {
+    public c.a.o0.m0.d getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            d.a.p0.m0.d pageStayDurationItem = super.getPageStayDurationItem();
+            c.a.o0.m0.d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
-                pageStayDurationItem.f52762a = true;
+                pageStayDurationItem.f13335a = true;
             }
             return pageStayDurationItem;
         }
-        return (d.a.p0.m0.d) invokeV.objValue;
+        return (c.a.o0.m0.d) invokeV.objValue;
     }
 
     public String getReferPage() {
@@ -570,7 +570,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
             super.onChangeSkinType(i2);
             MemberPayView memberPayView = this.mMemberPayView;
             if (memberPayView != null) {
-                memberPayView.f(i2);
+                memberPayView.onChangeSkinType(i2);
             }
         }
     }
@@ -583,9 +583,9 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
             return;
         }
         if (i2 == R.id.btn_mem1) {
-            memberPayView.k(2);
+            memberPayView.switchTab(2);
         } else if (i2 == R.id.btn_mem2) {
-            memberPayView.k(1);
+            memberPayView.switchTab(1);
         }
     }
 
@@ -635,7 +635,7 @@ public class MemberPayActivity extends BaseActivity<MemberPayActivity> implement
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             MemberPayView memberPayView = this.mMemberPayView;
             if (memberPayView != null && memberPayView.getNoNetworkView() != null) {
-                this.mMemberPayView.getNoNetworkView().d(this.mNetworkChangeListener);
+                this.mMemberPayView.getNoNetworkView().removeNetworkChangeListener(this.mNetworkChangeListener);
             }
             PayConfigModel payConfigModel = this.mPayConfigModel;
             if (payConfigModel != null) {

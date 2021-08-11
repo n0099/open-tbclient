@@ -5,22 +5,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, String> f32428a;
+    public final Map<String, String> f68389a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f32429b;
+    public final String f68390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f32430c;
+    public final int f68391c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f32431d;
+    public final String f68392d;
 
     public c(Map<String, String> map, String str, int i2, String str2) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public class c {
                 return;
             }
         }
-        this.f32428a = map;
-        this.f32429b = str;
-        this.f32430c = i2;
-        this.f32431d = str2;
+        this.f68389a = map;
+        this.f68390b = str;
+        this.f68391c = i2;
+        this.f68392d = str2;
     }
 }

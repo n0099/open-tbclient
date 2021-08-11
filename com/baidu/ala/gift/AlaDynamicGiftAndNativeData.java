@@ -12,7 +12,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AlaDynamicGiftAndNativeData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

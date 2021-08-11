@@ -10,7 +10,7 @@ import com.baidu.sofire.ac.U;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.sdk.openadsdk.TTAdConstant;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,15 +30,15 @@ public final class a {
                 intent.putExtra("target_method", "handleWork");
                 intent.putExtra("from", 2);
                 PendingIntent service = PendingIntent.getService(context, 1001, intent, 134217728);
-                long j = TTAdConstant.AD_MAX_EVENT_TIME;
+                long j2 = TTAdConstant.AD_MAX_EVENT_TIME;
                 if (i2 == 0) {
-                    j = 30000;
+                    j2 = 30000;
                 } else if (i2 == 1) {
-                    j = 180000;
+                    j2 = 180000;
                 } else if (i2 == 2) {
-                    j = 300000;
+                    j2 = 300000;
                 }
-                long currentTimeMillis = System.currentTimeMillis() + j;
+                long currentTimeMillis = System.currentTimeMillis() + j2;
                 try {
                     alarmManager.cancel(service);
                 } catch (Throwable unused) {

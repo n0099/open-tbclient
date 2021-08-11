@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,7 +15,7 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
             synchronized (g.class) {
-                String a2 = com.alipay.security.mobile.module.b.e.a(context, "openapi_file_pri", "openApi" + str, "");
+                String a2 = com.alipay.security.mobile.module.c.e.a(context, "openapi_file_pri", "openApi" + str, "");
                 if (com.alipay.security.mobile.module.a.a.a(a2)) {
                     return "";
                 }

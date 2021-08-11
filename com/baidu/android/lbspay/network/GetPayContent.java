@@ -6,18 +6,17 @@ import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.CashierDataNew;
 import com.baidu.android.lbspay.channelpay.PayDataBean;
-import com.baidu.apollon.beans.IBeanResponse;
-import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.datamodel.PrecashierCreateOrderResponse;
+import com.dxmpay.apollon.beans.IBeanResponse;
+import com.dxmpay.apollon.utils.JsonUtils;
 import java.io.Serializable;
 import org.json.JSONException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GetPayContent implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -49,7 +48,7 @@ public class GetPayContent implements IBeanResponse, Serializable {
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,7 +64,7 @@ public class GetPayContent implements IBeanResponse, Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (!TextUtils.isEmpty(this.paydata)) {
                 String str = new String(Base64.decode(this.paydata, 0));
-                LogUtil.logd("decodeddata=" + str);
+                String str2 = "decodeddata=" + str;
                 try {
                     return (PayDataBean) JsonUtils.fromJson(str, PayDataBean.class);
                 } catch (JSONException e2) {
@@ -90,7 +89,7 @@ public class GetPayContent implements IBeanResponse, Serializable {
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {

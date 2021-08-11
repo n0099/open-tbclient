@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 @Experimental
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableConcatMapMaybe<T, R> extends Flowable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public final class FlowableConcatMapMaybe<T, R> extends Flowable<R> {
     public final int prefetch;
     public final Flowable<T> source;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ConcatMapMaybeSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STATE_ACTIVE = 1;
@@ -63,7 +63,7 @@ public final class FlowableConcatMapMaybe<T, R> extends Flowable<R> {
         public volatile int state;
         public Subscription upstream;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public static final class ConcatMapMaybeObserver<R> extends AtomicReference<Disposable> implements MaybeObserver<R> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -3051469169682093892L;
@@ -221,11 +221,11 @@ public final class FlowableConcatMapMaybe<T, R> extends Flowable<R> {
                                 }
                             }
                         } else if (i5 == 2) {
-                            long j = this.emitted;
-                            if (j != atomicLong.get()) {
+                            long j2 = this.emitted;
+                            if (j2 != atomicLong.get()) {
                                 this.item = null;
                                 subscriber.onNext((R) this.item);
-                                this.emitted = j + 1;
+                                this.emitted = j2 + 1;
                                 this.state = 0;
                             }
                         }
@@ -322,10 +322,10 @@ public final class FlowableConcatMapMaybe<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                BackpressureHelper.add(this.requested, j);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+                BackpressureHelper.add(this.requested, j2);
                 drain();
             }
         }

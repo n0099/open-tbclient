@@ -27,7 +27,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<XAdInstanceInfoExt> CREATOR;
@@ -1023,10 +1023,10 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setAppSize(long j) {
+    public void setAppSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048693, this, j) == null) {
-            this.appSize = j;
+        if (interceptable == null || interceptable.invokeJ(1048693, this, j2) == null) {
+            this.appSize = j2;
         }
     }
 
@@ -1171,10 +1171,10 @@ public class XAdInstanceInfoExt implements IXAdInstanceInfo, Cloneable, Parcelab
     }
 
     @Override // com.baidu.mobads.container.adrequest.IXAdInstanceInfo
-    public void setCreateTime(long j) {
+    public void setCreateTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048709, this, j) == null) {
-            this.createTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048709, this, j2) == null) {
+            this.createTime = j2;
         }
     }
 

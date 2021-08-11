@@ -4,14 +4,13 @@ import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class MATabActivity extends TabActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MATabActivity";
@@ -53,7 +52,6 @@ public abstract class MATabActivity extends TabActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Log.d(TAG, "onGetBottomBar");
             return null;
         }
         return (MABottomToolBar) invokeV.objValue;
@@ -68,7 +66,7 @@ public abstract class MATabActivity extends TabActivity {
     public void setMABottomToolBarVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            Log.d(TAG, "setMABottomToolBarVisibility = " + i2);
+            String str = "setMABottomToolBarVisibility = " + i2;
         }
     }
 }

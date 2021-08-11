@@ -1,13 +1,13 @@
 package com.baidu.android.lbspay.channelpay.alipay;
 
-import com.alipay.sdk.util.l;
+import com.alipay.sdk.util.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class Result {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String RESULT_CANCLE = "6001";
@@ -39,14 +39,14 @@ public class Result {
         }
         try {
             for (String str2 : str.split(";")) {
-                if (str2.startsWith(l.f2024a)) {
-                    this.resultStatus = gatValue(str2, l.f2024a);
+                if (str2.startsWith(i.f35879a)) {
+                    this.resultStatus = gatValue(str2, i.f35879a);
                 }
                 if (str2.startsWith("result")) {
                     this.result = gatValue(str2, "result");
                 }
-                if (str2.startsWith(l.f2025b)) {
-                    this.memo = gatValue(str2, l.f2025b);
+                if (str2.startsWith(i.f35880b)) {
+                    this.memo = gatValue(str2, i.f35880b);
                 }
             }
         } catch (Exception e2) {

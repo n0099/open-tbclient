@@ -10,32 +10,36 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UserDefineConfirmBottomView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f21403e;
+    public Context f56912e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f21404f;
+    public RelativeLayout f56913f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f21405g;
+    public LinearLayout f56914g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21406h;
+    public TextView f56915h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f21407i;
-    public TextView j;
+    public TextView f56916i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f56917j;
     public View.OnClickListener k;
     public String l;
 
@@ -63,35 +67,38 @@ public class UserDefineConfirmBottomView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f21403e = context;
+            this.f56912e = context;
             LayoutInflater.from(context).inflate(R.layout.user_define_confirm_bottom_view, (ViewGroup) this, true);
             setOrientation(1);
-            this.f21404f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
-            this.f21405g = (LinearLayout) findViewById(R.id.big_tbean_root);
-            this.f21406h = (TextView) findViewById(R.id.big_tbean_toast_tv);
-            this.f21407i = (TextView) findViewById(R.id.big_tbean_jump_tv);
-            this.j = (TextView) findViewById(R.id.user_define_confirm_tv);
-            this.f21404f.setOnClickListener(null);
+            this.f56913f = (RelativeLayout) findViewById(R.id.confirm_btn_root);
+            this.f56914g = (LinearLayout) findViewById(R.id.big_tbean_root);
+            this.f56915h = (TextView) findViewById(R.id.big_tbean_toast_tv);
+            this.f56916i = (TextView) findViewById(R.id.big_tbean_jump_tv);
+            this.f56917j = (TextView) findViewById(R.id.user_define_confirm_tv);
+            this.f56913f.setOnClickListener(null);
         }
     }
 
-    public void b(boolean z) {
+    public void onChangeSKinType() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                this.f21405g.setVisibility(0);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                SkinManager.setBackgroundColor(this.f56914g, R.color.CAM_X0110);
             } else {
-                this.f21405g.setVisibility(4);
+                SkinManager.setBackgroundColor(this.f56914g, R.color.common_color_10333);
             }
+            SkinManager.setViewTextColor(this.f56915h, R.color.CAM_X0106);
+            SkinManager.setViewTextColor(this.f56916i, R.color.CAM_X0106);
+            SkinManager.setBackgroundColor(this.f56913f, R.color.CAM_X0201);
         }
     }
 
     public void setBigTbeanToastText(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            String format = String.format(this.f21403e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
+            String format = String.format(this.f56912e.getString(R.string.big_tbean_toast), StringHelper.numberUniform(i2));
             this.l = format;
-            this.f21406h.setText(format);
+            this.f56915h.setText(format);
         }
     }
 
@@ -99,8 +106,8 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             this.k = onClickListener;
-            this.f21407i.setOnClickListener(onClickListener);
-            this.j.setOnClickListener(this.k);
+            this.f56916i.setOnClickListener(onClickListener);
+            this.f56917j.setOnClickListener(this.k);
         }
     }
 
@@ -108,20 +115,31 @@ public class UserDefineConfirmBottomView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.f21406h.setText(this.l);
-                this.f21406h.setGravity(3);
-                b(true);
-                this.j.setEnabled(true);
-                this.f21405g.setVisibility(0);
-                this.f21407i.setVisibility(0);
+                this.f56915h.setText(this.l);
+                this.f56915h.setGravity(3);
+                showBitTBeanToastView(true);
+                this.f56917j.setEnabled(true);
+                this.f56914g.setVisibility(0);
+                this.f56916i.setVisibility(0);
                 return;
             }
-            this.f21406h.setText(R.string.user_define_max_money);
-            this.f21406h.setGravity(17);
-            this.j.setEnabled(false);
-            b(false);
-            this.f21405g.setVisibility(0);
-            this.f21407i.setVisibility(8);
+            this.f56915h.setText(R.string.user_define_max_money);
+            this.f56915h.setGravity(17);
+            this.f56917j.setEnabled(false);
+            showBitTBeanToastView(false);
+            this.f56914g.setVisibility(0);
+            this.f56916i.setVisibility(8);
+        }
+    }
+
+    public void showBitTBeanToastView(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            if (z) {
+                this.f56914g.setVisibility(0);
+            } else {
+                this.f56914g.setVisibility(4);
+            }
         }
     }
 
@@ -163,6 +181,28 @@ public class UserDefineConfirmBottomView extends LinearLayout {
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        a(context);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public UserDefineConfirmBottomView(Context context, AttributeSet attributeSet, int i2, int i3) {
+        super(context, attributeSet, i2, i3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }

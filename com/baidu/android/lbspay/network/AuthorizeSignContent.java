@@ -2,20 +2,20 @@ package com.baidu.android.lbspay.network;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.beans.IBeanResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.apollon.beans.IBeanResponse;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AuthorizeSignContent implements IBeanResponse, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SignData sign_data;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class SignData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class AuthorizeSignContent implements IBeanResponse, Serializable {
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class AuthorizeSignContent implements IBeanResponse, Serializable {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponse
+    @Override // com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {

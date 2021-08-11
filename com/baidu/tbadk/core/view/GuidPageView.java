@@ -11,18 +11,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GuidPageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GuidPageView f12452e;
+        public final /* synthetic */ GuidPageView f47414e;
 
         public a(GuidPageView guidPageView) {
             Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class GuidPageView extends ImageView {
                     return;
                 }
             }
-            this.f12452e = guidPageView;
+            this.f47414e = guidPageView;
         }
 
         @Override // android.view.View.OnClickListener
@@ -85,7 +85,7 @@ public class GuidPageView extends ImageView {
         }
     }
 
-    public void b() {
+    public void recycleBitmap() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || getBackground() == null) {
             return;

@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class OfficialNotificationActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,11 +64,11 @@ public class OfficialNotificationActivity extends BaseFragmentActivity {
         }
     }
 
-    public static String makeFragmentName(Class cls, long j) {
+    public static String makeFragmentName(Class cls, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, cls, j)) == null) {
-            return "android:switcher:" + cls.getSimpleName() + ":" + j;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, cls, j2)) == null) {
+            return "android:switcher:" + cls.getSimpleName() + ":" + j2;
         }
         return (String) invokeLJ.objValue;
     }

@@ -4,10 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.pm.ApplicationInfo;
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.n.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -18,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.n.c;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -26,7 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class AbiType {
     public static final /* synthetic */ AbiType[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -66,7 +65,7 @@ public final class AbiType {
         AbiType abiType4 = new AbiType("X86_64", 4, "x86_64", abiType3, ARMEABI_V7A, ARMEABI);
         X86_64 = abiType4;
         $VALUES = new AbiType[]{ARMEABI, ARMEABI_V7A, ARM64_V8A, X86, abiType4};
-        DEBUG = c.f51112a;
+        DEBUG = c.f11582a;
         sIndex = new HashMap();
     }
 
@@ -104,7 +103,7 @@ public final class AbiType {
                 sCurrent = findById(getRuntimeAbiTypeStr(), ARMEABI);
             }
             if (DEBUG) {
-                Log.i(TAG, "ABI_CURRENT=" + sCurrent);
+                String str = "ABI_CURRENT=" + sCurrent;
             }
             return sCurrent;
         }

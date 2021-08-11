@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f29007a;
+    public static String f64873a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static boolean a(Context context) {
@@ -36,21 +36,21 @@ public class q {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (!TextUtils.isEmpty(f29007a)) {
-                return f29007a;
+            if (!TextUtils.isEmpty(f64873a)) {
+                return f64873a;
             }
             String a2 = a();
-            f29007a = a2;
+            f64873a = a2;
             if (!TextUtils.isEmpty(a2)) {
-                return f29007a;
+                return f64873a;
             }
             String b2 = b();
-            f29007a = b2;
+            f64873a = b2;
             if (!TextUtils.isEmpty(b2)) {
-                return f29007a;
+                return f64873a;
             }
             String c2 = c(context);
-            f29007a = c2;
+            f64873a = c2;
             return c2;
         }
         return (String) invokeL.objValue;

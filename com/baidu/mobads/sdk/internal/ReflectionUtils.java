@@ -14,7 +14,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ReflectionUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.mobads.sdk.internal.ReflectionUtils";

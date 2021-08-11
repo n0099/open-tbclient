@@ -15,13 +15,13 @@ import com.bytedance.sdk.openadsdk.core.g;
 import com.bytedance.sdk.openadsdk.core.k;
 import com.bytedance.sdk.openadsdk.core.o;
 import com.bytedance.sdk.openadsdk.core.p;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final p f29442a;
+    public final p f65321a;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        this.f29442a = o.f();
+        this.f65321a = o.f();
     }
 
     public static a a() {
@@ -48,18 +48,18 @@ public class a {
     public void a(Context context, AdSlot adSlot, TTAdNative.InteractionAdListener interactionAdListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, context, adSlot, interactionAdListener) == null) {
-            this.f29442a.a(adSlot, new n(), 2, new p.b(this, interactionAdListener, context) { // from class: com.bytedance.sdk.openadsdk.component.c.a.1
+            this.f65321a.a(adSlot, new n(), 2, new p.b(this, interactionAdListener, context) { // from class: com.bytedance.sdk.openadsdk.component.c.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ TTAdNative.InteractionAdListener f29443a;
+                public final /* synthetic */ TTAdNative.InteractionAdListener f65322a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f29444b;
+                public final /* synthetic */ Context f65323b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f29445c;
+                public final /* synthetic */ a f65324c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -76,16 +76,16 @@ public class a {
                             return;
                         }
                     }
-                    this.f29445c = this;
-                    this.f29443a = interactionAdListener;
-                    this.f29444b = context;
+                    this.f65324c = this;
+                    this.f65322a = interactionAdListener;
+                    this.f65323b = context;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.core.p.b
                 public void a(int i2, String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.f29443a.onError(i2, str);
+                        this.f65322a.onError(i2, str);
                     }
                 }
 
@@ -96,16 +96,16 @@ public class a {
                         if (aVar.c() != null && !aVar.c().isEmpty()) {
                             m mVar = aVar.c().get(0);
                             if (mVar.aK()) {
-                                b bVar = new b(this.f29444b, mVar);
+                                b bVar = new b(this.f65323b, mVar);
                                 bVar.a(new k(this, bVar) { // from class: com.bytedance.sdk.openadsdk.component.c.a.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
 
                                     /* renamed from: a  reason: collision with root package name */
-                                    public final /* synthetic */ b f29446a;
+                                    public final /* synthetic */ b f65325a;
 
                                     /* renamed from: b  reason: collision with root package name */
-                                    public final /* synthetic */ AnonymousClass1 f29447b;
+                                    public final /* synthetic */ AnonymousClass1 f65326b;
 
                                     {
                                         Interceptable interceptable3 = $ic;
@@ -122,15 +122,15 @@ public class a {
                                                 return;
                                             }
                                         }
-                                        this.f29447b = this;
-                                        this.f29446a = bVar;
+                                        this.f65326b = this;
+                                        this.f65325a = bVar;
                                     }
 
                                     @Override // com.bytedance.sdk.openadsdk.core.k
                                     public void a() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                            this.f29447b.f29443a.onInteractionAdLoad(this.f29446a);
+                                            this.f65326b.f65322a.onInteractionAdLoad(this.f65325a);
                                         }
                                     }
 
@@ -138,16 +138,16 @@ public class a {
                                     public void b() {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                                            this.f29447b.f29443a.onError(-6, g.a(-6));
+                                            this.f65326b.f65322a.onError(-6, g.a(-6));
                                         }
                                     }
                                 });
                                 return;
                             }
-                            this.f29443a.onError(-4, g.a(-4));
+                            this.f65322a.onError(-4, g.a(-4));
                             return;
                         }
-                        this.f29443a.onError(-3, g.a(-3));
+                        this.f65322a.onError(-3, g.a(-3));
                     }
                 }
             });

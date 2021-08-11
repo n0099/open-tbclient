@@ -3,7 +3,7 @@ package okhttp3.internal.cache;
 import java.io.IOException;
 import okhttp3.Request;
 import okhttp3.Response;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public interface InternalCache {
     Response get(Request request) throws IOException;
 

@@ -17,7 +17,7 @@ import org.webrtc.NativeLibrary;
 import org.webrtc.PeerConnection;
 import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.LegacyAudioDeviceModule;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class PeerConnectionFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PeerConnectionFactory";
@@ -36,13 +36,13 @@ public class PeerConnectionFactory {
     public long nativeFactory;
 
     /* renamed from: org.webrtc.PeerConnectionFactory$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -191,7 +191,7 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class InitializationOptions {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -205,7 +205,7 @@ public class PeerConnectionFactory {
         public final NativeLibraryLoader nativeLibraryLoader;
         public final String nativeLibraryName;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public static class Builder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -333,7 +333,7 @@ public class PeerConnectionFactory {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADAPTER_TYPE_ANY = 32;
@@ -385,12 +385,12 @@ public class PeerConnectionFactory {
     }
 
     @CalledByNative
-    public PeerConnectionFactory(long j) {
+    public PeerConnectionFactory(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -401,10 +401,10 @@ public class PeerConnectionFactory {
             }
         }
         checkInitializeHasBeenCalled();
-        if (j == 0) {
+        if (j2 == 0) {
             throw new RuntimeException("Failed to initialize PeerConnectionFactory!");
         }
-        this.nativeFactory = j;
+        this.nativeFactory = j2;
     }
 
     public PeerConnectionFactory(Options options, @Nullable AudioDeviceModule audioDeviceModule, AudioEncoderFactoryFactory audioEncoderFactoryFactory, AudioDecoderFactoryFactory audioDecoderFactoryFactory, @Nullable VideoEncoderFactory videoEncoderFactory, @Nullable VideoDecoderFactory videoDecoderFactory, @Nullable AudioProcessingFactory audioProcessingFactory, @Nullable FecControllerFactoryFactoryInterface fecControllerFactoryFactoryInterface, @Nullable MediaTransportFactoryFactory mediaTransportFactoryFactory) {
@@ -500,27 +500,27 @@ public class PeerConnectionFactory {
         }
     }
 
-    public static native long nativeCreateAudioSource(long j, MediaConstraints mediaConstraints);
+    public static native long nativeCreateAudioSource(long j2, MediaConstraints mediaConstraints);
 
-    public static native long nativeCreateAudioTrack(long j, String str, long j2);
+    public static native long nativeCreateAudioTrack(long j2, String str, long j3);
 
-    public static native long nativeCreateLocalMediaStream(long j, String str);
+    public static native long nativeCreateLocalMediaStream(long j2, String str);
 
-    public static native long nativeCreatePeerConnection(long j, PeerConnection.RTCConfiguration rTCConfiguration, MediaConstraints mediaConstraints, long j2, SSLCertificateVerifier sSLCertificateVerifier);
+    public static native long nativeCreatePeerConnection(long j2, PeerConnection.RTCConfiguration rTCConfiguration, MediaConstraints mediaConstraints, long j3, SSLCertificateVerifier sSLCertificateVerifier);
 
-    public static native long nativeCreatePeerConnectionFactory(Context context, Options options, long j, long j2, long j3, VideoEncoderFactory videoEncoderFactory, VideoDecoderFactory videoDecoderFactory, long j4, long j5, long j6);
+    public static native long nativeCreatePeerConnectionFactory(Context context, Options options, long j2, long j3, long j4, VideoEncoderFactory videoEncoderFactory, VideoDecoderFactory videoDecoderFactory, long j5, long j6, long j7);
 
-    public static native long nativeCreateVideoSource(long j, boolean z, boolean z2);
+    public static native long nativeCreateVideoSource(long j2, boolean z, boolean z2);
 
-    public static native long nativeCreateVideoTrack(long j, String str, long j2);
+    public static native long nativeCreateVideoTrack(long j2, String str, long j3);
 
     public static native void nativeDeleteLoggable();
 
     public static native String nativeFindFieldTrialsFullName(String str);
 
-    public static native void nativeFreeFactory(long j);
+    public static native void nativeFreeFactory(long j2);
 
-    public static native long nativeGetNativePeerConnectionFactory(long j);
+    public static native long nativeGetNativePeerConnectionFactory(long j2);
 
     public static native void nativeInitializeAndroidGlobals();
 
@@ -530,15 +530,15 @@ public class PeerConnectionFactory {
 
     public static native void nativeInjectLoggable(JNILogging jNILogging, int i2);
 
-    public static native void nativeInvokeThreadsCallbacks(long j);
+    public static native void nativeInvokeThreadsCallbacks(long j2);
 
     public static native void nativeShutdownInternalTracer();
 
-    public static native boolean nativeStartAecDump(long j, int i2, int i3);
+    public static native boolean nativeStartAecDump(long j2, int i2, int i3);
 
     public static native boolean nativeStartInternalTracingCapture(String str);
 
-    public static native void nativeStopAecDump(long j);
+    public static native void nativeStopAecDump(long j2);
 
     public static native void nativeStopInternalTracingCapture();
 

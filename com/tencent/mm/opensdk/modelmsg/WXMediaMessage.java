@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class WXMediaMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_WXAPPMESSAGE = "com.tencent.mm.sdk.openapi.Intent.ACTION_WXAPPMESSAGE";
@@ -34,7 +34,7 @@ public final class WXMediaMessage {
     public byte[] thumbData;
     public String title;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_IDENTIFIER = "_wxobject_identifier_";
@@ -99,17 +99,17 @@ public final class WXMediaMessage {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-                Log.i("MicroMsg.SDK.WXMediaMessage", "pathOldToNew, oldPath = " + str);
+                Log.i("MicroMsg.SDK.WXMediaMessage", "pathOldToNew, oldPath = ".concat(String.valueOf(str)));
                 if (str == null || str.length() == 0) {
                     Log.e("MicroMsg.SDK.WXMediaMessage", "pathOldToNew fail, oldPath is null");
                     return str;
                 }
                 int lastIndexOf = str.lastIndexOf(46);
-                if (lastIndexOf != -1) {
-                    return "com.tencent.mm.opensdk.modelmsg" + str.substring(lastIndexOf);
+                if (lastIndexOf == -1) {
+                    Log.e("MicroMsg.SDK.WXMediaMessage", "pathOldToNew fail, invalid pos, oldPath = ".concat(String.valueOf(str)));
+                    return str;
                 }
-                Log.e("MicroMsg.SDK.WXMediaMessage", "pathOldToNew fail, invalid pos, oldPath = " + str);
-                return str;
+                return "com.tencent.mm.opensdk.modelmsg" + str.substring(lastIndexOf);
             }
             return (String) invokeL.objValue;
         }
@@ -137,7 +137,7 @@ public final class WXMediaMessage {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface IMediaObject {
         public static final int TYPE_APPBRAND = 33;
         public static final int TYPE_APPDATA = 7;

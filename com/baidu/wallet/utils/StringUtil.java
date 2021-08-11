@@ -17,19 +17,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes8.dex */
 public class StringUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern AcceptUrlPat;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final char[] f27526a;
+    public static final char[] f63356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Pattern f27527b;
+    public static Pattern f63357b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static WeakReference<Paint> f27528c;
+    public static WeakReference<Paint> f63358c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,10 +46,10 @@ public class StringUtil {
                 return;
             }
         }
-        f27526a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f63356a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
         AcceptUrlPat = Pattern.compile("^(https?://|file:///android_asset/).*");
-        f27527b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
-        f27528c = new WeakReference<>(null);
+        f63357b = Pattern.compile("(.*)<color=#?((?:\\d|[a-f]){3,8})>(\\d+)</color>(.*)", 2);
+        f63358c = new WeakReference<>(null);
     }
 
     public StringUtil() {
@@ -77,8 +78,8 @@ public class StringUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeB = interceptable.invokeB(65539, null, b2)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(f27526a[(b2 >> 4) & 15]);
-            sb.append(f27526a[b2 & 15]);
+            sb.append(f63356a[(b2 >> 4) & 15]);
+            sb.append(f63356a[b2 & 15]);
             return sb.toString();
         }
         return (String) invokeB.objValue;
@@ -106,17 +107,26 @@ public class StringUtil {
         return (String) invokeLII.objValue;
     }
 
+    public static String getHexColorStr(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(AdIconUtil.AD_TEXT_ID, null, i2)) == null) {
+            return "#" + Integer.toHexString((i2 & 255) | ((-16777216) & i2) | (16711680 & i2) | (65280 & i2));
+        }
+        return (String) invokeI.objValue;
+    }
+
     public static float getStringWidth(String str, float f2) {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(AdIconUtil.AD_TEXT_ID, null, str, f2)) == null) {
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(AdIconUtil.BAIDU_LOGO_ID, null, str, f2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return 0.0f;
             }
-            Paint paint = f27528c.get();
+            Paint paint = f63358c.get();
             if (paint == null) {
                 paint = new Paint();
-                f27528c = new WeakReference<>(paint);
+                f63358c = new WeakReference<>(paint);
             }
             paint.setTextSize(f2);
             return paint.measureText(str);
@@ -127,11 +137,11 @@ public class StringUtil {
     public static CharSequence parseColorString(CharSequence charSequence) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, charSequence)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, charSequence)) == null) {
             if (charSequence == null) {
                 return null;
             }
-            Matcher matcher = f27527b.matcher(charSequence);
+            Matcher matcher = f63357b.matcher(charSequence);
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
             if (matcher.matches()) {
                 spannableStringBuilder.append((CharSequence) matcher.group(1));
@@ -151,7 +161,7 @@ public class StringUtil {
     public static String urlParam2JsonStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return com.baidu.android.common.others.lang.StringUtil.EMPTY_ARRAY;
             }
@@ -167,7 +177,7 @@ public class StringUtil {
                     sb.append("\",");
                 }
             }
-            sb.setCharAt(sb.length() - 1, '}');
+            sb.setCharAt(sb.length() - 1, ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeL.objValue;

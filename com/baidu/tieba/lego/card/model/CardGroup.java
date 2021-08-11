@@ -1,6 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.o1.o.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n1.o.b;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CardGroup extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class CardGroup extends BaseCardInfo {
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CardGroup(JSONObject jSONObject) throws CardParseException {
         super(jSONObject);
-        ICardInfo j;
+        ICardInfo j2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,9 +45,9 @@ public class CardGroup extends BaseCardInfo {
         this.mCards = new ArrayList(length);
         for (int i4 = 0; i4 < length; i4++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
-            if (optJSONObject != null && (j = b.j(optJSONObject)) != null) {
-                j.setGroupId(this.itemId);
-                this.mCards.add((BaseCardInfo) j);
+            if (optJSONObject != null && (j2 = b.j(optJSONObject)) != null) {
+                j2.setGroupId(this.itemId);
+                this.mCards.add((BaseCardInfo) j2);
             }
         }
     }

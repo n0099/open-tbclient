@@ -10,31 +10,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SearchSuggestItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public View f18511a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TbImageView f18512b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public TextView f18513c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public TextView f18514d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f18515e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public RankStarView f18516f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f18517g;
+    public View mRootView;
+    public TbImageView mSearchItemcardBarIcon;
+    public TextView mSearchItemcardScore;
+    public TextView mSearchItemcardTags;
+    public TextView mSearchItemcardTitle;
+    public View mSearchSuggetLine;
+    public RankStarView mStarView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchSuggestItemViewHolder(View view) {
@@ -54,12 +40,12 @@ public class SearchSuggestItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f18511a = view.findViewById(R.id.rootview);
-        this.f18512b = (TbImageView) view.findViewById(R.id.search_itemcard_bar_icon);
-        this.f18513c = (TextView) view.findViewById(R.id.search_itemcard_title);
-        this.f18514d = (TextView) view.findViewById(R.id.search_itemcard_score);
-        this.f18515e = (TextView) view.findViewById(R.id.search_itemcard_tags);
-        this.f18516f = (RankStarView) view.findViewById(R.id.search_itemcard_score_star);
-        this.f18517g = view.findViewById(R.id.search_sugget_line);
+        this.mRootView = view.findViewById(R.id.rootview);
+        this.mSearchItemcardBarIcon = (TbImageView) view.findViewById(R.id.search_itemcard_bar_icon);
+        this.mSearchItemcardTitle = (TextView) view.findViewById(R.id.search_itemcard_title);
+        this.mSearchItemcardScore = (TextView) view.findViewById(R.id.search_itemcard_score);
+        this.mSearchItemcardTags = (TextView) view.findViewById(R.id.search_itemcard_tags);
+        this.mStarView = (RankStarView) view.findViewById(R.id.search_itemcard_score_star);
+        this.mSearchSuggetLine = view.findViewById(R.id.search_sugget_line);
     }
 }

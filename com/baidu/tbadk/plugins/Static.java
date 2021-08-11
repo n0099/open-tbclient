@@ -1,5 +1,6 @@
 package com.baidu.tbadk.plugins;
 
+import c.a.e.h.j.g.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -19,17 +20,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.h.j.g.d;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class Static {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f13213a;
+    public static final String[] f48229a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public class Static {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +101,7 @@ public class Static {
                 return;
             }
             ExceptionData exceptionData = (ExceptionData) customResponsedMessage.getData();
-            String[] strArr = Static.f13213a;
+            String[] strArr = Static.f48229a;
             int length = strArr.length;
             int i2 = 0;
             while (true) {
@@ -111,7 +111,7 @@ public class Static {
                 }
                 String str2 = strArr[i2];
                 if (exceptionData != null && (str = exceptionData.info) != null && str.contains(str2) && !exceptionData.info.contains("java.lang.OutOfMemoryError")) {
-                    d.a.d.h.h.a.b().g("plugin_crash_inflate");
+                    c.a.e.h.h.a.b().g("plugin_crash_inflate");
                     z = false;
                     break;
                 }
@@ -129,7 +129,7 @@ public class Static {
                             for (StackTraceElement stackTraceElement : stackTrace) {
                                 try {
                                     plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                    d.a.p0.s.d0.b.j().v("plugin_patch_hook_failed_count", d.a.p0.s.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
+                                    c.a.o0.s.d0.b.j().v("plugin_patch_hook_failed_count", c.a.o0.s.d0.b.j().k("plugin_patch_hook_failed_count", 0) + 1);
                                     break;
                                 } catch (ClassNotFoundException unused) {
                                 }
@@ -143,8 +143,8 @@ public class Static {
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class c extends d.a.d.c.f.b {
+    /* loaded from: classes6.dex */
+    public static class c extends c.a.e.c.f.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -170,7 +170,7 @@ public class Static {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
         /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-        @Override // d.a.d.c.f.f
+        @Override // c.a.e.c.f.f
         public /* bridge */ /* synthetic */ CustomMessage<?> process(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
             CustomMessage<?> customMessage2 = customMessage;
             process2(customMessage2, customMessageTask);
@@ -203,7 +203,7 @@ public class Static {
                 return;
             }
         }
-        f13213a = new String[]{"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
+        f48229a = new String[]{"android.content.res.Resources$NotFoundException", "android.view.InflateException"};
         MessageManager.getInstance().registerListener(new a(2001011));
         a();
         MessageManager.getInstance().registerListener(new b(2016301));

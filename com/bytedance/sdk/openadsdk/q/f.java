@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile long f32508a;
+    public static volatile long f68470a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             try {
-                f32508a = com.bytedance.sdk.component.utils.l.a(com.bytedance.sdk.openadsdk.downloadnew.a.g.f31344a);
+                f68470a = com.bytedance.sdk.component.utils.l.a(com.bytedance.sdk.openadsdk.downloadnew.a.g.f67284a);
             } catch (Throwable unused) {
             }
         }

@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class D1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f39562a;
+    public final /* synthetic */ Context f76397a;
 
     public D1(E1 e1, Context context) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class D1 implements Runnable {
                 return;
             }
         }
-        this.f39562a = context;
+        this.f76397a = context;
     }
 
     @Override // java.lang.Runnable
@@ -44,7 +44,7 @@ public class D1 implements Runnable {
         String userAgentString;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Context context = this.f39562a;
+            Context context = this.f76397a;
             try {
                 if (Build.VERSION.SDK_INT >= 28) {
                     try {
@@ -67,16 +67,16 @@ public class D1 implements Runnable {
                     } catch (Exception unused2) {
                     }
                 }
-                Z1.f39723a = System.getProperty("http.agent");
+                Z1.f76563a = System.getProperty("http.agent");
                 if (Build.VERSION.SDK_INT >= 17) {
                     userAgentString = WebSettings.getDefaultUserAgent(context);
                 } else if (Looper.myLooper() != Looper.getMainLooper()) {
-                    X1.f39711a.post(new Y1(context));
+                    X1.f76551a.post(new Y1(context));
                     return;
                 } else {
                     userAgentString = new WebView(context).getSettings().getUserAgentString();
                 }
-                Z1.f39723a = userAgentString;
+                Z1.f76563a = userAgentString;
             } catch (Exception unused3) {
             }
         }

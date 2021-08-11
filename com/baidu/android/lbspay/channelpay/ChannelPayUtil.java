@@ -12,8 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.utils.LogUtil;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ChannelPayUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +35,7 @@ public class ChannelPayUtil {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            LogUtil.logd("channelId=" + i2);
+            String str = "channelId=" + i2;
             if (i2 != -3) {
                 if (i2 != -2) {
                     if (i2 != -1) {
@@ -82,7 +81,7 @@ public class ChannelPayUtil {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            LogUtil.logd("channelId=" + i2);
+            String str = "channelId=" + i2;
             if (i2 != -2) {
                 if (i2 != -1) {
                     if (i2 != 105) {
@@ -121,7 +120,7 @@ public class ChannelPayUtil {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            LogUtil.logd("channelId=" + i2);
+            String str = "channelId=" + i2;
             if (getChannelPay(i2) == null) {
                 return PayMode.unknownPay;
             }

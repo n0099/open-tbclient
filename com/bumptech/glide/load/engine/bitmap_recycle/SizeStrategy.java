@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Util;
 import java.util.NavigableMap;
 @RequiresApi(19)
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class SizeStrategy implements LruPoolStrategy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SIZE_MULTIPLE = 8;
@@ -24,7 +24,7 @@ public final class SizeStrategy implements LruPoolStrategy {
     public final NavigableMap<Integer, Integer> sortedSizes;
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public final class SizeStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

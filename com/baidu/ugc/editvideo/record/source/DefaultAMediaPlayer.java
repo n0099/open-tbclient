@@ -19,14 +19,14 @@ import java.io.IOException;
 import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class DefaultAMediaPlayer extends AMediaPlayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer internalPlayer;
     public final DefaultAMediaPlayerListenerHolder mInternalListenerAdapter;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public class DefaultAMediaPlayerListenerHolder implements MediaPlayer.OnPreparedListener, MediaPlayer.OnCompletionListener, MediaPlayer.OnBufferingUpdateListener, MediaPlayer.OnSeekCompleteListener, MediaPlayer.OnVideoSizeChangedListener, MediaPlayer.OnErrorListener, MediaPlayer.OnInfoListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -281,18 +281,18 @@ public class DefaultAMediaPlayer extends AMediaPlayer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer, com.baidu.ugc.editvideo.player.IPlayer
-    public void seekTo(long j) throws IllegalStateException {
+    public void seekTo(long j2) throws IllegalStateException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.internalPlayer.seekTo((int) j);
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.internalPlayer.seekTo((int) j2);
         }
     }
 
     @Override // com.baidu.ugc.editvideo.player.IPlayer
-    public void seekToForce(long j) {
+    public void seekToForce(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            seekTo(j);
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            seekTo(j2);
         }
     }
 

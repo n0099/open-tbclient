@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BreakpointLocalCheck {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,12 +26,12 @@ public class BreakpointLocalCheck {
     public final long responseInstanceLength;
     public final DownloadTask task;
 
-    public BreakpointLocalCheck(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j) {
+    public BreakpointLocalCheck(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {downloadTask, breakpointInfo, Long.valueOf(j)};
+            Object[] objArr = {downloadTask, breakpointInfo, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -43,7 +43,7 @@ public class BreakpointLocalCheck {
         }
         this.task = downloadTask;
         this.info = breakpointInfo;
-        this.responseInstanceLength = j;
+        this.responseInstanceLength = j2;
     }
 
     public void check() {

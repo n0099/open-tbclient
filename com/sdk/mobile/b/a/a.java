@@ -19,31 +19,31 @@ import com.sdk.base.framework.a.f;
 import com.sdk.base.framework.a.j;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.f.g.g;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38449a = "com.sdk.mobile.b.a.a";
+    public static final String f75235a = "com.sdk.mobile.b.a.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f38450b;
+    public static Boolean f75236b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public d f38451c;
+    public d f75237c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f38452d;
+    public Context f75238d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f38453e;
+    public f f75239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f38454f;
+    public int f75240f;
 
     /* renamed from: g  reason: collision with root package name */
-    public CallBack<T> f38455g;
+    public CallBack<T> f75241g;
 
     static {
         InterceptResult invokeClinit;
@@ -58,7 +58,7 @@ public class a<T> {
                 return;
             }
         }
-        f38450b = Boolean.valueOf(com.sdk.base.framework.c.f.f38384b);
+        f75236b = Boolean.valueOf(com.sdk.base.framework.c.f.f75169b);
     }
 
     public a(Context context, int i2, CallBack<T> callBack) {
@@ -76,12 +76,12 @@ public class a<T> {
                 return;
             }
         }
-        this.f38452d = context;
-        this.f38455g = callBack;
+        this.f75238d = context;
+        this.f75241g = callBack;
         i2 = i2 <= 0 ? 30 : i2;
-        this.f38454f = i2;
+        this.f75240f = i2;
         d dVar = new d(this, i2 * 1000);
-        this.f38451c = dVar;
+        this.f75237c = dVar;
         dVar.a();
         com.sdk.base.framework.f.f.a.a();
     }
@@ -94,16 +94,16 @@ public class a<T> {
             if (com.sdk.base.framework.a.a.c.a(a2).booleanValue()) {
                 a2 = com.sdk.base.framework.f.i.a.a(20);
             }
-            d dVar = this.f38451c;
+            d dVar = this.f75237c;
             if (dVar != null) {
                 dVar.b();
             }
-            CallBack<T> callBack = this.f38455g;
+            CallBack<T> callBack = this.f75241g;
             if (callBack != null) {
                 callBack.onFailed(i2, i3, str, a2);
-                this.f38455g = null;
+                this.f75241g = null;
             }
-            com.sdk.base.framework.f.k.a.a(this.f38452d, i3, str, a2, this.f38454f);
+            com.sdk.base.framework.f.k.a.a(this.f75238d, i3, str, a2, this.f75240f);
         }
     }
 
@@ -114,33 +114,33 @@ public class a<T> {
             if (com.sdk.base.framework.a.a.c.a(str2).booleanValue()) {
                 str2 = com.sdk.base.framework.f.i.a.a(20);
             }
-            d dVar = this.f38451c;
+            d dVar = this.f75237c;
             if (dVar != null) {
                 dVar.b();
             }
-            CallBack<T> callBack = this.f38455g;
+            CallBack<T> callBack = this.f75241g;
             if (callBack != null) {
                 callBack.onSuccess(i2, str, i3, t, str2);
-                this.f38455g = null;
+                this.f75241g = null;
             }
-            com.sdk.base.framework.f.k.a.a(this.f38452d, i3, str, str2, this.f38454f);
+            com.sdk.base.framework.f.k.a.a(this.f75238d, i3, str, str2, this.f75240f);
         }
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            String a2 = com.sdk.base.framework.a.a.a.a(this.f38452d, i2, g.f38420b.a());
+            String a2 = com.sdk.base.framework.a.a.a.a(this.f75238d, i2, g.f75206b.a());
             if (com.sdk.base.framework.a.a.c.b(a2).booleanValue()) {
                 a(0, "成功", 100, com.sdk.base.framework.a.a.a.a(a2), com.sdk.base.framework.a.a.a.b(a2));
-            } else if (!com.sdk.base.framework.f.i.b.a(this.f38452d)) {
+            } else if (!com.sdk.base.framework.f.i.b.a(this.f75238d)) {
                 a(1, IMTrack.CrashBuilder.CRASH_TYPE_CATCH, "操作频繁请,稍后再试");
             } else {
                 new com.sdk.mobile.a.a();
-                com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f38452d, new b(this, i2));
+                com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f75238d, new b(this, i2));
                 DataInfo dataInfo = new DataInfo();
                 dataInfo.putData(LightInvokerImpl.LIVENESS_SERVIVETYPE, Integer.valueOf(i2));
-                this.f38453e = aVar.a(aVar.f38393b, "/dro/netm/v1.0/gctcbs", dataInfo, aVar.a(), 0, j.f38344b);
+                this.f75239e = aVar.a(aVar.f75178b, "/dro/netm/v1.0/gctcbs", dataInfo, aVar.a(), 0, j.f75128b);
             }
         }
     }
@@ -148,13 +148,13 @@ public class a<T> {
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            com.sdk.base.framework.a.a.a.b(this.f38452d);
+            com.sdk.base.framework.a.a.a.b(this.f75238d);
             new com.sdk.mobile.a.a();
-            com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f38452d, new c(this, str2));
+            com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f75238d, new c(this, str2));
             DataInfo dataInfo = new DataInfo();
             dataInfo.putData(YYInnerSSOLoginActivity.o, str);
             dataInfo.putData("mobile", str2);
-            this.f38453e = aVar.a(aVar.f38393b, "/dro/netm/v1.0/gmctc", dataInfo, aVar.a(), 0, j.f38344b);
+            this.f75239e = aVar.a(aVar.f75178b, "/dro/netm/v1.0/gmctc", dataInfo, aVar.a(), 0, j.f75128b);
         }
     }
 }

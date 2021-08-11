@@ -1,7 +1,7 @@
 package com.baidu.livesdk.api.http.download;
 
 import com.baidu.livesdk.api.http.ResponseCallback;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface DownloadCallback extends ResponseCallback {
-    void onFileUpdateProgress(long j, long j2);
+    void onFileUpdateProgress(long j2, long j3);
 }

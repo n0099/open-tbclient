@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.CommitPusherCount.CommitPusherCountReqIdl;
 import protobuf.CommitPusherCount.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PushCountMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,10 +77,10 @@ public class PushCountMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.upFlowSize : invokeV.longValue;
     }
 
-    public void setDownFlowSize(long j) {
+    public void setDownFlowSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.downFlowSize = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.downFlowSize = j2;
         }
     }
 
@@ -98,10 +98,10 @@ public class PushCountMessage extends TbSocketMessage {
         }
     }
 
-    public void setUpFlowSize(long j) {
+    public void setUpFlowSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.upFlowSize = j;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            this.upFlowSize = j2;
         }
     }
 }

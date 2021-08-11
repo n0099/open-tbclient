@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.b.f;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34619a;
+    public Context f71360a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f34620b;
+    public final LinkedBlockingQueue<IBinder> f71361b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f34621c;
+    public ServiceConnection f71362c;
 
     public j(Context context) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class j {
                 return;
             }
         }
-        this.f34620b = new LinkedBlockingQueue<>(1);
-        this.f34621c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.j.1
+        this.f71361b = new LinkedBlockingQueue<>(1);
+        this.f71362c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.j.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ j f34622a;
+            public final /* synthetic */ j f71363a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class j {
                         return;
                     }
                 }
-                this.f34622a = this;
+                this.f71363a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -74,7 +74,7 @@ public class j {
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
                         com.kwad.sdk.core.d.a.c("ZTEDeviceIDHelper", "onServiceConnected");
-                        this.f34622a.f34620b.put(iBinder);
+                        this.f71363a.f71361b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -88,7 +88,7 @@ public class j {
                 }
             }
         };
-        this.f34619a = context;
+        this.f71360a = context;
     }
 
     public String a() {
@@ -102,19 +102,19 @@ public class j {
                 Intent intent = new Intent();
                 intent.setClassName("com.mdid.msa", "com.mdid.msa.service.MsaIdService");
                 intent.setAction("com.bun.msa.action.bindto.service");
-                intent.putExtra("com.bun.msa.param.pkgname", this.f34619a.getPackageName());
-                boolean bindService = this.f34619a.bindService(intent, this.f34621c, 1);
+                intent.putExtra("com.bun.msa.param.pkgname", this.f71360a.getPackageName());
+                boolean bindService = this.f71360a.bindService(intent, this.f71362c, 1);
                 com.kwad.sdk.core.d.a.c("ZTEDeviceIDHelper", "getOAID isBind=" + bindService);
                 if (bindService) {
                     try {
-                        str = new f.a(this.f34620b.take()).a();
+                        str = new f.a(this.f71361b.take()).a();
                         com.kwad.sdk.core.d.a.c("ZTEDeviceIDHelper", "getOAID oaid:" + str);
-                        context = this.f34619a;
-                        serviceConnection = this.f34621c;
+                        context = this.f71360a;
+                        serviceConnection = this.f71362c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f34619a;
-                        serviceConnection = this.f34621c;
+                        context = this.f71360a;
+                        serviceConnection = this.f71362c;
                     }
                     context.unbindService(serviceConnection);
                 }

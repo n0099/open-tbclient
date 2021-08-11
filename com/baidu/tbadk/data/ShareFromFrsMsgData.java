@@ -9,10 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ShareFromFrsMsgData extends ShareBaseMsgData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +112,7 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
                 jSONObject.put("forumName", this.name);
                 jSONObject.put("memberNum", this.memberNum);
                 jSONObject.put("postNum", this.postNum);
-                jSONObject.put("themeContent", this.name + "\n关注：" + this.memberNum + " 帖子：" + this.postNum);
+                jSONObject.put("themeContent", this.name + StringUtils.LF + "关注：" + this.memberNum + " 帖子：" + this.postNum);
                 jSONObject.put("themeImageUrl", this.imageUrl == null ? "" : this.imageUrl);
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put("【" + this.name + "吧】 " + this.content + " " + TbConfig.HTTPS_FRS_PREFIX + this.name);

@@ -2,15 +2,15 @@ package com.baidu.wallet.personal.datamodel;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.armor.SafePay;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.NoProguard;
+import com.dxmpay.apollon.armor.SecurePay;
+import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class TransRecord implements NoProguard, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TRANS_STATE_CANCELED = 5;
@@ -96,7 +96,7 @@ public class TransRecord implements NoProguard, Serializable {
                 if (TextUtils.isEmpty(this.mobile_number_ec)) {
                     return;
                 }
-                this.mobile_number = SafePay.unicodeDecode(SafePay.getInstance().localDecryptProxy(this.mobile_number_ec));
+                this.mobile_number = SecurePay.unicodeDecode(SecurePay.getInstance().localDecryptProxy(this.mobile_number_ec));
             } catch (Exception unused) {
             }
         }

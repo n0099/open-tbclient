@@ -21,37 +21,37 @@ import com.win.opensdk.o2;
 import com.win.opensdk.p2;
 import com.win.opensdk.q2;
 import com.win.opensdk.r2;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class CloseParentView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f39966a;
+    public TextView f76816a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f39967b;
+    public LinearLayout f76817b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f39968c;
+    public RelativeLayout f76818c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f39969d;
+    public Context f76819d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f39970e;
+    public View f76820e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f39971f;
+    public View f76821f;
 
     /* renamed from: g  reason: collision with root package name */
-    public q2 f39972g;
+    public q2 f76822g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39973h;
+    public int f76823h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f39974i;
+    public Handler f76824i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CloseParentView(Context context) {
@@ -93,16 +93,16 @@ public class CloseParentView extends LinearLayout {
                 return;
             }
         }
-        this.f39974i = new n2(this);
-        this.f39969d = context;
+        this.f76824i = new n2(this);
+        this.f76819d = context;
         LinearLayout.inflate(context, R.layout.win_layout_close, this);
-        this.f39967b = (LinearLayout) findViewById(R.id.win_parent);
-        this.f39970e = findViewById(R.id.win_iv_clct);
-        this.f39968c = (RelativeLayout) findViewById(R.id.win_parent_close);
-        this.f39971f = findViewById(R.id.win_tv_area);
-        this.f39966a = (TextView) findViewById(R.id.wn_tv_cdt);
-        this.f39967b.setOnClickListener(new o2(this));
-        this.f39971f.setOnClickListener(new p2(this));
+        this.f76817b = (LinearLayout) findViewById(R.id.win_parent);
+        this.f76820e = findViewById(R.id.win_iv_clct);
+        this.f76818c = (RelativeLayout) findViewById(R.id.win_parent_close);
+        this.f76821f = findViewById(R.id.win_tv_area);
+        this.f76816a = (TextView) findViewById(R.id.wn_tv_cdt);
+        this.f76817b.setOnClickListener(new o2(this));
+        this.f76821f.setOnClickListener(new p2(this));
         setAreaLevel(1);
     }
 
@@ -115,7 +115,7 @@ public class CloseParentView extends LinearLayout {
     public void b() {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (handler = this.f39974i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (handler = this.f76824i) == null) {
             return;
         }
         handler.removeCallbacksAndMessages(null);
@@ -124,10 +124,10 @@ public class CloseParentView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f39967b.removeView(this.f39968c);
-            this.f39967b.addView(this.f39968c, 1);
-            ((LinearLayout.LayoutParams) this.f39970e.getLayoutParams()).rightMargin = N.a(this.f39969d, 12.0f);
-            ((LinearLayout.LayoutParams) this.f39968c.getLayoutParams()).rightMargin = 0;
+            this.f76817b.removeView(this.f76818c);
+            this.f76817b.addView(this.f76818c, 1);
+            ((LinearLayout.LayoutParams) this.f76820e.getLayoutParams()).rightMargin = N.a(this.f76819d, 12.0f);
+            ((LinearLayout.LayoutParams) this.f76818c.getLayoutParams()).rightMargin = 0;
         }
     }
 
@@ -135,8 +135,8 @@ public class CloseParentView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             int i3 = i2 != 0 ? i2 != 1 ? i2 != 2 ? 0 : 30 : 22 : 10;
-            ViewGroup.LayoutParams layoutParams = this.f39971f.getLayoutParams();
-            int a2 = N.a(this.f39969d, i3);
+            ViewGroup.LayoutParams layoutParams = this.f76821f.getLayoutParams();
+            int a2 = N.a(this.f76819d, i3);
             layoutParams.width = a2;
             layoutParams.height = a2;
         }
@@ -145,16 +145,16 @@ public class CloseParentView extends LinearLayout {
     public void setCollectVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f39970e.setVisibility(z ? 0 : 8);
-            this.f39967b.setClickable(z);
+            this.f76820e.setVisibility(z ? 0 : 8);
+            this.f76817b.setClickable(z);
         }
     }
 
     public void setCountDown(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f39973h = i2;
-            this.f39974i.sendEmptyMessage(10);
+            this.f76823h = i2;
+            this.f76824i.sendEmptyMessage(10);
         }
     }
 
@@ -165,17 +165,17 @@ public class CloseParentView extends LinearLayout {
                 c();
                 return;
             }
-            this.f39967b.removeView(this.f39968c);
-            this.f39967b.addView(this.f39968c, 0);
-            ((LinearLayout.LayoutParams) this.f39970e.getLayoutParams()).rightMargin = 0;
-            ((LinearLayout.LayoutParams) this.f39968c.getLayoutParams()).rightMargin = N.a(this.f39969d, 12.0f);
+            this.f76817b.removeView(this.f76818c);
+            this.f76817b.addView(this.f76818c, 0);
+            ((LinearLayout.LayoutParams) this.f76820e.getLayoutParams()).rightMargin = 0;
+            ((LinearLayout.LayoutParams) this.f76818c.getLayoutParams()).rightMargin = N.a(this.f76819d, 12.0f);
         }
     }
 
     public void setOnCloseListener(q2 q2Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, q2Var) == null) {
-            this.f39972g = q2Var;
+            this.f76822g = q2Var;
         }
     }
 

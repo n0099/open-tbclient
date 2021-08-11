@@ -2,22 +2,20 @@ package com.baidu.wallet.paysdk.b;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.ui.BindCardBaseActivity;
-import com.baidu.wallet.statistics.api.StatisticManager;
-/* loaded from: classes5.dex */
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+/* loaded from: classes8.dex */
 public class f extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.baidu.wallet.paysdk.beans.g r;
+    public com.baidu.wallet.paysdk.beans.e r;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -38,11 +36,11 @@ public class f extends g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            BindFastRequest bindFastRequest = this.f26068e;
-            if (bindFastRequest == null || bindFastRequest.getmBankInfo() == null || this.f26068e.getmBankInfo().channel_info == null) {
+            BindFastRequest bindFastRequest = this.f61976e;
+            if (bindFastRequest == null || bindFastRequest.getmBankInfo() == null || this.f61976e.getmBankInfo().channel_info == null) {
                 return true;
             }
-            return this.f26068e.getmBankInfo().channel_info.isNeedSendSms();
+            return this.f61976e.getmBankInfo().channel_info.isNeedSendSms();
         }
         return invokeV.booleanValue;
     }
@@ -52,13 +50,11 @@ public class f extends g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr) == null) {
             if (this.r == null) {
-                this.r = (com.baidu.wallet.paysdk.beans.g) PayBeanFactory.getInstance().getBean((Context) this.f26067d, 17, BindCardBaseActivity.BEAN_TAG);
+                this.r = (com.baidu.wallet.paysdk.beans.e) PayBeanFactory.getInstance().getBean((Context) this.f61975d, 17, BindCardBaseActivity.BEAN_TAG);
             }
-            this.r.a(this.f26068e);
-            this.r.setResponseCallback(this.f26067d);
-            StatisticManager.onEventStart(StatServiceEvent.TIME_SMS);
-            PayStatisticsUtil.onEventStart(StatServiceEvent.CARD_CHECK);
-            PayStatisticsUtil.onEvent(StatServiceEvent.GET_SMS_CODE);
+            this.r.a(this.f61976e);
+            this.r.setResponseCallback(this.f61975d);
+            StatisticManager.onEvent("callCardCheck");
             b(strArr);
             this.r.execBean();
         }

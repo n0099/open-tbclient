@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.common.others.url.UrlUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.connect.ConnectManager;
@@ -20,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class NetworkParam {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -121,7 +120,7 @@ public class NetworkParam {
             }
             if (DEBUG) {
                 long uptimeMillis2 = SystemClock.uptimeMillis();
-                Log.i(TAG, "getCurrentNetTypeId cost " + (uptimeMillis2 - uptimeMillis) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
+                String str2 = "getCurrentNetTypeId cost " + (uptimeMillis2 - uptimeMillis) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName();
             }
             return str;
         }

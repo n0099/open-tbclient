@@ -8,6 +8,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import c.a.e.e.p.l;
+import c.a.o0.s.q.f;
+import c.a.p0.i2.k.e.a1.g;
+import c.a.p0.i2.k.e.e;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -29,98 +33,80 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.s.q.f;
-import d.a.q0.h2.k.e.b1.e;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView A;
-    public TextView B;
-    public AgreeView C;
-    public TextView D;
-    public ImageView E;
-    public HeadPendantView F;
-    public UserIconBox G;
-    public UserIconBox H;
-    public ImageView I;
-    public View J;
-    public TextView K;
-    public LinearLayout L;
-    public TextView M;
-    public View N;
-    public TextView O;
-    public ImageView P;
-    public LinearLayout Q;
-    public LinearLayout R;
-    public TextView S;
-    public ImageView T;
-    public int U;
-    public int V;
-    public TBLottieAnimationView W;
-    public ViewGroup X;
-    public AgreeView Y;
-    public ImageView Z;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f19286a;
-    public ViewGroup a0;
+    public TBLottieAnimationView f54650a;
+    public LinearLayout mAllContent;
+    public View mBottomAgreeContainer;
+    public AgreeView mBottomAgreeView;
+    public View mBottomCommentContainer;
+    public ImageView mBottomCommentImg;
+    public TextView mBottomCommentText;
+    public View mBottomLine;
+    public View mBottomShareContainer;
+    public ImageView mBottomShareImg;
+    public TextView mBottomShareText;
+    public ImageView mBtnOpMore;
+    public TextView mBtnPostAbove;
+    public ImageView mCommentView;
+    public ImageView mFeedBackImg;
+    public TextView mFloorAuthorView;
+    public TextView mFloorNum;
+    public LinearLayout mFoldOpArea;
+    public TextView mFoldTitleView;
+    public ImageView mForumLevelIcon;
+    public HeadImageView mHeadPhotoView;
+    public ConstrainImageGroup mImagesView;
+    public ImageView mImgGodComment;
+    public boolean mIsShowImage;
+    public TextView mLocationView;
+    public MaskView mMaskView;
+    public AgreeView mPbFloorPraiseView;
+    public ViewGroup mPbPostReplyLayoutAbove;
+    public AgreeView mPbRightTopAgreeView;
+    public ViewGroup mPbRightTopLayout;
+    public ImageView mPbRightTopMoreView;
+    public HeadPendantView mPendantHeadView;
+    public TextView mPointRightFloor;
+    public TextView mPointRightPostTime;
+    public int mPosition;
+    public View mPostReplyContainer;
+    public ImageView mRecommendLiveArrowView;
+    public View mRecommendLiveDividerView;
+    public LinearLayout mRecommendLiveLayout;
+    public TextView mRecommendLivePrefixTv;
+    public TextView mRecommendLiveTitleView;
+    public SubPbLayout mReplyContentView;
+    public TextView mReplyCountView;
+    public TextView mReplyTimeView;
+    public TextView mReplyView;
+    public TbRichTextView mRichTextView;
+    public ImageView mShareView;
+    public int mSkinType;
+    public TextView mTailContent;
+    public View mTopLine;
+    public View mTrisectionContainer;
+    public UserIconBox mTshowIconBox;
+    public TextView mUserNameView;
+    public TextView mViewPostTimeAbove;
+    public UserIconBox mVipIconBox;
+    public LinearLayout ownerInfoRootView;
+    public int pageFrom;
+    public g pbHeadUegController;
+    public View pbItemViewRoot;
+    public FrameLayout uegFrameLayout;
 
-    /* renamed from: b  reason: collision with root package name */
-    public View f19287b;
-    public TextView b0;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f19288c;
-    public TextView c0;
-
-    /* renamed from: d  reason: collision with root package name */
-    public View f19289d;
-    public ImageView d0;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f19290e;
-    public FrameLayout e0;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f19291f;
-    public MaskView f0;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f19292g;
-    public e g0;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f19293h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f19294i;
-    public TextView j;
-    public AgreeView k;
-    public HeadImageView l;
-    public TbRichTextView m;
-    public ConstrainImageGroup n;
-    public View o;
-    public SubPbLayout p;
-    public TextView q;
-    public TextView r;
-    public ImageView s;
-    public ImageView t;
-    public View u;
-    public View v;
-    public View w;
-    public View x;
-    public ImageView y;
-    public TextView z;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbCommenFloorItemViewHolder f19295e;
+        public final /* synthetic */ PbCommenFloorItemViewHolder f54651e;
 
         public a(PbCommenFloorItemViewHolder pbCommenFloorItemViewHolder) {
             Interceptable interceptable = $ic;
@@ -137,14 +123,14 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                     return;
                 }
             }
-            this.f19295e = pbCommenFloorItemViewHolder;
+            this.f54651e = pbCommenFloorItemViewHolder;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f19295e.W.playAnimation();
+                this.f54651e.f54650a.playAnimation();
             }
         }
     }
@@ -167,190 +153,191 @@ public class PbCommenFloorItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f19286a = 3;
-        this.f19288c = true;
-        this.U = -1;
+        this.mSkinType = 3;
+        this.mIsShowImage = true;
+        this.mPosition = -1;
         if (tbPageContext == null || view == null) {
             return;
         }
-        this.f19287b = view;
-        this.f19289d = view.findViewById(R.id.top_divider_line);
-        this.f19290e = (TextView) view.findViewById(R.id.view_user_name);
-        this.f19291f = (TextView) view.findViewById(R.id.view_author_tip);
-        this.f19292g = (TextView) view.findViewById(R.id.view_post_time);
-        this.E = (ImageView) view.findViewById(R.id.icon_forum_level);
-        this.j = (TextView) view.findViewById(R.id.view_location);
-        this.o = view.findViewById(R.id.pb_post_reply_container);
-        this.s = (ImageView) view.findViewById(R.id.post_info_commont_img);
-        this.t = (ImageView) view.findViewById(R.id.post_info_share_img);
+        this.pbItemViewRoot = view;
+        this.mTopLine = view.findViewById(R.id.top_divider_line);
+        this.ownerInfoRootView = (LinearLayout) view.findViewById(R.id.pb_head_owner_info_root);
+        this.mUserNameView = (TextView) view.findViewById(R.id.view_user_name);
+        this.mFloorAuthorView = (TextView) view.findViewById(R.id.view_author_tip);
+        this.mReplyTimeView = (TextView) view.findViewById(R.id.view_post_time);
+        this.mForumLevelIcon = (ImageView) view.findViewById(R.id.icon_forum_level);
+        this.mLocationView = (TextView) view.findViewById(R.id.view_location);
+        this.mPostReplyContainer = view.findViewById(R.id.pb_post_reply_container);
+        this.mCommentView = (ImageView) view.findViewById(R.id.post_info_commont_img);
+        this.mShareView = (ImageView) view.findViewById(R.id.post_info_share_img);
         AgreeView agreeView = (AgreeView) view.findViewById(R.id.new_pb_floor_praise_view);
-        this.k = agreeView;
+        this.mPbFloorPraiseView = agreeView;
         agreeView.setResourceId(R.raw.pb_lottie_agree, R.raw.pb_lottie_disagree);
-        this.k.setNormalColorResourceId(R.color.CAM_X0109);
-        this.k.i(false);
-        this.u = view.findViewById(R.id.pb_floor_trisection_area);
-        this.v = view.findViewById(R.id.pb_floor_share_container);
-        this.w = view.findViewById(R.id.pb_floor_comment_container);
-        this.x = view.findViewById(R.id.pb_floor_agree_container);
-        this.y = (ImageView) view.findViewById(R.id.pb_floor_share_img);
-        this.z = (TextView) view.findViewById(R.id.pb_floor_share_text);
-        this.A = (ImageView) view.findViewById(R.id.pb_floor_comment_img);
-        this.B = (TextView) view.findViewById(R.id.pb_floor_comment_text);
+        this.mPbFloorPraiseView.setNormalColorResourceId(R.color.CAM_X0109);
+        this.mPbFloorPraiseView.adjustLayoutForPbFloor(false);
+        this.mTrisectionContainer = view.findViewById(R.id.pb_floor_trisection_area);
+        this.mBottomShareContainer = view.findViewById(R.id.pb_floor_share_container);
+        this.mBottomCommentContainer = view.findViewById(R.id.pb_floor_comment_container);
+        this.mBottomAgreeContainer = view.findViewById(R.id.pb_floor_agree_container);
+        this.mBottomShareImg = (ImageView) view.findViewById(R.id.pb_floor_share_img);
+        this.mBottomShareText = (TextView) view.findViewById(R.id.pb_floor_share_text);
+        this.mBottomCommentImg = (ImageView) view.findViewById(R.id.pb_floor_comment_img);
+        this.mBottomCommentText = (TextView) view.findViewById(R.id.pb_floor_comment_text);
         AgreeView agreeView2 = (AgreeView) view.findViewById(R.id.pb_floor_agree_view);
-        this.C = agreeView2;
+        this.mBottomAgreeView = agreeView2;
         agreeView2.setResourceId(R.raw.pb_lottie_agree, R.raw.pb_lottie_disagree);
-        this.C.setNormalColorResourceId(R.color.CAM_X0109);
-        this.C.i(true);
-        this.u.setVisibility(8);
-        this.o.setVisibility(0);
-        this.s.setVisibility(0);
-        this.t.setVisibility(0);
-        this.k.setVisibility(0);
-        this.I = (ImageView) view.findViewById(R.id.pb_floor_feedback);
-        this.V = i2;
+        this.mBottomAgreeView.setNormalColorResourceId(R.color.CAM_X0109);
+        this.mBottomAgreeView.adjustLayoutForPbFloor(true);
+        this.mTrisectionContainer.setVisibility(8);
+        this.mPostReplyContainer.setVisibility(0);
+        this.mCommentView.setVisibility(0);
+        this.mShareView.setVisibility(0);
+        this.mPbFloorPraiseView.setVisibility(0);
+        this.mFeedBackImg = (ImageView) view.findViewById(R.id.pb_floor_feedback);
+        this.pageFrom = i2;
         f fVar = new f();
-        fVar.f53311b = 5;
-        fVar.f53317h = 8;
-        fVar.f53316g = 2;
-        fVar.f53315f = i2;
-        this.k.setStatisticData(fVar);
-        this.l = (HeadImageView) view.findViewById(R.id.normal_user_photo);
+        fVar.f13913b = 5;
+        fVar.f13919h = 8;
+        fVar.f13918g = 2;
+        fVar.f13917f = i2;
+        this.mPbFloorPraiseView.setStatisticData(fVar);
+        this.mHeadPhotoView = (HeadImageView) view.findViewById(R.id.normal_user_photo);
         HeadPendantView headPendantView = (HeadPendantView) view.findViewById(R.id.pendant_user_photo);
-        this.F = headPendantView;
+        this.mPendantHeadView = headPendantView;
         headPendantView.setHasPendantStyle();
-        if (this.F.getHeadView() != null) {
-            this.F.getHeadView().setIsRound(true);
-            this.F.getHeadView().setDrawBorder(true);
-            this.F.getHeadView().setPlaceHolder(1);
+        if (this.mPendantHeadView.getHeadView() != null) {
+            this.mPendantHeadView.getHeadView().setIsRound(true);
+            this.mPendantHeadView.getHeadView().setDrawBorder(true);
+            this.mPendantHeadView.getHeadView().setPlaceHolder(1);
         }
-        this.G = (UserIconBox) view.findViewById(R.id.show_icon_vip);
-        this.H = (UserIconBox) view.findViewById(R.id.show_icon_yinji);
-        this.m = (TbRichTextView) view.findViewById(R.id.richText);
-        this.p = (SubPbLayout) view.findViewById(R.id.pb_post_footer_layout);
-        this.q = (TextView) view.findViewById(R.id.pb_post_reply_count);
-        this.q.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right, SkinManager.getColor(R.color.CAM_X0107), null), (Drawable) null);
-        this.q.setCompoundDrawablePadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds4));
-        this.q.setTextSize(0, l.g(TbadkCoreApplication.getInst(), R.dimen.T_X07));
-        this.r = (TextView) view.findViewById(R.id.pb_post_reply);
-        this.n = (ConstrainImageGroup) view.findViewById(R.id.floor_images_content);
-        this.J = view.findViewById(R.id.pb_bottom_line);
-        this.D = (TextView) view.findViewById(R.id.floor_num);
-        this.f19293h = (TextView) view.findViewById(R.id.point_between_floor_and_time);
-        this.f19294i = (TextView) view.findViewById(R.id.point_between_time_and_locate);
-        this.n.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16));
-        this.n.setSingleImageRatio(0.75d);
-        this.n.setImageProcessor(new d.a.p0.d1.j.f(3));
-        d.a.q0.h2.k.e.e eVar = new d.a.q0.h2.k.e.e(this.m.getLayoutStrategy());
+        this.mVipIconBox = (UserIconBox) view.findViewById(R.id.show_icon_vip);
+        this.mTshowIconBox = (UserIconBox) view.findViewById(R.id.show_icon_yinji);
+        this.mRichTextView = (TbRichTextView) view.findViewById(R.id.richText);
+        this.mReplyContentView = (SubPbLayout) view.findViewById(R.id.pb_post_footer_layout);
+        this.mReplyCountView = (TextView) view.findViewById(R.id.pb_post_reply_count);
+        this.mReplyCountView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, WebPManager.getPureDrawable(R.drawable.icon_pure_arrow12_right, SkinManager.getColor(R.color.CAM_X0107), null), (Drawable) null);
+        this.mReplyCountView.setCompoundDrawablePadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds4));
+        this.mReplyCountView.setTextSize(0, l.g(TbadkCoreApplication.getInst(), R.dimen.T_X07));
+        this.mReplyView = (TextView) view.findViewById(R.id.pb_post_reply);
+        this.mImagesView = (ConstrainImageGroup) view.findViewById(R.id.floor_images_content);
+        this.mBottomLine = view.findViewById(R.id.pb_bottom_line);
+        this.mFloorNum = (TextView) view.findViewById(R.id.floor_num);
+        this.mPointRightFloor = (TextView) view.findViewById(R.id.point_between_floor_and_time);
+        this.mPointRightPostTime = (TextView) view.findViewById(R.id.point_between_time_and_locate);
+        this.mImagesView.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds16));
+        this.mImagesView.setSingleImageRatio(0.75d);
+        this.mImagesView.setImageProcessor(new c.a.o0.d1.j.f(3));
+        e eVar = new e(this.mRichTextView.getLayoutStrategy());
         eVar.j(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18));
         eVar.o(TbConfig.getPostLineSpace(), 1.0f);
-        this.m.setLayoutStrategy(eVar);
-        this.m.setIsNeedResizeEmotion(true);
-        this.m.setTextSize(TbConfig.getContentSize());
-        this.l.setIsRound(true);
-        this.l.setGodIconWidth(R.dimen.tbds31);
-        this.l.setPlaceHolder(1);
-        this.m.setDisplayImage(this.f19288c, false);
-        this.m.setVoiceViewRes(R.layout.voice_play_btn_new);
-        this.K = (TextView) view.findViewById(R.id.pb_item_tail_content);
-        this.L = (LinearLayout) view.findViewById(R.id.pb_post_recommend_live_layout);
-        this.M = (TextView) view.findViewById(R.id.pb_post_recommend_live_prefix_tv);
-        this.N = view.findViewById(R.id.pb_post_recommend_live_divider);
-        this.O = (TextView) view.findViewById(R.id.pb_post_recommend_live_title);
-        this.P = (ImageView) view.findViewById(R.id.pb_post_recommend_live_arrow);
-        this.Q = (LinearLayout) view.findViewById(R.id.all_content);
-        this.R = (LinearLayout) view.findViewById(R.id.fold_op_area);
-        this.S = (TextView) view.findViewById(R.id.fold_title);
-        this.T = (ImageView) view.findViewById(R.id.pic_comment_god);
-        this.W = (TBLottieAnimationView) view.findViewById(R.id.user_living_lottie);
-        this.X = (ViewGroup) view.findViewById(R.id.pb_floor_right_top_layout);
-        this.Y = (AgreeView) view.findViewById(R.id.pb_floor_right_top_agree_view);
-        this.Z = (ImageView) view.findViewById(R.id.pb_floor_right_top_feedback);
-        this.Y.setResourceId(R.raw.pb_lottie_agree, R.raw.pb_lottie_disagree);
-        this.Y.setNormalColorResourceId(R.color.CAM_X0109);
-        this.Y.i(false);
-        this.Y.setAgreeAlone(true);
-        this.a0 = (ViewGroup) view.findViewById(R.id.pb_post_reply_layout_above);
-        this.b0 = (TextView) view.findViewById(R.id.view_post_time_above);
-        this.c0 = (TextView) view.findViewById(R.id.btn_post_above);
-        this.d0 = (ImageView) view.findViewById(R.id.pb_post_op_more);
+        this.mRichTextView.setLayoutStrategy(eVar);
+        this.mRichTextView.setIsNeedResizeEmotion(true);
+        this.mRichTextView.setTextSize(TbConfig.getContentSize());
+        this.mHeadPhotoView.setIsRound(true);
+        this.mHeadPhotoView.setGodIconWidth(R.dimen.tbds31);
+        this.mHeadPhotoView.setPlaceHolder(1);
+        this.mRichTextView.setDisplayImage(this.mIsShowImage, false);
+        this.mRichTextView.setVoiceViewRes(R.layout.voice_play_btn_new);
+        this.mTailContent = (TextView) view.findViewById(R.id.pb_item_tail_content);
+        this.mRecommendLiveLayout = (LinearLayout) view.findViewById(R.id.pb_post_recommend_live_layout);
+        this.mRecommendLivePrefixTv = (TextView) view.findViewById(R.id.pb_post_recommend_live_prefix_tv);
+        this.mRecommendLiveDividerView = view.findViewById(R.id.pb_post_recommend_live_divider);
+        this.mRecommendLiveTitleView = (TextView) view.findViewById(R.id.pb_post_recommend_live_title);
+        this.mRecommendLiveArrowView = (ImageView) view.findViewById(R.id.pb_post_recommend_live_arrow);
+        this.mAllContent = (LinearLayout) view.findViewById(R.id.all_content);
+        this.mFoldOpArea = (LinearLayout) view.findViewById(R.id.fold_op_area);
+        this.mFoldTitleView = (TextView) view.findViewById(R.id.fold_title);
+        this.mImgGodComment = (ImageView) view.findViewById(R.id.pic_comment_god);
+        this.f54650a = (TBLottieAnimationView) view.findViewById(R.id.user_living_lottie);
+        this.mPbRightTopLayout = (ViewGroup) view.findViewById(R.id.pb_floor_right_top_layout);
+        this.mPbRightTopAgreeView = (AgreeView) view.findViewById(R.id.pb_floor_right_top_agree_view);
+        this.mPbRightTopMoreView = (ImageView) view.findViewById(R.id.pb_floor_right_top_feedback);
+        this.mPbRightTopAgreeView.setResourceId(R.raw.pb_lottie_agree, R.raw.pb_lottie_disagree);
+        this.mPbRightTopAgreeView.setNormalColorResourceId(R.color.CAM_X0109);
+        this.mPbRightTopAgreeView.adjustLayoutForPbFloor(false);
+        this.mPbRightTopAgreeView.setAgreeAlone(true);
+        this.mPbPostReplyLayoutAbove = (ViewGroup) view.findViewById(R.id.pb_post_reply_layout_above);
+        this.mViewPostTimeAbove = (TextView) view.findViewById(R.id.view_post_time_above);
+        this.mBtnPostAbove = (TextView) view.findViewById(R.id.btn_post_above);
+        this.mBtnOpMore = (ImageView) view.findViewById(R.id.pb_post_op_more);
         FrameLayout frameLayout = (FrameLayout) view.findViewById(R.id.ueg_root);
-        this.e0 = frameLayout;
-        e eVar2 = new e(tbPageContext, frameLayout);
-        this.g0 = eVar2;
-        eVar2.f57662f = 3;
-        this.f0 = (MaskView) view.findViewById(R.id.mask_view_op);
+        this.uegFrameLayout = frameLayout;
+        g gVar = new g(tbPageContext, frameLayout);
+        this.pbHeadUegController = gVar;
+        gVar.f18947f = 3;
+        this.mMaskView = (MaskView) view.findViewById(R.id.mask_view_op);
     }
 
-    public void c() {
+    public void handleUegSkin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.g0.d();
-            MaskView maskView = this.f0;
+            this.pbHeadUegController.d();
+            MaskView maskView = this.mMaskView;
             if (maskView != null) {
-                maskView.c();
+                maskView.onChangeSkin();
             }
         }
     }
 
-    public void d(int i2) {
+    public void handleUserAlaLiveSkinType(int i2) {
         TBLottieAnimationView tBLottieAnimationView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (tBLottieAnimationView = this.W) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (tBLottieAnimationView = this.f54650a) == null) {
             return;
         }
         SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.card_live_header_bg);
     }
 
-    public void e(boolean z) {
+    public void handleUserAlaLiveState(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.W.setVisibility(0);
-                if (this.W.isAnimating()) {
+                this.f54650a.setVisibility(0);
+                if (this.f54650a.isAnimating()) {
                     return;
                 }
-                this.W.setSpeed(0.8f);
-                this.W.setRepeatCount(-1);
-                this.W.post(new a(this));
+                this.f54650a.setSpeed(0.8f);
+                this.f54650a.setRepeatCount(-1);
+                this.f54650a.post(new a(this));
                 return;
             }
-            this.W.setVisibility(8);
-            if (this.W.isAnimating()) {
-                this.W.cancelAnimation();
+            this.f54650a.setVisibility(8);
+            if (this.f54650a.isAnimating()) {
+                this.f54650a.cancelAnimation();
             }
         }
     }
 
-    public void f(boolean z) {
+    public void setIsSubPb(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && z) {
             f fVar = new f();
-            fVar.f53311b = 12;
-            fVar.f53317h = 9;
-            fVar.f53316g = 3;
-            fVar.f53315f = this.V;
-            this.k.setStatisticData(fVar);
+            fVar.f13913b = 12;
+            fVar.f13919h = 9;
+            fVar.f13918g = 3;
+            fVar.f13917f = this.pageFrom;
+            this.mPbFloorPraiseView.setStatisticData(fVar);
         }
     }
 
-    public void g(boolean z, String str, boolean z2) {
+    public void updateUegInfo(boolean z, String str, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), str, Boolean.valueOf(z2)}) == null) {
-            this.g0.f(str);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.Q.getLayoutParams();
+            this.pbHeadUegController.f(str);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mAllContent.getLayoutParams();
             if (z) {
-                this.e0.setVisibility(0);
+                this.uegFrameLayout.setVisibility(0);
                 layoutParams.addRule(3, R.id.ueg_root);
             } else {
-                this.e0.setVisibility(8);
+                this.uegFrameLayout.setVisibility(8);
                 layoutParams.addRule(3, R.id.item_head_owner_root);
             }
-            this.Q.setLayoutParams(layoutParams);
-            MaskView maskView = this.f0;
+            this.mAllContent.setLayoutParams(layoutParams);
+            MaskView maskView = this.mMaskView;
             if (maskView != null) {
                 maskView.setVisibility(8);
             }
-            c();
+            handleUegSkin();
         }
     }
 }

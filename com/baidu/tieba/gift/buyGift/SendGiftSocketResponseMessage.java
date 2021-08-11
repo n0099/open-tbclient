@@ -11,7 +11,7 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.SendGiftAndroid.SendGiftAndroidResIdl;
 @Deprecated
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SendGiftSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

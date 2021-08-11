@@ -18,7 +18,6 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,12 +25,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Boolean f39488a;
+    public static Boolean f76322a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static com.vivo.push.model.b a(Context context) {
@@ -125,7 +124,7 @@ public final class s {
         }
         try {
             try {
-                query = context.getContentResolver().query(com.vivo.push.z.f39520a, null, null, null, null);
+                query = context.getContentResolver().query(com.vivo.push.z.f76354a, null, null, null, null);
             } catch (Exception e3) {
                 e = e3;
                 str = null;
@@ -216,12 +215,12 @@ public final class s {
             HashSet hashSet = new HashSet();
             List<ResolveInfo> list2 = null;
             try {
-                list = context.getPackageManager().queryBroadcastReceivers(new Intent("com.vivo.pushservice.action.RECEIVE"), PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+                list = context.getPackageManager().queryBroadcastReceivers(new Intent("com.vivo.pushservice.action.RECEIVE"), 576);
             } catch (Exception unused) {
                 list = null;
             }
             try {
-                list2 = context.getPackageManager().queryBroadcastReceivers(new Intent("com.vivo.pushclient.action.RECEIVE"), PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+                list2 = context.getPackageManager().queryBroadcastReceivers(new Intent("com.vivo.pushclient.action.RECEIVE"), 576);
             } catch (Exception unused2) {
             }
             if (list == null || list.size() <= 0) {
@@ -290,7 +289,7 @@ public final class s {
             h.a("findAllCoreClientPush");
             ArrayList arrayList = new ArrayList();
             try {
-                list = context.getPackageManager().queryIntentServices(new Intent("com.vivo.pushservice.action.PUSH_SERVICE"), PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+                list = context.getPackageManager().queryIntentServices(new Intent("com.vivo.pushservice.action.PUSH_SERVICE"), 576);
             } catch (Exception unused) {
                 list = null;
             }
@@ -319,7 +318,7 @@ public final class s {
         ProviderInfo resolveContentProvider;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            Boolean bool = f39488a;
+            Boolean bool = f76322a;
             if (bool != null) {
                 return bool.booleanValue();
             }
@@ -328,7 +327,7 @@ public final class s {
                 str = resolveContentProvider.packageName;
             }
             Boolean valueOf = Boolean.valueOf("BCC35D4D3606F154F0402AB7634E8490C0B244C2675C3C6238986987024F0C02".equals(f(context, str)));
-            f39488a = valueOf;
+            f76322a = valueOf;
             return valueOf.booleanValue();
         }
         return invokeL.booleanValue;
@@ -411,7 +410,7 @@ public final class s {
                 Intent intent = new Intent("com.vivo.pushservice.action.PUSH_SERVICE");
                 intent.setPackage(str);
                 PackageManager packageManager = context.getPackageManager();
-                List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+                List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 576);
                 if (queryIntentServices != null && queryIntentServices.size() > 0) {
                     int size = queryIntentServices.size();
                     boolean z = false;
@@ -436,13 +435,13 @@ public final class s {
         return invokeLL.booleanValue;
     }
 
-    public static boolean a(Context context, long j) {
+    public static boolean a(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j2)) == null) {
             com.vivo.push.cache.e a2 = com.vivo.push.cache.b.a().a(context);
             if (a2 != null) {
-                return a2.isInBlackList(j);
+                return a2.isInBlackList(j2);
             }
             return false;
         }
@@ -457,7 +456,7 @@ public final class s {
             Intent intent = new Intent(str2);
             intent.setPackage(str);
             try {
-                list = context.getPackageManager().queryBroadcastReceivers(intent, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+                list = context.getPackageManager().queryBroadcastReceivers(intent, 576);
             } catch (Exception unused) {
                 list = null;
             }

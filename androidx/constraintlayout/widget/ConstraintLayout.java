@@ -8,7 +8,6 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -257,12 +256,12 @@ public class ConstraintLayout extends ViewGroup {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void internalMeasureDimensions(int i2, int i3) {
-        long j;
+        long j2;
         int i4;
         ConstraintLayout constraintLayout;
         int i5;
         int i6;
-        long j2;
+        long j3;
         boolean z;
         int childMeasureSpec;
         boolean z2;
@@ -280,7 +279,7 @@ public class ConstraintLayout extends ViewGroup {
             int childCount = getChildCount();
             int i9 = 0;
             while (true) {
-                j = 1;
+                j2 = 1;
                 i4 = 8;
                 if (i9 >= childCount) {
                     break;
@@ -360,7 +359,7 @@ public class ConstraintLayout extends ViewGroup {
                             if (i14 == 0 && i15 == 0 && z5 && z6) {
                                 constraintLayout = constraintLayout2;
                                 i5 = i13;
-                                j2 = 1;
+                                j3 = 1;
                             } else {
                                 i5 = i13;
                                 boolean z7 = constraintLayout2.mLayoutWidget.getHorizontalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT;
@@ -419,10 +418,10 @@ public class ConstraintLayout extends ViewGroup {
                                                 constraintLayout = this;
                                                 metrics = constraintLayout.mMetrics;
                                                 if (metrics == null) {
-                                                    j2 = 1;
+                                                    j3 = 1;
                                                     metrics.measures++;
                                                 } else {
-                                                    j2 = 1;
+                                                    j3 = 1;
                                                 }
                                                 constraintWidget2.setWidthWrapContent(i14 != -2);
                                                 constraintWidget2.setHeightWrapContent(i15 != -2);
@@ -515,7 +514,7 @@ public class ConstraintLayout extends ViewGroup {
                             i13 = i5 + 1;
                             constraintLayout2 = constraintLayout;
                             childCount = i6;
-                            j = j2;
+                            j2 = j3;
                             i4 = 8;
                         }
                     }
@@ -523,11 +522,11 @@ public class ConstraintLayout extends ViewGroup {
                 constraintLayout = constraintLayout2;
                 i5 = i13;
                 i6 = childCount;
-                j2 = j;
+                j3 = j2;
                 i13 = i5 + 1;
                 constraintLayout2 = constraintLayout;
                 childCount = i6;
-                j = j2;
+                j2 = j3;
                 i4 = 8;
             }
         }
@@ -549,7 +548,7 @@ public class ConstraintLayout extends ViewGroup {
     /* JADX WARN: Removed duplicated region for block: B:221:0x03b6  */
     /* JADX WARN: Type inference failed for: r26v0, types: [androidx.constraintlayout.widget.ConstraintLayout, java.lang.Object, android.view.ViewGroup] */
     /* JADX WARN: Type inference failed for: r3v0 */
-    /* JADX WARN: Type inference failed for: r3v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r3v2 */
     /* JADX WARN: Type inference failed for: r3v27 */
     /* JADX WARN: Type inference failed for: r3v28 */
@@ -2560,23 +2559,11 @@ public class ConstraintLayout extends ViewGroup {
                         this.verticalBias = obtainStyledAttributes.getFloat(index, this.verticalBias);
                         break;
                     case 31:
-                        int i7 = obtainStyledAttributes.getInt(index, 0);
-                        this.matchConstraintDefaultWidth = i7;
-                        if (i7 == 1) {
-                            Log.e(ConstraintLayout.TAG, "layout_constraintWidth_default=\"wrap\" is deprecated.\nUse layout_width=\"WRAP_CONTENT\" and layout_constrainedWidth=\"true\" instead.");
-                            break;
-                        } else {
-                            break;
-                        }
+                        this.matchConstraintDefaultWidth = obtainStyledAttributes.getInt(index, 0);
+                        break;
                     case 32:
-                        int i8 = obtainStyledAttributes.getInt(index, 0);
-                        this.matchConstraintDefaultHeight = i8;
-                        if (i8 == 1) {
-                            Log.e(ConstraintLayout.TAG, "layout_constraintHeight_default=\"wrap\" is deprecated.\nUse layout_height=\"WRAP_CONTENT\" and layout_constrainedHeight=\"true\" instead.");
-                            break;
-                        } else {
-                            break;
-                        }
+                        this.matchConstraintDefaultHeight = obtainStyledAttributes.getInt(index, 0);
+                        break;
                     case 33:
                         try {
                             this.matchConstraintMinWidth = obtainStyledAttributes.getDimensionPixelSize(index, this.matchConstraintMinWidth);

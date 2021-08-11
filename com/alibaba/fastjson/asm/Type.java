@@ -1,7 +1,6 @@
 package com.alibaba.fastjson.asm;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class Type {
     public static /* synthetic */ Interceptable $ic;
     public static final Type BOOLEAN_TYPE;
@@ -204,7 +203,7 @@ public class Type {
                     }
                     return sb.toString();
                 default:
-                    return new String(this.buf, this.off, this.len).replace('/', IStringUtil.EXTENSION_SEPARATOR);
+                    return new String(this.buf, this.off, this.len).replace('/', '.');
             }
         }
         return (String) invokeV.objValue;

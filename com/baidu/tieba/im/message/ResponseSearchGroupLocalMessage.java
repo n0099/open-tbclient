@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.message;
 
+import c.a.e.e.d.l;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BaseGroupData;
@@ -9,13 +10,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.d.e.d.l;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.SearchGroup.SearchGroupResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,10 +105,10 @@ public class ResponseSearchGroupLocalMessage extends CustomResponsedMessage<Obje
         }
     }
 
-    public void setGid(long j) {
+    public void setGid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.gid = j;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            this.gid = j2;
         }
     }
 

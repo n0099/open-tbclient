@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tv.athena.revenue.payui.view.dialog.CancelType;
 import tv.athena.revenue.payui.view.dialog.PayDialogType;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class PayViewInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

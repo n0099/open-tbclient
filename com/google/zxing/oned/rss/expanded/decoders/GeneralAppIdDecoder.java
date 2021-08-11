@@ -2,7 +2,6 @@ package com.google.zxing.oned.rss.expanded.decoders;
 
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.sdk.encrypt.a;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.fsg.base.activity.BaseActivity;
@@ -18,8 +17,9 @@ import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import kotlin.text.Typography;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class GeneralAppIdDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -74,7 +74,7 @@ public final class GeneralAppIdDecoder {
                     c2 = SignatureImpl.SEP;
                     break;
                 case 61:
-                    c2 = IStringUtil.EXTENSION_SEPARATOR;
+                    c2 = '.';
                     break;
                 case 62:
                     c2 = '/';
@@ -109,7 +109,7 @@ public final class GeneralAppIdDecoder {
                         c2 = '!';
                         break;
                     case WriteActivity.CONTENT_MAX_COUNT /* 233 */:
-                        c2 = Typography.quote;
+                        c2 = '\"';
                         break;
                     case 234:
                         c2 = '%';
@@ -118,7 +118,7 @@ public final class GeneralAppIdDecoder {
                         c2 = Typography.amp;
                         break;
                     case 236:
-                        c2 = '\'';
+                        c2 = ExtendedMessageFormat.QUOTE;
                         break;
                     case 237:
                         c2 = '(';
@@ -139,7 +139,7 @@ public final class GeneralAppIdDecoder {
                         c2 = SignatureImpl.SEP;
                         break;
                     case LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK /* 243 */:
-                        c2 = IStringUtil.EXTENSION_SEPARATOR;
+                        c2 = '.';
                         break;
                     case 244:
                         c2 = '/';
@@ -154,7 +154,7 @@ public final class GeneralAppIdDecoder {
                         c2 = Typography.less;
                         break;
                     case GDiffPatcher.DATA_INT /* 248 */:
-                        c2 = a.f1923h;
+                        c2 = a.f35773h;
                         break;
                     case 249:
                         c2 = Typography.greater;

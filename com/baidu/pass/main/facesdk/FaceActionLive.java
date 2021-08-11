@@ -1,7 +1,6 @@
 package com.baidu.pass.main.facesdk;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
@@ -17,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FaceActionLive {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceActionLive";
@@ -62,32 +61,31 @@ public class FaceActionLive {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native int nativeActionLive(long j, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, int[] iArr);
+    private native int nativeActionLive(long j2, int i2, BDFaceImageInstance bDFaceImageInstance, float[] fArr, int[] iArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeActionLiveModelInit(long j, byte[] bArr, byte[] bArr2);
+    public native int nativeActionLiveModelInit(long j2, byte[] bArr, byte[] bArr2);
 
-    private native void nativeActionLoadConfig(long j, BDFaceSDKActionConfig bDFaceSDKActionConfig);
+    private native void nativeActionLoadConfig(long j2, BDFaceSDKActionConfig bDFaceSDKActionConfig);
 
-    private native int nativeClearHistory(long j);
+    private native int nativeClearHistory(long j2);
 
-    private native int nativeUninitActionLiveModel(long j);
+    private native int nativeUninitActionLiveModel(long j2);
 
     public int actionLive(BDFaceSDKCommon.BDFaceActionLiveType bDFaceActionLiveType, BDFaceImageInstance bDFaceImageInstance, float[] fArr, AtomicInteger atomicInteger) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bDFaceActionLiveType, bDFaceImageInstance, fArr, atomicInteger)) == null) {
-            if (bDFaceImageInstance != null && fArr != null && bDFaceActionLiveType != null && atomicInteger != null) {
-                long index = this.bdFaceInstance.getIndex();
-                if (index == 0) {
-                    return -1;
-                }
-                int nativeActionLive = nativeActionLive(index, bDFaceActionLiveType.ordinal(), bDFaceImageInstance, fArr, this.isExist);
-                atomicInteger.set(this.isExist[0]);
-                return nativeActionLive;
+            if (bDFaceImageInstance == null || fArr == null || bDFaceActionLiveType == null || atomicInteger == null) {
+                return -1;
             }
-            Log.v(TAG, "Parameter is null");
-            return -1;
+            long index = this.bdFaceInstance.getIndex();
+            if (index == 0) {
+                return -1;
+            }
+            int nativeActionLive = nativeActionLive(index, bDFaceActionLiveType.ordinal(), bDFaceImageInstance, fArr, this.isExist);
+            atomicInteger.set(this.isExist[0]);
+            return nativeActionLive;
         }
         return invokeLLLL.intValue;
     }

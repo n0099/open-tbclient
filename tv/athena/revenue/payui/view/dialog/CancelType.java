@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class CancelType {
     public static final /* synthetic */ CancelType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class h extends com.baidu.ar.c.a<f> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,12 +23,12 @@ public class h extends com.baidu.ar.c.a<f> {
     public long timestamp;
     public int width;
 
-    public h(ByteBuffer byteBuffer, int i2, int i3, long j, boolean z, int i4, boolean z2) {
+    public h(ByteBuffer byteBuffer, int i2, int i3, long j2, boolean z, int i4, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i4), Boolean.valueOf(z2)};
+            Object[] objArr = {byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Boolean.valueOf(z), Integer.valueOf(i4), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i5 = newInitContext.flag;
             if ((i5 & 1) != 0) {
@@ -42,7 +42,7 @@ public class h extends com.baidu.ar.c.a<f> {
         this.oe = byteBuffer;
         this.width = i2;
         this.height = i3;
-        this.timestamp = j;
+        this.timestamp = j2;
         this.oi = z;
         this.orientation = i4;
         this.oz = z2;

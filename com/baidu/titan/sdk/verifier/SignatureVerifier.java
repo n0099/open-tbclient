@@ -3,7 +3,6 @@ package com.baidu.titan.sdk.verifier;
 import android.content.Context;
 import android.content.pm.Signature;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.internal.util.EncodeUtils;
 import com.baidu.titan.sdk.internal.util.Files;
@@ -16,7 +15,7 @@ import java.security.cert.X509Certificate;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SignatureVerifier {
     public static final String TAG = "SigVerifier";
     public Context mContext;
@@ -25,7 +24,7 @@ public class SignatureVerifier {
     public final HashSet<String> mAllowedSigs = new HashSet<>();
 
     /* renamed from: com.baidu.titan.sdk.verifier.SignatureVerifier$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$titan$sdk$verifier$SignaturePolicy;
 
@@ -72,7 +71,6 @@ public class SignatureVerifier {
     private void initSignatures() {
         String assetFileContent = Files.getAssetFileContent(this.mContext, TitanConstant.VERIFY_CONFIG_ASSETS_PATH);
         if (TextUtils.isEmpty(assetFileContent)) {
-            Log.e("SigVerifier", "cannot find sig-config");
             return;
         }
         try {

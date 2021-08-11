@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DynamicBaseWidgetImp extends DynamicBaseWidget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -84,11 +84,11 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
                 view = this;
             }
             if (f()) {
-                view.setBackgroundColor(this.j.r());
+                view.setBackgroundColor(this.f65991j.r());
             } else {
                 view.setBackgroundColor(0);
             }
-            view.setPadding(this.j.c(), this.j.b(), this.j.d(), this.j.a());
+            view.setPadding(this.f65991j.c(), this.f65991j.b(), this.f65991j.d(), this.f65991j.a());
             if (this.o) {
                 view.setVisibility(4);
                 return true;
@@ -120,7 +120,7 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
     public ViewGroup.LayoutParams getWidgetLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ViewGroup.LayoutParams(this.f30084e, this.f30085f) : (ViewGroup.LayoutParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new ViewGroup.LayoutParams(this.f65986e, this.f65987f) : (ViewGroup.LayoutParams) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -130,7 +130,7 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
             return;
         }
         k.f("DynamicBaseWidget", "widget mDynamicView onLayout l,t,r,b:" + i2 + "," + i3 + "," + i4 + "," + i5);
-        this.n.layout(0, 0, this.f30084e, this.f30085f);
+        this.n.layout(0, 0, this.f65986e, this.f65987f);
     }
 
     @Override // android.view.View
@@ -138,7 +138,7 @@ public class DynamicBaseWidgetImp extends DynamicBaseWidget {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            setMeasuredDimension(this.f30084e, this.f30085f);
+            setMeasuredDimension(this.f65986e, this.f65987f);
         }
     }
 }

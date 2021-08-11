@@ -1,6 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.s.r.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -12,13 +13,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.s.r.a;
 import java.util.ArrayList;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.GroupPermission;
 import protobuf.QueryGroupsByUid.QueryGroupsByUidResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ResponseGroupsByUidMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CACHE_KEY_PREFIX = "p_group_info";

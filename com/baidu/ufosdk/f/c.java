@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f23484a = "UFO";
+    public static String f59213a = "UFO";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 1) {
-                return Log.d(f23484a, str);
+                return Log.d(f59213a, str);
             }
             return 0;
         }
@@ -50,7 +50,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, th)) == null) {
             if (com.baidu.ufosdk.b.o <= 4) {
-                return Log.w(f23484a, str, th);
+                return Log.w(f59213a, str, th);
             }
             return 0;
         }
@@ -62,7 +62,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 2) {
-                return Log.i(f23484a, str);
+                return Log.i(f59213a, str);
             }
             return 0;
         }
@@ -74,7 +74,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 3) {
-                return Log.w(f23484a, str);
+                return Log.w(f59213a, str);
             }
             return 0;
         }
@@ -86,7 +86,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) {
             if (com.baidu.ufosdk.b.o <= 4) {
-                return Log.e(f23484a, str);
+                return Log.e(f59213a, str);
             }
             return 0;
         }

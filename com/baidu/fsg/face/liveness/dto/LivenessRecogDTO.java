@@ -6,7 +6,6 @@ import com.baidu.fsg.base.restnet.beans.business.core.PayUtils;
 import com.baidu.fsg.face.base.dto.SapiBiometricDto;
 import com.baidu.fsg.face.liveness.beans.c;
 import com.baidu.fsg.face.liveness.utils.enums.LivenessRecogType;
-import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LivenessRecogDTO extends SapiBiometricDto {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGE_FLAG_CUTIMAGE = 1;
@@ -163,7 +162,7 @@ public class LivenessRecogDTO extends SapiBiometricDto {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HashMap<String, String> sPParamsHashmap = getSPParamsHashmap();
-            return sPParamsHashmap != null ? sPParamsHashmap.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID) : "";
+            return sPParamsHashmap != null ? sPParamsHashmap.get("sp_no") : "";
         }
         return (String) invokeV.objValue;
     }

@@ -1,6 +1,5 @@
 package com.meizu.cloud.pushsdk.base;
 
-import android.util.Log;
 import com.android.internal.http.multipart.Part;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -11,28 +10,28 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class e {
 
     /* renamed from: d  reason: collision with root package name */
-    public BufferedWriter f37516d;
+    public BufferedWriter f74358d;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f37513a = "EncryptionWriter";
+    public String f74355a = "EncryptionWriter";
 
     /* renamed from: b  reason: collision with root package name */
-    public SimpleDateFormat f37514b = new SimpleDateFormat("yyyy-MM-dd");
+    public SimpleDateFormat f74356b = new SimpleDateFormat("yyyy-MM-dd");
 
     /* renamed from: e  reason: collision with root package name */
-    public int f37517e = 7;
+    public int f74359e = 7;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37518f = ".log.txt";
+    public String f74360f = ".log.txt";
 
     /* renamed from: c  reason: collision with root package name */
-    public d f37515c = new d("lo");
+    public d f74357c = new d("lo");
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a implements Comparator<File> {
         public a() {
         }
@@ -50,11 +49,11 @@ public class e {
     }
 
     public void a() throws IOException {
-        BufferedWriter bufferedWriter = this.f37516d;
+        BufferedWriter bufferedWriter = this.f74358d;
         if (bufferedWriter != null) {
             bufferedWriter.flush();
-            this.f37516d.close();
-            this.f37516d = null;
+            this.f74358d.close();
+            this.f74358d = null;
         }
     }
 
@@ -62,12 +61,12 @@ public class e {
         File[] listFiles = file.listFiles(new FileFilter() { // from class: com.meizu.cloud.pushsdk.base.e.1
             @Override // java.io.FileFilter
             public boolean accept(File file2) {
-                return file2.getName().endsWith(e.this.f37518f);
+                return file2.getName().endsWith(e.this.f74360f);
             }
         });
-        if (listFiles != null || listFiles.length > this.f37517e) {
+        if (listFiles != null || listFiles.length > this.f74359e) {
             Arrays.sort(listFiles, new a());
-            for (int i2 = this.f37517e; i2 < listFiles.length; i2++) {
+            for (int i2 = this.f74359e; i2 < listFiles.length; i2++) {
                 listFiles[i2].delete();
             }
         }
@@ -78,27 +77,26 @@ public class e {
         if (!file.exists() && !file.mkdirs()) {
             throw new IOException("create " + str + " dir failed!!!");
         }
-        String format = this.f37514b.format(new Date());
-        File file2 = new File(str, format + this.f37518f);
+        String format = this.f74356b.format(new Date());
+        File file2 = new File(str, format + this.f74360f);
         if (!file2.exists()) {
             if (file2.createNewFile()) {
                 a(file);
             } else {
-                String str2 = this.f37513a;
-                Log.e(str2, "create new file " + format + " failed !!!");
+                String str2 = "create new file " + format + " failed !!!";
             }
         }
-        this.f37516d = new BufferedWriter(new FileWriter(file2, true));
+        this.f74358d = new BufferedWriter(new FileWriter(file2, true));
     }
 
     public void a(String str, String str2, String str3) throws IOException {
-        if (this.f37516d != null) {
+        if (this.f74358d != null) {
             StringBuffer stringBuffer = new StringBuffer(str);
             stringBuffer.append(str2);
             stringBuffer.append(" ");
             stringBuffer.append(str3);
-            this.f37516d.write(this.f37515c.a(stringBuffer.toString().getBytes()));
-            this.f37516d.write(Part.CRLF);
+            this.f74358d.write(this.f74357c.a(stringBuffer.toString().getBytes()));
+            this.f74358d.write(Part.CRLF);
         }
     }
 }

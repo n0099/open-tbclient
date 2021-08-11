@@ -2,7 +2,7 @@ package com.baidu.browser.sailor.webkit.loader;
 
 import androidx.annotation.Keep;
 import com.baidu.browser.core.INoProGuard;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public interface IWebkitLoaderListener extends INoProGuard {
     @Keep
     void onInstallZeusSDKFailed(byte b2, String str);

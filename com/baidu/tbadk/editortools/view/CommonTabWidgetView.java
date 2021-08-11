@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.x.z.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
@@ -16,29 +17,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.x.z.a;
 import java.util.ArrayList;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CommonTabWidgetView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public CommonTabHorizonScrollView f13133e;
+    public CommonTabHorizonScrollView f48138e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f13134f;
+    public ImageView f48139f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EditorTools f13135g;
+    public EditorTools f48140g;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CommonTabWidgetView f13136e;
+        public final /* synthetic */ CommonTabWidgetView f48141e;
 
         public a(CommonTabWidgetView commonTabWidgetView) {
             Interceptable interceptable = $ic;
@@ -55,22 +55,22 @@ public class CommonTabWidgetView extends LinearLayout {
                     return;
                 }
             }
-            this.f13136e = commonTabWidgetView;
+            this.f48141e = commonTabWidgetView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13136e.f13135g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48141e.f48140g == null) {
                 return;
             }
-            this.f13136e.f13135g.A(new d.a.p0.x.a(3, 3, null));
+            this.f48141e.f48140g.sendAction(new c.a.o0.x.a(3, 3, null));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface b {
-        void a(int i2);
+        void onTabSelected(int i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -92,57 +92,64 @@ public class CommonTabWidgetView extends LinearLayout {
                 return;
             }
         }
-        c(context);
+        b(context);
     }
 
-    public void b(a.b bVar) {
+    public void addTabWidget(a.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f13133e.b(bVar);
+            this.f48138e.addTabWidget(bVar);
         }
     }
 
-    public final void c(Context context) {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setVisibility(8);
             removeAllViews();
             LayoutInflater.from(context).inflate(R.layout.common_tab_widget, (ViewGroup) this, true);
-            this.f13133e = (CommonTabHorizonScrollView) findViewById(R.id.privilege_tab_scroll_view);
+            this.f48138e = (CommonTabHorizonScrollView) findViewById(R.id.privilege_tab_scroll_view);
             ImageView imageView = (ImageView) findViewById(R.id.privilege_tab_delete);
-            this.f13134f = imageView;
+            this.f48139f = imageView;
             imageView.setOnClickListener(new a(this));
         }
     }
 
-    public void d(int i2) {
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             SkinManager.setBackgroundColor(this, R.color.common_color_10223, i2);
-            this.f13133e.e(i2);
-            SkinManager.setImageResource(this.f13134f, R.drawable.but_face_close, i2);
-            SkinManager.setBackgroundColor(this.f13134f, R.color.common_color_10224, i2);
+            this.f48138e.onChangeSkin(i2);
+            SkinManager.setImageResource(this.f48139f, R.drawable.but_face_close, i2);
+            SkinManager.setBackgroundColor(this.f48139f, R.color.common_color_10224, i2);
         }
     }
 
-    public void e() {
+    public void removeTabWidget(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f13133e.f();
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            this.f48138e.removeTabWidget(i2);
+        }
+    }
+
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f48138e.reset();
         }
     }
 
     public void setCurrentTab(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f13133e.setCurrentTab(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            this.f48138e.setCurrentTab(i2);
         }
     }
 
-    public void setDatas(ArrayList<d.a.p0.x.z.a> arrayList) {
+    public void setDatas(ArrayList<c.a.o0.x.z.a> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            this.f13133e.setDatas(arrayList);
+        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
+            this.f48138e.setDatas(arrayList);
             if (arrayList != null && arrayList.size() > 1) {
                 setVisibility(0);
             } else {
@@ -153,25 +160,25 @@ public class CommonTabWidgetView extends LinearLayout {
 
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, editorTools) == null) {
-            this.f13135g = editorTools;
+        if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
+            this.f48140g = editorTools;
         }
     }
 
     public void setOnTabSelectedListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.f13133e.setOnTabSelectedListener(bVar);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.f48138e.setOnTabSelectedListener(bVar);
         }
     }
 
     public void setShowDelete(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             if (z) {
-                this.f13134f.setVisibility(0);
+                this.f48139f.setVisibility(0);
             } else {
-                this.f13134f.setVisibility(8);
+                this.f48139f.setVisibility(8);
             }
         }
     }
@@ -194,6 +201,6 @@ public class CommonTabWidgetView extends LinearLayout {
                 return;
             }
         }
-        c(context);
+        b(context);
     }
 }

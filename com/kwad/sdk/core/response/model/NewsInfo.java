@@ -8,7 +8,7 @@ import com.kwad.sdk.core.response.model.PhotoInfo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class NewsInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2846473099852025182L;
@@ -23,7 +23,7 @@ public class NewsInfo extends com.kwad.sdk.core.response.a.a implements Serializ
     public List<ImageInfo> thumbnailInfo;
     public String title;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class ImageInfo extends com.kwad.sdk.core.response.a.a implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4257305450674055184L;

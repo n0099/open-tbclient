@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
+import c.a.e.e.p.l;
 import com.baidu.ala.data.TabData;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -27,10 +28,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +53,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
     public int mTextSize;
     public OnTabClickListener onTabClickListener;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class InnerScrollTabPageListener implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -134,12 +134,12 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface OnTabClickListener {
         void onClick(int i2);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface ScrollTabPageListener {
         void onPageScrolled(int i2, float f2, int i3);
 
@@ -148,7 +148,7 @@ public class ScrollHorizontalTabView extends MyHorizontalScrollView {
         boolean onPrePageSelect(int i2, TabData tabData);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

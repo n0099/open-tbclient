@@ -23,13 +23,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.core.beans.BeanConstants;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class OpenBdussService extends AbstractService implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -370,7 +371,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                         try {
                             ArrayList arrayList = new ArrayList();
                             for (String str : SapiContext.getInstance().getOpenBdussDomains()) {
-                                arrayList.add(new PassNameValuePair(SapiUtils.COOKIE_URL_PREFIX + str, SapiUtils.buildBDUSSCookie(str, "OPENBDUSS", "")));
+                                arrayList.add(new PassNameValuePair(SapiUtils.COOKIE_URL_PREFIX + str, SapiUtils.buildBDUSSCookie(str, BeanConstants.COOKIE_OPENBDUSS, "")));
                             }
                             SapiUtils.syncCookies(this.this$0.context, arrayList);
                         } catch (Throwable th) {

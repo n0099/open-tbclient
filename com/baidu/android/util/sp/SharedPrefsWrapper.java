@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class SharedPrefsWrapper implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -149,12 +149,12 @@ public class SharedPrefsWrapper implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
+    public long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
             SharedPreferences sharedPreferences = this.mSp;
-            return sharedPreferences == null ? j : sharedPreferences.getLong(str, j);
+            return sharedPreferences == null ? j2 : sharedPreferences.getLong(str, j2);
         }
         return invokeLJ.longValue;
     }
@@ -208,13 +208,13 @@ public class SharedPrefsWrapper implements SharedPreferences {
         sharedPreferences.edit().putInt(str, i2).apply();
     }
 
-    public void putLong(String str, long j) {
+    public void putLong(String str, long j2) {
         SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048588, this, str, j) == null) || (sharedPreferences = this.mSp) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048588, this, str, j2) == null) || (sharedPreferences = this.mSp) == null) {
             return;
         }
-        sharedPreferences.edit().putLong(str, j).apply();
+        sharedPreferences.edit().putLong(str, j2).apply();
     }
 
     public void putString(String str, String str2) {

@@ -13,9 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpExecutor.ResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -85,7 +86,7 @@ public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpE
             return;
         }
         BIMRtcManager.mBIMRtcEvent.sdkAction = i2;
-        BIMRtcManager.mBIMRtcEvent.sdkRoomId = i3 == 0 ? this.mRtcRoomId : "-2";
+        BIMRtcManager.mBIMRtcEvent.sdkRoomId = i3 == 0 ? this.mRtcRoomId : StatHelper.SENSOR_ERR_2;
         BIMRtcManager.mBIMRtcEvent.sdkSeqId = i3;
     }
 

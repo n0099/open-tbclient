@@ -14,8 +14,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.widget.Toast;
-import com.alibaba.fastjson.asm.Label;
-import com.alipay.sdk.app.statistic.c;
+import com.alipay.sdk.app.statistic.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.mobads.container.XAdSDKRemoteExp;
@@ -35,6 +34,7 @@ import com.baidu.mobads.container.util.IReflectionInfo;
 import com.baidu.mobads.container.util.OpenAppUtils;
 import com.baidu.mobads.container.util.RemoteCommonUtils;
 import com.baidu.mobads.container.util.RemoteXAdLogger;
+import com.baidu.mobads.container.util.SDKLogTypeConstants;
 import com.baidu.mobads.container.util.SendLogUtil;
 import com.baidu.mobads.container.util.XAdRemoteEvent;
 import com.baidu.mobads.sdk.api.ICommonModuleObj;
@@ -58,7 +58,7 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver.InstallListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int NOTIF_INC = 10091;
@@ -186,12 +186,12 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
         }
     }
 
-    private String getFormattedSize(long j) {
+    private String getFormattedSize(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, this, j)) == null) {
-            long j2 = (j / 1024) / 1024;
-            return j2 > 1000 ? String.format(Locale.CHINA, "%.1fG", Float.valueOf(((float) j2) / 1024.0f)) : String.format(Locale.CHINA, "%.1fM", Float.valueOf((float) j2));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, this, j2)) == null) {
+            long j3 = (j2 / 1024) / 1024;
+            return j3 > 1000 ? String.format(Locale.CHINA, "%.1fG", Float.valueOf(((float) j3) / 1024.0f)) : String.format(Locale.CHINA, "%.1fM", Float.valueOf((float) j3));
         }
         return (String) invokeJ.objValue;
     }
@@ -227,10 +227,10 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x015f  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0163  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x01a6  */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x0235  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x015e  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x0162  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x01a4  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0233  */
     @TargetApi(16)
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -287,7 +287,7 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
                 intent.putExtra("localApkPath", this.mExtraInfo.outputFolder + this.mExtraInfo.outputFileName);
             }
             intent.putExtra("title", str4);
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
             intent.setAction(Long.toString(System.currentTimeMillis()));
             PendingIntent activity = PendingIntent.getActivity(this.mContext, this.mExtraInfo.notifID, intent, 134217728);
             if (Build.VERSION.SDK_INT < 16) {
@@ -333,7 +333,7 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
         if (TextUtils.isEmpty(outputPath)) {
         }
         intent2.putExtra("title", str4);
-        intent2.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        intent2.addFlags(268435456);
         intent2.setAction(Long.toString(System.currentTimeMillis()));
         PendingIntent activity2 = PendingIntent.getActivity(this.mContext, this.mExtraInfo.notifID, intent2, 134217728);
         if (Build.VERSION.SDK_INT < 16) {
@@ -635,11 +635,11 @@ public class OAdRemoteApkDownloaderObserver implements Observer, InstallReceiver
                         str = XAdRemoteEvent.COMPLETE;
                     }
                     stateEvent(this.mExtraInfo, AdStateCode.EVENT_AD_STATE_END);
-                    remoteCommonUtils.sendDownloadApkLog(this.mContext, 528, str, this.mExtraInfo);
+                    remoteCommonUtils.sendDownloadApkLog(this.mContext, SDKLogTypeConstants.TYPE_DOWNLOAD_COMPLETED_ACTION, str, this.mExtraInfo);
                     XAdRemoteSDKCountly.getInstance().onAPKDownloadComplete(this.mContext, this.mExtraInfo);
                     if (localApkFileInfo != null && !TextUtils.isEmpty(localApkFileInfo.packageName) && XAdSDKRemoteExp.LiteInc.mPkgName.equals(localApkFileInfo.packageName)) {
                         FileUtils.copyFile(str3, this.mExtraInfo.outputFolder + EncryptUtils.getMD5(XAdSDKRemoteExp.LiteInc.mPkgName) + ".apk");
-                        SendLogUtil.Builder.create(this.mContext).appendType(1026).appendAppSid(this.mExtraInfo.getAppsid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.queryKey).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.mAdid).append("act", "0").append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.mBuyer).append("lastPath", !TextUtils.isEmpty(this.mExtraInfo.mUrl) ? Uri.parse(this.mExtraInfo.mUrl).getLastPathSegment() : "").append("evt", c.f1858c).send();
+                        SendLogUtil.Builder.create(this.mContext).appendType(1026).appendAppSid(this.mExtraInfo.getAppsid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.queryKey).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.mAdid).append("act", "0").append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.mBuyer).append("lastPath", !TextUtils.isEmpty(this.mExtraInfo.mUrl) ? Uri.parse(this.mExtraInfo.mUrl).getLastPathSegment() : "").append("evt", b.f35700c).send();
                     }
                 } else if (downloadStatus == IDownloader.DownloadStatus.ERROR) {
                     xAdRemoteAPKDownloadExtraInfo3.targetUrl = iDownloader.getTargetURL();

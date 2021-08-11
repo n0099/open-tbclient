@@ -1,5 +1,5 @@
 package com.alibaba.fastjson;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface JSONAware {
     String toJSONString();
 }

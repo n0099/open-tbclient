@@ -14,18 +14,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.channel.commonutils.logger.b;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f40811a = 1;
+    public static int f77686a = 1;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f826a;
+    public static final Object f830a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f827a;
+    public static final String[] f831a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,13 +41,13 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        f826a = new Object();
-        f827a = new String[]{"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", "network_type", " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", BaseStatisContent.IMSI, "TEXT"};
+        f830a = new Object();
+        f831a = new String[]{"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", "network_type", " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", BaseStatisContent.IMSI, "TEXT"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(Context context) {
-        super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, f40811a);
+        super(context, "traffic.db", (SQLiteDatabase.CursorFactory) null, f77686a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -70,13 +70,13 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
             StringBuilder sb = new StringBuilder("CREATE TABLE traffic(_id INTEGER  PRIMARY KEY ,");
-            for (int i2 = 0; i2 < f827a.length - 1; i2 += 2) {
+            for (int i2 = 0; i2 < f831a.length - 1; i2 += 2) {
                 if (i2 != 0) {
                     sb.append(",");
                 }
-                sb.append(f827a[i2]);
+                sb.append(f831a[i2]);
                 sb.append(" ");
-                sb.append(f827a[i2 + 1]);
+                sb.append(f831a[i2 + 1]);
             }
             sb.append(");");
             sQLiteDatabase.execSQL(sb.toString());
@@ -87,7 +87,7 @@ public class a extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            synchronized (f826a) {
+            synchronized (f830a) {
                 try {
                     a(sQLiteDatabase);
                 } catch (SQLException e2) {

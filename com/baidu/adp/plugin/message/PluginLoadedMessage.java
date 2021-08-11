@@ -5,21 +5,21 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PluginLoadedMessage extends CustomResponsedMessage<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2245a;
+        public String f36098a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f2246b;
+        public int f36099b;
 
         public a(String str, int i2, String str2) {
             Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class PluginLoadedMessage extends CustomResponsedMessage<a> {
                     return;
                 }
             }
-            this.f2245a = str;
-            this.f2246b = i2;
+            this.f36098a = str;
+            this.f36099b = i2;
         }
     }
 

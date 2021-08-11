@@ -12,7 +12,6 @@ import com.baidu.apollon.beans.IBeanResponseCallback;
 import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.apollon.restnet.RestResponseEntity;
 import com.baidu.apollon.restnet.RestRuntimeException;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.utils.Base64Utils;
 import com.baidu.apollon.utils.BussinessUtils;
 import com.baidu.apollon.utils.NetworkUtils;
@@ -28,7 +27,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.AccountManager;
 import com.baidu.wallet.base.statistics.DXMSdkSAUtils;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.PayUtils;
 import com.baidu.wallet.utils.BdWalletUtils;
@@ -43,7 +41,7 @@ import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class NetworkBean<T> extends ApollonBean<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -62,14 +60,14 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.wallet.core.beans.NetworkBean$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static final class BizType {
         public static final /* synthetic */ BizType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -130,18 +128,18 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class SessionCache implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public HashMap<Integer, BeanResponseBase.Session> mCache;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static class a {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: a  reason: collision with root package name */
-            public static final SessionCache f24850a;
+            public static final SessionCache f60563a;
             public transient /* synthetic */ FieldHolder $fh;
 
             static {
@@ -157,7 +155,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
                         return;
                     }
                 }
-                f24850a = new SessionCache(null);
+                f60563a = new SessionCache(null);
             }
 
             public a() {
@@ -182,7 +180,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
         public static SessionCache getInstance() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f24850a : (SessionCache) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f60563a : (SessionCache) invokeV.objValue;
         }
 
         public static synchronized void sync(SessionCache sessionCache) {
@@ -190,7 +188,7 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
             if (interceptable == null || interceptable.invokeL(65539, null, sessionCache) == null) {
                 synchronized (SessionCache.class) {
                     if (sessionCache != null) {
-                        a.f24850a.mCache = sessionCache.mCache;
+                        a.f60563a.mCache = sessionCache.mCache;
                     }
                 }
             }
@@ -416,14 +414,9 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
                             String[] strArr = new String[2];
                             strArr[0] = getUrl();
                             strArr[1] = exc.getCause() == null ? exc.getMessage() : exc.getCause().toString();
-                            DXMSdkSAUtils.onEventWithValues(StatServiceEvent.SSL_PINNING_ERROR, Arrays.asList(strArr));
-                            String[] strArr2 = new String[2];
-                            strArr2[0] = getUrl();
-                            strArr2[1] = exc.getCause() == null ? exc.getMessage() : exc.getCause().toString();
-                            PayStatisticsUtil.onEventWithValues(StatServiceEvent.SSL_PINNING_ERROR, Arrays.asList(strArr2));
+                            DXMSdkSAUtils.onEventWithValues("#ssl_pinning_error", Arrays.asList(strArr));
                         } else {
-                            DXMSdkSAUtils.onEvent(StatServiceEvent.SSL_CERTIFICATE_ERROR);
-                            PayStatisticsUtil.onEvent(StatServiceEvent.SSL_CERTIFICATE_ERROR);
+                            DXMSdkSAUtils.onEvent("#ssl_certificate_error");
                         }
                         this.mRspCallback.onBeanExecFailure(getBeanId(), -16, ResUtils.getString(this.mContext, "ebpay_ssl"));
                     }
@@ -453,14 +446,14 @@ public abstract class NetworkBean<T> extends ApollonBean<T> {
     public <T> void handleResponseHeaders(RestResponseEntity<T> restResponseEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, restResponseEntity) == null) {
-            String b2 = restResponseEntity.b("token");
-            if (!TextUtils.isEmpty(b2)) {
-                AccountManager.getInstance(this.mContext).setBfbToken(b2);
+            String a2 = restResponseEntity.a("token");
+            if (!TextUtils.isEmpty(a2)) {
+                AccountManager.getInstance(this.mContext).setBfbToken(a2);
             }
-            List<String> a2 = restResponseEntity.a("Set-Cookie");
-            if (a2 != null) {
-                for (int i2 = 0; i2 < a2.size(); i2++) {
-                    String str = a2.get(i2);
+            List<String> headerValue = restResponseEntity.getHeaderValue("Set-Cookie");
+            if (headerValue != null) {
+                for (int i2 = 0; i2 < headerValue.size(); i2++) {
+                    String str = headerValue.get(i2);
                     try {
                         String[] split = str.substring(0, str.indexOf(";")).split("=");
                         if (split.length > 0 && "token".equals(split[0]) && !TextUtils.isEmpty(split[1]) && TextUtils.isEmpty(AccountManager.getInstance(this.mContext).getBfbToken())) {

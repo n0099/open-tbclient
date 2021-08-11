@@ -5,8 +5,10 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Surface;
+import c.a.p0.y1.a;
+import c.a.p0.y1.g;
+import c.a.p0.y1.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,12 +17,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.x1.a;
-import d.a.q0.x1.g;
-import d.a.q0.x1.k;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class VideoEncoderCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIME_TYPE = "video/avc";
@@ -101,7 +100,7 @@ public class VideoEncoderCore {
             } else if (dequeueOutputBuffer == -2) {
                 if (!this.mMuxerStarted) {
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
-                    Log.d(TAG, "encoder output format changed: " + outputFormat);
+                    String str = "encoder output format changed: " + outputFormat;
                     this.mTrackIndex = this.mMuxer.addTrack(outputFormat);
                     if (!this.mMuxer.start()) {
                         synchronized (this.mMuxer) {
@@ -122,7 +121,7 @@ public class VideoEncoderCore {
                     throw new RuntimeException("format changed twice");
                 }
             } else if (dequeueOutputBuffer < 0) {
-                Log.w(TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                String str2 = "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer;
             } else {
                 ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
                 if (byteBuffer != null) {
@@ -147,10 +146,6 @@ public class VideoEncoderCore {
                         this.mLastFrameSyncTime = System.currentTimeMillis();
                     }
                     if ((this.mBufferInfo.flags & 4) != 0) {
-                        if (z) {
-                            return;
-                        }
-                        Log.w(TAG, "reached end of stream unexpectedly");
                         return;
                     }
                 } else {

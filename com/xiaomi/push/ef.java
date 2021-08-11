@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ef implements ed {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class ef implements ed {
                 try {
                     if (TextUtils.isEmpty(a3)) {
                         dw.a(context, d2, 1008, "info is empty");
-                    } else if (a2 == 1 && !ea.m282a(context)) {
+                    } else if (a2 == 1 && !ea.m285a(context)) {
                         dw.a(context, d2, 1008, "A not in foreground");
                     } else {
                         String type = context.getContentResolver().getType(dv.a(b2, a3));

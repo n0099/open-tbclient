@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class TextOptions extends OverlayOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALIGN_BOTTOM = 16;
@@ -22,32 +22,34 @@ public final class TextOptions extends OverlayOptions {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7130a;
+    public int f41384a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7131b;
+    public boolean f41385b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f7132c;
+    public Bundle f41386c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7133d;
+    public String f41387d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f7134e;
+    public LatLng f41388e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7135f;
+    public int f41389f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7136g;
+    public int f41390g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7137h;
+    public int f41391h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Typeface f7138i;
-    public int j;
+    public Typeface f41392i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f41393j;
     public int k;
     public float l;
 
@@ -64,11 +66,11 @@ public final class TextOptions extends OverlayOptions {
                 return;
             }
         }
-        this.f7136g = -16777216;
-        this.f7137h = 12;
-        this.j = 4;
+        this.f41390g = -16777216;
+        this.f41391h = 12;
+        this.f41393j = 4;
         this.k = 32;
-        this.f7131b = true;
+        this.f41385b = true;
     }
 
     @Override // com.baidu.mapapi.map.OverlayOptions
@@ -77,18 +79,18 @@ public final class TextOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Text text = new Text();
-            text.A = this.f7131b;
-            text.z = this.f7130a;
-            text.B = this.f7132c;
-            text.f7121a = this.f7133d;
-            text.f7122b = this.f7134e;
-            text.f7123c = this.f7135f;
-            text.f7124d = this.f7136g;
-            text.f7125e = this.f7137h;
-            text.f7126f = this.f7138i;
-            text.f7127g = this.j;
-            text.f7128h = this.k;
-            text.f7129i = this.l;
+            text.A = this.f41385b;
+            text.z = this.f41384a;
+            text.B = this.f41386c;
+            text.f41374a = this.f41387d;
+            text.f41375b = this.f41388e;
+            text.f41376c = this.f41389f;
+            text.f41377d = this.f41390g;
+            text.f41378e = this.f41391h;
+            text.f41379f = this.f41392i;
+            text.f41380g = this.f41393j;
+            text.f41381h = this.k;
+            text.f41382i = this.l;
             return text;
         }
         return (Overlay) invokeV.objValue;
@@ -98,7 +100,7 @@ public final class TextOptions extends OverlayOptions {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
-            this.j = i2;
+            this.f41393j = i2;
             this.k = i3;
             return this;
         }
@@ -109,7 +111,7 @@ public final class TextOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.f7135f = i2;
+            this.f41389f = i2;
             return this;
         }
         return (TextOptions) invokeI.objValue;
@@ -119,7 +121,7 @@ public final class TextOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
-            this.f7132c = bundle;
+            this.f41386c = bundle;
             return this;
         }
         return (TextOptions) invokeL.objValue;
@@ -129,7 +131,7 @@ public final class TextOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.f7136g = i2;
+            this.f41390g = i2;
             return this;
         }
         return (TextOptions) invokeI.objValue;
@@ -139,7 +141,7 @@ public final class TextOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f7137h = i2;
+            this.f41391h = i2;
             return this;
         }
         return (TextOptions) invokeI.objValue;
@@ -148,7 +150,7 @@ public final class TextOptions extends OverlayOptions {
     public float getAlignX() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f41393j : invokeV.floatValue;
     }
 
     public float getAlignY() {
@@ -160,31 +162,31 @@ public final class TextOptions extends OverlayOptions {
     public int getBgColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f7135f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f41389f : invokeV.intValue;
     }
 
     public Bundle getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f7132c : (Bundle) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f41386c : (Bundle) invokeV.objValue;
     }
 
     public int getFontColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f7136g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f41390g : invokeV.intValue;
     }
 
     public int getFontSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f7137h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f41391h : invokeV.intValue;
     }
 
     public LatLng getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f7134e : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f41388e : (LatLng) invokeV.objValue;
     }
 
     public float getRotate() {
@@ -196,25 +198,25 @@ public final class TextOptions extends OverlayOptions {
     public String getText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f7133d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f41387d : (String) invokeV.objValue;
     }
 
     public Typeface getTypeface() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f7138i : (Typeface) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.f41392i : (Typeface) invokeV.objValue;
     }
 
     public int getZIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f7130a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.f41384a : invokeV.intValue;
     }
 
     public boolean isVisible() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f7131b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f41385b : invokeV.booleanValue;
     }
 
     public TextOptions position(LatLng latLng) {
@@ -222,7 +224,7 @@ public final class TextOptions extends OverlayOptions {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, latLng)) == null) {
             if (latLng != null) {
-                this.f7134e = latLng;
+                this.f41388e = latLng;
                 return this;
             }
             throw new IllegalArgumentException("BDMapSDKException: position can not be null");
@@ -247,7 +249,7 @@ public final class TextOptions extends OverlayOptions {
             if (str == null || str.equals("")) {
                 throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
             }
-            this.f7133d = str;
+            this.f41387d = str;
             return this;
         }
         return (TextOptions) invokeL.objValue;
@@ -257,7 +259,7 @@ public final class TextOptions extends OverlayOptions {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, typeface)) == null) {
-            this.f7138i = typeface;
+            this.f41392i = typeface;
             return this;
         }
         return (TextOptions) invokeL.objValue;
@@ -267,7 +269,7 @@ public final class TextOptions extends OverlayOptions {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
-            this.f7131b = z;
+            this.f41385b = z;
             return this;
         }
         return (TextOptions) invokeZ.objValue;
@@ -277,7 +279,7 @@ public final class TextOptions extends OverlayOptions {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
-            this.f7130a = i2;
+            this.f41384a = i2;
             return this;
         }
         return (TextOptions) invokeI.objValue;

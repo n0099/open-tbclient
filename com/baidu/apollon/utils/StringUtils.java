@@ -15,7 +15,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public abstract class StringUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

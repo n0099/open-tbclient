@@ -4,14 +4,14 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import c.a.e.e.p.l;
 import com.baidu.tbadk.coreExtra.view.BannerView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EntelechyBannerView extends BannerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,17 +34,17 @@ public class EntelechyBannerView extends BannerView {
                 return;
             }
         }
-        l();
+        i();
     }
 
-    public final void l() {
+    public final void i() {
         Button button;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.f12917g) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f12917g.getLayoutParams();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.mClose) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mClose.getLayoutParams();
             layoutParams.topMargin = (l.g(getContext(), R.dimen.ds100) - l.e(getContext(), 20.0f)) / 2;
             layoutParams.addRule(10);
-            this.f12917g.requestLayout();
+            this.mClose.requestLayout();
         }
     }
 
@@ -67,6 +67,6 @@ public class EntelechyBannerView extends BannerView {
                 return;
             }
         }
-        l();
+        i();
     }
 }

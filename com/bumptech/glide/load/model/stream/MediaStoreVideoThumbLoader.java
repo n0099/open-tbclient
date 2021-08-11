@@ -19,13 +19,13 @@ import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import com.bumptech.glide.load.resource.bitmap.VideoDecoder;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MediaStoreVideoThumbLoader implements ModelLoader<Uri, InputStream> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context context;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Factory implements ModelLoaderFactory<Uri, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PersonPolymericActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_BIGV = "is_bigv";
@@ -49,12 +49,12 @@ public class PersonPolymericActivityConfig extends IntentConfig {
         return invokeV.booleanValue;
     }
 
-    public PersonPolymericActivityConfig createNormalConfig(long j, boolean z, boolean z2) {
+    public PersonPolymericActivityConfig createNormalConfig(long j2, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             Intent intent = getIntent();
-            intent.putExtra("user_id", j);
+            intent.putExtra("user_id", j2);
             intent.putExtra(IS_USER_SELF, z);
             intent.putExtra(IS_BIGV, z2);
             return this;
@@ -85,12 +85,12 @@ public class PersonPolymericActivityConfig extends IntentConfig {
         intent.putExtra(IntentConfig.KEY_URI, uri);
     }
 
-    public PersonPolymericActivityConfig createNormalConfig(long j, boolean z, boolean z2, boolean z3) {
+    public PersonPolymericActivityConfig createNormalConfig(long j2, boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
             Intent intent = getIntent();
-            intent.putExtra("user_id", j);
+            intent.putExtra("user_id", j2);
             intent.putExtra(IS_USER_SELF, z);
             intent.putExtra(IS_BIGV, z2);
             intent.putExtra(IS_SHOW_THREAD_TOP, z3);

@@ -1,17 +1,17 @@
 package com.baidu.searchbox.http.statistics;
 
 import okhttp3.Headers;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface NetworkStat<T> {
-    void onConnect(T t, long j, String str);
+    void onConnect(T t, long j2, String str);
 
     void onException(T t, Exception exc);
 
-    void onFinish(T t, long j);
+    void onFinish(T t, long j2);
 
-    void onFinishReadContent(T t, long j);
+    void onFinishReadContent(T t, long j2);
 
-    void onReceiveHeader(T t, long j, Headers headers);
+    void onReceiveHeader(T t, long j2, Headers headers);
 
     void onReceiveLocalIp(T t, String str);
 
@@ -19,17 +19,17 @@ public interface NetworkStat<T> {
 
     void onRedirect(T t, String str);
 
-    void onRequestBodyLength(T t, long j);
+    void onRequestBodyLength(T t, long j2);
 
-    void onResponse(T t, long j);
+    void onResponse(T t, long j2);
 
-    void onResponseBodyLength(T t, long j);
+    void onResponseBodyLength(T t, long j2);
 
-    void onSendHeader(T t, long j);
+    void onSendHeader(T t, long j2);
 
     void onServerErrorHeader(T t, String str);
 
-    void onStartExecute(T t, long j);
+    void onStartExecute(T t, long j2);
 
     void onStatusCode(T t, int i2);
 

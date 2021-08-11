@@ -3,7 +3,7 @@ package com.meizu.cloud.pushsdk.b.c;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class j {
     public static j a(final g gVar, final File file) {
         if (file != null) {
@@ -34,9 +34,9 @@ public abstract class j {
     }
 
     public static j a(g gVar, String str) {
-        Charset charset = m.f37419c;
+        Charset charset = m.f74261c;
         if (gVar != null && (charset = gVar.b()) == null) {
-            charset = m.f37419c;
+            charset = m.f74261c;
             gVar = g.a(gVar + "; charset=utf-8");
         }
         return a(gVar, str.getBytes(charset));

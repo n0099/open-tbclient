@@ -10,7 +10,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
@@ -53,7 +52,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class MaterialButton extends AppCompatButton implements Checkable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKABLE_STATE_SET;
@@ -88,21 +87,21 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     public OnPressedChangeListener onPressedChangeListenerInternal;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public @interface IconGravity {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface OnPressedChangeListener {
         void onPressedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -715,7 +714,6 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         if (interceptable == null || interceptable.invokeL(1048608, this, drawable) == null) {
             if (isUsingOriginalBackground()) {
                 if (drawable != getBackground()) {
-                    Log.w(LOG_TAG, "Do not set the background; MaterialButton manages its own background drawable.");
                     this.materialButtonHelper.setBackgroundOverwritten();
                     super.setBackgroundDrawable(drawable);
                     return;

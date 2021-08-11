@@ -21,7 +21,7 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class SqlDateTypeAdapter extends TypeAdapter<Date> {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapterFactory FACTORY;

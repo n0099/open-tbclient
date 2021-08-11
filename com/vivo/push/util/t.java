@@ -12,12 +12,12 @@ import java.security.PublicKey;
 import java.security.Signature;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class t {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39489a = "RSA";
+    public static String f76323a = "RSA";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public final class t {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             try {
-                return KeyFactory.getInstance(f39489a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
+                return KeyFactory.getInstance(f76323a).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
             } catch (NullPointerException unused) {
                 throw new Exception("公钥数据为空");
             } catch (NoSuchAlgorithmException unused2) {

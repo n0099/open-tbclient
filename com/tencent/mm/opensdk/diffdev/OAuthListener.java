@@ -1,5 +1,5 @@
 package com.tencent.mm.opensdk.diffdev;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface OAuthListener {
     void onAuthFinish(OAuthErrCode oAuthErrCode, String str);
 

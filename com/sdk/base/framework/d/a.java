@@ -29,38 +29,40 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a<T> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38390d = "com.sdk.base.framework.d.a";
+    public static final String f75175d = "com.sdk.base.framework.d.a";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final boolean f38391e;
+    public static final boolean f75176e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f38392a;
+    public Context f75177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38393b;
+    public String f75178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38394c;
+    public String f75179c;
 
     /* renamed from: f  reason: collision with root package name */
-    public PInfo f38395f;
+    public PInfo f75180f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AInfo f38396g;
+    public AInfo f75181g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SInfo f38397h;
+    public SInfo f75182h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ArrayList<KInfo> f38398i;
-    public com.sdk.base.framework.b.a<T> j;
+    public ArrayList<KInfo> f75183i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public com.sdk.base.framework.b.a<T> f75184j;
     public e k;
 
     static {
@@ -76,7 +78,7 @@ public class a<T> {
                 return;
             }
         }
-        f38391e = f.f38384b;
+        f75176e = f.f75169b;
     }
 
     public a() {
@@ -108,8 +110,8 @@ public class a<T> {
                 return;
             }
         }
-        this.f38392a = context;
-        this.j = aVar;
+        this.f75177a = context;
+        this.f75184j = aVar;
         this.k = eVar;
     }
 
@@ -126,17 +128,17 @@ public class a<T> {
                     e = e2;
                     com.sdk.base.framework.f.f.a.b(e.toString());
                     a(1, 302002, "网络访问异常");
-                    c.b(f38390d, e.toString(), Boolean.valueOf(f38391e));
+                    c.b(f75175d, e.toString(), Boolean.valueOf(f75176e));
                     return fVar;
                 }
             } else {
                 dataInfo2 = dataInfo;
             }
             TreeMap<String, Object> treeMap = new TreeMap<>();
-            String a2 = com.sdk.base.framework.f.i.a.a(this.f38392a);
+            String a2 = com.sdk.base.framework.f.i.a.a(this.f75177a);
             String a3 = com.sdk.base.framework.f.i.a.a(16);
-            String a4 = com.sdk.base.framework.f.a.a.a(this.f38392a, BaseConfig.apk);
-            String a5 = com.sdk.base.framework.f.b.a.a(this.f38392a, com.alipay.sdk.packet.e.m);
+            String a4 = com.sdk.base.framework.f.a.a.a(this.f75177a, BaseConfig.apk);
+            String a5 = com.sdk.base.framework.f.b.a.a(this.f75177a, com.alipay.sdk.packet.e.m);
             if ("/st/api/v1.0/ses".equals(str2)) {
                 a5 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgdQaZgBcrXGxxD6F1TVVXAzvbB3xpoyk2AFMNj4vOcDWZoH1b3Mx5aVcEd0BZPZR6Icb8yi8ecMUVChGCRe20O8EQWLh1aCwR8JazNL+koD3Tn6TIwVwjVEQWy9w6DeXxMtQuFBL/jAChJcU7aDwMsSD1jYpdET37aB4p8Lvn2QIDAQAB";
             }
@@ -167,11 +169,11 @@ public class a<T> {
                 kVar.a((ArrayList<File>) null);
                 kVar.a(hashMap);
                 if ("/dro/netm/v1.0/qc".equals(str2)) {
-                    g gVar = g.f38419a;
+                    g gVar = g.f75205a;
                 } else if ("/dro/netm/v1.0/gctcbs".equals(str2)) {
-                    g gVar2 = g.f38420b;
+                    g gVar2 = g.f75206b;
                 }
-                h hVar = new h(this.f38392a, kVar);
+                h hVar = new h(this.f75177a, kVar);
                 com.sdk.base.framework.a.f<T> fVar2 = new com.sdk.base.framework.a.f<>(hVar);
                 try {
                     fVar2.c(hVar);
@@ -181,13 +183,13 @@ public class a<T> {
                     fVar = fVar2;
                     com.sdk.base.framework.f.f.a.b(e.toString());
                     a(1, 302002, "网络访问异常");
-                    c.b(f38390d, e.toString(), Boolean.valueOf(f38391e));
+                    c.b(f75175d, e.toString(), Boolean.valueOf(f75176e));
                     return fVar;
                 }
             } catch (Exception e4) {
                 a(1, 101006, "公钥出错");
-                String str3 = f38390d;
-                c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f38391e));
+                String str3 = f75175d;
+                c.b(str3, "公钥出错：" + e4, Boolean.valueOf(f75176e));
                 return null;
             }
         }
@@ -200,17 +202,17 @@ public class a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, dataInfo, str)) == null) {
             try {
-                if (this.f38396g == null) {
-                    this.f38396g = com.sdk.base.framework.c.a.a(this.f38392a);
+                if (this.f75181g == null) {
+                    this.f75181g = com.sdk.base.framework.c.a.a(this.f75177a);
                 }
-                if (this.f38397h == null) {
-                    this.f38397h = com.sdk.base.framework.c.a.b();
+                if (this.f75182h == null) {
+                    this.f75182h = com.sdk.base.framework.c.a.b();
                 }
-                if (this.f38398i == null) {
-                    this.f38398i = com.sdk.base.framework.c.a.a();
+                if (this.f75183i == null) {
+                    this.f75183i = com.sdk.base.framework.c.a.a();
                 }
                 ArrayList arrayList = new ArrayList();
-                Iterator<KInfo> it = this.f38398i.iterator();
+                Iterator<KInfo> it = this.f75183i.iterator();
                 while (it.hasNext()) {
                     KInfo next = it.next();
                     MobileKInfo mobileKInfo = new MobileKInfo();
@@ -220,15 +222,15 @@ public class a<T> {
                     mobileKInfo.setIdfd(next.isIdfd());
                     arrayList.add(mobileKInfo);
                 }
-                if (this.f38395f == null) {
-                    this.f38395f = com.sdk.base.framework.c.a.c();
+                if (this.f75180f == null) {
+                    this.f75180f = com.sdk.base.framework.c.a.c();
                 }
                 StringBuilder sb = new StringBuilder("{app:");
-                sb.append(this.f38396g);
+                sb.append(this.f75181g);
                 sb.append(",sdk:");
-                sb.append(this.f38397h);
+                sb.append(this.f75182h);
                 sb.append(",device:");
-                sb.append(this.f38395f);
+                sb.append(this.f75180f);
                 sb.append(",sim:");
                 sb.append(arrayList);
                 sb.append(",data:");
@@ -236,10 +238,10 @@ public class a<T> {
                 sb.append("}");
                 str2 = sb.toString();
             } catch (Exception e2) {
-                c.b(f38390d, e2.toString(), Boolean.valueOf(f38391e));
+                c.b(f75175d, e2.toString(), Boolean.valueOf(f75176e));
                 str2 = null;
             }
-            return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f38392a, f.f38383a), str);
+            return com.sdk.base.framework.f.i.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f75177a, f.f75168a), str);
         }
         return (String) invokeLL.objValue;
     }
@@ -266,20 +268,20 @@ public class a<T> {
     public final void a(int i2, int i3, String str) {
         com.sdk.base.framework.b.a<T> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) || (aVar = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) || (aVar = this.f75184j) == null) {
             return;
         }
         aVar.a(i2, i3, str);
-        this.j = null;
+        this.f75184j = null;
     }
 
     public final void a(int i2, String str, int i3, T t, String str2) {
         com.sdk.base.framework.b.a<T> aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) || (aVar = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) || (aVar = this.f75184j) == null) {
             return;
         }
         aVar.a(i2, str, i3, t, str2);
-        this.j = null;
+        this.f75184j = null;
     }
 }

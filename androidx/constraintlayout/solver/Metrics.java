@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class Metrics {
     public static /* synthetic */ Interceptable $ic;
@@ -98,7 +99,7 @@ public class Metrics {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "\n*** Metrics ***\nmeasures: " + this.measures + "\nadditionalMeasures: " + this.additionalMeasures + "\nresolutions passes: " + this.resolutions + "\ntable increases: " + this.tableSizeIncrease + "\nmaxTableSize: " + this.maxTableSize + "\nmaxVariables: " + this.maxVariables + "\nmaxRows: " + this.maxRows + "\n\nminimize: " + this.minimize + "\nminimizeGoal: " + this.minimizeGoal + "\nconstraints: " + this.constraints + "\nsimpleconstraints: " + this.simpleconstraints + "\noptimize: " + this.optimize + "\niterations: " + this.iterations + "\npivots: " + this.pivots + "\nbfs: " + this.bfs + "\nvariables: " + this.variables + "\nerrors: " + this.errors + "\nslackvariables: " + this.slackvariables + "\nextravariables: " + this.extravariables + "\nfullySolved: " + this.fullySolved + "\ngraphOptimizer: " + this.graphOptimizer + "\nresolvedWidgets: " + this.resolvedWidgets + "\noldresolvedWidgets: " + this.oldresolvedWidgets + "\nnonresolvedWidgets: " + this.nonresolvedWidgets + "\ncenterConnectionResolved: " + this.centerConnectionResolved + "\nmatchConnectionResolved: " + this.matchConnectionResolved + "\nchainConnectionResolved: " + this.chainConnectionResolved + "\nbarrierConnectionResolved: " + this.barrierConnectionResolved + "\nproblematicsLayouts: " + this.problematicLayouts + "\n";
+            return "\n*** Metrics ***\nmeasures: " + this.measures + "\nadditionalMeasures: " + this.additionalMeasures + "\nresolutions passes: " + this.resolutions + "\ntable increases: " + this.tableSizeIncrease + "\nmaxTableSize: " + this.maxTableSize + "\nmaxVariables: " + this.maxVariables + "\nmaxRows: " + this.maxRows + "\n\nminimize: " + this.minimize + "\nminimizeGoal: " + this.minimizeGoal + "\nconstraints: " + this.constraints + "\nsimpleconstraints: " + this.simpleconstraints + "\noptimize: " + this.optimize + "\niterations: " + this.iterations + "\npivots: " + this.pivots + "\nbfs: " + this.bfs + "\nvariables: " + this.variables + "\nerrors: " + this.errors + "\nslackvariables: " + this.slackvariables + "\nextravariables: " + this.extravariables + "\nfullySolved: " + this.fullySolved + "\ngraphOptimizer: " + this.graphOptimizer + "\nresolvedWidgets: " + this.resolvedWidgets + "\noldresolvedWidgets: " + this.oldresolvedWidgets + "\nnonresolvedWidgets: " + this.nonresolvedWidgets + "\ncenterConnectionResolved: " + this.centerConnectionResolved + "\nmatchConnectionResolved: " + this.matchConnectionResolved + "\nchainConnectionResolved: " + this.chainConnectionResolved + "\nbarrierConnectionResolved: " + this.barrierConnectionResolved + "\nproblematicsLayouts: " + this.problematicLayouts + StringUtils.LF;
         }
         return (String) invokeV.objValue;
     }

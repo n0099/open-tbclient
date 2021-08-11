@@ -8,7 +8,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.Toast;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,14 +23,14 @@ import com.tencent.open.utils.f;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class QQAvatar extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_SDK_AVATAR_SET_IMAGE = "FROM_SDK_AVATAR_SET_IMAGE";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public IUiListener f38980a;
+    public IUiListener f75802a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public QQAvatar(QQToken qQToken) {
@@ -67,36 +66,36 @@ public class QQAvatar extends BaseApi {
     public void setAvatar(Activity activity, Uri uri, IUiListener iUiListener, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLI(1048576, this, activity, uri, iUiListener, i2) == null) {
-            IUiListener iUiListener2 = this.f38980a;
+            IUiListener iUiListener2 = this.f75802a;
             if (iUiListener2 != null) {
                 iUiListener2.onCancel();
             }
-            this.f38980a = iUiListener;
+            this.f75802a = iUiListener;
             Bundle bundle = new Bundle();
             bundle.putString("picture", uri.toString());
             bundle.putInt("exitAnim", i2);
-            bundle.putString("appid", this.f39004c.getAppId());
-            bundle.putString("access_token", this.f39004c.getAccessToken());
-            bundle.putLong("expires_in", this.f39004c.getExpireTimeInSecond());
-            bundle.putString("openid", this.f39004c.getOpenId());
+            bundle.putString("appid", this.f75827c.getAppId());
+            bundle.putString("access_token", this.f75827c.getAccessToken());
+            bundle.putLong("expires_in", this.f75827c.getExpireTimeInSecond());
+            bundle.putString("openid", this.f75827c.getOpenId());
             Intent a2 = a(activity);
             if (a(a2)) {
                 a(activity, bundle, a2);
-                d.a().a(this.f39004c.getOpenId(), this.f39004c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "0");
+                d.a().a(this.f75827c.getOpenId(), this.f75827c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "0");
                 return;
             }
-            d.a().a(this.f39004c.getOpenId(), this.f39004c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "1");
+            d.a().a(this.f75827c.getOpenId(), this.f75827c.getAppId(), Constants.VIA_SET_AVATAR, "12", "18", "1");
         }
     }
 
     public void setAvatarByQQ(Activity activity, Uri uri, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, uri, iUiListener) == null) {
-            IUiListener iUiListener2 = this.f38980a;
+            IUiListener iUiListener2 = this.f75802a;
             if (iUiListener2 != null) {
                 iUiListener2.onCancel();
             }
-            this.f38980a = iUiListener;
+            this.f75802a = iUiListener;
             if (!i.b(activity)) {
                 Toast.makeText(activity.getApplicationContext(), "当前手机未安装QQ，请安装最新版QQ后再试。", 1).show();
             } else if (i.c(activity, "8.0.0") < 0) {
@@ -106,12 +105,12 @@ public class QQAvatar extends BaseApi {
                 StringBuffer stringBuffer = new StringBuffer("mqqapi://profile/sdk_avatar_edit?");
                 if (!TextUtils.isEmpty(a2)) {
                     if (a2.length() > 20) {
-                        a2 = a2.substring(0, 20) + StringHelper.STRING_MORE;
+                        a2 = a2.substring(0, 20) + "...";
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a2), 2));
                 }
-                String appId = this.f39004c.getAppId();
-                String openId = this.f39004c.getOpenId();
+                String appId = this.f75827c.getAppId();
+                String openId = this.f75827c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }
@@ -147,11 +146,11 @@ public class QQAvatar extends BaseApi {
     public void setDynamicAvatar(Activity activity, Uri uri, IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, activity, uri, iUiListener) == null) {
-            IUiListener iUiListener2 = this.f38980a;
+            IUiListener iUiListener2 = this.f75802a;
             if (iUiListener2 != null) {
                 iUiListener2.onCancel();
             }
-            this.f38980a = iUiListener;
+            this.f75802a = iUiListener;
             if (!i.b(activity)) {
                 Toast.makeText(activity.getApplicationContext(), "当前手机未安装QQ，请安装最新版QQ后再试。", 1).show();
             } else if (i.c(activity, "8.0.5") < 0) {
@@ -161,12 +160,12 @@ public class QQAvatar extends BaseApi {
                 StringBuffer stringBuffer = new StringBuffer("mqqapi://profile/sdk_dynamic_avatar_edit?");
                 if (!TextUtils.isEmpty(a2)) {
                     if (a2.length() > 20) {
-                        a2 = a2.substring(0, 20) + StringHelper.STRING_MORE;
+                        a2 = a2.substring(0, 20) + "...";
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a2), 2));
                 }
-                String appId = this.f39004c.getAppId();
-                String openId = this.f39004c.getOpenId();
+                String appId = this.f75827c.getAppId();
+                String openId = this.f75827c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }
@@ -206,7 +205,7 @@ public class QQAvatar extends BaseApi {
             a(bundle);
             intent.putExtra(Constants.KEY_ACTION, "action_avatar");
             intent.putExtra(Constants.KEY_PARAMS, bundle);
-            UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_AVATER, this.f38980a);
+            UIListenerManager.getInstance().setListenerWithRequestcode(Constants.REQUEST_AVATER, this.f75802a);
             a(activity, intent, Constants.REQUEST_AVATER);
         }
     }
@@ -214,14 +213,14 @@ public class QQAvatar extends BaseApi {
     private void a(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, bundle) == null) {
-            QQToken qQToken = this.f39004c;
+            QQToken qQToken = this.f75827c;
             if (qQToken != null) {
                 bundle.putString("appid", qQToken.getAppId());
-                if (this.f39004c.isSessionValid()) {
-                    bundle.putString(Constants.PARAM_KEY_STR, this.f39004c.getAccessToken());
+                if (this.f75827c.isSessionValid()) {
+                    bundle.putString(Constants.PARAM_KEY_STR, this.f75827c.getAccessToken());
                     bundle.putString(Constants.PARAM_KEY_TYPE, "0x80");
                 }
-                String openId = this.f39004c.getOpenId();
+                String openId = this.f75827c.getOpenId();
                 if (openId != null) {
                     bundle.putString("hopenid", openId);
                 }

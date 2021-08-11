@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.tencent.connect.common.Constants;
 import java.lang.reflect.Method;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,7 +118,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, context)) == null) {
             int h2 = h(context);
-            return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : com.baidu.apollon.statistics.g.f4012b : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
+            return h2 != -101 ? (h2 == -1 || h2 == 0) ? StringUtil.NULL_STRING : h2 != 1 ? h2 != 2 ? h2 != 3 ? Integer.toString(h2) : "4G" : "3G" : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
         }
         return (String) invokeL.objValue;
     }
@@ -142,7 +142,7 @@ public class f {
                 if (f2.equals("2G")) {
                     return "10";
                 }
-                if (f2.equals(com.baidu.apollon.statistics.g.f4012b)) {
+                if (f2.equals("3G")) {
                     return "11";
                 }
                 if (f2.equals("4G")) {

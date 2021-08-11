@@ -15,7 +15,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AnnotationSerializer implements ObjectSerializer {
     public static /* synthetic */ Interceptable $ic;
     public static AnnotationSerializer instance;

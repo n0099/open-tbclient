@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class CookieUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,11 +24,11 @@ public final class CookieUtils {
         }
     }
 
-    public static String getCookieStr(String str, String str2, String str3, long j) {
+    public static String getCookieStr(String str, String str2, String str3, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
-            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ";";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Long.valueOf(j2)})) == null) {
+            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j2 + ";";
         }
         return (String) invokeCommon.objValue;
     }

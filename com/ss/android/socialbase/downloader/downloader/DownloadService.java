@@ -3,6 +3,8 @@ package com.ss.android.socialbase.downloader.downloader;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import c.p.a.e.b.g.e;
+import c.p.a.e.b.g.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,37 +13,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.l.a.e.b.g.e;
-import d.l.a.e.b.g.p;
 import java.lang.ref.WeakReference;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class DownloadService extends Service {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38697b;
+    public static final String f75511b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public p f38698a;
+    public p f75512a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Intent f38699e;
+        public final /* synthetic */ Intent f75513e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f38700f;
+        public final /* synthetic */ int f75514f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f38701g;
+        public final /* synthetic */ int f75515g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadService f38702h;
+        public final /* synthetic */ DownloadService f75516h;
 
         public a(DownloadService downloadService, Intent intent, int i2, int i3) {
             Interceptable interceptable = $ic;
@@ -58,20 +58,20 @@ public class DownloadService extends Service {
                     return;
                 }
             }
-            this.f38702h = downloadService;
-            this.f38699e = intent;
-            this.f38700f = i2;
-            this.f38701g = i3;
+            this.f75516h = downloadService;
+            this.f75513e = intent;
+            this.f75514f = i2;
+            this.f75515g = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             p pVar;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pVar = this.f38702h.f38698a) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (pVar = this.f75516h.f75512a) == null) {
                 return;
             }
-            pVar.a(this.f38699e, this.f38700f, this.f38701g);
+            pVar.a(this.f75513e, this.f75514f, this.f75515g);
         }
     }
 
@@ -88,7 +88,7 @@ public class DownloadService extends Service {
                 return;
             }
         }
-        f38697b = DownloadService.class.getSimpleName();
+        f75511b = DownloadService.class.getSimpleName();
     }
 
     public DownloadService() {
@@ -110,12 +110,12 @@ public class DownloadService extends Service {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
-            String str = f38697b;
+            String str = f75511b;
             StringBuilder sb = new StringBuilder();
             sb.append("onBind downloadServiceHandler != null:");
-            sb.append(this.f38698a != null);
-            d.l.a.e.b.c.a.g(str, sb.toString());
-            p pVar = this.f38698a;
+            sb.append(this.f75512a != null);
+            c.p.a.e.b.c.a.g(str, sb.toString());
+            p pVar = this.f75512a;
             if (pVar != null) {
                 return pVar.a(intent);
             }
@@ -131,7 +131,7 @@ public class DownloadService extends Service {
             super.onCreate();
             e.C(this);
             p N0 = e.N0();
-            this.f38698a = N0;
+            this.f75512a = N0;
             N0.c(new WeakReference(this));
         }
     }
@@ -140,13 +140,13 @@ public class DownloadService extends Service {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (d.l.a.e.b.c.a.e()) {
-                d.l.a.e.b.c.a.g(f38697b, "Service onDestroy");
+            if (c.p.a.e.b.c.a.e()) {
+                c.p.a.e.b.c.a.g(f75511b, "Service onDestroy");
             }
-            p pVar = this.f38698a;
+            p pVar = this.f75512a;
             if (pVar != null) {
                 pVar.d();
-                this.f38698a = null;
+                this.f75512a = null;
             }
             super.onDestroy();
         }
@@ -157,10 +157,10 @@ public class DownloadService extends Service {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) == null) {
-            if (d.l.a.e.b.c.a.e()) {
-                d.l.a.e.b.c.a.g(f38697b, "DownloadService onStartCommand");
+            if (c.p.a.e.b.c.a.e()) {
+                c.p.a.e.b.c.a.g(f75511b, "DownloadService onStartCommand");
             }
-            this.f38698a.c();
+            this.f75512a.c();
             ExecutorService A0 = e.A0();
             if (A0 != null) {
                 A0.execute(new a(this, intent, i2, i3));

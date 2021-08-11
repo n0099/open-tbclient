@@ -1,0 +1,130 @@
+package c.a.k.a;
+
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.LongSparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.core.BdCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+@SuppressLint({"NewApi"})
+/* loaded from: classes.dex */
+public final class g {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static g f3493b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static HashMap<String, c.a.k.a.q.f<String, Integer>> f3494c;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public Context f3495a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1328757972, "Lc/a/k/a/g;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1328757972, "Lc/a/k/a/g;");
+                return;
+            }
+        }
+        f3494c = new HashMap<>();
+    }
+
+    public g() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        new LongSparseArray();
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+        }
+    }
+
+    public static synchronized g c() {
+        InterceptResult invokeV;
+        g gVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (g.class) {
+                if (f3493b == null) {
+                    f3493b = new g();
+                }
+                gVar = f3493b;
+            }
+            return gVar;
+        }
+        return (g) invokeV.objValue;
+    }
+
+    @Deprecated
+    public static int d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            a(str2, str);
+            c.a.k.a.q.f<String, Integer> fVar = f3494c.get(str);
+            if (fVar == null) {
+                fVar = new c.a.k.a.q.f<>(100);
+                f3494c.put(str, fVar);
+            }
+            Integer c2 = fVar.c(str2);
+            if (c2 == null) {
+                try {
+                    int identifier = c().b().getResources().getIdentifier(str2, str, c().b().getPackageName());
+                    fVar.d(str2, Integer.valueOf(identifier));
+                    return identifier;
+                } catch (Error e2) {
+                    e2.printStackTrace();
+                    return 0;
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    return 0;
+                }
+            }
+            return c2.intValue();
+        }
+        return invokeLL.intValue;
+    }
+
+    public final Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f3495a == null) {
+                this.f3495a = BdCore.b().a();
+            }
+            Context context = this.f3495a;
+            if (context != null) {
+                return context;
+            }
+            throw new RuntimeException("context is null!");
+        }
+        return (Context) invokeV.objValue;
+    }
+}

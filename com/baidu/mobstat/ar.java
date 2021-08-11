@@ -8,7 +8,7 @@ import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobstat.MtjConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ar {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaPlayAnimationView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f22156e;
+    public ObjectAnimator f57743e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f22157f;
+    public boolean f57744f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f22158g;
+    public boolean f57745g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaPlayAnimationView(Context context) {
@@ -41,8 +41,8 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f22157f = false;
-        this.f22158g = false;
+        this.f57744f = false;
+        this.f57745g = false;
         a();
     }
 
@@ -50,48 +50,22 @@ public class AlaPlayAnimationView extends ImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, "alpha", 1.0f, 0.0f, 1.0f);
-            this.f22156e = ofFloat;
+            this.f57743e = ofFloat;
             ofFloat.setRepeatMode(1);
-            this.f22156e.setRepeatCount(-1);
-            this.f22156e.setDuration(700L);
+            this.f57743e.setRepeatCount(-1);
+            this.f57743e.setDuration(700L);
             setVisibility(8);
-            this.f22157f = false;
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f22157f) {
-            return;
-        }
-        this.f22157f = true;
-        if (this.f22156e != null) {
-            setVisibility(0);
-            this.f22156e.start();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ObjectAnimator objectAnimator = this.f22156e;
-            if (objectAnimator != null) {
-                objectAnimator.setRepeatCount(-1);
-                this.f22156e.cancel();
-                clearAnimation();
-            }
-            this.f22157f = false;
-            setVisibility(8);
+            this.f57744f = false;
         }
     }
 
     @Override // android.widget.ImageView, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onAttachedToWindow();
-            if (this.f22158g) {
-                b();
+            if (this.f57745g) {
+                startPlayAnimation();
             }
         }
     }
@@ -99,16 +73,42 @@ public class AlaPlayAnimationView extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDetachedFromWindow();
-            c();
+            stopPlayAnimation();
         }
     }
 
     public void setAutoStartPlay(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f22158g = z;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f57745g = z;
+        }
+    }
+
+    public void startPlayAnimation() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.f57744f) {
+            return;
+        }
+        this.f57744f = true;
+        if (this.f57743e != null) {
+            setVisibility(0);
+            this.f57743e.start();
+        }
+    }
+
+    public void stopPlayAnimation() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            ObjectAnimator objectAnimator = this.f57743e;
+            if (objectAnimator != null) {
+                objectAnimator.setRepeatCount(-1);
+                this.f57743e.cancel();
+                clearAnimation();
+            }
+            this.f57744f = false;
+            setVisibility(8);
         }
     }
 
@@ -131,8 +131,8 @@ public class AlaPlayAnimationView extends ImageView {
                 return;
             }
         }
-        this.f22157f = false;
-        this.f22158g = false;
+        this.f57744f = false;
+        this.f57745g = false;
         a();
     }
 }

@@ -31,7 +31,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes6.dex */
 public class BDEmotionPanelManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLOR_EMOTION_TYPE_LAYOUT = -657931;
@@ -46,12 +47,12 @@ public class BDEmotionPanelManager {
     public boolean isNightMode;
     public String mLastStackInfo;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnEmotionClickListener {
         void onEmotionClick(EmotionType emotionType, int i2, String str, String str2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface OnVerticalEmotionListener {
         public static final int SECTION_TYPE_ALL = 1;
         public static final int SECTION_TYPE_OFTEN = 0;
@@ -137,13 +138,13 @@ public class BDEmotionPanelManager {
             }
             if (DEBUG) {
                 StringBuilder sb = new StringBuilder("emotion panel root layout[id:vp_emotion_type] not found, please recheck:\n");
-                sb.append("Activity: " + fragmentActivity + "\n");
+                sb.append("Activity: " + fragmentActivity + StringUtils.LF);
                 if (fragments != null) {
-                    sb.append("Fragments: " + fragments + "\n");
+                    sb.append("Fragments: " + fragments + StringUtils.LF);
                 }
                 sb.append("stack:\n");
                 sb.append(this.mLastStackInfo);
-                Log.d(TAG, sb.toString());
+                sb.toString();
             }
             return fragmentActivity.getSupportFragmentManager();
         }

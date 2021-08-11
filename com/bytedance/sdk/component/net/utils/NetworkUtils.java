@@ -5,7 +5,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class NetworkUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NETWORK_TYPE_LTE_CA = 19;
@@ -54,7 +53,7 @@ public class NetworkUtils {
                     }
                 }
             } catch (Throwable th) {
-                Log.e("ignored", th.toString());
+                th.toString();
             }
             return false;
         }

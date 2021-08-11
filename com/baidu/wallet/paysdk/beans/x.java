@@ -1,43 +1,32 @@
 package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.restnet.RestNameValuePair;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.Constants;
-import com.baidu.wallet.base.controllers.PasswordController;
-import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
-import com.baidu.wallet.paysdk.datamodel.ErrorContentResponse;
-import com.baidu.wallet.paysdk.datamodel.PwdRequest;
-import com.baidu.wallet.paysdk.storage.PayRequestCache;
+import com.baidu.wallet.paysdk.ui.widget.FeedbackDialog;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class x extends PayBaseBean<Object> {
+/* loaded from: classes8.dex */
+public class x extends BaseBean<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PwdRequest f26172a;
+    public String f62063a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f26173b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public boolean f26174c;
+    public FeedbackDialog.c f62064b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <T> x(Context context) {
+    public x(Context context) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -54,127 +43,71 @@ public class x extends PayBaseBean<Object> {
                 return;
             }
         }
-        this.f26172a = (PwdRequest) PayRequestCache.getInstance().getBeanRequestFromCache(BeanConstants.REQUEST_ID_PWD);
     }
 
-    private void a(List<RestNameValuePair> list) {
+    public void a(String str, FeedbackDialog.c cVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, this, list) == null) && this.f26174c && !TextUtils.isEmpty(this.f26173b)) {
-            try {
-                JSONObject jSONObject = new JSONObject(this.f26173b);
-                jSONObject.remove(Constants.HALF_SCREEN_PWD_VERIFY);
-                Iterator<String> keys = jSONObject.keys();
-                if (keys != null) {
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        Object opt = jSONObject.opt(next);
-                        list.add(new RestNameValuePair(next, opt != null ? String.valueOf(opt) : ""));
-                    }
-                }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
+            this.f62063a = str;
+            this.f62064b = cVar;
         }
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.execBean(String.class, ErrorContentResponse.class);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.execBean(String.class);
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            String seed = PasswordController.getSeed();
-            String encryptProxy = SafePay.getInstance().encryptProxy(seed);
-            int i2 = this.f26172a.mRequestType;
-            if (i2 != 2 && i2 != 1) {
-                String encryptProxy2 = SafePay.getInstance().encryptProxy(PasswordController.handlePwdSimple(this.f26172a.mConfirmPayPass));
-                String handlePwd = PasswordController.handlePwd(this.f26172a.mConfirmPayPass, seed);
-                String str = SafePay.getInstance().getpwProxy();
-                arrayList.add(new RestNameValuePair("new_mobile_pwd", encryptProxy2));
-                arrayList.add(new RestNameValuePair("confirm_new_mobile_pwd", handlePwd));
-                arrayList.add(new RestNameValuePair("mobile_pwd_psp", PasswordController.handlePwdForPassport(this.f26172a.mConfirmPayPass)));
-                arrayList.add(new RestNameValuePair("key_no", str));
-                arrayList.add(new RestNameValuePair("sess_key", this.f26172a.mSessionKey));
-            } else {
-                if (!TextUtils.isEmpty(this.f26172a.mPayPass)) {
-                    String handlePwd2 = PasswordController.handlePwd(this.f26172a.mPayPass, seed);
-                    String str2 = SafePay.getInstance().getpwProxy();
-                    arrayList.add(new RestNameValuePair("mobile_pwd", handlePwd2));
-                    arrayList.add(new RestNameValuePair("key", str2));
-                }
-                a(arrayList);
-            }
-            arrayList.add(new RestNameValuePair("seed", encryptProxy));
-            PwdRequest pwdRequest = this.f26172a;
-            if (pwdRequest.mRequestType == 2 && TextUtils.equals(pwdRequest.fromType, BeanConstants.FROM_BIND)) {
-                BindFastRequest bindFastRequest = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Other.name());
-                arrayList.add(new RestNameValuePair("scenario", "bindcard"));
-                arrayList.add(new RestNameValuePair("source_flag", "3"));
-                if (bindFastRequest != null) {
-                    arrayList.add(new RestNameValuePair("request_type", bindFastRequest.getCardRequestType()));
-                } else {
-                    arrayList.add(new RestNameValuePair("request_type", BindFastRequest.getCardRequestType(1)));
-                }
-                arrayList.add(new RestNameValuePair(TableDefine.MessageColumns.COLUME_SERVICE_TYPE, this.f26172a.serviceType));
-            }
+            arrayList.add(new RestNameValuePair("trans_no", this.f62063a));
+            arrayList.add(new RestNameValuePair("score", "" + this.f62064b.f62885a));
+            FeedbackDialog.c cVar = this.f62064b;
+            arrayList.add(new RestNameValuePair("tag_list", a(cVar != null ? cVar.f62886b : null)));
             return arrayList;
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.f26172a.mRequestType;
-            if (i2 == 2) {
-                return 257;
-            }
-            return i2 == 3 ? 259 : 258;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? PayBeanFactory.BEAN_ID_SAVE_FEEDBACK : invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.f26172a.mRequestType;
-            if (i2 == 2) {
-                String str = PayRequestCache.getInstance().isPaying() ? BeanConstants.API_VERIFY_PAY_PWD : BeanConstants.API_VERIFY_MOBILE_PWD_NEW;
-                return DomainConfig.getInstance().getAppPayHost() + str;
-            } else if (i2 == 1) {
-                return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_CHECK_MOBILE_PWD;
-            } else if (i2 == 3) {
-                return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_MODIFY_MOBILE_PWD;
-            } else {
-                return "";
-            }
+            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_SAVE_FEEDBACK;
         }
         return (String) invokeV.objValue;
     }
 
-    public void a(String str) {
+    public String a(String[] strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f26173b = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (strArr != null && strArr.length > 0) {
+                sb.append(strArr[0]);
+                for (int i2 = 1; i2 < strArr.length; i2++) {
+                    sb.append(",");
+                    sb.append(strArr[i2]);
+                }
+                sb = new StringBuilder(PreferencesUtil.LEFT_MOUNT + ((Object) sb) + PreferencesUtil.RIGHT_MOUNT);
+            }
+            return sb.toString();
         }
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f26174c = z;
-        }
+        return (String) invokeL.objValue;
     }
 }

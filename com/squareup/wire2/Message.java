@@ -1,6 +1,7 @@
 package com.squareup.wire2;
 
 import androidx.core.view.InputDeviceCompat;
+import c.o.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,7 +10,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.Message.a;
-import d.k.a.d;
 import java.io.IOException;
 import java.io.ObjectStreamException;
 import java.io.OutputStream;
@@ -17,7 +17,7 @@ import java.io.Serializable;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -27,7 +27,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
     public transient int hashCode;
     public final transient ByteString unknownFields;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static abstract class a<T extends Message<T, B>, B extends a<T, B>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

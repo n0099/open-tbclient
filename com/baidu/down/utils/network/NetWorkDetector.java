@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class NetWorkDetector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -27,7 +27,7 @@ public final class NetWorkDetector {
     public boolean sNeedDetect;
 
     /* renamed from: com.baidu.down.utils.network.NetWorkDetector$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,17 +94,17 @@ public final class NetWorkDetector {
         return (NetWorkDetector) invokeV.objValue;
     }
 
-    public synchronized boolean isHostReachableCached(String str, long j) {
+    public synchronized boolean isHostReachableCached(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j2)) == null) {
             synchronized (this) {
                 if (TextUtils.isEmpty(str)) {
                     return false;
                 }
                 if (this.mDetectCacheMap.containsKey(str)) {
                     HostStatusCache hostStatusCache = this.mDetectCacheMap.get(str);
-                    if (SystemClock.elapsedRealtime() - hostStatusCache.cacheTime < j) {
+                    if (SystemClock.elapsedRealtime() - hostStatusCache.cacheTime < j2) {
                         return hostStatusCache.lastStatus == 0;
                     }
                 }
@@ -119,7 +119,7 @@ public final class NetWorkDetector {
         return invokeLJ.booleanValue;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class HostStatusCache {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

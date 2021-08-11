@@ -1,20 +1,19 @@
 package com.vivo.push.b;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.UIMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ab extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ab() {
-        super(UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE);
+        super(2009);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();

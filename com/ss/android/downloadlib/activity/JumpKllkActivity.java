@@ -1,16 +1,16 @@
 package com.ss.android.downloadlib.activity;
 
 import android.text.TextUtils;
+import c.p.a.d.b.l;
+import c.p.a.d.f;
+import c.p.a.d.h;
+import c.p.a.e.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.l.a.d.b.l;
-import d.l.a.d.f;
-import d.l.a.d.h;
-import d.l.a.e.a.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class JumpKllkActivity extends TTDelegateActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

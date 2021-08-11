@@ -6,43 +6,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f32323a;
+    public final int f68282a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c f32324b;
+    public final c f68283b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f32325c;
+    public final b f68284c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a.a$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static final class C0367a {
+    /* loaded from: classes9.dex */
+    public static final class C1927a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f32326a;
+        public int f68285a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f32327b;
+        public b f68286b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f32328c;
+        public c f68287c;
 
-        public C0367a() {
+        public C1927a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,30 +55,30 @@ public class a {
                     return;
                 }
             }
-            this.f32327b = b.f32329a;
+            this.f68286b = b.f68288a;
         }
 
-        public C0367a a(int i2) {
+        public C1927a a(int i2) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.f32326a = i2;
+                this.f68285a = i2;
                 return this;
             }
-            return (C0367a) invokeI.objValue;
+            return (C1927a) invokeI.objValue;
         }
 
-        public C0367a a(b bVar) {
+        public C1927a a(b bVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) {
                 if (bVar == null) {
-                    bVar = b.f32329a;
+                    bVar = b.f68288a;
                 }
-                this.f32327b = bVar;
+                this.f68286b = bVar;
                 return this;
             }
-            return (C0367a) invokeL.objValue;
+            return (C1927a) invokeL.objValue;
         }
 
         public a a() {
@@ -88,34 +88,34 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(C0367a c0367a, AnonymousClass1 anonymousClass1) {
-        this(c0367a);
+    public /* synthetic */ a(C1927a c1927a, AnonymousClass1 anonymousClass1) {
+        this(c1927a);
     }
 
     public b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f32325c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f68284c : (b) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32323a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68282a : invokeV.intValue;
     }
 
     public c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32324b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f68283b : (c) invokeV.objValue;
     }
 
-    public a(C0367a c0367a) {
+    public a(C1927a c1927a) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {c0367a};
+            Object[] objArr = {c1927a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -125,8 +125,8 @@ public class a {
                 return;
             }
         }
-        this.f32323a = c0367a.f32326a;
-        this.f32325c = c0367a.f32327b;
-        this.f32324b = c0367a.f32328c;
+        this.f68282a = c1927a.f68285a;
+        this.f68284c = c1927a.f68286b;
+        this.f68283b = c1927a.f68287c;
     }
 }

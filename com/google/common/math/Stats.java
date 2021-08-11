@@ -1,6 +1,11 @@
 package com.google.common.math;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.j;
+import c.i.d.a.k;
+import c.i.d.a.n;
+import c.i.d.f.b;
+import c.i.d.f.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +14,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.Doubles;
-import d.f.d.a.j;
-import d.f.d.a.k;
-import d.f.d.a.n;
-import d.f.d.f.b;
-import d.f.d.f.f;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Stats implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES = 40;
@@ -30,12 +30,12 @@ public final class Stats implements Serializable {
     public final double min;
     public final double sumOfSquaresOfDeltas;
 
-    public Stats(long j, double d2, double d3, double d4, double d5) {
+    public Stats(long j2, double d2, double d3, double d4, double d5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)};
+            Object[] objArr = {Long.valueOf(j2), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -45,7 +45,7 @@ public final class Stats implements Serializable {
                 return;
             }
         }
-        this.count = j;
+        this.count = j2;
         this.mean = d2;
         this.sumOfSquaresOfDeltas = d3;
         this.min = d4;
@@ -245,11 +245,11 @@ public final class Stats implements Serializable {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, it)) == null) {
             n.d(it.hasNext());
             double doubleValue = it.next().doubleValue();
-            long j = 1;
+            long j2 = 1;
             while (it.hasNext()) {
                 double doubleValue2 = it.next().doubleValue();
-                j++;
-                doubleValue = (Doubles.f(doubleValue2) && Doubles.f(doubleValue)) ? doubleValue + ((doubleValue2 - doubleValue) / j) : f.g(doubleValue, doubleValue2);
+                j2++;
+                doubleValue = (Doubles.f(doubleValue2) && Doubles.f(doubleValue)) ? doubleValue + ((doubleValue2 - doubleValue) / j2) : f.g(doubleValue, doubleValue2);
             }
             return doubleValue;
         }

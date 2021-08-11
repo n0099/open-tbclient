@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public final class a {
             synchronized (a.class) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("apdid", bVar.f1737a);
-                    jSONObject.put("deviceInfoHash", bVar.f1738b);
-                    jSONObject.put("timestamp", bVar.f1739c);
+                    jSONObject.put("apdid", bVar.f35573a);
+                    jSONObject.put("deviceInfoHash", bVar.f35574b);
+                    jSONObject.put("timestamp", bVar.f35575c);
                     String jSONObject2 = jSONObject.toString();
                     com.alipay.apmobilesecuritysdk.f.a.a(context, "vkeyid_profiles_v3", DeviceUtils.KEY_OLD_NAME_STRING, jSONObject2);
                     com.alipay.apmobilesecuritysdk.f.a.a("wxcasxx_v3", "wxcasxx", jSONObject2);

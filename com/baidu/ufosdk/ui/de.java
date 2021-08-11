@@ -13,13 +13,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class de extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackListActivity f23717a;
+    public final /* synthetic */ FeedbackListActivity f59454a;
 
     public de(FeedbackListActivity feedbackListActivity) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public final class de extends Handler {
                 return;
             }
         }
-        this.f23717a = feedbackListActivity;
+        this.f59454a = feedbackListActivity;
     }
 
     @Override // android.os.Handler
@@ -60,51 +60,51 @@ public final class de extends Handler {
             super.handleMessage(message);
             com.baidu.ufosdk.f.c.b("FeedbackListActivity -> msg.what = " + message.what);
             if (message.what == 0) {
-                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23717a);
+                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f59454a);
                 dVar.d(dVar.d() + 1);
-                linearLayout3 = this.f23717a.f23568b;
+                linearLayout3 = this.f59454a.f59302b;
                 linearLayout3.setVisibility(8);
-                linearLayout4 = this.f23717a.f23569c;
+                linearLayout4 = this.f59454a.f59303c;
                 linearLayout4.setVisibility(0);
-                this.f23717a.f23571e = (List) message.obj;
+                this.f59454a.f59305e = (List) message.obj;
                 int i2 = 0;
                 while (true) {
-                    list = this.f23717a.f23571e;
+                    list = this.f59454a.f59305e;
                     if (i2 >= list.size()) {
                         break;
                     }
-                    list3 = this.f23717a.f23571e;
+                    list3 = this.f59454a.f59305e;
                     if (!((String) ((Map) list3.get(i2)).get("newmsg")).equals("0")) {
-                        handler = this.f23717a.A;
+                        handler = this.f59454a.A;
                         handler.obtainMessage(2, Integer.valueOf(i2)).sendToTarget();
                         break;
                     }
                     i2++;
                 }
-                list2 = this.f23717a.f23571e;
+                list2 = this.f59454a.f59305e;
                 if (list2.size() == 0) {
-                    textView3 = this.f23717a.s;
+                    textView3 = this.f59454a.s;
                     textView3.setVisibility(0);
                 } else {
-                    textView2 = this.f23717a.s;
+                    textView2 = this.f59454a.s;
                     textView2.setVisibility(8);
                 }
-                duVar = this.f23717a.u;
+                duVar = this.f59454a.u;
                 duVar.notifyDataSetChanged();
             }
             if (message.what == 1) {
-                linearLayout = this.f23717a.f23569c;
+                linearLayout = this.f59454a.f59303c;
                 linearLayout.setVisibility(8);
-                Context applicationContext = this.f23717a.getApplicationContext();
-                textView = this.f23717a.f23570d;
+                Context applicationContext = this.f59454a.getApplicationContext();
+                textView = this.f59454a.f59304d;
                 com.baidu.ufosdk.f.i.a(applicationContext, textView);
-                linearLayout2 = this.f23717a.f23568b;
+                linearLayout2 = this.f59454a.f59302b;
                 linearLayout2.setVisibility(0);
-                view = this.f23717a.v;
+                view = this.f59454a.v;
                 view.setVisibility(8);
             }
             if (message.what == 2) {
-                listView = this.f23717a.t;
+                listView = this.f59454a.t;
                 listView.setSelection(Integer.parseInt(message.obj.toString()));
             }
         }

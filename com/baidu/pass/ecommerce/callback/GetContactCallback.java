@@ -1,7 +1,7 @@
 package com.baidu.pass.ecommerce.callback;
 
 import com.baidu.pass.ecommerce.result.GetContactResult;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface GetContactCallback {
     void onCall(GetContactResult getContactResult);
 }

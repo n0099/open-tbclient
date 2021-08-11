@@ -31,7 +31,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AppConfig implements WeakHandler.IHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_LAST_REFRESH_TIME = "last_refresh_time";
@@ -343,9 +343,9 @@ public class AppConfig implements WeakHandler.IHandler {
             this.mLastRefreshTime = 0L;
             this.mLastTryRefreshTime = 0L;
         }
-        long j = z ? Constants.SYNC_MSG_DELAY_TIME : 43200000L;
+        long j2 = z ? Constants.SYNC_MSG_DELAY_TIME : 43200000L;
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.mLastRefreshTime <= j || currentTimeMillis - this.mLastTryRefreshTime <= com.baidu.searchbox.config.AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+        if (currentTimeMillis - this.mLastRefreshTime <= j2 || currentTimeMillis - this.mLastTryRefreshTime <= com.baidu.searchbox.config.AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
             return;
         }
         boolean checkWifiAndGPRS = NetworkUtils.checkWifiAndGPRS(this.mContext);
@@ -499,12 +499,12 @@ public class AppConfig implements WeakHandler.IHandler {
                     return;
                 }
                 this.mLocalLoaded = true;
-                long j = this.mContext.getSharedPreferences(SP_SS_APP_CONFIG, 0).getLong(KEY_LAST_REFRESH_TIME, 0L);
+                long j2 = this.mContext.getSharedPreferences(SP_SS_APP_CONFIG, 0).getLong(KEY_LAST_REFRESH_TIME, 0L);
                 long currentTimeMillis = System.currentTimeMillis();
-                if (j > currentTimeMillis) {
-                    j = currentTimeMillis;
+                if (j2 > currentTimeMillis) {
+                    j2 = currentTimeMillis;
                 }
-                this.mLastRefreshTime = j;
+                this.mLastRefreshTime = j2;
                 if (TncInstanceManager.getInstance().getTNCManager(this.mAid).getTNCConfigHandler() != null) {
                     TncInstanceManager.getInstance().getTNCManager(this.mAid).getTNCConfigHandler().loadLocalConfig();
                 }

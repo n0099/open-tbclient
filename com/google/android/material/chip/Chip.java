@@ -18,7 +18,6 @@ import android.os.Bundle;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.PointerIcon;
@@ -72,7 +71,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.Button";
@@ -112,7 +111,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     @NonNull
     public final ChipTouchHelper touchHelper;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public class ChipTouchHelper extends ExploreByTouchHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -387,14 +386,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                         declaredMethod.invoke(this.touchHelper, Integer.MIN_VALUE);
                         return true;
                     }
-                } catch (IllegalAccessException e2) {
-                    Log.e(TAG, "Unable to send Accessibility Exit event", e2);
-                } catch (NoSuchFieldException e3) {
-                    Log.e(TAG, "Unable to send Accessibility Exit event", e3);
-                } catch (NoSuchMethodException e4) {
-                    Log.e(TAG, "Unable to send Accessibility Exit event", e4);
-                } catch (InvocationTargetException e5) {
-                    Log.e(TAG, "Unable to send Accessibility Exit event", e5);
+                } catch (IllegalAccessException | NoSuchFieldException | NoSuchMethodException | InvocationTargetException unused) {
                 }
             }
             return false;
@@ -582,18 +574,13 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
         if (!(interceptable == null || interceptable.invokeL(65567, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        if (attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", NotificationCompat.WearableExtender.KEY_BACKGROUND) != null) {
-            Log.w(TAG, "Do not set the background; Chip manages its own background drawable.");
-        }
+        attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", NotificationCompat.WearableExtender.KEY_BACKGROUND);
         if (attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", "drawableLeft") == null) {
             if (attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", "drawableStart") == null) {
                 if (attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", "drawableEnd") == null) {
                     if (attributeSet.getAttributeValue("http://schemas.android.com/apk/res/android", "drawableRight") == null) {
                         if (attributeSet.getAttributeBooleanValue("http://schemas.android.com/apk/res/android", "singleLine", true) && attributeSet.getAttributeIntValue("http://schemas.android.com/apk/res/android", "lines", 1) == 1 && attributeSet.getAttributeIntValue("http://schemas.android.com/apk/res/android", "minLines", 1) == 1 && attributeSet.getAttributeIntValue("http://schemas.android.com/apk/res/android", "maxLines", 1) == 1) {
-                            if (attributeSet.getAttributeIntValue("http://schemas.android.com/apk/res/android", NotificationCompat.WearableExtender.KEY_GRAVITY, 8388627) != 8388627) {
-                                Log.w(TAG, "Chip text must be vertically center and start aligned");
-                                return;
-                            }
+                            attributeSet.getAttributeIntValue("http://schemas.android.com/apk/res/android", NotificationCompat.WearableExtender.KEY_GRAVITY, 8388627);
                             return;
                         }
                         throw new UnsupportedOperationException("Chip does not support multi-line text");
@@ -1324,9 +1311,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public void setBackground(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048628, this, drawable) == null) {
-            if (drawable != getBackgroundDrawable() && drawable != this.ripple) {
-                Log.w(TAG, "Do not set the background; Chip manages its own background drawable.");
-            } else {
+            if (drawable == getBackgroundDrawable() || drawable == this.ripple) {
                 super.setBackground(drawable);
             }
         }
@@ -1336,7 +1321,6 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public void setBackgroundColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
-            Log.w(TAG, "Do not set the background color; Chip manages its own background drawable.");
         }
     }
 
@@ -1344,9 +1328,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public void setBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048630, this, drawable) == null) {
-            if (drawable != getBackgroundDrawable() && drawable != this.ripple) {
-                Log.w(TAG, "Do not set the background drawable; Chip manages its own background drawable.");
-            } else {
+            if (drawable == getBackgroundDrawable() || drawable == this.ripple) {
                 super.setBackgroundDrawable(drawable);
             }
         }
@@ -1356,7 +1338,6 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public void setBackgroundResource(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            Log.w(TAG, "Do not set the background resource; Chip manages its own background drawable.");
         }
     }
 
@@ -1364,7 +1345,6 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public void setBackgroundTintList(@Nullable ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048632, this, colorStateList) == null) {
-            Log.w(TAG, "Do not set the background tint list; Chip manages its own background drawable.");
         }
     }
 
@@ -1372,7 +1352,6 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public void setBackgroundTintMode(@Nullable PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048633, this, mode) == null) {
-            Log.w(TAG, "Do not set the background tint mode; Chip manages its own background drawable.");
         }
     }
 
@@ -1938,12 +1917,8 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     @Override // android.widget.TextView
     public void setGravity(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048696, this, i2) == null) {
-            if (i2 != 8388627) {
-                Log.w(TAG, "Chip text must be vertically center and start aligned");
-            } else {
-                super.setGravity(i2);
-            }
+        if ((interceptable == null || interceptable.invokeI(1048696, this, i2) == null) && i2 == 8388627) {
+            super.setGravity(i2);
         }
     }
 

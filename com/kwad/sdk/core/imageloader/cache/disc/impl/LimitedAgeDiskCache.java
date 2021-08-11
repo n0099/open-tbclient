@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class LimitedAgeDiskCache extends BaseDiskCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,13 +23,13 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
     public final long maxFileAge;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LimitedAgeDiskCache(File file, long j) {
-        this(file, null, DefaultConfigurationFactory.createFileNameGenerator(), j);
+    public LimitedAgeDiskCache(File file, long j2) {
+        this(file, null, DefaultConfigurationFactory.createFileNameGenerator(), j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {file, Long.valueOf(j)};
+            Object[] objArr = {file, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -44,13 +44,13 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LimitedAgeDiskCache(File file, File file2, long j) {
-        this(file, file2, DefaultConfigurationFactory.createFileNameGenerator(), j);
+    public LimitedAgeDiskCache(File file, File file2, long j2) {
+        this(file, file2, DefaultConfigurationFactory.createFileNameGenerator(), j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {file, file2, Long.valueOf(j)};
+            Object[] objArr = {file, file2, Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -65,13 +65,13 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LimitedAgeDiskCache(File file, File file2, FileNameGenerator fileNameGenerator, long j) {
+    public LimitedAgeDiskCache(File file, File file2, FileNameGenerator fileNameGenerator, long j2) {
         super(file, file2, fileNameGenerator);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, file2, fileNameGenerator, Long.valueOf(j)};
+            Object[] objArr = {file, file2, fileNameGenerator, Long.valueOf(j2)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -84,7 +84,7 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
             }
         }
         this.loadingDates = Collections.synchronizedMap(new HashMap());
-        this.maxFileAge = j * 1000;
+        this.maxFileAge = j2 * 1000;
     }
 
     private void rememberUsage(String str) {

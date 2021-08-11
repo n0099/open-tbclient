@@ -6,7 +6,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes5.dex */
 public final class ResponseInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,19 +48,19 @@ public final class ResponseInfo {
         com.baidu.titan.sdk.runtime.InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = new StringBuilder(this.method + " " + this.stateCode + " " + this.url + "\n");
+            StringBuilder sb = new StringBuilder(this.method + " " + this.stateCode + " " + this.url + StringUtils.LF);
             for (String str : this.requestHeaders.keySet()) {
                 sb.append(str);
                 sb.append(":");
                 sb.append(this.requestHeaders.get(str));
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             sb.append("=== Response ===\n");
             for (String str2 : this.responseHeaders.keySet()) {
                 sb.append(str2);
                 sb.append(":");
                 sb.append(this.responseHeaders.get(str2));
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             return sb.toString();
         }

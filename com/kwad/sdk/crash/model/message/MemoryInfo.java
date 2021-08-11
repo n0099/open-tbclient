@@ -14,10 +14,11 @@ import com.kwad.sdk.utils.q;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MemoryInfo implements b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4944913077323984734L;
@@ -200,13 +201,13 @@ public class MemoryInfo implements b, Serializable {
             sb.append(" (MB)\n");
             sb.append("\t打开文件描述符数: ");
             sb.append(this.mFdCount);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             if (this.mFds.size() > 0) {
                 sb.append("\t文件描述符详情: \n");
                 for (String str : this.mFds) {
                     sb.append(TrackUI.SEPERATOR);
                     sb.append(str);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
             }
             sb.append("\t正在运行线程数: ");
@@ -221,16 +222,16 @@ public class MemoryInfo implements b, Serializable {
                 for (ThreadInfo threadInfo : this.mAllThreads) {
                     sb.append(TrackUI.SEPERATOR);
                     sb.append(threadInfo.mName);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
             }
             if (this.mJavaThreads.size() > 0) {
                 sb.append("Java线程堆栈: \n");
                 for (ThreadInfo threadInfo2 : this.mJavaThreads) {
                     sb.append(threadInfo2.mName);
-                    sb.append("\n");
-                    sb.append(threadInfo2.mTrace.replace("#", "\n"));
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
+                    sb.append(threadInfo2.mTrace.replace("#", StringUtils.LF));
+                    sb.append(StringUtils.LF);
                 }
             }
             if (this.mNativeThreads.size() > 0) {

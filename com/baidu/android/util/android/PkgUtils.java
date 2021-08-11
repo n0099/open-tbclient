@@ -6,7 +6,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PkgUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -61,7 +60,7 @@ public class PkgUtils {
                 return context.getPackageManager().getPackageInfo(str, 64);
             } catch (PackageManager.NameNotFoundException e2) {
                 if (DEBUG) {
-                    Log.w(TAG, e2.getMessage());
+                    e2.getMessage();
                     return null;
                 }
                 return null;
@@ -112,11 +111,8 @@ public class PkgUtils {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
                 return (packageInfo == null || packageInfo.signatures.length <= 0) ? "" : packageInfo.signatures[0].toCharsString();
-            } catch (Exception e2) {
-                if (DEBUG) {
-                    Log.e(TAG, "get sign error!!!", e2);
-                    return "";
-                }
+            } catch (Exception unused) {
+                boolean z = DEBUG;
                 return "";
             }
         }
@@ -130,10 +126,8 @@ public class PkgUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, str)) == null) {
             try {
                 str2 = context.getPackageManager().getPermissionInfo(str, 128).packageName;
-            } catch (Exception e2) {
-                if (DEBUG) {
-                    Log.e(TAG, "get packageName error!!!", e2);
-                }
+            } catch (Exception unused) {
+                boolean z = DEBUG;
                 str2 = "";
             }
             return TextUtils.isEmpty(str2) ? str2 : getSign(context, str2);

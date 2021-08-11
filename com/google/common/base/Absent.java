@@ -1,6 +1,9 @@
 package com.google.common.base;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.g;
+import c.i.d.a.n;
+import c.i.d.a.r;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,12 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.g;
-import d.f.d.a.n;
-import d.f.d.a.r;
 import java.util.Collections;
 import java.util.Set;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Absent<T> extends Optional<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Absent<Object> INSTANCE;

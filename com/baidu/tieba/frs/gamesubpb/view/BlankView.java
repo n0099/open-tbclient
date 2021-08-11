@@ -10,18 +10,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BlankView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Scroller f15833e;
+    public Scroller f51002e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f15834f;
+    public a f51003f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
     }
@@ -46,33 +46,17 @@ public class BlankView extends View {
         }
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f15833e == null) {
-                this.f15833e = new Scroller(getContext());
-            }
-            ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            if (layoutParams != null) {
-                Scroller scroller = this.f15833e;
-                int i2 = layoutParams.height;
-                scroller.startScroll(0, i2, 0, 0 - i2);
-                invalidate();
-            }
-        }
-    }
-
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.computeScroll();
-            Scroller scroller = this.f15833e;
+            Scroller scroller = this.f51002e;
             if (scroller == null) {
                 return;
             }
             if (scroller.computeScrollOffset()) {
-                int currY = this.f15833e.getCurrY();
+                int currY = this.f51002e.getCurrY();
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.height = currY;
@@ -81,7 +65,7 @@ public class BlankView extends View {
                 }
                 return;
             }
-            a aVar = this.f15834f;
+            a aVar = this.f51003f;
             if (aVar != null) {
                 aVar.a();
             }
@@ -90,8 +74,24 @@ public class BlankView extends View {
 
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f15834f = aVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.f51003f = aVar;
+        }
+    }
+
+    public void startScrollDissmiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.f51002e == null) {
+                this.f51002e = new Scroller(getContext());
+            }
+            ViewGroup.LayoutParams layoutParams = getLayoutParams();
+            if (layoutParams != null) {
+                Scroller scroller = this.f51002e;
+                int i2 = layoutParams.height;
+                scroller.startScroll(0, i2, 0, 0 - i2);
+                invalidate();
+            }
         }
     }
 

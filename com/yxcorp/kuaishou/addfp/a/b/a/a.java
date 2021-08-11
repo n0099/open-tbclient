@@ -9,30 +9,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public final class a implements d.n.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
+/* loaded from: classes10.dex */
+public final class a implements c.r.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public d.n.a.a.a.a.a f40992a;
+    public c.r.a.a.a.a.a f77868a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f40993b;
+    public String f77869b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f40994c;
+    public String f77870c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f40995d;
+    public String f77871d;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.n.a.a.a.b.a.a f40996e;
+    public c.r.a.a.a.b.a.a f77872e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f40997f;
+    public boolean f77873f;
 
-    public a(Context context, d.n.a.a.a.a.a aVar) {
+    public a(Context context, c.r.a.a.a.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,19 +47,19 @@ public final class a implements d.n.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
                 return;
             }
         }
-        this.f40993b = "";
-        this.f40994c = "";
-        this.f40995d = "";
-        this.f40997f = false;
-        this.f40992a = aVar;
-        this.f40996e = new d.n.a.a.a.b.a.a(context);
+        this.f77869b = "";
+        this.f77870c = "";
+        this.f77871d = "";
+        this.f77873f = false;
+        this.f77868a = aVar;
+        this.f77872e = new c.r.a.a.a.b.a.a(context);
     }
 
-    @Override // d.n.a.a.a.b.b
-    public final void a(d.n.a.a.a.a.a aVar) {
+    @Override // c.r.a.a.a.b.b
+    public final void a(c.r.a.a.a.a.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.f40996e.c(this);
+            this.f77872e.c(this);
         }
     }
 
@@ -67,15 +67,15 @@ public final class a implements d.n.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f40993b = str;
+            this.f77869b = str;
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            this.f40992a.a(true, this);
+            this.f77868a.a(true, this);
         }
     }
 
-    @Override // d.n.a.a.a.b.b
+    @Override // c.r.a.a.a.b.b
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -95,14 +95,14 @@ public final class a implements d.n.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         return (IBinder) invokeV.objValue;
     }
 
-    @Override // d.n.a.a.a.b.b
+    @Override // c.r.a.a.a.b.b
     public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40993b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f77869b : (String) invokeV.objValue;
     }
 
-    @Override // d.n.a.a.a.b.b
+    @Override // c.r.a.a.a.b.b
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -112,11 +112,11 @@ public final class a implements d.n.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
         return invokeV.booleanValue;
     }
 
-    @Override // d.n.a.a.a.b.b
+    @Override // c.r.a.a.a.b.b
     public final void d() {
-        d.n.a.a.a.b.a.a aVar;
+        c.r.a.a.a.b.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f40996e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (aVar = this.f77872e) == null) {
             return;
         }
         aVar.b();
@@ -124,9 +124,9 @@ public final class a implements d.n.a.a.a.b.b, com.yxcorp.kuaishou.addfp.a.b.b {
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        d.n.a.a.a.a.a aVar;
+        c.r.a.a.a.a.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f40992a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (aVar = this.f77868a) == null) {
             return;
         }
         aVar.a(false, this);

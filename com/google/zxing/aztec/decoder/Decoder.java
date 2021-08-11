@@ -7,7 +7,6 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.mapsdkplatform.comapi.map.r;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -18,6 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.paysdk.b.j;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
 import com.google.android.material.badge.BadgeDrawable;
@@ -30,7 +30,8 @@ import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public final class Decoder {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] DIGIT_TABLE;
@@ -42,7 +43,7 @@ public final class Decoder {
     public AztecDetectorResult ddata;
 
     /* renamed from: com.google.zxing.aztec.decoder.Decoder$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$aztec$decoder$Decoder$Table;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +88,7 @@ public final class Decoder {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Table {
         public static final /* synthetic */ Table[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -168,9 +169,9 @@ public final class Decoder {
             }
         }
         UPPER_TABLE = new String[]{"CTRL_PS", " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-        LOWER_TABLE = new String[]{"CTRL_PS", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", Config.APP_KEY, "l", "m", "n", Config.OS, "p", IAdRequestParam.COST_NAME, r.f7788a, "s", "t", "u", "v", "w", "x", "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-        MIXED_TABLE = new String[]{"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", TrackUI.SEPERATOR, "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", TNCManager.TNC_PROBE_HEADER_SECEPTOR, IStringUtil.WINDOWS_FOLDER_SEPARATOR, PayTypeItemView.PayTypeItemViewData.MASK_FLAG, "_", "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
-        PUNCT_TABLE = new String[]{"", "\r", Part.CRLF, ". ", StringUtil.ARRAY_ELEMENT_SEPARATOR, ": ", "!", "\"", "#", "$", "%", "&", "'", "(", SmallTailInfo.EMOTION_SUFFIX, "*", BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX, ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, StringUtil.ARRAY_START, "}", "CTRL_UL"};
+        LOWER_TABLE = new String[]{"CTRL_PS", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", j.q, "k", "l", "m", "n", "o", "p", IAdRequestParam.COST_NAME, r.f42062a, "s", "t", "u", "v", "w", "x", "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+        MIXED_TABLE = new String[]{"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", TrackUI.SEPERATOR, StringUtils.LF, "\u000b", "\f", StringUtils.CR, "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", TNCManager.TNC_PROBE_HEADER_SECEPTOR, IStringUtil.WINDOWS_FOLDER_SEPARATOR, PayTypeItemView.PayTypeItemViewData.MASK_FLAG, "_", "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
+        PUNCT_TABLE = new String[]{"", StringUtils.CR, Part.CRLF, ". ", StringUtil.ARRAY_ELEMENT_SEPARATOR, ": ", "!", "\"", "#", "$", "%", "&", "'", "(", SmallTailInfo.EMOTION_SUFFIX, "*", BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX, ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, StringUtil.ARRAY_START, "}", "CTRL_UL"};
         DIGIT_TABLE = new String[]{"CTRL_PS", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ",", ".", "CTRL_UL", "CTRL_US"};
     }
 

@@ -12,19 +12,19 @@ import com.bytedance.sdk.openadsdk.preload.geckox.model.Common;
 import java.util.ArrayList;
 import java.util.List;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class StatisticModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @c(a = "common")
 
     /* renamed from: common  reason: collision with root package name */
-    public Common f32454common;
+    public Common f68415common;
     @c(a = "packages")
     public List<PackageStatisticModel> packages;
 
     @Keep
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class PackageStatisticModel {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class StatisticModel {
         public Integer statsType;
 
         @Keep
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public static class DownloadFailRecords {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

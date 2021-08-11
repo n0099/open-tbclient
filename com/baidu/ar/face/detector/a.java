@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -125,10 +125,10 @@ public abstract class a {
         }
     }
 
-    public void g(long j) {
+    public void g(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.mf = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.mf = j2;
         }
     }
 }

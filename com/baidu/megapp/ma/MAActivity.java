@@ -2,14 +2,13 @@ package com.baidu.megapp.ma;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class MAActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MAActivity";
@@ -45,7 +44,6 @@ public abstract class MAActivity extends Activity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Log.d(TAG, "onGetBottomBar");
             return null;
         }
         return (MABottomToolBar) invokeV.objValue;
@@ -54,7 +52,7 @@ public abstract class MAActivity extends Activity {
     public void setMABottomToolBarVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            Log.d(TAG, "setMABottomToolBarVisibility = " + i2);
+            String str = "setMABottomToolBarVisibility = " + i2;
         }
     }
 }

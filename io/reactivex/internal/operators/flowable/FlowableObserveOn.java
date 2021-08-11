@@ -24,7 +24,7 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
     public final int prefetch;
     public final Scheduler scheduler;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class BaseObserveOnSubscriber<T> extends BasicIntQueueSubscription<T> implements FlowableSubscriber<T>, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8241002408341274697L;
@@ -186,10 +186,10 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j) {
+        public final void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
-                BackpressureHelper.add(this.requested, j);
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                BackpressureHelper.add(this.requested, j2);
                 trySchedule();
             }
         }
@@ -236,7 +236,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ObserveOnConditionalSubscriber<T> extends BaseObserveOnSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 644624475404284533L;
@@ -302,12 +302,12 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 T poll = this.queue.poll();
                 if (poll != null && this.sourceMode != 1) {
-                    long j = this.consumed + 1;
-                    if (j == this.limit) {
+                    long j2 = this.consumed + 1;
+                    if (j2 == this.limit) {
                         this.consumed = 0L;
-                        this.s.request(j);
+                        this.s.request(j2);
                     } else {
-                        this.consumed = j;
+                        this.consumed = j2;
                     }
                 }
                 return poll;
@@ -324,13 +324,13 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             }
             ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
             SimpleQueue<T> simpleQueue = this.queue;
-            long j = this.produced;
-            long j2 = this.consumed;
+            long j2 = this.produced;
+            long j3 = this.consumed;
             int i3 = 1;
             while (true) {
-                long j3 = this.requested.get();
+                long j4 = this.requested.get();
                 while (true) {
-                    i2 = (j > j3 ? 1 : (j == j3 ? 0 : -1));
+                    i2 = (j2 > j4 ? 1 : (j2 == j4 ? 0 : -1));
                     if (i2 == 0) {
                         break;
                     }
@@ -345,12 +345,12 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                             break;
                         }
                         if (conditionalSubscriber.tryOnNext(obj)) {
-                            j++;
+                            j2++;
                         }
-                        j2++;
-                        if (j2 == this.limit) {
-                            this.s.request(j2);
-                            j2 = 0;
+                        j3++;
+                        if (j3 == this.limit) {
+                            this.s.request(j3);
+                            j3 = 0;
                         }
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
@@ -366,8 +366,8 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                 }
                 int i4 = get();
                 if (i3 == i4) {
-                    this.produced = j;
-                    this.consumed = j2;
+                    this.produced = j2;
+                    this.consumed = j3;
                     i3 = addAndGet(-i3);
                     if (i3 == 0) {
                         return;
@@ -412,11 +412,11 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             }
             ConditionalSubscriber<? super T> conditionalSubscriber = this.actual;
             SimpleQueue<T> simpleQueue = this.queue;
-            long j = this.produced;
+            long j2 = this.produced;
             int i2 = 1;
             while (true) {
-                long j2 = this.requested.get();
-                while (j != j2) {
+                long j3 = this.requested.get();
+                while (j2 != j3) {
                     try {
                         Object obj = (T) simpleQueue.poll();
                         if (this.cancelled) {
@@ -427,7 +427,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                             this.worker.dispose();
                             return;
                         } else if (conditionalSubscriber.tryOnNext(obj)) {
-                            j++;
+                            j2++;
                         }
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
@@ -447,7 +447,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                 }
                 int i3 = get();
                 if (i2 == i3) {
-                    this.produced = j;
+                    this.produced = j2;
                     i2 = addAndGet(-i2);
                     if (i2 == 0) {
                         return;
@@ -459,7 +459,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ObserveOnSubscriber<T> extends BaseObserveOnSubscriber<T> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4547113800637756442L;
@@ -524,12 +524,12 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 T poll = this.queue.poll();
                 if (poll != null && this.sourceMode != 1) {
-                    long j = this.produced + 1;
-                    if (j == this.limit) {
+                    long j2 = this.produced + 1;
+                    if (j2 == this.limit) {
                         this.produced = 0L;
-                        this.s.request(j);
+                        this.s.request(j2);
                     } else {
-                        this.produced = j;
+                        this.produced = j2;
                     }
                 }
                 return poll;
@@ -546,12 +546,12 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             }
             Subscriber<? super T> subscriber = this.actual;
             SimpleQueue<T> simpleQueue = this.queue;
-            long j = this.produced;
+            long j2 = this.produced;
             int i3 = 1;
             while (true) {
-                long j2 = this.requested.get();
+                long j3 = this.requested.get();
                 while (true) {
-                    i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                    i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
                     if (i2 == 0) {
                         break;
                     }
@@ -566,13 +566,13 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                             break;
                         }
                         subscriber.onNext(obj);
-                        j++;
-                        if (j == this.limit) {
-                            if (j2 != Long.MAX_VALUE) {
-                                j2 = this.requested.addAndGet(-j);
+                        j2++;
+                        if (j2 == this.limit) {
+                            if (j3 != Long.MAX_VALUE) {
+                                j3 = this.requested.addAndGet(-j2);
                             }
-                            this.s.request(j);
-                            j = 0;
+                            this.s.request(j2);
+                            j2 = 0;
                         }
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
@@ -588,7 +588,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                 }
                 int i4 = get();
                 if (i3 == i4) {
-                    this.produced = j;
+                    this.produced = j2;
                     i3 = addAndGet(-i3);
                     if (i3 == 0) {
                         return;
@@ -633,11 +633,11 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
             }
             Subscriber<? super T> subscriber = this.actual;
             SimpleQueue<T> simpleQueue = this.queue;
-            long j = this.produced;
+            long j2 = this.produced;
             int i2 = 1;
             while (true) {
-                long j2 = this.requested.get();
-                while (j != j2) {
+                long j3 = this.requested.get();
+                while (j2 != j3) {
                     try {
                         Object obj = (T) simpleQueue.poll();
                         if (this.cancelled) {
@@ -649,7 +649,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                             return;
                         }
                         subscriber.onNext(obj);
-                        j++;
+                        j2++;
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
                         this.s.cancel();
@@ -668,7 +668,7 @@ public final class FlowableObserveOn<T> extends AbstractFlowableWithUpstream<T, 
                 }
                 int i3 = get();
                 if (i2 == i3) {
-                    this.produced = j;
+                    this.produced = j2;
                     i2 = addAndGet(-i2);
                     if (i2 == 0) {
                         return;

@@ -9,14 +9,13 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ActivityUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +114,7 @@ public class ActivityUtils {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, intent) == null) {
             Class<?> shellActivityClass = AppUtils.getShellActivityClass();
             intent.putExtra("activityImplName", IReflectionInfo.APP_PRI_ACTIVITY);
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
             intent.setClass(context, shellActivityClass);
             context.startActivity(intent);
         }

@@ -22,7 +22,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class DownloadTaskImpl implements DownloadTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -257,7 +257,7 @@ public abstract class DownloadTaskImpl implements DownloadTask {
         }
     }
 
-    public abstract RandomAccessFile getFile(File file, String str, long j) throws IOException;
+    public abstract RandomAccessFile getFile(File file, String str, long j2) throws IOException;
 
     public abstract Map<String, String> getHttpHeaders(ThreadRecord threadRecord);
 
@@ -345,10 +345,10 @@ public abstract class DownloadTaskImpl implements DownloadTask {
                     return;
                 }
                 randomAccessFile.write(bArr, 0, read);
-                long j = read;
-                this.mThreadRecord.setFinished(this.mThreadRecord.getFinished() + j);
+                long j2 = read;
+                this.mThreadRecord.setFinished(this.mThreadRecord.getFinished() + j2);
                 synchronized (this.mOnDownloadListener) {
-                    this.mDownloadInfo.setFinished(this.mDownloadInfo.getFinished() + j);
+                    this.mDownloadInfo.setFinished(this.mDownloadInfo.getFinished() + j2);
                     this.mOnDownloadListener.onDownloadProgress(this.mDownloadInfo.getFinished(), this.mDownloadInfo.getLength());
                 }
             } catch (IOException e2) {

@@ -1,5 +1,6 @@
 package com.baidu.tieba.interestlabel.message;
 
+import c.a.p0.m1.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -8,9 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.l1.b.b;
 import tbclient.GetTagList.GetTagListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ResponseHttpGetLabelMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

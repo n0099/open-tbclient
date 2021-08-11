@@ -26,7 +26,7 @@ import java.util.Date;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MovieHeaderBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "mvhd";
@@ -378,12 +378,12 @@ public class MovieHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setDuration(long j) {
+    public void setDuration(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this, Conversions.longObject(j)));
-            this.duration = j;
-            if (j >= 4294967296L) {
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_12, this, this, Conversions.longObject(j2)));
+            this.duration = j2;
+            if (j2 >= 4294967296L) {
                 setVersion(1);
             }
         }
@@ -408,11 +408,11 @@ public class MovieHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setNextTrackId(long j) {
+    public void setNextTrackId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_16, this, this, Conversions.longObject(j)));
-            this.nextTrackId = j;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_16, this, this, Conversions.longObject(j2)));
+            this.nextTrackId = j2;
         }
     }
 
@@ -464,11 +464,11 @@ public class MovieHeaderBox extends AbstractFullBox {
         }
     }
 
-    public void setTimescale(long j) {
+    public void setTimescale(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048605, this, j) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.longObject(j)));
-            this.timescale = j;
+        if (interceptable == null || interceptable.invokeJ(1048605, this, j2) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_11, this, this, Conversions.longObject(j2)));
+            this.timescale = j2;
         }
     }
 

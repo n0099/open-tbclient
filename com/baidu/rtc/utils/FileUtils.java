@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +33,7 @@ import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class FileUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileUtils";
@@ -75,7 +74,7 @@ public class FileUtils {
                 try {
                     return new File(str).exists();
                 } catch (Exception e2) {
-                    Log.e("FileUtils", e2.getMessage());
+                    e2.getMessage();
                 }
             }
             return false;
@@ -267,7 +266,7 @@ public class FileUtils {
                 fileOutputStream = null;
                 fileChannel2 = null;
                 try {
-                    Log.e("FileUtils", e2.getMessage());
+                    e2.getMessage();
                     CloseHelper.close(fileChannel2);
                     CloseHelper.close(fileOutputStream);
                     CloseHelper.close(fileChannel3);
@@ -302,10 +301,10 @@ public class FileUtils {
                         FileChannel channel = fileOutputStream.getChannel();
                         try {
                             long size = fileChannel.size();
-                            long j = 0;
-                            while (j < size) {
-                                long j2 = size - j;
-                                j += channel.transferFrom(fileChannel, j, j2 > 31457280 ? 31457280L : j2);
+                            long j2 = 0;
+                            while (j2 < size) {
+                                long j3 = size - j2;
+                                j2 += channel.transferFrom(fileChannel, j2, j3 > 31457280 ? 31457280L : j3);
                             }
                             CloseHelper.close(channel);
                             CloseHelper.close(fileOutputStream);
@@ -329,7 +328,7 @@ public class FileUtils {
                         e2 = e5;
                         fileChannel3 = fileChannel;
                         fileChannel2 = null;
-                        Log.e("FileUtils", e2.getMessage());
+                        e2.getMessage();
                         CloseHelper.close(fileChannel2);
                         CloseHelper.close(fileOutputStream);
                         CloseHelper.close(fileChannel3);
@@ -347,7 +346,7 @@ public class FileUtils {
             } catch (Exception e6) {
                 e2 = e6;
                 fileChannel2 = null;
-                Log.e("FileUtils", e2.getMessage());
+                e2.getMessage();
                 CloseHelper.close(fileChannel2);
                 CloseHelper.close(fileOutputStream);
                 CloseHelper.close(fileChannel3);
@@ -410,20 +409,20 @@ public class FileUtils {
             return invokeL.longValue;
         }
         FileInputStream fileInputStream2 = null;
-        long j = 0;
+        long j2 = 0;
         try {
             try {
                 if (file.exists()) {
                     fileInputStream = new FileInputStream(file);
                     try {
-                        j = fileInputStream.available();
+                        j2 = fileInputStream.available();
                         fileInputStream2 = fileInputStream;
                     } catch (Exception e2) {
                         e = e2;
                         fileInputStream2 = fileInputStream;
-                        Log.e("FileUtils", e.getMessage());
+                        e.getMessage();
                         CloseHelper.close(fileInputStream2);
-                        return j;
+                        return j2;
                     } catch (Throwable th) {
                         th = th;
                         CloseHelper.close(fileInputStream);
@@ -434,7 +433,7 @@ public class FileUtils {
                 e = e3;
             }
             CloseHelper.close(fileInputStream2);
-            return j;
+            return j2;
         } catch (Throwable th2) {
             th = th2;
             fileInputStream = fileInputStream2;
@@ -484,7 +483,7 @@ public class FileUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, file)) == null) {
-            long j = 0;
+            long j2 = 0;
             if (file == null || !file.exists()) {
                 return 0L;
             }
@@ -499,9 +498,9 @@ public class FileUtils {
                 return 0L;
             }
             for (File file2 : listFiles) {
-                j += getSize(file2);
+                j2 += getSize(file2);
             }
-            return j;
+            return j2;
         }
         return invokeL.longValue;
     }
@@ -694,39 +693,36 @@ public class FileUtils {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v2 */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.Closeable] */
     public static String saveBitmap(String str, String str2, Bitmap bitmap, int i2, Bitmap.CompressFormat compressFormat) {
         InterceptResult invokeCommon;
+        Throwable th;
         IOException e2;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{str, str2, bitmap, Integer.valueOf(i2), compressFormat})) != null) {
             return (String) invokeCommon.objValue;
         }
-        ?? r0 = 0;
+        FileOutputStream fileOutputStream2 = null;
+        if (bitmap == null) {
+            CloseHelper.close((Closeable) null);
+            return null;
+        }
         try {
-            if (bitmap == null) {
+            File file = new File(str);
+            if (!file.exists() && !file.mkdirs()) {
                 CloseHelper.close((Closeable) null);
                 return null;
             }
-            try {
-                File file = new File(str);
-                if (!file.exists() && !file.mkdirs()) {
-                    CloseHelper.close((Closeable) null);
-                    return null;
-                }
-                File file2 = new File(str, str2);
-                if (file2.exists() && !file2.delete()) {
-                    CloseHelper.close((Closeable) null);
-                    return null;
-                } else if (!file2.createNewFile()) {
-                    CloseHelper.close((Closeable) null);
-                    return null;
-                } else {
-                    fileOutputStream = new FileOutputStream(file2);
+            File file2 = new File(str, str2);
+            if (file2.exists() && !file2.delete()) {
+                CloseHelper.close((Closeable) null);
+                return null;
+            } else if (!file2.createNewFile()) {
+                CloseHelper.close((Closeable) null);
+                return null;
+            } else {
+                fileOutputStream = new FileOutputStream(file2);
+                try {
                     try {
                         bitmap.compress(compressFormat, i2, fileOutputStream);
                         String absolutePath = file2.getAbsolutePath();
@@ -734,22 +730,24 @@ public class FileUtils {
                         return absolutePath;
                     } catch (IOException e3) {
                         e2 = e3;
-                        Log.e("FileUtils", e2.getMessage());
+                        e2.getMessage();
                         CloseHelper.close(fileOutputStream);
                         return null;
                     }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream2 = fileOutputStream;
+                    CloseHelper.close(fileOutputStream2);
+                    throw th;
                 }
-            } catch (IOException e4) {
-                e2 = e4;
-                fileOutputStream = null;
-            } catch (Throwable th) {
-                th = th;
-                CloseHelper.close((Closeable) r0);
-                throw th;
             }
-        } catch (Throwable th2) {
-            th = th2;
-            r0 = str;
+        } catch (IOException e4) {
+            e2 = e4;
+            fileOutputStream = null;
+        } catch (Throwable th3) {
+            th = th3;
+            CloseHelper.close(fileOutputStream2);
+            throw th;
         }
     }
 

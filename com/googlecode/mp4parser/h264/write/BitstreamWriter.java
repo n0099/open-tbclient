@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.h264.Debug;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class BitstreamWriter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,11 +76,11 @@ public class BitstreamWriter {
         }
     }
 
-    public void writeNBit(long j, int i2) throws IOException {
+    public void writeNBit(long j2, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
             for (int i3 = 0; i3 < i2; i3++) {
-                write1Bit(((int) (j >> ((i2 - i3) - 1))) & 1);
+                write1Bit(((int) (j2 >> ((i2 - i3) - 1))) & 1);
             }
         }
     }

@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UIMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UI_TIP_AR_ENTERING = "正在进入实景模式...";
@@ -59,7 +59,7 @@ public class UIMsg {
     public static final String UI_TIP_YOUR_SEARCH_START_IN_CITY = "您要找的起点在如下城市:";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class NetDetectedType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NETYPE_2G = 2;
@@ -90,7 +90,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class UIGPSStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int GPS_DEVICE_DISABLED = 0;
@@ -101,7 +101,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f6851a;
+        public final /* synthetic */ UIMsg f41091a;
 
         public UIGPSStatus(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -118,11 +118,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f6851a = uIMsg;
+            this.f41091a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class UIHttpType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADD_FLS = 10;
@@ -138,7 +138,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f6852a;
+        public final /* synthetic */ UIMsg f41092a;
 
         public UIHttpType(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -155,11 +155,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f6852a = uIMsg;
+            this.f41092a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class UIOffType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_DATARUN_EXCEPTION = -1;
@@ -180,7 +180,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f6853a;
+        public final /* synthetic */ UIMsg f41093a;
 
         public UIOffType(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -197,11 +197,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f6853a = uIMsg;
+            this.f41093a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class WalkNaviMsg {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_APP_PB_DATA_OK = 2008;
@@ -239,7 +239,7 @@ public class UIMsg {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class d_ResultType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ADDR_LIST = 23;
@@ -279,7 +279,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f6854a;
+        public final /* synthetic */ UIMsg f41094a;
 
         public d_ResultType(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -296,11 +296,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f6854a = uIMsg;
+            this.f41094a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class f_FUN {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FUN_ID_GBS = 13;
@@ -460,7 +460,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f6855a;
+        public final /* synthetic */ UIMsg f41095a;
 
         public f_FUN(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -477,11 +477,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f6855a = uIMsg;
+            this.f41095a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class k_event {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MV_MAP_ADDLOGOBJ = 4108;
@@ -539,7 +539,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f6856a;
+        public final /* synthetic */ UIMsg f41096a;
 
         public k_event(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -556,11 +556,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f6856a = uIMsg;
+            this.f41096a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class l_ErrorNo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CORE_MEMORY_ALLOCATE_ERROR = 101;
@@ -581,7 +581,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f6857a;
+        public final /* synthetic */ UIMsg f41097a;
 
         public l_ErrorNo(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -598,11 +598,11 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f6857a = uIMsg;
+            this.f41097a = uIMsg;
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class m_AppUI {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int CELLDATA_UPLOAD_REQ = 507;
@@ -664,7 +664,7 @@ public class UIMsg {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UIMsg f6858a;
+        public final /* synthetic */ UIMsg f41098a;
 
         public m_AppUI(UIMsg uIMsg) {
             Interceptable interceptable = $ic;
@@ -681,7 +681,7 @@ public class UIMsg {
                     return;
                 }
             }
-            this.f6858a = uIMsg;
+            this.f41098a = uIMsg;
         }
     }
 

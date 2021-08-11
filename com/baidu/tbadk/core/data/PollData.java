@@ -1,6 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.s.q.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ResultTB;
-import d.a.p0.s.q.p;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.PollInfo;
 import tbclient.PollOption;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PollData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +107,7 @@ public class PollData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.totalPoll : invokeV.longValue;
     }
 
-    @Override // d.a.p0.s.q.p
+    @Override // c.a.o0.s.q.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
@@ -120,7 +119,7 @@ public class PollData extends p implements Serializable {
             this.optionsCount = jSONObject.optInt("options_count", 0);
             this.isPolled = jSONObject.optInt("is_polled", 0);
             this.polledValue = jSONObject.optString("polled_value", "");
-            this.endTime = jSONObject.optInt(ResultTB.ENDTIME, 0);
+            this.endTime = jSONObject.optInt("end_time", 0);
             this.totalPoll = jSONObject.optLong("total_poll", 0L);
             this.title = jSONObject.optString("title", "");
             this.lastTime = jSONObject.optInt("last_time", 0);
@@ -219,17 +218,17 @@ public class PollData extends p implements Serializable {
         }
     }
 
-    public void setTotalNum(long j) {
+    public void setTotalNum(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.totalNum = j;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.totalNum = j2;
         }
     }
 
-    public void setTotalPoll(long j) {
+    public void setTotalPoll(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.totalPoll = j;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            this.totalPoll = j2;
         }
     }
 }

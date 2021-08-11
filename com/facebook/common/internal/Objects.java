@@ -13,19 +13,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 import javax.annotation.CheckReturnValue;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public final class Objects {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.common.internal.Objects$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class ToStringHelper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +35,7 @@ public final class Objects {
         public ValueHolder holderTail;
         public boolean omitNullValues;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public static final class ValueHolder {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -108,7 +109,7 @@ public final class Objects {
                 boolean z = this.omitNullValues;
                 StringBuilder sb = new StringBuilder(32);
                 sb.append(this.className);
-                sb.append('{');
+                sb.append(ExtendedMessageFormat.START_FE);
                 String str = "";
                 for (ValueHolder valueHolder = this.holderHead.next; valueHolder != null; valueHolder = valueHolder.next) {
                     if (!z || valueHolder.value != null) {
@@ -116,13 +117,13 @@ public final class Objects {
                         String str2 = valueHolder.name;
                         if (str2 != null) {
                             sb.append(str2);
-                            sb.append(a.f1923h);
+                            sb.append(a.f35773h);
                         }
                         sb.append(valueHolder.value);
                         str = StringUtil.ARRAY_ELEMENT_SEPARATOR;
                     }
                 }
-                sb.append('}');
+                sb.append(ExtendedMessageFormat.END_FE);
                 return sb.toString();
             }
             return (String) invokeV.objValue;
@@ -232,16 +233,16 @@ public final class Objects {
             return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? addHolder(String.valueOf(i2)) : (ToStringHelper) invokeI.objValue;
         }
 
-        public ToStringHelper add(String str, long j) {
+        public ToStringHelper add(String str, long j2) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j)) == null) ? addHolder(str, String.valueOf(j)) : (ToStringHelper) invokeLJ.objValue;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, str, j2)) == null) ? addHolder(str, String.valueOf(j2)) : (ToStringHelper) invokeLJ.objValue;
         }
 
-        public ToStringHelper addValue(long j) {
+        public ToStringHelper addValue(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) ? addHolder(String.valueOf(j)) : (ToStringHelper) invokeJ.objValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) ? addHolder(String.valueOf(j2)) : (ToStringHelper) invokeJ.objValue;
         }
     }
 

@@ -1,6 +1,5 @@
 package com.baidu.tbadk.core.util;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PvThread extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,30 +51,28 @@ public class PvThread extends Thread {
             if (TbadkCoreApplication.getInst().checkInterrupt()) {
                 return;
             }
-            String str = this.mIsInpv ? TbConfig.IN_PV_ADDRESS : TbConfig.LOAD_REG_PV_ADDRESS;
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + str);
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + (this.mIsInpv ? TbConfig.IN_PV_ADDRESS : TbConfig.LOAD_REG_PV_ADDRESS));
             netWork.addPostData("st_type", this.mType);
-            String str2 = this.mParam;
+            String str = this.mParam;
+            if (str != null) {
+                netWork.addPostData("st_param", str);
+            }
+            String str2 = this.mObj;
             if (str2 != null) {
-                netWork.addPostData("st_param", str2);
+                netWork.addPostData("obj", str2);
             }
-            String str3 = this.mObj;
+            String str3 = this.mObjTp;
             if (str3 != null) {
-                netWork.addPostData("obj", str3);
-            }
-            String str4 = this.mObjTp;
-            if (str4 != null) {
-                netWork.addPostData("obj_tp", str4);
+                netWork.addPostData("obj_tp", str3);
             }
             String postNetData = netWork.postNetData();
             System.out.println("pv_test !!!");
             if (postNetData != null) {
-                Log.i("USEINTERVAL", postNetData);
                 try {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     if (jSONObject.has("use_duration")) {
                         long optLong = jSONObject.optLong("use_duration");
-                        Log.i("USEINTERVAL", "duration " + optLong);
+                        String str4 = "duration " + optLong;
                         if (optLong < 0 || optLong == TbadkCoreApplication.getInst().getUseTimeInterval()) {
                             return;
                         }

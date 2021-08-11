@@ -22,7 +22,7 @@ import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.IOException;
 import java.util.HashMap;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SessionMonitorNetWorker implements INoProGuard, INetListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "ZeusMonitorEngine";
@@ -206,19 +206,19 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f27600a;
+                public final /* synthetic */ String f63428a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f27601b;
+                public final /* synthetic */ String f63429b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ String f27602c;
+                public final /* synthetic */ String f63430c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ boolean f27603d;
+                public final /* synthetic */ boolean f63431d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ SessionMonitorNetWorker f27604e;
+                public final /* synthetic */ SessionMonitorNetWorker f63432e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -235,35 +235,35 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
                             return;
                         }
                     }
-                    this.f27604e = this;
-                    this.f27600a = str2;
-                    this.f27601b = str;
-                    this.f27602c = str3;
-                    this.f27603d = z;
+                    this.f63432e = this;
+                    this.f63428a = str2;
+                    this.f63429b = str;
+                    this.f63430c = str3;
+                    this.f63431d = z;
                 }
 
                 @Override // java.lang.Runnable
                 public final void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f27600a)) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f63428a)) {
                         return;
                     }
                     if (WebSettingsGlobalBlink.isSessionDataEnable()) {
-                        Log.i(SessionMonitorNetWorker.LOG_TAG, "aContent=" + this.f27600a);
+                        Log.i(SessionMonitorNetWorker.LOG_TAG, "aContent=" + this.f63428a);
                         String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
                         if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
                             try {
                                 if (!WebSettingsGlobalBlink.getLogsdkEnabled() && !WebSettingsGlobalBlink.getDoubleLogEnabled()) {
-                                    this.f27604e.sendStatisticsDataToServer(RC4.kernelEncrypt(RC4.kernelGzipCompress(this.f27600a.getBytes())), this.f27602c, this.f27603d);
+                                    this.f63432e.sendStatisticsDataToServer(RC4.kernelEncrypt(RC4.kernelGzipCompress(this.f63428a.getBytes())), this.f63430c, this.f63431d);
                                 }
                                 if (!SessionMonitorNetWorker.mLogSdkInit) {
                                     Log.i(SessionMonitorNetWorker.LOG_TAG, "BdLogSDK.init1");
                                     com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
                                     boolean unused = SessionMonitorNetWorker.mLogSdkInit = true;
                                 }
-                                com.baidu.webkit.logsdk.a.a(this.f27601b, this.f27600a);
+                                com.baidu.webkit.logsdk.a.a(this.f63429b, this.f63428a);
                                 if (WebSettingsGlobalBlink.getDoubleLogEnabled()) {
-                                    this.f27604e.sendStatisticsDataToServer(RC4.kernelEncrypt(RC4.kernelGzipCompress(this.f27600a.getBytes())), this.f27602c, this.f27603d);
+                                    this.f63432e.sendStatisticsDataToServer(RC4.kernelEncrypt(RC4.kernelGzipCompress(this.f63428a.getBytes())), this.f63430c, this.f63431d);
                                 }
                             } catch (IOException e2) {
                                 e2.printStackTrace();
@@ -274,13 +274,13 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
                                 com.baidu.webkit.logsdk.a.a(WebKitFactory.getContext(), new c());
                                 boolean unused2 = SessionMonitorNetWorker.mLogSdkInit = true;
                             }
-                            com.baidu.webkit.logsdk.a.a(this.f27601b, this.f27600a);
+                            com.baidu.webkit.logsdk.a.a(this.f63429b, this.f63428a);
                         } else {
-                            this.f27604e.sendStatisticsDataToServer(RC4.kernelEncrypt(Base64.encode(this.f27600a.getBytes(), false)), this.f27602c, this.f27603d);
+                            this.f63432e.sendStatisticsDataToServer(RC4.kernelEncrypt(Base64.encode(this.f63428a.getBytes(), false)), this.f63430c, this.f63431d);
                         }
                     }
                     if (WebSettingsGlobalBlink.useT5Log()) {
-                        this.f27604e.sendStatisticsDataToServer(RC4.kernelEncrypt(Base64.encode(this.f27600a.getBytes(), false)), this.f27602c, this.f27603d);
+                        this.f63432e.sendStatisticsDataToServer(RC4.kernelEncrypt(Base64.encode(this.f63428a.getBytes(), false)), this.f63430c, this.f63431d);
                     }
                 }
             };
@@ -303,13 +303,13 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ byte[] f27597a;
+                    public final /* synthetic */ byte[] f63425a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f27598b;
+                    public final /* synthetic */ String f63426b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ SessionMonitorNetWorker f27599c;
+                    public final /* synthetic */ SessionMonitorNetWorker f63427c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -326,21 +326,21 @@ public class SessionMonitorNetWorker implements INoProGuard, INetListener {
                                 return;
                             }
                         }
-                        this.f27599c = this;
-                        this.f27597a = bArr;
-                        this.f27598b = str2;
+                        this.f63427c = this;
+                        this.f63425a = bArr;
+                        this.f63426b = str2;
                     }
 
                     @Override // java.lang.Runnable
                     public final void run() {
                         byte[] bArr2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (bArr2 = this.f27597a) == null || bArr2.length == 0 || !WebSettingsGlobalBlink.isSessionDataEnable()) {
+                        if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || (bArr2 = this.f63425a) == null || bArr2.length == 0 || !WebSettingsGlobalBlink.isSessionDataEnable()) {
                             return;
                         }
                         String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("gzip_support");
                         if (GetCloudSettingsValue == null || !GetCloudSettingsValue.equals("false")) {
-                            this.f27599c.sendStatisticsDataToServer(this.f27597a, this.f27598b, true);
+                            this.f63427c.sendStatisticsDataToServer(this.f63425a, this.f63426b, true);
                         }
                     }
                 });

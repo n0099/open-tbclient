@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.util.Matrix;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class Movie {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,10 +35,10 @@ public class Movie {
         this.tracks = new LinkedList();
     }
 
-    public static long gcd(long j, long j2) {
+    public static long gcd(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j2 == 0 ? j : gcd(j2, j % j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j3 == 0 ? j2 : gcd(j3, j2 % j3) : invokeCommon.longValue;
     }
 
     public void addTrack(Track track) {
@@ -60,13 +61,13 @@ public class Movie {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j = 0;
+            long j2 = 0;
             for (Track track : this.tracks) {
-                if (j < track.getTrackMetaData().getTrackId()) {
-                    j = track.getTrackMetaData().getTrackId();
+                if (j2 < track.getTrackMetaData().getTrackId()) {
+                    j2 = track.getTrackMetaData().getTrackId();
                 }
             }
-            return j + 1;
+            return j2 + 1;
         }
         return invokeV.longValue;
     }
@@ -84,12 +85,12 @@ public class Movie {
         return invokeV.longValue;
     }
 
-    public Track getTrackByTrackId(long j) {
+    public Track getTrackByTrackId(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) {
             for (Track track : this.tracks) {
-                if (track.getTrackMetaData().getTrackId() == j) {
+                if (track.getTrackMetaData().getTrackId() == j2) {
                     return track;
                 }
             }
@@ -126,7 +127,7 @@ public class Movie {
             for (Track track : this.tracks) {
                 str = String.valueOf(str) + "track_" + track.getTrackMetaData().getTrackId() + " (" + track.getHandler() + ") ";
             }
-            return String.valueOf(str) + '}';
+            return String.valueOf(str) + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

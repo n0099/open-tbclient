@@ -35,38 +35,39 @@ import java.util.TimeZone;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
-import org.apache.commons.base.CharEncoding;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f28315a;
+    public static final byte[] f64163a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f28316b;
+    public static final String[] f64164b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final ac f28317c;
+    public static final ac f64165c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final aa f28318d;
+    public static final aa f64166d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Charset f28319e;
+    public static final Charset f64167e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final Charset f28320f;
+    public static final Charset f64168f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final TimeZone f28321g;
+    public static final TimeZone f64169g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final Comparator<String> f28322h;
+    public static final Comparator<String> f64170h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final f f28323i;
-    public static final f j;
+    public static final f f64171i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final f f64172j;
     public static final f k;
     public static final f l;
     public static final f m;
@@ -91,23 +92,23 @@ public final class c {
             }
         }
         byte[] bArr = new byte[0];
-        f28315a = bArr;
-        f28316b = new String[0];
-        f28317c = ac.a(null, bArr);
-        f28318d = aa.a((v) null, f28315a);
-        f28323i = f.b("efbbbf");
-        j = f.b("feff");
+        f64163a = bArr;
+        f64164b = new String[0];
+        f64165c = ac.a(null, bArr);
+        f64166d = aa.a((v) null, f64163a);
+        f64171i = f.b("efbbbf");
+        f64172j = f.b("feff");
         k = f.b("fffe");
         l = f.b("0000ffff");
         m = f.b("ffff0000");
-        f28319e = Charset.forName("UTF-8");
-        f28320f = Charset.forName("ISO-8859-1");
-        n = Charset.forName(CharEncoding.UTF_16BE);
-        o = Charset.forName(CharEncoding.UTF_16LE);
+        f64167e = Charset.forName("UTF-8");
+        f64168f = Charset.forName("ISO-8859-1");
+        n = Charset.forName("UTF-16BE");
+        o = Charset.forName("UTF-16LE");
         p = Charset.forName("UTF-32BE");
         q = Charset.forName("UTF-32LE");
-        f28321g = TimeZone.getTimeZone("GMT");
-        f28322h = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.a.c.1
+        f64169g = TimeZone.getTimeZone("GMT");
+        f64170h = new Comparator<String>() { // from class: com.bytedance.sdk.component.b.b.a.c.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -395,10 +396,10 @@ public final class c {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f28324a;
+            public final /* synthetic */ String f64173a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ boolean f28325b;
+            public final /* synthetic */ boolean f64174b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -415,8 +416,8 @@ public final class c {
                         return;
                     }
                 }
-                this.f28324a = str;
-                this.f28325b = z;
+                this.f64173a = str;
+                this.f64174b = z;
             }
 
             @Override // java.util.concurrent.ThreadFactory
@@ -424,8 +425,8 @@ public final class c {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, runnable)) == null) {
-                    Thread thread = new Thread(runnable, "tt_pangle_thread_" + this.f28324a);
-                    thread.setDaemon(this.f28325b);
+                    Thread thread = new Thread(runnable, "tt_pangle_thread_" + this.f64173a);
+                    thread.setDaemon(this.f64174b);
                     return thread;
                 }
                 return (Thread) invokeL.objValue;
@@ -650,11 +651,11 @@ public final class c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, eVar, charset)) == null) {
-            if (eVar.a(0L, f28323i)) {
-                eVar.h(f28323i.g());
-                return f28319e;
-            } else if (eVar.a(0L, j)) {
-                eVar.h(j.g());
+            if (eVar.a(0L, f64171i)) {
+                eVar.h(f64171i.g());
+                return f64167e;
+            } else if (eVar.a(0L, f64172j)) {
+                eVar.h(f64172j.g());
                 return n;
             } else if (eVar.a(0L, k)) {
                 eVar.h(k.g());

@@ -1,7 +1,6 @@
 package com.baidu.searchbox.elasticthread.executor;
 
 import android.os.SystemClock;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long KEEP_ALIVE_TIME_OPEN = 5000;
@@ -112,7 +111,7 @@ public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (this.isOpen) {
-                Log.w(getTag(), "This executor cell is already opened.");
+                getTag();
                 return;
             }
             this.isOpen = true;
@@ -128,7 +127,7 @@ public abstract class BaseDredgeExecutorCell extends BaseExecutorCell {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!this.isOpen) {
-                Log.w(getTag(), "This executor cell is already shutdown.");
+                getTag();
                 return;
             }
             this.isOpen = false;

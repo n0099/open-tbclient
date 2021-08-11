@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -273,24 +272,21 @@ public final class LocalBroadcastManager {
                 Set<String> categories = intent.getCategories();
                 boolean z = (intent.getFlags() & 8) != 0;
                 if (z) {
-                    Log.v(TAG, "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent);
+                    String str3 = "Resolving type " + resolveTypeIfNeeded + " scheme " + scheme + " of intent " + intent;
                 }
                 ArrayList<ReceiverRecord> arrayList3 = this.mActions.get(intent.getAction());
                 if (arrayList3 != null) {
                     if (z) {
-                        Log.v(TAG, "Action list: " + arrayList3);
+                        String str4 = "Action list: " + arrayList3;
                     }
                     ArrayList arrayList4 = null;
                     int i3 = 0;
                     while (i3 < arrayList3.size()) {
                         ReceiverRecord receiverRecord = arrayList3.get(i3);
                         if (z) {
-                            Log.v(TAG, "Matching against filter " + receiverRecord.filter);
+                            String str5 = "Matching against filter " + receiverRecord.filter;
                         }
                         if (receiverRecord.broadcasting) {
-                            if (z) {
-                                Log.v(TAG, "  Filter's target already added");
-                            }
                             i2 = i3;
                             arrayList2 = arrayList3;
                             str = action;
@@ -305,7 +301,7 @@ public final class LocalBroadcastManager {
                             int match = receiverRecord.filter.match(action, resolveTypeIfNeeded, scheme, data, categories, TAG);
                             if (match >= 0) {
                                 if (z) {
-                                    Log.v(TAG, "  Filter matched!  match=0x" + Integer.toHexString(match));
+                                    String str6 = "  Filter matched!  match=0x" + Integer.toHexString(match);
                                 }
                                 arrayList4 = arrayList == null ? new ArrayList() : arrayList;
                                 arrayList4.add(receiverRecord);
@@ -315,7 +311,7 @@ public final class LocalBroadcastManager {
                                 arrayList3 = arrayList2;
                                 resolveTypeIfNeeded = str2;
                             } else if (z) {
-                                Log.v(TAG, "  Filter did not match: " + (match != -4 ? match != -3 ? match != -2 ? match != -1 ? "unknown reason" : "type" : "data" : "action" : "category"));
+                                String str7 = "  Filter did not match: " + (match != -4 ? match != -3 ? match != -2 ? match != -1 ? "unknown reason" : "type" : "data" : "action" : "category");
                             }
                         }
                         arrayList4 = arrayList;

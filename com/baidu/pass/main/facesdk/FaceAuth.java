@@ -1,6 +1,5 @@
 package com.baidu.pass.main.facesdk;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
@@ -9,7 +8,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+import com.dxmpay.wallet.utils.StatHelper;
+/* loaded from: classes5.dex */
 public class FaceAuth {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FaceSDK";
@@ -78,8 +78,8 @@ public class FaceAuth {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         int nativeCreatInstance = this.this$0.nativeCreatInstance();
-                        Log.v("FaceSDK", "bdface_create_instance status " + nativeCreatInstance);
-                        this.val$callback.onResponse(nativeCreatInstance, "OK");
+                        String str = "bdface_create_instance status " + nativeCreatInstance;
+                        this.val$callback.onResponse(nativeCreatInstance, StatHelper.SENSOR_OK);
                     }
                 }
             });

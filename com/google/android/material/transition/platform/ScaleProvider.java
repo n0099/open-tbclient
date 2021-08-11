@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RequiresApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class ScaleProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

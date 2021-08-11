@@ -15,7 +15,7 @@ import org.aspectj.runtime.internal.cflowstack.ThreadCounter;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactory;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl11;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class CFlowCounter {
     public static /* synthetic */ Interceptable $ic;
     public static ThreadStackFactory tsFactory;

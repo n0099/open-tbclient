@@ -11,23 +11,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class LinkPointPolyLineInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<LinkPointPolyLineInfo> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f7952a;
+    public long f42233a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f7953b;
+    public LatLng f42234b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f7954c;
+    public LatLng f42235c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7955d;
+    public int f42236d;
 
     static {
         InterceptResult invokeClinit;
@@ -58,12 +58,12 @@ public final class LinkPointPolyLineInfo implements Parcelable {
                 return;
             }
         }
-        this.f7952a = 0L;
-        this.f7955d = 0;
-        this.f7952a = 0L;
-        this.f7953b = null;
-        this.f7954c = null;
-        this.f7955d = 0;
+        this.f42233a = 0L;
+        this.f42236d = 0;
+        this.f42233a = 0L;
+        this.f42234b = null;
+        this.f42235c = null;
+        this.f42236d = 0;
     }
 
     public LinkPointPolyLineInfo(Parcel parcel) {
@@ -81,51 +81,51 @@ public final class LinkPointPolyLineInfo implements Parcelable {
                 return;
             }
         }
-        this.f7952a = 0L;
-        this.f7955d = 0;
-        this.f7952a = parcel.readLong();
-        this.f7953b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f7954c = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
-        this.f7955d = parcel.readInt();
+        this.f42233a = 0L;
+        this.f42236d = 0;
+        this.f42233a = parcel.readLong();
+        this.f42234b = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f42235c = (LatLng) parcel.readParcelable(LatLng.class.getClassLoader());
+        this.f42236d = parcel.readInt();
     }
 
     public LatLng a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f7953b : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42234b : (LatLng) invokeV.objValue;
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f7955d = i2;
+            this.f42236d = i2;
         }
     }
 
     public void a(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, latLng) == null) {
-            this.f7953b = latLng;
+            this.f42234b = latLng;
         }
     }
 
     public LatLng b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7954c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42235c : (LatLng) invokeV.objValue;
     }
 
     public void b(LatLng latLng) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, latLng) == null) {
-            this.f7954c = latLng;
+            this.f42235c = latLng;
         }
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7955d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f42236d : invokeV.intValue;
     }
 
     @Override // android.os.Parcelable
@@ -142,10 +142,10 @@ public final class LinkPointPolyLineInfo implements Parcelable {
     public void writeToParcel(Parcel parcel, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
-            parcel.writeLong(this.f7952a);
-            parcel.writeParcelable(this.f7953b, i2);
-            parcel.writeParcelable(this.f7954c, i2);
-            parcel.writeInt(this.f7955d);
+            parcel.writeLong(this.f42233a);
+            parcel.writeParcelable(this.f42234b, i2);
+            parcel.writeParcelable(this.f42235c, i2);
+            parcel.writeInt(this.f42236d);
         }
     }
 }

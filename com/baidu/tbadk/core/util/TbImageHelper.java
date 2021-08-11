@@ -1,6 +1,9 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.d.d;
+import c.a.e.e.p.j;
+import c.a.o0.s.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.TbConfig;
@@ -11,10 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.d.c;
-import d.a.d.e.p.j;
-import d.a.p0.s.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbImageHelper {
     public static /* synthetic */ Interceptable $ic;
     public static TbImageHelper mInstance;
@@ -79,7 +79,7 @@ public class TbImageHelper {
     public static boolean isSupportGifEmotions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? FileHelper.checkSD() && c.c() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? FileHelper.checkSD() && d.c() : invokeV.booleanValue;
     }
 
     private void updateAll() {

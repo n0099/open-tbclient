@@ -2,6 +2,8 @@ package com.baidu.tieba.newlist;
 
 import android.content.Intent;
 import android.os.Bundle;
+import c.a.e.k.e.n;
+import c.a.p0.f2.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,10 +16,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.n;
-import d.a.q0.e2.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,14 +54,14 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.p0.m0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "a078" : (String) invokeV.objValue;
     }
 
-    @Override // d.a.q0.e2.b
+    @Override // c.a.p0.f2.b
     public void loadData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -70,31 +70,31 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
                 if (LoadData) {
                     return;
                 }
-                this.mView.m();
-                this.mView.v();
+                this.mView.hideLoadingView();
+                this.mView.stopPullRefresh();
             } else if (LoadData) {
-                this.mView.s();
-                this.mView.n();
+                this.mView.showLoadingView();
+                this.mView.hideNetRefreshView();
             } else {
-                this.mView.m();
-                this.mView.t(false);
+                this.mView.hideLoadingView();
+                this.mView.showNetRefreshView(false);
             }
         }
     }
 
-    @Override // d.a.q0.e2.b
+    @Override // c.a.p0.f2.b
     public void netCallback(int i2, List<n> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, list) == null) {
-            this.mView.m();
-            this.mView.v();
-            this.mView.n();
+            this.mView.hideLoadingView();
+            this.mView.stopPullRefresh();
+            this.mView.hideNetRefreshView();
             if (i2 == 0 && !ListUtils.isEmpty(list)) {
                 this.mView.setData(list);
-                this.mView.u();
+                this.mView.showNoMoreView();
                 this.curDataList = list;
             } else if (ListUtils.isEmpty(this.curDataList)) {
-                this.mView.t(false);
+                this.mView.showNetRefreshView(false);
             }
         }
     }
@@ -104,7 +104,7 @@ public class HotTopicListActivity extends BaseActivity<HotTopicListActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.mView.q();
+            this.mView.onChangeSkinType();
         }
     }
 

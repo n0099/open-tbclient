@@ -1,9 +1,9 @@
 package com.baidu.mapsdkplatform.comjni.map.basemap;
 
 import android.os.Bundle;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface b {
-    int a(Bundle bundle, long j, int i2, Bundle bundle2);
+    int a(Bundle bundle, long j2, int i2, Bundle bundle2);
 
-    boolean a(long j);
+    boolean a(long j2);
 }

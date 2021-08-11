@@ -34,7 +34,7 @@ import java.util.Date;
 import java.util.Locale;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_BYTES_SIZE = 8192;
@@ -94,12 +94,16 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
 
     private Integer doUpload() {
         InterceptResult invokeV;
+        int i2;
         long length;
         InputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+        if (interceptable != null && (invokeV = interceptable.invokeV(65539, this)) != null) {
+            return (Integer) invokeV.objValue;
+        }
+        try {
             try {
-                long j = 0;
+                long j2 = 0;
                 if (Utility.isMediaUri(this.mFilePath)) {
                     fileInputStream = this.mContext.getContentResolver().openInputStream(Uri.parse(this.mFilePath));
                     length = fileInputStream != null ? fileInputStream.available() : 0L;
@@ -114,8 +118,7 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                 if (fileInputStream == null) {
                     return 1007;
                 }
-                String str = TAG;
-                LogUtils.d(str, "upload url is " + this.mUrl);
+                LogUtils.d(TAG, "upload url is " + this.mUrl);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.mUrl).openConnection();
                 httpURLConnection.setDoInput(true);
                 httpURLConnection.setDoOutput(true);
@@ -135,40 +138,43 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
                         break;
                     }
                     dataOutputStream.write(bArr, 0, read);
-                    HttpURLConnection httpURLConnection2 = httpURLConnection;
-                    j += read;
-                    String str2 = TAG;
-                    LogUtils.d(str2, "write bytes:" + read + "  total:" + j + "  time:" + (((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f));
-                    onProgressUpdate(Integer.valueOf((int) ((100 * j) / length)));
-                    httpURLConnection = httpURLConnection2;
+                    j2 += read;
+                    LogUtils.d(TAG, "write bytes:" + read + "  total:" + j2 + "  time:" + (((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f));
+                    onProgressUpdate(Integer.valueOf((int) ((100 * j2) / length)));
+                    httpURLConnection = httpURLConnection;
                 }
                 fileInputStream.close();
                 dataOutputStream.flush();
                 dataOutputStream.close();
                 int responseCode = httpURLConnection.getResponseCode();
                 if (responseCode == 200) {
-                    String str3 = TAG;
-                    LogUtils.i(str3, "upload success " + responseCode);
+                    LogUtils.i(TAG, "upload success " + responseCode);
                     return 0;
                 }
-                String str4 = TAG;
-                LogUtils.e(str4, "upload failure " + responseCode);
-                return 1008;
-            } catch (MalformedURLException e2) {
-                String str5 = TAG;
-                Log.e(str5, "MalformedURLException:" + e2);
-                return 1008;
-            } catch (ProtocolException e3) {
-                String str6 = TAG;
-                Log.e(str6, "ProtocolException:" + e3);
-                return 1008;
+                LogUtils.e(TAG, "upload failure " + responseCode);
+                i2 = 1008;
+                try {
+                    return 1008;
+                } catch (MalformedURLException e2) {
+                    e = e2;
+                    String str = "MalformedURLException:" + e;
+                    return Integer.valueOf(i2);
+                } catch (ProtocolException e3) {
+                    e = e3;
+                    String str2 = "ProtocolException:" + e;
+                    return Integer.valueOf(i2);
+                }
             } catch (IOException e4) {
-                String str7 = TAG;
-                Log.e(str7, "IOException:" + e4);
+                String str3 = "IOException:" + e4;
                 return 1008;
             }
+        } catch (MalformedURLException e5) {
+            e = e5;
+            i2 = 1008;
+        } catch (ProtocolException e6) {
+            e = e6;
+            i2 = 1008;
         }
-        return (Integer) invokeV.objValue;
     }
 
     private void notifyFailed(int i2) {

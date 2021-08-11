@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.BaiduRimConstants;
-import com.baidu.fsg.base.c;
+import com.baidu.fsg.base.b;
 import com.baidu.fsg.base.restnet.beans.business.BeanConstants;
 import com.baidu.fsg.base.restnet.beans.business.core.utils.BdWalletUtils;
 import com.baidu.fsg.base.router.RouterCallback;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BaiduRIM {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String METHODNAME_FOR_GET_TOKEN = "getRimToken";
@@ -168,16 +168,16 @@ public class BaiduRIM {
         initRounter(this.mAppContext, hashMap);
         RimStatisticsUtil.initStatisticsModule(this.mAppContext);
         String str = (String) hashMap.get(BaiduRimConstants.RIM_ID_KEY);
-        if (!TextUtils.isEmpty(str)) {
+        if (TextUtils.isEmpty(str)) {
+            BeanConstants.CHANNEL_ID = "channel";
+        } else {
             BeanConstants.CHANNEL_ID = str;
             BeanConstants.RIMID = str;
-        } else {
-            BeanConstants.CHANNEL_ID = "channel";
         }
         if (hashMap.get("animstyle") != null) {
             BeanConstants.ANIMSTYLE = (String) hashMap.get("animstyle");
         }
-        c.b().initEnv();
+        b.b().initEnv();
         BeanConstants.SDK_VERSION = "BDRIM-" + BeanConstants.VERSION_NO + "-Android-" + BeanConstants.CHANNEL_ID;
         if (hashMap.get(BaiduRimConstants.RIM_ID_KEY) != null) {
             ChannelUtils.initBussinessParams(BeanConstants.SDK_VERSION, false, hashMap.get(BaiduRimConstants.RIM_ID_KEY).toString());

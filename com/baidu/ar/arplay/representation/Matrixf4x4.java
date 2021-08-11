@@ -1,6 +1,5 @@
 package com.baidu.ar.arplay.representation;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class Matrixf4x4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] MAT_IND_COL_IN16_WITH3X3;
@@ -154,8 +153,7 @@ public class Matrixf4x4 {
                 matrixf4x4.setMatrix(fArr);
                 return;
             }
-            String str = TAG;
-            Log.e(str, "matrixMatrix is invalid, internal is " + this.matrix.length + " long , input matrix is " + matrixf4x4.getMatrix().length + " long");
+            String str = "matrixMatrix is invalid, internal is " + this.matrix.length + " long , input matrix is " + matrixf4x4.getMatrix().length + " long";
         }
     }
 
@@ -166,8 +164,7 @@ public class Matrixf4x4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, vector3f) == null) {
             if (!this.matrixValid || this.matrix.length != 9) {
-                String str = TAG;
-                Log.e(str, "matrixMatrix is invalid, is " + this.matrix.length + " long, this function expects the internal matrix to be of size 9");
+                String str = "matrixMatrix is invalid, is " + this.matrix.length + " long, this function expects the internal matrix to be of size 9";
                 return;
             }
             float[] array = vector3f.toArray();
@@ -205,8 +202,7 @@ public class Matrixf4x4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, vector4f) == null) {
             if (!this.matrixValid || this.matrix.length != 16) {
-                String str = TAG;
-                Log.e(str, "matrixMatrix is invalid, is " + this.matrix.length + " long, this equation expects a 16 value matrix");
+                String str = "matrixMatrix is invalid, is " + this.matrix.length + " long, this equation expects a 16 value matrix";
                 return;
             }
             float[] array = vector4f.toArray();
@@ -261,8 +257,7 @@ public class Matrixf4x4 {
                 return;
             }
             this.matrixValid = false;
-            String str = TAG;
-            Log.e(str, "matrixMatrix set is invalid, size is " + fArr.length + " expected 9 or 16");
+            String str = "matrixMatrix set is invalid, size is " + fArr.length + " expected 9 or 16";
         }
     }
 
@@ -270,8 +265,7 @@ public class Matrixf4x4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, fArr) == null) {
             if (this.matrix.length != fArr.length) {
-                String str = TAG;
-                Log.e(str, "matrixMatrix set is invalid, size is " + fArr.length + " expected 9 or 16");
+                String str = "matrixMatrix set is invalid, size is " + fArr.length + " expected 9 or 16";
             }
             for (int i2 = 0; i2 < fArr.length; i2++) {
                 this.matrix[i2] = fArr[i2];

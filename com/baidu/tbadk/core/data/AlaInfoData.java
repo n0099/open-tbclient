@@ -4,6 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
 import androidx.core.app.NotificationCompatJellybean;
+import c.a.e.e.p.k;
+import c.a.o0.s.q.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
@@ -16,14 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.k;
-import d.a.p0.s.q.g;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaStageDislikeInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class AlaInfoData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AlaInfoData> CREATOR;
@@ -78,7 +78,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public long thread_id;
     public transient AlaUserInfoData user_info;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<AlaInfoData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

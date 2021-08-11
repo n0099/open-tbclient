@@ -15,7 +15,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes5.dex */
 public class MapObject implements NoProguard, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<MapObject> CREATOR;
@@ -142,7 +143,7 @@ public class MapObject implements NoProguard, Parcelable {
                 sb.append(getObjValue(str));
                 sb.append(",");
             }
-            return "MapObject{" + sb.toString() + '}';
+            return "MapObject{" + sb.toString() + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -2,19 +2,19 @@ package com.baidu.tieba.barselect;
 
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
+import c.a.p0.x.b.f;
 import com.baidu.tieba.barselect.view.VoteCandidateCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.x.b.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class VoteViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public VoteCandidateCard f14427a;
+    public VoteCandidateCard f49570a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteViewHolder(View view) {
@@ -35,14 +35,14 @@ public class VoteViewHolder extends RecyclerView.ViewHolder {
             }
         }
         if (view instanceof VoteCandidateCard) {
-            this.f14427a = (VoteCandidateCard) view;
+            this.f49570a = (VoteCandidateCard) view;
         }
     }
 
-    public void a(int i2, f fVar) {
+    public void setData(int i2, f fVar) {
         VoteCandidateCard voteCandidateCard;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, fVar) == null) || (voteCandidateCard = this.f14427a) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, fVar) == null) || (voteCandidateCard = this.f49570a) == null) {
             return;
         }
         voteCandidateCard.setData(i2, fVar);

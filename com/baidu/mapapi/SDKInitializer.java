@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SDKInitializer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR = "network error";
@@ -24,7 +24,7 @@ public class SDKInitializer {
     public static final String SDK_BROADTCAST_INTENT_EXTRA_INFO_KEY_ERROR_MESSAGE = "error_message";
 
     /* renamed from: a  reason: collision with root package name */
-    public static CoordType f6850a;
+    public static CoordType f41090a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public class SDKInitializer {
                 return;
             }
         }
-        f6850a = CoordType.BD09LL;
+        f41090a = CoordType.BD09LL;
     }
 
     public SDKInitializer() {
@@ -60,7 +60,7 @@ public class SDKInitializer {
     public static CoordType getCoordType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f6850a : (CoordType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f41090a : (CoordType) invokeV.objValue;
     }
 
     public static void initialize(Context context) {
@@ -93,7 +93,7 @@ public class SDKInitializer {
     public static void setCoordType(CoordType coordType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, coordType) == null) {
-            f6850a = coordType;
+            f41090a = coordType;
         }
     }
 

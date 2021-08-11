@@ -28,19 +28,19 @@ import java.util.Comparator;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f9025a;
+    public static String f43660a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static s f9026b;
+    public static s f43661b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f9027c;
+    public Handler f43662c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,7 +55,7 @@ public class s {
                 return;
             }
         }
-        f9025a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
+        f43660a = Build.VERSION.SDK_INT < 9 ? "http://openrcv.baidu.com/1010/bplus.gif" : "https://openrcv.baidu.com/1010/bplus.gif";
     }
 
     public s() {
@@ -71,9 +71,9 @@ public class s {
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.l.f5367a);
+        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.i.f39311a);
         handlerThread.start();
-        this.f9027c = new Handler(handlerThread.getLooper());
+        this.f43662c = new Handler(handlerThread.getLooper());
     }
 
     private boolean b(Context context, String str) {
@@ -85,7 +85,7 @@ public class s {
                     return true;
                 }
                 try {
-                    a(context, f9025a, str);
+                    a(context, f43660a, str);
                     return true;
                 } catch (Exception e2) {
                     bb.c().c(e2);
@@ -100,14 +100,14 @@ public class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f9026b == null) {
+            if (f43661b == null) {
                 synchronized (s.class) {
-                    if (f9026b == null) {
-                        f9026b = new s();
+                    if (f43661b == null) {
+                        f43661b = new s();
                     }
                 }
             }
-            return f9026b;
+            return f43661b;
         }
         return (s) invokeV.objValue;
     }
@@ -120,18 +120,18 @@ public class s {
             if (str == null || "".equals(str)) {
                 return;
             }
-            this.f9027c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
+            this.f43662c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f9028a;
+                public final /* synthetic */ String f43663a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f9029b;
+                public final /* synthetic */ Context f43664b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ s f9030c;
+                public final /* synthetic */ s f43665c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,9 +148,9 @@ public class s {
                             return;
                         }
                     }
-                    this.f9030c = this;
-                    this.f9028a = str;
-                    this.f9029b = context;
+                    this.f43665c = this;
+                    this.f43663a = str;
+                    this.f43664b = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -158,11 +158,11 @@ public class s {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f9030c.a(this.f9028a);
-                            if (this.f9029b == null) {
+                            this.f43665c.a(this.f43663a);
+                            if (this.f43664b == null) {
                                 return;
                             }
-                            this.f9030c.a(this.f9029b.getApplicationContext());
+                            this.f43665c.a(this.f43664b.getApplicationContext());
                         } catch (Throwable th) {
                             bb.c().b(th);
                         }
@@ -195,7 +195,7 @@ public class s {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ s f9031a;
+                    public final /* synthetic */ s f43666a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -212,7 +212,7 @@ public class s {
                                 return;
                             }
                         }
-                        this.f9031a = this;
+                        this.f43666a = this;
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
@@ -281,13 +281,13 @@ public class s {
         d2.setUseCaches(false);
         d2.setRequestProperty("Content-Encoding", AsyncHttpClient.ENCODING_GZIP);
         try {
-            JSONObject jSONObject = new JSONObject(str2).getJSONArray("payload").getJSONObject(0).getJSONObject(Config.HEADER_PART);
+            JSONObject jSONObject = new JSONObject(str2).getJSONArray("payload").getJSONObject(0).getJSONObject("he");
             d2.setRequestProperty("Content-Type", AsyncHttpClient.ENCODING_GZIP);
             d2.setRequestProperty("mtj_appversion", jSONObject.getString("n"));
             d2.setRequestProperty("mtj_os", "Android");
-            d2.setRequestProperty("mtj_pn", jSONObject.getString(Config.PACKAGE_NAME));
+            d2.setRequestProperty("mtj_pn", jSONObject.getString("pn"));
             d2.setRequestProperty("mtj_tg", "1");
-            d2.setRequestProperty("mtj_ii", jSONObject.getString(Config.CUID_SEC));
+            d2.setRequestProperty("mtj_ii", jSONObject.getString("ii"));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -346,14 +346,14 @@ public class s {
         }
     }
 
-    public static byte[] a(long j, int i2) {
+    public static byte[] a(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             byte[] bArr = new byte[i2];
             for (int i3 = 0; i3 < i2; i3++) {
-                bArr[(i2 - i3) - 1] = (byte) (255 & j);
-                j >>= 8;
+                bArr[(i2 - i3) - 1] = (byte) (255 & j2);
+                j2 >>= 8;
             }
             return bArr;
         }

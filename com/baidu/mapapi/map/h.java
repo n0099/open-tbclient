@@ -7,28 +7,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final double f7194a;
+    public final double f41452a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final double f7195b;
+    public final double f41453b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final double f7196c;
+    public final double f41454c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final double f7197d;
+    public final double f41455d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final double f7198e;
+    public final double f41456e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final double f7199f;
+    public final double f41457f;
 
     public h(double d2, double d3, double d4, double d5) {
         Interceptable interceptable = $ic;
@@ -45,24 +45,24 @@ public class h {
                 return;
             }
         }
-        this.f7194a = d2;
-        this.f7195b = d4;
-        this.f7196c = d3;
-        this.f7197d = d5;
-        this.f7198e = (d2 + d3) / 2.0d;
-        this.f7199f = (d4 + d5) / 2.0d;
+        this.f41452a = d2;
+        this.f41453b = d4;
+        this.f41454c = d3;
+        this.f41455d = d5;
+        this.f41456e = (d2 + d3) / 2.0d;
+        this.f41457f = (d4 + d5) / 2.0d;
     }
 
     public boolean a(double d2, double d3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3)})) == null) ? this.f7194a <= d2 && d2 <= this.f7196c && this.f7195b <= d3 && d3 <= this.f7197d : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3)})) == null) ? this.f41452a <= d2 && d2 <= this.f41454c && this.f41453b <= d3 && d3 <= this.f41455d : invokeCommon.booleanValue;
     }
 
     public boolean a(double d2, double d3, double d4, double d5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) ? d2 < this.f7196c && this.f7194a < d3 && d4 < this.f7197d && this.f7195b < d5 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) ? d2 < this.f41454c && this.f41452a < d3 && d4 < this.f41455d && this.f41453b < d5 : invokeCommon.booleanValue;
     }
 
     public boolean a(Point point) {
@@ -74,13 +74,13 @@ public class h {
     public boolean a(h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hVar)) == null) ? a(hVar.f7194a, hVar.f7196c, hVar.f7195b, hVar.f7197d) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, hVar)) == null) ? a(hVar.f41452a, hVar.f41454c, hVar.f41453b, hVar.f41455d) : invokeL.booleanValue;
     }
 
     public boolean b(h hVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hVar)) == null) ? hVar.f7194a >= this.f7194a && hVar.f7196c <= this.f7196c && hVar.f7195b >= this.f7195b && hVar.f7197d <= this.f7197d : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, hVar)) == null) ? hVar.f41452a >= this.f41452a && hVar.f41454c <= this.f41454c && hVar.f41453b >= this.f41453b && hVar.f41455d <= this.f41455d : invokeL.booleanValue;
     }
 
     public String toString() {
@@ -88,12 +88,12 @@ public class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append("minX: " + this.f7194a);
-            sb.append(" minY: " + this.f7195b);
-            sb.append(" maxX: " + this.f7196c);
-            sb.append(" maxY: " + this.f7197d);
-            sb.append(" midX: " + this.f7198e);
-            sb.append(" midY: " + this.f7199f);
+            sb.append("minX: " + this.f41452a);
+            sb.append(" minY: " + this.f41453b);
+            sb.append(" maxX: " + this.f41454c);
+            sb.append(" maxY: " + this.f41455d);
+            sb.append(" midX: " + this.f41456e);
+            sb.append(" midY: " + this.f41457f);
             return sb.toString();
         }
         return (String) invokeV.objValue;

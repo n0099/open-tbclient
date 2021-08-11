@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XAdResponseInfo implements IXAdResponseInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "XAdResponseInfo";

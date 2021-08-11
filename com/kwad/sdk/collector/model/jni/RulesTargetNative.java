@@ -15,7 +15,7 @@ import java.util.Arrays;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class RulesTargetNative extends NativeObject implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -4726982809581153390L;
@@ -37,12 +37,12 @@ public class RulesTargetNative extends NativeObject implements d {
         this.mPtr = AppStatusNative.nativeCreateRulesTarget();
     }
 
-    public RulesTargetNative(long j) {
+    public RulesTargetNative(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -52,16 +52,16 @@ public class RulesTargetNative extends NativeObject implements d {
                 return;
             }
         }
-        this.mPtr = j;
+        this.mPtr = j2;
     }
 
     @Override // com.kwad.sdk.collector.model.jni.NativeObject
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.mPtr;
-            if (j != 0) {
-                AppStatusNative.nativeDeleteRulesTarget(j);
+            long j2 = this.mPtr;
+            if (j2 != 0) {
+                AppStatusNative.nativeDeleteRulesTarget(j2);
                 this.mPtr = 0L;
             }
         }

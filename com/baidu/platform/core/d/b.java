@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.filter.FilterValue;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,35 +37,35 @@ public class b extends com.baidu.platform.base.e {
     private void a(BikingRoutePlanOption bikingRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, bikingRoutePlanOption) == null) {
-            this.f9434a.a("mode", "riding");
+            this.f44083a.a("mode", "riding");
             LatLng location = bikingRoutePlanOption.mFrom.getLocation();
             if (location != null) {
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                     location = CoordTrans.gcjToBaidu(location);
                 }
-                com.baidu.platform.util.a aVar = this.f9434a;
+                com.baidu.platform.util.a aVar = this.f44083a;
                 aVar.a(FilterValue.DEFAULT_FILTER_VALUE, location.latitude + "," + location.longitude);
             } else {
-                this.f9434a.a(FilterValue.DEFAULT_FILTER_VALUE, bikingRoutePlanOption.mFrom.getName());
+                this.f44083a.a(FilterValue.DEFAULT_FILTER_VALUE, bikingRoutePlanOption.mFrom.getName());
             }
             LatLng location2 = bikingRoutePlanOption.mTo.getLocation();
             if (location2 != null) {
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                     location2 = CoordTrans.gcjToBaidu(location2);
                 }
-                com.baidu.platform.util.a aVar2 = this.f9434a;
+                com.baidu.platform.util.a aVar2 = this.f44083a;
                 aVar2.a("destination", location2.latitude + "," + location2.longitude);
             } else {
-                this.f9434a.a("destination", bikingRoutePlanOption.mTo.getName());
+                this.f44083a.a("destination", bikingRoutePlanOption.mTo.getName());
             }
-            this.f9434a.a("origin_region", bikingRoutePlanOption.mFrom.getCity());
-            this.f9434a.a("destination_region", bikingRoutePlanOption.mTo.getCity());
+            this.f44083a.a("origin_region", bikingRoutePlanOption.mFrom.getCity());
+            this.f44083a.a("destination_region", bikingRoutePlanOption.mTo.getCity());
             int i2 = bikingRoutePlanOption.mRidingType;
             if (i2 == 1) {
-                this.f9434a.a("riding_type", String.valueOf(i2));
+                this.f44083a.a("riding_type", String.valueOf(i2));
             }
-            this.f9434a.a("output", "json");
-            this.f9434a.a("from", "android_map_sdk");
+            this.f44083a.a("output", "json");
+            this.f44083a.a("from", "android_map_sdk");
         }
     }
 

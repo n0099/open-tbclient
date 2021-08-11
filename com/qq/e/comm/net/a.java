@@ -6,7 +6,6 @@ import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +20,7 @@ import com.qq.e.comm.util.StringUtil;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +87,7 @@ public final class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, aPPStatus)) == null) {
             JSONObject jSONObject = new JSONObject();
             if (aPPStatus != null) {
-                jSONObject.putOpt(com.alipay.sdk.sys.a.f1970i, aPPStatus.getAPPName());
+                jSONObject.putOpt(com.alipay.sdk.sys.a.f35823i, aPPStatus.getAPPName());
                 jSONObject.putOpt("appkey", aPPStatus.getAPPID());
                 jSONObject.putOpt("appv", aPPStatus.getAPPVersion());
                 jSONObject.putOpt("appn", aPPStatus.getAPPRealName());
@@ -105,7 +104,7 @@ public final class a {
             JSONObject jSONObject = new JSONObject();
             if (deviceStatus != null) {
                 jSONObject.putOpt("so", deviceStatus.getScreenOrientation());
-                jSONObject.putOpt(Config.DEVICE_NAME, deviceStatus.getDataNet());
+                jSONObject.putOpt("dn", deviceStatus.getDataNet());
                 String a2 = a();
                 if (!StringUtil.isEmpty(a2)) {
                     jSONObject.putOpt("cell_native", a2);

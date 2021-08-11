@@ -18,7 +18,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,32 +28,34 @@ public class a extends g {
     public String D;
 
     /* renamed from: a  reason: collision with root package name */
-    public CopyOnWriteArrayList<Throwable> f32819a;
+    public CopyOnWriteArrayList<Throwable> f68789a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32820b;
+    public String f68790b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32821c;
+    public String f68791c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32822d;
+    public String f68792d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f32823e;
+    public String f68793e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f32824f;
+    public String f68794f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32825g;
+    public String f68795g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f32826h;
+    public String f68796h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f32827i;
-    public String j;
+    public String f68797i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f68798j;
     public String k;
     public String l;
     public String m;
@@ -84,15 +86,15 @@ public class a extends g {
                 return;
             }
         }
-        this.f32820b = null;
-        this.f32821c = null;
-        this.f32822d = null;
-        this.f32823e = null;
-        this.f32824f = null;
-        this.f32825g = null;
-        this.f32826h = null;
-        this.f32827i = null;
-        this.j = null;
+        this.f68790b = null;
+        this.f68791c = null;
+        this.f68792d = null;
+        this.f68793e = null;
+        this.f68794f = null;
+        this.f68795g = null;
+        this.f68796h = null;
+        this.f68797i = null;
+        this.f68798j = null;
         this.k = "";
         this.l = null;
         this.m = null;
@@ -107,7 +109,7 @@ public class a extends g {
         this.w = null;
         this.x = null;
         this.y = null;
-        this.f32819a = new CopyOnWriteArrayList<>();
+        this.f68789a = new CopyOnWriteArrayList<>();
     }
 
     public void A(String str) {
@@ -168,7 +170,7 @@ public class a extends g {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f32820b = str;
+            this.f68790b = str;
         }
     }
 
@@ -231,28 +233,28 @@ public class a extends g {
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.f32822d = str;
+            this.f68792d = str;
         }
     }
 
     public void l(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-            this.f32823e = str;
+            this.f68793e = str;
         }
     }
 
     public void m(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.f32824f = str;
+            this.f68794f = str;
         }
     }
 
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.f32827i = str;
+            this.f68797i = str;
         }
     }
 
@@ -294,14 +296,14 @@ public class a extends g {
     public void t(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
-            this.f32821c = str;
+            this.f68791c = str;
         }
     }
 
     public void u(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
-            this.f32825g = str;
+            this.f68795g = str;
         }
     }
 
@@ -315,14 +317,14 @@ public class a extends g {
     public void x(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.f32826h = str;
+            this.f68796h = str;
         }
     }
 
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.j = str;
+            this.f68798j = str;
         }
     }
 
@@ -340,17 +342,17 @@ public class a extends g {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("appid", this.f32820b);
-                jSONObject.put("traceId", this.f32821c);
-                jSONObject.put("appName", this.f32822d);
-                jSONObject.put("appVersion", this.f32823e);
+                jSONObject.put("appid", this.f68790b);
+                jSONObject.put("traceId", this.f68791c);
+                jSONObject.put("appName", this.f68792d);
+                jSONObject.put("appVersion", this.f68793e);
                 jSONObject.put(CommandMessage.SDK_VERSION, AuthnHelper.SDK_VERSION);
                 jSONObject.put("clientType", "android");
-                jSONObject.put("timeOut", this.f32824f);
-                jSONObject.put("requestTime", this.f32825g);
-                jSONObject.put("responseTime", this.f32826h);
-                jSONObject.put("elapsedTime", this.f32827i);
-                jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.j);
+                jSONObject.put("timeOut", this.f68794f);
+                jSONObject.put("requestTime", this.f68795g);
+                jSONObject.put("responseTime", this.f68796h);
+                jSONObject.put("elapsedTime", this.f68797i);
+                jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.f68798j);
                 jSONObject.put("interfaceType", this.k);
                 jSONObject.put("interfaceCode", this.l);
                 jSONObject.put("interfaceElasped", this.m);

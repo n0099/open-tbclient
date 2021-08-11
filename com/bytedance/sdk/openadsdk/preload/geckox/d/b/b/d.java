@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.geckox.model.UpdatePackage;
 import com.bytedance.sdk.openadsdk.preload.geckox.utils.BsPatch;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>, Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.geckox.b f32386d;
+    public com.bytedance.sdk.openadsdk.preload.geckox.b f68347d;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<com.bytedanc
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, objArr) == null) {
             super.a(objArr);
-            this.f32386d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
+            this.f68347d = (com.bytedance.sdk.openadsdk.preload.geckox.b) objArr[0];
         }
     }
 
@@ -62,7 +62,7 @@ public class d extends com.bytedance.sdk.openadsdk.preload.b.d<Pair<com.bytedanc
                 try {
                     BsPatch.a(file, f2, file2.getParentFile(), file2.getName());
                     com.bytedance.sdk.openadsdk.preload.geckox.utils.d.a(f2);
-                    com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f32386d.a(), file2, file2.length());
+                    com.bytedance.sdk.openadsdk.preload.geckox.buffer.a a2 = com.bytedance.sdk.openadsdk.preload.geckox.buffer.impl.a.a(this.f68347d.a(), file2, file2.length());
                     try {
                         return bVar.a((com.bytedance.sdk.openadsdk.preload.b.b<Pair<com.bytedance.sdk.openadsdk.preload.geckox.buffer.a, UpdatePackage>>) new Pair<>(a2, updatePackage));
                     } finally {

@@ -13,16 +13,16 @@ import java.security.spec.AlgorithmParameterSpec;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class F1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public AlgorithmParameterSpec f39576a;
+    public AlgorithmParameterSpec f76412a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Key f39577b;
+    public Key f76413b;
 
     static {
         InterceptResult invokeClinit;
@@ -55,8 +55,8 @@ public class F1 {
             }
         }
         try {
-            this.f39576a = new IvParameterSpec(str2.getBytes("utf-8"));
-            this.f39577b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
+            this.f76412a = new IvParameterSpec(str2.getBytes("utf-8"));
+            this.f76413b = SecretKeyFactory.getInstance(Coder.KEY_DES).generateSecret(new DESKeySpec(str.getBytes()));
         } catch (Exception e2) {
             throw new RuntimeException("Error in getKey(String secretKey), Cause: " + e2);
         }

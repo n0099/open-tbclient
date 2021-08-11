@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.adevent.ADListener;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseNativeUnifiedAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CALLBACK_CLICK = 3;
@@ -55,6 +55,8 @@ public abstract class BaseNativeUnifiedAd {
     public abstract void setCategories(List<String> list);
 
     public abstract void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy);
+
+    public abstract void setECPMLevel(String str);
 
     public abstract void setMaxVideoDuration(int i2);
 

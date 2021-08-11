@@ -1,6 +1,7 @@
 package com.alipay.sdk.util;
 
 import androidx.core.view.InputDeviceCompat;
+import com.alipay.sdk.interior.Log;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,12 +10,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes.dex */
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+/* loaded from: classes4.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1990a = "alipaysdk";
+    public static Log.ISdkLogCallback f35843a = null;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static final String f35844b = "alipaysdk";
     public transient /* synthetic */ FieldHolder $fh;
 
     public c() {
@@ -31,66 +38,35 @@ public class c {
         }
     }
 
-    public static void a(String str, String str2) {
+    public static void a(Log.ISdkLogCallback iSdkLogCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, iSdkLogCallback) == null) {
+            f35843a = iSdkLogCallback;
         }
-    }
-
-    public static void a(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) {
-        }
-    }
-
-    public static void a(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, th) == null) {
-        }
-    }
-
-    public static void a(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) != null) || th == null) {
-        }
-    }
-
-    public static String b(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, th)) == null) {
-            StringWriter stringWriter = new StringWriter();
-            th.printStackTrace(new PrintWriter(stringWriter));
-            return stringWriter.toString();
-        }
-        return (String) invokeL.objValue;
     }
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            a(e(str, str2));
         }
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
+            a(e(str, str2));
         }
     }
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            a(e(str, str2));
         }
     }
 
-    public static String f(String str, String str2) {
+    public static String e(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, str, str2)) == null) {
@@ -103,5 +79,55 @@ public class c {
             return String.format("[%s][%s]", str, str2);
         }
         return (String) invokeLL.objValue;
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            try {
+                Log.ISdkLogCallback iSdkLogCallback = f35843a;
+                if (iSdkLogCallback != null) {
+                    iSdkLogCallback.onLogLine(String.format("[AlipaySDK] %s %s", new SimpleDateFormat("hh:mm:ss.SSS", Locale.getDefault()).format(new Date()), str));
+                }
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static String b(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, th)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            th.printStackTrace(new PrintWriter(stringWriter));
+            return stringWriter.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            a(e(str, str2));
+        }
+    }
+
+    public static void a(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) {
+            String e2 = e(str, str2);
+            a(e2 + " " + b(th));
+        }
+    }
+
+    public static void a(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, th) == null) || th == null) {
+            return;
+        }
+        try {
+            a(b(th));
+        } catch (Throwable unused) {
+        }
     }
 }

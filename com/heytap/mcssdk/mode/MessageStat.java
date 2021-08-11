@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MessageStat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APP_PACKAGE = "appPackage";
@@ -213,10 +213,10 @@ public class MessageStat {
         }
     }
 
-    public void setEventTime(long j) {
+    public void setEventTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.mEventTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.mEventTime = j2;
         }
     }
 

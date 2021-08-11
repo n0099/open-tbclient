@@ -27,34 +27,34 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, g> f39224a;
+    public static Map<String, g> f76055a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39225b;
+    public static String f76056b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f39226c;
+    public Context f76057c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39227d;
+    public String f76058d;
 
     /* renamed from: e  reason: collision with root package name */
-    public JSONObject f39228e;
+    public JSONObject f76059e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f39229f;
+    public long f76060f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39230g;
+    public int f76061g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f39231h;
+    public boolean f76062h;
 
     static {
         InterceptResult invokeClinit;
@@ -69,8 +69,8 @@ public class g {
                 return;
             }
         }
-        f39224a = Collections.synchronizedMap(new HashMap());
-        f39225b = null;
+        f76055a = Collections.synchronizedMap(new HashMap());
+        f76056b = null;
     }
 
     public g(Context context, String str) {
@@ -88,14 +88,14 @@ public class g {
                 return;
             }
         }
-        this.f39226c = null;
-        this.f39227d = null;
-        this.f39228e = null;
-        this.f39229f = 0L;
-        this.f39230g = 0;
-        this.f39231h = true;
-        this.f39226c = context.getApplicationContext();
-        this.f39227d = str;
+        this.f76057c = null;
+        this.f76058d = null;
+        this.f76059e = null;
+        this.f76060f = 0L;
+        this.f76061g = 0;
+        this.f76062h = true;
+        this.f76057c = context.getApplicationContext();
+        this.f76058d = str;
         a();
         b();
     }
@@ -103,14 +103,14 @@ public class g {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            if (this.f39230g != 0) {
+            if (this.f76061g != 0) {
                 d("update thread is running, return");
                 return;
             }
-            this.f39230g = 1;
+            this.f76061g = 1;
             Bundle bundle = new Bundle();
-            bundle.putString("appid", this.f39227d);
-            bundle.putString("appid_for_getting_config", this.f39227d);
+            bundle.putString("appid", this.f76058d);
+            bundle.putString("appid_for_getting_config", this.f76058d);
             bundle.putString("status_os", Build.VERSION.RELEASE);
             bundle.putString("status_machine", Build.MODEL);
             bundle.putString("status_version", Build.VERSION.SDK);
@@ -121,10 +121,10 @@ public class g {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Bundle f39232a;
+                public final /* synthetic */ Bundle f76063a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ g f39233b;
+                public final /* synthetic */ g f76064b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -141,8 +141,8 @@ public class g {
                             return;
                         }
                     }
-                    this.f39233b = this;
-                    this.f39232a = bundle;
+                    this.f76064b = this;
+                    this.f76063a = bundle;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -150,11 +150,11 @@ public class g {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f39233b.a(l.d(HttpUtils.openUrl2(this.f39233b.f39226c, "https://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", this.f39232a).f39254a));
+                            this.f76064b.a(l.d(HttpUtils.openUrl2(this.f76064b.f76057c, "https://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", this.f76063a).f76085a));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                         }
-                        this.f39233b.f39230g = 0;
+                        this.f76064b.f76061g = 0;
                     }
                 }
             }.start();
@@ -170,14 +170,14 @@ public class g {
             String str3 = "";
             try {
                 try {
-                    if (this.f39227d != null) {
-                        str2 = str + "." + this.f39227d;
+                    if (this.f76058d != null) {
+                        str2 = str + "." + this.f76058d;
                     } else {
                         str2 = str;
                     }
-                    open = this.f39226c.openFileInput(str2);
+                    open = this.f76057c.openFileInput(str2);
                 } catch (FileNotFoundException unused) {
-                    open = this.f39226c.getAssets().open(str);
+                    open = this.f76057c.getAssets().open(str);
                 }
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(open, Charset.forName("UTF-8")));
                 StringBuffer stringBuffer = new StringBuffer();
@@ -222,8 +222,8 @@ public class g {
 
     private void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, this, str) == null) && this.f39231h) {
-            SLog.v("openSDK_LOG.OpenConfig", str + "; appid: " + this.f39227d);
+        if ((interceptable == null || interceptable.invokeL(65548, this, str) == null) && this.f76062h) {
+            SLog.v("openSDK_LOG.OpenConfig", str + "; appid: " + this.f76058d);
         }
     }
 
@@ -232,18 +232,18 @@ public class g {
         g gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            synchronized (f39224a) {
+            synchronized (f76055a) {
                 SLog.v("openSDK_LOG.OpenConfig", "getInstance begin");
                 if (str != null) {
-                    f39225b = str;
+                    f76056b = str;
                 }
                 if (str == null) {
-                    str = f39225b != null ? f39225b : "0";
+                    str = f76056b != null ? f76056b : "0";
                 }
-                gVar = f39224a.get(str);
+                gVar = f76055a.get(str);
                 if (gVar == null) {
                     gVar = new g(context, str);
-                    f39224a.put(str, gVar);
+                    f76055a.put(str, gVar);
                 }
                 SLog.v("openSDK_LOG.OpenConfig", "getInstance end");
             }
@@ -258,7 +258,7 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             d("get " + str);
             c();
-            Object opt = this.f39228e.opt(str);
+            Object opt = this.f76059e.opt(str);
             if (opt == null) {
                 return false;
             }
@@ -277,9 +277,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
             try {
-                this.f39228e = new JSONObject(c("com.tencent.open.config.json"));
+                this.f76059e = new JSONObject(c("com.tencent.open.config.json"));
             } catch (JSONException unused) {
-                this.f39228e = new JSONObject();
+                this.f76059e = new JSONObject();
             }
         }
     }
@@ -288,10 +288,10 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, str, str2) == null) {
             try {
-                if (this.f39227d != null) {
-                    str = str + "." + this.f39227d;
+                if (this.f76058d != null) {
+                    str = str + "." + this.f76058d;
                 }
-                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.f39226c.openFileOutput(str, 0), Charset.forName("UTF-8"));
+                OutputStreamWriter outputStreamWriter = new OutputStreamWriter(this.f76057c.openFileOutput(str, 0), Charset.forName("UTF-8"));
                 outputStreamWriter.write(str2);
                 outputStreamWriter.flush();
                 outputStreamWriter.close();
@@ -304,11 +304,11 @@ public class g {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            int optInt = this.f39228e.optInt("Common_frequency");
+            int optInt = this.f76059e.optInt("Common_frequency");
             if (optInt == 0) {
                 optInt = 1;
             }
-            if (SystemClock.elapsedRealtime() - this.f39229f >= optInt * 3600000) {
+            if (SystemClock.elapsedRealtime() - this.f76060f >= optInt * 3600000) {
                 b();
             }
         }
@@ -319,9 +319,9 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, jSONObject) == null) {
             d("cgi back, do update");
-            this.f39228e = jSONObject;
+            this.f76059e = jSONObject;
             a("com.tencent.open.config.json", jSONObject.toString());
-            this.f39229f = SystemClock.elapsedRealtime();
+            this.f76060f = SystemClock.elapsedRealtime();
         }
     }
 
@@ -331,7 +331,7 @@ public class g {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             d("get " + str);
             c();
-            return this.f39228e.optInt(str);
+            return this.f76059e.optInt(str);
         }
         return invokeL.intValue;
     }

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public abstract class PackageParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int PARSE_CHATTY = 2;
@@ -76,7 +76,7 @@ public abstract class PackageParser {
 
     public abstract InstrumentationInfo generateInstrumentationInfo(Object obj, int i2);
 
-    public abstract PackageInfo generatePackageInfo(int[] iArr, int i2, long j, long j2, HashSet<String> hashSet);
+    public abstract PackageInfo generatePackageInfo(int[] iArr, int i2, long j2, long j3, HashSet<String> hashSet);
 
     public abstract PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i2);
 

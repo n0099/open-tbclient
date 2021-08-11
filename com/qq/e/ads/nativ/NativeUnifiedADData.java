@@ -11,7 +11,7 @@ import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
     public static final int AD_CLICKED = 2;
     public static final int AD_ERROR = 3;
@@ -47,6 +47,8 @@ public interface NativeUnifiedADData extends ApkDownloadComplianceInterface {
     boolean equalsAdData(NativeUnifiedADData nativeUnifiedADData);
 
     int getAdPatternType();
+
+    NativeUnifiedADAppMiitInfo getAppMiitInfo();
 
     double getAppPrice();
 

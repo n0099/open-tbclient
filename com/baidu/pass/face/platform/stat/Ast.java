@@ -4,8 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
-import com.baidu.mobstat.Config;
 import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.pass.face.platform.stat.NetUtil;
 import com.baidu.pass.main.facesdk.FaceInfo;
@@ -14,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.internal.bind.TypeAdapters;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +24,7 @@ import java.util.concurrent.Executors;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Ast {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AS_FILE_NAME = "ast";
@@ -155,7 +152,7 @@ public class Ast {
                                 jSONObject2.put("appid", this.this$0.dev.getPackagename());
                                 jSONObject2.put("device", this.this$0.dev.getBrand());
                                 jSONObject2.put("imei", this.this$0.dev.getUniqueID());
-                                jSONObject2.put(IAdRequestParam.OS, "Android");
+                                jSONObject2.put("os", "Android");
                                 jSONObject2.put(ConstantHelper.LOG_OS, this.this$0.dev.getSysVersion());
                                 jSONObject2.put("version", this.this$0.dev.getSdkVersion());
                                 if (str.contains("liveness")) {
@@ -166,9 +163,9 @@ public class Ast {
                                 jSONObject2.put(ConstantHelper.LOG_FINISH, "1");
                                 String[] split = str.split("_");
                                 if (split.length > 4) {
-                                    jSONObject2.put(TypeAdapters.AnonymousClass27.YEAR, split[0]);
-                                    jSONObject2.put(TypeAdapters.AnonymousClass27.MONTH, split[1]);
-                                    jSONObject2.put(Config.TRACE_VISIT_RECENT_DAY, split[2]);
+                                    jSONObject2.put("year", split[0]);
+                                    jSONObject2.put("month", split[1]);
+                                    jSONObject2.put("day", split[2]);
                                     jSONObject2.put("hour", split[3]);
                                 }
                                 jSONObject2.put("num", str2);
@@ -331,9 +328,9 @@ public class Ast {
         }
     }
 
-    public void faceHit(String str, long j, int i2) {
+    public void faceHit(String str, long j2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i2)}) == null) || this.properties == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2)}) == null) || this.properties == null) {
             return;
         }
         String generateFaceHitKey = generateFaceHitKey(str);
@@ -352,7 +349,7 @@ public class Ast {
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (this.dev.getFirstRun() || System.currentTimeMillis() - currentTimeMillis >= j) {
+        if (this.dev.getFirstRun() || System.currentTimeMillis() - currentTimeMillis >= j2) {
             sendData();
         }
     }

@@ -8,6 +8,8 @@ import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.t.g;
+import c.a.v0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,15 +19,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
-import d.a.w0.t.g;
-import d.a.w0.t.h;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,6 +59,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
     public String line;
     public boolean mIsNeedCache;
     public SubTitleUnit mOriginalUnit;
+    public TextWordsEntity.TextColorEntity mTextColorEntity;
     public TextWordsEntity.TextStyleEntity mTextStyleEntity;
     public int padding;
     public int rotate;
@@ -314,7 +315,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public SubTitleUnit m40clone() throws CloneNotSupportedException {
+    public SubTitleUnit m45clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (SubTitleUnit) super.clone() : (SubTitleUnit) invokeV.objValue;

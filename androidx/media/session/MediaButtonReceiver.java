@@ -15,7 +15,6 @@ import android.support.v4.media.MediaBrowserCompat;
 import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
-import android.util.Log;
 import android.view.KeyEvent;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
@@ -77,8 +76,7 @@ public class MediaButtonReceiver extends BroadcastReceiver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     new MediaControllerCompat(this.mContext, this.mMediaBrowser.getSessionToken()).dispatchMediaButtonEvent((KeyEvent) this.mIntent.getParcelableExtra("android.intent.extra.KEY_EVENT"));
-                } catch (RemoteException e2) {
-                    Log.e(MediaButtonReceiver.TAG, "Failed to create a media controller", e2);
+                } catch (RemoteException unused) {
                 }
                 finish();
             }
@@ -122,16 +120,15 @@ public class MediaButtonReceiver extends BroadcastReceiver {
         }
     }
 
-    public static PendingIntent buildMediaButtonPendingIntent(Context context, long j) {
+    public static PendingIntent buildMediaButtonPendingIntent(Context context, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, context, j2)) == null) {
             ComponentName mediaButtonReceiverComponent = getMediaButtonReceiverComponent(context);
             if (mediaButtonReceiverComponent == null) {
-                Log.w(TAG, "A unique media button receiver could not be found in the given context, so couldn't build a pending intent.");
                 return null;
             }
-            return buildMediaButtonPendingIntent(context, mediaButtonReceiverComponent, j);
+            return buildMediaButtonPendingIntent(context, mediaButtonReceiverComponent, j2);
         }
         return (PendingIntent) invokeLJ.objValue;
     }
@@ -147,12 +144,9 @@ public class MediaButtonReceiver extends BroadcastReceiver {
             if (queryBroadcastReceivers.size() == 1) {
                 ActivityInfo activityInfo = queryBroadcastReceivers.get(0).activityInfo;
                 return new ComponentName(activityInfo.packageName, activityInfo.name);
-            } else if (queryBroadcastReceivers.size() > 1) {
-                Log.w(TAG, "More than one BroadcastReceiver that handles android.intent.action.MEDIA_BUTTON was found, returning null.");
-                return null;
-            } else {
-                return null;
             }
+            queryBroadcastReceivers.size();
+            return null;
         }
         return (ComponentName) invokeL.objValue;
     }
@@ -225,21 +219,20 @@ public class MediaButtonReceiver extends BroadcastReceiver {
                 }
                 throw new IllegalStateException("Could not find any Service that handles android.intent.action.MEDIA_BUTTON or implements a media browser service.");
             }
-            Log.d(TAG, "Ignore unsupported intent: " + intent);
+            String str = "Ignore unsupported intent: " + intent;
         }
     }
 
-    public static PendingIntent buildMediaButtonPendingIntent(Context context, ComponentName componentName, long j) {
+    public static PendingIntent buildMediaButtonPendingIntent(Context context, ComponentName componentName, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, componentName, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, componentName, Long.valueOf(j2)})) == null) {
             if (componentName == null) {
-                Log.w(TAG, "The component name of media button receiver should be provided.");
                 return null;
             }
-            int keyCode = PlaybackStateCompat.toKeyCode(j);
+            int keyCode = PlaybackStateCompat.toKeyCode(j2);
             if (keyCode == 0) {
-                Log.w(TAG, "Cannot build a media button pending intent with the given action: " + j);
+                String str = "Cannot build a media button pending intent with the given action: " + j2;
                 return null;
             }
             Intent intent = new Intent("android.intent.action.MEDIA_BUTTON");

@@ -11,26 +11,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SyncCoordinateConverter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7489a;
+    public LatLng f41755a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoordType f7490b;
+    public CoordType f41756b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class CoordType {
         public static /* synthetic */ Interceptable $ic;
         public static final CoordType BD09LL;
         public static final CoordType COMMON;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ CoordType[] f7491a;
+        public static final /* synthetic */ CoordType[] f41757a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,7 +49,7 @@ public class SyncCoordinateConverter {
             COMMON = new CoordType("COMMON", 0);
             CoordType coordType = new CoordType("BD09LL", 1);
             BD09LL = coordType;
-            f7491a = new CoordType[]{COMMON, coordType};
+            f41757a = new CoordType[]{COMMON, coordType};
         }
 
         public CoordType(String str, int i2) {
@@ -80,7 +80,7 @@ public class SyncCoordinateConverter {
         public static CoordType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CoordType[]) f7491a.clone() : (CoordType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CoordType[]) f41757a.clone() : (CoordType[]) invokeV.objValue;
         }
     }
 
@@ -132,20 +132,20 @@ public class SyncCoordinateConverter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f7489a == null) {
+            if (this.f41755a == null) {
                 return null;
             }
-            if (this.f7490b == null) {
-                this.f7490b = CoordType.BD09LL;
+            if (this.f41756b == null) {
+                this.f41756b = CoordType.BD09LL;
             }
-            int i2 = a.f7494a[this.f7490b.ordinal()];
+            int i2 = a.f41760a[this.f41756b.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     return null;
                 }
-                return b(this.f7489a);
+                return b(this.f41755a);
             }
-            return a(this.f7489a);
+            return a(this.f41755a);
         }
         return (LatLng) invokeV.objValue;
     }
@@ -154,7 +154,7 @@ public class SyncCoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
-            this.f7489a = latLng;
+            this.f41755a = latLng;
             return this;
         }
         return (SyncCoordinateConverter) invokeL.objValue;
@@ -164,7 +164,7 @@ public class SyncCoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.f7490b = coordType;
+            this.f41756b = coordType;
             return this;
         }
         return (SyncCoordinateConverter) invokeL.objValue;

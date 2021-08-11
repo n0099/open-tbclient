@@ -1,5 +1,6 @@
 package com.baidu.tieba.imMessageCenter.mention;
 
+import c.a.p0.k1.b.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
@@ -8,8 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.j1.b.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ReplyMeCacheModel extends CacheModel<m, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

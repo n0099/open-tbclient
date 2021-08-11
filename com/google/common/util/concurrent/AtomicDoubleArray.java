@@ -13,7 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AtomicDoubleArray implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -64,15 +64,15 @@ public class AtomicDoubleArray implements Serializable {
     }
 
     public double addAndGet(int i2, double d2) {
-        long j;
+        long j2;
         double longBitsToDouble;
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Double.valueOf(d2)})) == null) {
             do {
-                j = this.longs.get(i2);
-                longBitsToDouble = Double.longBitsToDouble(j) + d2;
-            } while (!this.longs.compareAndSet(i2, j, Double.doubleToRawLongBits(longBitsToDouble)));
+                j2 = this.longs.get(i2);
+                longBitsToDouble = Double.longBitsToDouble(j2) + d2;
+            } while (!this.longs.compareAndSet(i2, j2, Double.doubleToRawLongBits(longBitsToDouble)));
             return longBitsToDouble;
         }
         return invokeCommon.doubleValue;
@@ -91,15 +91,15 @@ public class AtomicDoubleArray implements Serializable {
     }
 
     public final double getAndAdd(int i2, double d2) {
-        long j;
+        long j2;
         double longBitsToDouble;
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Double.valueOf(d2)})) == null) {
             do {
-                j = this.longs.get(i2);
-                longBitsToDouble = Double.longBitsToDouble(j);
-            } while (!this.longs.compareAndSet(i2, j, Double.doubleToRawLongBits(longBitsToDouble + d2)));
+                j2 = this.longs.get(i2);
+                longBitsToDouble = Double.longBitsToDouble(j2);
+            } while (!this.longs.compareAndSet(i2, j2, Double.doubleToRawLongBits(longBitsToDouble + d2)));
             return longBitsToDouble;
         }
         return invokeCommon.doubleValue;

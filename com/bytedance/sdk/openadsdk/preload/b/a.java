@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.b.l;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class a<IN, OUT> extends l<IN, OUT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,8 +39,8 @@ public abstract class a<IN, OUT> extends l<IN, OUT> {
             String a2 = a(new m(bVar), in);
             l.a aVar = a().get(a2);
             if (aVar != null) {
-                List<h> list = aVar.f32299a;
-                Object a3 = c.a(list, ((i) bVar).f32292a, this).a((b) in);
+                List<h> list = aVar.f68258a;
+                Object a3 = c.a(list, ((i) bVar).f68251a, this).a((b) in);
                 return !a(list) ? a3 : bVar.a((b<OUT>) a3);
             }
             throw new IllegalArgumentException("can not found branch, branch name is：" + a2);

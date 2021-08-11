@@ -9,6 +9,8 @@ import android.graphics.Shader;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.f.i.b;
+import c.a.n0.f.i.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdDownloadApkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,28 +20,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.f.i.b;
-import d.a.o0.f.i.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwanAdDownloadButtonView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f11794e;
+    public Paint f46678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11795f;
+    public int f46679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11796g;
+    public int f46680g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f11797h;
+    public boolean f46681h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f11798i;
-    public boolean j;
+    public int f46682i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f46683j;
     public Paint k;
     public int l;
     public float m;
@@ -49,7 +51,7 @@ public class SwanAdDownloadButtonView extends View {
     public float q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class State {
         public static final /* synthetic */ State[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -110,12 +112,12 @@ public class SwanAdDownloadButtonView extends View {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f11799a;
+        public static final /* synthetic */ int[] f46684a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -132,13 +134,13 @@ public class SwanAdDownloadButtonView extends View {
                 }
             }
             int[] iArr = new int[State.values().length];
-            f11799a = iArr;
+            f46684a = iArr;
             try {
                 iArr[State.DOWNLOADING.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f11799a[State.FINISH.ordinal()] = 2;
+                f46684a[State.FINISH.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -162,60 +164,60 @@ public class SwanAdDownloadButtonView extends View {
                 return;
             }
         }
-        this.f11794e = new Paint();
+        this.f46678e = new Paint();
         this.k = new Paint();
         this.l = -1;
         this.o = 100;
         this.p = State.PREPARE;
         this.q = -1.0f;
-        this.f11794e.setAntiAlias(true);
+        this.f46678e.setAntiAlias(true);
         this.k.setAntiAlias(true);
         this.m = getResources().getDimensionPixelOffset(c.swan_ad_dimens_14dp);
-        this.f11795f = context.getResources().getColor(b.swanapp_ad_download_button_default_bg_color);
-        this.f11796g = context.getResources().getColor(b.swanapp_ad_download_button_default_fg_color);
+        this.f46679f = context.getResources().getColor(b.swanapp_ad_download_button_default_bg_color);
+        this.f46680g = context.getResources().getColor(b.swanapp_ad_download_button_default_fg_color);
     }
 
     public final void a(Canvas canvas, RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, rectF) == null) {
-            this.f11794e.setColor(this.f11795f);
-            this.f11794e.setStyle(Paint.Style.FILL);
+            this.f46678e.setColor(this.f46679f);
+            this.f46678e.setStyle(Paint.Style.FILL);
             float f2 = this.q;
             if (f2 <= 0.0f) {
-                f2 = this.f11797h ? rectF.height() / 2.0f : 0.0f;
+                f2 = this.f46681h ? rectF.height() / 2.0f : 0.0f;
             }
-            canvas.drawRoundRect(rectF, f2, f2, this.f11794e);
+            canvas.drawRoundRect(rectF, f2, f2, this.f46678e);
         }
     }
 
     public final void b(Canvas canvas, RectF rectF) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, rectF) == null) {
-            int i2 = a.f11799a[this.p.ordinal()];
+            int i2 = a.f46684a[this.p.ordinal()];
             float f2 = 0.0f;
             if (i2 != 1) {
                 if (i2 != 2) {
                     return;
                 }
-                this.f11794e.setColor(this.f11796g);
-                this.f11794e.setStyle(Paint.Style.FILL);
+                this.f46678e.setColor(this.f46680g);
+                this.f46678e.setStyle(Paint.Style.FILL);
                 float f3 = this.q;
                 if (f3 > 0.0f) {
                     f2 = f3;
-                } else if (this.f11797h) {
+                } else if (this.f46681h) {
                     f2 = rectF.height() / 2.0f;
                 }
-                canvas.drawRoundRect(rectF, f2, f2, this.f11794e);
+                canvas.drawRoundRect(rectF, f2, f2, this.f46678e);
                 return;
             }
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.FILL);
-            float f4 = this.f11798i / this.o;
-            paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.f11796g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
+            float f4 = this.f46682i / this.o;
+            paint.setShader(new LinearGradient(0.0f, 0.0f, rectF.width(), 0.0f, new int[]{this.f46680g, 0}, new float[]{f4, f4 + 1.0E-4f}, Shader.TileMode.CLAMP));
             float f5 = this.q;
             if (f5 > 0.0f) {
                 f2 = f5;
-            } else if (this.f11797h) {
+            } else if (this.f46681h) {
                 f2 = rectF.height() / 2.0f;
             }
             canvas.drawRoundRect(rectF, f2, f2, paint);
@@ -252,7 +254,7 @@ public class SwanAdDownloadButtonView extends View {
             if (getWidth() == 0 || getHeight() == 0 || TextUtils.isEmpty(this.n)) {
                 return;
             }
-            if (!this.j) {
+            if (!this.f46683j) {
                 e(canvas);
             } else {
                 d(canvas);
@@ -265,13 +267,13 @@ public class SwanAdDownloadButtonView extends View {
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             float f2 = 0;
             RectF rectF = new RectF(f2, f2, getWidth() + 0, getHeight() + 0);
-            this.f11794e.setColor(this.f11795f);
-            this.f11794e.setStyle(Paint.Style.FILL);
+            this.f46678e.setColor(this.f46679f);
+            this.f46678e.setStyle(Paint.Style.FILL);
             float f3 = this.q;
             if (f3 <= 0.0f) {
-                f3 = this.f11797h ? rectF.height() / 2.0f : 0.0f;
+                f3 = this.f46681h ? rectF.height() / 2.0f : 0.0f;
             }
-            canvas.drawRoundRect(rectF, f3, f3, this.f11794e);
+            canvas.drawRoundRect(rectF, f3, f3, this.f46678e);
             this.k.setColor(this.l);
             this.k.setTextSize(this.m);
             Paint.FontMetrics fontMetrics = this.k.getFontMetrics();
@@ -280,72 +282,62 @@ public class SwanAdDownloadButtonView extends View {
         }
     }
 
-    public SwanAdDownloadButtonView f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.f11797h = z;
-            return this;
-        }
-        return (SwanAdDownloadButtonView) invokeZ.objValue;
-    }
-
-    public SwanAdDownloadButtonView g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            this.j = z;
-            return this;
-        }
-        return (SwanAdDownloadButtonView) invokeZ.objValue;
-    }
-
     public int getMax() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.o : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.o : invokeV.intValue;
     }
 
-    public SwanAdDownloadButtonView h(int i2) {
+    public SwanAdDownloadButtonView isCornerRadius(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+            this.f46681h = z;
+            return this;
+        }
+        return (SwanAdDownloadButtonView) invokeZ.objValue;
+    }
+
+    public SwanAdDownloadButtonView isShowProgress(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
+            this.f46683j = z;
+            return this;
+        }
+        return (SwanAdDownloadButtonView) invokeZ.objValue;
+    }
+
+    public SwanAdDownloadButtonView setBgColor(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            this.f11795f = i2;
+            this.f46679f = i2;
             return this;
         }
         return (SwanAdDownloadButtonView) invokeI.objValue;
     }
 
-    public SwanAdDownloadButtonView i(int i2) {
+    public SwanAdDownloadButtonView setFgColor(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.l = i2;
+            this.f46680g = i2;
             return this;
         }
         return (SwanAdDownloadButtonView) invokeI.objValue;
-    }
-
-    public SwanAdDownloadButtonView j(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f2)) == null) {
-            this.m = f2;
-            return this;
-        }
-        return (SwanAdDownloadButtonView) invokeF.objValue;
     }
 
     public void setMax(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
             this.o = i2;
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             if (i2 < 0) {
                 i2 = 0;
             }
@@ -353,7 +345,7 @@ public class SwanAdDownloadButtonView extends View {
             if (i2 > i3) {
                 i2 = i3;
             }
-            this.f11798i = i2;
+            this.f46682i = i2;
             if (i2 == 0) {
                 this.p = State.PREPARE;
             } else if (i2 == this.o) {
@@ -366,15 +358,35 @@ public class SwanAdDownloadButtonView extends View {
 
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048589, this, f2) == null) {
             this.q = f2;
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             this.n = str;
         }
+    }
+
+    public SwanAdDownloadButtonView setTextColor(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
+            this.l = i2;
+            return this;
+        }
+        return (SwanAdDownloadButtonView) invokeI.objValue;
+    }
+
+    public SwanAdDownloadButtonView setTextSize(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048592, this, f2)) == null) {
+            this.m = f2;
+            return this;
+        }
+        return (SwanAdDownloadButtonView) invokeF.objValue;
     }
 }

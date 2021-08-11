@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g0 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39806a;
+    public String f76647a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39807b;
+    public String f76648b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ h0 f39808c;
+    public final /* synthetic */ h0 f76649c;
 
     public g0(h0 h0Var) {
         Interceptable interceptable = $ic;
@@ -42,20 +42,20 @@ public class g0 extends WebViewClient {
                 return;
             }
         }
-        this.f39808c = h0Var;
+        this.f76649c = h0Var;
     }
 
     public final boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            h0 h0Var = this.f39808c;
-            if (h0Var.f39817d) {
-                h0Var.f39817d = false;
-                h0 h0Var2 = this.f39808c;
-                x2 x2Var = h0Var2.f39815b;
+            h0 h0Var = this.f76649c;
+            if (h0Var.f76658d) {
+                h0Var.f76658d = false;
+                h0 h0Var2 = this.f76649c;
+                x2 x2Var = h0Var2.f76656b;
                 if (x2Var != null) {
-                    return x2Var.a(str, h0Var2.f39818e);
+                    return x2Var.a(str, h0Var2.f76659e);
                 }
             }
             return false;
@@ -68,9 +68,9 @@ public class g0 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            if (TextUtils.isEmpty(this.f39807b)) {
-                this.f39807b = str;
-                z2 z2Var = this.f39808c.f39814a;
+            if (TextUtils.isEmpty(this.f76648b)) {
+                this.f76648b = str;
+                z2 z2Var = this.f76649c.f76655a;
                 if (z2Var != null) {
                     z2Var.onLoaded();
                 }
@@ -83,7 +83,7 @@ public class g0 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, bitmap) == null) {
             super.onPageStarted(webView, str, bitmap);
-            this.f39806a = webView.getUrl();
+            this.f76647a = webView.getUrl();
         }
     }
 
@@ -92,7 +92,7 @@ public class g0 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, webResourceRequest, webResourceError) == null) {
             super.onReceivedError(webView, webResourceRequest, webResourceError);
-            if ((TextUtils.equals(webView.getUrl(), "http://abcd/") || TextUtils.equals(webView.getUrl(), this.f39806a)) && Build.VERSION.SDK_INT >= 23) {
+            if ((TextUtils.equals(webView.getUrl(), "http://abcd/") || TextUtils.equals(webView.getUrl(), this.f76647a)) && Build.VERSION.SDK_INT >= 23) {
                 webResourceError.getDescription().toString();
                 webResourceError.getErrorCode();
             }

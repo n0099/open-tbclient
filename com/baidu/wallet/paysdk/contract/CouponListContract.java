@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.presenter.CouponListPresenter;
 import com.baidu.wallet.paysdk.presenter.NetWorkPresenter;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public interface CouponListContract {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Presenter extends NetWorkPresenter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

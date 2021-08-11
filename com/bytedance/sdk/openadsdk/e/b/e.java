@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f31385a;
+    public long f67325a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31386b;
+    public long f67326b;
 
     public e() {
         Interceptable interceptable = $ic;
@@ -31,17 +31,17 @@ public class e implements c {
         }
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.f31385a = j;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            this.f67325a = j2;
         }
     }
 
-    public void b(long j) {
+    public void b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f31386b = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.f67326b = j2;
         }
     }
 
@@ -52,8 +52,8 @@ public class e implements c {
             return;
         }
         try {
-            jSONObject.put("buffers_time", this.f31385a);
-            jSONObject.put("total_duration", this.f31386b);
+            jSONObject.put("buffers_time", this.f67325a);
+            jSONObject.put("total_duration", this.f67326b);
         } catch (Throwable th) {
             th.printStackTrace();
         }

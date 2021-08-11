@@ -19,7 +19,8 @@ import java.util.Collection;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public final class VCardResultParser extends ResultParser {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern BEGIN_VCARD;
@@ -244,13 +245,13 @@ public final class VCardResultParser extends ResultParser {
                     if (z3) {
                         replaceAll = decodeQuotedPrintable(substring, str2);
                         if (z2) {
-                            replaceAll = UNESCAPED_SEMICOLONS.matcher(replaceAll).replaceAll("\n").trim();
+                            replaceAll = UNESCAPED_SEMICOLONS.matcher(replaceAll).replaceAll(StringUtils.LF).trim();
                         }
                     } else {
                         if (z2) {
-                            substring = UNESCAPED_SEMICOLONS.matcher(substring).replaceAll("\n").trim();
+                            substring = UNESCAPED_SEMICOLONS.matcher(substring).replaceAll(StringUtils.LF).trim();
                         }
-                        replaceAll = VCARD_ESCAPES.matcher(NEWLINE_ESCAPE.matcher(CR_LF_SPACE_TAB.matcher(substring).replaceAll("")).replaceAll("\n")).replaceAll("$1");
+                        replaceAll = VCARD_ESCAPES.matcher(NEWLINE_ESCAPE.matcher(CR_LF_SPACE_TAB.matcher(substring).replaceAll("")).replaceAll(StringUtils.LF)).replaceAll("$1");
                     }
                     if (arrayList == null) {
                         ArrayList arrayList3 = new ArrayList(1);

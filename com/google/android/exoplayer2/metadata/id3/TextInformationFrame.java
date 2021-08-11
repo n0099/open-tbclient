@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.metadata.id3;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import c.i.b.a.i0.v;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,8 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.b.a.i0.v;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class TextInformationFrame extends Id3Frame {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<TextInformationFrame> CREATOR;
@@ -19,7 +19,7 @@ public final class TextInformationFrame extends Id3Frame {
     public final String description;
     public final String value;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a implements Parcelable.Creator<TextInformationFrame> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -8,10 +8,15 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.b;
+import c.a.e.a.h;
+import c.a.e.e.p.d;
+import c.a.e.g.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.nps.NPSHookManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.initer.TitanIniter;
 import com.baidu.titan.sdk.loader.LoaderManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,12 +26,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.b;
-import d.a.d.a.h;
-import d.a.d.e.p.d;
-import d.a.d.g.c;
 import java.util.Calendar;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BdBaseApplication extends Application {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RESOURCE_LOAD_MAX_TRY_COUNT = 3;
@@ -44,13 +45,13 @@ public class BdBaseApplication extends Application {
     public long mSmallFlowInterval;
     public long mStartSmallFlowTime;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ BdBaseApplication f2163a;
+        public final /* synthetic */ BdBaseApplication f36014a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(BdBaseApplication bdBaseApplication, Looper looper) {
@@ -70,14 +71,14 @@ public class BdBaseApplication extends Application {
                     return;
                 }
             }
-            this.f2163a = bdBaseApplication;
+            this.f36014a = bdBaseApplication;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f2163a.handleInitMessage(message);
+                this.f36014a.handleInitMessage(message);
             }
         }
     }
@@ -143,7 +144,7 @@ public class BdBaseApplication extends Application {
     private void initPlugin() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            d.a.d.h.i.a.d().e();
+            c.a.e.h.i.a.d().e();
         }
     }
 
@@ -175,17 +176,17 @@ public class BdBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.set(2019, 5, 7, 21, 0, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 7, 21, 0, 0);
             long timeInMillis = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 7, 21, 30, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 7, 21, 30, 0);
             long timeInMillis2 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 21, 50, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 15, 21, 50, 0);
             long timeInMillis3 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 22, 20, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 15, 22, 20, 0);
             long timeInMillis4 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 20, 30, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 4, 27, 20, 30, 0);
             long timeInMillis5 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 21, 0, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 4, 27, 21, 0, 0);
             long timeInMillis6 = calendar.getTimeInMillis();
             long currentTimeMillis = System.currentTimeMillis();
             return (timeInMillis <= currentTimeMillis && currentTimeMillis <= timeInMillis2) || (timeInMillis3 <= currentTimeMillis && currentTimeMillis <= timeInMillis4) || (timeInMillis5 <= currentTimeMillis && currentTimeMillis <= timeInMillis6);
@@ -349,37 +350,37 @@ public class BdBaseApplication extends Application {
         }
     }
 
-    public void setSmallFlowInterval(long j) {
+    public void setSmallFlowInterval(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
-            this.mSmallFlowInterval = j;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            this.mSmallFlowInterval = j2;
         }
     }
 
-    public void setStartSmallFlowTime(long j) {
+    public void setStartSmallFlowTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
-            this.mStartSmallFlowTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
+            this.mStartSmallFlowTime = j2;
         }
     }
 
-    private boolean checkInterrupt(long j) {
+    private boolean checkInterrupt(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.set(2019, 5, 7, 19, 20, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 7, 19, 20, 0);
             long timeInMillis = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 7, 21, 0, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 7, 21, 0, 0);
             long timeInMillis2 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 20, 10, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 15, 20, 10, 0);
             long timeInMillis3 = calendar.getTimeInMillis();
-            calendar.set(2019, 5, 15, 21, 50, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 5, 15, 21, 50, 0);
             long timeInMillis4 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 20, 0, 0);
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 4, 27, 20, 0, 0);
             long timeInMillis5 = calendar.getTimeInMillis();
-            calendar.set(2019, 4, 27, 20, 30, 0);
-            return (timeInMillis <= j && j <= timeInMillis2) || (timeInMillis3 <= j && j <= timeInMillis4) || (timeInMillis5 <= j && j <= calendar.getTimeInMillis());
+            calendar.set(SpeedStatsStampTable.INIT_GO_ACTION_STAMP_KEY, 4, 27, 20, 30, 0);
+            return (timeInMillis <= j2 && j2 <= timeInMillis2) || (timeInMillis3 <= j2 && j2 <= timeInMillis4) || (timeInMillis5 <= j2 && j2 <= calendar.getTimeInMillis());
         }
         return invokeJ.booleanValue;
     }

@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PmsContentProviderImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORITY;
@@ -218,16 +218,16 @@ public class PmsContentProviderImpl {
             if (TextUtils.isEmpty(type)) {
                 return null;
             }
-            long j = 0;
+            long j2 = 0;
             try {
-                j = getDbHelper().getWritableDatabase().insert(type, null, contentValues);
+                j2 = getDbHelper().getWritableDatabase().insert(type, null, contentValues);
             } catch (SQLiteFullException e2) {
                 DebugUtils.printStackTrace(e2);
             } catch (SQLiteReadOnlyDatabaseException e3) {
                 DebugUtils.printStackTrace(e3);
             }
             Uri.Builder appendPath = BASE_URI.buildUpon().appendPath(type);
-            return appendPath.appendQueryParameter("id", j + "").build();
+            return appendPath.appendQueryParameter("id", j2 + "").build();
         }
         return (Uri) invokeLL.objValue;
     }

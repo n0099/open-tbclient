@@ -30,7 +30,8 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes9.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes2.dex */
 public class ByteString implements Serializable, Comparable<ByteString> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ByteString EMPTY;
@@ -532,7 +533,7 @@ public class ByteString implements Serializable, Comparable<ByteString> {
                 }
                 return "[size=" + this.data.length + " hex=" + substring(0, 64).hex() + "…]";
             }
-            String replace = utf8.substring(0, codePointIndexToCharIndex).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace("\n", "\\n").replace("\r", "\\r");
+            String replace = utf8.substring(0, codePointIndexToCharIndex).replace(IStringUtil.WINDOWS_FOLDER_SEPARATOR, "\\\\").replace(StringUtils.LF, "\\n").replace(StringUtils.CR, "\\r");
             if (codePointIndexToCharIndex < utf8.length()) {
                 return "[size=" + this.data.length + " text=" + replace + "…]";
             }

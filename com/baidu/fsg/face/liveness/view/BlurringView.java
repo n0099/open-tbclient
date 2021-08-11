@@ -18,38 +18,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BlurringView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f6104a;
+    public int f40080a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f6105b;
+    public int f40081b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f6106c;
+    public View f40082c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f6107d;
+    public int f40083d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6108e;
+    public int f40084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f6109f;
+    public boolean f40085f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f6110g;
+    public Bitmap f40086g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f6111h;
+    public Bitmap f40087h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Canvas f6112i;
-    public RenderScript j;
+    public Canvas f40088i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public RenderScript f40089j;
     public ScriptIntrinsicBlur k;
     public Allocation l;
     public Allocation m;
@@ -79,7 +81,7 @@ public class BlurringView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
             RenderScript create = RenderScript.create(context);
-            this.j = create;
+            this.f40089j = create;
             this.k = ScriptIntrinsicBlur.create(create, Element.U8_4(create));
         }
     }
@@ -87,10 +89,10 @@ public class BlurringView extends View {
     public void blur() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.l.copyFrom(this.f6110g);
+            this.l.copyFrom(this.f40086g);
             this.k.setInput(this.l);
             this.k.forEach(this.m);
-            this.m.copyTo(this.f6111h);
+            this.m.copyTo(this.f40087h);
         }
     }
 
@@ -99,7 +101,7 @@ public class BlurringView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDetachedFromWindow();
-            RenderScript renderScript = this.j;
+            RenderScript renderScript = this.f40089j;
             if (renderScript != null) {
                 renderScript.destroy();
             }
@@ -111,23 +113,23 @@ public class BlurringView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f6106c != null) {
+            if (this.f40082c != null) {
                 if (prepare()) {
-                    if (this.f6106c.getBackground() != null && (this.f6106c.getBackground() instanceof ColorDrawable)) {
-                        this.f6110g.eraseColor(((ColorDrawable) this.f6106c.getBackground()).getColor());
+                    if (this.f40082c.getBackground() != null && (this.f40082c.getBackground() instanceof ColorDrawable)) {
+                        this.f40086g.eraseColor(((ColorDrawable) this.f40082c.getBackground()).getColor());
                     } else {
-                        this.f6110g.eraseColor(0);
+                        this.f40086g.eraseColor(0);
                     }
-                    this.f6106c.draw(this.f6112i);
+                    this.f40082c.draw(this.f40088i);
                     blur();
                     canvas.save();
-                    canvas.translate(this.f6106c.getX() - getX(), this.f6106c.getY() - getY());
-                    int i2 = this.f6104a;
+                    canvas.translate(this.f40082c.getX() - getX(), this.f40082c.getY() - getY());
+                    int i2 = this.f40080a;
                     canvas.scale(i2, i2);
-                    canvas.drawBitmap(this.f6111h, 0.0f, 0.0f, (Paint) null);
+                    canvas.drawBitmap(this.f40087h, 0.0f, 0.0f, (Paint) null);
                     canvas.restore();
                 }
-                canvas.drawColor(this.f6105b);
+                canvas.drawColor(this.f40081b);
             }
         }
     }
@@ -136,37 +138,37 @@ public class BlurringView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int width = this.f6106c.getWidth();
-            int height = this.f6106c.getHeight();
-            if (this.f6112i == null || this.f6109f || this.f6107d != width || this.f6108e != height) {
-                this.f6109f = false;
-                this.f6107d = width;
-                this.f6108e = height;
-                int i2 = this.f6104a;
+            int width = this.f40082c.getWidth();
+            int height = this.f40082c.getHeight();
+            if (this.f40088i == null || this.f40085f || this.f40083d != width || this.f40084e != height) {
+                this.f40085f = false;
+                this.f40083d = width;
+                this.f40084e = height;
+                int i2 = this.f40080a;
                 int i3 = width / i2;
                 int i4 = height / i2;
                 int i5 = (i3 - (i3 % 4)) + 4;
                 int i6 = (i4 - (i4 % 4)) + 4;
-                Bitmap bitmap = this.f6111h;
-                if (bitmap == null || bitmap.getWidth() != i5 || this.f6111h.getHeight() != i6) {
+                Bitmap bitmap = this.f40087h;
+                if (bitmap == null || bitmap.getWidth() != i5 || this.f40087h.getHeight() != i6) {
                     Bitmap createBitmap = Bitmap.createBitmap(i5, i6, Bitmap.Config.ARGB_8888);
-                    this.f6110g = createBitmap;
+                    this.f40086g = createBitmap;
                     if (createBitmap == null) {
                         return false;
                     }
                     Bitmap createBitmap2 = Bitmap.createBitmap(i5, i6, Bitmap.Config.ARGB_8888);
-                    this.f6111h = createBitmap2;
+                    this.f40087h = createBitmap2;
                     if (createBitmap2 == null) {
                         return false;
                     }
                 }
-                Canvas canvas = new Canvas(this.f6110g);
-                this.f6112i = canvas;
-                int i7 = this.f6104a;
+                Canvas canvas = new Canvas(this.f40086g);
+                this.f40088i = canvas;
+                int i7 = this.f40080a;
                 canvas.scale(1.0f / i7, 1.0f / i7);
-                Allocation createFromBitmap = Allocation.createFromBitmap(this.j, this.f6110g, Allocation.MipmapControl.MIPMAP_NONE, 1);
+                Allocation createFromBitmap = Allocation.createFromBitmap(this.f40089j, this.f40086g, Allocation.MipmapControl.MIPMAP_NONE, 1);
                 this.l = createFromBitmap;
-                this.m = Allocation.createTyped(this.j, createFromBitmap.getType());
+                this.m = Allocation.createTyped(this.f40089j, createFromBitmap.getType());
             }
             return true;
         }
@@ -183,7 +185,7 @@ public class BlurringView extends View {
     public void setBlurredView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view) == null) {
-            this.f6106c = view;
+            this.f40082c = view;
         }
     }
 
@@ -191,9 +193,9 @@ public class BlurringView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
             if (i2 > 0) {
-                if (this.f6104a != i2) {
-                    this.f6104a = i2;
-                    this.f6109f = true;
+                if (this.f40080a != i2) {
+                    this.f40080a = i2;
+                    this.f40085f = true;
                     return;
                 }
                 return;
@@ -205,7 +207,7 @@ public class BlurringView extends View {
     public void setOverlayColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f6105b = i2;
+            this.f40081b = i2;
         }
     }
 

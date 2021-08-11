@@ -10,26 +10,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.BaiduWalletDelegate;
+import com.dxmpay.wallet.api.BaiduWalletDelegate;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BaiduLBSPay {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.android.lbspay.BaiduLBSPay$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static BaiduLBSPay f2612a;
+        public static BaiduLBSPay f36487a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -45,7 +45,7 @@ public class BaiduLBSPay {
                     return;
                 }
             }
-            f2612a = new BaiduLBSPay(null);
+            f36487a = new BaiduLBSPay(null);
         }
     }
 
@@ -56,7 +56,7 @@ public class BaiduLBSPay {
     public static BaiduLBSPay getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f2612a : (BaiduLBSPay) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.f36487a : (BaiduLBSPay) invokeV.objValue;
     }
 
     public void doCallFrontCashierPay(Activity activity, GetPayOrderListener getPayOrderListener, LBSPayBack lBSPayBack, Map<String, String> map, String str) {

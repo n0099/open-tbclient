@@ -21,20 +21,20 @@ import com.cmic.sso.sdk.d.l;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f32735c;
+    public static a f68703c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.cmic.sso.sdk.b.c.a f32736a;
+    public final com.cmic.sso.sdk.b.c.a f68704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Context f32737b;
+    public final Context f68705b;
 
     static {
         InterceptResult invokeClinit;
@@ -66,8 +66,8 @@ public class a {
                 return;
             }
         }
-        this.f32737b = context.getApplicationContext();
-        this.f32736a = com.cmic.sso.sdk.b.c.a.a();
+        this.f68705b = context.getApplicationContext();
+        this.f68704a = com.cmic.sso.sdk.b.c.a.a();
     }
 
     private void b(com.cmic.sso.sdk.a aVar, b bVar) {
@@ -83,18 +83,18 @@ public class a {
             } else if (aVar.c("logintype") == 0) {
                 aVar.a("userCapaid", "50");
             }
-            this.f32736a.a(aVar, new d(this, aVar, bVar) { // from class: com.cmic.sso.sdk.auth.a.1
+            this.f68704a.a(aVar, new d(this, aVar, bVar) { // from class: com.cmic.sso.sdk.auth.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.cmic.sso.sdk.a f32738a;
+                public final /* synthetic */ com.cmic.sso.sdk.a f68706a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f32739b;
+                public final /* synthetic */ b f68707b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ a f32740c;
+                public final /* synthetic */ a f68708c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -111,16 +111,16 @@ public class a {
                             return;
                         }
                     }
-                    this.f32740c = this;
-                    this.f32738a = aVar;
-                    this.f32739b = bVar;
+                    this.f68708c = this;
+                    this.f68706a = aVar;
+                    this.f68707b = bVar;
                 }
 
                 @Override // com.cmic.sso.sdk.b.c.d
                 public void a(String str, String str2, JSONObject jSONObject) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
-                        this.f32740c.a(this.f32738a, this.f32739b, str, str2, jSONObject);
+                        this.f68708c.a(this.f68706a, this.f68707b, str, str2, jSONObject);
                     }
                 }
             });
@@ -131,14 +131,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f32735c == null) {
+            if (f68703c == null) {
                 synchronized (a.class) {
-                    if (f32735c == null) {
-                        f32735c = new a(context);
+                    if (f68703c == null) {
+                        f68703c = new a(context);
                     }
                 }
             }
-            return f32735c;
+            return f68703c;
         }
         return (a) invokeL.objValue;
     }
@@ -177,7 +177,7 @@ public class a {
                     e2.printStackTrace();
                 }
             }
-            aVar.a(b.a.f32741a, bArr);
+            aVar.a(b.a.f68709a, bArr);
             aVar.a("authType", "3");
         }
     }
@@ -185,8 +185,8 @@ public class a {
     private void a(com.cmic.sso.sdk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, aVar) == null) {
-            String packageName = this.f32737b.getPackageName();
-            String a2 = com.cmic.sso.sdk.d.d.a(l.a(this.f32737b, packageName));
+            String packageName = this.f68705b.getPackageName();
+            String a2 = com.cmic.sso.sdk.d.d.a(l.a(this.f68705b, packageName));
             aVar.a("apppackage", packageName);
             aVar.a("appsign", a2);
         }
@@ -214,7 +214,7 @@ public class a {
                 if (TextUtils.isEmpty(optString2)) {
                     b2 = jSONObject.toString();
                 } else {
-                    b2 = com.cmic.sso.sdk.d.a.b(aVar.a(b.a.f32741a), optString2);
+                    b2 = com.cmic.sso.sdk.d.a.b(aVar.a(b.a.f68709a), optString2);
                 }
                 String str7 = null;
                 try {
@@ -283,7 +283,7 @@ public class a {
                 aVar.a("phonescrip", str6);
                 aVar.a("securityphone", str5);
                 if (jSONObject3 != null) {
-                    h.a(this.f32737b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
+                    h.a(this.f68705b, str6, Long.parseLong(jSONObject3.optString("scripExpiresIn", "0")), aVar.b("scripKey", ""), aVar.b("scripType", ""));
                     if (aVar.c("logintype") == 3) {
                         bVar.a(str, "true", aVar, c.a(str5));
                         return;

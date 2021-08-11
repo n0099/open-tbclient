@@ -9,19 +9,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.preload.a.m;
 import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class c extends b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f32124a;
+    public static Class f68078a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f32125b;
+    public final Object f68079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Field f32126c;
+    public final Field f68080c;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public final class c extends b {
                 return;
             }
         }
-        this.f32125b = b();
-        this.f32126c = c();
+        this.f68079b = b();
+        this.f68080c = c();
     }
 
     public static Field c() {
@@ -70,9 +70,9 @@ public final class c extends b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accessibleObject)) == null) {
-            if (this.f32125b != null && this.f32126c != null) {
+            if (this.f68079b != null && this.f68080c != null) {
                 try {
-                    f32124a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f32125b, accessibleObject, Long.valueOf(((Long) f32124a.getMethod("objectFieldOffset", Field.class).invoke(this.f32125b, this.f32126c)).longValue()), Boolean.TRUE);
+                    f68078a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f68079b, accessibleObject, Long.valueOf(((Long) f68078a.getMethod("objectFieldOffset", Field.class).invoke(this.f68079b, this.f68080c)).longValue()), Boolean.TRUE);
                     return true;
                 } catch (Exception unused) {
                 }
@@ -88,7 +88,7 @@ public final class c extends b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
                 Class<?> cls = Class.forName("sun.misc.Unsafe");
-                f32124a = cls;
+                f68078a = cls;
                 Field declaredField = cls.getDeclaredField("theUnsafe");
                 declaredField.setAccessible(true);
                 return declaredField.get(null);

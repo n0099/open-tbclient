@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 import protobuf.GroupInfo;
 import protobuf.MsgInfo;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class GroupMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer DEFAULT_HASMORE;
@@ -27,7 +27,7 @@ public final class GroupMsg extends Message {
     @ProtoField(label = Message.Label.REPEATED, tag = 2)
     public final List<MsgInfo> msgList;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class Builder extends Message.Builder<GroupMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +84,7 @@ public final class GroupMsg extends Message {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

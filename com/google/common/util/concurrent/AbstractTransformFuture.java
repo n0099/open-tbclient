@@ -1,5 +1,7 @@
 package com.google.common.util.concurrent;
 
+import c.i.d.a.g;
+import c.i.d.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,19 +10,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.util.concurrent.FluentFuture;
-import d.f.d.a.g;
-import d.f.d.a.n;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class AbstractTransformFuture<I, O, F, T> extends FluentFuture.TrustedFuture<O> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public F function;
     public ListenableFuture<? extends I> inputFuture;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class AsyncTransformFuture<I, O> extends AbstractTransformFuture<I, O, AsyncFunction<? super I, ? extends O>, ListenableFuture<? extends O>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public abstract class AbstractTransformFuture<I, O, F, T> extends FluentFuture.T
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class TransformFuture<I, O> extends AbstractTransformFuture<I, O, g<? super I, ? extends O>, O> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -155,7 +155,7 @@ public abstract class AbstractTransformFuture<I, O, F, T> extends FluentFuture.T
     public static <I, O> ListenableFuture<O> create(ListenableFuture<I> listenableFuture, AsyncFunction<? super I, ? extends O> asyncFunction, Executor executor) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, listenableFuture, asyncFunction, executor)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, listenableFuture, asyncFunction, executor)) == null) {
             n.p(executor);
             AsyncTransformFuture asyncTransformFuture = new AsyncTransformFuture(listenableFuture, asyncFunction);
             listenableFuture.addListener(asyncTransformFuture, MoreExecutors.rejectionPropagatingExecutor(executor, asyncTransformFuture));
@@ -246,7 +246,7 @@ public abstract class AbstractTransformFuture<I, O, F, T> extends FluentFuture.T
     public static <I, O> ListenableFuture<O> create(ListenableFuture<I> listenableFuture, g<? super I, ? extends O> gVar, Executor executor) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, listenableFuture, gVar, executor)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, listenableFuture, gVar, executor)) == null) {
             n.p(gVar);
             TransformFuture transformFuture = new TransformFuture(listenableFuture, gVar);
             listenableFuture.addListener(transformFuture, MoreExecutors.rejectionPropagatingExecutor(executor, transformFuture));

@@ -7,17 +7,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public InterfaceC0427a f35310a;
+    public InterfaceC1994a f72065a;
 
     /* renamed from: com.kwad.sdk.core.webview.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public interface InterfaceC0427a {
+    /* loaded from: classes10.dex */
+    public interface InterfaceC1994a {
         void a();
     }
 
@@ -47,9 +47,9 @@ public class a implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            InterfaceC0427a interfaceC0427a = this.f35310a;
-            if (interfaceC0427a != null) {
-                interfaceC0427a.a();
+            InterfaceC1994a interfaceC1994a = this.f72065a;
+            if (interfaceC1994a != null) {
+                interfaceC1994a.a();
             }
             c();
         }
@@ -59,7 +59,7 @@ public class a implements com.kwad.sdk.core.webview.a.a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f35310a = null;
+            this.f72065a = null;
         }
     }
 

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CloudMusicActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MUSIC_DATA = "music_data";
@@ -41,7 +41,7 @@ public class CloudMusicActivityConfig extends IntentConfig {
     public void setCurrentMusicData(TbMusicData tbMusicData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbMusicData) == null) {
-            getIntent().putExtra(MUSIC_DATA, tbMusicData);
+            getIntent().putExtra("music_data", tbMusicData);
         }
     }
 }

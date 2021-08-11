@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.ZeusMonitorType;
 import org.webrtc.EglBase10;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class InputSurface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_RECORDABLE_ANDROID = 12610;
@@ -160,10 +160,10 @@ public class InputSurface {
         }
     }
 
-    public void setPresentationTime(long j) {
+    public void setPresentationTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.mEGLDisplay, this.mEGLSurface, j);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            EGLExt.eglPresentationTimeANDROID(this.mEGLDisplay, this.mEGLSurface, j2);
         }
     }
 

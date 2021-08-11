@@ -5,11 +5,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class DirectPayErrorContent implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3623785623246088032L;
     public transient /* synthetic */ FieldHolder $fh;
+    public String auth_url_sdk;
     public String order_url;
 
     public DirectPayErrorContent() {

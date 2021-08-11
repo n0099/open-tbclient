@@ -15,7 +15,7 @@ import ms.bd.c.b;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class e1 extends b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,10 +35,10 @@ public final class e1 extends b.a {
     }
 
     @Override // ms.bd.c.b.a
-    public Object b(int i2, long j, String str, Object obj) throws Throwable {
+    public Object b(int i2, long j2, String str, Object obj) throws Throwable {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, obj})) == null) {
             Context a2 = a.c().a();
             JSONArray jSONArray = new JSONArray();
             AccessibilityManager accessibilityManager = (AccessibilityManager) a2.getSystemService((String) h.a(16777217, 0, 0L, "13646b", new byte[]{PublicSuffixDatabase.EXCEPTION_MARKER, 50, 70, 69, 26, 102, 59, 16, 110, 104, 41, 37, 92}));

@@ -13,7 +13,7 @@ import com.kwad.sdk.export.proxy.AdHttpProxy;
 import com.kwad.sdk.export.proxy.AdInstallProxy;
 import com.kwad.sdk.utils.al;
 import java.io.File;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

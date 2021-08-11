@@ -14,13 +14,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import javax.net.ssl.SSLPeerUnverifiedException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class a extends c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final f f28571a;
+    public final f f64425a;
 
     public a(f fVar) {
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public final class a extends c {
                 return;
             }
         }
-        this.f28571a = fVar;
+        this.f64425a = fVar;
     }
 
     @Override // com.bytedance.sdk.component.b.b.a.i.c
@@ -51,7 +51,7 @@ public final class a extends c {
             boolean z = false;
             for (int i2 = 0; i2 < 9; i2++) {
                 X509Certificate x509Certificate = (X509Certificate) arrayList.get(arrayList.size() - 1);
-                X509Certificate a2 = this.f28571a.a(x509Certificate);
+                X509Certificate a2 = this.f64425a.a(x509Certificate);
                 if (a2 != null) {
                     if (arrayList.size() > 1 || !x509Certificate.equals(a2)) {
                         arrayList.add(a2);
@@ -87,7 +87,7 @@ public final class a extends c {
             if (obj == this) {
                 return true;
             }
-            return (obj instanceof a) && ((a) obj).f28571a.equals(this.f28571a);
+            return (obj instanceof a) && ((a) obj).f64425a.equals(this.f64425a);
         }
         return invokeL.booleanValue;
     }
@@ -95,7 +95,7 @@ public final class a extends c {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28571a.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64425a.hashCode() : invokeV.intValue;
     }
 
     private boolean a(X509Certificate x509Certificate, X509Certificate x509Certificate2) {

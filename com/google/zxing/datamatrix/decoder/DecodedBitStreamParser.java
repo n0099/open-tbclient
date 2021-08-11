@@ -3,7 +3,6 @@ package com.google.zxing.datamatrix.decoder;
 import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.alipay.sdk.encrypt.a;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,8 +21,10 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import kotlin.text.Typography;
+import org.apache.commons.lang3.CharUtils;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class DecodedBitStreamParser {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] C40_BASIC_SET_CHARS;
@@ -34,7 +35,7 @@ public final class DecodedBitStreamParser {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.zxing.datamatrix.decoder.DecodedBitStreamParser$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$google$zxing$datamatrix$decoder$DecodedBitStreamParser$Mode;
         public static /* synthetic */ Interceptable $ic;
@@ -79,7 +80,7 @@ public final class DecodedBitStreamParser {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Mode {
         public static final /* synthetic */ Mode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -162,11 +163,11 @@ public final class DecodedBitStreamParser {
             }
         }
         C40_BASIC_SET_CHARS = new char[]{'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
-        char[] cArr = {'!', Typography.quote, '#', '$', '%', Typography.amp, '\'', '(', ')', '*', '+', ',', SignatureImpl.SEP, IStringUtil.EXTENSION_SEPARATOR, '/', ':', ';', Typography.less, a.f1923h, Typography.greater, '?', '@', '[', '\\', ']', '^', '_'};
+        char[] cArr = {'!', '\"', '#', '$', '%', Typography.amp, ExtendedMessageFormat.QUOTE, '(', ')', '*', '+', ',', SignatureImpl.SEP, '.', '/', ':', ';', Typography.less, a.f35773h, Typography.greater, '?', '@', '[', '\\', ']', '^', '_'};
         C40_SHIFT2_SET_CHARS = cArr;
         TEXT_BASIC_SET_CHARS = new char[]{'*', '*', '*', ' ', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         TEXT_SHIFT2_SET_CHARS = cArr;
-        TEXT_SHIFT3_SET_CHARS = new char[]{'`', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '{', '|', '}', '~', 127};
+        TEXT_SHIFT3_SET_CHARS = new char[]{'`', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', ExtendedMessageFormat.START_FE, '|', ExtendedMessageFormat.END_FE, '~', 127};
     }
 
     public DecodedBitStreamParser() {
@@ -238,7 +239,7 @@ public final class DecodedBitStreamParser {
                 for (int i2 = 0; i2 < 3; i2++) {
                     int i3 = iArr[i2];
                     if (i3 == 0) {
-                        sb.append('\r');
+                        sb.append(CharUtils.CR);
                     } else if (i3 == 1) {
                         sb.append('*');
                     } else if (i3 == 2) {

@@ -1,24 +1,24 @@
 package com.baidu.tieba.ala.alasquare.special_forum.message;
 
+import c.a.o0.s.q.c2;
+import c.a.p0.v.d.g.c.b;
+import c.a.p0.v.d.g.c.c;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
-import d.a.q0.v.d.f.c.b;
-import d.a.q0.v.d.f.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<b2> livesList;
+    public List<c2> livesList;
     public c mSpecialActivityListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -56,9 +56,9 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                         for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
                             JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                             if (optJSONObject2 != null) {
-                                b2 b2Var = new b2();
-                                b2Var.J2(optJSONObject2);
-                                this.livesList.add(b2Var);
+                                c2 c2Var = new c2();
+                                c2Var.R2(optJSONObject2);
+                                this.livesList.add(c2Var);
                             }
                         }
                     } else {
@@ -69,16 +69,16 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
                 c cVar = this.mSpecialActivityListData;
-                if (cVar != null && cVar.f65164e == null) {
-                    cVar.f65164e = new ArrayList();
+                if (cVar != null && cVar.f24979e == null) {
+                    cVar.f24979e = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
                     for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
                         JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
                         if (optJSONObject3 != null) {
                             b bVar = new b();
-                            bVar.c(optJSONObject3);
-                            this.mSpecialActivityListData.f65164e.add(bVar);
+                            bVar.g(optJSONObject3);
+                            this.mSpecialActivityListData.f24979e.add(bVar);
                         }
                     }
                 }

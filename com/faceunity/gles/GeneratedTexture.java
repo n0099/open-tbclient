@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GeneratedTexture {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLACK = 0;
@@ -35,7 +35,7 @@ public class GeneratedTexture {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.faceunity.gles.GeneratedTexture$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$faceunity$gles$GeneratedTexture$Image;
         public static /* synthetic */ Interceptable $ic;
@@ -68,7 +68,7 @@ public class GeneratedTexture {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class Image {
         public static final /* synthetic */ Image[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

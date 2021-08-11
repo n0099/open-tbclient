@@ -2,6 +2,8 @@ package com.baidu.tieba.recapp.adapter;
 
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.o2.e;
+import c.a.p0.x2.n;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,21 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n2.e;
-import d.a.q0.w2.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.q0.n1.o.l.e<?> f20614e;
+    public c.a.p0.o1.o.l.e<?> f56003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public m f20615f;
+    public n f56004f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbAppLegoViewHolder(d.a.q0.n1.o.l.e<?> eVar) {
+    public PbAppLegoViewHolder(c.a.p0.o1.o.l.e<?> eVar) {
         super((View) eVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -40,163 +40,163 @@ public class PbAppLegoViewHolder extends TypeAdapter.ViewHolder implements e {
                 return;
             }
         }
-        this.f20614e = eVar;
+        this.f56003e = eVar;
     }
 
-    @Override // d.a.q0.n2.e
-    public boolean C() {
+    public void autoPlay(int i2) {
+        n nVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (nVar = this.f56004f) == null) {
+            return;
+        }
+        nVar.autoPlay(i2);
+    }
+
+    public boolean canPlay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            n nVar = this.f56004f;
+            if (nVar == null) {
+                return false;
+            }
+            return nVar.canPlay();
         }
         return invokeV.booleanValue;
     }
 
-    public void b(int i2) {
-        m mVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (mVar = this.f20615f) == null) {
-            return;
-        }
-        mVar.autoPlay(i2);
-    }
-
-    public boolean c() {
+    @Override // c.a.p0.o2.e
+    public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            m mVar = this.f20615f;
-            if (mVar == null) {
-                return false;
+            n nVar = this.f56004f;
+            if (nVar == null) {
+                return 0;
             }
-            return mVar.canPlay();
+            return (int) nVar.getCurrentPosition();
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public int d() {
+    public int getPlayStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            m mVar = this.f20615f;
-            if (mVar != null) {
-                return mVar.getPlayStatus();
+            n nVar = this.f56004f;
+            if (nVar != null) {
+                return nVar.getPlayStatus();
             }
             return -2;
         }
         return invokeV.intValue;
     }
 
-    public void e() {
-        m mVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (mVar = this.f20615f) == null) {
-            return;
-        }
-        mVar.release();
-    }
-
-    public void f(m mVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, mVar) == null) {
-            this.f20615f = mVar;
-        }
-    }
-
-    public void g() {
-        d.a.q0.n1.o.l.e<?> eVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (eVar = this.f20614e) == null) {
-            return;
-        }
-        eVar.g();
-    }
-
-    @Override // d.a.q0.n2.e
-    public int getCurrentPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            m mVar = this.f20615f;
-            if (mVar == null) {
-                return 0;
-            }
-            return (int) mVar.getCurrentPosition();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // d.a.q0.n2.e
+    @Override // c.a.p0.o2.e
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            m mVar = this.f20615f;
-            return mVar == null ? "" : mVar.getPlayUrl();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            n nVar = this.f56004f;
+            return nVar == null ? "" : nVar.getPlayUrl();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // d.a.q0.n2.e
+    @Override // c.a.p0.o2.e
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            m mVar = this.f20615f;
-            if (mVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            n nVar = this.f56004f;
+            if (nVar == null) {
                 return null;
             }
-            return mVar.getVideoContainer();
+            return nVar.getVideoContainer();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // d.a.q0.n2.e
+    @Override // c.a.p0.o2.e
+    public boolean isFullScreen() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // c.a.p0.o2.e
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            m mVar = this.f20615f;
-            if (mVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            n nVar = this.f56004f;
+            if (nVar == null) {
                 return false;
             }
-            return mVar.isPlayStarted();
+            return nVar.isPlayStarted();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.q0.n2.e
+    @Override // c.a.p0.o2.e
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            m mVar = this.f20615f;
-            if (mVar == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            n nVar = this.f56004f;
+            if (nVar == null) {
                 return false;
             }
-            return mVar.isPlaying();
+            return nVar.isPlaying();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // d.a.q0.n2.e
-    public void startPlay() {
-        m mVar;
+    public void release() {
+        n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (mVar = this.f20615f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (nVar = this.f56004f) == null) {
             return;
         }
-        mVar.startPlay();
+        nVar.release();
     }
 
-    @Override // d.a.q0.n2.e
-    public void stopPlay() {
-        m mVar;
+    public void setAdVideoView(n nVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (mVar = this.f20615f) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, nVar) == null) {
+            this.f56004f = nVar;
+        }
+    }
+
+    @Override // c.a.p0.o2.e
+    public void startPlay() {
+        n nVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (nVar = this.f56004f) == null) {
             return;
         }
-        mVar.stopPlay();
+        nVar.startPlay();
+    }
+
+    @Override // c.a.p0.o2.e
+    public void stopPlay() {
+        n nVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (nVar = this.f56004f) == null) {
+            return;
+        }
+        nVar.stopPlay();
+    }
+
+    public void updateFontSize() {
+        c.a.p0.o1.o.l.e<?> eVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (eVar = this.f56003e) == null) {
+            return;
+        }
+        eVar.updateFontSize();
     }
 }

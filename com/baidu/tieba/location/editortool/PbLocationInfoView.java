@@ -6,6 +6,8 @@ import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.TextView;
+import c.a.e.a.j;
+import c.a.p0.i3.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -15,18 +17,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.j;
-import d.a.q0.h3.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbLocationInfoView extends TextView {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int STATE_INIT = 0;
+    public static final int STATE_LOADING = 1;
+    public static final int STATE_RESULT = 2;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18429e;
+    public int f53747e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f18430f;
+    public Rect f53748f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbLocationInfoView(Context context) {
@@ -49,13 +52,22 @@ public class PbLocationInfoView extends TextView {
         }
     }
 
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f18429e == 1) {
+            this.f53748f = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
+            setState(0, null);
+            onChangeSkinType();
+        }
+    }
+
+    public void changeIcon() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.f53747e == 1) {
                 Drawable drawable = SkinManager.getDrawable(R.drawable.icon_posts_pin_loading_anim);
                 if (drawable != null) {
-                    drawable.setBounds(this.f18430f);
+                    drawable.setBounds(this.f53748f);
                 }
                 setCompoundDrawables(drawable, null, null, null);
                 a.a((TbPageContextSupport) j.b(getContext()), (Animatable) drawable);
@@ -63,39 +75,30 @@ public class PbLocationInfoView extends TextView {
             }
             Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_tips_site);
             if (drawable2 != null) {
-                drawable2.setBounds(this.f18430f);
+                drawable2.setBounds(this.f53748f);
             }
             setCompoundDrawables(drawable2, null, null, null);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f18430f = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
-            setState(0, null);
-            c();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setTextColor(SkinManager.getColor(R.color.CAM_X0108));
-            a();
         }
     }
 
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f18429e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53747e : invokeV.intValue;
+    }
+
+    public void onChangeSkinType() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            setTextColor(SkinManager.getColor(R.color.CAM_X0108));
+            changeIcon();
+        }
     }
 
     public void setState(int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
-            this.f18429e = i2;
+            this.f53747e = i2;
             if (i2 == 1) {
                 if (str == null) {
                     str = getResources().getString(R.string.location_loading);
@@ -107,7 +110,7 @@ public class PbLocationInfoView extends TextView {
                 }
                 setText(str);
             }
-            a();
+            changeIcon();
         }
     }
 
@@ -130,6 +133,6 @@ public class PbLocationInfoView extends TextView {
                 return;
             }
         }
-        b();
+        a();
     }
 }

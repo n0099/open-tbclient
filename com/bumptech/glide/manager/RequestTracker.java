@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.WeakHashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class RequestTracker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequestTracker";
@@ -161,9 +161,7 @@ public class RequestTracker {
                 return;
             }
             request.clear();
-            if (Log.isLoggable(TAG, 2)) {
-                Log.v(TAG, "Paused, delaying request");
-            }
+            Log.isLoggable(TAG, 2);
             this.pendingRequests.add(request);
         }
     }

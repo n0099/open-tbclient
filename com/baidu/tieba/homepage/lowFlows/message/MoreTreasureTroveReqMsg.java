@@ -1,5 +1,7 @@
 package com.baidu.tieba.homepage.lowFlows.message;
 
+import c.a.o0.b1.w;
+import c.a.p0.x2.j0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -8,11 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
-import d.a.q0.w2.g0.a;
 import tbclient.MoreTreasureTrove.DataReq;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MoreTreasureTroveReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,6 +1,8 @@
 package com.baidu.tieba.personExtra;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.a.f;
+import c.a.o0.s.q.h1;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -18,24 +20,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.f;
-import d.a.p0.s.q.g1;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonFriendModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f20260g;
+    public static final String f55621g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f20261h;
+    public static TbHttpMessageTask f55622h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public g1 f20262e;
+    public h1 f55623e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f20263f;
+    public String f55624f;
 
     static {
         InterceptResult invokeClinit;
@@ -51,11 +51,11 @@ public class PersonFriendModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + "c/r/friend/listFriend";
-        f20260g = str;
+        f55621g = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_FRIEND_CMD, str);
-        f20261h = tbHttpMessageTask;
+        f55622h = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonFriendResponseMessage.class);
-        MessageManager.getInstance().registerTask(f20261h);
+        MessageManager.getInstance().registerTask(f55622h);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,13 +76,13 @@ public class PersonFriendModel extends BdBaseModel {
                 return;
             }
         }
-        this.f20262e = new g1();
+        this.f55623e = new h1();
     }
 
     public void A(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f20263f = str;
+            this.f55624f = str;
         }
     }
 
@@ -109,7 +109,7 @@ public class PersonFriendModel extends BdBaseModel {
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f20263f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f55624f : (String) invokeV.objValue;
     }
 
     public void setSex(int i2) {
@@ -118,10 +118,10 @@ public class PersonFriendModel extends BdBaseModel {
         }
     }
 
-    public g1 w() {
+    public h1 w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f20262e : (g1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f55623e : (h1) invokeV.objValue;
     }
 
     public void x() {
@@ -146,10 +146,10 @@ public class PersonFriendModel extends BdBaseModel {
         }
     }
 
-    public void z(g1 g1Var) {
+    public void z(h1 h1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, g1Var) == null) {
-            this.f20262e = g1Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h1Var) == null) {
+            this.f55623e = h1Var;
         }
     }
 }

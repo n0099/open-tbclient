@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GuardConfigurations {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -13,7 +13,7 @@ public class GuardConfigurations {
     public final DaemonListener LISTENER;
     public final DaemonConfiguration PERSISTENT_CONFIG;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DaemonConfiguration {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class GuardConfigurations {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface DaemonListener {
         void onDaemonAssistantStart(Context context);
 

@@ -13,20 +13,20 @@ import com.bumptech.glide.load.Key;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.cache.MemoryCache;
 import com.bumptech.glide.util.LruCache;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class LruResourceCache extends LruCache<Key, Resource<?>> implements MemoryCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MemoryCache.ResourceRemovedListener listener;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LruResourceCache(long j) {
-        super(j);
+    public LruResourceCache(long j2) {
+        super(j2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {

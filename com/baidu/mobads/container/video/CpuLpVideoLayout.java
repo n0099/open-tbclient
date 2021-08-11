@@ -3,7 +3,6 @@ package com.baidu.mobads.container.video;
 import android.app.Activity;
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CpuLpVideoLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SOURCE_CHANGE = 1;
@@ -46,7 +45,7 @@ public class CpuLpVideoLayout extends RelativeLayout {
     public final AdVideoViewListener mVideoListener;
     public final Runnable updateTimeRunnable;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnVideoStatusListener {
         void chooseNextVideo(JsWithPlayerData jsWithPlayerData);
 
@@ -159,7 +158,6 @@ public class CpuLpVideoLayout extends RelativeLayout {
             public void playCompletion() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    Log.d(CpuLpVideoLayout.TAG, "playCompletion: ");
                     if (TextUtils.isEmpty(this.this$0.mJsWithPlayerData.nextVideoTitle)) {
                         this.this$0.mCpuLpVideoControllerView.replayPlayIcon();
                     }
@@ -178,7 +176,6 @@ public class CpuLpVideoLayout extends RelativeLayout {
             public void playFailure() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    Log.d(CpuLpVideoLayout.TAG, "playFailure: ");
                     CpuLpVideoLayout cpuLpVideoLayout = this.this$0;
                     if (cpuLpVideoLayout.mOnVideoStatusListener != null) {
                         cpuLpVideoLayout.mJsWithPlayerData.setCurVideoStatus("play_error");
@@ -194,7 +191,6 @@ public class CpuLpVideoLayout extends RelativeLayout {
             public void playPause() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    Log.d(CpuLpVideoLayout.TAG, "playPause: ");
                     this.this$0.mCpuLpVideoControllerView.mVideoStatus = 11;
                     this.this$0.mCpuLpVideoControllerView.pausePlayIcon();
                     CpuLpVideoLayout cpuLpVideoLayout = this.this$0;
@@ -212,7 +208,6 @@ public class CpuLpVideoLayout extends RelativeLayout {
             public void playResume() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048579, this) == null) {
-                    Log.d(CpuLpVideoLayout.TAG, "playResume: ");
                     this.this$0.mCpuLpVideoControllerView.mVideoStatus = 10;
                     this.this$0.mCpuLpVideoControllerView.resumePlayIcon();
                     this.this$0.mAdVideoView.setPlayBackSpeed(this.this$0.mCpuLpVideoControllerView.mPlayBackSpeed);
@@ -233,7 +228,6 @@ public class CpuLpVideoLayout extends RelativeLayout {
             public void renderingStart() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048580, this) == null) {
-                    Log.d(CpuLpVideoLayout.TAG, "renderingStart: ");
                     this.this$0.mAdVideoView.setPlayBackSpeed(this.this$0.mCpuLpVideoControllerView.mPlayBackSpeed);
                     this.this$0.mCpuLpVideoControllerView.mVideoStatus = 10;
                     this.this$0.startCounter();

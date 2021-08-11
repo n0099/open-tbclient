@@ -13,7 +13,7 @@ import com.facebook.common.memory.NoOpMemoryTrimmableRegistry;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PoolConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITMAP_POOL_MAX_BITMAP_SIZE_DEFAULT = 4194304;
@@ -32,13 +32,13 @@ public class PoolConfig {
     public final PoolStatsTracker mSmallByteArrayPoolStatsTracker;
 
     /* renamed from: com.facebook.imagepipeline.memory.PoolConfig$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

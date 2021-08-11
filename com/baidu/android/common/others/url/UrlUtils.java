@@ -2,13 +2,13 @@ package com.baidu.android.common.others.url;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.Domains;
+import com.dxmpay.wallet.core.Domains;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -28,7 +28,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class UrlUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern COARSE_WEB_URL;
@@ -168,7 +168,7 @@ public final class UrlUtils {
             try {
                 str2 = new URL(str).getQuery();
             } catch (MalformedURLException e2) {
-                Log.e("UrlUtils", e2.toString());
+                e2.toString();
             }
             if (TextUtils.isEmpty(str2)) {
                 return str;
@@ -247,7 +247,7 @@ public final class UrlUtils {
             try {
                 return new URL(str).getHost();
             } catch (MalformedURLException e2) {
-                Log.e("UrlUtils", "Incorrect url: " + e2.getMessage());
+                String str2 = "Incorrect url: " + e2.getMessage();
                 return null;
             }
         }
@@ -267,7 +267,7 @@ public final class UrlUtils {
                 if (lowerCase.contains(".js")) {
                     return "application/x-javascript";
                 }
-                if (lowerCase.contains(".jpg") || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) {
+                if (lowerCase.contains(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX) || lowerCase.contains(".gif") || lowerCase.contains(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || lowerCase.contains(".jpeg")) {
                     return BdUploadHandler.IMAGE_MIME_TYPE;
                 }
             }
@@ -369,7 +369,7 @@ public final class UrlUtils {
             try {
                 return COARSE_WEB_URL.matcher(str).matches();
             } catch (Exception e2) {
-                Log.e("UrlUtils", "isValidUrl ： query.matcher failed! " + e2.toString());
+                String str2 = "isValidUrl ： query.matcher failed! " + e2.toString();
                 return false;
             }
         }

@@ -12,19 +12,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class ae implements TextWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f23597a;
+    public final /* synthetic */ FeedbackEditActivity f59333a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f23598b;
+    public int f59334b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f23599c;
+    public long f59335c;
 
     public ae(FeedbackEditActivity feedbackEditActivity) {
         Interceptable interceptable = $ic;
@@ -41,8 +41,8 @@ public final class ae implements TextWatcher {
                 return;
             }
         }
-        this.f23597a = feedbackEditActivity;
-        this.f23599c = 0L;
+        this.f59333a = feedbackEditActivity;
+        this.f59335c = 0L;
     }
 
     @Override // android.text.TextWatcher
@@ -80,67 +80,67 @@ public final class ae implements TextWatcher {
         TextView textView6;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-            z = this.f23597a.x;
+            z = this.f59333a.x;
             if (!z) {
-                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f23597a);
+                com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f59333a);
                 dVar.b(dVar.b() + 1);
-                this.f23597a.x = true;
+                this.f59333a.x = true;
             }
-            editText = this.f23597a.m;
+            editText = this.f59333a.m;
             int length = editText.getText().toString().length();
             int i2 = com.baidu.ufosdk.b.aa;
             int i3 = 0;
             if (length < i2 - 10) {
-                textView5 = this.f23597a.o;
+                textView5 = this.f59333a.o;
                 textView5.setTextColor(-5131855);
-                textView6 = this.f23597a.o;
+                textView6 = this.f59333a.o;
                 textView6.setText("4-" + com.baidu.ufosdk.b.aa + com.baidu.ufosdk.f.s.a("27"));
             } else if (length < i2 - 10 || length > i2) {
-                editText2 = this.f23597a.m;
+                editText2 = this.f59333a.m;
                 String substring = editText2.getText().toString().substring(0, com.baidu.ufosdk.b.aa);
-                textView = this.f23597a.o;
+                textView = this.f59333a.o;
                 textView.setTextColor(-1551537);
-                editText3 = this.f23597a.m;
+                editText3 = this.f59333a.m;
                 editText3.setText(substring);
-                editText4 = this.f23597a.m;
+                editText4 = this.f59333a.m;
                 FeedbackEditActivity.b(editText4, substring.length());
-                textView2 = this.f23597a.o;
+                textView2 = this.f59333a.o;
                 textView2.setText("0" + com.baidu.ufosdk.f.s.a("27"));
-                if (System.currentTimeMillis() - this.f23599c > 3000) {
-                    Toast.makeText(this.f23597a, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_START_WAP), 0).show();
-                    this.f23599c = System.currentTimeMillis();
+                if (System.currentTimeMillis() - this.f59335c > 3000) {
+                    Toast.makeText(this.f59333a, com.baidu.ufosdk.f.s.a(Constants.VIA_REPORT_TYPE_START_WAP), 0).show();
+                    this.f59335c = System.currentTimeMillis();
                 }
             } else {
-                textView3 = this.f23597a.o;
+                textView3 = this.f59333a.o;
                 textView3.setTextColor(-5131855);
-                textView4 = this.f23597a.o;
+                textView4 = this.f59333a.o;
                 textView4.setText(String.valueOf(com.baidu.ufosdk.b.aa - editable.length()) + com.baidu.ufosdk.f.s.a("27"));
             }
-            int i4 = this.f23598b;
+            int i4 = this.f59334b;
             if (i4 == 0) {
-                editText5 = this.f23597a.m;
+                editText5 = this.f59333a.m;
                 if (editText5.getText().toString().length() < 4) {
-                    button = this.f23597a.V;
+                    button = this.f59333a.V;
                     button.setTextColor(com.baidu.ufosdk.b.y);
                     return;
                 }
                 while (true) {
-                    list = this.f23597a.z;
+                    list = this.f59333a.z;
                     if (i3 >= list.size()) {
                         break;
                     }
-                    list3 = this.f23597a.z;
+                    list3 = this.f59333a.z;
                     if (list3.get(i3) != null) {
-                        list5 = this.f23597a.z;
+                        list5 = this.f59333a.z;
                         if (((TextView) list5.get(i3)).getText().toString().length() == 0) {
-                            button4 = this.f23597a.V;
+                            button4 = this.f59333a.V;
                             button4.setTextColor(com.baidu.ufosdk.b.y);
                             break;
                         }
                     }
-                    list4 = this.f23597a.z;
+                    list4 = this.f59333a.z;
                     if (i3 == list4.size() - 1) {
-                        button3 = this.f23597a.V;
+                        button3 = this.f59333a.V;
                         int i5 = com.baidu.ufosdk.b.v;
                         int i6 = com.baidu.ufosdk.b.y;
                         int i7 = com.baidu.ufosdk.b.v;
@@ -148,9 +148,9 @@ public final class ae implements TextWatcher {
                     }
                     i3++;
                 }
-                list2 = this.f23597a.z;
+                list2 = this.f59333a.z;
                 if (list2.size() == 0) {
-                    button2 = this.f23597a.V;
+                    button2 = this.f59333a.V;
                     int i8 = com.baidu.ufosdk.b.v;
                     int i9 = com.baidu.ufosdk.b.y;
                     int i10 = com.baidu.ufosdk.b.v;
@@ -160,25 +160,25 @@ public final class ae implements TextWatcher {
                 return;
             }
             if (i4 == 1) {
-                editText6 = this.f23597a.m;
+                editText6 = this.f59333a.m;
                 if (editText6.getText().toString().length() >= 4) {
                     while (true) {
-                        list6 = this.f23597a.z;
+                        list6 = this.f59333a.z;
                         if (i3 >= list6.size()) {
                             break;
                         }
-                        list8 = this.f23597a.z;
+                        list8 = this.f59333a.z;
                         if (list8.get(i3) != null) {
-                            list10 = this.f23597a.z;
+                            list10 = this.f59333a.z;
                             if (((TextView) list10.get(i3)).getText().toString().length() == 0) {
-                                button8 = this.f23597a.V;
+                                button8 = this.f59333a.V;
                                 button8.setTextColor(com.baidu.ufosdk.b.y);
                                 break;
                             }
                         }
-                        list9 = this.f23597a.z;
+                        list9 = this.f59333a.z;
                         if (i3 == list9.size() - 1) {
-                            button7 = this.f23597a.V;
+                            button7 = this.f59333a.V;
                             int i11 = com.baidu.ufosdk.b.v;
                             int i12 = com.baidu.ufosdk.b.y;
                             int i13 = com.baidu.ufosdk.b.v;
@@ -186,9 +186,9 @@ public final class ae implements TextWatcher {
                         }
                         i3++;
                     }
-                    list7 = this.f23597a.z;
+                    list7 = this.f59333a.z;
                     if (list7.size() == 0) {
-                        button6 = this.f23597a.V;
+                        button6 = this.f59333a.V;
                         int i14 = com.baidu.ufosdk.b.v;
                         int i15 = com.baidu.ufosdk.b.y;
                         int i16 = com.baidu.ufosdk.b.v;
@@ -198,7 +198,7 @@ public final class ae implements TextWatcher {
                     return;
                 }
             }
-            button5 = this.f23597a.V;
+            button5 = this.f59333a.V;
             button5.setTextColor(com.baidu.ufosdk.b.y);
         }
     }
@@ -208,8 +208,8 @@ public final class ae implements TextWatcher {
         EditText editText;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
-            editText = this.f23597a.m;
-            this.f23598b = editText.getText().toString().length() < 4 ? 0 : 1;
+            editText = this.f59333a.m;
+            this.f59334b = editText.getText().toString().length() < 4 ? 0 : 1;
         }
     }
 

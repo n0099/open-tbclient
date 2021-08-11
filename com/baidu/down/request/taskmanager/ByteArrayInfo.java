@@ -1,13 +1,12 @@
 package com.baidu.down.request.taskmanager;
 
 import android.os.Build;
-import android.util.Log;
 import com.baidu.down.request.task.AbstractTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ByteArrayInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,8 +41,7 @@ public class ByteArrayInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!this.mRecycled) {
-                String simpleName = ByteArrayInfo.class.getSimpleName();
-                Log.w(simpleName, "### Maybe ByteArrayInfo has not been recycled! last used : " + this.mkey + ", pos=" + this.mFilePos + ", len=" + this.mByteArrayLength);
+                String str = "### Maybe ByteArrayInfo has not been recycled! last used : " + this.mkey + ", pos=" + this.mFilePos + ", len=" + this.mByteArrayLength;
             }
             super.finalize();
         }

@@ -14,7 +14,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.schedulers.TrampolineScheduler;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableIntervalRange extends Observable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class ObservableIntervalRange extends Observable<Long> {
     public final long start;
     public final TimeUnit unit;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class IntervalRangeObserver extends AtomicReference<Disposable> implements Disposable, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1891866368734007884L;
@@ -34,12 +34,12 @@ public final class ObservableIntervalRange extends Observable<Long> {
         public long count;
         public final long end;
 
-        public IntervalRangeObserver(Observer<? super Long> observer, long j, long j2) {
+        public IntervalRangeObserver(Observer<? super Long> observer, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {observer, Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -50,8 +50,8 @@ public final class ObservableIntervalRange extends Observable<Long> {
                 }
             }
             this.actual = observer;
-            this.count = j;
-            this.end = j2;
+            this.count = j2;
+            this.end = j3;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -75,14 +75,14 @@ public final class ObservableIntervalRange extends Observable<Long> {
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || isDisposed()) {
                 return;
             }
-            long j = this.count;
-            this.actual.onNext(Long.valueOf(j));
-            if (j == this.end) {
+            long j2 = this.count;
+            this.actual.onNext(Long.valueOf(j2));
+            if (j2 == this.end) {
                 DisposableHelper.dispose(this);
                 this.actual.onComplete();
                 return;
             }
-            this.count = j + 1;
+            this.count = j2 + 1;
         }
 
         public void setResource(Disposable disposable) {
@@ -93,12 +93,12 @@ public final class ObservableIntervalRange extends Observable<Long> {
         }
     }
 
-    public ObservableIntervalRange(long j, long j2, long j3, long j4, TimeUnit timeUnit, Scheduler scheduler) {
+    public ObservableIntervalRange(long j2, long j3, long j4, long j5, TimeUnit timeUnit, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), timeUnit, scheduler};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -108,12 +108,12 @@ public final class ObservableIntervalRange extends Observable<Long> {
                 return;
             }
         }
-        this.initialDelay = j3;
-        this.period = j4;
+        this.initialDelay = j4;
+        this.period = j5;
         this.unit = timeUnit;
         this.scheduler = scheduler;
-        this.start = j;
-        this.end = j2;
+        this.start = j2;
+        this.end = j3;
     }
 
     @Override // io.reactivex.Observable

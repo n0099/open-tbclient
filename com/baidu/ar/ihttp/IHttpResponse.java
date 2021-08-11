@@ -1,7 +1,7 @@
 package com.baidu.ar.ihttp;
 
 import java.io.InputStream;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public interface IHttpResponse {
     int getCode();
 

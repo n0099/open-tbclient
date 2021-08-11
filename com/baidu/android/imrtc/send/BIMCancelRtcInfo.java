@@ -12,16 +12,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class BIMCancelRtcInfo extends BIMRtcInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BIMCancelRtcInfo";
     public transient /* synthetic */ FieldHolder $fh;
     public List<BIMCancelUser> mCancelUsers;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class BIMCancelUser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -140,7 +141,7 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BBIMCancelRtcInfo{" + super.toString() + ", mCancelUsers=" + this.mCancelUsers.size() + '}';
+            return "BBIMCancelRtcInfo{" + super.toString() + ", mCancelUsers=" + this.mCancelUsers.size() + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

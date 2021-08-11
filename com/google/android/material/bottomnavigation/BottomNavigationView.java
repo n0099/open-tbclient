@@ -52,7 +52,7 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BottomNavigationView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEF_STYLE_RES;
@@ -70,17 +70,17 @@ public class BottomNavigationView extends FrameLayout {
     public OnNavigationItemReselectedListener reselectedListener;
     public OnNavigationItemSelectedListener selectedListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface OnNavigationItemReselectedListener {
         void onNavigationItemReselected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;

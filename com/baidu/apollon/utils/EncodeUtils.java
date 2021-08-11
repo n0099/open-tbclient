@@ -10,7 +10,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.Character;
 import java.net.URLEncoder;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.CharUtils;
+/* loaded from: classes5.dex */
 public final class EncodeUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -165,7 +166,7 @@ public final class EncodeUtils {
                         if (charAt2 == 't') {
                             charAt2 = '\t';
                         } else if (charAt2 == 'r') {
-                            charAt2 = '\r';
+                            charAt2 = CharUtils.CR;
                         } else if (charAt2 == 'n') {
                             charAt2 = '\n';
                         } else if (charAt2 == 'f') {

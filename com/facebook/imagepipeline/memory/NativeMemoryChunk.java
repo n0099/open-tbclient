@@ -1,6 +1,5 @@
 package com.facebook.imagepipeline.memory;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -18,7 +17,7 @@ import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class NativeMemoryChunk implements MemoryChunk, Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NativeMemoryChunk";
@@ -82,19 +81,19 @@ public class NativeMemoryChunk implements MemoryChunk, Closeable {
     public static native long nativeAllocate(int i2);
 
     @DoNotStrip
-    public static native void nativeCopyFromByteArray(long j, byte[] bArr, int i2, int i3);
+    public static native void nativeCopyFromByteArray(long j2, byte[] bArr, int i2, int i3);
 
     @DoNotStrip
-    public static native void nativeCopyToByteArray(long j, byte[] bArr, int i2, int i3);
+    public static native void nativeCopyToByteArray(long j2, byte[] bArr, int i2, int i3);
 
     @DoNotStrip
-    public static native void nativeFree(long j);
+    public static native void nativeFree(long j2);
 
     @DoNotStrip
-    public static native void nativeMemcpy(long j, long j2, int i2);
+    public static native void nativeMemcpy(long j2, long j3, int i2);
 
     @DoNotStrip
-    public static native byte nativeReadByte(long j);
+    public static native byte nativeReadByte(long j2);
 
     @Override // com.facebook.imagepipeline.memory.MemoryChunk, java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
@@ -115,7 +114,7 @@ public class NativeMemoryChunk implements MemoryChunk, Closeable {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), memoryChunk, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             Preconditions.checkNotNull(memoryChunk);
             if (memoryChunk.getUniqueId() == getUniqueId()) {
-                Log.w(TAG, "Copying from NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(this)) + " to NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(memoryChunk)) + " which share the same address " + Long.toHexString(this.mNativePtr));
+                String str = "Copying from NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(this)) + " to NativeMemoryChunk " + Integer.toHexString(System.identityHashCode(memoryChunk)) + " which share the same address " + Long.toHexString(this.mNativePtr);
                 Preconditions.checkArgument(false);
             }
             if (memoryChunk.getUniqueId() < getUniqueId()) {
@@ -139,7 +138,7 @@ public class NativeMemoryChunk implements MemoryChunk, Closeable {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || isClosed()) {
             return;
         }
-        Log.w(TAG, "finalize: Chunk " + Integer.toHexString(System.identityHashCode(this)) + " still active. ");
+        String str = "finalize: Chunk " + Integer.toHexString(System.identityHashCode(this)) + " still active. ";
         try {
             close();
         } finally {

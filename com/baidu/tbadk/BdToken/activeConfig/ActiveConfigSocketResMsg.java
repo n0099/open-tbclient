@@ -1,5 +1,6 @@
 package com.baidu.tbadk.BdToken.activeConfig;
 
+import c.a.o0.a.b0.b;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.p0.a.c0.b;
 import tbclient.ActiveConfig.ActiveConfigResIdl;
 import tbclient.Error;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ActiveConfigSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

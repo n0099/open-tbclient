@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -331,7 +330,6 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     public void initIndeterminateProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            Log.i(TAG, "Progress display unsupported");
         }
     }
 
@@ -339,7 +337,6 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     public void initProgress() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            Log.i(TAG, "Progress display unsupported");
         }
     }
 
@@ -681,11 +678,11 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
     }
 
     @Override // androidx.appcompat.widget.DecorToolbar
-    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j) {
+    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) {
-            return ViewCompat.animate(this.mToolbar).alpha(i2 == 0 ? 1.0f : 0.0f).setDuration(j).setListener(new ViewPropertyAnimatorListenerAdapter(this, i2) { // from class: androidx.appcompat.widget.ToolbarWidgetWrapper.2
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+            return ViewCompat.animate(this.mToolbar).alpha(i2 == 0 ? 1.0f : 0.0f).setDuration(j2).setListener(new ViewPropertyAnimatorListenerAdapter(this, i2) { // from class: androidx.appcompat.widget.ToolbarWidgetWrapper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public boolean mCanceled;

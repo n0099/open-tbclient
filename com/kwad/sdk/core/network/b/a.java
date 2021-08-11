@@ -6,31 +6,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f34845a;
+    public long f71588a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f34846b;
+    public long f71589b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f34847c;
+    public long f71590c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f34848d;
+    public long f71591d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f34849e;
+    public long f71592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34850f;
+    public String f71593f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f34851g;
+    public String f71594g;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -51,7 +52,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "NetworkMonitorInfo{requestTotalTime=" + this.f34845a + ", mRequestCreateTime" + this.f34846b + ", requestResponseTime=" + this.f34847c + ", requestParseDataTime=" + this.f34848d + ", requestCallbackTime=" + this.f34849e + ", requestFailReason='" + this.f34850f + "', requestUrl='" + this.f34851g + "'}";
+            return "NetworkMonitorInfo{requestTotalTime=" + this.f71588a + ", mRequestCreateTime" + this.f71589b + ", requestResponseTime=" + this.f71590c + ", requestParseDataTime=" + this.f71591d + ", requestCallbackTime=" + this.f71592e + ", requestFailReason='" + this.f71593f + ExtendedMessageFormat.QUOTE + ", requestUrl='" + this.f71594g + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

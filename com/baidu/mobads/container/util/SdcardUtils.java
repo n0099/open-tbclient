@@ -12,9 +12,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.File;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SdcardUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CACHE_PATH = "/bddownload/";
@@ -42,7 +41,7 @@ public class SdcardUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                if (Build.VERSION.SDK_INT <= 28 && !PermissionUtils.checkPermission(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+                if (Build.VERSION.SDK_INT <= 28 && !PermissionUtils.checkPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
                     if (isUseOldStoragePath()) {
                         return false;
                     }
@@ -189,7 +188,7 @@ public class SdcardUtils {
                     return context.getExternalFilesDir(null);
                 }
                 if ("mounted".equals(Environment.getExternalStorageState())) {
-                    if (PermissionUtils.checkPermission(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) && PermissionUtils.hasPermission("permission_storage")) {
+                    if (PermissionUtils.checkPermission(context, "android.permission.WRITE_EXTERNAL_STORAGE") && PermissionUtils.hasPermission("permission_storage")) {
                         return getExternalStorageDirectory();
                     }
                     if (Build.VERSION.SDK_INT >= 19) {

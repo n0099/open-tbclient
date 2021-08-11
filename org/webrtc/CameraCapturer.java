@@ -18,7 +18,7 @@ import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public abstract class CameraCapturer implements CameraVideoCapturer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_OPEN_CAMERA_ATTEMPTS = 3;
@@ -58,7 +58,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     public int width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

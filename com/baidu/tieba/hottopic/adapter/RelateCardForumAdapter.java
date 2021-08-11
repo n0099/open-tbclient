@@ -3,6 +3,8 @@ package com.baidu.tieba.hottopic.adapter;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import c.a.e.k.e.a;
+import c.a.p0.h1.c.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,10 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.BaiduWalletServiceProviderMap;
-import d.a.d.k.e.a;
-import d.a.q0.g1.c.n;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,20 +23,18 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     public boolean n;
     public BdUniqueId o;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class CardGroupRelateForumHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f17118a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public d.a.q0.g1.f.a f17119b;
+        public int f52362a;
+        public c.a.p0.h1.f.a mCardView;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, d.a.q0.g1.f.a aVar) {
-            super(aVar.k());
+        public CardGroupRelateForumHolder(RelateCardForumAdapter relateCardForumAdapter, c.a.p0.h1.f.a aVar) {
+            super(aVar.j());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,20 +50,20 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
                     return;
                 }
             }
-            this.f17118a = 3;
-            this.f17119b = aVar;
+            this.f52362a = 3;
+            this.mCardView = aVar;
         }
 
-        public void b(int i2) {
+        public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f17118a == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f52362a == i2) {
                 return;
             }
-            d.a.q0.g1.f.a aVar = this.f17119b;
+            c.a.p0.h1.f.a aVar = this.mCardView;
             if (aVar != null) {
-                aVar.m(aVar.j(), i2);
+                aVar.l(aVar.i(), i2);
             }
-            this.f17118a = i2;
+            this.f52362a = i2;
         }
     }
 
@@ -95,22 +92,22 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
         hotTopicActivity.getPageContext();
     }
 
-    public BdUniqueId e0() {
+    public BdUniqueId h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.o : (BdUniqueId) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.d.k.e.a
-    /* renamed from: f0 */
-    public CardGroupRelateForumHolder Q(ViewGroup viewGroup) {
+    @Override // c.a.e.k.e.a
+    /* renamed from: i0 */
+    public CardGroupRelateForumHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            d.a.q0.g1.f.a aVar = new d.a.q0.g1.f.a(this.m.getPageContext());
-            aVar.o(e0());
-            aVar.setFrom(BaiduWalletServiceProviderMap.PLUGIN_WALLETHOME);
+            c.a.p0.h1.f.a aVar = new c.a.p0.h1.f.a(this.m.getPageContext());
+            aVar.n(h0());
+            aVar.setFrom("home");
             this.n = true;
             return new CardGroupRelateForumHolder(this, aVar);
         }
@@ -118,22 +115,22 @@ public class RelateCardForumAdapter extends a<n, CardGroupRelateForumHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.d.k.e.a
-    /* renamed from: g0 */
-    public View X(int i2, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
+    @Override // c.a.e.k.e.a
+    /* renamed from: j0 */
+    public View a0(int i2, View view, ViewGroup viewGroup, n nVar, CardGroupRelateForumHolder cardGroupRelateForumHolder) {
         InterceptResult invokeCommon;
-        d.a.q0.g1.f.a aVar;
+        c.a.p0.h1.f.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, nVar, cardGroupRelateForumHolder})) == null) {
-            if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.f17119b) == null) {
+            if (cardGroupRelateForumHolder == null || (aVar = cardGroupRelateForumHolder.mCardView) == null) {
                 return null;
             }
             if (this.n) {
-                aVar.l(nVar);
+                aVar.k(nVar);
                 this.n = false;
             }
-            cardGroupRelateForumHolder.b(TbadkCoreApplication.getInst().getSkinType());
-            return cardGroupRelateForumHolder.a();
+            cardGroupRelateForumHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            return cardGroupRelateForumHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

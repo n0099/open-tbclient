@@ -3,7 +3,6 @@ package androidx.constraintlayout.widget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.ViewGroup;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import com.baidu.android.imsdk.internal.Constants;
@@ -43,7 +42,6 @@ public class Constraints extends ViewGroup {
     private void init(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, attributeSet) == null) {
-            Log.v(TAG, " ################# init");
         }
     }
 

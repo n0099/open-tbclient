@@ -8,16 +8,16 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class m extends FutureTask<u> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ q f1691a;
+    public final /* synthetic */ q f35526a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ l f1692b;
+    public final /* synthetic */ l f35527b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m(l lVar, Callable callable, q qVar) {
@@ -37,15 +37,15 @@ public final class m extends FutureTask<u> {
                 return;
             }
         }
-        this.f1692b = lVar;
-        this.f1691a = qVar;
+        this.f35527b = lVar;
+        this.f35526a = qVar;
     }
 
     @Override // java.util.concurrent.FutureTask
     public final void done() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            o a2 = this.f1691a.a();
+            o a2 = this.f35526a.a();
             if (a2.f() == null) {
                 super.done();
                 return;

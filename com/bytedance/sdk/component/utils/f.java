@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.searchbox.launch.stats.ActivitySpeedStats;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,12 +21,12 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a implements Comparator<File> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,11 +45,11 @@ public class f {
             }
         }
 
-        private int a(long j, long j2) {
+        private int a(long j2, long j3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-                int i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+                int i2 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
                 if (i2 < 0) {
                     return -1;
                 }
@@ -171,7 +172,7 @@ public class f {
 
     public static void e(File file) throws IOException {
         RandomAccessFile randomAccessFile;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, file) == null) {
             long length = file.length();
@@ -182,13 +183,13 @@ public class f {
             RandomAccessFile randomAccessFile2 = null;
             try {
                 randomAccessFile = new RandomAccessFile(file, "rwd");
-                j = length - 1;
+                j2 = length - 1;
             } catch (Throwable unused) {
             }
             try {
-                randomAccessFile.seek(j);
+                randomAccessFile.seek(j2);
                 byte readByte = randomAccessFile.readByte();
-                randomAccessFile.seek(j);
+                randomAccessFile.seek(j2);
                 randomAccessFile.write(readByte);
                 randomAccessFile.close();
             } catch (Throwable unused2) {
@@ -293,7 +294,7 @@ public class f {
     public static void b(File file) throws IOException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65544, null, file) == null) && file.exists()) {
-            k.f("splashLoadAd", "当文件存在更新文件的修改时间");
+            k.f(ActivitySpeedStats.SPLASH_LOADAD_DURATION, "当文件存在更新文件的修改时间");
             long currentTimeMillis = System.currentTimeMillis();
             if (file.setLastModified(currentTimeMillis)) {
                 return;

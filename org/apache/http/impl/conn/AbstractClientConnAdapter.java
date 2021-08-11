@@ -21,7 +21,7 @@ import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.conn.ManagedClientConnection;
 import org.apache.http.conn.OperatedClientConnection;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractClientConnAdapter implements ManagedClientConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -270,9 +270,9 @@ public abstract class AbstractClientConnAdapter implements ManagedClientConnecti
     }
 
     @Override // org.apache.http.conn.ManagedClientConnection
-    public void setIdleDuration(long j, TimeUnit timeUnit) {
+    public void setIdleDuration(long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048601, this, j, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048601, this, j2, timeUnit) == null) {
             throw new RuntimeException("Stub!");
         }
     }

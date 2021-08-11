@@ -2,7 +2,6 @@ package com.baidu.ar.arplay.d;
 
 import android.graphics.Canvas;
 import android.graphics.SurfaceTexture;
-import android.util.Log;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "c";
@@ -102,8 +101,7 @@ public class c {
                 try {
                     this.gy = surface.lockCanvas(null);
                 } catch (Exception e2) {
-                    String str = TAG;
-                    Log.e(str, "error while rendering view to gl: " + e2);
+                    String str = "error while rendering view to gl: " + e2;
                 }
             }
             return this.gy;
@@ -133,8 +131,7 @@ public class c {
             try {
                 this.dL.updateTexImage();
             } catch (Exception e2) {
-                String str = TAG;
-                Log.e(str, "error while update view to gl: " + e2);
+                String str = "error while update view to gl: " + e2;
             }
         }
     }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.CommitGroupMsg.CommitGroupMsgReqIdl;
 import protobuf.CommitGroupMsg.DataReq;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CommonGroupChatMessage extends ChatMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

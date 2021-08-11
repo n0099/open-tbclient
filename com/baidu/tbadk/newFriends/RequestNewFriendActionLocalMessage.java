@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,13 +19,13 @@ public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<O
     public String st_type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RequestNewFriendActionLocalMessage(long j, String str, String str2, String str3, String str4) {
+    public RequestNewFriendActionLocalMessage(long j2, String str, String str2, String str3, String str4) {
         super(2001169);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2, str3, str4};
+            Object[] objArr = {Long.valueOf(j2), str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -36,7 +36,7 @@ public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<O
                 return;
             }
         }
-        this.id = j;
+        this.id = j2;
         this.name = str;
         this.portrait = str2;
         this.content = str3;
@@ -80,10 +80,10 @@ public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<O
         }
     }
 
-    public void setId(long j) {
+    public void setId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.id = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.id = j2;
         }
     }
 

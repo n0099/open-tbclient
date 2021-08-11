@@ -12,13 +12,13 @@ import io.reactivex.functions.Predicate;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FlowableSkipWhile<T> extends AbstractFlowableWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Predicate<? super T> predicate;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SkipWhileSubscriber<T> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,10 +103,10 @@ public final class FlowableSkipWhile<T> extends AbstractFlowableWithUpstream<T, 
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                this.s.request(j);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                this.s.request(j2);
             }
         }
     }

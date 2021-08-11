@@ -5,7 +5,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class CurrencyInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +32,7 @@ public class CurrencyInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CurrencyInfo{offers_currency_type=" + this.offers_currency_type + ", offers_currency_amount=" + this.offers_currency_amount + ", offers_currency_name='" + this.offers_currency_name + "'}";
+            return "CurrencyInfo{offers_currency_type=" + this.offers_currency_type + ", offers_currency_amount=" + this.offers_currency_amount + ", offers_currency_name='" + this.offers_currency_name + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

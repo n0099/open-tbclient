@@ -12,7 +12,7 @@ import java.io.OutputStream;
 import org.apache.http.Header;
 import org.apache.http.entity.AbstractHttpEntity;
 import org.apache.http.params.HttpParams;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class MultipartEntity extends AbstractHttpEntity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MULTIPART_BOUNDARY = "http.method.multipart.boundary";

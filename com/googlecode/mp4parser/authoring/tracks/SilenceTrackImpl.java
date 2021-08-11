@@ -23,7 +23,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SilenceTrackImpl implements Track {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,12 +31,12 @@ public class SilenceTrackImpl implements Track {
     public List<Sample> samples;
     public Track source;
 
-    public SilenceTrackImpl(Track track, long j) {
+    public SilenceTrackImpl(Track track, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {track, Long.valueOf(j)};
+            Object[] objArr = {track, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -49,10 +49,10 @@ public class SilenceTrackImpl implements Track {
         this.samples = new LinkedList();
         this.source = track;
         if (AudioSampleEntry.TYPE3.equals(track.getSampleDescriptionBox().getSampleEntry().getType())) {
-            int l2i = CastUtils.l2i(((getTrackMetaData().getTimescale() * j) / 1000) / 1024);
+            int l2i = CastUtils.l2i(((getTrackMetaData().getTimescale() * j2) / 1000) / 1024);
             long[] jArr = new long[l2i];
             this.decodingTimes = jArr;
-            Arrays.fill(jArr, ((getTrackMetaData().getTimescale() * j) / l2i) / 1000);
+            Arrays.fill(jArr, ((getTrackMetaData().getTimescale() * j2) / l2i) / 1000);
             while (true) {
                 int i4 = l2i - 1;
                 if (l2i <= 0) {
@@ -81,11 +81,11 @@ public class SilenceTrackImpl implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j = 0;
-            for (long j2 : this.decodingTimes) {
-                j += j2;
+            long j2 = 0;
+            for (long j3 : this.decodingTimes) {
+                j2 += j3;
             }
-            return j;
+            return j2;
         }
         return invokeV.longValue;
     }

@@ -1,18 +1,18 @@
 package com.google.common.hash;
 
+import c.i.d.a.n;
+import c.i.d.d.f;
+import c.i.d.d.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.n;
-import d.f.d.d.f;
-import d.f.d.d.g;
 import java.io.Serializable;
 import java.util.zip.Checksum;
-/* loaded from: classes6.dex */
-public final class ChecksumHashFunction extends d.f.d.d.b implements Serializable {
+/* loaded from: classes10.dex */
+public final class ChecksumHashFunction extends c.i.d.d.b implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,34 +20,34 @@ public final class ChecksumHashFunction extends d.f.d.d.b implements Serializabl
     public final g<? extends Checksum> checksumSupplier;
     public final String toString;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
-    public final class b extends d.f.d.d.a {
+    /* loaded from: classes10.dex */
+    public final class b extends c.i.d.d.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public final Checksum f33691b;
+        public final Checksum f70420b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ ChecksumHashFunction f33692c;
+        public final /* synthetic */ ChecksumHashFunction f70421c;
 
         public /* synthetic */ b(ChecksumHashFunction checksumHashFunction, Checksum checksum, a aVar) {
             this(checksumHashFunction, checksum);
         }
 
-        @Override // d.f.d.d.f
+        @Override // c.i.d.d.f
         public HashCode e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                long value = this.f33691b.getValue();
-                if (this.f33692c.bits == 32) {
+                long value = this.f70420b.getValue();
+                if (this.f70421c.bits == 32) {
                     return HashCode.fromInt((int) value);
                 }
                 return HashCode.fromLong(value);
@@ -55,19 +55,19 @@ public final class ChecksumHashFunction extends d.f.d.d.b implements Serializabl
             return (HashCode) invokeV.objValue;
         }
 
-        @Override // d.f.d.d.a
+        @Override // c.i.d.d.a
         public void m(byte b2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b2) == null) {
-                this.f33691b.update(b2);
+                this.f70420b.update(b2);
             }
         }
 
-        @Override // d.f.d.d.a
+        @Override // c.i.d.d.a
         public void p(byte[] bArr, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-                this.f33691b.update(bArr, i2, i3);
+                this.f70420b.update(bArr, i2, i3);
             }
         }
 
@@ -86,9 +86,9 @@ public final class ChecksumHashFunction extends d.f.d.d.b implements Serializabl
                     return;
                 }
             }
-            this.f33692c = checksumHashFunction;
+            this.f70421c = checksumHashFunction;
             n.p(checksum);
-            this.f33691b = checksum;
+            this.f70420b = checksum;
         }
     }
 
@@ -121,7 +121,7 @@ public final class ChecksumHashFunction extends d.f.d.d.b implements Serializabl
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.bits : invokeV.intValue;
     }
 
-    @Override // d.f.d.d.e
+    @Override // c.i.d.d.e
     public f newHasher() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.activitys.H5OpenActivity;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class J extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ H5OpenActivity f39588a;
+    public final /* synthetic */ H5OpenActivity f76424a;
 
     public J(H5OpenActivity h5OpenActivity) {
         Interceptable interceptable = $ic;
@@ -32,19 +32,19 @@ public class J extends WebChromeClient {
                 return;
             }
         }
-        this.f39588a = h5OpenActivity;
+        this.f76424a = h5OpenActivity;
     }
 
     @Override // android.webkit.WebChromeClient
     public void onProgressChanged(WebView webView, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
-            ProgressBar progressBar = this.f39588a.f39739b;
+            ProgressBar progressBar = this.f76424a.f76579b;
             if (progressBar != null) {
                 progressBar.setVisibility(0);
-                this.f39588a.f39739b.setProgress(i2);
+                this.f76424a.f76579b.setProgress(i2);
                 if (i2 == 100) {
-                    this.f39588a.f39739b.setVisibility(8);
+                    this.f76424a.f76579b.setVisibility(8);
                 }
             }
             super.onProgressChanged(webView, i2);

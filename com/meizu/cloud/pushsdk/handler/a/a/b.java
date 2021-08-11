@@ -1,7 +1,6 @@
 package com.meizu.cloud.pushsdk.handler.a.a;
 
 import android.os.Environment;
-import com.baidu.mobstat.Config;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -13,14 +12,14 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public File f37659a;
+    public File f74507a;
 
     public b(String str) {
-        this.f37659a = new File(str);
+        this.f74507a = new File(str);
     }
 
     private void a(File file, ZipOutputStream zipOutputStream, String str) throws Exception {
@@ -35,8 +34,8 @@ public class b {
             }
             return;
         }
-        d.h.a.a.a.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
-        if (file.length() >= Config.FULL_TRACE_LOG_LIMIT) {
+        c.l.a.a.a.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
+        if (file.length() >= 10485760) {
             return;
         }
         byte[] bArr = new byte[1048576];
@@ -63,8 +62,8 @@ public class b {
     }
 
     public boolean a(List<String> list) throws Exception {
-        if (!this.f37659a.exists()) {
-            this.f37659a.getParentFile().mkdirs();
+        if (!this.f74507a.exists()) {
+            this.f74507a.getParentFile().mkdirs();
         }
         ArrayList arrayList = new ArrayList();
         String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -75,7 +74,7 @@ public class b {
                 arrayList.add(file);
             }
         }
-        a(arrayList, this.f37659a);
+        a(arrayList, this.f74507a);
         return true;
     }
 }

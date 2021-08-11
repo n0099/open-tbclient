@@ -80,7 +80,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
@@ -99,7 +98,7 @@ import javax.security.cert.CertificateException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class SapiAccountRepository {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String API_V3 = "3";
@@ -108,7 +107,7 @@ public final class SapiAccountRepository {
     public transient /* synthetic */ FieldHolder $fh;
     public SapiConfiguration configuration;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OneKeyRequestJsCallback {
         void failure(int i2, String str);
 
@@ -725,7 +724,7 @@ public final class SapiAccountRepository {
             httpHashMapWrap.put("scene", RetrieveTaskManager.KEY);
             httpHashMapWrap.put("clientfrom", "native");
             httpHashMapWrap.put("mobile", str);
-            httpHashMapWrap.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
+            httpHashMapWrap.put("oneKeySdkVersion", "v2");
             String oneKeyLoginAbilityUrl = getOneKeyLoginAbilityUrl();
             new HttpClientWrap().get(oneKeyLoginAbilityUrl, ReqPriority.IMMEDIATE, httpHashMapWrap, ParamsUtil.buildNaCookie(oneKeyLoginAbilityUrl, this.configuration), getUaInfo(), i2, new HttpHandlerWrap(this, Looper.getMainLooper(), str, oneKeyLoginCallback) { // from class: com.baidu.sapi2.SapiAccountRepository.17
                 public static /* synthetic */ Interceptable $ic;
@@ -2286,7 +2285,7 @@ public final class SapiAccountRepository {
                                 httpHashMap.put(next, jSONObject2.optString(next));
                             }
                         }
-                        httpHashMap.put("oneKeySdkVersion", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
+                        httpHashMap.put("oneKeySdkVersion", "v2");
                         String loadOneKeyLoginUrl = this.this$0.getLoadOneKeyLoginUrl();
                         new HttpClientWrap().post(loadOneKeyLoginUrl, httpHashMap, ParamsUtil.buildNaCookie(loadOneKeyLoginUrl, this.this$0.configuration), this.this$0.getUaInfo(), new HttpHandlerWrap(this, Looper.getMainLooper()) { // from class: com.baidu.sapi2.SapiAccountRepository.19.1
                             public static /* synthetic */ Interceptable $ic;

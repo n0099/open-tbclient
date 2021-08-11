@@ -27,7 +27,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +149,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f32435a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f68396a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -166,7 +166,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f32435a = aVar;
+                    this.f68396a = aVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -174,7 +174,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, bVar, dVar, th) == null) {
                         super.a(bVar, dVar, th);
-                        this.f32435a.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
+                        this.f68396a.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
                     }
                 }
             };
@@ -200,7 +200,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f32433a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f68394a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -217,7 +217,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f32433a = aVar;
+                    this.f68394a = aVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -226,7 +226,7 @@ public class a {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, bVar, dVar) == null) {
                         super.a(bVar, dVar);
                         Pair pair = (Pair) bVar.a(i.class);
-                        this.f32433a.a((String) pair.first, ((Long) pair.second).longValue());
+                        this.f68394a.a((String) pair.first, ((Long) pair.second).longValue());
                     }
                 }
             };
@@ -246,7 +246,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f32436a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f68397a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -263,7 +263,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f32436a = aVar;
+                    this.f68397a = aVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -271,7 +271,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, bVar, dVar, th) == null) {
                         super.a(bVar, dVar, th);
-                        this.f32436a.b((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
+                        this.f68397a.b((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
                     }
                 }
 
@@ -280,7 +280,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, dVar) == null) {
                         super.b(bVar, dVar);
-                        this.f32436a.c((UpdatePackage) bVar.b(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class));
+                        this.f68397a.c((UpdatePackage) bVar.b(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class));
                     }
                 }
 
@@ -289,7 +289,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, dVar) == null) {
                         super.c(bVar, dVar);
-                        this.f32436a.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class));
+                        this.f68397a.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class));
                     }
                 }
             };
@@ -321,7 +321,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f32434a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f68395a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -338,7 +338,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f32434a = aVar;
+                    this.f68395a = aVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -346,7 +346,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, bVar, dVar, th) == null) {
                         super.a(bVar, dVar, th);
-                        this.f32434a.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
+                        this.f68395a.a((UpdatePackage) bVar.a(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class), th);
                     }
                 }
 
@@ -355,7 +355,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, dVar) == null) {
                         super.b(bVar, dVar);
-                        this.f32434a.b((UpdatePackage) bVar.b(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class));
+                        this.f68395a.b((UpdatePackage) bVar.b(com.bytedance.sdk.openadsdk.preload.geckox.d.b.class));
                     }
                 }
             };
@@ -381,7 +381,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f32432a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f68393a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -398,7 +398,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f32432a = aVar;
+                    this.f68393a = aVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -406,7 +406,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, bVar, dVar, th) == null) {
                         super.a(bVar, dVar, th);
-                        this.f32432a.a(((UpdatePackage) bVar.b(f.class)).getChannel(), th);
+                        this.f68393a.a(((UpdatePackage) bVar.b(f.class)).getChannel(), th);
                     }
                 }
             };
@@ -426,7 +426,7 @@ public class a {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f32437a;
+                public final /* synthetic */ com.bytedance.sdk.openadsdk.preload.geckox.e.a f68398a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -443,7 +443,7 @@ public class a {
                             return;
                         }
                     }
-                    this.f32437a = aVar;
+                    this.f68398a = aVar;
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.preload.b.b.a
@@ -451,7 +451,7 @@ public class a {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, bVar, dVar, th) == null) {
                         super.a(bVar, dVar, th);
-                        this.f32437a.a((Map) bVar.a(c.class), th);
+                        this.f68398a.a((Map) bVar.a(c.class), th);
                     }
                 }
 
@@ -471,7 +471,7 @@ public class a {
                             list.add(updatePackage);
                             hashMap.put(accessKey, list);
                         }
-                        this.f32437a.a(map, hashMap);
+                        this.f68398a.a(map, hashMap);
                     }
                 }
             };

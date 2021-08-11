@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AdResultData";
@@ -101,13 +101,13 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
         }
     }
 
-    private SceneImpl getAdScene(long j) {
+    private SceneImpl getAdScene(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, this, j2)) == null) {
             Map<Long, SceneImpl> map = this.mRequestAdSceneMap;
-            SceneImpl sceneImpl = map != null ? map.get(Long.valueOf(j)) : null;
-            return sceneImpl == null ? new SceneImpl(j) : sceneImpl;
+            SceneImpl sceneImpl = map != null ? map.get(Long.valueOf(j2)) : null;
+            return sceneImpl == null ? new SceneImpl(j2) : sceneImpl;
         }
         return (SceneImpl) invokeJ.objValue;
     }
@@ -210,7 +210,7 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                 } catch (Exception e3) {
                     com.kwad.sdk.core.d.a.a(e3);
                 }
-                if (com.kwad.sdk.core.d.a.f34404a) {
+                if (com.kwad.sdk.core.d.a.f71141a) {
                     com.kwad.sdk.core.d.a.a(TAG, toJson().toString());
                 }
             } catch (Exception e4) {

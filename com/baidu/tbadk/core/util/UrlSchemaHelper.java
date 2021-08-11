@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class UrlSchemaHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTO_PAY_MEMBER_SUCC_PARAM = "from=autopay";
@@ -65,6 +65,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_FORUM_BROADCAST_REVIEWED = "com.baidu.tieba://unidispatch/forumbroadcast/reviewed";
     public static final String SCHEMA_FORUM_BROADCAST_SINGLE_FEED = "com.baidu.tieba://unidispatch/forumbroadcast/singlefeed";
     public static final String SCHEMA_FORUM_DETAIL_FLUTTER = "com.baidu.tieba://unidispatch/forumDetail?forumId=";
+    public static final String SCHEMA_LIVE_MY_CONCERN_LIST = "com.baidu.tieba://unidispatch/liveconcernlist";
     public static final String SCHEMA_LIVE_SDK = "bdtiebalive://";
     public static final String SCHEMA_NAITVE_H5 = "com.baidu.tieba://unidispatch/tbwebview";
     public static final String SCHEMA_TB_FLUTTER = "flt://";
@@ -143,6 +144,7 @@ public class UrlSchemaHelper {
     public static final String SCHEMA_TYPE_SQUARE_SEARCH = "squaresearch:";
     public static final String SCHEMA_TYPE_START_GAME = "tieba://gameinvoke?";
     public static final String SCHEMA_TYPE_SUB_PB = "tieba.baidu.com/subp";
+    public static final String SCHEMA_TYPE_SWAN = "tiebaclient://swan";
     public static final String SCHEMA_TYPE_TBOWNEREMOJI = "/n/interact/tbowneremoji";
     public static final String SCHEMA_TYPE_TB_CLIENT = "tbclient://";
     public static final String SCHEMA_TYPE_TB_CLIENT_GAME_FRS_TAB = "tblaunch://tieba.baidu.com/f?";

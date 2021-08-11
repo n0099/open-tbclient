@@ -8,28 +8,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f39405a;
+    public String f76237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f39406b;
+    public long f76238b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f39407c;
+    public int f76239c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f39408d;
+    public String f76240d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39409e;
+    public boolean f76241e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f39410f;
+    public boolean f76242f;
 
     public b(String str) {
         Interceptable interceptable = $ic;
@@ -46,12 +46,12 @@ public final class b {
                 return;
             }
         }
-        this.f39406b = -1L;
-        this.f39407c = -1;
-        this.f39409e = false;
-        this.f39410f = false;
+        this.f76238b = -1L;
+        this.f76239c = -1;
+        this.f76241e = false;
+        this.f76242f = false;
         if (!TextUtils.isEmpty(str)) {
-            this.f39405a = str;
+            this.f76237a = str;
             return;
         }
         throw new IllegalAccessError("PushPackageInfo need a non-null pkgName.");
@@ -60,68 +60,68 @@ public final class b {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39405a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76237a : (String) invokeV.objValue;
     }
 
     public final long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f39406b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f76238b : invokeV.longValue;
     }
 
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f39409e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f76241e : invokeV.booleanValue;
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f39410f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f76242f : invokeV.booleanValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "PushPackageInfo{mPackageName=" + this.f39405a + ", mPushVersion=" + this.f39406b + ", mPackageVersion=" + this.f39407c + ", mInBlackList=" + this.f39409e + ", mPushEnable=" + this.f39410f + "}";
+            return "PushPackageInfo{mPackageName=" + this.f76237a + ", mPushVersion=" + this.f76238b + ", mPackageVersion=" + this.f76239c + ", mInBlackList=" + this.f76241e + ", mPushEnable=" + this.f76242f + "}";
         }
         return (String) invokeV.objValue;
     }
 
-    public final void a(long j) {
+    public final void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f39406b = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.f76238b = j2;
         }
     }
 
     public final void b(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f39410f = z;
+            this.f76242f = z;
         }
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f39409e = z;
+            this.f76241e = z;
         }
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f39407c = i2;
+            this.f76239c = i2;
         }
     }
 
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f39408d = str;
+            this.f76240d = str;
         }
     }
 }

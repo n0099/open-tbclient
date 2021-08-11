@@ -17,27 +17,27 @@ import com.qq.e.ads.RewardvideoPortraitADActivity;
 import com.qq.e.comm.DownloadService;
 import com.qq.e.comm.managers.setting.GlobalSetting;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class CustomPkgConstants {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38131a;
+    public static final String f74909a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f38132b;
+    public static final String f74910b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f38133c;
+    public static final String f74911c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f38134d;
+    public static final String f74912d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f38135e;
+    public static final String f74913e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f38136f;
+    public static final String f74914f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,12 +53,12 @@ public class CustomPkgConstants {
                 return;
             }
         }
-        f38131a = DownloadService.class.getName();
-        f38132b = ADActivity.class.getName();
-        f38133c = PortraitADActivity.class.getName();
-        f38134d = RewardvideoPortraitADActivity.class.getName();
-        f38135e = LandscapeADActivity.class.getName();
-        f38136f = RewardvideoLandscapeADActivity.class.getName();
+        f74909a = DownloadService.class.getName();
+        f74910b = ADActivity.class.getName();
+        f74911c = PortraitADActivity.class.getName();
+        f74912d = RewardvideoPortraitADActivity.class.getName();
+        f74913e = LandscapeADActivity.class.getName();
+        f74914f = RewardvideoLandscapeADActivity.class.getName();
     }
 
     public CustomPkgConstants() {
@@ -80,7 +80,7 @@ public class CustomPkgConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             String customADActivityClassName = GlobalSetting.getCustomADActivityClassName();
-            return !StringUtil.isEmpty(customADActivityClassName) ? customADActivityClassName : f38132b;
+            return !StringUtil.isEmpty(customADActivityClassName) ? customADActivityClassName : f74910b;
         }
         return (String) invokeV.objValue;
     }
@@ -106,7 +106,7 @@ public class CustomPkgConstants {
     public static String getDownLoadServiceName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f38131a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f74909a : (String) invokeV.objValue;
     }
 
     public static String getLandscapeADActivityName() {
@@ -114,7 +114,7 @@ public class CustomPkgConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             String customLandscapeActivityClassName = GlobalSetting.getCustomLandscapeActivityClassName();
-            return !StringUtil.isEmpty(customLandscapeActivityClassName) ? customLandscapeActivityClassName : f38135e;
+            return !StringUtil.isEmpty(customLandscapeActivityClassName) ? customLandscapeActivityClassName : f74913e;
         }
         return (String) invokeV.objValue;
     }
@@ -124,7 +124,7 @@ public class CustomPkgConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             String customPortraitActivityClassName = GlobalSetting.getCustomPortraitActivityClassName();
-            return !StringUtil.isEmpty(customPortraitActivityClassName) ? customPortraitActivityClassName : f38133c;
+            return !StringUtil.isEmpty(customPortraitActivityClassName) ? customPortraitActivityClassName : f74911c;
         }
         return (String) invokeV.objValue;
     }
@@ -134,7 +134,7 @@ public class CustomPkgConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             String customRewardvideoLandscapeActivityClassName = GlobalSetting.getCustomRewardvideoLandscapeActivityClassName();
-            return !StringUtil.isEmpty(customRewardvideoLandscapeActivityClassName) ? customRewardvideoLandscapeActivityClassName : f38136f;
+            return !StringUtil.isEmpty(customRewardvideoLandscapeActivityClassName) ? customRewardvideoLandscapeActivityClassName : f74914f;
         }
         return (String) invokeV.objValue;
     }
@@ -144,7 +144,7 @@ public class CustomPkgConstants {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             String customRewardvideoPortraitActivityClassName = GlobalSetting.getCustomRewardvideoPortraitActivityClassName();
-            return !StringUtil.isEmpty(customRewardvideoPortraitActivityClassName) ? customRewardvideoPortraitActivityClassName : f38134d;
+            return !StringUtil.isEmpty(customRewardvideoPortraitActivityClassName) ? customRewardvideoPortraitActivityClassName : f74912d;
         }
         return (String) invokeV.objValue;
     }

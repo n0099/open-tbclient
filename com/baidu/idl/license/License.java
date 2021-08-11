@@ -3,11 +3,11 @@ package com.baidu.idl.license;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.idl.authority.AuthorityState;
-import com.baidu.idl.util.HttpRequest;
+import com.baidu.idl.authority.IDLAuthorityException;
+import com.baidu.idl.util.HttpClient;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,22 +29,22 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class License {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LICENSE_AG_ID = -1;
-    public static final String LICENSE_DATA_DIR_NAME = "license";
-    public static final String LICENSE_DEFAULT_FILE_NAME = "idl_license";
-    public static final String TAG = "License";
+    public static final String LICENSE_ASSETS_FILE = "idl_license";
+    public static final String LICENSE_ASSETS_MULTIPLE_FILE = "license/idl_license_%s";
+    public static final String LICENSE_FILE = "license";
+    public static final String LICENSE_LICENSE_FILE_NAME = "idl_license_%s";
+    public static final String TAG = "IDL-License";
     public static final String URL = "http://sdkss.shitu.baidu.com/cgi-bin/queryLicense.py";
-    public static final String URL_V1 = "http://sdkss.shitu.baidu.com/cgi-bin/queryLicense.py";
-    public static final String URL_V2 = "http://sdkss.shitu.baidu.com/cgi-bin/queryLicense_new.py";
     public static License mInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<String> mALLicense;
+    public int mAlgorithmId;
+    public String mAlgorithmIdLicenseName;
     public int mAuthorityStatus;
-    public int mLicenseAgId;
-    public String mLicenseFileName;
 
     static {
         InterceptResult invokeClinit;
@@ -75,19 +75,262 @@ public class License {
             }
         }
         this.mAuthorityStatus = 256;
-        this.mLicenseAgId = -1;
-        this.mLicenseFileName = "";
+        this.mAlgorithmId = -1;
+        this.mAlgorithmIdLicenseName = "";
+    }
+
+    private ArrayList<String> analyseLicense(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65539, this, inputStream)) != null) {
+            return (ArrayList) invokeL.objValue;
+        }
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+        ArrayList<String> arrayList = new ArrayList<>();
+        while (true) {
+            String readLine = bufferedReader.readLine();
+            if (readLine == null) {
+                return arrayList;
+            }
+            arrayList.add(readLine);
+        }
+    }
+
+    public static native String getAlgorithmVersion();
+
+    private InputStream getAssetsLicenseFileInputStream(AssetManager assetManager) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, assetManager)) == null) {
+            try {
+                if (TextUtils.isEmpty(this.mAlgorithmIdLicenseName)) {
+                    return assetManager.open(LICENSE_ASSETS_FILE);
+                }
+                return assetManager.open(String.format(LICENSE_ASSETS_MULTIPLE_FILE, this.mAlgorithmIdLicenseName));
+            } catch (IOException unused) {
+                return null;
+            }
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    public static native String getAuthorityVersion();
+
+    private File getDataLicenseFile(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, context)) == null) {
+            if (TextUtils.isEmpty(this.mAlgorithmIdLicenseName)) {
+                return context.getDir(LICENSE_FILE, 0);
+            }
+            File dir = context.getDir(LICENSE_FILE, 0);
+            if (!dir.exists() || !dir.isDirectory()) {
+                dir.mkdirs();
+            }
+            return new File(dir.getAbsolutePath() + File.separator + String.format(LICENSE_LICENSE_FILE_NAME, this.mAlgorithmIdLicenseName));
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static synchronized License getInstance() {
+        InterceptResult invokeV;
+        License license;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            synchronized (License.class) {
+                if (mInstance == null) {
+                    mInstance = new License();
+                }
+                license = mInstance;
+            }
+            return license;
+        }
+        return (License) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void getLatestLicense(Context context, String str) {
+        ArrayList<String> licenseByNetwork;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65545, this, context, str) == null) || (licenseByNetwork = getLicenseByNetwork(context, str)) == null || licenseByNetwork.size() <= 0 || initLicense(context, str, (String[]) licenseByNetwork.toArray(new String[licenseByNetwork.size()])) >= 48) {
+            return;
+        }
+        WriteLicense(context, licenseByNetwork);
+        String str2 = "LatestLicense " + licenseByNetwork;
+    }
+
+    private ArrayList<String> getLicenseByNetwork(Context context, String str) {
+        InterceptResult invokeLL;
+        JSONObject jSONObject;
+        ArrayList<String> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, this, context, str)) == null) {
+            String postData = getPostData(context, str);
+            String str2 = "Network Request " + postData;
+            String post = HttpClient.post(URL, postData);
+            if (post != null && post.length() > 0) {
+                String str3 = "Network Response " + post;
+            }
+            if (post == null) {
+                return null;
+            }
+            try {
+                jSONObject = new JSONObject(post);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+                jSONObject = null;
+            }
+            if (jSONObject != null) {
+                int i2 = -1;
+                int optInt = jSONObject.optInt("errno", -1);
+                jSONObject.optString("msg");
+                JSONArray optJSONArray = jSONObject.optJSONArray(LICENSE_FILE);
+                if (optJSONArray == null || optJSONArray.length() <= 0) {
+                    arrayList = null;
+                } else {
+                    ArrayList<String> arrayList2 = new ArrayList<>();
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                        String optString = optJSONArray.optString(i3);
+                        if (optString != null) {
+                            arrayList2.add(optString);
+                        }
+                    }
+                    i2 = optInt;
+                    arrayList = arrayList2;
+                }
+                if (i2 != 0 || optJSONArray == null || optJSONArray.length() <= 0) {
+                    return null;
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    private ArrayList<String> getLocalLicense(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, context)) == null) {
+            ArrayList<String> ReadLicenseFromData = ReadLicenseFromData(context);
+            return (ReadLicenseFromData == null || ReadLicenseFromData.size() < 1) ? ReadLicenseFromAsset(context) : ReadLicenseFromData;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    private int initWithAlgorithmId(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, context, str)) == null) {
+            int i2 = this.mAuthorityStatus;
+            if (272 == i2) {
+                return i2;
+            }
+            this.mAuthorityStatus = AuthorityState.STATE_INIT_ING;
+            this.mAuthorityStatus = verifyByLocalData(context, str);
+            String str2 = "Local License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus);
+            if (this.mAuthorityStatus > 48) {
+                this.mAuthorityStatus = verifyByNetworkData(context, str);
+                String str3 = "Net License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus);
+            }
+            int i3 = this.mAuthorityStatus;
+            if (i3 <= 48) {
+                return i3;
+            }
+            throw new IDLAuthorityException(AuthorityState.getStateName(this.mAuthorityStatus));
+        }
+        return invokeLL.intValue;
+    }
+
+    private int verifyByLocalData(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, this, context, str)) == null) {
+            ArrayList<String> localLicense = getLocalLicense(context);
+            this.mALLicense = localLicense;
+            if (localLicense == null || localLicense.size() <= 0) {
+                return 49;
+            }
+            ArrayList<String> arrayList = this.mALLicense;
+            int initLicense = initLicense(context, str, (String[]) arrayList.toArray(new String[arrayList.size()]));
+            if (initLicense == 0) {
+                return initLicense;
+            }
+            if (initLicense == 16) {
+                new Thread(new Runnable(this, context, str) { // from class: com.baidu.idl.license.License.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ License this$0;
+                    public final /* synthetic */ String val$apiKey;
+                    public final /* synthetic */ Context val$context;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, context, str};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$context = context;
+                        this.val$apiKey = str;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            this.this$0.getLatestLicense(this.val$context, this.val$apiKey);
+                        }
+                    }
+                }).start();
+                return initLicense;
+            }
+            deleteErrorLicense(context);
+            return initLicense;
+        }
+        return invokeLL.intValue;
+    }
+
+    private int verifyByNetworkData(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, context, str)) == null) {
+            this.mALLicense = getLicenseByNetwork(context, str);
+            String str2 = "Net License:" + this.mALLicense;
+            ArrayList<String> arrayList = this.mALLicense;
+            if (arrayList != null && arrayList.size() > 0) {
+                ArrayList<String> arrayList2 = this.mALLicense;
+                int initLicense = initLicense(context, str, (String[]) arrayList2.toArray(new String[arrayList2.size()]));
+                if (initLicense < 48) {
+                    WriteLicense(context, this.mALLicense);
+                    return initLicense;
+                }
+                return initLicense;
+            }
+            deleteErrorLicense(context);
+            return 49;
+        }
+        return invokeLL.intValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:42:0x003d A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private ArrayList<String> ReadLicenseFromAsset(Context context) {
+    public ArrayList<String> ReadLicenseFromAsset(Context context) {
         InterceptResult invokeL;
         InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             ArrayList<String> arrayList = null;
             arrayList = null;
             arrayList = null;
@@ -147,15 +390,19 @@ public class License {
         return (ArrayList) invokeL.objValue;
     }
 
-    private ArrayList<String> ReadLicenseFromData(Context context) {
+    public ArrayList<String> ReadLicenseFromData(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             if (context == null) {
                 return null;
             }
+            File dataLicenseFile = getDataLicenseFile(context);
+            if (dataLicenseFile != null) {
+                String str = "ReadLicenseFromData file type " + dataLicenseFile.isDirectory() + dataLicenseFile.getAbsolutePath();
+            }
             try {
-                return analyseLicense(new FileInputStream(getDataLicenseFile(context)));
+                return analyseLicense(new FileInputStream(dataLicenseFile));
             } catch (FileNotFoundException e2) {
                 e2.printStackTrace();
                 return null;
@@ -170,11 +417,11 @@ public class License {
         return (ArrayList) invokeL.objValue;
     }
 
-    private boolean WriteLicense(Context context, ArrayList<String> arrayList) {
+    public boolean WriteLicense(Context context, ArrayList<String> arrayList) {
         InterceptResult invokeLL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, arrayList)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, arrayList)) == null) {
             boolean z = false;
             if (arrayList == null || arrayList.size() == 0 || context == null) {
                 return false;
@@ -194,8 +441,7 @@ public class License {
             try {
                 try {
                     try {
-                        String str = TAG;
-                        Log.e(str, "Write License File " + dataLicenseFile.getAbsolutePath());
+                        String str = "WriteLicense path " + dataLicenseFile.getAbsolutePath();
                         fileOutputStream = new FileOutputStream(dataLicenseFile);
                     } catch (Throwable th) {
                         th = th;
@@ -249,309 +495,63 @@ public class License {
         return invokeLL.booleanValue;
     }
 
-    private ArrayList<String> analyseLicense(InputStream inputStream) throws IOException {
-        InterceptResult invokeL;
+    public void deleteErrorLicense(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, this, inputStream)) != null) {
-            return (ArrayList) invokeL.objValue;
-        }
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-        ArrayList<String> arrayList = new ArrayList<>();
-        while (true) {
-            String readLine = bufferedReader.readLine();
-            if (readLine == null) {
-                return arrayList;
-            }
-            arrayList.add(readLine);
-        }
-    }
-
-    private void deleteErrorLicense(Context context) {
-        File dir;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, this, context) == null) && context != null && (dir = context.getDir(LICENSE_DATA_DIR_NAME, 0)) != null && dir.exists() && dir.isDirectory()) {
-            String str = dir.getAbsolutePath() + File.separator + this.mLicenseFileName;
-            Log.e(TAG, "Delete Error License File " + str);
-            File file = new File(str);
-            if (file.exists()) {
-                file.delete();
-            }
-        }
-    }
-
-    public static native String getAlgorithmVersion();
-
-    private InputStream getAssetsLicenseFileInputStream(AssetManager assetManager) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, this, assetManager)) == null) {
-            String str = TAG;
-            Log.e(str, "Get Assets License File" + this.mLicenseFileName);
-            try {
-                return assetManager.open(this.mLicenseFileName);
-            } catch (IOException unused) {
-                Log.e(TAG, "Get Assets License File Exception");
-                return null;
-            }
-        }
-        return (InputStream) invokeL.objValue;
-    }
-
-    public static native String getAuthorityVersion();
-
-    private File getDataLicenseFile(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, context)) == null) {
-            File dir = context.getDir(LICENSE_DATA_DIR_NAME, 0);
-            if (!dir.exists() || !dir.isDirectory()) {
-                dir.mkdirs();
-            }
-            String str = dir.getAbsolutePath() + File.separator + this.mLicenseFileName;
-            Log.e(TAG, "Get Data License File" + str);
-            return new File(str);
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static synchronized License getInstance() {
-        InterceptResult invokeV;
-        License license;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            synchronized (License.class) {
-                if (mInstance == null) {
-                    mInstance = new License();
-                }
-                license = mInstance;
-            }
-            return license;
-        }
-        return (License) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void getLatestLicense(Context context, String str) {
-        ArrayList<String> licenseByNetwork;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65549, this, context, str) == null) || (licenseByNetwork = getLicenseByNetwork(context, str)) == null || licenseByNetwork.size() <= 0 || initLicense(context, str, (String[]) licenseByNetwork.toArray(new String[licenseByNetwork.size()])) >= 48) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, context) == null) || context == null) {
             return;
         }
-        Log.e(TAG, "Network Latest License Success.");
-        WriteLicense(context, licenseByNetwork);
-    }
-
-    private ArrayList<String> getLicenseByNetwork(Context context, String str) {
-        InterceptResult invokeLL;
-        JSONObject jSONObject;
-        ArrayList<String> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, context, str)) == null) {
-            String request = HttpRequest.request("http://sdkss.shitu.baidu.com/cgi-bin/queryLicense.py", getPostData(context, str));
-            if (request == null) {
-                return null;
-            }
-            try {
-                jSONObject = new JSONObject(request);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-                jSONObject = null;
-            }
-            if (jSONObject != null) {
-                int i2 = -1;
-                int optInt = jSONObject.optInt("errno", -1);
-                jSONObject.optString("msg");
-                JSONArray optJSONArray = jSONObject.optJSONArray(LICENSE_DATA_DIR_NAME);
-                if (optJSONArray == null || optJSONArray.length() <= 0) {
-                    arrayList = null;
-                } else {
-                    ArrayList<String> arrayList2 = new ArrayList<>();
-                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                        String optString = optJSONArray.optString(i3);
-                        if (optString != null) {
-                            arrayList2.add(optString);
-                        }
-                    }
-                    i2 = optInt;
-                    arrayList = arrayList2;
-                }
-                if (i2 != 0 || optJSONArray == null || optJSONArray.length() <= 0) {
-                    return null;
-                }
-                Log.e(TAG, "Network License Resopnse Is Right.");
-                return arrayList;
-            }
-            return null;
+        File dir = context.getDir(LICENSE_FILE, 0);
+        if (dir.exists()) {
+            dir.delete();
         }
-        return (ArrayList) invokeLL.objValue;
     }
 
-    private ArrayList<String> getLocalLicense(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, this, context)) == null) {
-            ArrayList<String> ReadLicenseFromData = ReadLicenseFromData(context);
-            return (ReadLicenseFromData == null || ReadLicenseFromData.size() < 1) ? ReadLicenseFromAsset(context) : ReadLicenseFromData;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    private native String getPostData(Context context, String str);
-
-    private native int initLicense(Context context, String str, String[] strArr);
-
-    private native int initLicenseWithToken(String str);
-
-    private int initWithApikey(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, this, context, str)) == null) {
-            int i2 = this.mAuthorityStatus;
-            if (272 == i2) {
-                return i2;
-            }
-            this.mAuthorityStatus = AuthorityState.STATE_INIT_ING;
-            this.mAuthorityStatus = verifyByLocalData(context, str);
-            String str2 = TAG;
-            Log.e(str2, "Local License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus));
-            if (this.mAuthorityStatus > 48) {
-                this.mAuthorityStatus = verifyByNetworkData(context, str);
-                String str3 = TAG;
-                Log.e(str3, "Net License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus));
-            }
-            return this.mAuthorityStatus;
-        }
-        return invokeLL.intValue;
-    }
-
-    private int verifyByLocalData(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65556, this, context, str)) == null) {
-            ArrayList<String> localLicense = getLocalLicense(context);
-            this.mALLicense = localLicense;
-            if (localLicense != null && localLicense.size() > 0) {
-                ArrayList<String> arrayList = this.mALLicense;
-                int initLicense = initLicense(context, str, (String[]) arrayList.toArray(new String[arrayList.size()]));
-                if (initLicense == 0) {
-                    Log.e(TAG, "Local License Success");
-                    return initLicense;
-                } else if (initLicense == 16) {
-                    new Thread(new Runnable(this, context, str) { // from class: com.baidu.idl.license.License.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ License this$0;
-                        public final /* synthetic */ String val$apiKey;
-                        public final /* synthetic */ Context val$context;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, context, str};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$context = context;
-                            this.val$apiKey = str;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                this.this$0.getLatestLicense(this.val$context, this.val$apiKey);
-                            }
-                        }
-                    }).start();
-                    return initLicense;
-                } else {
-                    deleteErrorLicense(context);
-                    return initLicense;
-                }
-            }
-            Log.e(TAG, "Local License Is Null");
-            return 49;
-        }
-        return invokeLL.intValue;
-    }
-
-    private int verifyByNetworkData(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, this, context, str)) == null) {
-            ArrayList<String> licenseByNetwork = getLicenseByNetwork(context, str);
-            this.mALLicense = licenseByNetwork;
-            if (licenseByNetwork != null && licenseByNetwork.size() > 0) {
-                ArrayList<String> arrayList = this.mALLicense;
-                int initLicense = initLicense(context, str, (String[]) arrayList.toArray(new String[arrayList.size()]));
-                if (initLicense < 48) {
-                    Log.e(TAG, "Network License Success.");
-                    WriteLicense(context, this.mALLicense);
-                    return initLicense;
-                }
-                return initLicense;
-            }
-            deleteErrorLicense(context);
-            return 49;
-        }
-        return invokeLL.intValue;
-    }
-
-    public native int getLicenseRemnant(int i2);
+    public native long getLicenseRemnant(int i2);
 
     public native int getLicenseState(int i2);
 
     public int getLicenseStateWithAlgorithmId(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? getLicenseState(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? getLicenseState(i2) : invokeI.intValue;
     }
+
+    public native String getPostData(Context context, String str);
 
     @Deprecated
     public int init(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-            Log.e(TAG, "License Init With ApiKey");
-            this.mLicenseAgId = -1;
-            this.mLicenseFileName = LICENSE_DEFAULT_FILE_NAME;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, str)) == null) {
+            this.mAlgorithmId = -1;
+            this.mAlgorithmIdLicenseName = "";
             int i2 = this.mAuthorityStatus;
             if (272 == i2) {
                 return i2;
             }
             this.mAuthorityStatus = AuthorityState.STATE_INIT_ING;
             this.mAuthorityStatus = verifyByLocalData(context, str);
-            String str2 = TAG;
-            Log.e(str2, "Local License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus));
+            String str2 = "Local License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus);
             if (this.mAuthorityStatus > 48) {
                 this.mAuthorityStatus = verifyByNetworkData(context, str);
-                String str3 = TAG;
-                Log.e(str3, "Net License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus));
+                String str3 = "Net License Authority State Is :" + AuthorityState.getStateName(this.mAuthorityStatus);
             }
             if (this.mAuthorityStatus > 48) {
-                String str4 = TAG;
-                Log.e(str4, "Authority Exception :" + AuthorityState.getStateName(this.mAuthorityStatus));
+                String str4 = "IDLAuthorityException :" + AuthorityState.getStateName(this.mAuthorityStatus);
             }
             return this.mAuthorityStatus;
         }
         return invokeLL.intValue;
     }
 
-    @Deprecated
+    public native int initLicense(Context context, String str, String[] strArr);
+
+    public native int initLicenseWithToken(String str);
+
     public int init(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Log.e(TAG, "License Init With Token");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             int i2 = this.mAuthorityStatus;
             if (272 == i2) {
                 return i2;
@@ -571,35 +571,14 @@ public class License {
         return invokeL.intValue;
     }
 
-    @Deprecated
     public int init(Context context, String str, int i2, String str2) {
         InterceptResult invokeLLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048580, this, context, str, i2, str2)) == null) {
-            Log.e(TAG, "License Init With ApiKey and AgId");
-            this.mLicenseAgId = i2;
-            if (TextUtils.isEmpty(str2)) {
-                this.mLicenseFileName = LICENSE_DEFAULT_FILE_NAME;
-            } else {
-                this.mLicenseFileName = str2;
-            }
-            return initWithApikey(context, str);
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(1048585, this, context, str, i2, str2)) == null) {
+            this.mAlgorithmId = i2;
+            this.mAlgorithmIdLicenseName = str2;
+            return initWithAlgorithmId(context, str);
         }
         return invokeLLIL.intValue;
-    }
-
-    public int init(Context context, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, str, str2)) == null) {
-            Log.e(TAG, "License Init With ApiKey and License File Name");
-            if (TextUtils.isEmpty(str2)) {
-                this.mLicenseFileName = LICENSE_DEFAULT_FILE_NAME;
-            } else {
-                this.mLicenseFileName = str2;
-            }
-            return initWithApikey(context, str);
-        }
-        return invokeLLL.intValue;
     }
 }

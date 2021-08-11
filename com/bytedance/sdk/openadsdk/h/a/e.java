@@ -12,13 +12,13 @@ import com.bytedance.sdk.component.a.r;
 import com.bytedance.sdk.openadsdk.core.w;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<w> f31583a;
+    public WeakReference<w> f67526a;
 
     public e(w wVar) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class e extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f31583a = new WeakReference<>(wVar);
+        this.f67526a = new WeakReference<>(wVar);
     }
 
     public JSONObject c() {
@@ -45,7 +45,7 @@ public class e extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                if (this.f31583a == null || (wVar = this.f31583a.get()) == null) {
+                if (this.f67526a == null || (wVar = this.f67526a.get()) == null) {
                     return jSONObject;
                 }
                 jSONObject = wVar.o();

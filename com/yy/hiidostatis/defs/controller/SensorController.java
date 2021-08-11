@@ -25,7 +25,7 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SensorController implements SensorEventListener, SensorListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHE_HEAD_LENGTH = 5;
@@ -61,7 +61,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     public int saveTime;
     public SensorManager sensorManager;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class BatteryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,19 +114,19 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class SensorRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long time;
         public float[] value;
 
-        public SensorRecord(float[] fArr, long j) {
+        public SensorRecord(float[] fArr, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fArr, Long.valueOf(j)};
+                Object[] objArr = {fArr, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -137,7 +137,7 @@ public class SensorController implements SensorEventListener, SensorListener {
                 }
             }
             this.value = fArr;
-            this.time = j;
+            this.time = j2;
         }
     }
 

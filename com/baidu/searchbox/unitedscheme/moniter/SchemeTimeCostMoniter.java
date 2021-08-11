@@ -1,7 +1,6 @@
 package com.baidu.searchbox.unitedscheme.moniter;
 
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class SchemeTimeCostMoniter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -25,7 +24,7 @@ public final class SchemeTimeCostMoniter {
     public boolean mOpenMoniter;
     public TimeCostMonitor mTimeCostMoniter;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class SchemeTimeCostMoniterHolder {
         public static /* synthetic */ Interceptable $ic;
         public static final SchemeTimeCostMoniter sInstance;
@@ -113,7 +112,7 @@ public final class SchemeTimeCostMoniter {
                 return;
             }
         }
-        long j = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getLong(SP_KEY_TIME_COST_THRESHOLD, 100L);
+        long j2 = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getLong(SP_KEY_TIME_COST_THRESHOLD, 100L);
         this.mOpenMoniter = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean(SP_KEY_OPEN_MONITER, false);
         this.mTimeCostMoniter = new TimeCostMonitor(new TimeCostHandler(this) { // from class: com.baidu.searchbox.unitedscheme.moniter.SchemeTimeCostMoniter.1
             public static /* synthetic */ Interceptable $ic;
@@ -139,14 +138,12 @@ public final class SchemeTimeCostMoniter {
             }
 
             @Override // com.baidu.searchbox.unitedscheme.moniter.TimeCostHandler
-            public void handle(long j2, long j3, long j4, String str) {
+            public void handle(long j3, long j4, long j5, String str) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str}) == null) {
-                    String str2 = "端能力执行时间超出阈值（" + j4 + "），耗时：" + (j3 - j2) + "，开始时间：" + j2 + "，结束时间：" + j3 + "，端能力：" + str;
-                    Log.e(SchemeTimeCostMoniter.TAG, str2);
-                    Toast.makeText(AppRuntime.getAppContext(), str2, 1).show();
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), str}) == null) {
+                    Toast.makeText(AppRuntime.getAppContext(), "端能力执行时间超出阈值（" + j5 + "），耗时：" + (j4 - j3) + "，开始时间：" + j3 + "，结束时间：" + j4 + "，端能力：" + str, 1).show();
                 }
             }
-        }, j);
+        }, j2);
     }
 }

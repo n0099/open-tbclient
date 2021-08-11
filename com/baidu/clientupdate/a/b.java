@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f4656b;
+    public static b f38639b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f4657a;
+    public Context f38640a;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.baidu.clientupdate.download.a f4658c;
+    public com.baidu.clientupdate.download.a f38641c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,19 +52,19 @@ public final class b {
                 return;
             }
         }
-        this.f4657a = null;
-        this.f4657a = context.getApplicationContext();
-        this.f4658c = com.baidu.clientupdate.download.a.a(context);
+        this.f38640a = null;
+        this.f38640a = context.getApplicationContext();
+        this.f38641c = com.baidu.clientupdate.download.a.a(context);
     }
 
     public static b a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f4656b == null) {
-                f4656b = new b(context);
+            if (f38639b == null) {
+                f38639b = new b(context);
             }
-            return f4656b;
+            return f38639b;
         }
         return (b) invokeL.objValue;
     }
@@ -72,7 +72,7 @@ public final class b {
     public void a(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-            new c(this, com.baidu.clientupdate.c.a.a(this.f4657a).a() + "/lcmanage/index.php?r=InstallAction&cv=1", bArr).start();
+            new c(this, com.baidu.clientupdate.c.a.a(this.f38640a).a() + "/lcmanage/index.php?r=InstallAction&cv=1", bArr).start();
         }
     }
 }

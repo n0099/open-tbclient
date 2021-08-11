@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ANRError$$ implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String _name;
     public final StackTraceElement[] _stackTrace;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class _Thread extends Throwable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

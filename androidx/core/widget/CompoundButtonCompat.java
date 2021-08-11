@@ -4,7 +4,6 @@ import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.util.Log;
 import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,8 +50,7 @@ public final class CompoundButtonCompat {
                     Field declaredField = CompoundButton.class.getDeclaredField("mButtonDrawable");
                     sButtonDrawableField = declaredField;
                     declaredField.setAccessible(true);
-                } catch (NoSuchFieldException e2) {
-                    Log.i(TAG, "Failed to retrieve mButtonDrawable field", e2);
+                } catch (NoSuchFieldException unused) {
                 }
                 sButtonDrawableFieldFetched = true;
             }
@@ -60,8 +58,7 @@ public final class CompoundButtonCompat {
             if (field != null) {
                 try {
                     return (Drawable) field.get(compoundButton);
-                } catch (IllegalAccessException e3) {
-                    Log.i(TAG, "Failed to get button drawable via reflection", e3);
+                } catch (IllegalAccessException unused2) {
                     sButtonDrawableField = null;
                 }
             }

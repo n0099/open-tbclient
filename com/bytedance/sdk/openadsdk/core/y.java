@@ -9,9 +9,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.JProtect;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
 @JProtect
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,8 +26,8 @@ public class y {
     public static boolean a(View view, int i2) {
         InterceptResult invokeLI;
         char c2;
-        long j;
         long j2;
+        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, view, i2)) == null) {
             if (view != null) {
@@ -36,19 +37,19 @@ public class y {
                         return false;
                     }
                     long height = rect.height() * rect.width();
-                    j = view.getHeight() * view.getWidth();
-                    if (j <= 0) {
+                    j2 = view.getHeight() * view.getWidth();
+                    if (j2 <= 0) {
                         return false;
                     }
-                    j2 = height * 100;
-                    c2 = '\'';
+                    j3 = height * 100;
+                    c2 = ExtendedMessageFormat.QUOTE;
                 }
                 return false;
             }
             c2 = 'R';
-            j = 94;
-            j2 = 85;
-            return c2 == '\'' && j2 >= ((long) i2) * j;
+            j2 = 94;
+            j3 = 85;
+            return c2 == '\'' && j3 >= ((long) i2) * j2;
         }
         return invokeLI.booleanValue;
     }
@@ -249,7 +250,7 @@ public class y {
             }
             i3 = com.bytedance.sdk.openadsdk.q.s.d(view.getContext().getApplicationContext());
             c2 = '^';
-            c3 = '}';
+            c3 = ExtendedMessageFormat.END_FE;
             switch (c2) {
                 case '_':
                     switch (c3) {
@@ -267,7 +268,7 @@ public class y {
                                     }
                                 default:
                                     c2 = '^';
-                                    c3 = '}';
+                                    c3 = ExtendedMessageFormat.END_FE;
                                     switch (c2) {
                                     }
                             }

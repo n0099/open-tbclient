@@ -1,13 +1,12 @@
 package com.baidu.ala.data;
 
-import com.baidu.ar.gesture.GestureAR;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class SdkMiddleStrategyInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +15,7 @@ public class SdkMiddleStrategyInfo {
     public StrategyExtra strategyExtra;
     public long ts;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class DisplayStrategy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +51,7 @@ public class SdkMiddleStrategyInfo {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class StrategyExtra {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,7 +124,7 @@ public class SdkMiddleStrategyInfo {
             return;
         }
         this.ts = jSONObject.optLong("ts");
-        this.score = jSONObject.optInt(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
+        this.score = jSONObject.optInt("score");
         this.displayStrategy = new DisplayStrategy();
         JSONObject optJSONObject = jSONObject.optJSONObject("display_strategy");
         if (optJSONObject != null) {

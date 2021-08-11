@@ -11,25 +11,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class k0 extends AsyncTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public l0 f39852a;
+    public l0 f76695a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ File f39853b;
+    public final /* synthetic */ File f76696b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Bitmap f39854c;
+    public final /* synthetic */ Bitmap f76697c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ Bitmap.CompressFormat f39855d;
+    public final /* synthetic */ Bitmap.CompressFormat f76698d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ w f39856e;
+    public final /* synthetic */ w f76699e;
 
     public k0(File file, Bitmap bitmap, Bitmap.CompressFormat compressFormat, w wVar) {
         Interceptable interceptable = $ic;
@@ -46,10 +46,10 @@ public final class k0 extends AsyncTask {
                 return;
             }
         }
-        this.f39853b = file;
-        this.f39854c = bitmap;
-        this.f39855d = compressFormat;
-        this.f39856e = wVar;
+        this.f76696b = file;
+        this.f76697c = bitmap;
+        this.f76698d = compressFormat;
+        this.f76699e = wVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:39:0x0044 A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -67,15 +67,15 @@ public final class k0 extends AsyncTask {
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {
-                    fileOutputStream = new FileOutputStream(this.f39853b);
+                    fileOutputStream = new FileOutputStream(this.f76696b);
                     try {
                         try {
-                            this.f39854c.compress(this.f39855d, 100, fileOutputStream);
+                            this.f76697c.compress(this.f76698d, 100, fileOutputStream);
                             fileOutputStream.flush();
                             fileOutputStream.close();
                         } catch (IOException e3) {
                             e2 = e3;
-                            this.f39852a = new l0(e2);
+                            this.f76695a = new l0(e2);
                             cancel(true);
                             if (fileOutputStream != null) {
                                 fileOutputStream.flush();
@@ -118,7 +118,7 @@ public final class k0 extends AsyncTask {
     public void onCancelled() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f39856e.a();
+            this.f76699e.a();
         }
     }
 
@@ -127,7 +127,7 @@ public final class k0 extends AsyncTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
             Void r5 = (Void) obj;
-            this.f39856e.b();
+            this.f76699e.b();
         }
     }
 }

@@ -17,12 +17,12 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class MethodUtils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Method> f5461a;
+    public static Map<String, Method> f39407a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class MethodUtils {
                 return;
             }
         }
-        f5461a = new HashMap();
+        f39407a = new HashMap();
     }
 
     public MethodUtils() {
@@ -63,29 +63,78 @@ public class MethodUtils {
             sb.append(cls.toString());
             sb.append("#");
             sb.append(str);
-            if (clsArr != null && clsArr.length > 0) {
+            if (clsArr == null || clsArr.length <= 0) {
+                sb.append(Void.class.toString());
+            } else {
                 for (Class<?> cls2 : clsArr) {
                     sb.append(cls2.toString());
                     sb.append("#");
                 }
-            } else {
-                sb.append(Void.class.toString());
             }
             return sb.toString();
         }
         return (String) invokeLLL.objValue;
     }
 
+    public static <T> Constructor<T> a(Constructor<T> constructor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, constructor)) == null) {
+            Validate.a(constructor != null, "constructor cannot be null", new Object[0]);
+            if (MemberUtils.a((Member) constructor) && a((Class<?>) constructor.getDeclaringClass())) {
+                return constructor;
+            }
+            return null;
+        }
+        return (Constructor) invokeL.objValue;
+    }
+
+    public static Method a(Method method) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, method)) == null) {
+            if (MemberUtils.a((Member) method)) {
+                Class<?> declaringClass = method.getDeclaringClass();
+                if (Modifier.isPublic(declaringClass.getModifiers())) {
+                    return method;
+                }
+                String name = method.getName();
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                Method c2 = c(declaringClass, name, parameterTypes);
+                return c2 == null ? b(declaringClass, name, parameterTypes) : c2;
+            }
+            return null;
+        }
+        return (Method) invokeL.objValue;
+    }
+
+    public static boolean a(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) {
+            while (cls != null) {
+                if (!Modifier.isPublic(cls.getModifiers())) {
+                    return false;
+                }
+                cls = cls.getEnclosingClass();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
     public static Method b(Class<?> cls, String str, Class<?>... clsArr) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(AdIconUtil.BAIDU_LOGO_ID, null, cls, str, clsArr)) == null) {
-            for (Class<? super Object> superclass = cls.getSuperclass(); superclass != null; superclass = superclass.getSuperclass()) {
-                if (Modifier.isPublic(superclass.getModifiers())) {
+            while (true) {
+                cls = cls.getSuperclass();
+                if (cls == null) {
+                    break;
+                } else if (Modifier.isPublic(cls.getModifiers())) {
                     try {
-                        return superclass.getMethod(str, clsArr);
+                        return cls.getMethod(str, clsArr);
                     } catch (NoSuchMethodException unused) {
-                        return null;
                     }
                 }
             }
@@ -127,8 +176,8 @@ public class MethodUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, cls, str, clsArr)) == null) {
             String a3 = a(cls, str, clsArr);
-            synchronized (f5461a) {
-                method = f5461a.get(a3);
+            synchronized (f39407a) {
+                method = f39407a.get(a3);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -139,8 +188,8 @@ public class MethodUtils {
             try {
                 Method method2 = cls.getMethod(str, clsArr);
                 MemberUtils.a((AccessibleObject) method2);
-                synchronized (f5461a) {
-                    f5461a.put(a3, method2);
+                synchronized (f39407a) {
+                    f39407a.put(a3, method2);
                 }
                 return method2;
             } catch (NoSuchMethodException unused) {
@@ -153,8 +202,8 @@ public class MethodUtils {
                 if (method3 != null) {
                     MemberUtils.a((AccessibleObject) method3);
                 }
-                synchronized (f5461a) {
-                    f5461a.put(a3, method3);
+                synchronized (f39407a) {
+                    f39407a.put(a3, method3);
                     return method3;
                 }
             }
@@ -168,8 +217,8 @@ public class MethodUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, cls, str, clsArr)) == null) {
             String a2 = a(cls, str, clsArr);
-            synchronized (f5461a) {
-                method = f5461a.get(a2);
+            synchronized (f39407a) {
+                method = f39407a.get(a2);
             }
             if (method != null) {
                 if (!method.isAccessible()) {
@@ -178,8 +227,8 @@ public class MethodUtils {
                 return method;
             }
             Method a3 = a(cls.getMethod(str, clsArr));
-            synchronized (f5461a) {
-                f5461a.put(a2, a3);
+            synchronized (f39407a) {
+                f39407a.put(a2, a3);
             }
             return a3;
         }
@@ -223,36 +272,6 @@ public class MethodUtils {
         return (T) invokeLL.objValue;
     }
 
-    public static Object invokeMethod(Object obj, String str, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, null, obj, str, objArr, clsArr)) == null) {
-            Class<?>[] a2 = Utils.a(clsArr);
-            Object[] b2 = Utils.b(objArr);
-            Method d2 = d(obj.getClass(), str, a2);
-            if (d2 != null) {
-                return d2.invoke(obj, b2);
-            }
-            throw new NoSuchMethodException("No such accessible method: " + str + "() on object: " + obj.getClass().getName());
-        }
-        return invokeLLLL.objValue;
-    }
-
-    public static Object invokeStaticMethod(Class cls, String str, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65552, null, cls, str, objArr, clsArr)) == null) {
-            Class<?>[] a2 = Utils.a(clsArr);
-            Object[] b2 = Utils.b(objArr);
-            Method d2 = d(cls, str, a2);
-            if (d2 != null) {
-                return d2.invoke(null, b2);
-            }
-            throw new NoSuchMethodException("No such accessible method: " + str + "() on object: " + cls.getName());
-        }
-        return invokeLLLL.objValue;
-    }
-
     public static <T> T invokeConstructor(Class<T> cls, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -277,6 +296,21 @@ public class MethodUtils {
         return invokeLLL.objValue;
     }
 
+    public static Object invokeMethod(Object obj, String str, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, null, obj, str, objArr, clsArr)) == null) {
+            Class<?>[] a2 = Utils.a(clsArr);
+            Object[] b2 = Utils.b(objArr);
+            Method d2 = d(obj.getClass(), str, a2);
+            if (d2 != null) {
+                return d2.invoke(obj, b2);
+            }
+            throw new NoSuchMethodException("No such accessible method: " + str + "() on object: " + obj.getClass().getName());
+        }
+        return invokeLLLL.objValue;
+    }
+
     public static Object invokeStaticMethod(Class cls, String str, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
@@ -287,50 +321,18 @@ public class MethodUtils {
         return invokeLLL.objValue;
     }
 
-    public static Method a(Method method) {
-        InterceptResult invokeL;
+    public static Object invokeStaticMethod(Class cls, String str, Object[] objArr, Class<?>[] clsArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, method)) == null) {
-            if (MemberUtils.a((Member) method)) {
-                Class<?> declaringClass = method.getDeclaringClass();
-                if (Modifier.isPublic(declaringClass.getModifiers())) {
-                    return method;
-                }
-                String name = method.getName();
-                Class<?>[] parameterTypes = method.getParameterTypes();
-                Method c2 = c(declaringClass, name, parameterTypes);
-                return c2 == null ? b(declaringClass, name, parameterTypes) : c2;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65552, null, cls, str, objArr, clsArr)) == null) {
+            Class<?>[] a2 = Utils.a(clsArr);
+            Object[] b2 = Utils.b(objArr);
+            Method d2 = d(cls, str, a2);
+            if (d2 != null) {
+                return d2.invoke(null, b2);
             }
-            return null;
+            throw new NoSuchMethodException("No such accessible method: " + str + "() on object: " + cls.getName());
         }
-        return (Method) invokeL.objValue;
-    }
-
-    public static <T> Constructor<T> a(Constructor<T> constructor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, constructor)) == null) {
-            Validate.a(constructor != null, "constructor cannot be null", new Object[0]);
-            if (MemberUtils.a((Member) constructor) && a((Class<?>) constructor.getDeclaringClass())) {
-                return constructor;
-            }
-            return null;
-        }
-        return (Constructor) invokeL.objValue;
-    }
-
-    public static boolean a(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, cls)) == null) {
-            while (cls != null) {
-                if (!Modifier.isPublic(cls.getModifiers())) {
-                    return false;
-                }
-                cls = cls.getEnclosingClass();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return invokeLLLL.objValue;
     }
 }

@@ -1,6 +1,11 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.n;
+import c.i.d.c.m;
+import c.i.d.c.n0;
+import c.i.d.c.o1;
+import c.i.d.c.u0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,18 +14,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.collect.ImmutableCollection;
-import d.f.d.a.n;
-import d.f.d.c.m;
-import d.f.d.c.n0;
-import d.f.d.c.o1;
-import d.f.d.c.u0;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.SortedSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements Set<E> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CUTOFF = 751619276;
@@ -29,7 +29,7 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
     public transient /* synthetic */ FieldHolder $fh;
     public transient ImmutableList<E> asList;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class SerializedForm implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -61,16 +61,16 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a<E> extends ImmutableCollection.a<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Object[] f33428d;
+        public Object[] f70145d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f33429e;
+        public int f70146e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a() {
@@ -98,11 +98,11 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2)) == null) {
                 n.p(e2);
-                if (this.f33428d != null && ImmutableSet.chooseTableSize(this.f33390b) <= this.f33428d.length) {
+                if (this.f70145d != null && ImmutableSet.chooseTableSize(this.f70107b) <= this.f70145d.length) {
                     k(e2);
                     return this;
                 }
-                this.f33428d = null;
+                this.f70145d = null;
                 super.f(e2);
                 return this;
             }
@@ -113,7 +113,7 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eArr)) == null) {
-                if (this.f33428d != null) {
+                if (this.f70145d != null) {
                     for (E e2 : eArr) {
                         a(e2);
                     }
@@ -143,16 +143,16 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
             if (interceptable != null && interceptable.invokeL(1048580, this, e2) != null) {
                 return;
             }
-            int length = this.f33428d.length - 1;
+            int length = this.f70145d.length - 1;
             int hashCode = e2.hashCode();
             int c2 = n0.c(hashCode);
             while (true) {
                 int i2 = c2 & length;
-                Object[] objArr = this.f33428d;
+                Object[] objArr = this.f70145d;
                 Object obj = objArr[i2];
                 if (obj == null) {
                     objArr[i2] = e2;
-                    this.f33429e += hashCode;
+                    this.f70146e += hashCode;
                     super.f(e2);
                     return;
                 } else if (obj.equals(e2)) {
@@ -168,23 +168,23 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
             ImmutableSet<E> construct;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                int i2 = this.f33390b;
+                int i2 = this.f70107b;
                 if (i2 != 0) {
                     if (i2 != 1) {
-                        if (this.f33428d == null || ImmutableSet.chooseTableSize(i2) != this.f33428d.length) {
-                            construct = ImmutableSet.construct(this.f33390b, this.f33389a);
-                            this.f33390b = construct.size();
+                        if (this.f70145d == null || ImmutableSet.chooseTableSize(i2) != this.f70145d.length) {
+                            construct = ImmutableSet.construct(this.f70107b, this.f70106a);
+                            this.f70107b = construct.size();
                         } else {
-                            Object[] copyOf = ImmutableSet.shouldTrim(this.f33390b, this.f33389a.length) ? Arrays.copyOf(this.f33389a, this.f33390b) : this.f33389a;
-                            int i3 = this.f33429e;
-                            Object[] objArr = this.f33428d;
-                            construct = new RegularImmutableSet<>(copyOf, i3, objArr, objArr.length - 1, this.f33390b);
+                            Object[] copyOf = ImmutableSet.shouldTrim(this.f70107b, this.f70106a.length) ? Arrays.copyOf(this.f70106a, this.f70107b) : this.f70106a;
+                            int i3 = this.f70146e;
+                            Object[] objArr = this.f70145d;
+                            construct = new RegularImmutableSet<>(copyOf, i3, objArr, objArr.length - 1, this.f70107b);
                         }
-                        this.f33391c = true;
-                        this.f33428d = null;
+                        this.f70108c = true;
+                        this.f70145d = null;
                         return construct;
                     }
-                    return ImmutableSet.of(this.f33389a[0]);
+                    return ImmutableSet.of(this.f70106a[0]);
                 }
                 return ImmutableSet.of();
             }
@@ -209,7 +209,7 @@ public abstract class ImmutableSet<E> extends ImmutableCollection<E> implements 
                     return;
                 }
             }
-            this.f33428d = new Object[ImmutableSet.chooseTableSize(i2)];
+            this.f70145d = new Object[ImmutableSet.chooseTableSize(i2)];
         }
     }
 

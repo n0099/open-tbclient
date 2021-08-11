@@ -8,7 +8,6 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -58,7 +57,7 @@ public final class NavUtils {
                     }
                     return new Intent().setComponent(componentName);
                 } catch (PackageManager.NameNotFoundException unused) {
-                    Log.e(TAG, "getParentActivityIntent: bad parentActivityName '" + parentActivityName + "' in manifest");
+                    String str = "getParentActivityIntent: bad parentActivityName '" + parentActivityName + "' in manifest";
                     return null;
                 }
             }

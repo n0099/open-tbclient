@@ -22,7 +22,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class TimeTypeAdapter extends TypeAdapter<Time> {
     public static /* synthetic */ Interceptable $ic;
     public static final TypeAdapterFactory FACTORY;

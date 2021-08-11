@@ -16,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Handler f36779a;
+    public static Handler f73602a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f36780b;
+    public static volatile boolean f73603b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,8 +40,8 @@ public class r {
                 return;
             }
         }
-        f36779a = new Handler(Looper.getMainLooper());
-        f36780b = false;
+        f73602a = new Handler(Looper.getMainLooper());
+        f73603b = false;
     }
 
     public static void a(Context context, String str) {
@@ -58,12 +58,12 @@ public class r {
         }
     }
 
-    public static void a(Context context, String str, int i2, long j) {
+    public static void a(Context context, String str, int i2, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j)}) == null) || f36780b) {
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || f73603b) {
             return;
         }
-        f36780b = true;
+        f73603b = true;
         View inflate = LayoutInflater.from(context).inflate(i2, (ViewGroup) null);
         ((TextView) inflate.findViewById(R.id.ksad_message_toast_txt)).setText(str);
         Toast toast = new Toast(context.getApplicationContext());
@@ -71,7 +71,7 @@ public class r {
         toast.setDuration(0);
         toast.setView(inflate);
         toast.show();
-        f36779a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.r.1
+        f73602a.postDelayed(new Runnable() { // from class: com.kwad.sdk.utils.r.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,9 +93,9 @@ public class r {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    boolean unused = r.f36780b = false;
+                    boolean unused = r.f73603b = false;
                 }
             }
-        }, j);
+        }, j2);
     }
 }

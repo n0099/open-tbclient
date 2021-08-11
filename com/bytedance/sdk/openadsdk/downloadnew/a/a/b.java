@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,30 +23,30 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class b implements d.l.a.a.a.c.f {
+/* loaded from: classes9.dex */
+public class b implements c.p.a.a.a.c.f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f31278a;
+    public final WeakReference<Context> f67217a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a extends g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final d.l.a.a.a.f.d f31279a;
+        public final c.p.a.a.a.f.d f67218a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.bytedance.sdk.openadsdk.downloadnew.a.b.a f31280b;
+        public com.bytedance.sdk.openadsdk.downloadnew.a.b.a f67219b;
 
         /* renamed from: c  reason: collision with root package name */
-        public m f31281c;
+        public m f67220c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(d.l.a.a.a.f.d dVar) {
+        public a(c.p.a.a.a.f.d dVar) {
             super("LogTask");
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -62,26 +63,26 @@ public class b implements d.l.a.a.a.c.f {
                     return;
                 }
             }
-            this.f31279a = dVar;
+            this.f67218a = dVar;
             if (dVar == null || dVar.d() == null) {
                 return;
             }
-            String optString = this.f31279a.d().optString("ad_extra_data");
+            String optString = this.f67218a.d().optString("ad_extra_data");
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
             try {
                 com.bytedance.sdk.openadsdk.downloadnew.a.b.a a2 = com.bytedance.sdk.openadsdk.downloadnew.a.b.a.a(new JSONObject(optString).optJSONObject("open_ad_sdk_download_extra"));
-                this.f31280b = a2;
-                a2.b(this.f31279a.b());
-                if (this.f31280b != null) {
-                    this.f31281c = this.f31280b.f31306a;
+                this.f67219b = a2;
+                a2.b(this.f67218a.b());
+                if (this.f67219b != null) {
+                    this.f67220c = this.f67219b.f67245a;
                 }
             } catch (Exception unused) {
             }
         }
 
-        public static a a(d.l.a.a.a.f.d dVar) {
+        public static a a(c.p.a.a.a.f.d dVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, dVar)) == null) ? new a(dVar) : (a) invokeL.objValue;
@@ -98,22 +99,22 @@ public class b implements d.l.a.a.a.c.f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (this.f31279a == null) {
+                    if (this.f67218a == null) {
                         return;
                     }
-                    String a2 = this.f31279a.a();
+                    String a2 = this.f67218a.a();
                     k.f("LibEventLogger", "tag " + a2);
-                    k.f("LibEventLogger", "label " + this.f31279a.b());
-                    if (this.f31280b != null && !TextUtils.isEmpty(this.f31280b.f31307b)) {
-                        a2 = this.f31280b.f31307b;
+                    k.f("LibEventLogger", "label " + this.f67218a.b());
+                    if (this.f67219b != null && !TextUtils.isEmpty(this.f67219b.f67246b)) {
+                        a2 = this.f67219b.f67246b;
                     }
-                    if (!com.bytedance.sdk.openadsdk.downloadnew.a.g.a(a2, this.f31279a.b(), this.f31281c, new HashMap()) && this.f31280b != null && this.f31281c != null && !TextUtils.isEmpty(this.f31279a.a()) && !TextUtils.isEmpty(this.f31279a.b())) {
-                        JSONObject e2 = b.e(this.f31279a);
-                        String str = this.f31280b.f31307b;
-                        if (!a(this.f31279a.a()) || PrefetchEvent.STATE_CLICK.equals(this.f31279a.b())) {
+                    if (!com.bytedance.sdk.openadsdk.downloadnew.a.g.a(a2, this.f67218a.b(), this.f67220c, new HashMap()) && this.f67219b != null && this.f67220c != null && !TextUtils.isEmpty(this.f67218a.a()) && !TextUtils.isEmpty(this.f67218a.b())) {
+                        JSONObject e2 = b.e(this.f67218a);
+                        String str = this.f67219b.f67246b;
+                        if (!a(this.f67218a.a()) || PrefetchEvent.STATE_CLICK.equals(this.f67218a.b())) {
                             return;
                         }
-                        com.bytedance.sdk.openadsdk.e.d.b(c(), this.f31281c, str, this.f31279a.b(), e2);
+                        com.bytedance.sdk.openadsdk.e.d.b(c(), this.f67220c, str, this.f67218a.b(), e2);
                     }
                 } catch (Throwable th) {
                     k.a("LibEventLogger", "upload event log error", th);
@@ -124,7 +125,7 @@ public class b implements d.l.a.a.a.c.f {
         private boolean a(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? !TextUtils.isEmpty(str) && ("embeded_ad".equals(this.f31279a.a()) || "draw_ad".equals(this.f31279a.a()) || "draw_ad_landingpage".equals(this.f31279a.a()) || "banner_ad".equals(this.f31279a.a()) || "banner_call".equals(this.f31279a.a()) || "banner_ad_landingpage".equals(this.f31279a.a()) || "feed_call".equals(this.f31279a.a()) || "embeded_ad_landingpage".equals(this.f31279a.a()) || "interaction".equals(this.f31279a.a()) || "interaction_call".equals(this.f31279a.a()) || "interaction_landingpage".equals(this.f31279a.a()) || "slide_banner_ad".equals(this.f31279a.a()) || "splash_ad".equals(this.f31279a.a()) || "fullscreen_interstitial_ad".equals(this.f31279a.a()) || "splash_ad_landingpage".equals(this.f31279a.a()) || "rewarded_video".equals(this.f31279a.a()) || "rewarded_video_landingpage".equals(this.f31279a.a()) || "openad_sdk_download_complete_tag".equals(this.f31279a.a()) || "download_notification".equals(this.f31279a.a()) || "landing_h5_download_ad_button".equals(this.f31279a.a()) || "fullscreen_interstitial_ad_landingpage".equals(this.f31279a.a()) || "feed_video_middle_page".equals(this.f31279a.a()) || "stream".equals(this.f31279a.a())) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? !TextUtils.isEmpty(str) && ("embeded_ad".equals(this.f67218a.a()) || "draw_ad".equals(this.f67218a.a()) || "draw_ad_landingpage".equals(this.f67218a.a()) || "banner_ad".equals(this.f67218a.a()) || "banner_call".equals(this.f67218a.a()) || "banner_ad_landingpage".equals(this.f67218a.a()) || "feed_call".equals(this.f67218a.a()) || "embeded_ad_landingpage".equals(this.f67218a.a()) || ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE.equals(this.f67218a.a()) || "interaction_call".equals(this.f67218a.a()) || "interaction_landingpage".equals(this.f67218a.a()) || "slide_banner_ad".equals(this.f67218a.a()) || "splash_ad".equals(this.f67218a.a()) || "fullscreen_interstitial_ad".equals(this.f67218a.a()) || "splash_ad_landingpage".equals(this.f67218a.a()) || "rewarded_video".equals(this.f67218a.a()) || "rewarded_video_landingpage".equals(this.f67218a.a()) || "openad_sdk_download_complete_tag".equals(this.f67218a.a()) || "download_notification".equals(this.f67218a.a()) || "landing_h5_download_ad_button".equals(this.f67218a.a()) || "fullscreen_interstitial_ad_landingpage".equals(this.f67218a.a()) || "feed_video_middle_page".equals(this.f67218a.a()) || "stream".equals(this.f67218a.a())) : invokeL.booleanValue;
         }
     }
 
@@ -143,10 +144,10 @@ public class b implements d.l.a.a.a.c.f {
                 return;
             }
         }
-        this.f31278a = new WeakReference<>(context);
+        this.f67217a = new WeakReference<>(context);
     }
 
-    private void d(d.l.a.a.a.f.d dVar) {
+    private void d(c.p.a.a.a.f.d dVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(65539, this, dVar) == null) || dVar == null) {
             return;
@@ -154,7 +155,7 @@ public class b implements d.l.a.a.a.c.f {
         com.bytedance.sdk.component.d.e.a(a.a(dVar), 5);
     }
 
-    public static JSONObject e(d.l.a.a.a.f.d dVar) {
+    public static JSONObject e(c.p.a.a.a.f.d dVar) {
         InterceptResult invokeL;
         JSONObject d2;
         Interceptable interceptable = $ic;
@@ -176,7 +177,7 @@ public class b implements d.l.a.a.a.c.f {
         return (JSONObject) invokeL.objValue;
     }
 
-    private boolean f(d.l.a.a.a.f.d dVar) {
+    private boolean f(c.p.a.a.a.f.d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, dVar)) == null) {
@@ -193,16 +194,16 @@ public class b implements d.l.a.a.a.c.f {
         return invokeL.booleanValue;
     }
 
-    @Override // d.l.a.a.a.c.f
-    public void a(@NonNull d.l.a.a.a.f.d dVar) {
+    @Override // c.p.a.a.a.c.f
+    public void a(@NonNull c.p.a.a.a.f.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             a(dVar, true);
         }
     }
 
-    @Override // d.l.a.a.a.c.f
-    public void b(@NonNull d.l.a.a.a.f.d dVar) {
+    @Override // c.p.a.a.a.c.f
+    public void b(@NonNull c.p.a.a.a.f.d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
             a(dVar, false);
@@ -210,7 +211,7 @@ public class b implements d.l.a.a.a.c.f {
         }
     }
 
-    private void a(d.l.a.a.a.f.d dVar, boolean z) {
+    private void a(c.p.a.a.a.f.d dVar, boolean z) {
         TTDownloadEventLogger q;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLZ(65537, this, dVar, z) == null) || (q = h.d().q()) == null || dVar == null) {

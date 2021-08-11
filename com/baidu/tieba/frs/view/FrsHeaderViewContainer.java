@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsHeaderViewContainer extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,41 +34,41 @@ public class FrsHeaderViewContainer extends LinearLayout {
                 return;
             }
         }
-        c();
+        initView();
     }
 
-    public void a(View view) {
+    public void addHeaderView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
             addView(view, new LinearLayout.LayoutParams(-1, -2));
         }
     }
 
-    public void b(View view, int i2) {
+    public int getHeaderViewsCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
-            addView(view, i2, new LinearLayout.LayoutParams(-1, -2));
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getChildCount() : invokeV.intValue;
     }
 
-    public void c() {
+    public void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setOrientation(1);
         }
     }
 
-    public void d(View view) {
+    public void removeHeaderView(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
             removeView(view);
         }
     }
 
-    public int getHeaderViewsCount() {
-        InterceptResult invokeV;
+    public void addHeaderView(View view, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getChildCount() : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
+            addView(view, i2, new LinearLayout.LayoutParams(-1, -2));
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -90,7 +90,7 @@ public class FrsHeaderViewContainer extends LinearLayout {
                 return;
             }
         }
-        c();
+        initView();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -112,6 +112,6 @@ public class FrsHeaderViewContainer extends LinearLayout {
                 return;
             }
         }
-        c();
+        initView();
     }
 }

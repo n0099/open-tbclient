@@ -14,15 +14,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.config.c;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class f extends b<ReportAction, e> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f35070a;
+    public static volatile boolean f71819a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f35071b;
+    public static f f71820b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class f extends b<ReportAction, e> {
                 return;
             }
         }
-        f35071b = new f();
+        f71820b = new f();
     }
 
     public f() {
@@ -60,10 +60,10 @@ public class f extends b<ReportAction, e> {
         if (!(interceptable == null || interceptable.invokeL(65538, null, reportAction) == null) || reportAction == null) {
             return;
         }
-        if (com.kwad.sdk.b.f34059b.booleanValue()) {
-            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.f35027i);
+        if (com.kwad.sdk.b.f70787b.booleanValue()) {
+            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.f71775i);
         }
-        if (b(reportAction.f35027i)) {
+        if (b(reportAction.f71775i)) {
             b(reportAction);
         } else {
             c(reportAction);
@@ -75,12 +75,12 @@ public class f extends b<ReportAction, e> {
         if (!(interceptable == null || interceptable.invokeL(65539, null, reportAction) == null) || reportAction == null) {
             return;
         }
-        f35071b.b(new g<ReportAction>(reportAction) { // from class: com.kwad.sdk.core.report.f.2
+        f71820b.b(new g<ReportAction>(reportAction) { // from class: com.kwad.sdk.core.report.f.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ReportAction f35073a;
+            public final /* synthetic */ ReportAction f71822a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -97,7 +97,7 @@ public class f extends b<ReportAction, e> {
                         return;
                     }
                 }
-                this.f35073a = reportAction;
+                this.f71822a = reportAction;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -106,21 +106,21 @@ public class f extends b<ReportAction, e> {
             public ReportAction a() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35073a.b() : (ReportAction) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71822a.b() : (ReportAction) invokeV.objValue;
             }
         });
     }
 
-    public static boolean b(long j) {
+    public static boolean b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) ? c.a.aB.a(j) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j2)) == null) ? c.a.aB.a(j2) : invokeJ.booleanValue;
     }
 
     public static f c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f35071b : (f) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? f71820b : (f) invokeV.objValue;
     }
 
     public static void c(ReportAction reportAction) {
@@ -128,12 +128,12 @@ public class f extends b<ReportAction, e> {
         if (!(interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, reportAction) == null) || reportAction == null) {
             return;
         }
-        f35071b.a(new g<ReportAction>(reportAction) { // from class: com.kwad.sdk.core.report.f.1
+        f71820b.a(new g<ReportAction>(reportAction) { // from class: com.kwad.sdk.core.report.f.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ ReportAction f35072a;
+            public final /* synthetic */ ReportAction f71821a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -150,7 +150,7 @@ public class f extends b<ReportAction, e> {
                         return;
                     }
                 }
-                this.f35072a = reportAction;
+                this.f71821a = reportAction;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -159,7 +159,7 @@ public class f extends b<ReportAction, e> {
             public ReportAction a() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35072a.b() : (ReportAction) invokeV.objValue;
+                return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f71821a.b() : (ReportAction) invokeV.objValue;
             }
         });
     }
@@ -167,7 +167,7 @@ public class f extends b<ReportAction, e> {
     @Override // com.kwad.sdk.core.report.b
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || f35070a) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || f71819a) {
             return;
         }
         super.a(context);
@@ -178,7 +178,7 @@ public class f extends b<ReportAction, e> {
         if (a2 == 2) {
             a(k.a(context));
         }
-        f35070a = true;
+        f71819a = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

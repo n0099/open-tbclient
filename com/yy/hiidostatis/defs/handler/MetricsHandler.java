@@ -20,7 +20,7 @@ import com.yy.hiidostatis.pref.HdStatisConfig;
 import java.io.File;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class MetricsHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class MetricsHandler {
     public Map<String, TimeWorker> timers;
     public String ver;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class TimeWorker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,12 +41,12 @@ public class MetricsHandler {
         public volatile SharedTimerTask timerTask;
         public MetricsWorker worker;
 
-        public TimeWorker(MetricsHandler metricsHandler, MetricsWorker metricsWorker, long j) {
+        public TimeWorker(MetricsHandler metricsHandler, MetricsWorker metricsWorker, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {metricsHandler, metricsWorker, Long.valueOf(j)};
+                Object[] objArr = {metricsHandler, metricsWorker, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -58,7 +58,7 @@ public class MetricsHandler {
             }
             this.this$0 = metricsHandler;
             this.worker = metricsWorker;
-            this.interval = j;
+            this.interval = j2;
         }
 
         public synchronized void beginTimer() {
@@ -118,12 +118,12 @@ public class MetricsHandler {
         }
     }
 
-    public MetricsHandler(Context context, String str, String str2, long j) {
+    public MetricsHandler(Context context, String str, String str2, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, Long.valueOf(j)};
+            Object[] objArr = {context, str, str2, Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -138,17 +138,17 @@ public class MetricsHandler {
         this.mContext = context;
         this.appkey = str;
         this.ver = str2;
-        this.defaultMetricsExpire = j;
+        this.defaultMetricsExpire = j2;
     }
 
-    private MetricsWorker addMetricsWorker(String str, long j, long j2) {
+    private MetricsWorker addMetricsWorker(String str, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            MetricsWorker createMetricsWorker = createMetricsWorker(j, j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            MetricsWorker createMetricsWorker = createMetricsWorker(j2, j3);
             if (createMetricsWorker != null) {
                 this.metricsWorkerMap.put(str, createMetricsWorker);
-                TimeWorker timeWorker = new TimeWorker(this, createMetricsWorker, j2);
+                TimeWorker timeWorker = new TimeWorker(this, createMetricsWorker, j3);
                 timeWorker.beginTimer();
                 this.timers.put(str, timeWorker);
             } else {
@@ -159,10 +159,10 @@ public class MetricsHandler {
         return (MetricsWorker) invokeCommon.objValue;
     }
 
-    private MetricsWorker createMetricsWorker(long j, long j2) {
+    private MetricsWorker createMetricsWorker(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? createMetricsWorker(j, j2, this.appkey, this.ver) : (MetricsWorker) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? createMetricsWorker(j2, j3, this.appkey, this.ver) : (MetricsWorker) invokeCommon.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -310,10 +310,10 @@ public class MetricsHandler {
         }
     }
 
-    public void reportCount(String str, int i2, String str2, String str3, long j) {
+    public void reportCount(String str, int i2, String str2, String str3, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j)}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, str, i2, str2, str3, j) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.5
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j2)}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, str, i2, str2, str3, j2) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MetricsHandler this$0;
@@ -328,7 +328,7 @@ public class MetricsHandler {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Integer.valueOf(i2), str2, str3, Long.valueOf(j)};
+                        Object[] objArr = {this, str, Integer.valueOf(i2), str2, str3, Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -343,7 +343,7 @@ public class MetricsHandler {
                     this.val$scode = i2;
                     this.val$uri = str2;
                     this.val$countName = str3;
-                    this.val$count = j;
+                    this.val$count = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -362,17 +362,17 @@ public class MetricsHandler {
         }
     }
 
-    public void reportReturnCode(String str, int i2, String str2, long j, String str3) {
+    public void reportReturnCode(String str, int i2, String str2, long j2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j), str3}) == null) {
-            reportReturnCode(str, i2, str2, j, str3, null);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j2), str3}) == null) {
+            reportReturnCode(str, i2, str2, j2, str3, null);
         }
     }
 
-    public void reportSrcData(String str, int i2, String str2, String str3, long j, Map<String, String> map) {
+    public void reportSrcData(String str, int i2, String str2, String str3, long j2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j), map}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, str, i2, str2, str3, j, map) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.7
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j2), map}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, str, i2, str2, str3, j2, map) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MetricsHandler this$0;
@@ -388,7 +388,7 @@ public class MetricsHandler {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Integer.valueOf(i2), str2, str3, Long.valueOf(j), map};
+                        Object[] objArr = {this, str, Integer.valueOf(i2), str2, str3, Long.valueOf(j2), map};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -403,7 +403,7 @@ public class MetricsHandler {
                     this.val$scode = i2;
                     this.val$uri = str2;
                     this.val$topic = str3;
-                    this.val$val = j;
+                    this.val$val = j2;
                     this.val$extra = map;
                 }
 
@@ -430,10 +430,10 @@ public class MetricsHandler {
         }
     }
 
-    private MetricsWorker createMetricsWorker(long j, long j2, String str, String str2) {
+    private MetricsWorker createMetricsWorker(long j2, long j3, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.BAIDU_LOGO_ID, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2})) == null) {
             try {
                 AbstractConfig config = HdStatisConfig.getConfig(str);
                 File file = new File(this.mContext.getCacheDir().getAbsolutePath() + "/hiido_metrics");
@@ -441,7 +441,7 @@ public class MetricsHandler {
                 if (this.metricsSend == null) {
                     this.metricsSend = new HttpSendController(new MetricsHttpEncryptUtil(), file, 20, 2);
                 }
-                return new MetricsWorker(this.mContext, 10, this.metricsSend, j, str, str2, config.getSdkVer());
+                return new MetricsWorker(this.mContext, 10, this.metricsSend, j2, str, str2, config.getSdkVer());
             } catch (Throwable unused) {
                 return null;
             }
@@ -449,10 +449,10 @@ public class MetricsHandler {
         return (MetricsWorker) invokeCommon.objValue;
     }
 
-    public void reportCount(String str, int i2, String str2, String str3, long j, int i3) {
+    public void reportCount(String str, int i2, String str2, String str3, long j2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j), Integer.valueOf(i3)}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, str, i2, str2, str3, j, i3) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.6
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, str, i2, str2, str3, j2, i3) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MetricsHandler this$0;
@@ -468,7 +468,7 @@ public class MetricsHandler {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Integer.valueOf(i2), str2, str3, Long.valueOf(j), Integer.valueOf(i3)};
+                        Object[] objArr = {this, str, Integer.valueOf(i2), str2, str3, Long.valueOf(j2), Integer.valueOf(i3)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i4 = newInitContext.flag;
                         if ((i4 & 1) != 0) {
@@ -483,7 +483,7 @@ public class MetricsHandler {
                     this.val$scode = i2;
                     this.val$uri = str2;
                     this.val$countName = str3;
-                    this.val$count = j;
+                    this.val$count = j2;
                     this.val$times = i3;
                 }
 
@@ -503,10 +503,10 @@ public class MetricsHandler {
         }
     }
 
-    public void reportReturnCode(String str, int i2, String str2, long j, String str3, Map<String, String> map) {
+    public void reportReturnCode(String str, int i2, String str2, long j2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j), str3, map}) == null) {
-            ThreadPool.getPool().executeQueue(new Runnable(this, str, i2, str2, j, str3, map) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.4
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j2), str3, map}) == null) {
+            ThreadPool.getPool().executeQueue(new Runnable(this, str, i2, str2, j2, str3, map) { // from class: com.yy.hiidostatis.defs.handler.MetricsHandler.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MetricsHandler this$0;
@@ -522,7 +522,7 @@ public class MetricsHandler {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Integer.valueOf(i2), str2, Long.valueOf(j), str3, map};
+                        Object[] objArr = {this, str, Integer.valueOf(i2), str2, Long.valueOf(j2), str3, map};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -536,7 +536,7 @@ public class MetricsHandler {
                     this.val$metricsName = str;
                     this.val$scode = i2;
                     this.val$uri = str2;
-                    this.val$timeConsumption = j;
+                    this.val$timeConsumption = j2;
                     this.val$code = str3;
                     this.val$moreinfo = map;
                 }
@@ -557,14 +557,14 @@ public class MetricsHandler {
         }
     }
 
-    public MetricsWorker addMetricsWorker(String str, long j) {
+    public MetricsWorker addMetricsWorker(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j2)) == null) {
             if (this.metricsWorkerMap.containsKey(str)) {
                 return null;
             }
-            return addMetricsWorker(str, this.defaultMetricsExpire, j);
+            return addMetricsWorker(str, this.defaultMetricsExpire, j2);
         }
         return (MetricsWorker) invokeLJ.objValue;
     }

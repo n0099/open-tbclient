@@ -6,9 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.Authorize;
-import com.baidu.wallet.base.datamodel.UserData;
 import com.baidu.wallet.paysdk.ui.widget.AuthorizeInfoView;
-/* loaded from: classes5.dex */
+import com.dxmpay.wallet.base.datamodel.UserData;
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes8.dex */
 public class a extends AuthorizeInfoView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,13 +42,13 @@ public class a extends AuthorizeInfoView.b {
         }
         if (obj instanceof Authorize) {
             Authorize authorize = (Authorize) obj;
-            this.f26999a.setLogo(authorize.sp_logo_url);
-            this.f26999a.setTitle(authorize.sp_company_title);
-            this.f26999a.setTips(authorize.authorize_action_desc);
+            this.f62835a.setLogo(authorize.sp_logo_url);
+            this.f62835a.setTitle(authorize.sp_company_title);
+            this.f62835a.setTips(authorize.authorize_action_desc);
             String[] strArr = authorize.authorize_desc;
             int i2 = 0;
             if (strArr != null && strArr.length > 0) {
-                this.f26999a.setDesc(strArr[0]);
+                this.f62835a.setDesc(strArr[0]);
             }
             if (authorize.detail_info == null) {
                 return;
@@ -55,7 +56,7 @@ public class a extends AuthorizeInfoView.b {
             StringBuilder sb = new StringBuilder();
             if (!TextUtils.isEmpty(authorize.detail_info.introduce)) {
                 sb.append(authorize.detail_info.introduce);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             while (true) {
                 String[] strArr2 = authorize.detail_info.detail;
@@ -66,12 +67,12 @@ public class a extends AuthorizeInfoView.b {
                     }
                     i2++;
                 } else {
-                    this.f26999a.setTipMessage(sb.toString());
+                    this.f62835a.setTipMessage(sb.toString());
                     return;
                 }
             }
         } else if (obj instanceof UserData.UserModel) {
-            this.f26999a.setPhone(((UserData.UserModel) obj).authorize_display_name);
+            this.f62835a.setPhone(((UserData.UserModel) obj).authorize_display_name);
         }
     }
 }

@@ -1,10 +1,13 @@
 package com.baidu.tieba.ala.personcenter.privilege.entereffect.data;
 
+import c.a.e.e.m.b;
+import c.a.e.k.e.n;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.ala.gift.AlaDynamicGift;
 import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
 import com.baidu.ala.gift.AlaDynamicGiftZip;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.ExternalTransferSpeedStats;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ResultTB;
-import d.a.d.e.m.b;
-import d.a.d.k.e.n;
 import java.io.Serializable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaEnterEffectData implements Serializable, n {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_ENTER_EFFECT_DOWNLOADING = 102;
@@ -84,7 +84,7 @@ public class AlaEnterEffectData implements Serializable, n {
         }
     }
 
-    @Override // d.a.d.k.e.n
+    @Override // c.a.e.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -115,8 +115,8 @@ public class AlaEnterEffectData implements Serializable, n {
         this.content_first = jSONObject.optString("content_first");
         this.content_last = jSONObject.optString("content_last");
         this.effect_range_name = jSONObject.optString("effect_range_name");
-        this.end_time = jSONObject.optLong(ResultTB.ENDTIME);
-        this.begin_time = jSONObject.optLong("begin_time");
+        this.end_time = jSONObject.optLong("end_time");
+        this.begin_time = jSONObject.optLong(ExternalTransferSpeedStats.UBC_APPLICATION_CREATE_KEY);
         this.categoryType = jSONObject.optInt("effect_type");
         this.obtain_way = jSONObject.optString("obtain_way");
         JSONObject optJSONObject = jSONObject.optJSONObject("nobility_info");

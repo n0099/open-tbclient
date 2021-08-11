@@ -4,9 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.SurfaceTexture;
 import android.net.Uri;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.a.a.c;
 import com.baidu.ar.arplay.a.e;
@@ -25,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.iddetect.IdCardActivity;
 import com.yy.gslbsdk.db.DelayTB;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class a implements ARPMessage.MessageHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -107,7 +105,7 @@ public class a implements ARPMessage.MessageHandler {
         if (interceptable == null || interceptable.invokeL(65538, this, cVar) == null) {
             I("phone_call");
             Intent intent = new Intent("android.intent.action.DIAL");
-            intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.setFlags(268435456);
             intent.setData(Uri.parse("tel:" + cVar.getNumber()));
             if (intent.resolveActivity(this.mContext.getPackageManager()) != null) {
                 this.mContext.startActivity(intent);
@@ -210,7 +208,7 @@ public class a implements ARPMessage.MessageHandler {
         }
         if (hashMap.get("from_time") != null) {
             eVar.d(com.baidu.ar.arplay.c.c.a(hashMap.get("from_time"), 0));
-            Log.e("VideoTest", "bean fromTime: " + eVar.aO());
+            String str = "bean fromTime: " + eVar.aO();
         }
         if (i2 == 1021) {
             e.aL().a(eVar, hashMap);
@@ -237,22 +235,22 @@ public class a implements ARPMessage.MessageHandler {
             return;
         }
         String a2 = com.baidu.ar.arplay.c.c.a(hashMap.get("event_name"), "");
-        a.C0071a c0071a = new a.C0071a();
+        a.C1618a c1618a = new a.C1618a();
         if ("load_webview".equals(a2)) {
-            c0071a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0071a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
-            c0071a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
-            c0071a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0071a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bm().c(c0071a);
+            c1618a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c1618a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
+            c1618a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
+            c1618a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c1618a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bm().c(c1618a);
         } else if ("update_webview_js".equals(a2)) {
-            c0071a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c0071a.ge = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
-            b.bm().e(c0071a);
+            c1618a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c1618a.ge = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
+            b.bm().e(c1618a);
         } else if ("load_native_webview".equals(a2)) {
-            c0071a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c0071a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bm().d(c0071a);
+            c1618a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c1618a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bm().d(c1618a);
         }
     }
 

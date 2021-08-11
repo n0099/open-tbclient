@@ -8,12 +8,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static i f34359a;
+    public static i f71094a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static i a() {
@@ -21,25 +21,25 @@ public class d {
         i gVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            i iVar = f34359a;
+            i iVar = f71094a;
             if (iVar != null) {
                 return iVar;
             }
             DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.f.a(DevelopMangerPlugin.class)).a("KEY_CLOSE_AES");
             if (a2 != null && ((Boolean) a2.getValue()).booleanValue()) {
                 g gVar2 = new g();
-                f34359a = gVar2;
+                f71094a = gVar2;
                 return gVar2;
             }
-            if (com.kwad.sdk.d.f35582a == 1) {
+            if (com.kwad.sdk.d.f72343a == 1) {
                 com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.a.class);
                 gVar = (aVar == null || aVar.b() == null) ? new g() : aVar.b();
             } else {
                 com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.b.class);
                 gVar = (bVar == null || bVar.b() == null) ? new g() : bVar.b();
             }
-            f34359a = gVar;
-            return f34359a;
+            f71094a = gVar;
+            return f71094a;
         }
         return (i) invokeV.objValue;
     }

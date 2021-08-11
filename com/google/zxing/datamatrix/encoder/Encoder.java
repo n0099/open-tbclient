@@ -1,5 +1,5 @@
 package com.google.zxing.datamatrix.encoder;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface Encoder {
     void encode(EncoderContext encoderContext);
 

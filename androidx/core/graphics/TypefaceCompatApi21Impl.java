@@ -8,7 +8,6 @@ import android.os.ParcelFileDescriptor;
 import android.system.ErrnoException;
 import android.system.Os;
 import android.system.OsConstants;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
@@ -140,7 +139,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
             method = Typeface.class.getMethod("createFromFamiliesWithDefault", Array.newInstance(cls, 1).getClass());
             constructor = constructor2;
         } catch (ClassNotFoundException | NoSuchMethodException e2) {
-            Log.e(TAG, e2.getClass().getName(), e2);
+            e2.getClass().getName();
             method = null;
             cls = null;
             method2 = null;
@@ -205,7 +204,7 @@ public class TypefaceCompatApi21Impl extends TypefaceCompatBaseImpl {
                 return null;
             }
             try {
-                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo(fontInfoArr, i2).getUri(), r.f7788a, cancellationSignal);
+                ParcelFileDescriptor openFileDescriptor = context.getContentResolver().openFileDescriptor(findBestInfo(fontInfoArr, i2).getUri(), r.f42062a, cancellationSignal);
                 if (openFileDescriptor == null) {
                     if (openFileDescriptor != null) {
                         openFileDescriptor.close();

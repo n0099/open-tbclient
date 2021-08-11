@@ -1,5 +1,7 @@
 package com.baidu.searchbox.unitedscheme;
 
+import c.a.g0.a.b.b;
+import c.a.g0.a.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
@@ -8,9 +10,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.a.b.b;
-import d.a.h0.a.b.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UnitedSchemeRuntime {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

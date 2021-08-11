@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DebugUtils {
@@ -39,7 +40,7 @@ public class DebugUtils {
                 simpleName = simpleName.substring(lastIndexOf + 1);
             }
             sb.append(simpleName);
-            sb.append('{');
+            sb.append(ExtendedMessageFormat.START_FE);
             sb.append(Integer.toHexString(System.identityHashCode(obj)));
         }
     }

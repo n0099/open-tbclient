@@ -7,9 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.security.KeyChain;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,7 +23,7 @@ import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
 import java.security.cert.CertificateException;
 import java.util.Enumeration;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AndroidNetworkLibrary {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -138,7 +136,7 @@ public class AndroidNetworkLibrary {
                 }
                 return true;
             } catch (Exception e2) {
-                Log.w("AndroidNetworkLibrary", "could not get network interfaces: " + e2);
+                String str = "could not get network interfaces: " + e2;
                 return false;
             }
         }
@@ -152,11 +150,11 @@ public class AndroidNetworkLibrary {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65545, null, context, i2, bArr)) == null) {
             try {
                 Intent createInstallIntent = KeyChain.createInstallIntent();
-                createInstallIntent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                createInstallIntent.addFlags(268435456);
                 if (i2 == 1 || i2 == 2) {
                     createInstallIntent.putExtra("CERT", bArr);
                 } else if (i2 != 3) {
-                    Log.w("AndroidNetworkLibrary", "invalid certificate type: " + i2);
+                    String str = "invalid certificate type: " + i2;
                     return false;
                 } else {
                     createInstallIntent.putExtra("PKCS12", bArr);
@@ -164,7 +162,7 @@ public class AndroidNetworkLibrary {
                 context.startActivity(createInstallIntent);
                 return true;
             } catch (ActivityNotFoundException e2) {
-                Log.w("AndroidNetworkLibrary", "could not store crypto file: " + e2);
+                String str2 = "could not store crypto file: " + e2;
                 return false;
             }
         }
@@ -180,11 +178,11 @@ public class AndroidNetworkLibrary {
                 Intent createInstallIntent = KeyChain.createInstallIntent();
                 createInstallIntent.putExtra("PKEY", bArr2);
                 createInstallIntent.putExtra("KEY", bArr);
-                createInstallIntent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                createInstallIntent.addFlags(268435456);
                 context.startActivity(createInstallIntent);
                 return true;
             } catch (ActivityNotFoundException e2) {
-                Log.w("AndroidNetworkLibrary", "could not store key pair: " + e2);
+                String str = "could not store key pair: " + e2;
                 return false;
             }
         }

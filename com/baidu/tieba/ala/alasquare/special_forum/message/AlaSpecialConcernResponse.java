@@ -1,18 +1,17 @@
 package com.baidu.tieba.ala.alasquare.special_forum.message;
 
+import c.a.p0.v.d.g.c.d;
 import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.v.d.f.c.d;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +49,7 @@ public class AlaSpecialConcernResponse extends JsonHttpResponsedMessage {
             super.decodeLogicInBackGround(i2, jSONObject);
             if (jSONObject != null) {
                 this.hasMore = jSONObject.optInt("has_more") == 1;
-                this.pn = jSONObject.optInt(Config.PACKAGE_NAME);
+                this.pn = jSONObject.optInt("pn");
                 this.totalFollowCount = jSONObject.optInt("total_follow_num");
                 JSONArray optJSONArray = jSONObject.optJSONArray("follow_list");
                 if (optJSONArray != null) {

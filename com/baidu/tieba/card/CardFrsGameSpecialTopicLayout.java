@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -19,35 +20,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.k.b;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public b<CardFrsGameSpecialTopicItemView> f14563e;
+    public b<CardFrsGameSpecialTopicItemView> f49730e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14564f;
+    public int f49731f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f14565g;
+    public int f49732g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f14566h;
+    public int f49733h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final ViewGroup.OnHierarchyChangeListener f14567i;
+    public final ViewGroup.OnHierarchyChangeListener f49734i;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardFrsGameSpecialTopicLayout f14568e;
+        public final /* synthetic */ CardFrsGameSpecialTopicLayout f49735e;
 
         public a(CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout) {
             Interceptable interceptable = $ic;
@@ -64,7 +64,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
                     return;
                 }
             }
-            this.f14568e = cardFrsGameSpecialTopicLayout;
+            this.f49735e = cardFrsGameSpecialTopicLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -77,8 +77,8 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof CardFrsGameSpecialTopicItemView) && this.f14568e.f14563e != null) {
-                this.f14568e.f14563e.e((CardFrsGameSpecialTopicItemView) view2);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof CardFrsGameSpecialTopicItemView) && this.f49735e.f49730e != null) {
+                this.f49735e.f49730e.e((CardFrsGameSpecialTopicItemView) view2);
             }
         }
     }
@@ -101,8 +101,8 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
                 return;
             }
         }
-        this.f14563e = null;
-        this.f14567i = new a(this);
+        this.f49730e = null;
+        this.f49734i = new a(this);
         b();
     }
 
@@ -126,7 +126,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
             if (i2 == 0) {
                 layoutParams.leftMargin = 0;
             } else {
-                layoutParams.leftMargin = this.f14564f;
+                layoutParams.leftMargin = this.f49731f;
             }
             cardFrsGameSpecialTopicItemView.setLayoutParams(layoutParams);
         }
@@ -137,18 +137,18 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardFrsGameSpecialTopicItemView, featureCardTopicSubNode) == null) || featureCardTopicSubNode == null) {
             return;
         }
-        cardFrsGameSpecialTopicItemView.getSpecialTopicPicView().M(featureCardTopicSubNode.image, 10, false);
+        cardFrsGameSpecialTopicItemView.getSpecialTopicPicView().startLoad(featureCardTopicSubNode.image, 10, false);
         cardFrsGameSpecialTopicItemView.getSpecialTopicNameView().setText(featureCardTopicSubNode.title);
         cardFrsGameSpecialTopicItemView.getSpecialTopicDscView().setText(getContext().getResources().getString(R.string.frs_game_special_card_article_num, String.valueOf(featureCardTopicSubNode.article_num)));
         cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.frs_game_special_card_last_update_time, StringHelper.getTimeInterval(featureCardTopicSubNode.update_time)));
         cardFrsGameSpecialTopicItemView.setTag(featureCardTopicSubNode.url);
-        cardFrsGameSpecialTopicItemView.c(TbadkCoreApplication.getInst().getSkinType());
+        cardFrsGameSpecialTopicItemView.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public int getChildItemWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f14566h : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f49733h : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -156,7 +156,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onAttachedToWindow();
-            setOnHierarchyChangeListener(this.f14567i);
+            setOnHierarchyChangeListener(this.f49734i);
         }
     }
 
@@ -174,13 +174,13 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, list) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.f14566h = this.f14565g + this.f14564f;
+        this.f49733h = this.f49732g + this.f49731f;
         int i2 = 0;
         int childCount = getChildCount();
         while (i2 < childCount && i2 < list.size()) {
             if (getChildAt(i2) instanceof CardFrsGameSpecialTopicItemView) {
                 CardFrsGameSpecialTopicItemView cardFrsGameSpecialTopicItemView = (CardFrsGameSpecialTopicItemView) getChildAt(i2);
-                c(cardFrsGameSpecialTopicItemView, i2, this.f14565g);
+                c(cardFrsGameSpecialTopicItemView, i2, this.f49732g);
                 d(cardFrsGameSpecialTopicItemView, list.get(i2));
             }
             i2++;
@@ -190,11 +190,11 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
             i2++;
         }
         while (i2 < list.size()) {
-            CardFrsGameSpecialTopicItemView b2 = this.f14563e.b();
+            CardFrsGameSpecialTopicItemView b2 = this.f49730e.b();
             if (b2.getParent() != null) {
                 ((ViewGroup) b2.getParent()).removeView(b2);
             }
-            c(b2, i2, this.f14565g);
+            c(b2, i2, this.f49732g);
             d(b2, list.get(i2));
             addView(b2);
             i2++;
@@ -204,14 +204,14 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     public void setItemSpace(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f14564f = i2;
+            this.f49731f = i2;
         }
     }
 
     public void setItemWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f14565g = i2;
+            this.f49732g = i2;
         }
     }
 
@@ -224,7 +224,7 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
     public void setViewPool(b<CardFrsGameSpecialTopicItemView> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
-            this.f14563e = bVar;
+            this.f49730e = bVar;
         }
     }
 
@@ -247,8 +247,8 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
                 return;
             }
         }
-        this.f14563e = null;
-        this.f14567i = new a(this);
+        this.f49730e = null;
+        this.f49734i = new a(this);
         b();
     }
 
@@ -271,8 +271,8 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
                 return;
             }
         }
-        this.f14563e = null;
-        this.f14567i = new a(this);
+        this.f49730e = null;
+        this.f49734i = new a(this);
         b();
     }
 }

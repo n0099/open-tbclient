@@ -27,7 +27,7 @@ import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -43,7 +43,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
     public final int timeout;
     public HttpURLConnection urlConnection;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class DefaultHttpUrlConnectionFactory implements HttpUrlConnectionFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,7 +70,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface HttpUrlConnectionFactory {
         HttpURLConnection build(URL url) throws IOException;
     }
@@ -120,7 +120,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
                 this.stream = ContentLengthInputStream.obtain(httpURLConnection.getInputStream(), httpURLConnection.getContentLength());
             } else {
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Got non empty content encoding: " + httpURLConnection.getContentEncoding());
+                    String str = "Got non empty content encoding: " + httpURLConnection.getContentEncoding();
                 }
                 this.stream = httpURLConnection.getInputStream();
             }
@@ -244,9 +244,7 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
                 try {
                     dataCallback.onDataReady(loadDataWithRedirects(this.glideUrl.toURL(), 0, null, this.glideUrl.getHeaders()));
                 } catch (IOException e2) {
-                    if (Log.isLoggable(TAG, 3)) {
-                        Log.d(TAG, "Failed to load data for url", e2);
-                    }
+                    Log.isLoggable(TAG, 3);
                     dataCallback.onLoadFailed(e2);
                     if (!Log.isLoggable(TAG, 2)) {
                         return;
@@ -257,11 +255,11 @@ public class HttpUrlFetcher implements DataFetcher<InputStream> {
                     sb = new StringBuilder();
                     sb.append("Finished http url fetcher fetch in ");
                     sb.append(LogTime.getElapsedMillis(logTime));
-                    Log.v(TAG, sb.toString());
+                    sb.toString();
                 }
             } catch (Throwable th) {
                 if (Log.isLoggable(TAG, 2)) {
-                    Log.v(TAG, "Finished http url fetcher fetch in " + LogTime.getElapsedMillis(logTime));
+                    String str = "Finished http url fetcher fetch in " + LogTime.getElapsedMillis(logTime);
                 }
                 throw th;
             }

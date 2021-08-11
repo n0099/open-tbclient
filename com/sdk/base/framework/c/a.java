@@ -13,18 +13,18 @@ import com.sdk.base.framework.bean.PInfo;
 import com.sdk.base.framework.bean.SInfo;
 import com.sdk.base.module.config.BaseConfig;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f38370a = false;
+    public static boolean f75155a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f38371b = "";
+    public static String f75156b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f38372c = "";
+    public static String f75157c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -69,7 +69,7 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             SInfo sInfo = new SInfo();
             sInfo.setN(BaseConfig.n);
-            sInfo.setC(BaseConfig.f38441c);
+            sInfo.setC(BaseConfig.f75227c);
             sInfo.setV(BaseConfig.v);
             sInfo.setCm(BaseConfig.cm);
             return sInfo;

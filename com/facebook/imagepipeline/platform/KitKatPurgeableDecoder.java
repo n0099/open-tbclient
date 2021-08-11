@@ -17,7 +17,7 @@ import com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(19)
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ImageThread {
     public static /* synthetic */ Interceptable $ic;
     public static final ImageThread IO;
     public static final ImageThread MAIN;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ ImageThread[] f28843a;
+    public static final /* synthetic */ ImageThread[] f64705a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public final class ImageThread {
         IO = new ImageThread("IO", 0);
         ImageThread imageThread = new ImageThread("MAIN", 1);
         MAIN = imageThread;
-        f28843a = new ImageThread[]{IO, imageThread};
+        f64705a = new ImageThread[]{IO, imageThread};
     }
 
     public ImageThread(String str, int i2) {
@@ -65,6 +65,6 @@ public final class ImageThread {
     public static ImageThread[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ImageThread[]) f28843a.clone() : (ImageThread[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ImageThread[]) f64705a.clone() : (ImageThread[]) invokeV.objValue;
     }
 }

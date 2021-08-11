@@ -19,7 +19,7 @@ import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,26 +31,26 @@ public class o {
         if (!(interceptable == null || interceptable.invokeLLL(65536, null, context, intent, uri) == null) || context == null) {
             return;
         }
-        an.a(context).m102a();
-        if (ea.a(context.getApplicationContext()).m283a() == null) {
-            ea.a(context.getApplicationContext()).a(b.m111a(context.getApplicationContext()).m112a(), context.getPackageName(), com.xiaomi.push.service.aq.a(context.getApplicationContext()).a(hk.aF.a(), 0), new c());
+        an.a(context).m105a();
+        if (ea.a(context.getApplicationContext()).m286a() == null) {
+            ea.a(context.getApplicationContext()).a(b.m114a(context.getApplicationContext()).m115a(), context.getPackageName(), com.xiaomi.push.service.aq.a(context.getApplicationContext()).a(hk.aF.a(), 0), new c());
             com.xiaomi.push.service.aq.a(context).a(new q(102, "awake online config", context));
         }
         if ((context instanceof Activity) && intent != null) {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f40328a;
+            ecVar = ec.f77182a;
         } else if (!(context instanceof Service) || intent == null) {
             if (uri == null || TextUtils.isEmpty(uri.toString())) {
                 return;
             }
-            ea.a(context.getApplicationContext()).a(ec.f40331d, context, (Intent) null, uri.toString());
+            ea.a(context.getApplicationContext()).a(ec.f77185d, context, (Intent) null, uri.toString());
             return;
         } else if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f40330c;
+            ecVar = ec.f77184c;
         } else {
             a2 = ea.a(context.getApplicationContext());
-            ecVar = ec.f40329b;
+            ecVar = ec.f77183b;
         }
         a2.a(ecVar, context, intent, (String) null);
     }
@@ -65,7 +65,7 @@ public class o {
                 a3 = 30;
             }
             boolean z = a3 >= 0 ? a2 : false;
-            if (!com.xiaomi.push.l.m535a()) {
+            if (!com.xiaomi.push.l.m538a()) {
                 a(context, ieVar, z, a3);
             } else if (z) {
                 com.xiaomi.push.ai.a(context.getApplicationContext()).a((ai.a) new p(ieVar, context), a3);
@@ -78,7 +78,7 @@ public class o {
         if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, t, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
             byte[] a2 = ip.a(t);
             if (a2 == null) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("send message fail, because msgBytes is null.");
+                com.xiaomi.channel.commonutils.logger.b.m73a("send message fail, because msgBytes is null.");
                 return;
             }
             Intent intent = new Intent();
@@ -87,24 +87,24 @@ public class o {
             intent.putExtra("extra_help_ping_frequency", i2);
             intent.putExtra("mipush_payload", a2);
             intent.putExtra("com.xiaomi.mipush.MESSAGE_CACHE", true);
-            an.a(context).m103a(intent);
+            an.a(context).m106a(intent);
         }
     }
 
     public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m70a("aw_ping : send aw_ping cmd and content to push service from 3rd app");
+            com.xiaomi.channel.commonutils.logger.b.m73a("aw_ping : send aw_ping cmd and content to push service from 3rd app");
             HashMap hashMap = new HashMap();
             hashMap.put("awake_info", str);
             hashMap.put(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, String.valueOf(9999));
             hashMap.put("description", "ping message");
             ie ieVar = new ie();
-            ieVar.b(b.m111a(context).m112a());
+            ieVar.b(b.m114a(context).m115a());
             ieVar.d(context.getPackageName());
-            ieVar.c(hp.I.f509a);
+            ieVar.c(hp.I.f513a);
             ieVar.a(com.xiaomi.push.service.at.a());
-            ieVar.f650a = hashMap;
+            ieVar.f654a = hashMap;
             a(context, ieVar);
         }
     }
@@ -115,18 +115,18 @@ public class o {
             ie ieVar = new ie();
             ieVar.b(str);
             ieVar.a(new HashMap());
-            ieVar.m466a().put("extra_aw_app_online_cmd", String.valueOf(i2));
-            ieVar.m466a().put("extra_help_aw_info", str2);
+            ieVar.m469a().put("extra_aw_app_online_cmd", String.valueOf(i2));
+            ieVar.m469a().put("extra_help_aw_info", str2);
             ieVar.a(com.xiaomi.push.service.at.a());
             byte[] a2 = ip.a(ieVar);
             if (a2 == null) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("send message fail, because msgBytes is null.");
+                com.xiaomi.channel.commonutils.logger.b.m73a("send message fail, because msgBytes is null.");
                 return;
             }
             Intent intent = new Intent();
             intent.setAction("action_aw_app_logic");
             intent.putExtra("mipush_payload", a2);
-            an.a(context).m103a(intent);
+            an.a(context).m106a(intent);
         }
     }
 }

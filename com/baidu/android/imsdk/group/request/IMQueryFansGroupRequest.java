@@ -30,7 +30,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMQueryFansGroupRequest";
@@ -38,7 +38,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     public ArrayList<String> mGroupIds;
     public String mKey;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
             this.this$0 = iMQueryFansGroupRequest;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:31:0x0186  */
+        /* JADX WARN: Removed duplicated region for block: B:31:0x0188  */
         /* JADX WARN: Removed duplicated region for block: B:43:? A[RETURN, SYNTHETIC] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
@@ -190,27 +190,27 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateGroupInfo(long j, int i2, int i3, GroupInfo groupInfo) {
+    public void updateGroupInfo(long j2, int i2, int i3, GroupInfo groupInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Integer.valueOf(i3), groupInfo}) == null) && i2 == 0) {
-            String valueOf = String.valueOf(j);
+        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), groupInfo}) == null) && i2 == 0) {
+            String valueOf = String.valueOf(j2);
             if (i3 == 1) {
                 GroupInfoDAOImpl.quitGroup(this.mContext, valueOf);
-                DialogRecordDBManager.getInstance(this.mContext).delete(1, j);
+                DialogRecordDBManager.getInstance(this.mContext).delete(1, j2);
                 ConversationManagerImpl.getInstance(this.mContext).deleteConversation(1, valueOf);
                 return;
             }
             GroupInfoDAOImpl.modifyGroupInfoVersion(this.mContext, valueOf, groupInfo.getInfoVersion(), groupInfo.getLocalInfoVersion());
             if (GroupInfoDAOImpl.updateGroupInfo(this.mContext, groupInfo) > 0) {
-                updateGroupSession(j, groupInfo.getGroupName(), groupInfo.getHeadUrl());
+                updateGroupSession(j2, groupInfo.getGroupName(), groupInfo.getHeadUrl());
             }
         }
     }
 
-    private void updateGroupSession(long j, String str, String str2) {
+    private void updateGroupSession(long j2, String str, String str2) {
         ChatSession chatRecordByContacter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), str, str2}) == null) || (chatRecordByContacter = ChatMessageDBManager.getInstance(this.mContext).getChatRecordByContacter(new ChatObject(this.mContext, 1, j))) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j2), str, str2}) == null) || (chatRecordByContacter = ChatMessageDBManager.getInstance(this.mContext).getChatRecordByContacter(new ChatObject(this.mContext, 1, j2))) == null) {
             return;
         }
         if (TextUtils.equals(str, chatRecordByContacter.getName()) && TextUtils.equals(str2, chatRecordByContacter.getIconUrl())) {

@@ -26,7 +26,7 @@ import java.security.MessageDigest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class BitmapPreFillRunner implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKOFF_RATIO = 4;
@@ -47,7 +47,7 @@ public final class BitmapPreFillRunner implements Runnable {
     public final PreFillQueue toPrefill;
 
     @VisibleForTesting
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Clock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public final class BitmapPreFillRunner implements Runnable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class UniqueKey implements Key {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,17 +149,17 @@ public final class BitmapPreFillRunner implements Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            long j = this.currentDelay;
-            this.currentDelay = Math.min(4 * j, MAX_BACKOFF_MS);
-            return j;
+            long j2 = this.currentDelay;
+            this.currentDelay = Math.min(4 * j2, MAX_BACKOFF_MS);
+            return j2;
         }
         return invokeV.longValue;
     }
 
-    private boolean isGcDetected(long j) {
+    private boolean isGcDetected(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j)) == null) ? this.clock.now() - j >= 32 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j2)) == null) ? this.clock.now() - j2 >= 32 : invokeJ.booleanValue;
     }
 
     @VisibleForTesting
@@ -184,7 +184,7 @@ public final class BitmapPreFillRunner implements Runnable {
                     this.bitmapPool.put(createBitmap);
                 }
                 if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "allocated [" + remove.getWidth() + "x" + remove.getHeight() + "] " + remove.getConfig() + " size: " + bitmapByteSize);
+                    String str = "allocated [" + remove.getWidth() + "x" + remove.getHeight() + "] " + remove.getConfig() + " size: " + bitmapByteSize;
                 }
             }
             return (this.isCancelled || this.toPrefill.isEmpty()) ? false : true;

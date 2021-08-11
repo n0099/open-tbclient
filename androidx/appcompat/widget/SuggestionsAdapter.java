@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.TextAppearanceSpan;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -175,12 +174,12 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                 }
                 Drawable drawable = packageManager.getDrawable(componentName.getPackageName(), iconResource, activityInfo.applicationInfo);
                 if (drawable == null) {
-                    Log.w(LOG_TAG, "Invalid icon resource " + iconResource + " for " + componentName.flattenToShortString());
+                    String str = "Invalid icon resource " + iconResource + " for " + componentName.flattenToShortString();
                     return null;
                 }
                 return drawable;
             } catch (PackageManager.NameNotFoundException e2) {
-                Log.w(LOG_TAG, e2.toString());
+                e2.toString();
                 return null;
             }
         }
@@ -239,17 +238,17 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                     Drawable createFromStream = Drawable.createFromStream(openInputStream, null);
                     try {
                         openInputStream.close();
-                    } catch (IOException e2) {
-                        Log.e(LOG_TAG, "Error closing icon stream for " + uri, e2);
+                    } catch (IOException unused2) {
+                        String str = "Error closing icon stream for " + uri;
                     }
                     return createFromStream;
                 }
                 throw new FileNotFoundException("Failed to open " + uri);
-            } catch (FileNotFoundException e3) {
-                Log.w(LOG_TAG, "Icon not found: " + uri + StringUtil.ARRAY_ELEMENT_SEPARATOR + e3.getMessage());
+            } catch (FileNotFoundException e2) {
+                String str2 = "Icon not found: " + uri + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2.getMessage();
                 return null;
             }
-            Log.w(LOG_TAG, "Icon not found: " + uri + StringUtil.ARRAY_ELEMENT_SEPARATOR + e3.getMessage());
+            String str22 = "Icon not found: " + uri + StringUtil.ARRAY_ELEMENT_SEPARATOR + e2.getMessage();
             return null;
         }
         return (Drawable) invokeL.objValue;
@@ -273,7 +272,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                 storeInIconCache(str2, drawable);
                 return drawable;
             } catch (Resources.NotFoundException unused) {
-                Log.w(LOG_TAG, "Icon resource not found: " + str);
+                String str3 = "Icon resource not found: " + str;
                 return null;
             } catch (NumberFormatException unused2) {
                 Drawable checkIconCache2 = checkIconCache(str);
@@ -324,8 +323,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             }
             try {
                 return cursor.getString(i2);
-            } catch (Exception e2) {
-                Log.e(LOG_TAG, "unexpected error retrieving valid column from cursor, did the remote process die?", e2);
+            } catch (Exception unused) {
                 return null;
             }
         }
@@ -432,7 +430,6 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor) == null) {
             if (this.mClosed) {
-                Log.w(LOG_TAG, "Tried to change cursor after adapter was closed.");
                 if (cursor != null) {
                     cursor.close();
                     return;
@@ -449,8 +446,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                     this.mIconName2Col = cursor.getColumnIndex("suggest_icon_2");
                     this.mFlagsCol = cursor.getColumnIndex("suggest_flags");
                 }
-            } catch (Exception e2) {
-                Log.e(LOG_TAG, "error changing cursor and caching columns", e2);
+            } catch (Exception unused) {
             }
         }
     }
@@ -534,7 +530,6 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             try {
                 return super.getDropDownView(i2, view, viewGroup);
             } catch (RuntimeException e2) {
-                Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e2);
                 View newDropDownView = newDropDownView(this.mContext, this.mCursor, viewGroup);
                 if (newDropDownView != null) {
                     ((ChildViewCache) newDropDownView.getTag()).mText1.setText(e2.toString());
@@ -589,7 +584,6 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
             try {
                 return super.getView(i2, view, viewGroup);
             } catch (RuntimeException e2) {
-                Log.w(LOG_TAG, "Search suggestions cursor threw exception.", e2);
                 View newView = newView(this.mContext, this.mCursor, viewGroup);
                 if (newView != null) {
                     ((ChildViewCache) newView.getTag()).mText1.setText(e2.toString());
@@ -665,8 +659,7 @@ public class SuggestionsAdapter extends ResourceCursorAdapter implements View.On
                         searchManagerSuggestions.getCount();
                         return searchManagerSuggestions;
                     }
-                } catch (RuntimeException e2) {
-                    Log.w(LOG_TAG, "Search suggestions query threw an exception.", e2);
+                } catch (RuntimeException unused) {
                 }
             }
             return null;

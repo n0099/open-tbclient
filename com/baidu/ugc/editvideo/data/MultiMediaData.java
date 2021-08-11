@@ -9,6 +9,8 @@ import android.text.TextUtils;
 import android.view.Surface;
 import androidx.annotation.IntRange;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.j.b;
+import c.a.v0.t.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,8 +24,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.source.multimedia.exoplayer.VLogSimplePlayer;
 import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
 import com.google.gson.reflect.TypeToken;
-import d.a.w0.j.b;
-import d.a.w0.t.h;
 import java.io.Serializable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<MultiMediaData> CREATOR;
@@ -85,7 +85,7 @@ public class MultiMediaData implements Parcelable, Serializable, Cloneable {
     public float y;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public @interface MultiMediaType {
         public static final int TYPE_IMAGE = 0;
         public static final int TYPE_VIDEO = 1;

@@ -4,7 +4,7 @@ import android.view.View;
 import com.kwad.sdk.core.imageloader.core.assist.FailReason;
 import com.kwad.sdk.core.imageloader.core.decode.DecodedResult;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface ImageLoadingListener {
     boolean onDecode(String str, InputStream inputStream, DecodedResult decodedResult);
 

@@ -1,5 +1,5 @@
 package com.sina.weibo.sdk.auth;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface WbAuthListener {
     void cancel();
 

@@ -1,6 +1,7 @@
 package com.baidu.tieba.pb.pb.sub;
 
 import android.content.Context;
+import c.a.p0.i2.h.r;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,9 +11,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.h2.h.r;
 import tbclient.PbFloor.PbFloorResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SubPbSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

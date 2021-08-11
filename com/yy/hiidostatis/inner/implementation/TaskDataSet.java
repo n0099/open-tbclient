@@ -16,7 +16,7 @@ import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class TaskDataSet implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Comparator<TaskData> DATA_COMPARATOR;
@@ -25,13 +25,13 @@ public class TaskDataSet implements Serializable {
     public Set<TaskData> dataSet;
 
     /* renamed from: com.yy.hiidostatis.inner.implementation.TaskDataSet$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class MyComparator implements Comparator<TaskData>, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 605434724079570979L;

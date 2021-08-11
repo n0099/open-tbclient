@@ -5,7 +5,6 @@ import com.airbnb.lottie.LottieComposition;
 import com.airbnb.lottie.model.animatable.AnimatableFloatValue;
 import com.airbnb.lottie.model.content.ShapeTrimPath;
 import com.airbnb.lottie.parser.moshi.JsonReader;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ShapeTrimPathParser {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReader.Options NAMES;
@@ -33,7 +32,7 @@ public class ShapeTrimPathParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of("s", "e", Config.OS, SearchView.IME_OPTION_NO_MICROPHONE, "m", "hd");
+        NAMES = JsonReader.Options.of("s", "e", "o", SearchView.IME_OPTION_NO_MICROPHONE, "m", "hd");
     }
 
     public ShapeTrimPathParser() {

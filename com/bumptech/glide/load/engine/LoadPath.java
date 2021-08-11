@@ -15,7 +15,8 @@ import com.bumptech.glide.util.Preconditions;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public class LoadPath<Data, ResourceType, Transcode> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +94,7 @@ public class LoadPath<Data, ResourceType, Transcode> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "LoadPath{decodePaths=" + Arrays.toString(this.decodePaths.toArray()) + '}';
+            return "LoadPath{decodePaths=" + Arrays.toString(this.decodePaths.toArray()) + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

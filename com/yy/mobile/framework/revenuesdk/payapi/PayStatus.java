@@ -10,9 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.dxmpay.wallet.utils.StatHelper;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class PayStatus {
     public static final /* synthetic */ PayStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -42,7 +43,7 @@ public final class PayStatus {
                 return;
             }
         }
-        OK = new PayStatus("OK", 0, 1, "请求成功");
+        OK = new PayStatus(StatHelper.SENSOR_OK, 0, 1, "请求成功");
         VALIDATE_FAIL = new PayStatus("VALIDATE_FAIL", 1, -1, "账号验证失败");
         CAN_NOT_USE = new PayStatus("CAN_NOT_USE", 2, -5, "账户已冻结");
         APPLE_PAY_FAIL = new PayStatus("APPLE_PAY_FAIL", 3, -14, "苹果支付凭证重复验证");

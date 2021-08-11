@@ -10,23 +10,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AdVideoPlayerViewCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, WeakReference<b>> f35160a;
+    public HashMap<String, WeakReference<b>> f71912a;
 
     /* renamed from: com.kwad.sdk.core.video.videoview.AdVideoPlayerViewCache$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Holder {
         public static final /* synthetic */ Holder[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -105,7 +105,7 @@ public class AdVideoPlayerViewCache {
                 return;
             }
         }
-        this.f35160a = new HashMap<>(1);
+        this.f71912a = new HashMap<>(1);
     }
 
     public /* synthetic */ AdVideoPlayerViewCache(AnonymousClass1 anonymousClass1) {
@@ -121,14 +121,14 @@ public class AdVideoPlayerViewCache {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f35160a.remove(str);
+            this.f71912a.remove(str);
         }
     }
 
     public void a(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar) == null) {
-            this.f35160a.put(str, new WeakReference<>(bVar));
+            this.f71912a.put(str, new WeakReference<>(bVar));
         }
     }
 
@@ -136,13 +136,13 @@ public class AdVideoPlayerViewCache {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            WeakReference<b> weakReference = this.f35160a.get(str);
+            WeakReference<b> weakReference = this.f71912a.get(str);
             if (weakReference != null) {
                 b bVar = weakReference.get();
                 if (bVar != null) {
                     return bVar;
                 }
-                this.f35160a.remove(str);
+                this.f71912a.remove(str);
             }
             return null;
         }

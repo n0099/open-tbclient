@@ -12,7 +12,7 @@ import com.baidu.searchbox.live.interfaces.entry.ILiveShowMasterEntry;
 import com.baidu.searchbox.live.interfaces.entry.ILiveYuYinEntry;
 import com.baidu.searchbox.live.interfaces.yy.IYYLiveNPSPlugin;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface ILiveNPSPlugin {
     public static final String PARAMS_ROOM_ID = "roomId";
     public static final String PARAMS_SCHEME = "scheme";
@@ -46,7 +46,7 @@ public interface ILiveNPSPlugin {
 
     void isInHistory(@NonNull String str, @NonNull LiveStatusDataCallback<Boolean> liveStatusDataCallback);
 
-    void onDiskClearCacheChange(long j, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
+    void onDiskClearCacheChange(long j2, int i2, int i3, ILiveDiskClearCacheCallback iLiveDiskClearCacheCallback);
 
     void startMasterActivity(Context context, String str);
 

@@ -28,20 +28,20 @@ public final class CoroutineLiveDataKt {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, mediatorLiveData, liveData, continuation)) == null) ? BuildersKt.withContext(Dispatchers.getMain().getImmediate(), new CoroutineLiveDataKt$addDisposableSource$2(mediatorLiveData, liveData, null), continuation) : invokeLLL.objValue;
     }
 
-    public static final <T> LiveData<T> liveData(CoroutineContext coroutineContext, long j, @BuilderInference Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2) {
+    public static final <T> LiveData<T> liveData(CoroutineContext coroutineContext, long j2, @BuilderInference Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{coroutineContext, Long.valueOf(j), function2})) == null) ? new CoroutineLiveData(coroutineContext, j, function2) : (LiveData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{coroutineContext, Long.valueOf(j2), function2})) == null) ? new CoroutineLiveData(coroutineContext, j2, function2) : (LiveData) invokeCommon.objValue;
     }
 
-    public static /* synthetic */ LiveData liveData$default(CoroutineContext coroutineContext, long j, Function2 function2, int i2, Object obj) {
+    public static /* synthetic */ LiveData liveData$default(CoroutineContext coroutineContext, long j2, Function2 function2, int i2, Object obj) {
         if ((i2 & 1) != 0) {
             coroutineContext = EmptyCoroutineContext.INSTANCE;
         }
         if ((i2 & 2) != 0) {
-            j = 5000;
+            j2 = 5000;
         }
-        return liveData(coroutineContext, j, function2);
+        return liveData(coroutineContext, j2, function2);
     }
 
     @RequiresApi(26)

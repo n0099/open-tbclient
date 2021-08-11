@@ -12,12 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbEditVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENTER_ANIM_VALUES = "enter_anim_values";
     public static final int FROM_CAPTURE = 2;
     public static final int FROM_FILE_VIDEO = 1;
+    public static final int FROM_WORK_PUBLISH = 4;
     public static final int FROM_WRITE = 3;
     public static final String KEY_EDIT_PAGE_MODE_TYPE = "key_edit_page_mode_type";
     public static final String KEY_EDIT_VIDEO_DATA = "key_edit_video_file_path";
@@ -66,7 +67,7 @@ public class TbEditVideoActivityConfig extends IntentConfig {
             tbMultiMediaData.coverSource = videoInfo.getMultiMediaData().coverSource;
             tbMultiMediaData.orignalCoverPath = videoInfo.getMultiMediaData().orignalCoverPath;
             tbMultiMediaData.lastCoverPercent = videoInfo.getMultiMediaData().lastCoverPercent;
-            tbMultiMediaData.videoInfoType = videoInfo.getVideoType();
+            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
             return tbMultiMediaData;
         }
         return (TbMultiMediaData) invokeL.objValue;

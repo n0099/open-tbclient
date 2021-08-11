@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class ChallengeResponse extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class ChallengeResponse extends a {
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.fingerprint.datamodel.a, com.baidu.apollon.beans.IBeanResponse
+    @Override // com.baidu.wallet.paysdk.fingerprint.datamodel.a, com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class ChallengeResponse extends a {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.fingerprint.datamodel.a, com.baidu.apollon.beans.IBeanResponse
+    @Override // com.baidu.wallet.paysdk.fingerprint.datamodel.a, com.dxmpay.apollon.beans.IBeanResponse
     public /* bridge */ /* synthetic */ void storeResponse(Context context) {
         super.storeResponse(context);
     }

@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ta.utdid2.a.a.f;
-/* loaded from: classes6.dex */
+import com.ta.utdid2.a.a.g;
+/* loaded from: classes10.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             String b2 = com.ta.utdid2.a.a.a.b(str);
-            if (!f.isEmpty(b2)) {
+            if (!g.m63a(b2)) {
                 try {
                     return new String(com.ta.utdid2.a.a.b.decode(b2, 0));
                 } catch (IllegalArgumentException unused) {

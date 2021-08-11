@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
+import c.a.o0.s.u.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -13,13 +14,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ForumRuleDafultItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f15705e;
+    public Context f50869e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ForumRuleDafultItemView(Context context) {
@@ -45,13 +46,13 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            EMTextView eMTextView = new EMTextView(this.f15705e);
+            EMTextView eMTextView = new EMTextView(this.f50869e);
             eMTextView.setText(str);
             addView(eMTextView);
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) eMTextView.getLayoutParams();
             marginLayoutParams.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X008);
             eMTextView.setLayoutParams(marginLayoutParams);
-            EMTextView eMTextView2 = new EMTextView(this.f15705e);
+            EMTextView eMTextView2 = new EMTextView(this.f50869e);
             eMTextView2.setText(str2);
             addView(eMTextView2);
             ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) eMTextView2.getLayoutParams();
@@ -63,10 +64,29 @@ public class ForumRuleDafultItemView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a(this.f15705e.getResources().getString(R.string.forum_rule_defalt_one_title), this.f15705e.getResources().getString(R.string.forum_rule_defalt_one_content));
-            a(this.f15705e.getResources().getString(R.string.forum_rule_defalt_two_title), this.f15705e.getResources().getString(R.string.forum_rule_defalt_two_content));
-            a(this.f15705e.getResources().getString(R.string.forum_rule_defalt_three_title), this.f15705e.getResources().getString(R.string.forum_rule_defalt_three_content));
-            a(this.f15705e.getResources().getString(R.string.forum_rule_defalt_four_title), this.f15705e.getResources().getString(R.string.forum_rule_defalt_four_content));
+            a(this.f50869e.getResources().getString(R.string.forum_rule_defalt_one_title), this.f50869e.getResources().getString(R.string.forum_rule_defalt_one_content));
+            a(this.f50869e.getResources().getString(R.string.forum_rule_defalt_two_title), this.f50869e.getResources().getString(R.string.forum_rule_defalt_two_content));
+            a(this.f50869e.getResources().getString(R.string.forum_rule_defalt_three_title), this.f50869e.getResources().getString(R.string.forum_rule_defalt_three_content));
+            a(this.f50869e.getResources().getString(R.string.forum_rule_defalt_four_title), this.f50869e.getResources().getString(R.string.forum_rule_defalt_four_content));
+        }
+    }
+
+    public void changeSkin(int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || getChildCount() <= 0) {
+            return;
+        }
+        for (int i3 = 0; i3 < getChildCount(); i3++) {
+            EMTextView eMTextView = (EMTextView) getChildAt(i3);
+            if (i3 % 2 != 0) {
+                c d2 = c.d(eMTextView);
+                d2.t(R.color.CAM_X0107);
+                d2.u(R.dimen.M_T_X003);
+            } else {
+                c d3 = c.d(eMTextView);
+                d3.t(R.color.CAM_X0107);
+                d3.y(R.string.F_X02);
+            }
         }
     }
 
@@ -110,7 +130,7 @@ public class ForumRuleDafultItemView extends LinearLayout {
                 return;
             }
         }
-        this.f15705e = context;
+        this.f50869e = context;
         setOrientation(1);
         b();
     }

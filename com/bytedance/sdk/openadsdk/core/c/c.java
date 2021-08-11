@@ -17,15 +17,15 @@ import com.bytedance.sdk.openadsdk.q.q;
 import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, String str, long j) {
+    public static void a(Context context, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
-            JSONObject a2 = a(str, j);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+            JSONObject a2 = a(str, j2);
             PostExecutor postExecutor = d.b().c().getPostExecutor();
             postExecutor.setUrl(q.l("/api/ad/union/sdk/stats/"));
             postExecutor.setJson(a2.toString());
@@ -70,16 +70,16 @@ public class c {
         }
     }
 
-    public static JSONObject a(String str, long j) {
+    public static JSONObject a(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65536, null, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65536, null, str, j2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", "over_freq");
                 jSONObject.put("rit", str);
                 jSONObject.put("ad_sdk_version", "3.7.0.3");
-                jSONObject.put("timestamp", j);
+                jSONObject.put("timestamp", j2);
             } catch (JSONException unused) {
             }
             return jSONObject;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.banner.BannerBaseItemInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BannerChargeItemInfo extends BannerBaseItemInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,7 +1,6 @@
 package com.baidu.turbonet.net;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,41 +19,43 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
-/* loaded from: classes4.dex */
+/* loaded from: classes8.dex */
 public interface UrlRequest {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final TurbonetEngine f23389a;
+        public final TurbonetEngine f59115a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f23390b;
+        public final String f59116b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Callback f23391c;
+        public final Callback f59117c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Executor f23392d;
+        public final Executor f59118d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f23393e;
+        public String f59119e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<Pair<String, String>> f23394f;
+        public final ArrayList<Pair<String, String>> f59120f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f23395g;
+        public boolean f59121g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f23396h;
+        public boolean f59122h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f23397i;
-        public Collection<Object> j;
+        public int f59123i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public Collection<Object> f59124j;
         public UploadDataProvider k;
         public Executor l;
         public boolean m;
@@ -69,7 +70,7 @@ public interface UrlRequest {
         public String v;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public @interface RequestPriority {
         }
 
@@ -88,9 +89,9 @@ public interface UrlRequest {
                     return;
                 }
             }
-            this.f23394f = new ArrayList<>();
-            this.f23397i = 3;
-            this.j = Collections.emptyList();
+            this.f59120f = new ArrayList<>();
+            this.f59123i = 3;
+            this.f59124j = Collections.emptyList();
             if (str == null) {
                 throw new NullPointerException("URL is required.");
             }
@@ -101,10 +102,10 @@ public interface UrlRequest {
                 throw new NullPointerException("Executor is required.");
             }
             if (turbonetEngine != null) {
-                this.f23390b = str;
-                this.f23391c = callback;
-                this.f23392d = executor;
-                this.f23389a = turbonetEngine;
+                this.f59116b = str;
+                this.f59117c = callback;
+                this.f59118d = executor;
+                this.f59115a = turbonetEngine;
                 this.m = false;
                 this.o = false;
                 this.p = 0;
@@ -126,10 +127,10 @@ public interface UrlRequest {
                 if (str != null) {
                     if (str2 != null) {
                         if ("Accept-Encoding".equalsIgnoreCase(str)) {
-                            Log.w("cronet", "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
+                            new Exception();
                             return this;
                         }
-                        this.f23394f.add(Pair.create(str, str2));
+                        this.f59120f.add(Pair.create(str, str2));
                         return this;
                     }
                     throw new NullPointerException("Invalid header value.");
@@ -143,12 +144,12 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                UrlRequest b2 = this.f23389a.b(this.f23390b, this.f23391c, this.f23392d, this.f23397i, this.j, this.f23395g, this.f23396h, this.n);
-                String str = this.f23393e;
+                UrlRequest b2 = this.f59115a.b(this.f59116b, this.f59117c, this.f59118d, this.f59123i, this.f59124j, this.f59121g, this.f59122h, this.n);
+                String str = this.f59119e;
                 if (str != null) {
                     b2.e(str);
                 }
-                Iterator<Pair<String, String>> it = this.f23394f.iterator();
+                Iterator<Pair<String, String>> it = this.f59120f.iterator();
                 while (it.hasNext()) {
                     Pair<String, String> next = it.next();
                     b2.addHeader((String) next.first, (String) next.second);
@@ -198,7 +199,7 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                this.f23395g = true;
+                this.f59121g = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -229,7 +230,7 @@ public interface UrlRequest {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 if (str != null) {
-                    this.f23393e = str;
+                    this.f59119e = str;
                     return this;
                 }
                 throw new NullPointerException("Method is required.");
@@ -283,8 +284,8 @@ public interface UrlRequest {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uploadDataProvider, executor)) == null) {
                 if (uploadDataProvider != null) {
                     if (executor != null) {
-                        if (this.f23393e == null) {
-                            this.f23393e = "POST";
+                        if (this.f59119e == null) {
+                            this.f59119e = "POST";
                         }
                         this.k = uploadDataProvider;
                         this.l = executor;
@@ -308,7 +309,7 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -344,13 +345,13 @@ public interface UrlRequest {
         public abstract void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo);
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static class Status {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         @Retention(RetentionPolicy.SOURCE)
-        /* loaded from: classes4.dex */
+        /* loaded from: classes8.dex */
         public @interface StatusValues {
         }
 
@@ -427,7 +428,7 @@ public interface UrlRequest {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes8.dex */
     public static abstract class StatusListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

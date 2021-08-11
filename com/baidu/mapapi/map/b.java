@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b implements InfoWindow.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduMap f7188a;
+    public final /* synthetic */ BaiduMap f41446a;
 
     public b(BaiduMap baiduMap) {
         Interceptable interceptable = $ic;
@@ -29,14 +29,14 @@ public class b implements InfoWindow.a {
                 return;
             }
         }
-        this.f7188a = baiduMap;
+        this.f41446a = baiduMap;
     }
 
     @Override // com.baidu.mapapi.map.InfoWindow.a
     public void a(InfoWindow infoWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, infoWindow) == null) {
-            this.f7188a.hideInfoWindow(infoWindow);
+            this.f41446a.hideInfoWindow(infoWindow);
         }
     }
 
@@ -44,7 +44,7 @@ public class b implements InfoWindow.a {
     public void b(InfoWindow infoWindow) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, infoWindow) == null) {
-            this.f7188a.a(infoWindow);
+            this.f41446a.a(infoWindow);
         }
     }
 }

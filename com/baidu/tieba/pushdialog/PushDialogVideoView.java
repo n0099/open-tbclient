@@ -13,6 +13,8 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.p0.o2.n;
+import c.a.p0.o2.o;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -37,9 +39,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n2.n;
-import d.a.q0.n2.o;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PushDialogVideoView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public boolean D;
     public boolean E;
     public boolean F;
-    public d.a.p0.d1.m.i G;
+    public c.a.o0.d1.m.i G;
     public CyberPlayerManager.OnPreparedListener H;
     public VideoLoadingProgressView.c I;
     public Runnable J;
@@ -64,21 +64,23 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public VideoControllerView.d S;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f20542e;
+    public int f55928e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f20543f;
+    public int f55929f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20544g;
+    public int f55930g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20545h;
+    public int f55931h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext<?> f20546i;
-    public TbCyberVideoView j;
-    public d.a.q0.n2.m k;
+    public TbPageContext<?> f55932i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TbCyberVideoView f55933j;
+    public c.a.p0.o2.m k;
     public ProgressBar l;
     public View m;
     public View n;
@@ -95,13 +97,13 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public boolean y;
     public boolean z;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20547a;
+        public final /* synthetic */ PushDialogVideoView f55934a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PushDialogVideoView pushDialogVideoView, int i2) {
@@ -121,7 +123,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20547a = pushDialogVideoView;
+            this.f55934a = pushDialogVideoView;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -129,18 +131,18 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof CallStateMessage) && ((CallStateMessage) customResponsedMessage).getCallState() == 1) {
-                this.f20547a.G();
+                this.f55934a.pausePlay();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20548a;
+        public final /* synthetic */ PushDialogVideoView f55935a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(PushDialogVideoView pushDialogVideoView, Looper looper) {
@@ -160,33 +162,33 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20548a = pushDialogVideoView;
+            this.f55935a = pushDialogVideoView;
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f20548a.j != null && this.f20548a.j.isPlaying()) {
-                int currentPosition = this.f20548a.j.getCurrentPosition();
-                int duration = this.f20548a.j.getDuration();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1 && this.f55935a.f55933j != null && this.f55935a.f55933j.isPlaying()) {
+                int currentPosition = this.f55935a.f55933j.getCurrentPosition();
+                int duration = this.f55935a.f55933j.getDuration();
                 if (currentPosition > duration) {
                     currentPosition = duration;
                 }
-                if (this.f20548a.S != null) {
-                    this.f20548a.S.a(currentPosition);
+                if (this.f55935a.S != null) {
+                    this.f55935a.S.a(currentPosition);
                 }
-                sendMessageDelayed(obtainMessage(1), this.f20548a.f20542e - (currentPosition % this.f20548a.f20542e));
+                sendMessageDelayed(obtainMessage(1), this.f55935a.f55928e - (currentPosition % this.f55935a.f55928e));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class c implements VideoControllerView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20549a;
+        public final /* synthetic */ PushDialogVideoView f55936a;
 
         public c(PushDialogVideoView pushDialogVideoView) {
             Interceptable interceptable = $ic;
@@ -203,27 +205,27 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20549a = pushDialogVideoView;
+            this.f55936a = pushDialogVideoView;
         }
 
         @Override // com.baidu.tieba.play.VideoControllerView.d
         public void a(int i2) {
             int duration;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f20549a.j == null || (duration = this.f20549a.j.getDuration()) <= 0 || this.f20549a.l == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f55936a.f55933j == null || (duration = this.f55936a.f55933j.getDuration()) <= 0 || this.f55936a.l == null) {
                 return;
             }
-            this.f20549a.l.setProgress((int) ((i2 * this.f20549a.getWidth()) / duration));
+            this.f55936a.l.setProgress((int) ((i2 * this.f55936a.getWidth()) / duration));
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class d implements CyberPlayerManager.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20550e;
+        public final /* synthetic */ PushDialogVideoView f55937e;
 
         public d(PushDialogVideoView pushDialogVideoView) {
             Interceptable interceptable = $ic;
@@ -240,25 +242,25 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20550e = pushDialogVideoView;
+            this.f55937e = pushDialogVideoView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
         public void onPrepared() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20550e.k.e();
+                this.f55937e.k.e();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class e implements VideoLoadingProgressView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20551a;
+        public final /* synthetic */ PushDialogVideoView f55938a;
 
         public e(PushDialogVideoView pushDialogVideoView) {
             Interceptable interceptable = $ic;
@@ -275,25 +277,25 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20551a = pushDialogVideoView;
+            this.f55938a = pushDialogVideoView;
         }
 
         @Override // com.baidu.tieba.play.VideoLoadingProgressView.c
         public void onAnimationEnd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20551a.T();
+                this.f55938a.D();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20552e;
+        public final /* synthetic */ PushDialogVideoView f55939e;
 
         public f(PushDialogVideoView pushDialogVideoView) {
             Interceptable interceptable = $ic;
@@ -310,34 +312,34 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20552e = pushDialogVideoView;
+            this.f55939e = pushDialogVideoView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f20552e.j.getCurrentPosition() > 100) {
-                    this.f20552e.v = true;
-                    this.f20552e.m.setVisibility(8);
-                    this.f20552e.n.setVisibility(8);
-                    this.f20552e.k.c();
-                    this.f20552e.t.setVisibility(8);
-                    this.f20552e.N();
+                if (this.f55939e.f55933j.getCurrentPosition() > 100) {
+                    this.f55939e.v = true;
+                    this.f55939e.m.setVisibility(8);
+                    this.f55939e.n.setVisibility(8);
+                    this.f55939e.k.c();
+                    this.f55939e.t.setVisibility(8);
+                    this.f55939e.showProgress();
                     return;
                 }
-                d.a.d.e.m.e.a().postDelayed(this.f20552e.J, 20L);
+                c.a.e.e.m.e.a().postDelayed(this.f55939e.J, 20L);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class g implements CyberPlayerManager.OnCompletionListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20553e;
+        public final /* synthetic */ PushDialogVideoView f55940e;
 
         public g(PushDialogVideoView pushDialogVideoView) {
             Interceptable interceptable = $ic;
@@ -354,41 +356,41 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20553e = pushDialogVideoView;
+            this.f55940e = pushDialogVideoView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
         public void onCompletion() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20553e.v = false;
-                this.f20553e.D = false;
-                this.f20553e.w = 0;
-                this.f20553e.m.setVisibility(0);
-                this.f20553e.l.setVisibility(8);
-                this.f20553e.l.setProgress(this.f20553e.l.getMax());
-                if (this.f20553e.j == null || this.f20553e.j.getDuration() > 150000) {
-                    this.f20553e.I(false);
+                this.f55940e.v = false;
+                this.f55940e.D = false;
+                this.f55940e.w = 0;
+                this.f55940e.m.setVisibility(0);
+                this.f55940e.l.setVisibility(8);
+                this.f55940e.l.setProgress(this.f55940e.l.getMax());
+                if (this.f55940e.f55933j == null || this.f55940e.f55933j.getDuration() > 150000) {
+                    this.f55940e.y(false);
                 } else {
-                    this.f20553e.p.setVisibility(0);
+                    this.f55940e.p.setVisibility(0);
                 }
-                n.d().e(this.f20553e.r);
-                if (this.f20553e.j == null || this.f20553e.j.getDuration() > 150000) {
+                n.d().e(this.f55940e.r);
+                if (this.f55940e.f55933j == null || this.f55940e.f55933j.getDuration() > 150000) {
                     return;
                 }
-                PushDialogVideoView pushDialogVideoView = this.f20553e;
-                pushDialogVideoView.O(pushDialogVideoView.r, this.f20553e.s);
+                PushDialogVideoView pushDialogVideoView = this.f55940e;
+                pushDialogVideoView.startPlay(pushDialogVideoView.r, this.f55940e.s);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class h implements CyberPlayerManager.OnErrorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20554e;
+        public final /* synthetic */ PushDialogVideoView f55941e;
 
         public h(PushDialogVideoView pushDialogVideoView) {
             Interceptable interceptable = $ic;
@@ -405,7 +407,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20554e = pushDialogVideoView;
+            this.f55941e = pushDialogVideoView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
@@ -413,25 +415,25 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, obj)) == null) {
-                this.f20554e.n.setVisibility(0);
-                this.f20554e.k.b();
-                if (!d.a.d.e.p.j.z()) {
-                    this.f20554e.B = true;
+                this.f55941e.n.setVisibility(0);
+                this.f55941e.k.b();
+                if (!c.a.e.e.p.j.z()) {
+                    this.f55941e.B = true;
                 }
-                this.f20554e.D = false;
+                this.f55941e.D = false;
                 return true;
             }
             return invokeIIL.booleanValue;
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class i implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20555e;
+        public final /* synthetic */ PushDialogVideoView f55942e;
 
         public i(PushDialogVideoView pushDialogVideoView) {
             Interceptable interceptable = $ic;
@@ -448,26 +450,26 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20555e = pushDialogVideoView;
+            this.f55942e = pushDialogVideoView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20555e.n.setVisibility(0);
-                this.f20555e.k.b();
+                this.f55942e.n.setVisibility(0);
+                this.f55942e.k.b();
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class j implements CyberPlayerManager.OnSeekCompleteListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20556e;
+        public final /* synthetic */ PushDialogVideoView f55943e;
 
         public j(PushDialogVideoView pushDialogVideoView) {
             Interceptable interceptable = $ic;
@@ -484,25 +486,25 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20556e = pushDialogVideoView;
+            this.f55943e = pushDialogVideoView;
         }
 
         @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
         public void onSeekComplete() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f20556e.z) {
-                d.a.d.e.m.e.a().postDelayed(this.f20556e.O, 200L);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f55943e.z) {
+                c.a.e.e.m.e.a().postDelayed(this.f55943e.O, 200L);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class k implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20557e;
+        public final /* synthetic */ PushDialogVideoView f55944e;
 
         public k(PushDialogVideoView pushDialogVideoView) {
             Interceptable interceptable = $ic;
@@ -519,33 +521,33 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20557e = pushDialogVideoView;
+            this.f55944e = pushDialogVideoView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.f20557e.j == null || !this.f20557e.z) {
-                    d.a.d.e.m.e.a().postDelayed(this.f20557e.J, 200L);
-                    this.f20557e.z = false;
-                } else if (this.f20557e.w != this.f20557e.j.getCurrentPosition()) {
-                    this.f20557e.z = false;
-                    d.a.d.e.m.e.a().postDelayed(this.f20557e.J, 20L);
+                if (this.f55944e.f55933j == null || !this.f55944e.z) {
+                    c.a.e.e.m.e.a().postDelayed(this.f55944e.J, 200L);
+                    this.f55944e.z = false;
+                } else if (this.f55944e.w != this.f55944e.f55933j.getCurrentPosition()) {
+                    this.f55944e.z = false;
+                    c.a.e.e.m.e.a().postDelayed(this.f55944e.J, 20L);
                 } else {
-                    d.a.d.e.m.e.a().postDelayed(this.f20557e.O, 200L);
+                    c.a.e.e.m.e.a().postDelayed(this.f55944e.O, 200L);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class l implements TbCyberVideoView.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushDialogVideoView f20558e;
+        public final /* synthetic */ PushDialogVideoView f55945e;
 
         public l(PushDialogVideoView pushDialogVideoView) {
             Interceptable interceptable = $ic;
@@ -562,22 +564,22 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                     return;
                 }
             }
-            this.f20558e = pushDialogVideoView;
+            this.f55945e = pushDialogVideoView;
         }
 
         @Override // com.baidu.tieba.play.cyberPlayer.TbCyberVideoView.h
         public void onSurfaceDestroyed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f20558e.v = false;
-                this.f20558e.D = false;
-                d.a.d.e.m.e.a().removeCallbacks(this.f20558e.J);
-                d.a.d.e.m.e.a().removeCallbacks(this.f20558e.M);
+                this.f55945e.v = false;
+                this.f55945e.D = false;
+                c.a.e.e.m.e.a().removeCallbacks(this.f55945e.J);
+                c.a.e.e.m.e.a().removeCallbacks(this.f55945e.M);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface m {
         void a(boolean z);
     }
@@ -600,8 +602,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 return;
             }
         }
-        this.f20542e = 50;
-        this.f20543f = 3;
+        this.f55928e = 50;
+        this.f55929f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;
@@ -623,154 +625,13 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         x(context);
     }
 
-    public void A() {
+    public final void A(m mVar, boolean z, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            stopPlay();
-            d.a.d.e.m.e.a().removeCallbacks(this.J);
-            d.a.d.e.m.e.a().removeCallbacks(this.M);
-            d.a.d.e.m.e.a().removeCallbacks(this.O);
-            this.R.removeMessages(1);
-            this.x.unregister(getContext());
-        }
-    }
-
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (y()) {
-                this.E = true;
-                G();
-                return;
-            }
-            this.E = false;
-            G();
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.E) {
-            K();
-        }
-    }
-
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.j.isPlaying() && this.y) {
-                L();
-            }
-            this.j.pause();
-            setPauseState();
-        }
-    }
-
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            I(true);
-        }
-    }
-
-    public final void I(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.m.setVisibility(0);
-            this.o.setVisibility(0);
-            this.p.setVisibility(8);
-            this.k.b();
-            this.l.setVisibility(8);
-            this.n.setVisibility(8);
-            this.R.removeMessages(1);
-            this.t.setVisibility(z ? 0 : 8);
-        }
-    }
-
-    public void J() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!d.a.d.e.p.j.z()) {
-                d.a.d.e.p.l.J(getContext(), getContext().getString(R.string.neterror));
-            } else if (this.j.isPlaying()) {
-                G();
-            } else if (this.v) {
-                K();
-            } else {
-                R();
-            }
-        }
-    }
-
-    public void K() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.j.start();
-            this.t.setVisibility(8);
-            this.m.setVisibility(8);
-            this.k.b();
-            N();
-            this.o.setVisibility(8);
-            this.p.setVisibility(8);
-        }
-    }
-
-    public void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            n.d().f(this.r, this.j.getCurrentPositionSync());
-        }
-    }
-
-    public final void M() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && d.a.d.e.p.j.x()) {
-            d.a.q0.v3.h.d().g(getContext());
-        }
-    }
-
-    public void N() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.j == null) {
-            return;
-        }
-        this.l.setVisibility(0);
-        int duration = ((this.j.getDuration() / 200) / 50) * 50;
-        this.f20542e = duration;
-        if (duration < 50) {
-            this.f20542e = 50;
-        } else if (duration > 500) {
-            this.f20542e = 500;
-        }
-        this.R.removeMessages(1);
-        Handler handler = this.R;
-        handler.sendMessageDelayed(handler.obtainMessage(1), this.f20542e - (this.j.getCurrentPosition() % this.f20542e));
-    }
-
-    public void O(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-            M();
-            this.D = true;
-            setVideoUrl(str, str2);
-            this.j.setVideoPath(str, str2);
-            this.k.g();
-            this.t.setVisibility(0);
-            this.o.setVisibility(8);
-            this.p.setVisibility(8);
-            this.n.setVisibility(8);
-            d.a.d.e.m.e.a().removeCallbacks(this.M);
-            d.a.d.e.m.e.a().postDelayed(this.M, 60000L);
-        }
-    }
-
-    public final void P(m mVar, boolean z, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{mVar, Boolean.valueOf(z), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{mVar, Boolean.valueOf(z), str, str2}) == null) {
             if (this.A) {
-                Q(str, str2);
+                startPlayWithCache(str, str2);
             } else {
-                O(str, str2);
+                startPlay(str, str2);
             }
             if (mVar != null) {
                 mVar.a(z);
@@ -778,65 +639,33 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    public void Q(String str, String str2) {
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) {
-            M();
-            this.D = true;
-            this.k.g();
-            this.t.setVisibility(0);
-            this.o.setVisibility(8);
-            this.p.setVisibility(8);
-            this.n.setVisibility(8);
-            d.a.d.e.m.e.a().removeCallbacks(this.M);
-            d.a.d.e.m.e.a().postDelayed(this.M, 60000L);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            startPlayWithNetCheck(this.r, this.s, null, new Object[0]);
         }
     }
 
-    public final void R() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            S(this.r, this.s, null, new Object[0]);
-        }
-    }
-
-    public void S(String str, String str2, m mVar, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048591, this, str, str2, mVar, objArr) == null) {
-            M();
-            if (objArr != null && objArr.length > 0 && (objArr[0] instanceof Boolean)) {
-                this.A = ((Boolean) objArr[0]).booleanValue();
-            }
-            if (d.a.d.e.p.j.x() && !this.F && !d.a.q0.v3.h.d().e()) {
-                this.u.setVisibility(0);
-                this.u.setData(this.G.b(), this.G.c());
-                return;
-            }
-            P(mVar, true, str, str2);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016517));
-        }
-    }
-
-    public final void T() {
+    public final void D() {
         TbCyberVideoView tbCyberVideoView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (tbCyberVideoView = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (tbCyberVideoView = this.f55933j) == null) {
             return;
         }
         if (this.D) {
             tbCyberVideoView.start();
             this.D = false;
         }
-        d.a.d.e.m.e.a().removeCallbacks(this.J);
-        d.a.d.e.m.e.a().postDelayed(this.J, 20L);
-        d.a.d.e.m.e.a().removeCallbacks(this.M);
+        c.a.e.e.m.e.a().removeCallbacks(this.J);
+        c.a.e.e.m.e.a().postDelayed(this.J, 20L);
+        c.a.e.e.m.e.a().removeCallbacks(this.M);
         int c2 = n.d().c(this.r);
         this.w = c2;
         if (c2 != 0) {
-            this.j.seekTo(c2);
+            this.f55933j.seekTo(c2);
             if (!this.C) {
-                N();
-                d.a.d.e.m.e.a().removeCallbacks(this.J);
+                showProgress();
+                c.a.e.e.m.e.a().removeCallbacks(this.J);
             }
             this.z = true;
         }
@@ -845,8 +674,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            TbCyberVideoView tbCyberVideoView = this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            TbCyberVideoView tbCyberVideoView = this.f55933j;
             if (tbCyberVideoView == null) {
                 return 0;
             }
@@ -855,67 +684,180 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         return invokeV.intValue;
     }
 
+    public boolean isShow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? getVisibility() == 0 : invokeV.booleanValue;
+    }
+
+    public boolean isVideoPlaying() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            TbCyberVideoView tbCyberVideoView = this.f55933j;
+            if (tbCyberVideoView == null) {
+                return false;
+            }
+            return tbCyberVideoView.isPlaying();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void onChangeSkinType() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f55929f) {
+            return;
+        }
+        this.f55929f = skinType;
+    }
+
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
             if (view == this.n) {
-                R();
+                B();
             } else if (view == this) {
                 TiebaStatic.log(new StatisticItem("c13199").param("obj_locate", 2).param("tid", this.s));
-                J();
+                resumeOrPlayVideo();
             } else if (view == this.p) {
-                O(this.r, this.s);
+                startPlay(this.r, this.s);
             } else if (view == this.u.getTvPlay()) {
                 this.F = true;
                 this.u.setVisibility(8);
-                O(this.r, this.s);
-            } else if (view != this.u.getTvOpenFreeData() || (tbPageContext = this.f20546i) == null) {
+                startPlay(this.r, this.s);
+            } else if (view != this.u.getTvOpenFreeData() || (tbPageContext = this.f55932i) == null) {
             } else {
                 tbPageContext.getPageActivity().finish();
             }
         }
     }
 
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            stopPlay();
+            c.a.e.e.m.e.a().removeCallbacks(this.J);
+            c.a.e.e.m.e.a().removeCallbacks(this.M);
+            c.a.e.e.m.e.a().removeCallbacks(this.O);
+            this.R.removeMessages(1);
+            this.x.unregister(getContext());
+        }
+    }
+
     @Override // android.widget.RelativeLayout, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048595, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            setMeasuredDimension(this.f20544g, this.f20545h);
+            setMeasuredDimension(this.f55930g, this.f55931h);
+        }
+    }
+
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (isVideoPlaying()) {
+                this.E = true;
+                pausePlay();
+                return;
+            }
+            this.E = false;
+            pausePlay();
+        }
+    }
+
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.E) {
+            resumePlay();
+        }
+    }
+
+    public void pausePlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            if (this.f55933j.isPlaying() && this.y) {
+                saveUpdatePosition();
+            }
+            this.f55933j.pause();
+            setPauseState();
+        }
+    }
+
+    public void resetPlayerUI() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            y(true);
+        }
+    }
+
+    public void resumeOrPlayVideo() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            if (!c.a.e.e.p.j.z()) {
+                c.a.e.e.p.l.J(getContext(), getContext().getString(R.string.neterror));
+            } else if (this.f55933j.isPlaying()) {
+                pausePlay();
+            } else if (this.v) {
+                resumePlay();
+            } else {
+                B();
+            }
+        }
+    }
+
+    public void resumePlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.f55933j.start();
+            this.t.setVisibility(8);
+            this.m.setVisibility(8);
+            this.k.b();
+            showProgress();
+            this.o.setVisibility(8);
+            this.p.setVisibility(8);
+        }
+    }
+
+    public void saveUpdatePosition() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            n.d().f(this.r, this.f55933j.getCurrentPositionSync());
         }
     }
 
     public void setNetworkChange() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && d.a.d.e.p.j.z() && this.B && !StringUtils.isNull(this.r) && !StringUtils.isNull(this.s)) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && c.a.e.e.p.j.z() && this.B && !StringUtils.isNull(this.r) && !StringUtils.isNull(this.s)) {
             this.B = false;
             this.C = true;
-            O(this.r, this.s);
+            startPlay(this.r, this.s);
         }
     }
 
     public void setPageContext(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, tbPageContext) == null) {
-            this.f20546i = tbPageContext;
+        if (interceptable == null || interceptable.invokeL(1048594, this, tbPageContext) == null) {
+            this.f55932i = tbPageContext;
             tbPageContext.registerListener(this.Q);
         }
     }
 
     public void setPauseState() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             this.k.b();
             this.o.setVisibility(0);
             this.p.setVisibility(8);
         }
     }
 
-    public void setTbRichTextVideoInfo(d.a.p0.d1.m.i iVar) {
+    public void setTbRichTextVideoInfo(c.a.o0.d1.m.i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, iVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, iVar) == null) {
             this.G = iVar;
             this.q.setText(StringHelper.stringForVideoTime(iVar.b() * 1000));
         }
@@ -923,14 +865,14 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public void setThumbnail(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            this.t.M(str, 17, false);
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.t.startLoad(str, 17, false);
         }
     }
 
     public void setVideoUrl(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048598, this, str, str2) == null) {
             this.r = str;
             this.s = str2;
         }
@@ -938,44 +880,128 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
 
     public void setVideoViewBusiness(o oVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, oVar) == null) {
-            this.j.setVideoStatData(oVar);
+        if (interceptable == null || interceptable.invokeL(1048599, this, oVar) == null) {
+            this.f55933j.setVideoStatData(oVar);
+        }
+    }
+
+    public void showProgress() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || this.f55933j == null) {
+            return;
+        }
+        this.l.setVisibility(0);
+        int duration = ((this.f55933j.getDuration() / 200) / 50) * 50;
+        this.f55928e = duration;
+        if (duration < 50) {
+            this.f55928e = 50;
+        } else if (duration > 500) {
+            this.f55928e = 500;
+        }
+        this.R.removeMessages(1);
+        Handler handler = this.R;
+        handler.sendMessageDelayed(handler.obtainMessage(1), this.f55928e - (this.f55933j.getCurrentPosition() % this.f55928e));
+    }
+
+    public void startPlay(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048601, this, str, str2) == null) {
+            z();
+            this.D = true;
+            setVideoUrl(str, str2);
+            this.f55933j.setVideoPath(str, str2);
+            this.k.g();
+            this.t.setVisibility(0);
+            this.o.setVisibility(8);
+            this.p.setVisibility(8);
+            this.n.setVisibility(8);
+            c.a.e.e.m.e.a().removeCallbacks(this.M);
+            c.a.e.e.m.e.a().postDelayed(this.M, 60000L);
+        }
+    }
+
+    public void startPlayWithCache(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048602, this, str, str2) == null) {
+            z();
+            this.D = true;
+            this.k.g();
+            this.t.setVisibility(0);
+            this.o.setVisibility(8);
+            this.p.setVisibility(8);
+            this.n.setVisibility(8);
+            c.a.e.e.m.e.a().removeCallbacks(this.M);
+            c.a.e.e.m.e.a().postDelayed(this.M, 60000L);
+        }
+    }
+
+    public void startPlayWithNetCheck(String str, String str2, m mVar, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048603, this, str, str2, mVar, objArr) == null) {
+            z();
+            if (objArr != null && objArr.length > 0 && (objArr[0] instanceof Boolean)) {
+                this.A = ((Boolean) objArr[0]).booleanValue();
+            }
+            if (c.a.e.e.p.j.x() && !this.F && !c.a.p0.w3.h.d().e()) {
+                this.u.setVisibility(0);
+                this.u.setData(this.G.b(), this.G.c());
+                return;
+            }
+            A(mVar, true, str, str2);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016517));
         }
     }
 
     public void stopPlay() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            if (this.j.isPlaying() && this.y) {
-                L();
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+            if (this.f55933j.isPlaying() && this.y) {
+                saveUpdatePosition();
             }
-            d.a.d.e.m.e.a().removeCallbacks(this.J);
-            d.a.d.e.m.e.a().removeCallbacks(this.M);
-            this.j.stopPlayback();
+            c.a.e.e.m.e.a().removeCallbacks(this.J);
+            c.a.e.e.m.e.a().removeCallbacks(this.M);
+            this.f55933j.stopPlayback();
             this.v = false;
             this.D = false;
             this.w = 0;
-            H();
+            resetPlayerUI();
+        }
+    }
+
+    public void updateBottomProgress() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048605, this) == null) || this.f55933j == null) {
+            return;
+        }
+        this.l.setMax(c.a.e.e.p.l.k(getContext()));
+        int duration = this.f55933j.getDuration();
+        if (duration > 0) {
+            if (this.p.getVisibility() == 0) {
+                ProgressBar progressBar = this.l;
+                progressBar.setProgress(progressBar.getMax());
+                return;
+            }
+            this.l.setProgress((int) ((this.f55933j.getCurrentPosition() * this.l.getMax()) / duration));
         }
     }
 
     public final void x(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.cell_push_dialog_video_layout, (ViewGroup) this, true);
-            int k2 = d.a.d.e.p.l.k(context) - d.a.d.e.p.l.g(context, R.dimen.tbds132);
-            this.f20544g = k2;
-            this.f20545h = (int) (k2 * 0.5625f);
+            int k2 = c.a.e.e.p.l.k(context) - c.a.e.e.p.l.g(context, R.dimen.tbds132);
+            this.f55930g = k2;
+            this.f55931h = (int) (k2 * 0.5625f);
             TbCyberVideoView tbCyberVideoView = (TbCyberVideoView) findViewById(R.id.videoView);
-            this.j = tbCyberVideoView;
+            this.f55933j = tbCyberVideoView;
             tbCyberVideoView.setPlayMode("2");
-            this.j.setStageType(null);
-            d.a.q0.n2.m mVar = new d.a.q0.n2.m((ViewGroup) findViewById(R.id.auto_video_loading_container));
+            this.f55933j.setStageType(null);
+            c.a.p0.o2.m mVar = new c.a.p0.o2.m((ViewGroup) findViewById(R.id.auto_video_loading_container));
             this.k = mVar;
             mVar.f(this.I);
             ProgressBar progressBar = (ProgressBar) findViewById(R.id.pgrBottomProgress);
             this.l = progressBar;
-            progressBar.setMax(this.f20544g);
+            progressBar.setMax(this.f55930g);
             this.l.setProgress(0);
             this.m = findViewById(R.id.black_mask);
             this.n = findViewById(R.id.layout_error);
@@ -993,35 +1019,34 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             this.u.setOnPlayClickListener(this);
             this.u.setFreeClickListener(this);
             setOnClickListener(this);
-            this.j.setOnPreparedListener(this.H);
-            this.j.setOnCompletionListener(this.K);
-            this.j.setOnErrorListener(this.L);
-            this.j.setOnSeekCompleteListener(this.N);
-            this.j.setOnSurfaceDestroyedListener(this.P);
-            z();
+            this.f55933j.setOnPreparedListener(this.H);
+            this.f55933j.setOnCompletionListener(this.K);
+            this.f55933j.setOnErrorListener(this.L);
+            this.f55933j.setOnSeekCompleteListener(this.N);
+            this.f55933j.setOnSurfaceDestroyedListener(this.P);
+            onChangeSkinType();
         }
     }
 
-    public boolean y() {
-        InterceptResult invokeV;
+    public final void y(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            TbCyberVideoView tbCyberVideoView = this.j;
-            if (tbCyberVideoView == null) {
-                return false;
-            }
-            return tbCyberVideoView.isPlaying();
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
+            this.m.setVisibility(0);
+            this.o.setVisibility(0);
+            this.p.setVisibility(8);
+            this.k.b();
+            this.l.setVisibility(8);
+            this.n.setVisibility(8);
+            this.R.removeMessages(1);
+            this.t.setVisibility(z ? 0 : 8);
         }
-        return invokeV.booleanValue;
     }
 
-    public void z() {
-        int skinType;
+    public final void z() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048606, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f20543f) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048608, this) == null) && c.a.e.e.p.j.x()) {
+            c.a.p0.w3.h.d().g(getContext());
         }
-        this.f20543f = skinType;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1043,8 +1068,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 return;
             }
         }
-        this.f20542e = 50;
-        this.f20543f = 3;
+        this.f55928e = 50;
+        this.f55929f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;
@@ -1085,8 +1110,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
                 return;
             }
         }
-        this.f20542e = 50;
-        this.f20543f = 3;
+        this.f55928e = 50;
+        this.f55929f = 3;
         this.v = false;
         this.w = 0;
         this.y = true;

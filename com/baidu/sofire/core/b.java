@@ -5,38 +5,40 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class b implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f10340a;
+    public int f45019a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f10341b;
+    public int f45020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f10342c;
+    public String f45021c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f10343d;
+    public String f45022d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f10344e;
+    public String f45023e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f10345f;
+    public int f45024f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f10346g;
+    public int f45025g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f10347h;
+    public int f45026h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f10348i;
-    public String j;
+    public int f45027i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f45028j;
     public String k;
     public int l;
     public String m;

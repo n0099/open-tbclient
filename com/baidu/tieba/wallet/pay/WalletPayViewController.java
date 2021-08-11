@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.j;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,14 +29,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.GetOrder.DataRes;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class WalletPayViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEF_CHANNEL_TITLE = "NaN";
@@ -72,7 +72,7 @@ public class WalletPayViewController {
     public View mTopSpaceView;
     public TextView mUnfoldTv;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class ChannelItemViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -130,7 +130,7 @@ public class WalletPayViewController {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payChannelInfo) == null) {
                 this.curChannel = payChannelInfo.channel;
-                this.iconImg.M(payChannelInfo.iconUrl, 10, false);
+                this.iconImg.startLoad(payChannelInfo.iconUrl, 10, false);
                 this.titleTv.setText(payChannelInfo.title);
                 if (!StringUtils.isNull(payChannelInfo.prompt)) {
                     this.promptTv.setVisibility(0);
@@ -195,7 +195,7 @@ public class WalletPayViewController {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface ClickCallback {
         void doFinish();
 

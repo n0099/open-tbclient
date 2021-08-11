@@ -15,7 +15,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class a implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean sL;
@@ -326,11 +326,11 @@ public final class a implements Cloneable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.wi.keys() : (Iterator) invokeV.objValue;
     }
 
-    public void setTimestamp(long j) {
+    public void setTimestamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
             try {
-                this.wi.putOpt("time", Long.valueOf(j));
+                this.wi.putOpt("time", Long.valueOf(j2));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

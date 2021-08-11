@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PushManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_REQUEST_ID = "1";
@@ -223,17 +223,17 @@ public class PushManager {
         }
     }
 
-    public boolean reportData(Context context, long j, long j2) {
+    public boolean reportData(Context context, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            com.vivo.push.util.p.d("PushManager", "report message: " + j + ", reportType: " + j2);
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            com.vivo.push.util.p.d("PushManager", "report message: " + j2 + ", reportType: " + j3);
+            if (j3 <= 0) {
                 return false;
             }
-            com.vivo.push.b.aa aaVar = new com.vivo.push.b.aa(j2);
+            com.vivo.push.b.aa aaVar = new com.vivo.push.b.aa(j3);
             HashMap<String, String> hashMap = new HashMap<>();
-            hashMap.put("messageID", String.valueOf(j));
+            hashMap.put("messageID", String.valueOf(j2));
             aaVar.a(hashMap);
             p.a().a(aaVar);
             return true;

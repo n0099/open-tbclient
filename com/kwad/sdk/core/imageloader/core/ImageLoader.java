@@ -31,7 +31,7 @@ import com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener;
 import com.kwad.sdk.core.imageloader.utils.ImageSizeUtils;
 import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ImageLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_INIT_CONFIG_WITH_NULL = "ImageLoader configuration can not be initialized with null";
@@ -49,13 +49,13 @@ public class ImageLoader {
     public ImageLoaderEngine engine;
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.ImageLoader$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class SyncImageLoadingListener extends SimpleImageLoadingListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

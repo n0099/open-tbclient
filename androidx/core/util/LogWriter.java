@@ -1,6 +1,5 @@
 package androidx.core.util;
 
-import android.util.Log;
 import androidx.annotation.RestrictTo;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +40,7 @@ public class LogWriter extends Writer {
         if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || this.mBuilder.length() <= 0) {
             return;
         }
-        Log.d(this.mTag, this.mBuilder.toString());
+        this.mBuilder.toString();
         StringBuilder sb = this.mBuilder;
         sb.delete(0, sb.length());
     }

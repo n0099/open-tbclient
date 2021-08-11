@@ -5,6 +5,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.ActivityPendingTransitionFactory;
@@ -24,8 +25,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UserTropicGiftBagActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,13 +40,13 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public TextView mTropicGreetings;
     public TbImageView mVipPic;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserTropicGiftBagActivity f21637e;
+        public final /* synthetic */ UserTropicGiftBagActivity f57195e;
 
         public a(UserTropicGiftBagActivity userTropicGiftBagActivity) {
             Interceptable interceptable = $ic;
@@ -63,21 +63,21 @@ public class UserTropicGiftBagActivity extends BaseActivity {
                     return;
                 }
             }
-            this.f21637e = userTropicGiftBagActivity;
+            this.f57195e = userTropicGiftBagActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                TbPageContext<?> pageContext = this.f21637e.getPageContext();
-                if (view.getId() == this.f21637e.mKnow.getId()) {
+                TbPageContext<?> pageContext = this.f57195e.getPageContext();
+                if (view.getId() == this.f57195e.mKnow.getId()) {
                     UrlManager.getInstance().dealOneLink(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
-                    this.f21637e.sendStatisticLog(2);
-                    this.f21637e.finish();
+                    this.f57195e.sendStatisticLog(2);
+                    this.f57195e.finish();
                 }
-                if (view.getId() == this.f21637e.mClose.getId()) {
-                    this.f21637e.finish();
+                if (view.getId() == this.f57195e.mClose.getId()) {
+                    this.f57195e.finish();
                 }
             }
         }

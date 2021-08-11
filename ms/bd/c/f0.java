@@ -12,7 +12,7 @@ import com.baidu.webkit.internal.Base64;
 import com.baidu.webkit.internal.utils.UtilsBlink;
 import java.lang.reflect.Method;
 import ms.bd.c.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class f0 extends b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,12 +32,12 @@ public final class f0 extends b.a {
     }
 
     @Override // ms.bd.c.b.a
-    public Object b(int i2, long j, String str, Object obj) throws Throwable {
+    public Object b(int i2, long j2, String str, Object obj) throws Throwable {
         InterceptResult invokeCommon;
         StringBuilder sb;
         Object a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, obj})) == null) {
             Context a3 = a.c().a();
             String str2 = (String) h.a(16777217, 0, 0L, "45f393", new byte[]{43, 34, 25, 75});
             String str3 = (String) h.a(16777217, 0, 0L, "297d7f", new byte[]{UtilsBlink.VER_TYPE_SEPARATOR, 46, 72, 28});

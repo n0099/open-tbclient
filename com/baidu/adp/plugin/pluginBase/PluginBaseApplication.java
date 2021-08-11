@@ -19,7 +19,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
+import c.a.e.h.j.g.d;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
@@ -32,7 +32,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.h.j.g.d;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -41,7 +40,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PluginBaseApplication extends Application {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -587,7 +586,7 @@ public class PluginBaseApplication extends Application {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048614, this, intent) == null) && (plugin2 = PluginCenter.getInstance().getPlugin(this.mPluginPacakgeName)) != null && plugin2.remapStartActivityIntent(intent)) {
             if (intent != null) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             this.mApplicationProxy.startActivity(intent);
         }

@@ -23,12 +23,12 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import okhttp3.CertificatePinner;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class e implements HostnameVerifier {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f28580a;
+    public static final e f64434a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +44,7 @@ public final class e implements HostnameVerifier {
                 return;
             }
         }
-        f28580a = new e();
+        f64434a = new e();
     }
 
     public e() {
@@ -173,10 +173,10 @@ public final class e implements HostnameVerifier {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
             if (str != null && str.length() != 0 && !str.startsWith(".") && !str.endsWith(IStringUtil.TOP_PATH) && str2 != null && str2.length() != 0 && !str2.startsWith(".") && !str2.endsWith(IStringUtil.TOP_PATH)) {
                 if (!str.endsWith(".")) {
-                    str = str + IStringUtil.EXTENSION_SEPARATOR;
+                    str = str + '.';
                 }
                 if (!str2.endsWith(".")) {
-                    str2 = str2 + IStringUtil.EXTENSION_SEPARATOR;
+                    str2 = str2 + '.';
                 }
                 String lowerCase = str2.toLowerCase(Locale.US);
                 if (!lowerCase.contains("*")) {

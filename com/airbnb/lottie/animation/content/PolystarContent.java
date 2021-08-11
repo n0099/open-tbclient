@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PolystarContent implements PathContent, BaseKeyframeAnimation.AnimationListener, KeyPathElementContent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float POLYGON_MAGIC_NUMBER = 0.25f;
@@ -45,7 +45,7 @@ public class PolystarContent implements PathContent, BaseKeyframeAnimation.Anima
     public final PolystarShape.Type type;
 
     /* renamed from: com.airbnb.lottie.animation.content.PolystarContent$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$PolystarShape$Type;
         public static /* synthetic */ Interceptable $ic;

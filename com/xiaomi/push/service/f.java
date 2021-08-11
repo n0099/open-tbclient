@@ -12,7 +12,7 @@ import com.xiaomi.push.gj;
 import com.xiaomi.push.gn;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class f implements gi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

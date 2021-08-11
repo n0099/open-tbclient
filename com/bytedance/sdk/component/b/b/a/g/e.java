@@ -22,15 +22,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final e f28561a;
+    public static final e f64415a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Logger f28562b;
+    public static final Logger f64416b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,8 +46,8 @@ public class e {
                 return;
             }
         }
-        f28561a = a();
-        f28562b = Logger.getLogger(w.class.getName());
+        f64415a = a();
+        f64416b = Logger.getLogger(w.class.getName());
     }
 
     public e() {
@@ -67,7 +67,7 @@ public class e {
     public static e b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f28561a : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f64415a : (e) invokeV.objValue;
     }
 
     public String a(SSLSocket sSLSocket) {
@@ -115,7 +115,7 @@ public class e {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 x xVar = list.get(i2);
-                if (xVar != x.f28753a) {
+                if (xVar != x.f64615a) {
                     cVar.i(xVar.toString().length());
                     cVar.b(xVar.toString());
                 }
@@ -128,7 +128,7 @@ public class e {
     public void a(int i2, String str, Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i2, str, th) == null) {
-            f28562b.log(i2 == 5 ? Level.WARNING : Level.INFO, str, th);
+            f64416b.log(i2 == 5 ? Level.WARNING : Level.INFO, str, th);
         }
     }
 
@@ -136,7 +136,7 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f28562b.isLoggable(Level.FINE)) {
+            if (f64416b.isLoggable(Level.FINE)) {
                 return new Throwable(str);
             }
             return null;
@@ -162,7 +162,7 @@ public class e {
             int size = list.size();
             for (int i2 = 0; i2 < size; i2++) {
                 x xVar = list.get(i2);
-                if (xVar != x.f28753a) {
+                if (xVar != x.f64615a) {
                     arrayList.add(xVar.toString());
                 }
             }

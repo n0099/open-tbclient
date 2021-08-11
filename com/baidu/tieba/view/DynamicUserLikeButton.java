@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.s.f0.t.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -15,16 +16,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.f0.t.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a s;
+    public a r;
+    public boolean s;
     public boolean t;
-    public boolean u;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(View view);
     }
@@ -50,69 +50,71 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         }
     }
 
-    @Override // d.a.p0.s.f0.t.b
-    public void a(View view) {
+    @Override // c.a.o0.s.f0.t.b
+    public void bindOnClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            setOnClickListener(onClickListener);
+        }
+    }
+
+    public void onChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            changeSkinType();
+        }
+    }
+
+    @Override // c.a.o0.s.f0.t.b
+    public void onClickEvent(View view) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.s) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || (aVar = this.r) == null) {
             return;
         }
         aVar.a(view);
     }
 
-    @Override // d.a.p0.s.f0.t.b
-    public void b(View.OnClickListener onClickListener) {
+    public void setGodRecommendStyle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.t = z;
         }
     }
 
-    @Override // d.a.p0.s.f0.t.b
-    public void c(boolean z, int i2, boolean z2) {
+    public void setOnClickEvent(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            e(z, i2);
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.r = aVar;
         }
     }
 
-    @Override // d.a.p0.s.f0.t.b
-    public void d(int i2) {
+    public void setUseNewStyle(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.s = z;
         }
     }
 
-    public void e(boolean z, int i2) {
+    @Override // c.a.o0.s.f0.t.b
+    public void updateFansNum(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            if (z) {
-                s(true);
-            } else {
-                s(false);
-            }
+        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
         }
     }
 
-    public void r(int i2) {
+    public void updateLikeStatus(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            k();
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (this.u) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            if (this.t) {
                 if (z) {
-                    d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
+                    c.a.o0.s.f0.n.b bVar = new c.a.o0.s.f0.n.b();
                     bVar.p();
                     setConfig(bVar);
                     setClickable(true);
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
                 } else {
-                    d.a.p0.s.f0.n.b bVar2 = new d.a.p0.s.f0.n.b();
+                    c.a.o0.s.f0.n.b bVar2 = new c.a.o0.s.f0.n.b();
                     bVar2.s(R.color.CAM_X0105);
                     bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
                     bVar2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -122,15 +124,15 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
                     setText(TbadkCoreApplication.getInst().getString(R.string.attention));
                 }
             } else if (z) {
-                d.a.p0.s.f0.n.b bVar3 = new d.a.p0.s.f0.n.b();
+                c.a.o0.s.f0.n.b bVar3 = new c.a.o0.s.f0.n.b();
                 bVar3.r(R.color.CAM_X0109);
                 setConfig(bVar3);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                d.a.p0.s.f0.n.b bVar4 = new d.a.p0.s.f0.n.b();
+                c.a.o0.s.f0.n.b bVar4 = new c.a.o0.s.f0.n.b();
                 bVar4.q(R.color.CAM_X0302);
-                if (this.t) {
+                if (this.s) {
                     bVar4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
                     bVar4.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
                 }
@@ -138,28 +140,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.attention));
             }
-            r(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void setGodRecommendStyle(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.u = z;
-        }
-    }
-
-    public void setOnClickEvent(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.s = aVar;
-        }
-    }
-
-    public void setUseNewStyle(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.t = z;
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -203,9 +184,28 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
                 return;
             }
         }
-        d.a.p0.s.f0.n.b bVar = new d.a.p0.s.f0.n.b();
+        c.a.o0.s.f0.n.b bVar = new c.a.o0.s.f0.n.b();
         bVar.q(R.color.CAM_X0302);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));
+    }
+
+    public void updateLikeStatus(boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            if (z) {
+                updateLikeStatus(true);
+            } else {
+                updateLikeStatus(false);
+            }
+        }
+    }
+
+    @Override // c.a.o0.s.f0.t.b
+    public void updateLikeStatus(boolean z, int i2, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
+            updateLikeStatus(z, i2);
+        }
     }
 }

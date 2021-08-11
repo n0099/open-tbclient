@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
+import c.a.o0.s.u.c;
+import c.a.p0.x0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -21,28 +23,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd;
-import d.a.p0.s.u.c;
-import d.a.q0.w0.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FunAdSmallPicView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f16360e;
+    public TbImageView f51576e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f16361f;
+    public ImageView f51577f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f16362g;
+    public ImageView f51578g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f16363h;
+    public TextView f51579h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f16364i;
-    public TextView j;
+    public TextView f51580i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public TextView f51581j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunAdSmallPicView(Context context) {
@@ -85,26 +87,26 @@ public class FunAdSmallPicView extends LinearLayout {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.fun_ad_small_pic, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f16360e = (TbImageView) inflate.findViewById(R.id.ad_small_image);
-            this.f16364i = (TextView) inflate.findViewById(R.id.ad_small_desc);
-            this.j = (TextView) inflate.findViewById(R.id.ad_small_source);
-            this.f16363h = (TextView) inflate.findViewById(R.id.ad_small_title);
-            this.f16361f = (ImageView) inflate.findViewById(R.id.ad_small_labelIcon);
-            this.f16362g = (ImageView) inflate.findViewById(R.id.ad_small_dislike);
-            this.f16360e.setRadiusById(R.string.J_X05);
-            this.f16360e.setConrers(15);
-            a(this.f16360e);
+            this.f51576e = (TbImageView) inflate.findViewById(R.id.ad_small_image);
+            this.f51580i = (TextView) inflate.findViewById(R.id.ad_small_desc);
+            this.f51581j = (TextView) inflate.findViewById(R.id.ad_small_source);
+            this.f51579h = (TextView) inflate.findViewById(R.id.ad_small_title);
+            this.f51577f = (ImageView) inflate.findViewById(R.id.ad_small_labelIcon);
+            this.f51578g = (ImageView) inflate.findViewById(R.id.ad_small_dislike);
+            this.f51576e.setRadiusById(R.string.J_X05);
+            this.f51576e.setConrers(15);
+            a(this.f51576e);
         }
     }
 
-    public void c() {
+    public void onChangedSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            WebPManager.setPureDrawable(this.f16362g, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
-            c.d(this.f16364i).t(R.color.CAM_X0105);
-            c.d(this.f16363h).t(R.color.CAM_X0109);
-            c.d(this.j).t(R.color.CAM_X0109);
-            this.f16360e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            WebPManager.setPureDrawable(this.f51578g, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
+            c.d(this.f51580i).t(R.color.CAM_X0105);
+            c.d(this.f51579h).t(R.color.CAM_X0109);
+            c.d(this.f51581j).t(R.color.CAM_X0109);
+            this.f51576e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
         }
     }
 
@@ -113,19 +115,19 @@ public class FunAdSmallPicView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, funNativeAd, str) == null) || funNativeAd == null) {
             return;
         }
-        this.f16363h.setText(funNativeAd.getTitle());
-        this.f16364i.setText(funNativeAd.getDescription());
-        b.u(this.f16361f, funNativeAd);
-        if (!StringHelper.equals(str, this.f16360e.getUrl())) {
-            this.f16360e.I();
+        this.f51579h.setText(funNativeAd.getTitle());
+        this.f51580i.setText(funNativeAd.getDescription());
+        b.v(this.f51577f, funNativeAd);
+        if (!StringHelper.equals(str, this.f51576e.getUrl())) {
+            this.f51576e.reset();
         }
-        this.f16360e.M(str, 10, false);
+        this.f51576e.startLoad(str, 10, false);
     }
 
     public void setFeedBackListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.f16362g.setOnClickListener(onClickListener);
+            this.f51578g.setOnClickListener(onClickListener);
         }
     }
 

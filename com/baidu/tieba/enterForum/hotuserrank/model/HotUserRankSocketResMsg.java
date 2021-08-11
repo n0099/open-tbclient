@@ -1,5 +1,6 @@
 package com.baidu.tieba.enterForum.hotuserrank.model;
 
+import c.a.p0.m0.i.c.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.l0.i.c.c;
 import tbclient.Error;
 import tbclient.GetInfluenceRank.GetInfluenceRankResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HotUserRankSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

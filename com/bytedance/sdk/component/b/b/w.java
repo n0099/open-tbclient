@@ -29,41 +29,43 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class w implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<x> f28735a;
+    public static final List<x> f64595a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<k> f28736b;
+    public static final List<k> f64596b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int A;
     public final int B;
     public final int C;
 
     /* renamed from: c  reason: collision with root package name */
-    public final n f28737c;
+    public final n f64597c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Proxy f28738d;
+    public final Proxy f64598d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<x> f28739e;
+    public final List<x> f64599e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<k> f28740f;
+    public final List<k> f64600f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<u> f28741g;
+    public final List<u> f64601g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<u> f28742h;
+    public final List<u> f64602h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final p.a f28743i;
-    public final ProxySelector j;
+    public final p.a f64603i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final ProxySelector f64604j;
     public final m k;
     public final c l;
     public final com.bytedance.sdk.component.b.b.a.a.e m;
@@ -81,39 +83,41 @@ public class w implements Cloneable {
     public final boolean y;
     public final int z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int A;
 
         /* renamed from: a  reason: collision with root package name */
-        public n f28744a;
+        public n f64605a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Proxy f28745b;
+        public Proxy f64606b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<x> f28746c;
+        public List<x> f64607c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<k> f28747d;
+        public List<k> f64608d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final List<u> f28748e;
+        public final List<u> f64609e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final List<u> f28749f;
+        public final List<u> f64610f;
 
         /* renamed from: g  reason: collision with root package name */
-        public p.a f28750g;
+        public p.a f64611g;
 
         /* renamed from: h  reason: collision with root package name */
-        public ProxySelector f28751h;
+        public ProxySelector f64612h;
 
         /* renamed from: i  reason: collision with root package name */
-        public m f28752i;
-        public c j;
+        public m f64613i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public c f64614j;
         public com.bytedance.sdk.component.b.b.a.a.e k;
         public SocketFactory l;
         public SSLSocketFactory m;
@@ -144,22 +148,22 @@ public class w implements Cloneable {
                     return;
                 }
             }
-            this.f28748e = new ArrayList();
-            this.f28749f = new ArrayList();
-            this.f28744a = new n();
-            this.f28746c = w.f28735a;
-            this.f28747d = w.f28736b;
-            this.f28750g = p.a(p.f28692a);
-            this.f28751h = ProxySelector.getDefault();
-            this.f28752i = m.f28683a;
+            this.f64609e = new ArrayList();
+            this.f64610f = new ArrayList();
+            this.f64605a = new n();
+            this.f64607c = w.f64595a;
+            this.f64608d = w.f64596b;
+            this.f64611g = p.a(p.f64551a);
+            this.f64612h = ProxySelector.getDefault();
+            this.f64613i = m.f64542a;
             this.l = SocketFactory.getDefault();
-            this.o = com.bytedance.sdk.component.b.b.a.i.e.f28580a;
-            this.p = g.f28636a;
-            b bVar = b.f28616a;
+            this.o = com.bytedance.sdk.component.b.b.a.i.e.f64434a;
+            this.p = g.f64493a;
+            b bVar = b.f64472a;
             this.q = bVar;
             this.r = bVar;
             this.s = new j();
-            this.t = o.f28691a;
+            this.t = o.f64550a;
             this.u = true;
             this.v = true;
             this.w = true;
@@ -169,31 +173,31 @@ public class w implements Cloneable {
             this.A = 0;
         }
 
-        public a a(long j, TimeUnit timeUnit) {
+        public a a(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
-                this.x = com.bytedance.sdk.component.b.b.a.c.a("timeout", j, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) {
+                this.x = com.bytedance.sdk.component.b.b.a.c.a("timeout", j2, timeUnit);
                 return this;
             }
             return (a) invokeJL.objValue;
         }
 
-        public a b(long j, TimeUnit timeUnit) {
+        public a b(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
-                this.y = com.bytedance.sdk.component.b.b.a.c.a("timeout", j, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j2, timeUnit)) == null) {
+                this.y = com.bytedance.sdk.component.b.b.a.c.a("timeout", j2, timeUnit);
                 return this;
             }
             return (a) invokeJL.objValue;
         }
 
-        public a c(long j, TimeUnit timeUnit) {
+        public a c(long j2, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j, timeUnit)) == null) {
-                this.z = com.bytedance.sdk.component.b.b.a.c.a("timeout", j, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j2, timeUnit)) == null) {
+                this.z = com.bytedance.sdk.component.b.b.a.c.a("timeout", j2, timeUnit);
                 return this;
             }
             return (a) invokeJL.objValue;
@@ -224,7 +228,7 @@ public class w implements Cloneable {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uVar)) == null) {
                 if (uVar != null) {
-                    this.f28748e.add(uVar);
+                    this.f64609e.add(uVar);
                     return this;
                 }
                 throw new IllegalArgumentException("interceptor == null");
@@ -253,19 +257,19 @@ public class w implements Cloneable {
                     return;
                 }
             }
-            this.f28748e = new ArrayList();
-            this.f28749f = new ArrayList();
-            this.f28744a = wVar.f28737c;
-            this.f28745b = wVar.f28738d;
-            this.f28746c = wVar.f28739e;
-            this.f28747d = wVar.f28740f;
-            this.f28748e.addAll(wVar.f28741g);
-            this.f28749f.addAll(wVar.f28742h);
-            this.f28750g = wVar.f28743i;
-            this.f28751h = wVar.j;
-            this.f28752i = wVar.k;
+            this.f64609e = new ArrayList();
+            this.f64610f = new ArrayList();
+            this.f64605a = wVar.f64597c;
+            this.f64606b = wVar.f64598d;
+            this.f64607c = wVar.f64599e;
+            this.f64608d = wVar.f64600f;
+            this.f64609e.addAll(wVar.f64601g);
+            this.f64610f.addAll(wVar.f64602h);
+            this.f64611g = wVar.f64603i;
+            this.f64612h = wVar.f64604j;
+            this.f64613i = wVar.k;
             this.k = wVar.m;
-            this.j = wVar.l;
+            this.f64614j = wVar.l;
             this.l = wVar.n;
             this.m = wVar.o;
             this.n = wVar.p;
@@ -298,9 +302,9 @@ public class w implements Cloneable {
                 return;
             }
         }
-        f28735a = com.bytedance.sdk.component.b.b.a.c.a(x.f28756d, x.f28754b);
-        f28736b = com.bytedance.sdk.component.b.b.a.c.a(k.f28662a, k.f28664c);
-        com.bytedance.sdk.component.b.b.a.a.f28240a = new com.bytedance.sdk.component.b.b.a.a() { // from class: com.bytedance.sdk.component.b.b.w.1
+        f64595a = com.bytedance.sdk.component.b.b.a.c.a(x.f64618d, x.f64616b);
+        f64596b = com.bytedance.sdk.component.b.b.a.c.a(k.f64520a, k.f64522c);
+        com.bytedance.sdk.component.b.b.a.a.f64084a = new com.bytedance.sdk.component.b.b.a.a() { // from class: com.bytedance.sdk.component.b.b.w.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -374,14 +378,14 @@ public class w implements Cloneable {
             public com.bytedance.sdk.component.b.b.a.b.d a(j jVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar)) == null) ? jVar.f28655a : (com.bytedance.sdk.component.b.b.a.b.d) invokeL.objValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar)) == null) ? jVar.f64513a : (com.bytedance.sdk.component.b.b.a.b.d) invokeL.objValue;
             }
 
             @Override // com.bytedance.sdk.component.b.b.a.a
             public int a(ab.a aVar) {
                 InterceptResult invokeL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) ? aVar.f28596c : invokeL.intValue;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, aVar)) == null) ? aVar.f64451c : invokeL.intValue;
             }
 
             @Override // com.bytedance.sdk.component.b.b.a.a
@@ -461,13 +465,13 @@ public class w implements Cloneable {
     public Proxy d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28738d : (Proxy) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64598d : (Proxy) invokeV.objValue;
     }
 
     public ProxySelector e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : (ProxySelector) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f64604j : (ProxySelector) invokeV.objValue;
     }
 
     public m f() {
@@ -481,7 +485,7 @@ public class w implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             c cVar = this.l;
-            return cVar != null ? cVar.f28617a : this.m;
+            return cVar != null ? cVar.f64473a : this.m;
         }
         return (com.bytedance.sdk.component.b.b.a.a.e) invokeV.objValue;
     }
@@ -555,37 +559,37 @@ public class w implements Cloneable {
     public n s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f28737c : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.f64597c : (n) invokeV.objValue;
     }
 
     public List<x> t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f28739e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f64599e : (List) invokeV.objValue;
     }
 
     public List<k> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f28740f : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.f64600f : (List) invokeV.objValue;
     }
 
     public List<u> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f28741g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f64601g : (List) invokeV.objValue;
     }
 
     public List<u> w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f28742h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f64602h : (List) invokeV.objValue;
     }
 
     public p.a x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f28743i : (p.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f64603i : (p.a) invokeV.objValue;
     }
 
     public a y() {
@@ -610,20 +614,20 @@ public class w implements Cloneable {
                 return;
             }
         }
-        this.f28737c = aVar.f28744a;
-        this.f28738d = aVar.f28745b;
-        this.f28739e = aVar.f28746c;
-        this.f28740f = aVar.f28747d;
-        this.f28741g = com.bytedance.sdk.component.b.b.a.c.a(aVar.f28748e);
-        this.f28742h = com.bytedance.sdk.component.b.b.a.c.a(aVar.f28749f);
-        this.f28743i = aVar.f28750g;
-        this.j = aVar.f28751h;
-        this.k = aVar.f28752i;
-        this.l = aVar.j;
+        this.f64597c = aVar.f64605a;
+        this.f64598d = aVar.f64606b;
+        this.f64599e = aVar.f64607c;
+        this.f64600f = aVar.f64608d;
+        this.f64601g = com.bytedance.sdk.component.b.b.a.c.a(aVar.f64609e);
+        this.f64602h = com.bytedance.sdk.component.b.b.a.c.a(aVar.f64610f);
+        this.f64603i = aVar.f64611g;
+        this.f64604j = aVar.f64612h;
+        this.k = aVar.f64613i;
+        this.l = aVar.f64614j;
         this.m = aVar.k;
         this.n = aVar.l;
         loop0: while (true) {
-            for (k kVar : this.f28740f) {
+            for (k kVar : this.f64600f) {
                 z = z || kVar.a();
             }
         }
@@ -648,13 +652,13 @@ public class w implements Cloneable {
         this.A = aVar.y;
         this.B = aVar.z;
         this.C = aVar.A;
-        if (!this.f28741g.contains(null)) {
-            if (this.f28742h.contains(null)) {
-                throw new IllegalStateException("Null network interceptor: " + this.f28742h);
+        if (!this.f64601g.contains(null)) {
+            if (this.f64602h.contains(null)) {
+                throw new IllegalStateException("Null network interceptor: " + this.f64602h);
             }
             return;
         }
-        throw new IllegalStateException("Null interceptor: " + this.f28741g);
+        throw new IllegalStateException("Null interceptor: " + this.f64601g);
     }
 
     public int a() {

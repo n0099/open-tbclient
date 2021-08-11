@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a implements InnerIdSupplier {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27794a;
+    public Context f63626a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -32,8 +32,8 @@ public class a implements InnerIdSupplier {
                 return;
             }
         }
-        com.heytap.openid.sdk.a.a(context);
-        this.f27794a = context;
+        c.j.a.a.a.a(context);
+        this.f63626a = context;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
@@ -45,10 +45,10 @@ public class a implements InnerIdSupplier {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ SupplierListener f27795a;
+                public final /* synthetic */ SupplierListener f63627a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f27796b;
+                public final /* synthetic */ a f63628b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -65,8 +65,8 @@ public class a implements InnerIdSupplier {
                             return;
                         }
                     }
-                    this.f27796b = this;
-                    this.f27795a = supplierListener;
+                    this.f63628b = this;
+                    this.f63627a = supplierListener;
                 }
 
                 @Override // java.lang.Runnable
@@ -75,8 +75,8 @@ public class a implements InnerIdSupplier {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
                             Thread.sleep(1000L);
-                            if (this.f27795a != null) {
-                                this.f27795a.OnSupport(this.f27796b.isSupported(), this.f27796b);
+                            if (this.f63627a != null) {
+                                this.f63627a.OnSupport(this.f63628b.isSupported(), this.f63628b);
                             }
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -103,10 +103,10 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             try {
-                String d2 = com.heytap.openid.sdk.a.d(this.f27794a);
-                return d2 == null ? "" : d2;
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                String e2 = c.j.a.a.a.e(this.f63626a);
+                return e2 == null ? "" : e2;
+            } catch (Exception e3) {
+                e3.printStackTrace();
                 return "";
             }
         }
@@ -119,8 +119,8 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             try {
-                String b2 = com.heytap.openid.sdk.a.b(this.f27794a);
-                return b2 == null ? "" : b2;
+                String c2 = c.j.a.a.a.c(this.f63626a);
+                return c2 == null ? "" : c2;
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return "";
@@ -142,8 +142,8 @@ public class a implements InnerIdSupplier {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             try {
-                String c2 = com.heytap.openid.sdk.a.c(this.f27794a);
-                return c2 == null ? "" : c2;
+                String d2 = c.j.a.a.a.d(this.f63626a);
+                return d2 == null ? "" : d2;
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return "";
@@ -156,7 +156,7 @@ public class a implements InnerIdSupplier {
     public boolean isSupported() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? com.heytap.openid.sdk.a.a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? c.j.a.a.a.b() : invokeV.booleanValue;
     }
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier

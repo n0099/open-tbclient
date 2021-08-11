@@ -27,7 +27,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Stack;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class BdZeusUtil implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -189,12 +189,12 @@ public final class BdZeusUtil implements INoProGuard {
         return invokeV.booleanValue;
     }
 
-    public static String formatdetailTime(long j) {
+    public static String formatdetailTime(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j);
+            calendar.setTimeInMillis(j2);
             return calendar.get(1) + "-" + (calendar.get(2) + 1) + "-" + calendar.get(5) + " " + calendar.get(11) + ":" + calendar.get(12) + ":" + calendar.get(13);
         }
         return (String) invokeJ.objValue;

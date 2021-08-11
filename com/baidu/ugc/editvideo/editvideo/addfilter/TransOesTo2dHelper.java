@@ -2,6 +2,7 @@ package com.baidu.ugc.editvideo.editvideo.addfilter;
 
 import android.opengl.GLES20;
 import android.opengl.Matrix;
+import c.a.v0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,8 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.faceunity.gles.GeneratedTexture;
-import d.a.w0.t.c;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class TransOesTo2dHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

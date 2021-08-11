@@ -2,7 +2,6 @@ package com.bytedance.sdk.component.net.executor;
 
 import android.net.http.Headers;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
@@ -31,7 +30,7 @@ import java.io.RandomAccessFile;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DownloadExecutor extends NetExecutor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SEGMENT_SIZE = 16384;
@@ -139,10 +138,10 @@ public class DownloadExecutor extends NetExecutor {
                 return;
             }
             long length = this.tempFile.length();
-            long j = length >= 0 ? length : 0L;
+            long j2 = length >= 0 ? length : 0L;
             z.a aVar = new z.a();
             aVar.a((Object) getTag());
-            addHeader("Range", "bytes=" + j + "-");
+            addHeader("Range", "bytes=" + j2 + "-");
             if (TextUtils.isEmpty(this.url)) {
                 netCallback.onFailure(this, new IOException("Url is Empty"));
                 return;
@@ -150,7 +149,7 @@ public class DownloadExecutor extends NetExecutor {
             try {
                 aVar.a(this.url);
                 traverseHeadMapToRequestBuilder(aVar);
-                this.okHttpClient.a(aVar.a().d()).a(new f(this, netCallback, j) { // from class: com.bytedance.sdk.component.net.executor.DownloadExecutor.1
+                this.okHttpClient.a(aVar.a().d()).a(new f(this, netCallback, j2) { // from class: com.bytedance.sdk.component.net.executor.DownloadExecutor.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ DownloadExecutor this$0;
@@ -162,7 +161,7 @@ public class DownloadExecutor extends NetExecutor {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, netCallback, Long.valueOf(j)};
+                            Object[] objArr = {this, netCallback, Long.valueOf(j2)};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -174,7 +173,7 @@ public class DownloadExecutor extends NetExecutor {
                         }
                         this.this$0 = this;
                         this.val$callback = netCallback;
-                        this.val$cachedSize = j;
+                        this.val$cachedSize = j2;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.f
@@ -204,22 +203,22 @@ public class DownloadExecutor extends NetExecutor {
                         Code decompiled incorrectly, please refer to instructions dump.
                     */
                     public void onResponse(e eVar, ab abVar) throws IOException {
-                        long j2;
-                        RandomAccessFile randomAccessFile;
                         long j3;
+                        RandomAccessFile randomAccessFile;
+                        long j4;
                         boolean z;
                         InputStream inputStream;
                         int i2;
                         int i3;
                         InputStream c2;
                         byte[] bArr;
-                        long j4;
+                        long j5;
                         int i4;
                         int read;
                         long length2;
                         int i5;
                         NetResponse netResponse2;
-                        long j5;
+                        long j6;
                         boolean z2;
                         Interceptable interceptable2 = $ic;
                         if (!(interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, abVar) == null) || this.val$callback == null) {
@@ -239,7 +238,7 @@ public class DownloadExecutor extends NetExecutor {
                         NetResponse netResponse4 = new NetResponse(abVar.d(), abVar.c(), abVar.e(), hashMap, null, abVar.l(), abVar.m());
                         if (abVar.d()) {
                             long b2 = abVar.h().b();
-                            long j6 = 0;
+                            long j7 = 0;
                             if (b2 <= 0) {
                                 b2 = DownloadExecutor.getContentLength(hashMap);
                             }
@@ -256,11 +255,11 @@ public class DownloadExecutor extends NetExecutor {
                                     }
                                 }
                             }
-                            long j7 = b2;
-                            if (j7 > 0 && this.this$0.tempFile.exists() && this.this$0.tempFile.length() == j7) {
+                            long j8 = b2;
+                            if (j8 > 0 && this.this$0.tempFile.exists() && this.this$0.tempFile.length() == j8) {
                                 DownloadExecutor downloadExecutor = this.this$0;
                                 if (downloadExecutor.tempFile.renameTo(downloadExecutor.file)) {
-                                    this.this$0.updateProgress(j7, j7, this.val$callback);
+                                    this.this$0.updateProgress(j8, j8, this.val$callback);
                                     netResponse3.setFile(this.this$0.file);
                                     this.val$callback.onResponse(this.this$0, netResponse3);
                                     return;
@@ -271,13 +270,13 @@ public class DownloadExecutor extends NetExecutor {
                             try {
                                 randomAccessFile = new RandomAccessFile(this.this$0.tempFile, "rw");
                             } catch (Throwable unused) {
-                                j2 = j7;
+                                j3 = j8;
                                 randomAccessFile = null;
                             }
                             if (isSupportRange) {
-                                j2 = j7;
+                                j3 = j8;
                                 randomAccessFile.seek(this.val$cachedSize);
-                                j3 = this.val$cachedSize;
+                                j4 = this.val$cachedSize;
                                 try {
                                     c2 = abVar.h().c();
                                     try {
@@ -285,8 +284,8 @@ public class DownloadExecutor extends NetExecutor {
                                             c2 = new GZIPInputStream(c2);
                                         }
                                         bArr = new byte[16384];
-                                        j4 = 0;
-                                        long j8 = j3;
+                                        j5 = 0;
+                                        long j9 = j4;
                                         i4 = 0;
                                         while (true) {
                                             read = c2.read(bArr, i4, 16384 - i4);
@@ -295,29 +294,29 @@ public class DownloadExecutor extends NetExecutor {
                                             }
                                             i4 += read;
                                             netResponse2 = netResponse3;
-                                            j5 = j4 + read;
+                                            j6 = j5 + read;
                                             try {
-                                                if (j5 % 16384 != j6 && j5 != j2 - this.val$cachedSize) {
+                                                if (j6 % 16384 != j7 && j6 != j3 - this.val$cachedSize) {
                                                     z2 = false;
                                                     if (!z2) {
-                                                        long j9 = j8;
-                                                        randomAccessFile.seek(j9);
+                                                        long j10 = j9;
+                                                        randomAccessFile.seek(j10);
                                                         randomAccessFile.write(bArr, 0, i4);
-                                                        j8 = j9 + i4;
+                                                        j9 = j10 + i4;
                                                         i4 = 0;
                                                     }
                                                     z = isSupportRange;
-                                                    this.this$0.updateProgress(this.val$cachedSize + j5, j2, this.val$callback);
+                                                    this.this$0.updateProgress(this.val$cachedSize + j6, j3, this.val$callback);
                                                     isSupportRange = z;
-                                                    j4 = j5;
+                                                    j5 = j6;
                                                     netResponse3 = netResponse2;
-                                                    j6 = 0;
+                                                    j7 = 0;
                                                 }
-                                                this.this$0.updateProgress(this.val$cachedSize + j5, j2, this.val$callback);
+                                                this.this$0.updateProgress(this.val$cachedSize + j6, j3, this.val$callback);
                                                 isSupportRange = z;
-                                                j4 = j5;
+                                                j5 = j6;
                                                 netResponse3 = netResponse2;
-                                                j6 = 0;
+                                                j7 = 0;
                                             } catch (Throwable th) {
                                                 th = th;
                                                 inputStream = c2;
@@ -386,7 +385,7 @@ public class DownloadExecutor extends NetExecutor {
                                             z = isSupportRange;
                                         }
                                         NetResponse netResponse5 = netResponse3;
-                                        length2 = isSupportRange ? this.this$0.tempFile.length() : j2;
+                                        length2 = isSupportRange ? this.this$0.tempFile.length() : j3;
                                         if (length2 <= 0 && this.this$0.tempFile.exists() && this.this$0.tempFile.length() == length2) {
                                             if (this.this$0.tempFile.renameTo(this.this$0.file)) {
                                                 this.this$0.updateProgress(length2, length2, this.val$callback);
@@ -434,26 +433,26 @@ public class DownloadExecutor extends NetExecutor {
                                     inputStream = null;
                                 }
                             } else {
-                                j2 = j7;
+                                j3 = j8;
                                 randomAccessFile.setLength(0L);
-                                j3 = 0;
+                                j4 = 0;
                                 c2 = abVar.h().c();
                                 if (DownloadExecutor.isGzipContent(hashMap)) {
                                     c2 = new GZIPInputStream(c2);
                                 }
                                 bArr = new byte[16384];
-                                j4 = 0;
-                                long j82 = j3;
+                                j5 = 0;
+                                long j92 = j4;
                                 i4 = 0;
                                 while (true) {
                                     read = c2.read(bArr, i4, 16384 - i4);
                                     if (read != -1) {
                                     }
-                                    this.this$0.updateProgress(this.val$cachedSize + j5, j2, this.val$callback);
+                                    this.this$0.updateProgress(this.val$cachedSize + j6, j3, this.val$callback);
                                     isSupportRange = z;
-                                    j4 = j5;
+                                    j5 = j6;
                                     netResponse3 = netResponse2;
-                                    j6 = 0;
+                                    j7 = 0;
                                 }
                                 NetResponse netResponse52 = netResponse3;
                                 if (isSupportRange) {
@@ -484,31 +483,32 @@ public class DownloadExecutor extends NetExecutor {
         }
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(13:29|(3:31|(2:34|32)|35)|36|(1:38)|39|(2:41|(4:43|(2:45|46)|47|(4:59|60|61|(12:63|64|65|66|67|(3:150|151|(1:153))|69|(12:70|71|(7:73|74|75|(1:80)|100|101|87)(1:105)|88|89|90|91|(1:93)|(1:95)|(1:97)|98|99)|106|(1:108)|109|(9:132|133|134|(1:136)(1:145)|137|(1:139)|(1:141)|142|143)(2:115|(5:117|(1:119)|(1:121)|122|123)(5:125|(1:127)|(1:129)|130|131)))(22:160|161|64|65|66|67|(0)|69|(13:70|71|(0)(0)|88|89|90|91|(0)|(0)|(0)|98|99|87)|106|(0)|109|(1:111)|132|133|134|(0)(0)|137|(0)|(0)|142|143))(2:53|(2:55|56)(2:57|58))))|165|47|(1:49)|59|60|61|(0)(0)) */
-    /* JADX WARN: Code restructure failed: missing block: B:64:0x01b5, code lost:
-        r2 = null;
+    /* JADX WARN: Can't wrap try/catch for region: R(15:28|(3:30|(2:33|31)|34)|35|(1:37)|38|39|(3:41|42|(4:44|(2:46|47)|48|(5:60|61|62|63|(22:65|66|67|68|69|(3:155|156|(2:158|159))|71|72|(11:73|74|(7:76|77|78|(1:83)|102|103|90)(1:107)|91|92|93|(1:95)|(1:97)|(1:99)|100|101)|108|(1:110)|112|(3:130|131|(2:135|(5:137|(1:139)|(1:141)|142|143)(5:145|(1:147)|(1:149)|150|151)))|114|115|116|(1:118)(1:127)|119|(1:121)|(1:123)|124|125)(23:168|169|66|67|68|69|(0)|71|72|(12:73|74|(0)(0)|91|92|93|(0)|(0)|(0)|100|101|90)|108|(0)|112|(0)|114|115|116|(0)(0)|119|(0)|(0)|124|125))(2:54|(2:56|57)(2:58|59))))|173|48|(1:50)|60|61|62|63|(0)(0)) */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x01b5, code lost:
+        r5 = null;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:83:0x01ff, code lost:
-        r2.seek(r3);
+    /* JADX WARN: Code restructure failed: missing block: B:89:0x0206, code lost:
+        r5.seek(r14);
      */
-    /* JADX WARN: Code restructure failed: missing block: B:85:0x0205, code lost:
-        r2.write(r0, 0, r7);
-        r3 = r3 + r7;
-        r7 = 0;
+    /* JADX WARN: Code restructure failed: missing block: B:91:0x020a, code lost:
+        r5.write(r0, 0, r10);
+        r14 = r14 + r10;
+        r10 = 0;
      */
-    /* JADX WARN: Removed duplicated region for block: B:134:0x02ad  */
-    /* JADX WARN: Removed duplicated region for block: B:135:0x02af  */
-    /* JADX WARN: Removed duplicated region for block: B:138:0x02be A[Catch: all -> 0x02c2, TRY_ENTER, TRY_LEAVE, TryCatch #20 {IOException -> 0x0344, blocks: (B:24:0x0094, B:26:0x00a0, B:28:0x00a6, B:31:0x00b2, B:33:0x00b8, B:34:0x00c7, B:36:0x00f3, B:37:0x00f7, B:39:0x0105, B:41:0x0114, B:43:0x013a, B:48:0x0174, B:50:0x017c, B:52:0x0186, B:54:0x0190, B:56:0x0196, B:158:0x02f8, B:160:0x0302, B:113:0x0265, B:119:0x0277, B:138:0x02be, B:123:0x0280, B:142:0x02c7, B:162:0x0307, B:126:0x0289, B:166:0x0310, B:145:0x02d0, B:106:0x0251, B:110:0x025a, B:169:0x0319), top: B:203:0x0094 }] */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x02c7 A[Catch: all -> 0x02cb, TRY_ENTER, TRY_LEAVE, TryCatch #20 {IOException -> 0x0344, blocks: (B:24:0x0094, B:26:0x00a0, B:28:0x00a6, B:31:0x00b2, B:33:0x00b8, B:34:0x00c7, B:36:0x00f3, B:37:0x00f7, B:39:0x0105, B:41:0x0114, B:43:0x013a, B:48:0x0174, B:50:0x017c, B:52:0x0186, B:54:0x0190, B:56:0x0196, B:158:0x02f8, B:160:0x0302, B:113:0x0265, B:119:0x0277, B:138:0x02be, B:123:0x0280, B:142:0x02c7, B:162:0x0307, B:126:0x0289, B:166:0x0310, B:145:0x02d0, B:106:0x0251, B:110:0x025a, B:169:0x0319), top: B:203:0x0094 }] */
-    /* JADX WARN: Removed duplicated region for block: B:160:0x0302 A[Catch: all -> 0x0325, TRY_LEAVE, TryCatch #20 {IOException -> 0x0344, blocks: (B:24:0x0094, B:26:0x00a0, B:28:0x00a6, B:31:0x00b2, B:33:0x00b8, B:34:0x00c7, B:36:0x00f3, B:37:0x00f7, B:39:0x0105, B:41:0x0114, B:43:0x013a, B:48:0x0174, B:50:0x017c, B:52:0x0186, B:54:0x0190, B:56:0x0196, B:158:0x02f8, B:160:0x0302, B:113:0x0265, B:119:0x0277, B:138:0x02be, B:123:0x0280, B:142:0x02c7, B:162:0x0307, B:126:0x0289, B:166:0x0310, B:145:0x02d0, B:106:0x0251, B:110:0x025a, B:169:0x0319), top: B:203:0x0094 }] */
-    /* JADX WARN: Removed duplicated region for block: B:162:0x0307 A[Catch: all -> 0x030b, TRY_ENTER, TRY_LEAVE, TryCatch #20 {IOException -> 0x0344, blocks: (B:24:0x0094, B:26:0x00a0, B:28:0x00a6, B:31:0x00b2, B:33:0x00b8, B:34:0x00c7, B:36:0x00f3, B:37:0x00f7, B:39:0x0105, B:41:0x0114, B:43:0x013a, B:48:0x0174, B:50:0x017c, B:52:0x0186, B:54:0x0190, B:56:0x0196, B:158:0x02f8, B:160:0x0302, B:113:0x0265, B:119:0x0277, B:138:0x02be, B:123:0x0280, B:142:0x02c7, B:162:0x0307, B:126:0x0289, B:166:0x0310, B:145:0x02d0, B:106:0x0251, B:110:0x025a, B:169:0x0319), top: B:203:0x0094 }] */
-    /* JADX WARN: Removed duplicated region for block: B:166:0x0310 A[Catch: all -> 0x0314, TRY_ENTER, TRY_LEAVE, TryCatch #20 {IOException -> 0x0344, blocks: (B:24:0x0094, B:26:0x00a0, B:28:0x00a6, B:31:0x00b2, B:33:0x00b8, B:34:0x00c7, B:36:0x00f3, B:37:0x00f7, B:39:0x0105, B:41:0x0114, B:43:0x013a, B:48:0x0174, B:50:0x017c, B:52:0x0186, B:54:0x0190, B:56:0x0196, B:158:0x02f8, B:160:0x0302, B:113:0x0265, B:119:0x0277, B:138:0x02be, B:123:0x0280, B:142:0x02c7, B:162:0x0307, B:126:0x0289, B:166:0x0310, B:145:0x02d0, B:106:0x0251, B:110:0x025a, B:169:0x0319), top: B:203:0x0094 }] */
-    /* JADX WARN: Removed duplicated region for block: B:210:0x01c5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:219:0x021c A[EDGE_INSN: B:219:0x021c->B:91:0x021c ?: BREAK  , SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x01a8 A[Catch: all -> 0x01b2, TRY_ENTER, TryCatch #22 {all -> 0x01b2, blocks: (B:61:0x01a8, B:62:0x01ad), top: B:200:0x01a6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x01ad A[Catch: all -> 0x01b2, TRY_LEAVE, TryCatch #22 {all -> 0x01b2, blocks: (B:61:0x01a8, B:62:0x01ad), top: B:200:0x01a6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x01e5  */
-    /* JADX WARN: Removed duplicated region for block: B:93:0x021f A[Catch: all -> 0x0226, TryCatch #13 {all -> 0x0226, blocks: (B:85:0x0205, B:93:0x021f, B:98:0x022e, B:100:0x0236, B:102:0x0240, B:104:0x024a), top: B:212:0x0205 }] */
+    /* JADX WARN: Removed duplicated region for block: B:143:0x02ad  */
+    /* JADX WARN: Removed duplicated region for block: B:144:0x02af  */
+    /* JADX WARN: Removed duplicated region for block: B:147:0x02be A[Catch: all -> 0x02c2, TRY_ENTER, TRY_LEAVE, TryCatch #12 {IOException -> 0x0335, blocks: (B:23:0x008d, B:25:0x0099, B:27:0x009f, B:30:0x00ab, B:32:0x00b1, B:33:0x00bf, B:35:0x00f3, B:36:0x00f7, B:40:0x0106, B:42:0x0114, B:44:0x0138, B:49:0x0170, B:51:0x0178, B:53:0x0182, B:55:0x018c, B:57:0x0194, B:117:0x025c, B:120:0x0265, B:126:0x0275, B:170:0x02f8, B:147:0x02be, B:130:0x027e, B:174:0x0301, B:151:0x02c7, B:133:0x0287, B:177:0x030a, B:154:0x02d0, B:166:0x02e9, B:168:0x02f3, B:113:0x0253), top: B:227:0x008d }] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x02c7 A[Catch: all -> 0x02cb, TRY_ENTER, TRY_LEAVE, TryCatch #12 {IOException -> 0x0335, blocks: (B:23:0x008d, B:25:0x0099, B:27:0x009f, B:30:0x00ab, B:32:0x00b1, B:33:0x00bf, B:35:0x00f3, B:36:0x00f7, B:40:0x0106, B:42:0x0114, B:44:0x0138, B:49:0x0170, B:51:0x0178, B:53:0x0182, B:55:0x018c, B:57:0x0194, B:117:0x025c, B:120:0x0265, B:126:0x0275, B:170:0x02f8, B:147:0x02be, B:130:0x027e, B:174:0x0301, B:151:0x02c7, B:133:0x0287, B:177:0x030a, B:154:0x02d0, B:166:0x02e9, B:168:0x02f3, B:113:0x0253), top: B:227:0x008d }] */
+    /* JADX WARN: Removed duplicated region for block: B:168:0x02f3 A[Catch: all -> 0x0316, TRY_LEAVE, TryCatch #12 {IOException -> 0x0335, blocks: (B:23:0x008d, B:25:0x0099, B:27:0x009f, B:30:0x00ab, B:32:0x00b1, B:33:0x00bf, B:35:0x00f3, B:36:0x00f7, B:40:0x0106, B:42:0x0114, B:44:0x0138, B:49:0x0170, B:51:0x0178, B:53:0x0182, B:55:0x018c, B:57:0x0194, B:117:0x025c, B:120:0x0265, B:126:0x0275, B:170:0x02f8, B:147:0x02be, B:130:0x027e, B:174:0x0301, B:151:0x02c7, B:133:0x0287, B:177:0x030a, B:154:0x02d0, B:166:0x02e9, B:168:0x02f3, B:113:0x0253), top: B:227:0x008d }] */
+    /* JADX WARN: Removed duplicated region for block: B:170:0x02f8 A[Catch: all -> 0x02fc, TRY_ENTER, TRY_LEAVE, TryCatch #12 {IOException -> 0x0335, blocks: (B:23:0x008d, B:25:0x0099, B:27:0x009f, B:30:0x00ab, B:32:0x00b1, B:33:0x00bf, B:35:0x00f3, B:36:0x00f7, B:40:0x0106, B:42:0x0114, B:44:0x0138, B:49:0x0170, B:51:0x0178, B:53:0x0182, B:55:0x018c, B:57:0x0194, B:117:0x025c, B:120:0x0265, B:126:0x0275, B:170:0x02f8, B:147:0x02be, B:130:0x027e, B:174:0x0301, B:151:0x02c7, B:133:0x0287, B:177:0x030a, B:154:0x02d0, B:166:0x02e9, B:168:0x02f3, B:113:0x0253), top: B:227:0x008d }] */
+    /* JADX WARN: Removed duplicated region for block: B:174:0x0301 A[Catch: all -> 0x0305, TRY_ENTER, TRY_LEAVE, TryCatch #12 {IOException -> 0x0335, blocks: (B:23:0x008d, B:25:0x0099, B:27:0x009f, B:30:0x00ab, B:32:0x00b1, B:33:0x00bf, B:35:0x00f3, B:36:0x00f7, B:40:0x0106, B:42:0x0114, B:44:0x0138, B:49:0x0170, B:51:0x0178, B:53:0x0182, B:55:0x018c, B:57:0x0194, B:117:0x025c, B:120:0x0265, B:126:0x0275, B:170:0x02f8, B:147:0x02be, B:130:0x027e, B:174:0x0301, B:151:0x02c7, B:133:0x0287, B:177:0x030a, B:154:0x02d0, B:166:0x02e9, B:168:0x02f3, B:113:0x0253), top: B:227:0x008d }] */
+    /* JADX WARN: Removed duplicated region for block: B:213:0x01c5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:215:0x0230 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:229:0x021e A[EDGE_INSN: B:229:0x021e->B:97:0x021e ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x01a8 A[Catch: all -> 0x01b2, TRY_ENTER, TryCatch #23 {all -> 0x01b2, blocks: (B:63:0x01a8, B:64:0x01ad), top: B:210:0x01a6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x01ad A[Catch: all -> 0x01b2, TRY_LEAVE, TryCatch #23 {all -> 0x01b2, blocks: (B:63:0x01a8, B:64:0x01ad), top: B:210:0x01a6 }] */
+    /* JADX WARN: Removed duplicated region for block: B:81:0x01eb  */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x0221 A[Catch: all -> 0x0228, TRY_LEAVE, TryCatch #24 {all -> 0x0228, blocks: (B:91:0x020a, B:99:0x0221), top: B:208:0x020a }] */
     @Override // com.bytedance.sdk.component.net.executor.NetExecutor
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -516,14 +516,15 @@ public class DownloadExecutor extends NetExecutor {
     public NetResponse execute() {
         InterceptResult invokeV;
         Object obj;
-        long j;
+        long j2;
         InputStream inputStream;
         InputStream c2;
         byte[] bArr;
         int i2;
-        long j2;
-        String str;
+        long j3;
         int read;
+        String str;
+        long j4;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
             return (NetResponse) invokeV.objValue;
@@ -545,10 +546,7 @@ public class DownloadExecutor extends NetExecutor {
         z.a aVar = new z.a();
         aVar.a((Object) getTag());
         addHeader("Range", "bytes=" + length + "-");
-        boolean isEmpty = TextUtils.isEmpty(this.url);
-        String str2 = TAG;
-        if (isEmpty) {
-            Log.e(TAG, "execute: Url is Empty");
+        if (TextUtils.isEmpty(this.url)) {
             return null;
         }
         try {
@@ -573,14 +571,20 @@ public class DownloadExecutor extends NetExecutor {
                 }
                 long length2 = this.tempFile.length();
                 boolean isSupportRange = isSupportRange(hashMap);
+                String str2 = TAG;
                 if (isSupportRange) {
                     b3 += length2;
                     String str3 = (String) hashMap.get("Content-Range");
                     if (!TextUtils.isEmpty(str3)) {
-                        obj = "Error occured when calling consumingContent";
-                        String str4 = "bytes " + length2 + "-" + (b3 - 1);
-                        if (TextUtils.indexOf(str3, str4) == -1) {
-                            NetLog.i(TAG, "execute: The Content-Range Header is invalid Assume[" + str4 + "] vs Real[" + str3 + "], please remove the temporary file [" + this.tempFile + "].");
+                        StringBuilder sb = new StringBuilder();
+                        obj = "Error occured when calling tmpFile.close";
+                        sb.append("bytes ");
+                        sb.append(length2);
+                        sb.append("-");
+                        sb.append(b3 - 1);
+                        String sb2 = sb.toString();
+                        if (TextUtils.indexOf(str3, sb2) == -1) {
+                            NetLog.i(TAG, "execute: The Content-Range Header is invalid Assume[" + sb2 + "] vs Real[" + str3 + "], please remove the temporary file [" + this.tempFile + "].");
                             deleteFileWhenError();
                             return null;
                         }
@@ -595,7 +599,7 @@ public class DownloadExecutor extends NetExecutor {
                         RandomAccessFile randomAccessFile = new RandomAccessFile(this.tempFile, "rw");
                         if (!isSupportRange) {
                             randomAccessFile.seek(length);
-                            j = length;
+                            j2 = length;
                             try {
                                 c2 = b2.h().c();
                                 try {
@@ -611,36 +615,35 @@ public class DownloadExecutor extends NetExecutor {
                                     }
                                     bArr = new byte[16384];
                                     i2 = 0;
-                                    j2 = 0;
+                                    j3 = 0;
                                 } catch (Throwable th2) {
                                     th = th2;
-                                    inputStream = c2;
                                 }
                             } catch (Throwable th3) {
                                 th = th3;
                                 inputStream = null;
                             }
                             while (true) {
-                                str = str2;
                                 read = c2.read(bArr, i2, 16384 - i2);
                                 boolean z = true;
-                                inputStream = c2;
+                                str = str2;
                                 if (read != -1) {
                                     break;
                                 }
-                                int i4 = i2 + read;
-                                j2 += read;
+                                i2 += read;
+                                j4 = length;
+                                j3 += read;
                                 try {
-                                    if (j2 % 16384 != 0 && j2 != b3 - length) {
+                                    if (j3 % 16384 != 0 && j3 != b3 - j4) {
                                         z = false;
                                     }
-                                    i2 = i4;
                                     str2 = str;
-                                    c2 = inputStream;
+                                    length = j4;
                                 } catch (Throwable th4) {
                                     th = th4;
                                 }
                                 th = th;
+                                inputStream = c2;
                                 NetLog.v("Error occured when FileRequest.parseHttpResponse");
                                 th.printStackTrace();
                                 if (!isSupportRange) {
@@ -658,60 +661,60 @@ public class DownloadExecutor extends NetExecutor {
                             if (!isSupportRange) {
                                 b3 = this.tempFile.length();
                             }
-                            if (b3 <= 0 && this.tempFile.exists() && this.tempFile.length() == b3) {
-                                if (this.tempFile.renameTo(this.file)) {
-                                    netResponse2.setFile(this.file);
-                                    if (inputStream != null) {
-                                        inputStream.close();
+                            if (b3 > 0) {
+                                try {
+                                    if (this.tempFile.exists() && this.tempFile.length() == b3) {
+                                        if (this.tempFile.renameTo(this.file)) {
+                                            netResponse2.setFile(this.file);
+                                            if (c2 != null) {
+                                                c2.close();
+                                            }
+                                            if (c2 != null) {
+                                                c2.close();
+                                            }
+                                            randomAccessFile.close();
+                                            return netResponse2;
+                                        }
+                                        if (c2 != null) {
+                                            c2.close();
+                                        }
+                                        if (c2 != null) {
+                                            c2.close();
+                                        }
+                                        randomAccessFile.close();
+                                        return null;
+                                    }
+                                } catch (Throwable th5) {
+                                    th = th5;
+                                    inputStream = c2;
+                                    NetLog.v("Error occured when FileRequest.parseHttpResponse");
+                                    th.printStackTrace();
+                                    if (!isSupportRange) {
                                     }
                                     if (inputStream != null) {
-                                        inputStream.close();
+                                    }
+                                    if (inputStream != null) {
                                     }
                                     randomAccessFile.close();
-                                    return netResponse2;
+                                    return null;
                                 }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                randomAccessFile.close();
-                                return null;
                             }
                             try {
-                                StringBuilder sb = new StringBuilder();
-                                sb.append(" tempFile.length() == fileSize is");
-                                sb.append(this.tempFile.length() != b3);
-                                NetLog.i(str, sb.toString());
-                                if (inputStream != null) {
-                                    inputStream.close();
+                                StringBuilder sb3 = new StringBuilder();
+                                sb3.append(" tempFile.length() == fileSize is");
+                                sb3.append(this.tempFile.length() != b3);
+                                NetLog.i(str, sb3.toString());
+                                if (c2 != null) {
+                                    c2.close();
                                 }
-                                if (inputStream != null) {
-                                    inputStream.close();
+                                if (c2 != null) {
+                                    c2.close();
                                 }
                                 randomAccessFile.close();
                                 return null;
-                            } catch (Throwable th5) {
-                                th = th5;
-                            }
-                        } else {
-                            randomAccessFile.setLength(0L);
-                            j = 0;
-                            c2 = b2.h().c();
-                            if (isGzipContent(hashMap)) {
-                            }
-                            bArr = new byte[16384];
-                            i2 = 0;
-                            j2 = 0;
-                            while (true) {
-                                str = str2;
-                                read = c2.read(bArr, i2, 16384 - i2);
-                                boolean z2 = true;
+                            } catch (Throwable th6) {
+                                th = th6;
                                 inputStream = c2;
-                                if (read != -1) {
-                                }
-                                th = th;
                                 NetLog.v("Error occured when FileRequest.parseHttpResponse");
                                 th.printStackTrace();
                                 if (!isSupportRange) {
@@ -722,27 +725,54 @@ public class DownloadExecutor extends NetExecutor {
                                 }
                                 randomAccessFile.close();
                                 return null;
-                                str2 = str;
-                                c2 = inputStream;
                             }
+                        }
+                        randomAccessFile.setLength(0L);
+                        j2 = 0;
+                        c2 = b2.h().c();
+                        if (isGzipContent(hashMap)) {
+                        }
+                        bArr = new byte[16384];
+                        i2 = 0;
+                        j3 = 0;
+                        while (true) {
+                            read = c2.read(bArr, i2, 16384 - i2);
+                            boolean z2 = true;
+                            str = str2;
+                            if (read != -1) {
+                            }
+                            th = th;
+                            inputStream = c2;
+                            NetLog.v("Error occured when FileRequest.parseHttpResponse");
+                            th.printStackTrace();
                             if (!isSupportRange) {
                             }
-                            if (b3 <= 0) {
-                            }
-                            StringBuilder sb2 = new StringBuilder();
-                            sb2.append(" tempFile.length() == fileSize is");
-                            sb2.append(this.tempFile.length() != b3);
-                            NetLog.i(str, sb2.toString());
                             if (inputStream != null) {
                             }
                             if (inputStream != null) {
                             }
                             randomAccessFile.close();
                             return null;
+                            str2 = str;
+                            length = j4;
                         }
+                        if (!isSupportRange) {
+                        }
+                        if (b3 > 0) {
+                        }
+                        StringBuilder sb32 = new StringBuilder();
+                        sb32.append(" tempFile.length() == fileSize is");
+                        sb32.append(this.tempFile.length() != b3);
+                        NetLog.i(str, sb32.toString());
+                        if (c2 != null) {
+                        }
+                        if (c2 != null) {
+                        }
+                        randomAccessFile.close();
+                        return null;
                     }
                 }
-                obj = "Error occured when calling consumingContent";
+                obj = "Error occured when calling tmpFile.close";
                 if (b3 <= 0) {
                 }
                 RandomAccessFile randomAccessFile2 = new RandomAccessFile(this.tempFile, "rw");
@@ -754,7 +784,6 @@ public class DownloadExecutor extends NetExecutor {
                 return null;
             }
         } catch (IllegalArgumentException unused) {
-            Log.e(TAG, "execute: Url is not a valid HTTP or HTTPS URL");
             return null;
         }
     }
@@ -774,11 +803,11 @@ public class DownloadExecutor extends NetExecutor {
         }
     }
 
-    public void updateProgress(long j, long j2, NetCallback netCallback) {
+    public void updateProgress(long j2, long j3, NetCallback netCallback) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), netCallback}) == null) || netCallback == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), netCallback}) == null) || netCallback == null) {
             return;
         }
-        netCallback.onDownloadProgress(this, j, j2);
+        netCallback.onDownloadProgress(this, j2, j3);
     }
 }

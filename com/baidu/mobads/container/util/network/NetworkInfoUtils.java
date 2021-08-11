@@ -13,7 +13,6 @@ import android.util.Pair;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
-import com.baidu.apollon.statistics.g;
 import com.baidu.down.utils.Utils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.mobads.container.util.RemoteXAdLogger;
@@ -28,7 +27,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class NetworkInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<String, Integer> CARRIER_MCCMNC;
@@ -240,7 +239,7 @@ public class NetworkInfoUtils {
     public static String getNetwork(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 100 ? i2 != 101 ? RomUtils.UNKNOWN : "ETHERNET" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "5G" : "4G" : g.f4012b : "2G" : RomUtils.UNKNOWN : "NO" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 100 ? i2 != 101 ? RomUtils.UNKNOWN : "ETHERNET" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "5G" : "4G" : "3G" : "2G" : RomUtils.UNKNOWN : "NO" : (String) invokeI.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:26:0x0054, code lost:

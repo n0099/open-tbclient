@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class am {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36688a = "";
+    public static String f73509a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -52,10 +52,10 @@ public class am {
         }
     }
 
-    public static void a(Context context, String str, long j) {
+    public static void a(Context context, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
-            context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(str, j).apply();
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+            context.getSharedPreferences("ksadsdk_pref", 0).edit().putLong(str, j2).apply();
         }
     }
 
@@ -78,10 +78,10 @@ public class am {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? context.getSharedPreferences("ksadsdk_model", 0).getString("KEY_SDK_MODEL", "") : (String) invokeL.objValue;
     }
 
-    public static void b(Context context, String str, long j) {
+    public static void b(Context context, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
-            context.getSharedPreferences("ksadsdk_download_package_length", 0).edit().putLong(str, j).apply();
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+            context.getSharedPreferences("ksadsdk_download_package_length", 0).edit().putLong(str, j2).apply();
         }
     }
 
@@ -100,7 +100,7 @@ public class am {
     public static String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? !TextUtils.isEmpty(f36688a) ? f36688a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? !TextUtils.isEmpty(f73509a) ? f73509a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "") : (String) invokeL.objValue;
     }
 
     public static void d(@NonNull Context context, String str) {
@@ -139,7 +139,7 @@ public class am {
     public static void h(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65553, null, context, str) == null) {
-            f36688a = str;
+            f73509a = str;
             if (context == null) {
                 return;
             }

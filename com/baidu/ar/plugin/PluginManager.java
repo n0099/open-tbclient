@@ -5,7 +5,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.plugin.helper.ActivityThreadCompat;
 import com.baidu.ar.plugin.helper.CompatibilityInfoCompat;
@@ -30,7 +29,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.WeakHashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class PluginManager {
     public static /* synthetic */ Interceptable $ic;
     public static Map<String, ClassLoader> sPluginClassLoaderCache;
@@ -136,7 +135,6 @@ public class PluginManager {
                             try {
                                 dexClassLoader = new DexClassLoader(str2, pluginDalvikCacheDir, pluginNativeLibraryDir, this.mContext.getClassLoader().getParent());
                             } catch (Exception unused) {
-                                Log.i("andrew", "load classloader exeception!!!!");
                             }
                             if (dexClassLoader == null) {
                                 PluginDirHelper.cleanOptimizedDirectory(pluginDalvikCacheDir);

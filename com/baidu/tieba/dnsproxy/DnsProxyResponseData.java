@@ -9,27 +9,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DnsProxyResponseData extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public List<HashMap<String, List<DnsProxyIpData>>> f14622e;
+    public List<HashMap<String, List<DnsProxyIpData>>> f49804e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14623f;
+    public int f49805f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14624g;
+    public String f49806g;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class DnsProxyIpData extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f14625e;
+        public String f49807e;
 
         public DnsProxyIpData() {
             Interceptable interceptable = $ic;
@@ -48,13 +48,13 @@ public class DnsProxyResponseData extends OrmObject {
         public String getIp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14625e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49807e : (String) invokeV.objValue;
         }
 
         public void setIp(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f14625e = str;
+                this.f49807e = str;
             }
         }
     }
@@ -76,18 +76,18 @@ public class DnsProxyResponseData extends OrmObject {
     public List<HashMap<String, List<DnsProxyIpData>>> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f14622e : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f49804e : (List) invokeV.objValue;
     }
 
     public String getErrmsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14624g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f49806g : (String) invokeV.objValue;
     }
 
     public int getErrno() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f14623f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f49805f : invokeV.intValue;
     }
 }

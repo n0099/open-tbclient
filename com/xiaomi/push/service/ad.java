@@ -7,19 +7,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ad extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ int f40851a;
+    public final /* synthetic */ int f77726a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ao f879a;
+    public final /* synthetic */ ao f883a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f880a;
+    public final /* synthetic */ String f884a;
 
     public ad(String str, ao aoVar, int i2) {
         Interceptable interceptable = $ic;
@@ -36,24 +36,24 @@ public final class ad extends ai.a {
                 return;
             }
         }
-        this.f880a = str;
-        this.f879a = aoVar;
-        this.f40851a = i2;
+        this.f884a = str;
+        this.f883a = aoVar;
+        this.f77726a = i2;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f880a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f884a : (String) invokeV.objValue;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f879a.a(this.f40851a);
+            this.f883a.a(this.f77726a);
         }
     }
 }

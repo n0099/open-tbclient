@@ -2,6 +2,7 @@ package com.baidu.adp.plugin.packageManager.pluginSettings;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,9 +10,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
 import java.io.Serializable;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PluginSetting implements Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -6614934206499164039L;

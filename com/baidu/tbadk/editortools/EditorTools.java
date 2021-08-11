@@ -8,6 +8,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.e;
+import c.a.e.e.p.l;
+import c.a.o0.x.f;
+import c.a.o0.x.g;
+import c.a.o0.x.h;
+import c.a.o0.x.j;
+import c.a.o0.x.m;
+import c.a.o0.x.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,14 +28,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.x.f;
-import d.a.p0.x.g;
-import d.a.p0.x.h;
-import d.a.p0.x.j;
-import d.a.p0.x.m;
-import d.a.p0.x.n;
-import d.a.q0.e0.e;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -35,51 +35,59 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EditorTools extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int BAR_LAUNCHER_TYPE_BIG = 0;
+    public static final int BAR_LAUNCHER_TYPE_BJH = 5;
+    public static final int BAR_LAUNCHER_TYPE_NEW_PB = 3;
+    public static final int BAR_LAUNCHER_TYPE_NEW_SUB_PB = 2;
+    public static final int BAR_LAUNCHER_TYPE_SMALL = 1;
+    public static final int BAR_LAUNCHER_TYPE_VIDEO_PLAY = 4;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Integer> A;
 
     /* renamed from: e  reason: collision with root package name */
-    public EditorBar f13039e;
+    public View f48035e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditorDesk f13040f;
+    public View f48036f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f13041g;
+    public List<m> f48037g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f13042h;
+    public SparseArray<c.a.o0.x.b> f48038h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<m> f13043i;
-    public SparseArray<d.a.p0.x.b> j;
-    public SparseArray<HashSet<d.a.p0.x.b>> k;
-    public SparseArray<HashSet<Integer>> l;
-    public int m;
-    public boolean n;
-    public int o;
-    public int p;
-    public boolean q;
-    public LinkedList<h> r;
-    public boolean s;
-    public boolean t;
-    public Context u;
-    public String v;
-    public long w;
-    public View.OnClickListener x;
-    public View.OnClickListener y;
-    public Runnable z;
+    public SparseArray<HashSet<c.a.o0.x.b>> f48039i;
 
-    /* loaded from: classes3.dex */
+    /* renamed from: j  reason: collision with root package name */
+    public SparseArray<HashSet<Integer>> f48040j;
+    public int k;
+    public boolean l;
+    public int m;
+    public EditorBar mEB;
+    public EditorDesk mED;
+    public int n;
+    public boolean o;
+    public LinkedList<h> p;
+    public boolean q;
+    public boolean r;
+    public Context s;
+    public String t;
+    public long u;
+    public View.OnClickListener v;
+    public View.OnClickListener w;
+    public Runnable x;
+    public List<Integer> y;
+
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f13044e;
+        public final /* synthetic */ EditorTools f48041e;
 
         public a(EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -96,25 +104,25 @@ public class EditorTools extends LinearLayout {
                     return;
                 }
             }
-            this.f13044e = editorTools;
+            this.f48041e = editorTools;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f13044e.x(view);
+                this.f48041e.performLauncherClick(view);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f13045e;
+        public final /* synthetic */ EditorTools f48042e;
 
         public b(EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -131,25 +139,25 @@ public class EditorTools extends LinearLayout {
                     return;
                 }
             }
-            this.f13045e = editorTools;
+            this.f48042e = editorTools;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f13045e.l();
+                this.f48042e.displaySoftKey();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class c implements Comparator<m> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f13046e;
+        public final /* synthetic */ EditorTools f48043e;
 
         public c(EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -166,7 +174,7 @@ public class EditorTools extends LinearLayout {
                     return;
                 }
             }
-            this.f13046e = editorTools;
+            this.f48043e = editorTools;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -175,17 +183,17 @@ public class EditorTools extends LinearLayout {
         public int compare(m mVar, m mVar2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, mVar2)) == null) ? mVar.j - mVar2.j : invokeLL.intValue;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mVar, mVar2)) == null) ? mVar.f14790j - mVar2.f14790j : invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditorTools f13047e;
+        public final /* synthetic */ EditorTools f48044e;
 
         public d(EditorTools editorTools) {
             Interceptable interceptable = $ic;
@@ -202,16 +210,16 @@ public class EditorTools extends LinearLayout {
                     return;
                 }
             }
-            this.f13047e = editorTools;
+            this.f48044e = editorTools;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f13047e.y == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48044e.w == null) {
                 return;
             }
-            this.f13047e.y.onClick(view);
+            this.f48044e.w.onClick(view);
         }
     }
 
@@ -233,162 +241,733 @@ public class EditorTools extends LinearLayout {
                 return;
             }
         }
-        this.m = 1;
-        this.n = false;
-        this.o = 0;
-        this.p = 0;
-        this.q = true;
-        this.s = false;
-        this.t = false;
-        this.x = new a(this);
-        this.z = new b(this);
-        this.A = new ArrayList();
-        r(context);
+        this.k = 1;
+        this.l = false;
+        this.m = 0;
+        this.n = 0;
+        this.o = true;
+        this.q = false;
+        this.r = false;
+        this.v = new a(this);
+        this.x = new b(this);
+        this.y = new ArrayList();
+        f(context);
     }
 
-    public void A(d.a.p0.x.a aVar) {
-        HashSet<Integer> hashSet;
-        int i2;
-        m n;
-        n nVar;
+    public void addHideLauncher(m mVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, mVar) == null) || mVar == null) {
             return;
         }
-        int i3 = aVar.f54158a;
+        addTool(mVar);
+        h e2 = e(mVar, 1);
+        e2.hide();
+        EditorBar editorBar = this.mEB;
+        if (editorBar != null) {
+            editorBar.addLauncher(0, e2);
+            this.mEB.removeAllViews();
+            this.mEB.build();
+        }
+        invalidate();
+    }
+
+    public void addOutLauncher(h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
+            this.p.add(hVar);
+        }
+    }
+
+    public void addTool(m mVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mVar) == null) || mVar == null) {
+            return;
+        }
+        this.f48037g.add(mVar);
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            View view = this.f48036f;
+            if (view == null || view.getParent() != null) {
+                View view2 = new View(getContext());
+                this.f48036f = view2;
+                SkinManager.setBackgroundResource(view2, R.color.transparent);
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
+                layoutParams.weight = 1.0f;
+                this.f48036f.setLayoutParams(layoutParams);
+                this.f48036f.setOnClickListener(new d(this));
+            }
+            addView(this.f48036f, 0);
+        }
+    }
+
+    public void build() {
+        List<m> list;
+        j jVar;
+        n nVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (list = this.f48037g) == null || list.size() == 0) {
+            return;
+        }
+        d();
+        LinkedList linkedList = new LinkedList();
+        boolean z = false;
+        for (m mVar : this.f48037g) {
+            if (mVar.f14784d > 0) {
+                linkedList.add(mVar);
+            }
+            n nVar2 = mVar.k;
+            if (nVar2 != null) {
+                nVar2.setToolId(mVar.f14783c);
+                mVar.k.setEditorTools(this);
+                int i2 = mVar.l;
+                if (i2 == 6) {
+                    this.mED.addToolView(mVar.k);
+                } else if (i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5) {
+                    this.mEB.addToolView(mVar.k, mVar.l, !mVar.m);
+                    if (mVar.l == 5 && findToolById(1) == null) {
+                        z = true;
+                    }
+                }
+                setActionListener(mVar.n, mVar.f14783c, mVar.k);
+            }
+        }
+        Collections.sort(linkedList, new c(this));
+        if (linkedList.size() > this.k) {
+            if (this.r) {
+                jVar = new j(getContext(), true);
+            } else {
+                jVar = new j(getContext());
+            }
+            int i3 = this.n;
+            if (i3 > 0 && (nVar = jVar.k) != null && (nVar instanceof CommonTabHost)) {
+                ((CommonTabHost) nVar).setBackgroundColorId(i3);
+            }
+            if (!c.a.o0.s.d0.b.j().g("key_write_more_tool_point", false)) {
+                jVar.o = true;
+            } else {
+                jVar.o = false;
+            }
+            addTool(jVar);
+            jVar.k.setToolId(jVar.f14783c);
+            jVar.k.setEditorTools(this);
+            setActionListener(jVar.n, jVar.f14783c, jVar.k);
+            this.mED.addToolView(jVar.k);
+            if (this.l) {
+                linkedList.add(this.k, jVar);
+            } else {
+                linkedList.add(0, jVar);
+            }
+        }
+        int i4 = this.k + 1;
+        Iterator it = linkedList.iterator();
+        int i5 = 0;
+        while (it.hasNext()) {
+            m mVar2 = (m) it.next();
+            if (i5 < i4) {
+                this.mEB.addLauncher(e(mVar2, 1));
+            } else {
+                this.mED.addLauncher(e(mVar2, 2));
+            }
+            i5++;
+        }
+        if (z) {
+            f fVar = new f();
+            addTool(fVar);
+            h e2 = e(fVar, 1);
+            e2.hide();
+            this.mEB.addLauncher(0, e2);
+        }
+        this.mEB.build();
+        this.mED.build();
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
+        this.mEB.setLayoutParams(layoutParams);
+        this.mED.setLayoutParams(layoutParams2);
+        this.mED.hide();
+        if (this.r) {
+            this.mEB.setPadding(0, 0, 0, 0);
+        }
+        hideTools();
+        removeAllViews();
+        if (this.mEB.getBarLauncherType() != 4) {
+            c();
+        }
+        addView(this.mEB);
+        addView(this.mED);
+        invalidate();
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            View view = this.f48035e;
+            if (view == null || view.getParent() != null) {
+                View view2 = new View(getContext());
+                this.f48035e = view2;
+                c.a.o0.s.u.c d2 = c.a.o0.s.u.c.d(view2);
+                d2.n(R.string.J_X02);
+                d2.f(R.color.CAM_X0210);
+                this.f48035e.setLayoutParams(new RelativeLayout.LayoutParams(-1, l.g(getContext(), R.dimen.L_X01)));
+            }
+            addView(this.f48035e);
+        }
+    }
+
+    public void clearTools() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f48037g.clear();
+            this.f48038h.clear();
+            this.f48039i.clear();
+            this.f48040j.clear();
+        }
+    }
+
+    public void collect(List<Integer> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.y.clear();
+            this.y.addAll(list);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010044, this));
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.mEB.clear();
+            this.mED.clear();
+        }
+    }
+
+    public void display(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            for (m mVar : this.f48037g) {
+                if (mVar != null) {
+                    n nVar = mVar.k;
+                    if ((nVar instanceof View) && ((View) nVar).getVisibility() == 0 && !mVar.m) {
+                        mVar.k.display();
+                    }
+                }
+            }
+            if (this.o) {
+                this.o = false;
+                hideTools();
+            }
+            if (!isToolVisible() && z) {
+                e.a().postDelayed(this.x, 200L);
+            }
+            setVisibility(0);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, Boolean.TRUE));
+        }
+    }
+
+    public void displaySoftKey() {
+        m findToolById;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (findToolById = findToolById(3)) == null) {
+            return;
+        }
+        n nVar = findToolById.k;
+        if (nVar instanceof View) {
+            View view = (View) nVar;
+            view.requestFocus();
+            l.K(getContext(), view);
+        }
+    }
+
+    public void displayTools() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.mED.display();
+        }
+    }
+
+    public void displayWithoutSoftKey() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            for (m mVar : this.f48037g) {
+                if (mVar != null) {
+                    n nVar = mVar.k;
+                    if ((nVar instanceof View) && ((View) nVar).getVisibility() == 0 && !mVar.m) {
+                        mVar.k.display();
+                    }
+                }
+            }
+            setVisibility(0);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, Boolean.TRUE));
+        }
+    }
+
+    public final h e(m mVar, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, mVar, i2)) == null) {
+            h a2 = g.a(getContext(), mVar, i2);
+            if (a2 instanceof View) {
+                ((View) a2).setContentDescription(mVar.f14782b);
+            }
+            if (a2 instanceof BLauncher) {
+                ((View) a2).setOnClickListener(this.v);
+            }
+            return a2;
+        }
+        return (h) invokeLI.objValue;
+    }
+
+    public final void f(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
+            this.s = context;
+            this.f48037g = new LinkedList();
+            this.f48038h = new SparseArray<>();
+            this.f48039i = new SparseArray<>();
+            this.f48040j = new SparseArray<>();
+            this.mEB = new EditorBar(context, this);
+            this.mED = new EditorDesk(context, this);
+            this.p = new LinkedList<>();
+            setOrientation(1);
+        }
+    }
+
+    public h findLauncherById(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+            h findLauncherById = this.mEB.findLauncherById(i2);
+            return findLauncherById != null ? findLauncherById : this.mED.findLauncherById(i2);
+        }
+        return (h) invokeI.objValue;
+    }
+
+    public m findToolById(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
+            for (m mVar : this.f48037g) {
+                if (mVar.f14783c == i2) {
+                    return mVar;
+                }
+            }
+            return null;
+        }
+        return (m) invokeI.objValue;
+    }
+
+    public List<m> getAllTools() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f48037g : (List) invokeV.objValue;
+    }
+
+    public List<Integer> getCollectTools() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.y : (List) invokeV.objValue;
+    }
+
+    public long getFid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.u : invokeV.longValue;
+    }
+
+    public String getTid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.t : (String) invokeV.objValue;
+    }
+
+    public void hide() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            hideTools();
+            setVisibility(8);
+            hideSoftKey();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, Boolean.FALSE));
+        }
+    }
+
+    public void hideSoftKey() {
+        View currentFocus;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            e.a().removeCallbacks(this.x);
+            boolean z = false;
+            if ((getContext() instanceof Activity) && (currentFocus = ((Activity) getContext()).getCurrentFocus()) != null) {
+                z = true;
+                l.x(getContext(), currentFocus);
+            }
+            if (z) {
+                return;
+            }
+            m findToolById = findToolById(3);
+            if (findToolById != null && (findToolById.k instanceof View)) {
+                l.x(getContext(), (View) findToolById.k);
+            }
+            m findToolById2 = findToolById(28);
+            if (findToolById2 == null || !(findToolById2.k instanceof View)) {
+                return;
+            }
+            l.x(getContext(), (View) findToolById2.k);
+        }
+    }
+
+    public void hideTools() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+            this.mED.hide();
+            this.mEB.changeToLauncher(null);
+        }
+    }
+
+    public boolean isIM() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.q : invokeV.booleanValue;
+    }
+
+    public boolean isIsFromPb() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.r : invokeV.booleanValue;
+    }
+
+    public boolean isToolVisible() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.mED.isToolVisible() : invokeV.booleanValue;
+    }
+
+    public boolean isVisible() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? getVisibility() == 0 : invokeV.booleanValue;
+    }
+
+    public void onChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
+            SkinManager.setBackgroundColor(this, this.m, i2);
+            this.mEB.onChangeSkinType(i2);
+            this.mED.onChangeSkinType(i2);
+            View view = this.f48035e;
+            if (view != null) {
+                c.a.o0.s.u.c d2 = c.a.o0.s.u.c.d(view);
+                d2.n(R.string.J_X02);
+                d2.f(R.color.CAM_X0210);
+            }
+        }
+    }
+
+    @Override // android.view.View
+    public boolean onTouchEvent(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, motionEvent)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void performLauncherClick(View view) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048607, this, view) == null) && (view instanceof h)) {
+            h hVar = (h) view;
+            int toolId = hVar.getToolId();
+            m findToolById = findToolById(toolId);
+            if (findToolById.a()) {
+                sendAction(new c.a.o0.x.a(31, 0, Integer.valueOf(hVar.getToolId())));
+                this.mEB.changeToLauncher(findToolById);
+                if (hVar.getToolId() == 2 && !c.a.o0.s.d0.b.j().g("key_write_more_tool_point", false)) {
+                    c.a.o0.s.d0.b.j().t("key_write_more_tool_point", true);
+                    hVar.hideRedPoint();
+                }
+                if (hVar.getToolId() == 1) {
+                    hVar.hide();
+                    display();
+                    sendAction(new c.a.o0.x.a(1, 3, null));
+                } else if (findToolById.k == null) {
+                    int[] iArr = findToolById.n;
+                    if (iArr == null || iArr.length <= 0) {
+                        return;
+                    }
+                    sendAction(new c.a.o0.x.a(iArr[0], -1, null));
+                } else {
+                    sendAction(new c.a.o0.x.a(1, toolId, null));
+                }
+            }
+        }
+    }
+
+    public void removeTools(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048608, this, iArr) == null) || iArr == null || iArr.length == 0) {
+            return;
+        }
+        for (int i2 = 0; i2 < iArr.length; i2++) {
+            if (iArr[i2] > 0) {
+                this.f48037g.remove(iArr[i2]);
+            }
+        }
+    }
+
+    public void resetChangeToLauncher() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
+            this.mEB.changeToLauncher(null);
+        }
+    }
+
+    public void resetLaunchers() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            this.mEB.resetLaunchers(this.v);
+        }
+    }
+
+    public void sendAction(c.a.o0.x.a aVar) {
+        HashSet<Integer> hashSet;
+        int i2;
+        m findToolById;
+        n nVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048611, this, aVar) == null) || aVar == null) {
+            return;
+        }
+        int i3 = aVar.f14775a;
         if (i3 == 2) {
             boolean z = false;
-            h q = this.f13039e.q(aVar.f54159b);
-            if (q == null) {
-                q = this.f13040f.l(aVar.f54159b);
+            h findLauncherById = this.mEB.findLauncherById(aVar.f14776b);
+            if (findLauncherById == null) {
+                findLauncherById = this.mED.findLauncherById(aVar.f14776b);
                 z = true;
             }
-            if (q == null) {
-                Iterator<h> it = this.r.iterator();
+            if (findLauncherById == null) {
+                Iterator<h> it = this.p.iterator();
                 while (true) {
                     if (!it.hasNext()) {
                         break;
                     }
                     h next = it.next();
-                    if (next.getToolId() == aVar.f54159b) {
-                        q = next;
+                    if (next.getToolId() == aVar.f14776b) {
+                        findLauncherById = next;
                         break;
                     }
                 }
             }
-            if (q != null) {
-                q.onAction(aVar);
-                if (!z || (n = n(2)) == null || (nVar = n.k) == null) {
+            if (findLauncherById != null) {
+                findLauncherById.onAction(aVar);
+                if (!z || (findToolById = findToolById(2)) == null || (nVar = findToolById.k) == null) {
                     return;
                 }
                 nVar.onAction(aVar);
             }
         } else if (i3 == 5) {
-            this.f13039e.n(null);
-            this.f13040f.g();
+            this.mEB.changeToLauncher(null);
+            this.mED.changeToKeyboard();
         } else {
-            int i4 = aVar.f54159b;
+            int i4 = aVar.f14776b;
             if (i4 > 0) {
-                d.a.p0.x.b bVar = this.j.get(i4);
+                c.a.o0.x.b bVar = this.f48038h.get(i4);
                 if (bVar != null) {
-                    int i5 = aVar.f54158a;
-                    if (i5 != 19 && i5 != 20 && (i2 = aVar.f54159b) != 27) {
-                        this.f13039e.o(i2);
+                    int i5 = aVar.f14775a;
+                    if (i5 != 19 && i5 != 20 && (i2 = aVar.f14776b) != 27) {
+                        this.mEB.changeToTool(i2);
                     }
-                    m n2 = n(aVar.f54159b);
-                    if (n2 != null && n2.l == 5) {
-                        q();
-                        p();
+                    m findToolById2 = findToolById(aVar.f14776b);
+                    if (findToolById2 != null && findToolById2.l == 5) {
+                        hideTools();
+                        hideSoftKey();
                     } else {
-                        this.f13040f.h(aVar.f54159b);
+                        this.mED.changeToTool(aVar.f14776b);
                     }
                     bVar.onAction(aVar);
                 }
             } else if (i4 <= 0) {
-                if (i4 < 0 && (hashSet = this.l.get(i3)) != null && !hashSet.isEmpty()) {
+                if (i4 < 0 && (hashSet = this.f48040j.get(i3)) != null && !hashSet.isEmpty()) {
                     Iterator<Integer> it2 = hashSet.iterator();
                     while (it2.hasNext()) {
-                        d.a.p0.x.b bVar2 = this.j.get(it2.next().intValue());
+                        c.a.o0.x.b bVar2 = this.f48038h.get(it2.next().intValue());
                         if (bVar2 != null) {
                             bVar2.onAction(aVar);
                         }
                     }
                 }
-                HashSet<d.a.p0.x.b> hashSet2 = this.k.get(aVar.f54158a);
+                HashSet<c.a.o0.x.b> hashSet2 = this.f48039i.get(aVar.f14775a);
                 if (hashSet2 != null && !hashSet2.isEmpty()) {
-                    Iterator<d.a.p0.x.b> it3 = hashSet2.iterator();
+                    Iterator<c.a.o0.x.b> it3 = hashSet2.iterator();
                     while (it3.hasNext()) {
                         it3.next().onAction(aVar);
                     }
                 }
             }
-            if (this.u.getClass().getSimpleName().equals("WriteActivity")) {
-                BLauncher bLauncher = (BLauncher) this.f13039e.q(2);
+            if (this.s.getClass().getSimpleName().equals("WriteActivity")) {
+                BLauncher bLauncher = (BLauncher) this.mEB.findLauncherById(2);
                 if (bLauncher != null) {
-                    E(bLauncher);
+                    showTips(bLauncher);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921494));
             }
         }
     }
 
-    public void B(int[] iArr, int i2, d.a.p0.x.b bVar) {
+    public void setActionListener(int i2, c.a.o0.x.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, i2, bVar) == null) {
-            int i3 = 0;
-            if (i2 == 0) {
-                if (iArr == null || iArr.length == 0) {
-                    return;
-                }
-                HashSet<d.a.p0.x.b> hashSet = this.k.get(iArr[0]);
-                if (hashSet == null) {
-                    hashSet = new HashSet<>();
-                    int length = iArr.length;
-                    while (i3 < length) {
-                        this.k.put(iArr[i3], hashSet);
-                        i3++;
-                    }
-                }
-                hashSet.add(bVar);
-            } else if (i2 > 0) {
-                this.j.put(i2, bVar);
-                if (iArr == null || iArr.length <= 0) {
-                    return;
-                }
-                int length2 = iArr.length;
-                while (i3 < length2) {
-                    int i4 = iArr[i3];
-                    HashSet<Integer> hashSet2 = this.l.get(i4);
-                    if (hashSet2 == null) {
-                        hashSet2 = new HashSet<>();
-                        this.l.put(i4, hashSet2);
-                    }
-                    hashSet2.add(Integer.valueOf(i2));
-                    i3++;
-                }
+        if (interceptable == null || interceptable.invokeIL(1048612, this, i2, bVar) == null) {
+            setActionListener(new int[]{i2}, 0, bVar);
+        }
+    }
+
+    public void setBackgroundColorId(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+            this.m = i2;
+            if (i2 != 0) {
+                setBackgroundColor(getContext().getResources().getColor(i2));
             }
         }
     }
 
-    public void C(boolean z) {
+    public void setBarBackgroundColorId(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f13039e.y(z);
+        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
+            this.mEB.setBackgroundColorId(i2);
         }
     }
 
-    public void D(boolean z) {
+    public void setBarLauncherEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f13039e.z(z);
+        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
+            this.mEB.setBarLauncherEnabled(z);
         }
     }
 
-    public void E(View view) {
+    public void setBarLauncherType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
-            BaseActivity baseActivity = (BaseActivity) this.u;
-            e eVar = new e(baseActivity.getPageContext(), view);
+        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
+            this.mEB.setBarLauncherType(i2);
+        }
+    }
+
+    public void setBarMaxLauCount(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
+            if (i2 < 0) {
+                i2 = 0;
+            }
+            this.k = i2;
+        }
+    }
+
+    public void setDeskBackgroundColorId(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+            this.mED.setBackgroundColorId(i2);
+        }
+    }
+
+    public void setDeskLauncherEnabled(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
+            this.mED.setDeskLauncherEnabled(z);
+        }
+    }
+
+    public void setFid(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
+            this.u = j2;
+        }
+    }
+
+    public void setFrom(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
+        }
+    }
+
+    public void setIsFromPb(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048624, this, z) == null) {
+            this.r = z;
+        }
+    }
+
+    public void setIsIM(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+            this.q = z;
+        }
+    }
+
+    public void setMoreButtonAtEnd(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048626, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void setMoreDeskBgColorId(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
+            this.n = i2;
+        }
+    }
+
+    public void setOnCancelClickListener(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048628, this, onClickListener) == null) {
+            this.w = onClickListener;
+            b();
+        }
+    }
+
+    public void setTid(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048629, this, str) == null) {
+            this.t = str;
+        }
+    }
+
+    public void setToolEnabled(boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.mEB.setBarLauncherEnabled(z, i2)) {
+            return;
+        }
+        this.mED.setDeskLauncherEnabled(z, i2);
+    }
+
+    public void showLinePositionBottom(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048631, this, z) == null) {
+            this.mEB.showLinePositionBottom(z);
+        }
+    }
+
+    public void showLinePositionTop(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048632, this, z) == null) {
+            this.mEB.showLinePositionTop(z);
+        }
+    }
+
+    public void showNoLine(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048633, this, z) == null) {
+            this.mEB.showNoLine(false);
+        }
+    }
+
+    public void showTips(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048634, this, view) == null) {
+            BaseActivity baseActivity = (BaseActivity) this.s;
+            c.a.p0.e0.e eVar = new c.a.p0.e0.e(baseActivity.getPageContext(), view);
             eVar.g0(R.drawable.bg_tip_blue_down_right);
             eVar.O(48);
             eVar.U(true);
@@ -403,567 +982,55 @@ public class EditorTools extends LinearLayout {
         }
     }
 
-    public void b(m mVar) {
+    public void setActionListener(int[] iArr, c.a.o0.x.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, mVar) == null) || mVar == null) {
-            return;
-        }
-        d(mVar);
-        h i2 = i(mVar, 1);
-        i2.hide();
-        EditorBar editorBar = this.f13039e;
-        if (editorBar != null) {
-            editorBar.i(0, i2);
-            this.f13039e.removeAllViews();
-            this.f13039e.l();
-        }
-        invalidate();
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            View view = this.f13042h;
-            if (view == null || view.getParent() != null) {
-                View view2 = new View(getContext());
-                this.f13042h = view2;
-                SkinManager.setBackgroundResource(view2, R.color.transparent);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, 0);
-                layoutParams.weight = 1.0f;
-                this.f13042h.setLayoutParams(layoutParams);
-                this.f13042h.setOnClickListener(new d(this));
-            }
-            addView(this.f13042h, 0);
+        if (interceptable == null || interceptable.invokeLL(1048614, this, iArr, bVar) == null) {
+            setActionListener(iArr, 0, bVar);
         }
     }
 
-    public void d(m mVar) {
+    public void setActionListener(int[] iArr, int i2, c.a.o0.x.b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, mVar) == null) || mVar == null) {
-            return;
-        }
-        this.f13043i.add(mVar);
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View view = this.f13041g;
-            if (view == null || view.getParent() != null) {
-                View view2 = new View(getContext());
-                this.f13041g = view2;
-                d.a.p0.s.u.c d2 = d.a.p0.s.u.c.d(view2);
-                d2.n(R.string.J_X02);
-                d2.f(R.color.CAM_X0210);
-                this.f13041g.setLayoutParams(new RelativeLayout.LayoutParams(-1, l.g(getContext(), R.dimen.L_X01)));
-            }
-            addView(this.f13041g);
-        }
-    }
-
-    public void f() {
-        List<m> list;
-        j jVar;
-        n nVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (list = this.f13043i) == null || list.size() == 0) {
-            return;
-        }
-        g();
-        LinkedList linkedList = new LinkedList();
-        boolean z = false;
-        for (m mVar : this.f13043i) {
-            if (mVar.f54167d > 0) {
-                linkedList.add(mVar);
-            }
-            n nVar2 = mVar.k;
-            if (nVar2 != null) {
-                nVar2.setToolId(mVar.f54166c);
-                mVar.k.setEditorTools(this);
-                int i2 = mVar.l;
-                if (i2 == 6) {
-                    this.f13040f.e(mVar.k);
-                } else if (i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5) {
-                    this.f13039e.k(mVar.k, mVar.l, !mVar.m);
-                    if (mVar.l == 5 && n(1) == null) {
-                        z = true;
+        if (interceptable == null || interceptable.invokeLIL(1048613, this, iArr, i2, bVar) == null) {
+            int i3 = 0;
+            if (i2 == 0) {
+                if (iArr == null || iArr.length == 0) {
+                    return;
+                }
+                HashSet<c.a.o0.x.b> hashSet = this.f48039i.get(iArr[0]);
+                if (hashSet == null) {
+                    hashSet = new HashSet<>();
+                    int length = iArr.length;
+                    while (i3 < length) {
+                        this.f48039i.put(iArr[i3], hashSet);
+                        i3++;
                     }
                 }
-                B(mVar.n, mVar.f54166c, mVar.k);
-            }
-        }
-        Collections.sort(linkedList, new c(this));
-        if (linkedList.size() > this.m) {
-            if (this.t) {
-                jVar = new j(getContext(), true);
-            } else {
-                jVar = new j(getContext());
-            }
-            int i3 = this.p;
-            if (i3 > 0 && (nVar = jVar.k) != null && (nVar instanceof CommonTabHost)) {
-                ((CommonTabHost) nVar).setBackgroundColorId(i3);
-            }
-            if (!d.a.p0.s.d0.b.j().g("key_write_more_tool_point", false)) {
-                jVar.o = true;
-            } else {
-                jVar.o = false;
-            }
-            d(jVar);
-            jVar.k.setToolId(jVar.f54166c);
-            jVar.k.setEditorTools(this);
-            B(jVar.n, jVar.f54166c, jVar.k);
-            this.f13040f.e(jVar.k);
-            if (this.n) {
-                linkedList.add(this.m, jVar);
-            } else {
-                linkedList.add(0, jVar);
-            }
-        }
-        int i4 = this.m + 1;
-        Iterator it = linkedList.iterator();
-        int i5 = 0;
-        while (it.hasNext()) {
-            m mVar2 = (m) it.next();
-            if (i5 < i4) {
-                this.f13039e.j(i(mVar2, 1));
-            } else {
-                this.f13040f.d(i(mVar2, 2));
-            }
-            i5++;
-        }
-        if (z) {
-            f fVar = new f();
-            d(fVar);
-            h i6 = i(fVar, 1);
-            i6.hide();
-            this.f13039e.i(0, i6);
-        }
-        this.f13039e.l();
-        this.f13040f.f();
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-        this.f13039e.setLayoutParams(layoutParams);
-        this.f13040f.setLayoutParams(layoutParams2);
-        this.f13040f.n();
-        if (this.t) {
-            this.f13039e.setPadding(0, 0, 0, 0);
-        }
-        q();
-        removeAllViews();
-        if (this.f13039e.getBarLauncherType() != 4) {
-            e();
-        }
-        addView(this.f13039e);
-        addView(this.f13040f);
-        invalidate();
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f13039e.p();
-            this.f13040f.i();
-        }
-    }
-
-    public List<m> getAllTools() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f13043i : (List) invokeV.objValue;
-    }
-
-    public List<Integer> getCollectTools() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.A : (List) invokeV.objValue;
-    }
-
-    public long getFid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.w : invokeV.longValue;
-    }
-
-    public String getTid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.v : (String) invokeV.objValue;
-    }
-
-    public void h(List<Integer> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
-            this.A.clear();
-            this.A.addAll(list);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010044, this));
-        }
-    }
-
-    public final h i(m mVar, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, mVar, i2)) == null) {
-            h a2 = g.a(getContext(), mVar, i2);
-            if (a2 instanceof View) {
-                ((View) a2).setContentDescription(mVar.f54165b);
-            }
-            if (a2 instanceof BLauncher) {
-                ((View) a2).setOnClickListener(this.x);
-            }
-            return a2;
-        }
-        return (h) invokeLI.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            k(true);
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            for (m mVar : this.f13043i) {
-                if (mVar != null) {
-                    n nVar = mVar.k;
-                    if ((nVar instanceof View) && ((View) nVar).getVisibility() == 0 && !mVar.m) {
-                        mVar.k.b();
+                hashSet.add(bVar);
+            } else if (i2 > 0) {
+                this.f48038h.put(i2, bVar);
+                if (iArr == null || iArr.length <= 0) {
+                    return;
+                }
+                int length2 = iArr.length;
+                while (i3 < length2) {
+                    int i4 = iArr[i3];
+                    HashSet<Integer> hashSet2 = this.f48040j.get(i4);
+                    if (hashSet2 == null) {
+                        hashSet2 = new HashSet<>();
+                        this.f48040j.put(i4, hashSet2);
                     }
-                }
-            }
-            if (this.q) {
-                this.q = false;
-                q();
-            }
-            if (!u() && z) {
-                d.a.d.e.m.e.a().postDelayed(this.z, 200L);
-            }
-            setVisibility(0);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, Boolean.TRUE));
-        }
-    }
-
-    public void l() {
-        m n;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (n = n(3)) == null) {
-            return;
-        }
-        n nVar = n.k;
-        if (nVar instanceof View) {
-            View view = (View) nVar;
-            view.requestFocus();
-            l.K(getContext(), view);
-        }
-    }
-
-    public h m(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            h q = this.f13039e.q(i2);
-            return q != null ? q : this.f13040f.l(i2);
-        }
-        return (h) invokeI.objValue;
-    }
-
-    public m n(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-            for (m mVar : this.f13043i) {
-                if (mVar.f54166c == i2) {
-                    return mVar;
-                }
-            }
-            return null;
-        }
-        return (m) invokeI.objValue;
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            q();
-            setVisibility(8);
-            p();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010045, Boolean.FALSE));
-        }
-    }
-
-    @Override // android.view.View
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, motionEvent)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void p() {
-        View currentFocus;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            d.a.d.e.m.e.a().removeCallbacks(this.z);
-            boolean z = false;
-            if ((getContext() instanceof Activity) && (currentFocus = ((Activity) getContext()).getCurrentFocus()) != null) {
-                z = true;
-                l.x(getContext(), currentFocus);
-            }
-            if (z) {
-                return;
-            }
-            m n = n(3);
-            if (n != null && (n.k instanceof View)) {
-                l.x(getContext(), (View) n.k);
-            }
-            m n2 = n(28);
-            if (n2 == null || !(n2.k instanceof View)) {
-                return;
-            }
-            l.x(getContext(), (View) n2.k);
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.f13040f.n();
-            this.f13039e.n(null);
-        }
-    }
-
-    public final void r(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, context) == null) {
-            this.u = context;
-            this.f13043i = new LinkedList();
-            this.j = new SparseArray<>();
-            this.k = new SparseArray<>();
-            this.l = new SparseArray<>();
-            this.f13039e = new EditorBar(context, this);
-            this.f13040f = new EditorDesk(context, this);
-            this.r = new LinkedList<>();
-            setOrientation(1);
-        }
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.s : invokeV.booleanValue;
-    }
-
-    public void setActionListener(int i2, d.a.p0.x.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048604, this, i2, bVar) == null) {
-            B(new int[]{i2}, 0, bVar);
-        }
-    }
-
-    public void setBackgroundColorId(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.o = i2;
-            if (i2 != 0) {
-                setBackgroundColor(getContext().getResources().getColor(i2));
-            }
-        }
-    }
-
-    public void setBarBackgroundColorId(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.f13039e.setBackgroundColorId(i2);
-        }
-    }
-
-    public void setBarLauncherEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            this.f13039e.setBarLauncherEnabled(z);
-        }
-    }
-
-    public void setBarLauncherType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.f13039e.setBarLauncherType(i2);
-        }
-    }
-
-    public void setBarMaxLauCount(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            if (i2 < 0) {
-                i2 = 0;
-            }
-            this.m = i2;
-        }
-    }
-
-    public void setDeskBackgroundColorId(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.f13040f.setBackgroundColorId(i2);
-        }
-    }
-
-    public void setDeskLauncherEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
-            this.f13040f.setDeskLauncherEnabled(z);
-        }
-    }
-
-    public void setFid(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048613, this, j) == null) {
-            this.w = j;
-        }
-    }
-
-    public void setFrom(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-        }
-    }
-
-    public void setIsFromPb(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048615, this, z) == null) {
-            this.t = z;
-        }
-    }
-
-    public void setIsIM(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
-            this.s = z;
-        }
-    }
-
-    public void setMoreButtonAtEnd(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
-            this.n = z;
-        }
-    }
-
-    public void setMoreDeskBgColorId(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
-            this.p = i2;
-        }
-    }
-
-    public void setOnCancelClickListener(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048619, this, onClickListener) == null) {
-            this.y = onClickListener;
-            c();
-        }
-    }
-
-    public void setTid(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048620, this, str) == null) {
-            this.v = str;
-        }
-    }
-
-    public void setToolEnabled(boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || this.f13039e.x(z, i2)) {
-            return;
-        }
-        this.f13040f.v(z, i2);
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.t : invokeV.booleanValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.f13040f.s() : invokeV.booleanValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) ? getVisibility() == 0 : invokeV.booleanValue;
-    }
-
-    public void w(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
-            SkinManager.setBackgroundColor(this, this.o, i2);
-            this.f13039e.v(i2);
-            this.f13040f.t(i2);
-            View view = this.f13041g;
-            if (view != null) {
-                d.a.p0.s.u.c d2 = d.a.p0.s.u.c.d(view);
-                d2.n(R.string.J_X02);
-                d2.f(R.color.CAM_X0210);
-            }
-        }
-    }
-
-    public void x(View view) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048626, this, view) == null) && (view instanceof h)) {
-            h hVar = (h) view;
-            int toolId = hVar.getToolId();
-            m n = n(toolId);
-            if (n.a()) {
-                A(new d.a.p0.x.a(31, 0, Integer.valueOf(hVar.getToolId())));
-                this.f13039e.n(n);
-                if (hVar.getToolId() == 2 && !d.a.p0.s.d0.b.j().g("key_write_more_tool_point", false)) {
-                    d.a.p0.s.d0.b.j().t("key_write_more_tool_point", true);
-                    hVar.e();
-                }
-                if (hVar.getToolId() == 1) {
-                    hVar.hide();
-                    j();
-                    A(new d.a.p0.x.a(1, 3, null));
-                } else if (n.k == null) {
-                    int[] iArr = n.n;
-                    if (iArr == null || iArr.length <= 0) {
-                        return;
-                    }
-                    A(new d.a.p0.x.a(iArr[0], -1, null));
-                } else {
-                    A(new d.a.p0.x.a(1, toolId, null));
+                    hashSet2.add(Integer.valueOf(i2));
+                    i3++;
                 }
             }
         }
     }
 
-    public void y() {
+    public void display() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
-            this.f13039e.n(null);
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
-            this.f13039e.w(this.x);
-        }
-    }
-
-    public void setActionListener(int[] iArr, d.a.p0.x.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048605, this, iArr, bVar) == null) {
-            B(iArr, 0, bVar);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            display(true);
         }
     }
 }

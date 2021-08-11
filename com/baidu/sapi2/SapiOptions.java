@@ -26,7 +26,7 @@ import org.aspectj.runtime.reflect.SignatureImpl;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class SapiOptions implements NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_GRAY = 1000000;
@@ -83,7 +83,7 @@ public final class SapiOptions implements NoProguard {
     public Map<String, LoginShareStrategy> specificShareStrategy;
     public String tid;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Cache {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String EXTERNAL_CACHE_DIR = ".BD_SAPI_CACHE";
@@ -92,7 +92,7 @@ public final class SapiOptions implements NoProguard {
         public List<Module> modules;
         public String version;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes5.dex */
         public static class Module {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -265,7 +265,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class CacheGray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -321,7 +321,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Gray implements NoProguard {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FUN_NAME_ADDRESS_NA_MAP = "addrmap";
@@ -345,7 +345,7 @@ public final class SapiOptions implements NoProguard {
         public transient /* synthetic */ FieldHolder $fh;
         public Map<String, GrayModule> grayModuleMap;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes5.dex */
         public static class GrayModule implements NoProguard {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -381,14 +381,14 @@ public final class SapiOptions implements NoProguard {
                     grayModule.minVersion = optJSONObject.has(Gray.KEY_GRAY_MIN_VERSION) ? optJSONObject.optString(Gray.KEY_GRAY_MIN_VERSION) : jSONObject.optString(Gray.KEY_GRAY_MIN_VERSION);
                     grayModule.percent = optJSONObject.has(Gray.KEY_GRAY_PERCENT) ? optJSONObject.optLong(Gray.KEY_GRAY_PERCENT) : jSONObject.optLong(Gray.KEY_GRAY_PERCENT);
                     grayModule.extraParams = optJSONObject.has(Gray.KEY_GRAY_EX) ? optJSONObject.optString(Gray.KEY_GRAY_EX) : jSONObject.optString(Gray.KEY_GRAY_EX);
-                    long j = SapiContext.getInstance().getLong(str, -1L);
-                    if (j == -1) {
+                    long j2 = SapiContext.getInstance().getLong(str, -1L);
+                    if (j2 == -1) {
                         Random random = new Random();
                         random.setSeed(System.currentTimeMillis());
-                        j = random.nextInt(1000000);
-                        SapiContext.getInstance().put(str, j);
+                        j2 = random.nextInt(1000000);
+                        SapiContext.getInstance().put(str, j2);
                     }
-                    grayModule.meetGray = grayModule.percent >= j;
+                    grayModule.meetGray = grayModule.percent >= j2;
                     if (!TextUtils.isEmpty(grayModule.minVersion) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), grayModule.minVersion) < 0) {
                         grayModule.meetGray = false;
                     }
@@ -507,7 +507,7 @@ public final class SapiOptions implements NoProguard {
         }
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class PkgSigns {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_AUTHORIZED_PACKAGES = "authorized_packages";

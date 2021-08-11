@@ -5,6 +5,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import c.a.e.e.p.l;
+import c.a.e.k.e.a;
+import c.a.p0.f1.c.f.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,29 +19,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.d.k.e.a;
-import d.a.q0.e1.c.f.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int m;
     public static int n;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class ConcernTipViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public TextView f16557a;
-
-        /* renamed from: b  reason: collision with root package name */
-        public View f16558b;
-
-        /* renamed from: c  reason: collision with root package name */
-        public int f16559c;
+        public int f51769a;
+        public TextView tip;
+        public View topDivider;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ConcernTipViewHolder(View view) {
@@ -58,25 +54,25 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
                     return;
                 }
             }
-            this.f16559c = 3;
-            this.f16557a = (TextView) view.findViewById(R.id.concern_tip_txt);
-            this.f16558b = view.findViewById(R.id.concern_tip_top_line);
+            this.f51769a = 3;
+            this.tip = (TextView) view.findViewById(R.id.concern_tip_txt);
+            this.topDivider = view.findViewById(R.id.concern_tip_top_line);
         }
 
-        public void b(int i2) {
+        public void onChangeSkinType(int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f16559c == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.f51769a == i2) {
                 return;
             }
-            SkinManager.setBackgroundColor(a(), R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.f16557a, R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f16558b, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(getView(), R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.tip, R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.topDivider, R.color.CAM_X0205);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, b.j);
+        super(context, b.f17030j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -98,9 +94,9 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.d.k.e.a
-    /* renamed from: e0 */
-    public ConcernTipViewHolder Q(ViewGroup viewGroup) {
+    @Override // c.a.e.k.e.a
+    /* renamed from: h0 */
+    public ConcernTipViewHolder U(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
@@ -117,23 +113,23 @@ public class ConcernTipAdapter extends a<b, ConcernTipViewHolder> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.d.k.e.a
-    /* renamed from: f0 */
-    public View X(int i2, View view, ViewGroup viewGroup, b bVar, ConcernTipViewHolder concernTipViewHolder) {
+    @Override // c.a.e.k.e.a
+    /* renamed from: i0 */
+    public View a0(int i2, View view, ViewGroup viewGroup, b bVar, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, concernTipViewHolder})) == null) {
-            concernTipViewHolder.f16557a.setText(bVar.f55748f);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.f16557a.getLayoutParams();
-            if (bVar.f55749g) {
+            concernTipViewHolder.tip.setText(bVar.f17032f);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.tip.getLayoutParams();
+            if (bVar.f17033g) {
                 layoutParams.height = n;
-                concernTipViewHolder.f16558b.setVisibility(0);
-            } else if (bVar.f55750h) {
+                concernTipViewHolder.topDivider.setVisibility(0);
+            } else if (bVar.f17034h) {
                 layoutParams.height = m;
             }
-            concernTipViewHolder.f16557a.setLayoutParams(layoutParams);
-            concernTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType());
-            return concernTipViewHolder.a();
+            concernTipViewHolder.tip.setLayoutParams(layoutParams);
+            concernTipViewHolder.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            return concernTipViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

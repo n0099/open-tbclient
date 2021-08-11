@@ -7,7 +7,6 @@ import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.statistics.g;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +20,7 @@ import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.Enumeration;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class RequsetNetworkUtils extends BaseUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequsetNetworkUtils";
@@ -149,7 +148,7 @@ public class RequsetNetworkUtils extends BaseUtils {
                     case 14:
                     case 15:
                     case 17:
-                        str = g.f4012b;
+                        str = "3G";
                         break;
                     case 13:
                     case 18:

@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.view.userLike;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -11,8 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EntelechyUserLikeButton extends CommonUserLikeButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,27 +37,11 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, d.a.p0.s.f0.t.b
-    public void e(boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            this.f12807g = z;
-            if (z) {
-                setClickable(false);
-                setText(this.f12805e);
-            } else {
-                setClickable(true);
-                setText(this.f12806f);
-            }
-            g(TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void f() {
+    public void init() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.f();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.init();
             setTextSize(0, l.g(getContext(), R.dimen.ds26));
             setCompoundDrawablePadding(l.g(getContext(), R.dimen.ds6));
             setGravity(5);
@@ -66,10 +50,10 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void g(int i2) {
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f12807g) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (this.mCurrentIsLike) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, R.color.CAM_X0109);
                 setBackgroundDrawable(null);
@@ -77,6 +61,22 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
             }
             setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, R.color.btn_forum_focus_color);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.o0.s.f0.t.b
+    public void updateLikeStatus(boolean z, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            this.mCurrentIsLike = z;
+            if (z) {
+                setClickable(false);
+                setText(this.mStrAlreadyFollowed);
+            } else {
+                setClickable(true);
+                setText(this.mStrFollow);
+            }
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 

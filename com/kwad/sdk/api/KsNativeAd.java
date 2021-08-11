@@ -12,12 +12,12 @@ import com.kwad.sdk.api.core.KsAdSdkApi;
 import java.util.List;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface AdInteractionListener {
         boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener);
 
@@ -32,7 +32,7 @@ public interface KsNativeAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface VideoPlayListener {
         @KsAdSdkApi
         @Keep

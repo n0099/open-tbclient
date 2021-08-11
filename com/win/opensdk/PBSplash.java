@@ -29,39 +29,41 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PBSplash implements B {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isdpl;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a */
-    public Context f39635a;
+    public Context f76472a;
 
     /* renamed from: b */
-    public E f39636b;
+    public E f76473b;
 
     /* renamed from: c */
-    public Bitmap f39637c;
+    public Bitmap f76474c;
 
     /* renamed from: d */
-    public CircleProgressbar f39638d;
+    public CircleProgressbar f76475d;
 
     /* renamed from: e */
-    public PBSplashListener f39639e;
+    public PBSplashListener f76476e;
 
     /* renamed from: f */
-    public boolean f39640f;
+    public boolean f76477f;
 
     /* renamed from: g */
-    public int f39641g;
+    public int f76478g;
 
     /* renamed from: h */
-    public int f39642h;
+    public int f76479h;
 
     /* renamed from: i */
-    public boolean f39643i;
-    public boolean j;
+    public boolean f76480i;
+
+    /* renamed from: j */
+    public boolean f76481j;
     public boolean k;
     public File l;
     public byte[] m;
@@ -91,11 +93,11 @@ public class PBSplash implements B {
                 return;
             }
         }
-        this.f39640f = false;
-        this.f39641g = 5000;
-        this.f39642h = 6;
-        this.f39643i = false;
-        this.j = false;
+        this.f76477f = false;
+        this.f76478g = 5000;
+        this.f76479h = 6;
+        this.f76480i = false;
+        this.f76481j = false;
         this.k = false;
         this.o = null;
         this.q = null;
@@ -103,19 +105,19 @@ public class PBSplash implements B {
         this.u = 0.0f;
         this.v = new z(this);
         this.w = new A(this, Looper.getMainLooper());
-        this.f39635a = context;
+        this.f76472a = context;
         try {
             U1.b(context, 0.0f);
             U1.c(context, 0.0f);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        this.f39636b = new E(context, str);
+        this.f76473b = new E(context, str);
     }
 
     /* JADX DEBUG: Method not inlined, still used in: [com.win.opensdk.x.a(android.graphics.Bitmap):void, com.win.opensdk.x.a(com.win.opensdk.l0):void] */
     public static /* synthetic */ boolean d(PBSplash pBSplash, boolean z) {
-        pBSplash.f39643i = z;
+        pBSplash.f76480i = z;
         return z;
     }
 
@@ -123,7 +125,7 @@ public class PBSplash implements B {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             try {
-                File file = new File(N.a(this.f39635a) + File.separator + "win" + File.separator + N.c(str) + ".gif");
+                File file = new File(N.a(this.f76472a) + File.separator + "win" + File.separator + N.c(str) + ".gif");
                 this.p = file;
                 if (file == null || !file.exists()) {
                     if (this.n != null && this.n.getStatus() == AsyncTask.Status.RUNNING) {
@@ -132,7 +134,7 @@ public class PBSplash implements B {
                     v vVar = new v(this, str);
                     this.n = vVar;
                     vVar.execute(str);
-                } else if (this.f39639e == null || this.j || this.f39639e == null) {
+                } else if (this.f76476e == null || this.f76481j || this.f76476e == null) {
                 } else {
                     File file2 = this.p;
                     byte[] bArr = null;
@@ -160,8 +162,8 @@ public class PBSplash implements B {
                     }
                     this.m = bArr;
                     if (bArr != null) {
-                        this.f39639e.onLoaded();
-                        this.f39643i = true;
+                        this.f76476e.onLoaded();
+                        this.f76480i = true;
                     }
                 }
             } catch (Exception e4) {
@@ -174,16 +176,16 @@ public class PBSplash implements B {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             Bitmap.CompressFormat compressFormat = Bitmap.CompressFormat.JPEG;
-            File file = new File(N.a(this.f39635a) + File.separator + "win" + File.separator + N.c(str) + "." + compressFormat.name().toLowerCase());
+            File file = new File(N.a(this.f76472a) + File.separator + "win" + File.separator + N.c(str) + "." + compressFormat.name().toLowerCase());
             this.l = file;
             if (!file.exists()) {
                 new n0(new x(this, compressFormat)).a(str, false);
-            } else if (this.f39639e == null || this.j) {
+            } else if (this.f76476e == null || this.f76481j) {
             } else {
                 File file2 = this.l;
-                this.f39637c = (!file2.exists() || file2.isDirectory()) ? null : BitmapFactory.decodeFile(file2.getAbsolutePath());
-                this.f39639e.onLoaded();
-                this.f39643i = true;
+                this.f76474c = (!file2.exists() || file2.isDirectory()) ? null : BitmapFactory.decodeFile(file2.getAbsolutePath());
+                this.f76476e.onLoaded();
+                this.f76480i = true;
             }
         }
     }
@@ -194,9 +196,9 @@ public class PBSplash implements B {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
                 Info info = null;
-                if (this.f39637c != null) {
-                    this.f39637c.recycle();
-                    this.f39637c = null;
+                if (this.f76474c != null) {
+                    this.f76474c.recycle();
+                    this.f76474c = null;
                     File file2 = this.o;
                     if (file2 != null) {
                         try {
@@ -227,15 +229,15 @@ public class PBSplash implements B {
                     this.n.cancel(false);
                     this.n = null;
                 }
-                if (this.f39636b != null) {
-                    A1 a1 = this.f39636b.f39563a;
+                if (this.f76473b != null) {
+                    A1 a1 = this.f76473b.f76398a;
                     if (a1 != null && a1.b()) {
-                        info = a1.f39541c;
+                        info = a1.f76375c;
                     }
                     if (info != null) {
-                        Z0.a(this.f39635a).a(new a1(info)).a();
+                        Z0.a(this.f76472a).a(new a1(info)).a();
                     }
-                    this.f39636b.a();
+                    this.f76473b.a();
                 }
             } catch (Exception e4) {
                 e4.printStackTrace();
@@ -247,9 +249,9 @@ public class PBSplash implements B {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            E e2 = this.f39636b;
-            if (e2 == null || this.f39637c == null) {
-                E e3 = this.f39636b;
+            E e2 = this.f76473b;
+            if (e2 == null || this.f76474c == null) {
+                E e3 = this.f76473b;
                 if (e3 == null || this.m == null) {
                     return false;
                 }
@@ -261,31 +263,31 @@ public class PBSplash implements B {
     }
 
     public void load() {
-        long j;
+        long j2;
         m1 m1Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (!N.e(this.f39635a)) {
-                PBSplashListener pBSplashListener = this.f39639e;
+            if (!N.e(this.f76472a)) {
+                PBSplashListener pBSplashListener = this.f76476e;
                 if (pBSplashListener != null) {
                     pBSplashListener.onFail(PBError.NO_NETWORK);
                 }
-            } else if (this.f39636b != null) {
-                this.f39643i = false;
-                this.j = false;
+            } else if (this.f76473b != null) {
+                this.f76480i = false;
+                this.f76481j = false;
                 this.k = false;
                 isdpl = false;
                 Handler handler = this.w;
                 Message obtain = Message.obtain();
                 try {
-                    j = U1.q(this.f39635a) >= U1.d(this.f39635a) ? U1.q(this.f39635a) : U1.d(this.f39635a);
+                    j2 = U1.q(this.f76472a) >= U1.d(this.f76472a) ? U1.q(this.f76472a) : U1.d(this.f76472a);
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    j = 2000;
+                    j2 = 2000;
                 }
-                handler.sendMessageDelayed(obtain, j);
-                A1 a1 = this.f39636b.f39563a;
-                if (a1 == null || (m1Var = a1.f39540b) == null) {
+                handler.sendMessageDelayed(obtain, j2);
+                A1 a1 = this.f76473b.f76398a;
+                if (a1 == null || (m1Var = a1.f76374b) == null) {
                     return;
                 }
                 m1Var.b();
@@ -300,40 +302,40 @@ public class PBSplash implements B {
             this.u = f2;
             if (f2 > 0.0f) {
                 try {
-                    float a2 = N.a(this.f39635a, this.u);
-                    float f4 = this.f39635a.getResources().getDisplayMetrics().widthPixels / 2.0f;
+                    float a2 = N.a(this.f76472a, this.u);
+                    float f4 = this.f76472a.getResources().getDisplayMetrics().widthPixels / 2.0f;
                     if (a2 < f4) {
                         a2 = f4;
                     }
-                    U1.c(this.f39635a, a2);
+                    U1.c(this.f76472a, a2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return;
                 }
             }
             if (f3 > 0.0f) {
-                float a3 = N.a(this.f39635a, this.t);
-                float c2 = N.c(this.f39635a) / 2.0f;
+                float a3 = N.a(this.f76472a, this.t);
+                float c2 = N.c(this.f76472a) / 2.0f;
                 if (a3 < c2) {
                     a3 = c2;
                 }
-                U1.b(this.f39635a, a3);
+                U1.b(this.f76472a, a3);
             }
         }
     }
 
-    public void setLoadTimeOut(long j) {
+    public void setLoadTimeOut(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            U1.a(this.f39635a, j);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            U1.a(this.f76472a, j2);
         }
     }
 
     public void setSplashListener(PBSplashListener pBSplashListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, pBSplashListener) == null) {
-            this.f39639e = pBSplashListener;
-            this.f39636b.f39564b = new u(this);
+            this.f76476e = pBSplashListener;
+            this.f76473b.f76399b = new u(this);
         }
     }
 
@@ -341,29 +343,29 @@ public class PBSplash implements B {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, viewGroup) == null) {
             this.r = viewGroup;
-            if (!N.e(this.f39635a)) {
-                PBSplashListener pBSplashListener = this.f39639e;
+            if (!N.e(this.f76472a)) {
+                PBSplashListener pBSplashListener = this.f76476e;
                 if (pBSplashListener != null) {
                     pBSplashListener.onDisplayError(PBError.NO_NETWORK);
                 }
             } else if (!isReady()) {
-                PBSplashListener pBSplashListener2 = this.f39639e;
+                PBSplashListener pBSplashListener2 = this.f76476e;
                 if (pBSplashListener2 != null) {
                     pBSplashListener2.onDisplayError(PBError.NO_LOAD);
                 }
-            } else if (this.f39636b.b().equals("image")) {
+            } else if (this.f76473b.b().equals("image")) {
                 viewGroup.removeAllViews();
-                View inflate = LayoutInflater.from(this.f39635a).inflate(R.layout.win_layout_win_splash, viewGroup);
+                View inflate = LayoutInflater.from(this.f76472a).inflate(R.layout.win_layout_win_splash, viewGroup);
                 ImageView imageView = (ImageView) inflate.findViewById(R.id.win_splash_iv);
                 a(inflate);
                 imageView.setVisibility(0);
                 b(inflate);
-                imageView.setImageBitmap(this.f39637c);
+                imageView.setImageBitmap(this.f76474c);
                 this.o = this.l;
-                this.f39636b.a(viewGroup, null);
+                this.f76473b.a(viewGroup, null);
             } else {
                 viewGroup.removeAllViews();
-                View inflate2 = LayoutInflater.from(this.f39635a).inflate(R.layout.win_layout_win_splash, viewGroup);
+                View inflate2 = LayoutInflater.from(this.f76472a).inflate(R.layout.win_layout_win_splash, viewGroup);
                 a(inflate2);
                 GifImageView gifImageView = (GifImageView) inflate2.findViewById(R.id.win_gifImageView);
                 gifImageView.setVisibility(0);
@@ -374,7 +376,7 @@ public class PBSplash implements B {
                     this.q = this.p;
                 }
                 b(inflate2);
-                this.f39636b.a(viewGroup, null);
+                this.f76473b.a(viewGroup, null);
             }
         }
     }
@@ -400,13 +402,13 @@ public class PBSplash implements B {
                 relativeLayout.addView(this.s);
             }
             View findViewById = view.findViewById(R.id.win_splash_view);
-            float a2 = N.a(this.f39635a, this.t);
-            float c2 = N.c(this.f39635a) / 2.0f;
+            float a2 = N.a(this.f76472a, this.t);
+            float c2 = N.c(this.f76472a) / 2.0f;
             if (a2 < c2) {
                 a2 = c2;
             }
-            float a3 = N.a(this.f39635a, this.u);
-            float f2 = this.f39635a.getResources().getDisplayMetrics().widthPixels / 2.0f;
+            float a3 = N.a(this.f76472a, this.u);
+            float f2 = this.f76472a.getResources().getDisplayMetrics().widthPixels / 2.0f;
             if (a3 < f2) {
                 a3 = f2;
             }
@@ -419,24 +421,24 @@ public class PBSplash implements B {
     public final void b(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            A1 a1 = this.f39636b.f39563a;
-            long countdown = (a1 == null || !a1.b()) ? 0L : a1.f39541c.getCountdown();
+            A1 a1 = this.f76473b.f76398a;
+            long countdown = (a1 == null || !a1.b()) ? 0L : a1.f76375c.getCountdown();
             CircleProgressbar circleProgressbar = (CircleProgressbar) view.findViewById(R.id.win_splash_skip);
-            this.f39638d = circleProgressbar;
+            this.f76475d = circleProgressbar;
             circleProgressbar.setOutLineColor(0);
-            this.f39638d.setInCircleColor(Color.parseColor(this.f39635a.getString(R.string.win_cyclecolor)));
-            this.f39638d.setProgressColor(Color.parseColor(this.f39635a.getString(R.string.win_cyc_process_color)));
-            this.f39638d.setProgressLineWidth(this.f39642h);
-            this.f39638d.setProgressType(m2.f39882b);
-            CircleProgressbar circleProgressbar2 = this.f39638d;
+            this.f76475d.setInCircleColor(Color.parseColor(this.f76472a.getString(R.string.win_cyclecolor)));
+            this.f76475d.setProgressColor(Color.parseColor(this.f76472a.getString(R.string.win_cyc_process_color)));
+            this.f76475d.setProgressLineWidth(this.f76479h);
+            this.f76475d.setProgressType(m2.f76727b);
+            CircleProgressbar circleProgressbar2 = this.f76475d;
             if (countdown <= 0) {
-                countdown = this.f39641g;
+                countdown = this.f76478g;
             }
             circleProgressbar2.setTimeMillis(countdown);
-            this.f39638d.a();
-            this.f39638d.a(1, this.v);
-            this.f39640f = false;
-            this.f39638d.setOnClickListener(new y(this));
+            this.f76475d.a();
+            this.f76475d.a(1, this.v);
+            this.f76477f = false;
+            this.f76475d.setOnClickListener(new y(this));
         }
     }
 }

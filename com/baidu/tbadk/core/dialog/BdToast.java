@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.e.e.p.u;
 import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -21,12 +23,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.d.e.p.u;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BdToast {
     public static /* synthetic */ Interceptable $ic;
     public static SoftReference<Toast> n;
@@ -34,38 +34,40 @@ public class BdToast {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f12292a;
+    public final Context f47221a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Toast f12293b;
+    public Toast f47222b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ViewGroup f12294c;
+    public final ViewGroup f47223c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final ImageView f12295d;
+    public final ImageView f47224d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final TextView f12296e;
+    public final TextView f47225e;
 
     /* renamed from: f  reason: collision with root package name */
-    public CharSequence f12297f;
+    public CharSequence f47226f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f12298g;
+    public int f47227g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f12299h;
+    public boolean f47228h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f12300i;
-    public int j;
+    public int f47229i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f47230j;
     public int k;
     public int l;
     public int m;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class DefaultIcon {
         public static final /* synthetic */ DefaultIcon[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -87,7 +89,7 @@ public class BdToast {
                     return;
                 }
             }
-            SUCCESS = new DefaultIcon(c.f2136g, 0);
+            SUCCESS = new DefaultIcon(c.f35984g, 0);
             FAILURE = new DefaultIcon("FAILURE", 1);
             DefaultIcon defaultIcon = new DefaultIcon("NOT", 2);
             NOT = defaultIcon;
@@ -161,18 +163,18 @@ public class BdToast {
                 return;
             }
         }
-        this.f12298g = -1;
-        this.f12299h = false;
-        this.f12300i = 16;
-        this.j = 0;
+        this.f47227g = -1;
+        this.f47228h = false;
+        this.f47229i = 16;
+        this.f47230j = 0;
         this.k = 0;
         this.l = 0;
         this.m = 0;
-        this.f12292a = context;
+        this.f47221a = context;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.dialog_bdtoast, (ViewGroup) null);
-        this.f12294c = viewGroup;
-        this.f12295d = (ImageView) viewGroup.findViewById(R.id.toast_icon);
-        this.f12296e = (TextView) this.f12294c.findViewById(R.id.toast_message);
+        this.f47223c = viewGroup;
+        this.f47224d = (ImageView) viewGroup.findViewById(R.id.toast_icon);
+        this.f47225e = (TextView) this.f47223c.findViewById(R.id.toast_message);
     }
 
     public static BdToast c(Context context, CharSequence charSequence) {
@@ -273,28 +275,28 @@ public class BdToast {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Toast toast = new Toast(this.f12292a);
-            this.f12293b = toast;
+            Toast toast = new Toast(this.f47221a);
+            this.f47222b = toast;
             u.a(toast);
             s();
-            int i2 = this.f12298g;
+            int i2 = this.f47227g;
             if (i2 != -1) {
-                if (this.f12299h) {
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12295d, this.f12298g, R.color.CAM_X0101, null);
+                if (this.f47228h) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f47224d, this.f47227g, R.color.CAM_X0101, null);
                 } else {
-                    SkinManager.setImageResource(this.f12295d, i2);
+                    SkinManager.setImageResource(this.f47224d, i2);
                 }
-                this.f12295d.setVisibility(0);
+                this.f47224d.setVisibility(0);
             } else {
-                this.f12295d.setVisibility(8);
+                this.f47224d.setVisibility(8);
             }
-            this.f12294c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(this.f12292a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.f12296e, R.color.CAM_X0101, 1);
-            this.f12296e.setText(this.f12297f);
-            this.f12293b.setGravity(this.f12300i, this.k, this.l);
-            this.f12293b.setDuration(this.j);
+            this.f47223c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(l.g(this.f47221a, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            SkinManager.setViewTextColor(this.f47225e, R.color.CAM_X0101, 1);
+            this.f47225e.setText(this.f47226f);
+            this.f47222b.setGravity(this.f47229i, this.k, this.l);
+            this.f47222b.setDuration(this.f47230j);
             r(this.m);
-            this.f12293b.setView(this.f12294c);
+            this.f47222b.setView(this.f47223c);
             return this;
         }
         return (BdToast) invokeV.objValue;
@@ -304,25 +306,25 @@ public class BdToast {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f12293b = new Toast(this.f12292a);
+            this.f47222b = new Toast(this.f47221a);
             s();
-            int i3 = this.f12298g;
+            int i3 = this.f47227g;
             if (i3 != -1) {
-                if (this.f12299h) {
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f12295d, this.f12298g, R.color.CAM_X0101, null);
+                if (this.f47228h) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f47224d, this.f47227g, R.color.CAM_X0101, null);
                 } else {
-                    SkinManager.setImageResource(this.f12295d, i3);
+                    SkinManager.setImageResource(this.f47224d, i3);
                 }
-                this.f12295d.setVisibility(0);
+                this.f47224d.setVisibility(0);
             } else {
-                this.f12295d.setVisibility(8);
+                this.f47224d.setVisibility(8);
             }
-            SkinManager.setViewTextColor(this.f12296e, R.color.CAM_X0101, 1, i2);
-            this.f12296e.setText(this.f12297f);
-            this.f12293b.setGravity(this.f12300i, this.k, this.l);
-            this.f12293b.setDuration(this.j);
+            SkinManager.setViewTextColor(this.f47225e, R.color.CAM_X0101, 1, i2);
+            this.f47225e.setText(this.f47226f);
+            this.f47222b.setGravity(this.f47229i, this.k, this.l);
+            this.f47222b.setDuration(this.f47230j);
             r(this.m);
-            this.f12293b.setView(this.f12294c);
+            this.f47222b.setView(this.f47223c);
             return this;
         }
         return (BdToast) invokeI.objValue;
@@ -332,7 +334,7 @@ public class BdToast {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.j = i2;
+            this.f47230j = i2;
             return this;
         }
         return (BdToast) invokeI.objValue;
@@ -341,7 +343,7 @@ public class BdToast {
     public void k(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.f12296e.setLineSpacing(0.0f, f2);
+            this.f47225e.setLineSpacing(0.0f, f2);
         }
     }
 
@@ -349,7 +351,7 @@ public class BdToast {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.f12300i = i2;
+            this.f47229i = i2;
             return this;
         }
         return (BdToast) invokeI.objValue;
@@ -359,8 +361,8 @@ public class BdToast {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            this.f12298g = i2;
-            this.f12299h = z;
+            this.f47227g = i2;
+            this.f47228h = z;
             return this;
         }
         return (BdToast) invokeCommon.objValue;
@@ -384,8 +386,8 @@ public class BdToast {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence)) == null) {
-            this.f12297f = charSequence;
-            this.f12296e.setText(charSequence);
+            this.f47226f = charSequence;
+            this.f47225e.setText(charSequence);
             return this;
         }
         return (BdToast) invokeL.objValue;
@@ -395,10 +397,10 @@ public class BdToast {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            this.f12296e.setText(this.f12297f);
-            this.f12293b.setGravity(this.f12300i, this.k, this.l);
-            this.f12293b.setDuration(this.j);
-            this.f12293b.show();
+            this.f47225e.setText(this.f47226f);
+            this.f47222b.setGravity(this.f47229i, this.k, this.l);
+            this.f47222b.setDuration(this.f47230j);
+            this.f47222b.show();
             return this;
         }
         return (BdToast) invokeV.objValue;
@@ -409,7 +411,7 @@ public class BdToast {
         if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 <= 0) {
             return;
         }
-        this.f12294c.setPadding(i2, this.f12294c.getTop(), i2, this.f12294c.getBottom());
+        this.f47223c.setPadding(i2, this.f47223c.getTop(), i2, this.f47223c.getBottom());
     }
 
     public final void s() {
@@ -419,7 +421,7 @@ public class BdToast {
             if (softReference != null && softReference.get() != null) {
                 n.get().cancel();
             }
-            n = new SoftReference<>(this.f12293b);
+            n = new SoftReference<>(this.f47222b);
         }
     }
 }

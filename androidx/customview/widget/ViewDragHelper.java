@@ -1,7 +1,6 @@
 package androidx.customview.widget;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -547,7 +546,7 @@ public class ViewDragHelper {
             if (isPointerDown(i2)) {
                 return true;
             }
-            Log.e("ViewDragHelper", "Ignoring pointerId=" + i2 + " because ACTION_DOWN was not received for this pointer before ACTION_MOVE. It likely happened because  ViewDragHelper did not receive all the events in the event stream.");
+            String str = "Ignoring pointerId=" + i2 + " because ACTION_DOWN was not received for this pointer before ACTION_MOVE. It likely happened because  ViewDragHelper did not receive all the events in the event stream.";
             return false;
         }
         return invokeI.booleanValue;

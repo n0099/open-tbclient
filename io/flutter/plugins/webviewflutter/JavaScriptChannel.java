@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.plugin.common.MethodChannel;
 import java.util.HashMap;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JavaScriptChannel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

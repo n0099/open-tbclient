@@ -6,15 +6,15 @@ import android.database.Cursor;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import c.a.n0.a.g1.k.d;
+import c.a.n0.a.j0.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.g1.k.d;
-import d.a.o0.a.j0.b.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwanAppFavoriteProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,12 +1,11 @@
 package com.airbnb.lottie.parser.moshi;
 
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class JsonScope {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLOSED = 8;
@@ -46,7 +45,7 @@ public final class JsonScope {
                     sb.append(iArr2[i3]);
                     sb.append(']');
                 } else if (i4 == 3 || i4 == 4 || i4 == 5) {
-                    sb.append(IStringUtil.EXTENSION_SEPARATOR);
+                    sb.append('.');
                     if (strArr[i3] != null) {
                         sb.append(strArr[i3]);
                     }

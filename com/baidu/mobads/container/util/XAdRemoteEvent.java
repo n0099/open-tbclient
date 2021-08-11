@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XAdRemoteEvent implements IOAdEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AD_CLICK_THRU = "AdClickThru";

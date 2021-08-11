@@ -12,15 +12,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f1735a;
+    public static Map<String, String> f35571a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f1736b;
+    public static final String[] f35572b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public final class e {
                 return;
             }
         }
-        f1736b = new String[]{"AD1", "AD2", "AD3", "AD8", "AD9", "AD10", "AD11", "AD12", "AD14", "AD15", "AD16", "AD18", "AD20", "AD21", "AD23", "AD24", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD34", "AA1", "AA2", "AA3", "AA4", "AC4", "AC10", "AE1", "AE2", "AE3", "AE4", "AE5", "AE6", "AE7", "AE8", "AE9", "AE10", "AE11", "AE12", "AE13", "AE14", "AE15"};
+        f35572b = new String[]{"AD1", "AD2", "AD3", "AD8", "AD9", "AD10", "AD11", "AD12", "AD14", "AD15", "AD16", "AD18", "AD20", "AD21", "AD23", "AD24", "AD26", "AD27", "AD28", "AD29", "AD30", "AD31", "AD34", "AA1", "AA2", "AA3", "AA4", "AC4", "AC10", "AE1", "AE2", "AE3", "AE4", "AE5", "AE6", "AE7", "AE8", "AE9", "AE10", "AE11", "AE12", "AE13", "AE14", "AE15"};
     }
 
     public static String a(Map<String, String> map) {
@@ -74,11 +74,11 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, map)) == null) {
             synchronized (e.class) {
-                if (f1735a == null) {
+                if (f35571a == null) {
                     c(context, map);
                 }
-                f1735a.putAll(d.a());
-                map2 = f1735a;
+                f35571a.putAll(d.a());
+                map2 = f35571a;
             }
             return map2;
         }
@@ -89,7 +89,7 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
             synchronized (e.class) {
-                f1735a = null;
+                f35571a = null;
             }
         }
     }
@@ -103,9 +103,9 @@ public final class e {
             synchronized (e.class) {
                 a(context, map);
                 TreeMap treeMap = new TreeMap();
-                for (String str : f1736b) {
-                    if (f1735a.containsKey(str)) {
-                        treeMap.put(str, f1735a.get(str));
+                for (String str : f35572b) {
+                    if (f35571a.containsKey(str)) {
+                        treeMap.put(str, f35571a.get(str));
                     }
                 }
                 a2 = com.alipay.security.mobile.module.a.a.b.a(a(treeMap));
@@ -120,11 +120,11 @@ public final class e {
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, context, map) == null) {
             synchronized (e.class) {
                 TreeMap treeMap = new TreeMap();
-                f1735a = treeMap;
+                f35571a = treeMap;
                 treeMap.putAll(b.a(context, map));
-                f1735a.putAll(d.a(context));
-                f1735a.putAll(c.a(context));
-                f1735a.putAll(a.a(context, map));
+                f35571a.putAll(d.a(context));
+                f35571a.putAll(c.a(context));
+                f35571a.putAll(a.a(context, map));
             }
         }
     }

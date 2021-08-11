@@ -1,5 +1,7 @@
 package com.baidu.tieba.legoBusiness.homeExtra;
 
+import c.a.p0.o1.m.b;
+import c.a.p0.p1.a.a.a.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,9 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.n1.m.b;
-import d.a.q0.o1.a.a.a.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HomeExtraStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class HomeExtraStatic {
             }
         }
         b.a().b(new a());
-        b.a().b(new d.a.q0.o1.a.a.a.b());
+        b.a().b(new c.a.p0.p1.a.a.a.b());
     }
 
     public HomeExtraStatic() {

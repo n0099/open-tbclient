@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public PayBaseBeanActivity f26393a;
+    public PayBaseBeanActivity f62293a;
 
     public f(PayBaseBeanActivity payBaseBeanActivity) {
         Interceptable interceptable = $ic;
@@ -30,22 +30,22 @@ public class f {
                 return;
             }
         }
-        this.f26393a = payBaseBeanActivity;
+        this.f62293a = payBaseBeanActivity;
     }
 
     public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) || this.f26393a == null || bindFastRequest == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) || this.f62293a == null || bindFastRequest == null) {
             return;
         }
         PayRequestCache.BindCategory category = BindFastRequest.getCategory(bindFastRequest.getmBindFrom());
         if (PayRequestCache.BindCategory.Initiative != category && PayRequestCache.BindCategory.Pwd != category) {
             if (PayRequestCache.BindCategory.Other == category) {
-                this.f26393a.setFlagPaySdk();
+                this.f62293a.setFlagPaySdk();
                 return;
             }
             return;
         }
-        this.f26393a.setFlagActiveBindCard();
+        this.f62293a.setFlagActiveBindCard();
     }
 }

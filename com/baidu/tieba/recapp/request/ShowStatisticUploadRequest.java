@@ -1,6 +1,8 @@
 package com.baidu.tieba.recapp.request;
 
 import android.os.Build;
+import c.a.o0.t.c.d;
+import c.a.p0.i3.j0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
@@ -19,19 +21,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.t.c.d;
-import d.a.q0.h3.j0.a;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ShowStatisticUploadRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public static final TbHttpMessageTask task;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class ResponseMessage extends HttpResponsedMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,8 +125,8 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("tid", cVar.f58624a);
-                            jSONObject.put("locate", cVar.f58626c);
+                            jSONObject.put("tid", cVar.f20018a);
+                            jSONObject.put("locate", cVar.f20020c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);
@@ -150,9 +150,9 @@ public class ShowStatisticUploadRequest extends HttpMessage {
                     if (cVar != null) {
                         JSONObject jSONObject = new JSONObject();
                         try {
-                            jSONObject.put("pid", cVar.f58625b);
+                            jSONObject.put("pid", cVar.f20019b);
                             jSONObject.put("tid", str4);
-                            jSONObject.put("locate", cVar.f58626c);
+                            jSONObject.put("locate", cVar.f20020c);
                             jSONArray.put(jSONObject);
                         } catch (JSONException e2) {
                             BdLog.e(e2);

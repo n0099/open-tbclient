@@ -15,8 +15,9 @@ import com.kwad.sdk.crash.utils.i;
 import com.kwad.sdk.crash.utils.j;
 import com.kwad.sdk.utils.q;
 import java.io.Serializable;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class ExceptionMessage implements b, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5338556142957298914L;
@@ -217,101 +218,101 @@ public abstract class ExceptionMessage implements b, Serializable {
                 sb.append("异常状态汇总:\n");
                 sb.append("UUID: ");
                 sb.append(this.mLogUUID);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("CPU架构: ");
                 sb.append(this.mAbi);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("异常进程: ");
                 sb.append(this.mProcessName);
                 sb.append(" (");
                 sb.append(this.mPid);
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("异常线程: ");
                 sb.append(this.mThreadName);
                 sb.append(" (");
                 sb.append(this.mTid);
                 sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("异常类型: ");
                 sb.append(this.mCrashType);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("应用多开环境: ");
                 sb.append(this.mVirtualApp);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("TaskId: ");
                 sb.append(this.mTaskId);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("mTid: ");
                 sb.append(this.mTid);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("自定义信息: ");
                 sb.append(this.mCustomMsg);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("前后台状态: ");
                 sb.append(this.mIsAppOnForeground);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("异常发生时间: ");
                 sb.append(i.a(this.mCurrentTimeStamp));
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("版本号: ");
                 sb.append(this.mVersionCode);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("升级前版本号: ");
                 sb.append(this.mAppVersionBeforeLastUpload);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("使用时长: ");
                 sb.append(j.a(this.mUsageTimeMills));
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 sb.append("异常详情: \n");
-                sb.append(this instanceof JavaExceptionMessage ? this.mCrashDetail.replace(SevenZipUtils.FILE_SEP, "\n\t").replace("#", "\n") : this.mCrashDetail);
-                sb.append("\n");
+                sb.append(this instanceof JavaExceptionMessage ? this.mCrashDetail.replace(SevenZipUtils.FILE_SEP, "\n\t").replace("#", StringUtils.LF) : this.mCrashDetail);
+                sb.append(StringUtils.LF);
                 sb.append("磁盘详情: \n");
                 sb.append(this.mDiskInfo);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
                 if (!TextUtils.isEmpty(this.mErrorMessage)) {
                     sb.append("异常上报Debug: \n");
                     sb.append(this.mErrorMessage);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
                 if (!TextUtils.isEmpty(this.mBuildConfigInfo)) {
                     sb.append("BuildConfig信息: \n");
                     sb.append(this.mBuildConfigInfo);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
                 if (!TextUtils.isEmpty(this.mJNIError)) {
                     sb.append("JNI异常: \n");
                     sb.append(this.mJNIError);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
                 if (!TextUtils.isEmpty(this.mGCInfo)) {
                     sb.append("GC耗时: \n");
                     sb.append(this.mGCInfo);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
                 if (!TextUtils.isEmpty(this.mLockInfo)) {
                     sb.append("锁耗时(dvm_lock_sample): \n");
                     sb.append(this.mLockInfo);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
                 if (!TextUtils.isEmpty(this.mMonitorInfo)) {
                     sb.append("锁耗时(monitor): \n");
                     sb.append(this.mMonitorInfo);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
                 if (!TextUtils.isEmpty(this.mSlowLooper)) {
                     sb.append("Looper耗时: \n");
                     sb.append(this.mSlowLooper);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
                 if (!TextUtils.isEmpty(this.mSlowOperation)) {
                     sb.append("AMS调度耗时: \n");
                     sb.append(this.mSlowOperation);
-                    sb.append("\n");
+                    sb.append(StringUtils.LF);
                 }
                 sb.append("内存详情: \n");
                 sb.append(this.mMemoryInfo);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }

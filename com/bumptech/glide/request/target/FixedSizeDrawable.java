@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FixedSizeDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class FixedSizeDrawable extends Drawable {
     public Drawable wrapped;
     public final RectF wrappedRect;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class State extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -257,11 +257,11 @@ public class FixedSizeDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void scheduleSelf(@NonNull Runnable runnable, long j) {
+    public void scheduleSelf(@NonNull Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048591, this, runnable, j) == null) {
-            super.scheduleSelf(runnable, j);
-            this.wrapped.scheduleSelf(runnable, j);
+        if (interceptable == null || interceptable.invokeLJ(1048591, this, runnable, j2) == null) {
+            super.scheduleSelf(runnable, j2);
+            this.wrapped.scheduleSelf(runnable, j2);
         }
     }
 

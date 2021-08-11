@@ -22,13 +22,13 @@ import com.bytedance.sdk.component.image.ImageResponse;
 import com.bytedance.sdk.component.image.ResultType;
 import com.bytedance.sdk.openadsdk.core.video.nativevideo.NativeVideoTsView;
 import com.bytedance.sdk.openadsdk.img.ImageLoaderWrapper;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ExpressVideoView extends NativeVideoTsView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f30489a;
+    public int f66409a;
     public boolean p;
     public boolean q;
 
@@ -63,9 +63,9 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            com.bytedance.sdk.openadsdk.q.s.a((View) this.f30836f, 0);
-            com.bytedance.sdk.openadsdk.q.s.a((View) this.f30837g, 0);
-            com.bytedance.sdk.openadsdk.q.s.a((View) this.f30839i, 8);
+            com.bytedance.sdk.openadsdk.q.s.a((View) this.f66762f, 0);
+            com.bytedance.sdk.openadsdk.q.s.a((View) this.f66763g, 0);
+            com.bytedance.sdk.openadsdk.q.s.a((View) this.f66765i, 8);
         }
     }
 
@@ -73,12 +73,12 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             h();
-            RelativeLayout relativeLayout = this.f30836f;
+            RelativeLayout relativeLayout = this.f66762f;
             if (relativeLayout != null) {
                 if (relativeLayout.getVisibility() == 0) {
                     return;
                 }
-                ImageLoaderWrapper.from(this.f30832b.V().h()).to(this.f30837g);
+                ImageLoaderWrapper.from(this.f66758b.V().h()).to(this.f66763g);
             }
             k();
         }
@@ -108,8 +108,8 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f30835e = false;
-            int d2 = com.bytedance.sdk.openadsdk.q.q.d(this.f30832b.ao());
+            this.f66761e = false;
+            int d2 = com.bytedance.sdk.openadsdk.q.q.d(this.f66758b.ao());
             if ("banner_ad".equalsIgnoreCase(this.k)) {
                 com.bytedance.sdk.openadsdk.core.o.h().r(String.valueOf(d2));
             }
@@ -121,14 +121,14 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     public void c() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.p) {
-            super.b(this.f30489a);
+            super.b(this.f66409a);
         }
     }
 
     public void d_() {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (imageView = this.f30839i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (imageView = this.f66765i) == null) {
             return;
         }
         com.bytedance.sdk.openadsdk.q.s.a((View) imageView, 8);
@@ -138,7 +138,7 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             h();
-            com.bytedance.sdk.openadsdk.q.s.a((View) this.f30836f, 0);
+            com.bytedance.sdk.openadsdk.q.s.a((View) this.f66762f, 0);
         }
     }
 
@@ -146,8 +146,8 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar = this.f30833c;
-            return (cVar == null || cVar.v() == null || !this.f30833c.v().g()) ? false : true;
+            com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar = this.f66759c;
+            return (cVar == null || cVar.v() == null || !this.f66759c.v().g()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -156,11 +156,11 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            ImageView imageView = this.f30838h;
+            ImageView imageView = this.f66764h;
             if (imageView != null && imageView.getVisibility() == 0) {
-                com.bytedance.sdk.openadsdk.q.s.e(this.f30836f);
+                com.bytedance.sdk.openadsdk.q.s.e(this.f66762f);
             }
-            b(this.f30489a);
+            b(this.f66409a);
         }
     }
 
@@ -168,7 +168,7 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     public void onWindowFocusChanged(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            ImageView imageView = this.f30838h;
+            ImageView imageView = this.f66764h;
             if (imageView != null && imageView.getVisibility() == 0) {
                 l();
             } else {
@@ -181,7 +181,7 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     public void onWindowVisibilityChanged(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            ImageView imageView = this.f30838h;
+            ImageView imageView = this.f66764h;
             if (imageView != null && imageView.getVisibility() == 0) {
                 l();
             } else {
@@ -200,7 +200,7 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     public void setShouldCheckNetChange(boolean z) {
         com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (cVar = this.f30833c) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048588, this, z) == null) || (cVar = this.f66759c) == null) {
             return;
         }
         cVar.e(z);
@@ -210,7 +210,7 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
         com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar;
         com.bytedance.sdk.openadsdk.core.video.nativevideo.i w;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (cVar = this.f30833c) == null || (w = cVar.w()) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048589, this, z) == null) || (cVar = this.f66759c) == null || (w = cVar.w()) == null) {
             return;
         }
         w.d(z);
@@ -219,7 +219,7 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
     public void setVideoPlayStatus(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f30489a = i2;
+            this.f66409a = i2;
         }
     }
 
@@ -227,24 +227,24 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
         com.bytedance.sdk.openadsdk.core.video.nativevideo.c cVar;
         com.bytedance.sdk.openadsdk.core.video.nativevideo.i w;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2) == null) || (cVar = this.f30833c) == null || (w = cVar.w()) == null || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2) == null) || (cVar = this.f66759c) == null || (w = cVar.w()) == null || Build.VERSION.SDK_INT < 17) {
             return;
         }
-        ImageLoaderWrapper.from(this.f30832b.V().h()).type(ResultType.BITMAP).to(new ILoaderListener<Bitmap>(this, context, i2, w) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.ExpressVideoView.1
+        ImageLoaderWrapper.from(this.f66758b.V().h()).type(ResultType.BITMAP).to(new ILoaderListener<Bitmap>(this, context, i2, w) { // from class: com.bytedance.sdk.openadsdk.core.nativeexpress.ExpressVideoView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ Context f30490a;
+            public final /* synthetic */ Context f66410a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f30491b;
+            public final /* synthetic */ int f66411b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ com.bytedance.sdk.openadsdk.core.video.nativevideo.i f30492c;
+            public final /* synthetic */ com.bytedance.sdk.openadsdk.core.video.nativevideo.i f66412c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ ExpressVideoView f30493d;
+            public final /* synthetic */ ExpressVideoView f66413d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -261,10 +261,10 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
                         return;
                     }
                 }
-                this.f30493d = this;
-                this.f30490a = context;
-                this.f30491b = i2;
-                this.f30492c = w;
+                this.f66413d = this;
+                this.f66410a = context;
+                this.f66411b = i2;
+                this.f66412c = w;
             }
 
             @Override // com.bytedance.sdk.component.image.ILoaderListener
@@ -278,11 +278,11 @@ public class ExpressVideoView extends NativeVideoTsView implements View.OnClickL
             public void onSuccess(ImageResponse<Bitmap> imageResponse) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageResponse) == null) {
-                    Bitmap a2 = com.bytedance.sdk.openadsdk.q.b.a(this.f30490a, imageResponse.getResult(), this.f30491b);
+                    Bitmap a2 = com.bytedance.sdk.openadsdk.q.b.a(this.f66410a, imageResponse.getResult(), this.f66411b);
                     if (a2 == null) {
                         return;
                     }
-                    this.f30492c.a(new BitmapDrawable(this.f30493d.getResources(), a2));
+                    this.f66412c.a(new BitmapDrawable(this.f66413d.getResources(), a2));
                 }
             }
         });

@@ -18,7 +18,7 @@ import org.apache.commons.codec.EncoderException;
 import org.apache.commons.codec.StringDecoder;
 import org.apache.commons.codec.StringEncoder;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class URLCodec implements BinaryEncoder, BinaryDecoder, StringEncoder, StringDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static byte ESCAPE_CHAR;

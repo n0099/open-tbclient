@@ -11,7 +11,7 @@ import com.airbnb.lottie.model.content.GradientType;
 import com.airbnb.lottie.model.content.ShapeStroke;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
-import com.baidu.mobstat.Config;
+import com.baidu.fsg.base.statistics.h;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GradientStrokeParser {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonReader.Options DASH_PATTERN_NAMES;
@@ -43,8 +43,8 @@ public class GradientStrokeParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", Config.OS, "t", "s", "e", "w", "lc", "lj", "ml", "hd", "d");
-        GRADIENT_NAMES = JsonReader.Options.of("p", Config.APP_KEY);
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "w", h.f39306g, "lj", "ml", "hd", "d");
+        GRADIENT_NAMES = JsonReader.Options.of("p", "k");
         DASH_PATTERN_NAMES = JsonReader.Options.of("n", "v");
     }
 
@@ -156,7 +156,7 @@ public class GradientStrokeParser {
                             }
                             AnimatableFloatValue animatableFloatValue5 = animatableFloatValue2;
                             jsonReader.endObject();
-                            if (str2.equals(Config.OS)) {
+                            if (str2.equals("o")) {
                                 animatableFloatValue2 = animatableFloatValue3;
                             } else {
                                 if (str2.equals("d") || str2.equals("g")) {

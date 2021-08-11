@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -51,7 +50,7 @@ import java.util.Set;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LogSystemProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int KEEP_ALIVE_TIME = 60000;
@@ -64,7 +63,7 @@ public class LogSystemProcessor {
     public List<BaseUploaderStrategy> mUploaderStrategies;
 
     /* renamed from: com.baidu.searchbox.logsystem.basic.LogSystemProcessor$4  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType;
         public static /* synthetic */ Interceptable $ic;
@@ -126,13 +125,13 @@ public class LogSystemProcessor {
             if (logObject.getLogBasicDataFile() != null) {
                 logObject.getLogBasicDataFile().delete();
                 if (LLog.sDebug) {
-                    Log.d(TAG, "logBasicDataFile = " + logObject.getLogBasicDataFile());
+                    String str = "logBasicDataFile = " + logObject.getLogBasicDataFile();
                 }
             }
             if (logObject.getLogExtraPathNameKeeper() != null) {
                 logObject.getLogExtraPathNameKeeper().delete();
                 if (LLog.sDebug) {
-                    Log.d(TAG, "pathNameKeeper = " + logObject.getLogExtraPathNameKeeper());
+                    String str2 = "pathNameKeeper = " + logObject.getLogExtraPathNameKeeper();
                 }
             }
             if (arrayList != null && arrayList.size() > 0) {
@@ -142,7 +141,7 @@ public class LogSystemProcessor {
                     if (next != null && next.mCanDelete) {
                         next.mFile.delete();
                         if (LLog.sDebug) {
-                            Log.d(TAG, "processLogFile = " + next.mFile.getAbsolutePath());
+                            String str3 = "processLogFile = " + next.mFile.getAbsolutePath();
                         }
                     }
                 }
@@ -152,7 +151,7 @@ public class LogSystemProcessor {
                     if (logFile != null && logFile.mCanDelete) {
                         logFile.mFile.delete();
                         if (LLog.sDebug) {
-                            Log.d(TAG, "deviceLogFile = " + logFile.mFile.getAbsolutePath());
+                            String str4 = "deviceLogFile = " + logFile.mFile.getAbsolutePath();
                         }
                     }
                 }
@@ -205,7 +204,7 @@ public class LogSystemProcessor {
             for (File file2 : listFiles) {
                 LogFile logFile = new LogFile(file2, true, true);
                 if (LLog.sDebug) {
-                    Log.d(TAG, logFile.mFile.getAbsolutePath() + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mCanDelete + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mNecessary);
+                    String str = logFile.mFile.getAbsolutePath() + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mCanDelete + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mNecessary;
                 }
                 linkedList.add(logFile);
             }
@@ -218,6 +217,7 @@ public class LogSystemProcessor {
     @Nullable
     public ArrayList<LogFile> obtainProcessLogFiles(@NonNull File file) {
         InterceptResult invokeL;
+        LogFile logFile;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65549, this, file)) != null) {
             return (ArrayList) invokeL.objValue;
@@ -237,16 +237,15 @@ public class LogSystemProcessor {
                             break;
                         } else if (!TextUtils.isEmpty(readLine)) {
                             if (LLog.sDebug) {
-                                Log.d(TAG, "pathNameKeep line = " + readLine);
+                                String str = "pathNameKeep line = " + readLine;
                             }
                             String[] split = readLine.split("=");
                             if (split != null && split.length == 3 && split[0] != null && split[1] != null && split[2] != null) {
                                 File file2 = new File(split[0].trim());
                                 if (file2.exists() && file2.isFile()) {
-                                    LogFile logFile = new LogFile(file2, Boolean.valueOf(split[1].trim()).booleanValue(), Boolean.valueOf(split[2].trim()).booleanValue());
-                                    arrayList.add(logFile);
+                                    arrayList.add(new LogFile(file2, Boolean.valueOf(split[1].trim()).booleanValue(), Boolean.valueOf(split[2].trim()).booleanValue()));
                                     if (LLog.sDebug) {
-                                        Log.d(TAG, "LogFile = " + logFile.toString());
+                                        String str2 = "LogFile = " + logFile.toString();
                                     }
                                 }
                             }
@@ -411,7 +410,7 @@ public class LogSystemProcessor {
                                         StringBuilder sb = new StringBuilder();
                                         sb.append("processFiles.size = ");
                                         sb.append(obtainProcessLogFiles != null ? Integer.valueOf(obtainProcessLogFiles.size()) : StringUtil.NULL_STRING);
-                                        Log.d(LogSystemProcessor.TAG, sb.toString());
+                                        sb.toString();
                                     }
                                     LogSystemProcessor logSystemProcessor = this.this$0;
                                     LogObject logObject2 = this.val$logObject;
@@ -420,7 +419,7 @@ public class LogSystemProcessor {
                                         StringBuilder sb2 = new StringBuilder();
                                         sb2.append("devicesLogFiles.size = ");
                                         sb2.append(generateDeviceUploadFile != null ? Integer.valueOf(generateDeviceUploadFile.size()) : StringUtil.NULL_STRING);
-                                        Log.d(LogSystemProcessor.TAG, sb2.toString());
+                                        sb2.toString();
                                     }
                                     if (this.val$logObject.mLogType == LogType.NATIVE_CRASH) {
                                         File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir(this.val$logObject.getCrashTAG());
@@ -437,12 +436,12 @@ public class LogSystemProcessor {
                                             obj2 = Integer.valueOf(list.size());
                                         }
                                         sb3.append(obj2);
-                                        Log.d(LogSystemProcessor.TAG, sb3.toString());
+                                        sb3.toString();
                                     }
                                     for (int i4 = 0; i4 < this.this$0.mUploaderStrategies.size(); i4++) {
                                         BaseUploaderStrategy baseUploaderStrategy = (BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i4);
                                         if (LLog.sDebug) {
-                                            Log.d(LogSystemProcessor.TAG, "uploaderStrategy = " + baseUploaderStrategy.getClass().getName());
+                                            String str = "uploaderStrategy = " + baseUploaderStrategy.getClass().getName();
                                         }
                                         try {
                                             baseUploaderStrategy.upload(applicationContext, this.val$logObject, obtainProcessLogFiles, generateDeviceUploadFile, list);

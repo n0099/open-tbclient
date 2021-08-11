@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class BitmapUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IMAGEBOUND = 128;
@@ -400,9 +400,9 @@ public final class BitmapUtils {
                         i9 = 16;
                     }
                     float f2 = (i9 - 16) * 1.164f;
-                    float f3 = i12 + a.f1922g;
+                    float f3 = i12 + a.f35772g;
                     int round = Math.round((1.596f * f3) + f2);
-                    float f4 = i11 + a.f1922g;
+                    float f4 = i11 + a.f35772g;
                     int round2 = Math.round((f2 - (f3 * 0.813f)) - (0.391f * f4));
                     int round3 = Math.round(f2 + (f4 * 2.018f));
                     if (round < 0) {

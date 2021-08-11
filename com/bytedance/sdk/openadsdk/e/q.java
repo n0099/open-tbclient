@@ -12,37 +12,37 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f31506a;
+    public String f67449a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.e.m f31507b;
+    public com.bytedance.sdk.openadsdk.core.e.m f67450b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Boolean f31508c;
+    public Boolean f67451c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Boolean f31509d;
+    public Boolean f67452d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Boolean f31510e;
+    public Boolean f67453e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONObject f31511f;
+    public JSONObject f67454f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONArray f31512g;
+    public JSONArray f67455g;
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f31513h;
+    public JSONArray f67456h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f31514i;
+    public boolean f67457i;
 
     public q(int i2, String str, com.bytedance.sdk.openadsdk.core.e.m mVar) {
         Interceptable interceptable = $ic;
@@ -59,25 +59,25 @@ public class q {
                 return;
             }
         }
-        this.f31506a = "embeded_ad";
+        this.f67449a = "embeded_ad";
         Boolean bool = Boolean.FALSE;
-        this.f31508c = bool;
-        this.f31509d = bool;
-        this.f31510e = bool;
-        this.f31514i = false;
-        this.f31506a = str;
-        this.f31507b = mVar;
-        this.f31511f = new JSONObject();
-        this.f31512g = new JSONArray();
-        this.f31513h = new JSONArray();
-        a(this.f31511f, "webview_source", Integer.valueOf(i2));
+        this.f67451c = bool;
+        this.f67452d = bool;
+        this.f67453e = bool;
+        this.f67457i = false;
+        this.f67449a = str;
+        this.f67450b = mVar;
+        this.f67454f = new JSONObject();
+        this.f67455g = new JSONArray();
+        this.f67456h = new JSONArray();
+        a(this.f67454f, "webview_source", Integer.valueOf(i2));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) ? this.f31510e.booleanValue() || (this.f31509d.booleanValue() && this.f31508c.booleanValue()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) ? this.f67453e.booleanValue() || (this.f67452d.booleanValue() && this.f67451c.booleanValue()) : invokeV.booleanValue;
     }
 
     public void h() {
@@ -88,7 +88,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31537a;
+                public final /* synthetic */ q f67480a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -105,7 +105,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31537a = this;
+                    this.f67480a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -114,9 +114,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31537a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31537a;
-                        qVar.a(qVar.f31511f, "native_render_end", jSONObject);
+                        this.f67480a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67480a;
+                        qVar.a(qVar.f67454f, "native_render_end", jSONObject);
                     }
                 }
             });
@@ -131,7 +131,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31548a;
+                public final /* synthetic */ q f67491a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -148,7 +148,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31548a = this;
+                    this.f67491a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -157,14 +157,14 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31548a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31548a;
-                        qVar.a(qVar.f31511f, "native_render_end", jSONObject);
+                        this.f67491a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67491a;
+                        qVar.a(qVar.f67454f, "native_render_end", jSONObject);
                         long currentTimeMillis2 = System.currentTimeMillis();
                         JSONObject jSONObject2 = new JSONObject();
-                        this.f31548a.a(jSONObject2, "ts", Long.valueOf(currentTimeMillis2));
-                        q qVar2 = this.f31548a;
-                        qVar2.a(qVar2.f31511f, "render_success", jSONObject2);
+                        this.f67491a.a(jSONObject2, "ts", Long.valueOf(currentTimeMillis2));
+                        q qVar2 = this.f67491a;
+                        qVar2.a(qVar2.f67454f, "render_success", jSONObject2);
                     }
                 }
             });
@@ -179,7 +179,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31549a;
+                public final /* synthetic */ q f67492a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -196,7 +196,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31549a = this;
+                    this.f67492a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -205,9 +205,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31549a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31549a;
-                        qVar.a(qVar.f31511f, "webview_load_start", (Object) jSONObject, false);
+                        this.f67492a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67492a;
+                        qVar.a(qVar.f67454f, "webview_load_start", (Object) jSONObject, false);
                     }
                 }
             });
@@ -222,7 +222,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31550a;
+                public final /* synthetic */ q f67493a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -239,7 +239,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31550a = this;
+                    this.f67493a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -248,9 +248,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31550a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31550a;
-                        qVar.a(qVar.f31511f, "webview_load_success", jSONObject);
+                        this.f67493a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67493a;
+                        qVar.a(qVar.f67454f, "webview_load_success", jSONObject);
                     }
                 }
             });
@@ -272,7 +272,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31553a;
+                public final /* synthetic */ q f67496a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -289,7 +289,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31553a = this;
+                    this.f67496a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -298,9 +298,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31553a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31553a;
-                        qVar.a(qVar.f31511f, "native_endcard_show", jSONObject);
+                        this.f67496a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67496a;
+                        qVar.a(qVar.f67454f, "native_endcard_show", jSONObject);
                     }
                 }
             });
@@ -315,7 +315,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31554a;
+                public final /* synthetic */ q f67497a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -332,7 +332,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31554a = this;
+                    this.f67497a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -341,9 +341,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31554a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31554a;
-                        qVar.a(qVar.f31511f, "native_endcard_close", jSONObject);
+                        this.f67497a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67497a;
+                        qVar.a(qVar.f67454f, "native_endcard_close", jSONObject);
                     }
                 }
             });
@@ -358,7 +358,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31555a;
+                public final /* synthetic */ q f67498a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -375,7 +375,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31555a = this;
+                    this.f67498a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -384,10 +384,10 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31555a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        this.f31555a.a(jSONObject, "type", "native_enterBackground");
-                        q qVar = this.f31555a;
-                        qVar.a(qVar.f31512g, jSONObject);
+                        this.f67498a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        this.f67498a.a(jSONObject, "type", "native_enterBackground");
+                        q qVar = this.f67498a;
+                        qVar.a(qVar.f67455g, jSONObject);
                     }
                 }
             });
@@ -402,7 +402,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31516a;
+                public final /* synthetic */ q f67459a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -419,7 +419,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31516a = this;
+                    this.f67459a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -428,10 +428,10 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31516a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        this.f31516a.a(jSONObject, "type", "native_enterForeground");
-                        q qVar = this.f31516a;
-                        qVar.a(qVar.f31512g, jSONObject);
+                        this.f67459a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        this.f67459a.a(jSONObject, "type", "native_enterForeground");
+                        q qVar = this.f67459a;
+                        qVar.a(qVar.f67455g, jSONObject);
                     }
                 }
             });
@@ -446,7 +446,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31532a;
+                public final /* synthetic */ q f67475a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -463,7 +463,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31532a = this;
+                    this.f67475a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -472,9 +472,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31532a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31532a;
-                        qVar.a(qVar.f31511f, "no_native_render", jSONObject);
+                        this.f67475a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67475a;
+                        qVar.a(qVar.f67454f, "no_native_render", jSONObject);
                     }
                 }
             });
@@ -489,7 +489,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31533a;
+                public final /* synthetic */ q f67476a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -506,7 +506,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31533a = this;
+                    this.f67476a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -515,9 +515,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31533a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31533a;
-                        qVar.a(qVar.f31511f, "render_failed", jSONObject);
+                        this.f67476a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67476a;
+                        qVar.a(qVar.f67454f, "render_failed", jSONObject);
                     }
                 }
             });
@@ -527,7 +527,7 @@ public class q {
     public void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            this.f31508c = Boolean.TRUE;
+            this.f67451c = Boolean.TRUE;
         }
     }
 
@@ -539,7 +539,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31536a;
+                public final /* synthetic */ q f67479a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -556,32 +556,32 @@ public class q {
                             return;
                         }
                     }
-                    this.f31536a = this;
+                    this.f67479a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f31536a.u() && !this.f31536a.f31514i) {
-                        if (this.f31536a.f31512g != null && this.f31536a.f31512g.length() != 0) {
+                    if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && this.f67479a.u() && !this.f67479a.f67457i) {
+                        if (this.f67479a.f67455g != null && this.f67479a.f67455g.length() != 0) {
                             try {
-                                this.f31536a.f31511f.put("native_switchBackgroundAndForeground", this.f31536a.f31512g);
+                                this.f67479a.f67454f.put("native_switchBackgroundAndForeground", this.f67479a.f67455g);
                             } catch (Exception unused) {
                             }
                         }
-                        if (this.f31536a.f31513h != null && this.f31536a.f31513h.length() != 0) {
+                        if (this.f67479a.f67456h != null && this.f67479a.f67456h.length() != 0) {
                             try {
-                                this.f31536a.f31511f.put("intercept_source", this.f31536a.f31513h);
+                                this.f67479a.f67454f.put("intercept_source", this.f67479a.f67456h);
                             } catch (Exception unused2) {
                             }
                         }
                         HashMap hashMap = new HashMap();
-                        hashMap.put("webview_time_track", this.f31536a.f31511f);
-                        if (com.bytedance.sdk.openadsdk.core.h.d().x() && this.f31536a.f31511f != null) {
-                            com.bytedance.sdk.component.utils.k.b("WebviewTimeTrack", this.f31536a.f31511f.toString());
+                        hashMap.put("webview_time_track", this.f67479a.f67454f);
+                        if (com.bytedance.sdk.openadsdk.core.h.d().x() && this.f67479a.f67454f != null) {
+                            com.bytedance.sdk.component.utils.k.b("WebviewTimeTrack", this.f67479a.f67454f.toString());
                         }
-                        d.g(com.bytedance.sdk.openadsdk.core.o.a(), this.f31536a.f31507b, this.f31536a.f31506a, "webview_time_track", hashMap);
-                        this.f31536a.f31514i = true;
+                        d.g(com.bytedance.sdk.openadsdk.core.o.a(), this.f67479a.f67450b, this.f67479a.f67449a, "webview_time_track", hashMap);
+                        this.f67479a.f67457i = true;
                     }
                 }
             });
@@ -596,7 +596,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31522a;
+                public final /* synthetic */ q f67465a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -613,7 +613,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31522a = this;
+                    this.f67465a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -622,9 +622,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31522a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31522a;
-                        qVar.a(qVar.f31511f, "render_success", jSONObject);
+                        this.f67465a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67465a;
+                        qVar.a(qVar.f67454f, "render_success", jSONObject);
                     }
                 }
             });
@@ -639,7 +639,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31543a;
+                public final /* synthetic */ q f67486a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -656,7 +656,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31543a = this;
+                    this.f67486a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -665,9 +665,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31543a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31543a;
-                        qVar.a(qVar.f31511f, "native_render_start", jSONObject);
+                        this.f67486a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67486a;
+                        qVar.a(qVar.f67454f, "native_render_start", jSONObject);
                     }
                 }
             });
@@ -682,7 +682,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31544a;
+                public final /* synthetic */ q f67487a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -699,7 +699,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31544a = this;
+                    this.f67487a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -708,9 +708,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31544a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31544a;
-                        qVar.a(qVar.f31511f, "dynamic_render_start", jSONObject);
+                        this.f67487a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67487a;
+                        qVar.a(qVar.f67454f, "dynamic_render_start", jSONObject);
                     }
                 }
             });
@@ -725,7 +725,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31545a;
+                public final /* synthetic */ q f67488a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -742,7 +742,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31545a = this;
+                    this.f67488a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -751,9 +751,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31545a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31545a;
-                        qVar.a(qVar.f31511f, "dynamic_render_success", jSONObject);
+                        this.f67488a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67488a;
+                        qVar.a(qVar.f67454f, "dynamic_render_success", jSONObject);
                     }
                 }
             });
@@ -768,7 +768,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31546a;
+                public final /* synthetic */ q f67489a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -785,7 +785,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31546a = this;
+                    this.f67489a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -794,9 +794,9 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31546a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31546a;
-                        qVar.a(qVar.f31511f, "dynamic_render_error", jSONObject);
+                        this.f67489a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67489a;
+                        qVar.a(qVar.f67454f, "dynamic_render_error", jSONObject);
                     }
                 }
             });
@@ -811,7 +811,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31547a;
+                public final /* synthetic */ q f67490a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -828,7 +828,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31547a = this;
+                    this.f67490a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -837,43 +837,43 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31547a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        q qVar = this.f31547a;
-                        qVar.a(qVar.f31511f, "before_webview_request", jSONObject);
+                        this.f67490a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        q qVar = this.f67490a;
+                        qVar.a(qVar.f67454f, "before_webview_request", jSONObject);
                     }
                 }
             });
         }
     }
 
-    public void b(String str, long j, long j2, int i2) {
+    public void b(String str, long j2, long j3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            com.bytedance.sdk.component.utils.h.a().post(new Runnable(this, str, j2, j, i2) { // from class: com.bytedance.sdk.openadsdk.e.q.13
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
+            com.bytedance.sdk.component.utils.h.a().post(new Runnable(this, str, j3, j2, i2) { // from class: com.bytedance.sdk.openadsdk.e.q.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f31523a;
+                public final /* synthetic */ String f67466a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f31524b;
+                public final /* synthetic */ long f67467b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f31525c;
+                public final /* synthetic */ long f67468c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f31526d;
+                public final /* synthetic */ int f67469d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ q f31527e;
+                public final /* synthetic */ q f67470e;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Long.valueOf(j2), Long.valueOf(j), Integer.valueOf(i2)};
+                        Object[] objArr = {this, str, Long.valueOf(j3), Long.valueOf(j2), Integer.valueOf(i2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -883,28 +883,28 @@ public class q {
                             return;
                         }
                     }
-                    this.f31527e = this;
-                    this.f31523a = str;
-                    this.f31524b = j2;
-                    this.f31525c = j;
-                    this.f31526d = i2;
+                    this.f67470e = this;
+                    this.f67466a = str;
+                    this.f67467b = j3;
+                    this.f67468c = j2;
+                    this.f67469d = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f31523a) || this.f31524b < this.f31525c) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f67466a) || this.f67467b < this.f67468c) {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject();
-                    this.f31527e.a(jSONObject, "start_ts", Long.valueOf(this.f31525c));
-                    this.f31527e.a(jSONObject, "end_ts", Long.valueOf(this.f31524b));
-                    this.f31527e.a(jSONObject, "intercept_type", Integer.valueOf(this.f31526d));
-                    this.f31527e.a(jSONObject, "type", "intercept_js");
-                    this.f31527e.a(jSONObject, "url", this.f31523a);
-                    this.f31527e.a(jSONObject, "duration", Long.valueOf(this.f31524b - this.f31525c));
-                    q qVar = this.f31527e;
-                    qVar.a(qVar.f31513h, jSONObject);
+                    this.f67470e.a(jSONObject, "start_ts", Long.valueOf(this.f67468c));
+                    this.f67470e.a(jSONObject, "end_ts", Long.valueOf(this.f67467b));
+                    this.f67470e.a(jSONObject, "intercept_type", Integer.valueOf(this.f67469d));
+                    this.f67470e.a(jSONObject, "type", "intercept_js");
+                    this.f67470e.a(jSONObject, "url", this.f67466a);
+                    this.f67470e.a(jSONObject, "duration", Long.valueOf(this.f67467b - this.f67468c));
+                    q qVar = this.f67470e;
+                    qVar.a(qVar.f67456h, jSONObject);
                 }
             });
         }
@@ -918,10 +918,10 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f31530a;
+                public final /* synthetic */ String f67473a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ q f31531b;
+                public final /* synthetic */ q f67474b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -938,22 +938,22 @@ public class q {
                             return;
                         }
                     }
-                    this.f31531b = this;
-                    this.f31530a = str;
+                    this.f67474b = this;
+                    this.f67473a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f31530a)) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f67473a)) {
                         return;
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    this.f31531b.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    this.f31531b.a(jSONObject, "jsb", this.f31530a);
-                    q qVar = this.f31531b;
-                    qVar.a(qVar.f31511f, "webview_jsb_end", jSONObject);
+                    this.f67474b.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                    this.f67474b.a(jSONObject, "jsb", this.f67473a);
+                    q qVar = this.f67474b;
+                    qVar.a(qVar.f67454f, "webview_jsb_end", jSONObject);
                 }
             });
         }
@@ -967,10 +967,10 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f31534a;
+                public final /* synthetic */ JSONObject f67477a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ q f31535b;
+                public final /* synthetic */ q f67478b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -987,25 +987,25 @@ public class q {
                             return;
                         }
                     }
-                    this.f31535b = this;
-                    this.f31534a = jSONObject;
+                    this.f67478b = this;
+                    this.f67477a = jSONObject;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     JSONObject jSONObject2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31535b.f31511f == null || (jSONObject2 = this.f31534a) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f67478b.f67454f == null || (jSONObject2 = this.f67477a) == null) {
                         return;
                     }
                     Iterator<String> keys = jSONObject2.keys();
                     while (keys.hasNext()) {
                         String next = keys.next();
-                        q qVar = this.f31535b;
-                        qVar.a(qVar.f31511f, next, this.f31534a.opt(next));
+                        q qVar = this.f67478b;
+                        qVar.a(qVar.f67454f, next, this.f67477a.opt(next));
                     }
-                    this.f31535b.f31509d = Boolean.TRUE;
-                    this.f31535b.t();
+                    this.f67478b.f67452d = Boolean.TRUE;
+                    this.f67478b.t();
                 }
             });
         }
@@ -1019,7 +1019,7 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ q f31515a;
+                public final /* synthetic */ q f67458a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1036,7 +1036,7 @@ public class q {
                             return;
                         }
                     }
-                    this.f31515a = this;
+                    this.f67458a = this;
                 }
 
                 @Override // java.lang.Runnable
@@ -1045,11 +1045,11 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31515a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        this.f31515a.a(jSONObject, "webview_count", Integer.valueOf(com.bytedance.sdk.openadsdk.core.widget.webview.f.a().e()));
-                        this.f31515a.a(jSONObject, "available_cache_count", Integer.valueOf(com.bytedance.sdk.openadsdk.core.widget.webview.f.a().d()));
-                        q qVar = this.f31515a;
-                        qVar.a(qVar.f31511f, "render_start", jSONObject);
+                        this.f67458a.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        this.f67458a.a(jSONObject, "webview_count", Integer.valueOf(com.bytedance.sdk.openadsdk.core.widget.webview.f.a().e()));
+                        this.f67458a.a(jSONObject, "available_cache_count", Integer.valueOf(com.bytedance.sdk.openadsdk.core.widget.webview.f.a().d()));
+                        q qVar = this.f67458a;
+                        qVar.a(qVar.f67454f, "render_start", jSONObject);
                     }
                 }
             });
@@ -1064,10 +1064,10 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f31538a;
+                public final /* synthetic */ int f67481a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ q f31539b;
+                public final /* synthetic */ q f67482b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1084,15 +1084,15 @@ public class q {
                             return;
                         }
                     }
-                    this.f31539b = this;
-                    this.f31538a = i2;
+                    this.f67482b = this;
+                    this.f67481a = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f31539b.a(this.f31538a, (String) null);
+                        this.f67482b.a(this.f67481a, (String) null);
                     }
                 }
             });
@@ -1107,13 +1107,13 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ int f31540a;
+                public final /* synthetic */ int f67483a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ String f31541b;
+                public final /* synthetic */ String f67484b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ q f31542c;
+                public final /* synthetic */ q f67485c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1130,9 +1130,9 @@ public class q {
                             return;
                         }
                     }
-                    this.f31542c = this;
-                    this.f31540a = i2;
-                    this.f31541b = str;
+                    this.f67485c = this;
+                    this.f67483a = i2;
+                    this.f67484b = str;
                 }
 
                 @Override // java.lang.Runnable
@@ -1141,14 +1141,14 @@ public class q {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         long currentTimeMillis = System.currentTimeMillis();
                         JSONObject jSONObject = new JSONObject();
-                        this.f31542c.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                        this.f31542c.a(jSONObject, "code", Integer.valueOf(this.f31540a));
-                        String str2 = this.f31541b;
+                        this.f67485c.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                        this.f67485c.a(jSONObject, "code", Integer.valueOf(this.f67483a));
+                        String str2 = this.f67484b;
                         if (str2 != null) {
-                            this.f31542c.a(jSONObject, "msg", str2);
+                            this.f67485c.a(jSONObject, "msg", str2);
                         }
-                        q qVar = this.f31542c;
-                        qVar.a(qVar.f31511f, "render_error", jSONObject);
+                        q qVar = this.f67485c;
+                        qVar.a(qVar.f67454f, "render_error", jSONObject);
                     }
                 }
             });
@@ -1163,10 +1163,10 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ JSONObject f31551a;
+                public final /* synthetic */ JSONObject f67494a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ q f31552b;
+                public final /* synthetic */ q f67495b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1183,55 +1183,55 @@ public class q {
                             return;
                         }
                     }
-                    this.f31552b = this;
-                    this.f31551a = jSONObject;
+                    this.f67495b = this;
+                    this.f67494a = jSONObject;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        JSONObject jSONObject2 = this.f31551a;
+                        JSONObject jSONObject2 = this.f67494a;
                         if (jSONObject2 == null) {
                             jSONObject2 = new JSONObject();
                         }
-                        this.f31552b.a(jSONObject2, "ts", Long.valueOf(System.currentTimeMillis()));
-                        q qVar = this.f31552b;
-                        qVar.a(qVar.f31511f, "webview_load_error", jSONObject2);
+                        this.f67495b.a(jSONObject2, "ts", Long.valueOf(System.currentTimeMillis()));
+                        q qVar = this.f67495b;
+                        qVar.a(qVar.f67454f, "webview_load_error", jSONObject2);
                     }
                 }
             });
         }
     }
 
-    public void a(String str, long j, long j2, int i2) {
+    public void a(String str, long j2, long j3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            com.bytedance.sdk.component.utils.h.a().post(new Runnable(this, str, j2, j, i2) { // from class: com.bytedance.sdk.openadsdk.e.q.11
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
+            com.bytedance.sdk.component.utils.h.a().post(new Runnable(this, str, j3, j2, i2) { // from class: com.bytedance.sdk.openadsdk.e.q.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f31517a;
+                public final /* synthetic */ String f67460a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ long f31518b;
+                public final /* synthetic */ long f67461b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ long f31519c;
+                public final /* synthetic */ long f67462c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ int f31520d;
+                public final /* synthetic */ int f67463d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ q f31521e;
+                public final /* synthetic */ q f67464e;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Long.valueOf(j2), Long.valueOf(j), Integer.valueOf(i2)};
+                        Object[] objArr = {this, str, Long.valueOf(j3), Long.valueOf(j2), Integer.valueOf(i2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i3 = newInitContext.flag;
                         if ((i3 & 1) != 0) {
@@ -1241,28 +1241,28 @@ public class q {
                             return;
                         }
                     }
-                    this.f31521e = this;
-                    this.f31517a = str;
-                    this.f31518b = j2;
-                    this.f31519c = j;
-                    this.f31520d = i2;
+                    this.f67464e = this;
+                    this.f67460a = str;
+                    this.f67461b = j3;
+                    this.f67462c = j2;
+                    this.f67463d = i2;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f31517a) || this.f31518b < this.f31519c) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f67460a) || this.f67461b < this.f67462c) {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject();
-                    this.f31521e.a(jSONObject, "start_ts", Long.valueOf(this.f31519c));
-                    this.f31521e.a(jSONObject, "end_ts", Long.valueOf(this.f31518b));
-                    this.f31521e.a(jSONObject, "intercept_type", Integer.valueOf(this.f31520d));
-                    this.f31521e.a(jSONObject, "type", "intercept_html");
-                    this.f31521e.a(jSONObject, "url", this.f31517a);
-                    this.f31521e.a(jSONObject, "duration", Long.valueOf(this.f31518b - this.f31519c));
-                    q qVar = this.f31521e;
-                    qVar.a(qVar.f31513h, jSONObject);
+                    this.f67464e.a(jSONObject, "start_ts", Long.valueOf(this.f67462c));
+                    this.f67464e.a(jSONObject, "end_ts", Long.valueOf(this.f67461b));
+                    this.f67464e.a(jSONObject, "intercept_type", Integer.valueOf(this.f67463d));
+                    this.f67464e.a(jSONObject, "type", "intercept_html");
+                    this.f67464e.a(jSONObject, "url", this.f67460a);
+                    this.f67464e.a(jSONObject, "duration", Long.valueOf(this.f67461b - this.f67462c));
+                    q qVar = this.f67464e;
+                    qVar.a(qVar.f67456h, jSONObject);
                 }
             });
         }
@@ -1276,10 +1276,10 @@ public class q {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f31528a;
+                public final /* synthetic */ String f67471a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ q f31529b;
+                public final /* synthetic */ q f67472b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1296,22 +1296,22 @@ public class q {
                             return;
                         }
                     }
-                    this.f31529b = this;
-                    this.f31528a = str;
+                    this.f67472b = this;
+                    this.f67471a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f31528a)) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.f67471a)) {
                         return;
                     }
                     long currentTimeMillis = System.currentTimeMillis();
                     JSONObject jSONObject = new JSONObject();
-                    this.f31529b.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
-                    this.f31529b.a(jSONObject, "jsb", this.f31528a);
-                    q qVar = this.f31529b;
-                    qVar.a(qVar.f31511f, "webview_jsb_start", jSONObject);
+                    this.f67472b.a(jSONObject, "ts", Long.valueOf(currentTimeMillis));
+                    this.f67472b.a(jSONObject, "jsb", this.f67471a);
+                    q qVar = this.f67472b;
+                    qVar.a(qVar.f67454f, "webview_jsb_start", jSONObject);
                 }
             });
         }
@@ -1330,18 +1330,18 @@ public class q {
                 return;
             }
         }
-        this.f31506a = "embeded_ad";
+        this.f67449a = "embeded_ad";
         Boolean bool = Boolean.FALSE;
-        this.f31508c = bool;
-        this.f31509d = bool;
-        this.f31510e = bool;
-        this.f31514i = false;
+        this.f67451c = bool;
+        this.f67452d = bool;
+        this.f67453e = bool;
+        this.f67457i = false;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f31510e = Boolean.valueOf(z);
+            this.f67453e = Boolean.valueOf(z);
         }
     }
 

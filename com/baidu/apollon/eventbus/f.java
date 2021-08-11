@@ -11,15 +11,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3748a = 1032;
+    public static final int f37661a = 1032;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<Class<?>, Method> f3749b;
+    public static Map<Class<?>, Method> f37662b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class f {
                 return;
             }
         }
-        f3749b = new HashMap();
+        f37662b = new HashMap();
     }
 
     public f() {
@@ -55,20 +55,20 @@ public class f {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            synchronized (f3749b) {
-                f3749b.clear();
+            synchronized (f37662b) {
+                f37662b.clear();
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:35:0x0070, code lost:
-        r1 = com.baidu.apollon.eventbus.f.f3749b;
+        r1 = com.baidu.apollon.eventbus.f.f37662b;
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x0072, code lost:
         monitor-enter(r1);
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x0073, code lost:
-        com.baidu.apollon.eventbus.f.f3749b.put(r12, r2);
+        com.baidu.apollon.eventbus.f.f37662b.put(r12, r2);
      */
     /* JADX WARN: Code restructure failed: missing block: B:38:0x0078, code lost:
         monitor-exit(r1);
@@ -84,8 +84,8 @@ public class f {
         Method method;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            synchronized (f3749b) {
-                method = f3749b.get(cls);
+            synchronized (f37662b) {
+                method = f37662b.get(cls);
             }
             if (method != null) {
                 return method;
@@ -101,7 +101,7 @@ public class f {
                 while (true) {
                     if (i2 < length) {
                         Method method2 = methods[i2];
-                        if (method2.getName().equals(EventBus.DEFAULT_METHOD_NAME)) {
+                        if (method2.getName().equals("onModuleEvent")) {
                             int modifiers = method2.getModifiers();
                             if ((modifiers & 1) != 0 && (modifiers & 1032) == 0) {
                                 Class<?>[] parameterTypes = method2.getParameterTypes();
@@ -115,7 +115,7 @@ public class f {
                     }
                 }
             }
-            throw new EventBusException("Subscriber " + cls + " has no public methods called " + EventBus.DEFAULT_METHOD_NAME);
+            throw new EventBusException("Subscriber " + cls + " has no public methods called onModuleEvent");
         }
         return (Method) invokeL.objValue;
     }

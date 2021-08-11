@@ -4,6 +4,9 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import c.b.c.b.c.a.a;
+import c.b.c.b.l;
+import c.b.c.b.n.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,13 +14,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.tea.crash.c;
-import d.b.c.b.c.a.a;
-import d.b.c.b.l;
-import d.b.c.b.n.e;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class CrashUploadService extends IntentService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,10 +54,10 @@ public class CrashUploadService extends IntentService {
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            if (cVar == c.f32567c) {
+            if (cVar == c.f68529c) {
                 return b.c(str, str2, str3);
             }
-            if (cVar == c.f32565a) {
+            if (cVar == c.f68527a) {
                 return b.b(str, str2);
             }
             return b.d(str, str2, b.g());
@@ -85,18 +85,18 @@ public class CrashUploadService extends IntentService {
         String stringExtra2 = intent.getStringExtra("crash_json_value");
         String stringExtra3 = intent.getStringExtra("crash_info_file_path");
         String stringExtra4 = intent.getStringExtra("crash_dump_file_path");
-        d.b.c.b.c.b.a().b(getApplication());
-        if (TextUtils.isEmpty(stringExtra2) || TextUtils.isEmpty(stringExtra) || d.b.c.b.c.b.a().d(stringExtra3) || !a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
+        c.b.c.b.c.b.a().b(getApplication());
+        if (TextUtils.isEmpty(stringExtra2) || TextUtils.isEmpty(stringExtra) || c.b.c.b.c.b.a().d(stringExtra3) || !a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
             return;
         }
-        if (cVar == c.f32567c) {
+        if (cVar == c.f68529c) {
             if (l.e.g(new File(stringExtra3).getParentFile(), true)) {
                 return;
             }
-            d.b.c.b.c.b.a().c(a.a(stringExtra3));
+            c.b.c.b.c.b.a().c(a.a(stringExtra3));
         } else if (TextUtils.isEmpty(stringExtra3) || l.e.h(stringExtra3)) {
         } else {
-            d.b.c.b.c.b.a().c(a.a(stringExtra3));
+            c.b.c.b.c.b.a().c(a.a(stringExtra3));
         }
     }
 }

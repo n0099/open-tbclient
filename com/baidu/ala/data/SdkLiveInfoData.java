@@ -5,6 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.data.AlaChallengeInfoData;
+import com.baidu.tbadk.core.data.YyExtData;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class SdkLiveInfoData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_CHUSHOU_GAME_LIVE = 1;
@@ -41,7 +42,7 @@ public class SdkLiveInfoData {
     public String title;
     public UiTransParam uiTransParam;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class AlaLiveInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,7 +105,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class LiveAuthor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +154,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class UiTransParam {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -188,7 +189,7 @@ public class SdkLiveInfoData {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class YYExt {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -219,9 +220,25 @@ public class SdkLiveInfoData {
             }
             this.sid = jSONObject.optString("sid");
             this.ssid = jSONObject.optString("ssid");
-            this.templateId = jSONObject.optString(TiebaStatic.Params.TEMPLATE_ID);
+            this.templateId = jSONObject.optString("template_id");
             this.yyUid = jSONObject.optString("yy_uid");
             this.isYYGame = jSONObject.optInt("is_yy_game");
+        }
+
+        public YyExtData toYyExtData(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                YyExtData yyExtData = new YyExtData();
+                yyExtData.mSid = this.sid;
+                yyExtData.mSsid = this.ssid;
+                yyExtData.mTemplateId = this.templateId;
+                yyExtData.mYyUid = this.yyUid;
+                yyExtData.isYyGame = this.isYYGame == 1;
+                yyExtData.liveId = str;
+                return yyExtData;
+            }
+            return (YyExtData) invokeL.objValue;
         }
     }
 

@@ -25,7 +25,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.GlobalConstants;
 import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
@@ -43,7 +42,7 @@ import com.baidu.webkit.sdk.location.ZeusGeoLocationInfo;
 import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class BdSailor implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOG_TAG = "BdSailor";
@@ -348,14 +347,14 @@ public class BdSailor implements INoProGuard {
         return (BdSailorSettings) invokeV.objValue;
     }
 
-    public d.a.j.b.b.b.a getStatic() {
+    public c.a.k.b.b.b.a getStatic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             BdSailorPlatform.getInstance();
             return BdSailorPlatform.getStatic();
         }
-        return (d.a.j.b.b.b.a) invokeV.objValue;
+        return (c.a.k.b.b.b.a) invokeV.objValue;
     }
 
     public String getZeusVersionName() {
@@ -453,7 +452,7 @@ public class BdSailor implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, Boolean.valueOf(z), cls}) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            boolean z2 = BdWebkitManager.a.f4372a == BdSailorPlatform.getWebkitManager().getWebkitType();
+            boolean z2 = BdWebkitManager.a.f38336a == BdSailorPlatform.getWebkitManager().getWebkitType();
             ZeusPerformanceTiming.Stage stage = ZeusPerformanceTiming.Stage.Start;
             if (z2) {
                 ZeusPerformanceTiming.record(stage, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
@@ -461,21 +460,22 @@ public class BdSailor implements INoProGuard {
                 ZeusPerformanceTiming.record(stage, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
             }
             BdSailorPlatform.getInstance().initWebkit(str, z, cls);
+            ZeusPerformanceTiming.Stage stage2 = ZeusPerformanceTiming.Stage.End;
             if (z2) {
-                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
+                ZeusPerformanceTiming.record(stage2, ZeusPerformanceTiming.KEY_INIT_SYS_WEBKIT);
                 sb = new StringBuilder("initWebkit = ");
                 sb.append(System.currentTimeMillis() - currentTimeMillis);
                 sb.append(" ");
                 zeusInitTiming = ZeusPerformanceTiming.getSysInitTiming();
             } else {
-                ZeusPerformanceTiming.record(ZeusPerformanceTiming.Stage.End, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
+                ZeusPerformanceTiming.record(stage2, ZeusPerformanceTiming.KEY_INIT_WEBKIT);
                 sb = new StringBuilder("initWebkit = ");
                 sb.append(System.currentTimeMillis() - currentTimeMillis);
                 sb.append(" ");
                 zeusInitTiming = ZeusPerformanceTiming.getZeusInitTiming();
             }
             sb.append(zeusInitTiming);
-            android.util.Log.i(GlobalConstants.LOG_PER_TAG, sb.toString());
+            sb.toString();
         }
     }
 
@@ -692,7 +692,7 @@ public class BdSailor implements INoProGuard {
             this.mClient = bdSailorClient;
             WebKitFactory.setWebKitClient(bdSailorClient);
             setSailorFeatureListener();
-            BdSailorPlatform.getStatic().f43070a = this.mClient;
+            BdSailorPlatform.getStatic().f3523a = this.mClient;
         }
     }
 

@@ -3,7 +3,6 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.gesture.GestureAR;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GameShareData implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<GameShareData> CREATOR;
@@ -29,7 +28,7 @@ public class GameShareData implements Parcelable {
     public String userPortrait;
     public float userScore;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<GameShareData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +114,7 @@ public class GameShareData implements Parcelable {
         this.gameIconUrl = jSONObject.optString("barIconUrl");
         this.gameName = jSONObject.optString("barName");
         this.gameDescription = jSONObject.optString("barDescribe");
-        this.gameScore = (float) jSONObject.optDouble(GestureAR.SDK_TO_LUA_GESTURE_RESULT_SCORE);
+        this.gameScore = (float) jSONObject.optDouble("score");
         this.userName = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
         this.userPortrait = jSONObject.optString("avastar");
         this.userScore = (float) jSONObject.optDouble("userScore");

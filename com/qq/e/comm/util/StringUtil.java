@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class StringUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -81,11 +81,11 @@ public class StringUtil {
         return invokeLI.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0042 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:26:0x0041 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r4v0, types: [java.lang.Object, java.io.File] */
     /* JADX WARN: Type inference failed for: r4v1, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r4v4 */
+    /* JADX WARN: Type inference failed for: r4v3 */
     public static String readAll(File file) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -107,23 +107,23 @@ public class StringUtil {
                                 String sb2 = sb.toString();
                                 try {
                                     bufferedReader.close();
-                                } catch (Exception e2) {
-                                    GDTLogger.e("Exception while close bufferreader", e2);
+                                } catch (Exception unused) {
+                                    GDTLogger.d("Exception while close bufferreader");
                                 }
                                 return sb2;
-                            } catch (IOException e3) {
-                                throw e3;
+                            } catch (IOException e2) {
+                                throw e2;
                             }
-                        } catch (IOException e4) {
-                            throw e4;
+                        } catch (IOException e3) {
+                            throw e3;
                         } catch (Throwable th) {
                             th = th;
                             file = 0;
                             if (file != 0) {
                                 try {
                                     file.close();
-                                } catch (Exception e5) {
-                                    GDTLogger.e("Exception while close bufferreader", e5);
+                                } catch (Exception unused2) {
+                                    GDTLogger.d("Exception while close bufferreader");
                                 }
                             }
                             throw th;

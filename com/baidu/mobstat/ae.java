@@ -12,15 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ae extends bn {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8652a = "baidu_mtj_sdk_record";
+    public static final String f42952a = "baidu_mtj_sdk_record";
 
     /* renamed from: b  reason: collision with root package name */
-    public static ae f8653b;
+    public static ae f42953b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class ae extends bn {
                 return;
             }
         }
-        f8653b = new ae();
+        f42953b = new ae();
     }
 
     public ae() {
@@ -56,7 +56,7 @@ public class ae extends bn {
     public static ae a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8653b : (ae) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f42953b : (ae) invokeV.objValue;
     }
 
     public Long b(Context context) {
@@ -95,24 +95,24 @@ public class ae extends bn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             if (Build.VERSION.SDK_INT >= 11) {
-                return context.getSharedPreferences(f8652a, 4);
+                return context.getSharedPreferences(f42952a, 4);
             }
-            return context.getSharedPreferences(f8652a, 0);
+            return context.getSharedPreferences(f42952a, 0);
         }
         return (SharedPreferences) invokeL.objValue;
     }
 
-    public void b(Context context, long j) {
+    public void b(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, context, j) == null) {
-            b(context, "session_last_visit_time", j);
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, context, j2) == null) {
+            b(context, "session_last_visit_time", j2);
         }
     }
 
-    public void c(Context context, long j) {
+    public void c(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, context, j) == null) {
-            b(context, "session_visit_interval", j);
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, context, j2) == null) {
+            b(context, "session_visit_interval", j2);
         }
     }
 
@@ -123,10 +123,10 @@ public class ae extends bn {
         }
     }
 
-    public void a(Context context, long j) {
+    public void a(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j) == null) {
-            b(context, "session_first_visit_time", j);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j2) == null) {
+            b(context, "session_first_visit_time", j2);
         }
     }
 

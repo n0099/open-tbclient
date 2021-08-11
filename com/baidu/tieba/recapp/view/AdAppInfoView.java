@@ -15,6 +15,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.o0.s.q.c;
+import c.a.p0.x2.l0.e;
+import c.a.p0.x2.l0.g;
+import c.a.p0.x2.z;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,38 +30,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.s.q.c;
-import d.a.q0.w2.i0.e;
-import d.a.q0.w2.i0.g;
-import d.a.q0.w2.x;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AdAppInfoView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f20708e;
+    public AdvertAppInfo f56136e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdStarRatingBar f20709f;
+    public int f56137f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f20710g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f20711h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f20712i;
-    public TextView j;
-    public TextView k;
-    public RelativeLayout l;
-    public c m;
-    public AdvertAppInfo n;
-    public int o;
-    public int p;
-    public View.OnClickListener q;
+    public int f56138g;
+    public c mAdInfoModel;
+    public TextView mAdTagView;
+    public TextView mAppName;
+    public TextView mAuthorNameView;
+    public View.OnClickListener mClickListener;
+    public RelativeLayout mDownloadButtonContainer;
+    public TextView mPermissionTagView;
+    public TextView mPrivacyTagView;
+    public AdStarRatingBar mRatingBar;
+    public TextView mVersionView;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdAppInfoView(@NonNull Context context) {
@@ -85,32 +81,14 @@ public class AdAppInfoView extends FrameLayout {
             return;
         }
         TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.SimpleAdInfoView);
-        this.o = obtainStyledAttributes.getResourceId(R$styleable.SimpleAdInfoView_layoutId, this.o);
+        this.f56137f = obtainStyledAttributes.getResourceId(R$styleable.SimpleAdInfoView_layoutId, this.f56137f);
         obtainStyledAttributes.recycle();
     }
 
-    public void b(AttributeSet attributeSet) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            setLayoutByAttrs(attributeSet);
-            LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
-            this.f20708e = (TextView) findViewById(R.id.ad_name);
-            this.f20709f = (AdStarRatingBar) findViewById(R.id.ad_rating);
-            this.f20710g = (TextView) findViewById(R.id.ad_version);
-            this.f20711h = (TextView) findViewById(R.id.ad_author_full_name);
-            this.f20712i = (TextView) findViewById(R.id.ad_privacy);
-            this.j = (TextView) findViewById(R.id.ad_permission);
-            this.k = (TextView) findViewById(R.id.ad_tag);
-            this.l = (RelativeLayout) findViewById(R.id.download_button_container);
-            this.f20712i.setOnClickListener(this.q);
-            this.j.setOnClickListener(this.q);
-        }
-    }
-
-    public final void c() {
+    public final void b() {
         ViewTreeObserver viewTreeObserver;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (viewTreeObserver = this.f20711h.getViewTreeObserver()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (viewTreeObserver = this.mAuthorNameView.getViewTreeObserver()) == null) {
             return;
         }
         viewTreeObserver.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener(this, viewTreeObserver) { // from class: com.baidu.tieba.recapp.view.AdAppInfoView.2
@@ -118,10 +96,10 @@ public class AdAppInfoView extends FrameLayout {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ViewTreeObserver f20714e;
+            public final /* synthetic */ ViewTreeObserver f56140e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ AdAppInfoView f20715f;
+            public final /* synthetic */ AdAppInfoView f56141f;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -138,8 +116,8 @@ public class AdAppInfoView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20715f = this;
-                this.f20714e = viewTreeObserver;
+                this.f56141f = this;
+                this.f56140e = viewTreeObserver;
             }
 
             @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -148,25 +126,25 @@ public class AdAppInfoView extends FrameLayout {
                 int lineCount;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    Layout layout = this.f20715f.f20711h.getLayout();
+                    Layout layout = this.f56141f.mAuthorNameView.getLayout();
                     if (layout != null && (lineCount = layout.getLineCount()) > 0 && layout.getEllipsisCount(lineCount - 1) > 0) {
-                        AdAppInfoView adAppInfoView = this.f20715f;
-                        adAppInfoView.f20711h.setOnClickListener(adAppInfoView.q);
+                        AdAppInfoView adAppInfoView = this.f56141f;
+                        adAppInfoView.mAuthorNameView.setOnClickListener(adAppInfoView.mClickListener);
                     }
-                    if (this.f20714e.isAlive()) {
-                        this.f20714e.removeOnGlobalLayoutListener(this);
+                    if (this.f56140e.isAlive()) {
+                        this.f56140e.removeOnGlobalLayoutListener(this);
                     }
                 }
             }
         });
     }
 
-    public final void d(String str) {
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || this.n == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f56136e == null || TextUtils.isEmpty(str)) {
             return;
         }
-        d.a.q0.w2.i0.c b2 = g.b(this.n, 102, 0);
+        c.a.p0.x2.l0.c b2 = g.b(this.f56136e, 102, 0);
         b2.c(str);
         e.b().d(b2);
     }
@@ -174,31 +152,49 @@ public class AdAppInfoView extends FrameLayout {
     public RelativeLayout getDownloadButtonContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.l : (RelativeLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mDownloadButtonContainer : (RelativeLayout) invokeV.objValue;
     }
 
     public int getLayoutId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.o : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56137f : invokeV.intValue;
+    }
+
+    public void init(AttributeSet attributeSet) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) {
+            setLayoutByAttrs(attributeSet);
+            LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
+            this.mAppName = (TextView) findViewById(R.id.ad_name);
+            this.mRatingBar = (AdStarRatingBar) findViewById(R.id.ad_rating);
+            this.mVersionView = (TextView) findViewById(R.id.ad_version);
+            this.mAuthorNameView = (TextView) findViewById(R.id.ad_author_full_name);
+            this.mPrivacyTagView = (TextView) findViewById(R.id.ad_privacy);
+            this.mPermissionTagView = (TextView) findViewById(R.id.ad_permission);
+            this.mAdTagView = (TextView) findViewById(R.id.ad_tag);
+            this.mDownloadButtonContainer = (RelativeLayout) findViewById(R.id.download_button_container);
+            this.mPrivacyTagView.setOnClickListener(this.mClickListener);
+            this.mPermissionTagView.setOnClickListener(this.mClickListener);
+        }
     }
 
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SkinManager.setViewTextColor(this.f20708e, R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f20710g, this.p);
-            SkinManager.setViewTextColor(this.f20711h, this.p);
-            SkinManager.setViewTextColor(this.f20712i, this.p);
-            SkinManager.setViewTextColor(this.j, this.p);
-            this.f20709f.onChangeSkinType();
+            SkinManager.setViewTextColor(this.mAppName, R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.mVersionView, this.f56138g);
+            SkinManager.setViewTextColor(this.mAuthorNameView, this.f56138g);
+            SkinManager.setViewTextColor(this.mPrivacyTagView, this.f56138g);
+            SkinManager.setViewTextColor(this.mPermissionTagView, this.f56138g);
+            this.mRatingBar.onChangeSkinType();
         }
     }
 
     public void setAd(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, advertAppInfo) == null) {
-            this.n = advertAppInfo;
+            this.f56136e = advertAppInfo;
         }
     }
 
@@ -206,76 +202,83 @@ public class AdAppInfoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
             if (cVar != null && c.c(cVar)) {
-                this.m = cVar;
-                if (this.f20708e != null) {
-                    if (!TextUtils.isEmpty(cVar.f53257c)) {
-                        this.f20708e.setVisibility(0);
-                        this.f20708e.setText(cVar.f53257c);
+                this.mAdInfoModel = cVar;
+                if (this.mAppName != null) {
+                    if (!TextUtils.isEmpty(cVar.f13853c)) {
+                        this.mAppName.setVisibility(0);
+                        this.mAppName.setText(cVar.f13853c);
                     } else {
-                        this.f20708e.setVisibility(8);
+                        this.mAppName.setVisibility(8);
                     }
                 }
-                AdStarRatingBar adStarRatingBar = this.f20709f;
+                AdStarRatingBar adStarRatingBar = this.mRatingBar;
                 if (adStarRatingBar != null) {
-                    float f2 = cVar.f53259e;
+                    float f2 = cVar.f13855e;
                     if (f2 >= 0.0f && f2 <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.f20709f.setRating(cVar.f53259e);
+                        this.mRatingBar.setRating(cVar.f13855e);
                     } else {
-                        this.f20709f.setVisibility(8);
+                        this.mRatingBar.setVisibility(8);
                     }
                 }
-                if (this.f20710g != null) {
-                    if (!TextUtils.isEmpty(cVar.f53260f)) {
-                        this.f20710g.setVisibility(0);
-                        this.f20710g.setText(cVar.f53260f);
+                if (this.mVersionView != null) {
+                    if (!TextUtils.isEmpty(cVar.f13856f)) {
+                        this.mVersionView.setVisibility(0);
+                        this.mVersionView.setText(cVar.f13856f);
                     } else {
-                        this.f20710g.setVisibility(8);
+                        this.mVersionView.setVisibility(8);
                     }
                 }
-                if (this.f20711h != null) {
-                    if (!TextUtils.isEmpty(cVar.f53258d)) {
-                        this.f20711h.setVisibility(0);
-                        this.f20711h.setText(cVar.f53258d);
-                        c();
+                if (this.mAuthorNameView != null) {
+                    if (!TextUtils.isEmpty(cVar.f13854d)) {
+                        this.mAuthorNameView.setVisibility(0);
+                        this.mAuthorNameView.setText(cVar.f13854d);
+                        b();
                     } else {
-                        this.f20711h.setVisibility(8);
+                        this.mAuthorNameView.setVisibility(8);
                     }
                 }
-                if (this.f20712i != null) {
-                    c.b bVar = cVar.f53261g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.f53267b) && !TextUtils.isEmpty(cVar.f53261g.f53266a)) {
-                        this.f20712i.setVisibility(0);
-                        this.f20712i.setText(cVar.f53261g.f53266a);
+                if (this.mPrivacyTagView != null) {
+                    c.b bVar = cVar.f13857g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.f13864b) && !TextUtils.isEmpty(cVar.f13857g.f13863a)) {
+                        this.mPrivacyTagView.setVisibility(0);
+                        this.mPrivacyTagView.setText(cVar.f13857g.f13863a);
                     } else {
-                        this.f20712i.setVisibility(8);
+                        this.mPrivacyTagView.setVisibility(8);
                     }
                 }
-                if (this.f20712i != null) {
-                    c.a aVar = cVar.f53262h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.f53265b) && !TextUtils.isEmpty(cVar.f53262h.f53264a)) {
-                        this.j.setVisibility(0);
-                        this.j.setText(cVar.f53262h.f53264a);
+                if (this.mPrivacyTagView != null) {
+                    c.a aVar = cVar.f13858h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.f13862b) && !TextUtils.isEmpty(cVar.f13858h.f13861a)) {
+                        this.mPermissionTagView.setVisibility(0);
+                        this.mPermissionTagView.setText(cVar.f13858h.f13861a);
                     } else {
-                        this.j.setVisibility(8);
+                        this.mPermissionTagView.setVisibility(8);
                     }
                 }
-                TextView textView = this.k;
+                TextView textView = this.mAdTagView;
                 if (textView != null) {
                     textView.setVisibility(0);
                     return;
                 }
                 return;
             }
-            this.m = null;
+            this.mAdInfoModel = null;
         }
     }
 
     public void setTextColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.p = i2;
-            this.f20709f.setTextColor(i2);
+            this.f56138g = i2;
+            this.mRatingBar.setTextColor(i2);
+        }
+    }
+
+    public void setTextSize(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            this.mRatingBar.setTextSize(i2);
         }
     }
 
@@ -319,14 +322,14 @@ public class AdAppInfoView extends FrameLayout {
                 return;
             }
         }
-        this.o = R.layout.ad_app_info_view;
-        this.p = R.color.CAM_X0109;
-        this.q = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdAppInfoView.1
+        this.f56137f = R.layout.ad_app_info_view;
+        this.f56138g = R.color.CAM_X0109;
+        this.mClickListener = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdAppInfoView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ AdAppInfoView f20713e;
+            public final /* synthetic */ AdAppInfoView f56139e;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -343,42 +346,42 @@ public class AdAppInfoView extends FrameLayout {
                         return;
                     }
                 }
-                this.f20713e = this;
+                this.f56139e = this;
             }
 
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String str;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f20713e.m == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f56139e.mAdInfoModel == null) {
                     return;
                 }
                 int id = view.getId();
                 String str2 = "";
                 if (id == R.id.ad_privacy) {
-                    c.b bVar = this.f20713e.m.f53261g;
+                    c.b bVar = this.f56139e.mAdInfoModel.f13857g;
                     if (bVar != null) {
-                        str2 = bVar.f53267b;
+                        str2 = bVar.f13864b;
                         str = "app_privacy";
                     }
                     str = "";
                 } else {
                     if (id == R.id.ad_permission) {
-                        c.a aVar = this.f20713e.m.f53262h;
+                        c.a aVar = this.f56139e.mAdInfoModel.f13858h;
                         if (aVar != null) {
-                            str2 = aVar.f53265b;
+                            str2 = aVar.f13862b;
                             str = "app_permission";
                         }
                     } else if (id == R.id.ad_author_full_name) {
-                        l.M(this.f20713e.getContext(), this.f20713e.m.f53258d);
+                        l.M(this.f56139e.getContext(), this.f56139e.mAdInfoModel.f13854d);
                         return;
                     }
                     str = "";
                 }
-                x.d(this.f20713e.getContext(), str2, null, null);
-                this.f20713e.d(str);
+                z.d(this.f56139e.getContext(), str2, null, null);
+                this.f56139e.c(str);
             }
         };
-        b(attributeSet);
+        init(attributeSet);
     }
 }

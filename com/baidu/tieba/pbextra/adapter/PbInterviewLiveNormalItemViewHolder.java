@@ -2,6 +2,7 @@ package com.baidu.tieba.pbextra.adapter;
 
 import android.view.View;
 import android.widget.ImageView;
+import c.a.e.e.p.l;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -14,27 +15,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public TbImageView f20045e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TbRichTextView f20046f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public View f20047g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public PbGiftListView f20048h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public FrsPraiseView f20049i;
-    public ImageView j;
+    public PbGiftListView giftListView;
+    public TbImageView mPostImage;
+    public ImageView praiseBottomLine;
+    public View praiseToLine;
+    public FrsPraiseView praiseView;
+    public TbRichTextView richText;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbInterviewLiveNormalItemViewHolder(View view, boolean z, boolean z2, int i2, boolean z3) {
@@ -55,25 +45,25 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
             }
         }
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.interview_live_post_pic);
-        this.f20045e = tbImageView;
+        this.mPostImage = tbImageView;
         tbImageView.setSupportNoImage(true);
-        this.f20045e.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.f20045e.setOnClickListener(this);
-        this.f20045e.setInterceptOnClick(true);
-        this.f20045e.setDefaultResource(R.drawable.icon_click);
-        this.f20046f = (TbRichTextView) view.findViewById(R.id.richText);
-        this.f20047g = view.findViewById(R.id.pb_item_praise_topline);
-        this.f20049i = (FrsPraiseView) view.findViewById(R.id.pb_item_praise_view);
-        this.j = (ImageView) view.findViewById(R.id.pb_item_praise_bottomline);
-        this.f20048h = (PbGiftListView) view.findViewById(R.id.gift_list_view);
-        this.f20046f.getLayoutStrategy().t();
-        this.f20046f.getLayoutStrategy().k(true);
-        int min = Math.min(((((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.f20046f.getPaddingLeft()) - this.f20046f.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i2);
-        this.f20046f.getLayoutStrategy().q(min);
-        this.f20046f.getLayoutStrategy().p((int) (min * 1.618f));
-        this.f20046f.setTextSize(TbConfig.getContentSize());
-        this.f20046f.setDisplayImage(z2, false);
-        this.f20046f.setVoiceViewRes(R.layout.voice_play_btn);
+        this.mPostImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.mPostImage.setOnClickListener(this);
+        this.mPostImage.setInterceptOnClick(true);
+        this.mPostImage.setDefaultResource(R.drawable.icon_click);
+        this.richText = (TbRichTextView) view.findViewById(R.id.richText);
+        this.praiseToLine = view.findViewById(R.id.pb_item_praise_topline);
+        this.praiseView = (FrsPraiseView) view.findViewById(R.id.pb_item_praise_view);
+        this.praiseBottomLine = (ImageView) view.findViewById(R.id.pb_item_praise_bottomline);
+        this.giftListView = (PbGiftListView) view.findViewById(R.id.gift_list_view);
+        this.richText.getLayoutStrategy().t();
+        this.richText.getLayoutStrategy().k(true);
+        int min = Math.min(((((l.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i2);
+        this.richText.getLayoutStrategy().q(min);
+        this.richText.getLayoutStrategy().p((int) (min * 1.618f));
+        this.richText.setTextSize(TbConfig.getContentSize());
+        this.richText.setDisplayImage(z2, false);
+        this.richText.setVoiceViewRes(R.layout.voice_play_btn);
     }
 
     @Override // android.view.View.OnClickListener

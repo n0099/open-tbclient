@@ -102,7 +102,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class Glide implements ComponentCallbacks2 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
@@ -209,9 +209,7 @@ public class Glide implements ComponentCallbacks2 {
             try {
                 return (GeneratedAppGlideModule) Class.forName("com.bumptech.glide.GeneratedAppGlideModuleImpl").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
             } catch (ClassNotFoundException unused) {
-                if (Log.isLoggable("Glide", 5)) {
-                    Log.w("Glide", "Failed to find GeneratedAppGlideModule. You should include an annotationProcessor compile dependency on com.github.bumptech.glide:compiler in your application and a @GlideModule annotated AppGlideModule implementation or LibraryGlideModules will be silently ignored");
-                }
+                Log.isLoggable("Glide", 5);
                 return null;
             } catch (IllegalAccessException e2) {
                 throwIncorrectGlideModule(e2);
@@ -473,15 +471,14 @@ public class Glide implements ComponentCallbacks2 {
                 }
                 return null;
             }
-            if (Log.isLoggable("Glide", 6)) {
-                Log.e("Glide", "default disk cache dir is null");
-            }
+            Log.isLoggable("Glide", 6);
             return null;
         }
         return (File) invokeLL.objValue;
     }
 
     public static void initializeGlide(@NonNull Context context, @NonNull GlideBuilder glideBuilder) {
+        Iterator<GlideModule> it;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, context, glideBuilder) == null) {
             Context applicationContext = context.getApplicationContext();
@@ -492,21 +489,20 @@ public class Glide implements ComponentCallbacks2 {
             }
             if (annotationGeneratedGlideModules != null && !annotationGeneratedGlideModules.getExcludedModuleClasses().isEmpty()) {
                 Set<Class<?>> excludedModuleClasses = annotationGeneratedGlideModules.getExcludedModuleClasses();
-                Iterator<GlideModule> it = emptyList.iterator();
-                while (it.hasNext()) {
-                    GlideModule next = it.next();
+                Iterator<GlideModule> it2 = emptyList.iterator();
+                while (it2.hasNext()) {
+                    GlideModule next = it2.next();
                     if (excludedModuleClasses.contains(next.getClass())) {
                         if (Log.isLoggable("Glide", 3)) {
-                            Log.d("Glide", "AppGlideModule excludes manifest GlideModule: " + next);
+                            String str = "AppGlideModule excludes manifest GlideModule: " + next;
                         }
-                        it.remove();
+                        it2.remove();
                     }
                 }
             }
             if (Log.isLoggable("Glide", 3)) {
-                Iterator<GlideModule> it2 = emptyList.iterator();
-                while (it2.hasNext()) {
-                    Log.d("Glide", "Discovered GlideModule from manifest: " + it2.next().getClass());
+                while (emptyList.iterator().hasNext()) {
+                    String str2 = "Discovered GlideModule from manifest: " + it.next().getClass();
                 }
             }
             glideBuilder.setRequestManagerFactory(annotationGeneratedGlideModules != null ? annotationGeneratedGlideModules.getRequestManagerFactory() : null);

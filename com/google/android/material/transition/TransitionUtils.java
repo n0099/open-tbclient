@@ -28,18 +28,18 @@ import com.google.android.material.shape.AbsoluteCornerSize;
 import com.google.android.material.shape.CornerSize;
 import com.google.android.material.shape.RelativeCornerSize;
 import com.google.android.material.shape.ShapeAppearanceModel;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class TransitionUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final RectF transformAlphaRectF;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface CanvasOperation {
         void run(Canvas canvas);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface CornerSizeBinaryOperator {
         @NonNull
         CornerSize apply(@NonNull CornerSize cornerSize, @NonNull CornerSize cornerSize2);

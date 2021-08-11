@@ -5,26 +5,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f35258a;
+    public final String f72012a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f35259b;
+    public final long f72013b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f35260c;
+    public final String f72014c;
 
-    public n(String str, long j, String str2) {
+    public n(String str, long j2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), str2};
+            Object[] objArr = {str, Long.valueOf(j2), str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -34,16 +35,16 @@ public class n {
                 return;
             }
         }
-        this.f35258a = str;
-        this.f35259b = j;
-        this.f35260c = str2;
+        this.f72012a = str;
+        this.f72013b = j2;
+        this.f72014c = str2;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SourceInfo{url='" + this.f35258a + "', length=" + this.f35259b + ", mime='" + this.f35260c + "'}";
+            return "SourceInfo{url='" + this.f72012a + ExtendedMessageFormat.QUOTE + ", length=" + this.f72013b + ", mime='" + this.f72014c + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

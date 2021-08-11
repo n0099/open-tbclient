@@ -2,17 +2,17 @@ package io.flutter.plugins;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import c.a.p.a.a;
+import c.a.p.c.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q.a.a;
-import d.a.q.c.b;
 import io.flutter.embedding.engine.FlutterEngine;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import io.flutter.plugins.sharedpreferences.SharedPreferencesPlugin;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class GeneratedPluginRegistrant {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class GeneratedPluginRegistrant {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, flutterEngine) == null) {
             flutterEngine.getPlugins().add(new a());
-            flutterEngine.getPlugins().add(new d.a.q.b.a());
+            flutterEngine.getPlugins().add(new c.a.p.b.a());
             flutterEngine.getPlugins().add(new b());
             flutterEngine.getPlugins().add(new PathProviderPlugin());
             flutterEngine.getPlugins().add(new SharedPreferencesPlugin());

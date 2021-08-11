@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import c.a.t.a;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,11 +25,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
-import d.a.u.a;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMUserLoginByTokenMsg extends Message {
     public static /* synthetic */ Interceptable $ic;
     public static int sRetrytimes;
@@ -201,7 +201,7 @@ public class IMUserLoginByTokenMsg extends Message {
                             }
                         }
                     }
-                    if (!a.f68193e) {
+                    if (!a.f29659e) {
                         ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                     }
                 } catch (Exception e2) {
@@ -219,17 +219,17 @@ public class IMUserLoginByTokenMsg extends Message {
         }
     }
 
-    public void setTail(long j) {
+    public void setTail(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.mTail = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.mTail = j2;
         }
     }
 
-    public void setTimeout(long j) {
+    public void setTimeout(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.mTimeout = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.mTimeout = j2;
         }
     }
 }

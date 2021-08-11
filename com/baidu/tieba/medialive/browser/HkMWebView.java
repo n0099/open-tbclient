@@ -8,40 +8,39 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.webkit.DownloadListener;
+import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobads.container.util.OpenAppUtils;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HkMWebView extends BaseWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f18539e;
+    public int f53831e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f18540f;
+    public int f53832f;
+    public ValueCallback<Uri> mUploadMessage;
+    public String mWebviewUrl;
 
-    /* renamed from: g  reason: collision with root package name */
-    public int f18541g;
-
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ HkMWebView f18542c;
+        public final /* synthetic */ HkMWebView f53833c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HkMWebView hkMWebView, HkMWebView hkMWebView2, Activity activity) {
@@ -62,7 +61,7 @@ public class HkMWebView extends BaseWebView {
                     return;
                 }
             }
-            this.f18542c = hkMWebView;
+            this.f53833c = hkMWebView;
         }
 
         @Override // com.baidu.tieba.medialive.browser.HkMWebView.c, android.webkit.WebViewClient
@@ -82,16 +81,16 @@ public class HkMWebView extends BaseWebView {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class b implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HkMWebView f18543a;
+        public HkMWebView f53834a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Activity f18544b;
+        public Activity f53835b;
 
         public b(HkMWebView hkMWebView, Activity activity) {
             Interceptable interceptable = $ic;
@@ -108,34 +107,34 @@ public class HkMWebView extends BaseWebView {
                     return;
                 }
             }
-            this.f18543a = hkMWebView;
-            this.f18544b = activity;
+            this.f53834a = hkMWebView;
+            this.f53835b = activity;
         }
 
         @Override // android.webkit.DownloadListener
-        public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
+        public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                if (this.f18544b.getPackageManager().resolveActivity(intent, 0) == null) {
-                    l.N(this.f18544b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
+                if (this.f53835b.getPackageManager().resolveActivity(intent, 0) == null) {
+                    l.N(this.f53835b, "您的手机未安装任何浏览器应用，无法完成下载", 0);
                 } else {
-                    this.f18544b.startActivity(intent);
+                    this.f53835b.startActivity(intent);
                 }
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public HkMWebView f18545a;
+        public HkMWebView f53836a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Activity f18546b;
+        public Activity f53837b;
 
         public c(HkMWebView hkMWebView, Activity activity) {
             Interceptable interceptable = $ic;
@@ -152,15 +151,15 @@ public class HkMWebView extends BaseWebView {
                     return;
                 }
             }
-            this.f18545a = hkMWebView;
-            this.f18546b = activity;
+            this.f53836a = hkMWebView;
+            this.f53837b = activity;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                this.f18545a.setLightTouchEnabled();
+                this.f53836a.setLightTouchEnabled();
                 super.onPageFinished(webView, str);
             }
         }
@@ -169,7 +168,7 @@ public class HkMWebView extends BaseWebView {
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                this.f18545a.f18539e = str;
+                this.f53836a.mWebviewUrl = str;
                 super.onPageStarted(webView, str, bitmap);
             }
         }
@@ -180,15 +179,15 @@ public class HkMWebView extends BaseWebView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
                 try {
-                    if (this.f18546b != null) {
+                    if (this.f53837b != null) {
                         if (str.startsWith("tel:")) {
-                            this.f18546b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                            this.f53837b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                             return true;
-                        } else if (str.startsWith(OpenAppUtils.SCHEME_WTAI_MC)) {
-                            this.f18546b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
+                        } else if (str.startsWith("wtai://wp/mc;")) {
+                            this.f53837b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
                             return true;
                         } else if (str.startsWith(com.baidu.webkit.sdk.WebView.SCHEME_MAILTO)) {
-                            this.f18546b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
+                            this.f53837b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
                             return true;
                         }
                     }
@@ -219,14 +218,31 @@ public class HkMWebView extends BaseWebView {
                 return;
             }
         }
-        this.f18540f = 16777216;
-        this.f18541g = 16777216;
-        a();
+        this.f53831e = 16777216;
+        this.f53832f = 16777216;
+        initializeWebView();
     }
 
-    public void a() {
+    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
+    public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.mUploadMessage = null;
+            super.removeAllViews();
+            super.destroy();
+        }
+    }
+
+    @Override // android.webkit.WebView
+    public String getUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mWebviewUrl : (String) invokeV.objValue;
+    }
+
+    public void initializeWebView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setScrollbarFadingEnabled(true);
             setVerticalScrollBarEnabled(true);
             setHorizontalScrollBarEnabled(false);
@@ -242,7 +258,7 @@ public class HkMWebView extends BaseWebView {
             getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
             getSettings().setAllowContentAccess(true);
             if (getContext() instanceof Activity) {
-                ((Activity) getContext()).getWindow().setFlags(this.f18540f, this.f18541g);
+                ((Activity) getContext()).getWindow().setFlags(this.f53831e, this.f53832f);
             }
             getSettings().setDomStorageEnabled(true);
             if (Build.VERSION.SDK_INT >= 21) {
@@ -255,22 +271,6 @@ public class HkMWebView extends BaseWebView {
             setScrollBarStyle(0);
             initCommonJsBridge(getContext());
         }
-    }
-
-    @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
-    public void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.removeAllViews();
-            super.destroy();
-        }
-    }
-
-    @Override // android.webkit.WebView
-    public String getUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f18539e : (String) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView
@@ -332,8 +332,8 @@ public class HkMWebView extends BaseWebView {
                 return;
             }
         }
-        this.f18540f = 16777216;
-        this.f18541g = 16777216;
-        a();
+        this.f53831e = 16777216;
+        this.f53832f = 16777216;
+        initializeWebView();
     }
 }

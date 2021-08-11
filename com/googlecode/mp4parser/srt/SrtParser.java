@@ -10,7 +10,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public class SrtParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,7 +42,7 @@ public class SrtParser {
                 while (true) {
                     String readLine2 = lineNumberReader.readLine();
                     if (readLine2 != null && !readLine2.trim().equals("")) {
-                        str = String.valueOf(str) + readLine2 + "\n";
+                        str = String.valueOf(str) + readLine2 + StringUtils.LF;
                     }
                 }
                 textTrackImpl.getSubs().add(new TextTrackImpl.Line(parse(readLine.split("-->")[0]), parse(readLine.split("-->")[1]), str));

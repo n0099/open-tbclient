@@ -6,7 +6,6 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class MusicData extends MusicBaseBean implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CATEGORY_RECOMMEND = 1;
@@ -89,7 +88,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
                 e = e2;
             }
             try {
-                musicData.id = jSONObject.optString(CloudMusicActivityConfig.MUSIC_ID);
+                musicData.id = jSONObject.optString("music_id");
                 musicData.title = jSONObject.optString("music_title");
                 musicData.singer = jSONObject.optString("music_singer");
                 musicData.icon = jSONObject.optString("music_icon");
@@ -222,7 +221,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(CloudMusicActivityConfig.MUSIC_ID, musicData.id);
+                jSONObject.put("music_id", musicData.id);
                 jSONObject.put("music_title", musicData.title);
                 jSONObject.put("music_singer", musicData.singer);
                 jSONObject.put("music_icon", musicData.icon);

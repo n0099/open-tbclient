@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SingleScaleAnimation extends Animation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class ScaleType {
         public static /* synthetic */ Interceptable $ic;
         public static final ScaleType SCALE_X;
         public static final ScaleType SCALE_Y;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ ScaleType[] f6860a;
+        public static final /* synthetic */ ScaleType[] f41100a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -44,7 +44,7 @@ public class SingleScaleAnimation extends Animation {
             SCALE_X = new ScaleType("SCALE_X", 0);
             ScaleType scaleType = new ScaleType("SCALE_Y", 1);
             SCALE_Y = scaleType;
-            f6860a = new ScaleType[]{SCALE_X, scaleType};
+            f41100a = new ScaleType[]{SCALE_X, scaleType};
         }
 
         public ScaleType(String str, int i2) {
@@ -75,7 +75,7 @@ public class SingleScaleAnimation extends Animation {
         public static ScaleType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ScaleType[]) f6860a.clone() : (ScaleType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (ScaleType[]) f41100a.clone() : (ScaleType[]) invokeV.objValue;
         }
     }
 
@@ -125,10 +125,10 @@ public class SingleScaleAnimation extends Animation {
     }
 
     @Override // com.baidu.mapapi.animation.Animation
-    public void setDuration(long j) {
+    public void setDuration(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.bdAnimation.a(j);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.bdAnimation.a(j2);
         }
     }
 

@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.transition.Transition;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -218,7 +217,6 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
                 sSetTouchModalMethod = PopupWindow.class.getDeclaredMethod("setTouchModal", Boolean.TYPE);
             }
         } catch (NoSuchMethodException unused) {
-            Log.i(TAG, "Could not find method setTouchModal() on PopupWindow. Oh well.");
         }
     }
 
@@ -309,7 +307,6 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
                         method.invoke(this.mPopup, Boolean.valueOf(z));
                         return;
                     } catch (Exception unused) {
-                        Log.i(TAG, "Could not invoke setTouchModal() on PopupWindow. Oh well.");
                         return;
                     }
                 }

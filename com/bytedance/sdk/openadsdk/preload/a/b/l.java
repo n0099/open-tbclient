@@ -12,7 +12,7 @@ import com.bytedance.sdk.openadsdk.preload.a.t;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Writer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public final class l {
                 } catch (EOFException e2) {
                     e = e2;
                     if (z) {
-                        return com.bytedance.sdk.openadsdk.preload.a.n.f32263a;
+                        return com.bytedance.sdk.openadsdk.preload.a.n.f68222a;
                     }
                     throw new t(e);
                 }
@@ -50,27 +50,27 @@ public final class l {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends Writer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final Appendable f32193a;
+        public final Appendable f68147a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final C0365a f32194b;
+        public final C1925a f68148b;
 
         /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.l$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C0365a implements CharSequence {
+        /* loaded from: classes9.dex */
+        public static class C1925a implements CharSequence {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public char[] f32195a;
+            public char[] f68149a;
 
-            public C0365a() {
+            public C1925a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -88,21 +88,21 @@ public final class l {
             public char charAt(int i2) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f32195a[i2] : invokeI.charValue;
+                return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f68149a[i2] : invokeI.charValue;
             }
 
             @Override // java.lang.CharSequence
             public int length() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32195a.length : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f68149a.length : invokeV.intValue;
             }
 
             @Override // java.lang.CharSequence
             public CharSequence subSequence(int i2, int i3) {
                 InterceptResult invokeII;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? new String(this.f32195a, i2, i3 - i2) : (CharSequence) invokeII.objValue;
+                return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? new String(this.f68149a, i2, i3 - i2) : (CharSequence) invokeII.objValue;
             }
         }
 
@@ -121,8 +121,8 @@ public final class l {
                     return;
                 }
             }
-            this.f32194b = new C0365a();
-            this.f32193a = appendable;
+            this.f68148b = new C1925a();
+            this.f68147a = appendable;
         }
 
         @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
@@ -143,9 +143,9 @@ public final class l {
         public void write(char[] cArr, int i2, int i3) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i2, i3) == null) {
-                C0365a c0365a = this.f32194b;
-                c0365a.f32195a = cArr;
-                this.f32193a.append(c0365a, i2, i3 + i2);
+                C1925a c1925a = this.f68148b;
+                c1925a.f68149a = cArr;
+                this.f68147a.append(c1925a, i2, i3 + i2);
             }
         }
 
@@ -153,7 +153,7 @@ public final class l {
         public void write(int i2) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f32193a.append((char) i2);
+                this.f68147a.append((char) i2);
             }
         }
     }

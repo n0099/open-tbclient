@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.BaseStatisContent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class h extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class h extends a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.f32762b + this.f32763c + this.f32764d + this.f32765e + this.f32766f + this.f32767g + this.f32768h + this.f32769i + this.j + this.m + this.n + str + this.o + this.q + this.r + this.s + this.t + this.u + this.v + this.x + this.y + this.w;
+            return this.f68730b + this.f68731c + this.f68732d + this.f68733e + this.f68734f + this.f68735g + this.f68736h + this.f68737i + this.f68738j + this.m + this.n + str + this.o + this.q + this.r + this.s + this.t + this.u + this.v + this.x + this.y + this.w;
         }
         return (String) invokeL.objValue;
     }
@@ -58,16 +58,16 @@ public class h extends a {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ver", this.f32761a);
-                jSONObject.put(BaseStatisContent.SDKVER, this.f32762b);
-                jSONObject.put("appid", this.f32763c);
-                jSONObject.put(BaseStatisContent.IMSI, this.f32764d);
-                jSONObject.put("operatortype", this.f32765e);
-                jSONObject.put("networktype", this.f32766f);
-                jSONObject.put("mobilebrand", this.f32767g);
-                jSONObject.put("mobilemodel", this.f32768h);
-                jSONObject.put("mobilesystem", this.f32769i);
-                jSONObject.put("clienttype", this.j);
+                jSONObject.put("ver", this.f68729a);
+                jSONObject.put(BaseStatisContent.SDKVER, this.f68730b);
+                jSONObject.put("appid", this.f68731c);
+                jSONObject.put(BaseStatisContent.IMSI, this.f68732d);
+                jSONObject.put("operatortype", this.f68733e);
+                jSONObject.put("networktype", this.f68734f);
+                jSONObject.put("mobilebrand", this.f68735g);
+                jSONObject.put("mobilemodel", this.f68736h);
+                jSONObject.put("mobilesystem", this.f68737i);
+                jSONObject.put("clienttype", this.f68738j);
                 jSONObject.put("interfacever", this.k);
                 jSONObject.put("expandparams", this.l);
                 jSONObject.put("msgid", this.m);
@@ -95,7 +95,7 @@ public class h extends a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f32761a + "&" + this.f32762b + "&" + this.f32763c + "&" + this.f32764d + "&" + this.f32765e + "&" + this.f32766f + "&" + this.f32767g + "&" + this.f32768h + "&" + this.f32769i + "&" + this.j + "&" + this.k + "&" + this.l + "&" + this.m + "&" + this.n + "&" + this.o + "&" + this.p + "&" + this.q + "&" + this.r + "&&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.x + "&" + this.y + "&" + this.w;
+            return this.f68729a + "&" + this.f68730b + "&" + this.f68731c + "&" + this.f68732d + "&" + this.f68733e + "&" + this.f68734f + "&" + this.f68735g + "&" + this.f68736h + "&" + this.f68737i + "&" + this.f68738j + "&" + this.k + "&" + this.l + "&" + this.m + "&" + this.n + "&" + this.o + "&" + this.p + "&" + this.q + "&" + this.r + "&&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.x + "&" + this.y + "&" + this.w;
         }
         return (String) invokeV.objValue;
     }

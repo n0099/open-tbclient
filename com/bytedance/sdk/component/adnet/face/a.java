@@ -10,43 +10,43 @@ import com.bytedance.sdk.component.adnet.core.Header;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface a {
 
     /* renamed from: com.bytedance.sdk.component.adnet.face.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public static class C0318a {
+    /* loaded from: classes9.dex */
+    public static class C1878a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f28160a;
+        public int f64003a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f28161b;
+        public byte[] f64004b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f28162c;
+        public String f64005c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f28163d;
+        public long f64006d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f28164e;
+        public long f64007e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f28165f;
+        public long f64008f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f28166g;
+        public long f64009g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Map<String, String> f28167h;
+        public Map<String, String> f64010h;
 
         /* renamed from: i  reason: collision with root package name */
-        public List<Header> f28168i;
+        public List<Header> f64011i;
 
-        public C0318a() {
+        public C1878a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -59,25 +59,25 @@ public interface a {
                     return;
                 }
             }
-            this.f28167h = Collections.emptyMap();
+            this.f64010h = Collections.emptyMap();
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28165f < System.currentTimeMillis() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64008f < System.currentTimeMillis() : invokeV.booleanValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28166g < System.currentTimeMillis() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64009g < System.currentTimeMillis() : invokeV.booleanValue;
         }
     }
 
-    C0318a a(String str);
+    C1878a a(String str);
 
     void a();
 
-    void a(String str, C0318a c0318a);
+    void a(String str, C1878a c1878a);
 }

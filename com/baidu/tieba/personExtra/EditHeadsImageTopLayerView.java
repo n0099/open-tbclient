@@ -10,26 +10,28 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EditHeadsImageTopLayerView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f20178e;
+    public Paint f55534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Paint f20179f;
+    public Paint f55535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f20180g;
+    public int f55536g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f20181h;
+    public int f55537h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f20182i;
-    public float j;
+    public float f55538i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public float f55539j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EditHeadsImageTopLayerView(Context context) {
@@ -49,12 +51,12 @@ public class EditHeadsImageTopLayerView extends View {
                 return;
             }
         }
-        this.f20178e = null;
-        this.f20179f = null;
-        this.f20180g = 0;
-        this.f20181h = 0;
-        this.f20182i = 0.42857143f;
-        this.j = 1.0f;
+        this.f55534e = null;
+        this.f55535f = null;
+        this.f55536g = 0;
+        this.f55537h = 0;
+        this.f55538i = 0.42857143f;
+        this.f55539j = 1.0f;
         a();
     }
 
@@ -62,13 +64,13 @@ public class EditHeadsImageTopLayerView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f20178e = paint;
+            this.f55534e = paint;
             paint.setColor(-16777216);
-            this.f20178e.setAlpha(153);
+            this.f55534e.setAlpha(153);
             Paint paint2 = new Paint();
-            this.f20179f = paint2;
+            this.f55535f = paint2;
             paint2.setStyle(Paint.Style.STROKE);
-            this.f20179f.setColor(-1);
+            this.f55535f.setColor(-1);
         }
     }
 
@@ -79,9 +81,9 @@ public class EditHeadsImageTopLayerView extends View {
             canvas.save();
             super.onDraw(canvas);
             canvas.restore();
-            canvas.drawRect(0.0f, 0.0f, getWidth(), this.f20180g, this.f20178e);
-            canvas.drawRect(0.0f, getHeight() - this.f20181h, getWidth(), getHeight(), this.f20178e);
-            canvas.drawRect(1.0f, this.f20180g, getWidth() - 1, getHeight() - this.f20181h, this.f20179f);
+            canvas.drawRect(0.0f, 0.0f, getWidth(), this.f55536g, this.f55534e);
+            canvas.drawRect(0.0f, getHeight() - this.f55537h, getWidth(), getHeight(), this.f55534e);
+            canvas.drawRect(1.0f, this.f55536g, getWidth() - 1, getHeight() - this.f55537h, this.f55535f);
         }
     }
 
@@ -90,21 +92,21 @@ public class EditHeadsImageTopLayerView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             super.onLayout(z, i2, i3, i4, i5);
-            float width = this.j * getWidth();
+            float width = this.f55539j * getWidth();
             if (width > getHeight()) {
                 width = getHeight();
             }
             float f2 = (i5 - i3) - width;
-            float f3 = this.f20182i;
-            this.f20180g = (int) (f2 * f3);
-            this.f20181h = (int) (f2 * (1.0f - f3));
+            float f3 = this.f55538i;
+            this.f55536g = (int) (f2 * f3);
+            this.f55537h = (int) (f2 * (1.0f - f3));
         }
     }
 
     public void setLinePaintColor(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            Paint paint = this.f20179f;
+            Paint paint = this.f55535f;
             if (paint != null) {
                 paint.setColor(i2);
             }
@@ -115,7 +117,7 @@ public class EditHeadsImageTopLayerView extends View {
     public void setLineWidth(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            Paint paint = this.f20179f;
+            Paint paint = this.f55535f;
             if (paint != null) {
                 paint.setStrokeWidth(i2);
             }
@@ -126,7 +128,7 @@ public class EditHeadsImageTopLayerView extends View {
     public void setmCutHeightScale(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.j = f2;
+            this.f55539j = f2;
         }
     }
 
@@ -149,12 +151,12 @@ public class EditHeadsImageTopLayerView extends View {
                 return;
             }
         }
-        this.f20178e = null;
-        this.f20179f = null;
-        this.f20180g = 0;
-        this.f20181h = 0;
-        this.f20182i = 0.42857143f;
-        this.j = 1.0f;
+        this.f55534e = null;
+        this.f55535f = null;
+        this.f55536g = 0;
+        this.f55537h = 0;
+        this.f55538i = 0.42857143f;
+        this.f55539j = 1.0f;
         a();
     }
 
@@ -177,12 +179,12 @@ public class EditHeadsImageTopLayerView extends View {
                 return;
             }
         }
-        this.f20178e = null;
-        this.f20179f = null;
-        this.f20180g = 0;
-        this.f20181h = 0;
-        this.f20182i = 0.42857143f;
-        this.j = 1.0f;
+        this.f55534e = null;
+        this.f55535f = null;
+        this.f55536g = 0;
+        this.f55537h = 0;
+        this.f55538i = 0.42857143f;
+        this.f55539j = 1.0f;
         a();
     }
 }

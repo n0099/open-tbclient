@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.renderer.FlutterRenderer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AndroidTouchProcessor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BYTES_PER_FIELD = 8;
@@ -24,7 +24,7 @@ public class AndroidTouchProcessor {
     @NonNull
     public final FlutterRenderer renderer;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface PointerChange {
         public static final int ADD = 1;
         public static final int CANCEL = 0;
@@ -35,7 +35,7 @@ public class AndroidTouchProcessor {
         public static final int UP = 6;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface PointerDeviceKind {
         public static final int INVERTED_STYLUS = 3;
         public static final int MOUSE = 1;
@@ -44,7 +44,7 @@ public class AndroidTouchProcessor {
         public static final int UNKNOWN = 4;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface PointerSignalKind {
         public static final int NONE = 0;
         public static final int SCROLL = 1;
@@ -70,7 +70,7 @@ public class AndroidTouchProcessor {
     }
 
     private void addPointerForIndex(MotionEvent motionEvent, int i2, int i3, int i4, ByteBuffer byteBuffer) {
-        long j;
+        long j2;
         double d2;
         double d3;
         InputDevice.MotionRange motionRange;
@@ -91,14 +91,14 @@ public class AndroidTouchProcessor {
         byteBuffer.putDouble(0.0d);
         byteBuffer.putDouble(0.0d);
         if (pointerDeviceTypeForToolType == 1) {
-            j = motionEvent.getButtonState() & 31;
-            if (j == 0 && motionEvent.getSource() == 8194 && (i3 == 4 || i3 == 5)) {
-                j = 1;
+            j2 = motionEvent.getButtonState() & 31;
+            if (j2 == 0 && motionEvent.getSource() == 8194 && (i3 == 4 || i3 == 5)) {
+                j2 = 1;
             }
         } else {
-            j = pointerDeviceTypeForToolType == 2 ? (motionEvent.getButtonState() >> 4) & 15 : 0L;
+            j2 = pointerDeviceTypeForToolType == 2 ? (motionEvent.getButtonState() >> 4) & 15 : 0L;
         }
-        byteBuffer.putLong(j);
+        byteBuffer.putLong(j2);
         byteBuffer.putLong(0L);
         byteBuffer.putLong(0L);
         byteBuffer.putDouble(motionEvent.getPressure(i2));

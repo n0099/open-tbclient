@@ -7,15 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface ZeusPlugin {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface Callback {
         boolean onCallback(ZeusPlugin zeusPlugin, String str, Object obj);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Command {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_POOL_SIZE = 50;

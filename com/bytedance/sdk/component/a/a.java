@@ -21,34 +21,34 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f27878a;
+    public Context f63713a;
 
     /* renamed from: b  reason: collision with root package name */
-    public m f27879b;
+    public m f63714b;
 
     /* renamed from: c  reason: collision with root package name */
-    public h f27880c;
+    public h f63715c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f27881d;
+    public Handler f63716d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f27882e;
+    public String f63717e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f27883f;
+    public volatile boolean f63718f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f27884g;
+    public g f63719g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Map<String, g> f27885h;
+    public final Map<String, g> f63720h;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -63,9 +63,9 @@ public abstract class a {
                 return;
             }
         }
-        this.f27881d = new Handler(Looper.getMainLooper());
-        this.f27883f = false;
-        this.f27885h = new HashMap();
+        this.f63716d = new Handler(Looper.getMainLooper());
+        this.f63718f = false;
+        this.f63720h = new HashMap();
     }
 
     @NonNull
@@ -80,12 +80,12 @@ public abstract class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.f27884g.a();
-            for (g gVar : this.f27885h.values()) {
+            this.f63719g.a();
+            for (g gVar : this.f63720h.values()) {
                 gVar.a();
             }
-            this.f27881d.removeCallbacksAndMessages(null);
-            this.f27883f = true;
+            this.f63716d.removeCallbacksAndMessages(null);
+            this.f63718f = true;
         }
     }
 
@@ -93,19 +93,19 @@ public abstract class a {
 
     public void invokeMethod(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || this.f27883f) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, str) == null) || this.f63718f) {
             return;
         }
         i.a("Received call: " + str);
-        this.f27881d.post(new Runnable(this, str) { // from class: com.bytedance.sdk.component.a.a.1
+        this.f63716d.post(new Runnable(this, str) { // from class: com.bytedance.sdk.component.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ String f27886a;
+            public final /* synthetic */ String f63721a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f27887b;
+            public final /* synthetic */ a f63722b;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -122,31 +122,31 @@ public abstract class a {
                         return;
                     }
                 }
-                this.f27887b = this;
-                this.f27886a = str;
+                this.f63722b = this;
+                this.f63721a = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f27887b.f27883f) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f63722b.f63718f) {
                     return;
                 }
                 q qVar = null;
                 try {
-                    qVar = this.f27887b.a(new JSONObject(this.f27886a));
+                    qVar = this.f63722b.a(new JSONObject(this.f63721a));
                 } catch (JSONException e2) {
                     i.b("Exception thrown while parsing function.", e2);
                 }
                 if (q.a(qVar)) {
                     i.a("By pass invalid call: " + qVar);
                     if (qVar != null) {
-                        this.f27887b.b(y.a(new s(qVar.f27925a, "Failed to parse invocation.")), qVar);
+                        this.f63722b.b(y.a(new s(qVar.f63762a, "Failed to parse invocation.")), qVar);
                         return;
                     }
                     return;
                 }
-                this.f27887b.a(qVar);
+                this.f63722b.a(qVar);
             }
         });
     }
@@ -162,38 +162,38 @@ public abstract class a {
     public final void a(q qVar) {
         String a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, qVar) == null) || this.f27883f || (a2 = a()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, qVar) == null) || this.f63718f || (a2 = a()) == null) {
             return;
         }
-        g b2 = b(qVar.f27931g);
+        g b2 = b(qVar.f63768g);
         if (b2 == null) {
             i.b("Received call with unknown namespace, " + qVar);
-            m mVar = this.f27879b;
+            m mVar = this.f63714b;
             if (mVar != null) {
-                mVar.a(a(), qVar.f27928d, 2);
+                mVar.a(a(), qVar.f63765d, 2);
             }
-            b(y.a(new s(-4, "Namespace " + qVar.f27931g + " unknown.")), qVar);
+            b(y.a(new s(-4, "Namespace " + qVar.f63768g + " unknown.")), qVar);
             return;
         }
         f fVar = new f();
-        fVar.f27894b = a2;
-        fVar.f27893a = this.f27878a;
-        fVar.f27895c = b2;
+        fVar.f63729b = a2;
+        fVar.f63728a = this.f63713a;
+        fVar.f63730c = b2;
         try {
             g.a a3 = b2.a(qVar, fVar);
             if (a3 == null) {
                 i.b("Received call but not registered, " + qVar);
-                if (this.f27879b != null) {
-                    this.f27879b.a(a(), qVar.f27928d, 2);
+                if (this.f63714b != null) {
+                    this.f63714b.a(a(), qVar.f63765d, 2);
                 }
-                b(y.a(new s(-2, "Function " + qVar.f27928d + " is not registered.")), qVar);
+                b(y.a(new s(-2, "Function " + qVar.f63765d + " is not registered.")), qVar);
                 return;
             }
-            if (a3.f27911a) {
-                b(a3.f27912b, qVar);
+            if (a3.f63747a) {
+                b(a3.f63748b, qVar);
             }
-            if (this.f27879b != null) {
-                this.f27879b.a(a(), qVar.f27928d);
+            if (this.f63714b != null) {
+                this.f63714b.a(a(), qVar.f63765d);
             }
         } catch (Exception e2) {
             i.a("call finished with error, " + qVar, e2);
@@ -204,23 +204,23 @@ public abstract class a {
     public final void b(String str, q qVar) {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, qVar) == null) || this.f27883f) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, str, qVar) == null) || this.f63718f) {
             return;
         }
-        if (TextUtils.isEmpty(qVar.f27930f)) {
+        if (TextUtils.isEmpty(qVar.f63767f)) {
             i.a("By passing js callback due to empty callback: " + str);
             return;
         }
         if (!str.startsWith(StringUtil.ARRAY_START) || !str.endsWith("}")) {
             i.a(new IllegalArgumentException("Illegal callback data: " + str));
         }
-        i.a("Invoking js callback: " + qVar.f27930f);
+        i.a("Invoking js callback: " + qVar.f63767f);
         try {
             jSONObject = new JSONObject(str);
         } catch (Exception unused) {
             jSONObject = new JSONObject();
         }
-        a(p.a().a("__msg_type", "callback").a("__callback_id", qVar.f27930f).a("__params", jSONObject).b(), qVar);
+        a(p.a().a("__msg_type", "callback").a("__callback_id", qVar.f63767f).a("__params", jSONObject).b(), qVar);
     }
 
     @Nullable
@@ -228,10 +228,10 @@ public abstract class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            if (!TextUtils.equals(str, this.f27882e) && !TextUtils.isEmpty(str)) {
-                return this.f27885h.get(str);
+            if (!TextUtils.equals(str, this.f63717e) && !TextUtils.isEmpty(str)) {
+                return this.f63720h.get(str);
             }
-            return this.f27884g;
+            return this.f63719g;
         }
         return (g) invokeL.objValue;
     }
@@ -239,21 +239,21 @@ public abstract class a {
     public final void a(j jVar, v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jVar, vVar) == null) {
-            this.f27878a = a(jVar);
-            this.f27880c = jVar.f27918d;
-            this.f27879b = jVar.f27923i;
-            this.f27884g = new g(jVar, this, vVar);
-            this.f27882e = jVar.k;
+            this.f63713a = a(jVar);
+            this.f63715c = jVar.f63754d;
+            this.f63714b = jVar.f63759i;
+            this.f63719g = new g(jVar, this, vVar);
+            this.f63717e = jVar.k;
             b(jVar);
         }
     }
 
     public final <T> void a(String str, T t) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, t) == null) || this.f27883f) {
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, t) == null) || this.f63718f) {
             return;
         }
-        String a2 = this.f27880c.a((h) t);
+        String a2 = this.f63715c.a((h) t);
         i.a("Sending js event: " + str);
         a("{\"__msg_type\":\"event\",\"__event_id\":\"" + str + "\",\"__params\":" + a2 + "}");
     }
@@ -263,14 +263,14 @@ public abstract class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, jSONObject)) == null) {
-            if (this.f27883f) {
+            if (this.f63718f) {
                 return null;
             }
             String optString = jSONObject.optString("__callback_id");
             String optString2 = jSONObject.optString(WebChromeClient.KEY_FUNCTION_NAME);
             String a2 = a();
             if (a2 == null) {
-                m mVar = this.f27879b;
+                m mVar = this.f63714b;
                 if (mVar != null) {
                     mVar.a(null, null, 3);
                 }
@@ -283,7 +283,7 @@ public abstract class a {
                 return q.a().a(string3).b(string).c(optString2).d(string2).e(optString).f(jSONObject.optString("namespace")).g(jSONObject.optString("__iframe_url")).a();
             } catch (JSONException e2) {
                 i.b("Failed to create call.", e2);
-                m mVar2 = this.f27879b;
+                m mVar2 = this.f63714b;
                 if (mVar2 != null) {
                     mVar2.a(a2, optString2, 1);
                 }

@@ -2,6 +2,7 @@ package com.baidu.tieba.memberCenter.memberExchange;
 
 import android.os.Bundle;
 import android.view.View;
+import c.a.e.e.p.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -19,26 +20,25 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity> implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String descStr;
     public String dueDate;
     public HttpMessageListener getTCodeInfoListener;
-    public d.a.q0.v1.d.a mView;
+    public c.a.p0.w1.d.a mView;
     public String memberImage;
     public String memberLevelIcon;
     public String memberName;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ MemberExchangeActivity f18671a;
+        public final /* synthetic */ MemberExchangeActivity f54013a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(MemberExchangeActivity memberExchangeActivity, int i2) {
@@ -58,7 +58,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                     return;
                 }
             }
-            this.f18671a = memberExchangeActivity;
+            this.f54013a = memberExchangeActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -69,22 +69,22 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                 GetTCodeResMessage getTCodeResMessage = (GetTCodeResMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (getTCodeResMessage.getTCodeInfo() != null) {
-                        if (getTCodeResMessage.getTCodeInfo().f65726a.equals("0")) {
-                            this.f18671a.showToast(R.string.exchange_success);
+                        if (getTCodeResMessage.getTCodeInfo().f27553a.equals("0")) {
+                            this.f54013a.showToast(R.string.exchange_success);
                             return;
                         } else {
-                            this.f18671a.showToast(R.string.exchange_error);
+                            this.f54013a.showToast(R.string.exchange_error);
                             return;
                         }
                     }
-                    this.f18671a.showToast(R.string.neterror);
+                    this.f54013a.showToast(R.string.neterror);
                     return;
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString) || StringUtil.NULL_STRING.equals(errorString)) {
-                    errorString = this.f18671a.getResources().getString(R.string.neterror);
+                    errorString = this.f54013a.getResources().getString(R.string.neterror);
                 }
-                this.f18671a.showToast(errorString);
+                this.f54013a.showToast(errorString);
             }
         }
     }
@@ -163,7 +163,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             }
             initTask();
             initListener();
-            d.a.q0.v1.d.a aVar = new d.a.q0.v1.d.a(this);
+            c.a.p0.w1.d.a aVar = new c.a.p0.w1.d.a(this);
             this.mView = aVar;
             aVar.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
         }

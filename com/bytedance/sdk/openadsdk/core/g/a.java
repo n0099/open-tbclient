@@ -14,12 +14,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.k;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f30299a = "a";
+    public static final String f66213a = "a";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -88,7 +88,7 @@ public class a {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65539, null, context, str)) != null) {
             return invokeLL.booleanValue;
         }
-        String str2 = f30299a;
+        String str2 = f66213a;
         k.f(str2, "checkPermissinKITKATNew，permission：" + str);
         char c2 = 65535;
         boolean z = false;
@@ -107,16 +107,16 @@ public class a {
             }
             String str3 = "android:coarse_location";
             int checkOp = ((AppOpsManager) context.getSystemService("appops")).checkOp(str3, Binder.getCallingUid(), context.getPackageName());
-            String str4 = f30299a;
+            String str4 = f66213a;
             k.f(str4, "checkPermissinKITKATNew，locationOp,permission：" + checkOp + "," + str3);
             if (checkOp != 0) {
                 try {
-                    String str5 = f30299a;
+                    String str5 = f66213a;
                     k.f(str5, "checkPermissinKITKATNew，false,permission：" + str3);
                     return false;
                 } catch (Exception e2) {
                     e = e2;
-                    String str6 = f30299a;
+                    String str6 = f66213a;
                     k.f(str6, "权限检查出错时默认返回有权限，异常代码：" + e);
                     return z;
                 }

@@ -16,7 +16,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import java.util.ArrayList;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Code128Writer extends OneDimensionalCodeWriter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CODE_CODE_B = 100;
@@ -35,7 +35,7 @@ public final class Code128Writer extends OneDimensionalCodeWriter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class CType {
         public static final /* synthetic */ CType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

@@ -3,7 +3,6 @@ package androidx.media;
 import android.media.AudioAttributes;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.SparseIntArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -532,7 +531,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
                         this.mContentType = 1;
                         break;
                     default:
-                        Log.e(AudioAttributesCompat.TAG, "Invalid stream type " + i2 + " for AudioAttributesCompat");
+                        String str = "Invalid stream type " + i2 + " for AudioAttributesCompat";
                         break;
                 }
                 this.mUsage = AudioAttributesCompat.usageForStreamType(i2);

@@ -2,13 +2,12 @@ package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
 import android.content.Context;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GroupActivityActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_ID = "activity_id";
@@ -20,13 +19,13 @@ public class GroupActivityActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupActivityActivityConfig(Context context, int i2, long j, int i3) {
+    public GroupActivityActivityConfig(Context context, int i2, long j2, int i3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -38,11 +37,11 @@ public class GroupActivityActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("activity_id", i2);
-        getIntent().putExtra("group_id", j);
+        getIntent().putExtra("group_id", j2);
         getIntent().putExtra("from", i3);
         if (context instanceof Activity) {
             return;
         }
-        getIntent().addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+        getIntent().addFlags(268435456);
     }
 }

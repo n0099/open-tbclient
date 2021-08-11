@@ -25,16 +25,17 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes10.dex */
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f35540a;
+    public c f72300a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35541b;
+    public String f72301b;
 
     public b() {
         Interceptable interceptable = $ic;
@@ -49,7 +50,7 @@ public abstract class b {
                 return;
             }
         }
-        this.f35541b = "";
+        this.f72301b = "";
     }
 
     private String a(String str) {
@@ -63,7 +64,7 @@ public abstract class b {
     public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f35540a = cVar;
+            this.f72300a = cVar;
         }
     }
 
@@ -77,7 +78,7 @@ public abstract class b {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f35542a;
+                public final /* synthetic */ b f72302a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -94,7 +95,7 @@ public abstract class b {
                             return;
                         }
                     }
-                    this.f35542a = this;
+                    this.f72302a = this;
                 }
 
                 @Override // java.io.FileFilter
@@ -179,7 +180,7 @@ public abstract class b {
             ArrayList<File> arrayList = new ArrayList();
             try {
                 ExceptionMessage a3 = a(file, file2, file3, a2);
-                this.f35540a.a(a3);
+                this.f72300a.a(a3);
                 f.a(file4);
                 ArrayList arrayList2 = new ArrayList();
                 Collections.addAll(arrayList2, file3, file4);
@@ -205,7 +206,7 @@ public abstract class b {
                     h.b(file8.getPath());
                 }
                 h.b(file5.getPath());
-                f.b(com.kwad.sdk.crash.c.b.f35509b);
+                f.b(com.kwad.sdk.crash.c.b.f72268b);
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
             }
@@ -240,48 +241,48 @@ public abstract class b {
                                     if (TextUtils.isEmpty(exceptionMessage.mLockInfo)) {
                                         sb2 = new StringBuilder();
                                         sb2.append(readLine);
-                                        sb2.append("\n");
+                                        sb2.append(StringUtils.LF);
                                     } else {
                                         sb2 = new StringBuilder();
                                         sb2.append(exceptionMessage.mLockInfo);
                                         sb2.append(readLine);
-                                        sb2.append("\n");
+                                        sb2.append(StringUtils.LF);
                                     }
                                     exceptionMessage.mLockInfo = sb2.toString();
                                 } else if (readLine.contains("Long monitor")) {
                                     if (TextUtils.isEmpty(exceptionMessage.mMonitorInfo)) {
                                         sb3 = new StringBuilder();
                                         sb3.append(readLine);
-                                        sb3.append("\n");
+                                        sb3.append(StringUtils.LF);
                                     } else {
                                         sb3 = new StringBuilder();
                                         sb3.append(exceptionMessage.mMonitorInfo);
                                         sb3.append(readLine);
-                                        sb3.append("\n");
+                                        sb3.append(StringUtils.LF);
                                     }
                                     exceptionMessage.mMonitorInfo = sb3.toString();
                                 } else if (readLine.contains("Slow Looper")) {
                                     if (TextUtils.isEmpty(exceptionMessage.mSlowLooper)) {
                                         sb4 = new StringBuilder();
                                         sb4.append(readLine);
-                                        sb4.append("\n");
+                                        sb4.append(StringUtils.LF);
                                     } else {
                                         sb4 = new StringBuilder();
                                         sb4.append(exceptionMessage.mSlowLooper);
                                         sb4.append(readLine);
-                                        sb4.append("\n");
+                                        sb4.append(StringUtils.LF);
                                     }
                                     exceptionMessage.mSlowLooper = sb4.toString();
                                 } else if (readLine.contains("Slow Operation")) {
                                     if (TextUtils.isEmpty(exceptionMessage.mSlowOperation)) {
                                         sb5 = new StringBuilder();
                                         sb5.append(readLine);
-                                        sb5.append("\n");
+                                        sb5.append(StringUtils.LF);
                                     } else {
                                         sb5 = new StringBuilder();
                                         sb5.append(exceptionMessage.mSlowOperation);
                                         sb5.append(readLine);
-                                        sb5.append("\n");
+                                        sb5.append(StringUtils.LF);
                                     }
                                     exceptionMessage.mSlowOperation = sb5.toString();
                                 }
@@ -289,12 +290,12 @@ public abstract class b {
                             if (TextUtils.isEmpty(exceptionMessage.mGCInfo)) {
                                 sb = new StringBuilder();
                                 sb.append(readLine);
-                                sb.append("\n");
+                                sb.append(StringUtils.LF);
                             } else {
                                 sb = new StringBuilder();
                                 sb.append(exceptionMessage.mGCInfo);
                                 sb.append(readLine);
-                                sb.append("\n");
+                                sb.append(StringUtils.LF);
                             }
                             exceptionMessage.mGCInfo = sb.toString();
                         } else {
@@ -304,15 +305,15 @@ public abstract class b {
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.f35541b + e + "\n";
-                        this.f35541b = str;
+                        str = this.f72301b + e + StringUtils.LF;
+                        this.f72301b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (IOException e3) {
                         e = e3;
                         bufferedReader = bufferedReader2;
-                        str = this.f35541b + e + "\n";
-                        this.f35541b = str;
+                        str = this.f72301b + e + StringUtils.LF;
+                        this.f72301b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (Throwable th) {

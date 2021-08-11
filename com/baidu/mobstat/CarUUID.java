@@ -16,19 +16,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CarUUID {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f8533a;
+    public static final Pattern f42829a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +43,7 @@ public class CarUUID {
                 return;
             }
         }
-        f8533a = Pattern.compile("(\\w{32})");
+        f42829a = Pattern.compile("(\\w{32})");
     }
 
     public CarUUID() {
@@ -93,7 +92,7 @@ public class CarUUID {
             List<ApplicationInfo> installedApplications = context.getPackageManager().getInstalledApplications(0);
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             for (ApplicationInfo applicationInfo2 : installedApplications) {
-                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f5613g), "libdueros_uuid.so"))) != null) {
+                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f39569g), "libdueros_uuid.so"))) != null) {
                     return a2;
                 }
             }
@@ -174,7 +173,7 @@ public class CarUUID {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65544, null, context, str)) != null) {
             return invokeLL.booleanValue;
         }
-        if (!c(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
+        if (!c(context, "android.permission.WRITE_EXTERNAL_STORAGE")) {
             return false;
         }
         FileOutputStream fileOutputStream2 = null;
@@ -218,7 +217,7 @@ public class CarUUID {
                     try {
                         byte[] bArr = new byte[1024];
                         String str = new String(bArr, 0, fileInputStream.read(bArr));
-                        String str2 = f8533a.matcher(str).matches() ? str : null;
+                        String str2 = f42829a.matcher(str).matches() ? str : null;
                         bu.a(fileInputStream);
                         return str2;
                     } catch (Exception unused) {

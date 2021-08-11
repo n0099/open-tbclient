@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface IPCServiceManagerAidl extends IInterface {
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static abstract class Stub extends Binder implements IPCServiceManagerAidl {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.baidu.pyramid.runtime.multiprocess.internal.IPCServiceManagerAidl";
@@ -23,7 +23,7 @@ public interface IPCServiceManagerAidl extends IInterface {
         public static final int TRANSACTION_removeService = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes2.dex */
+        /* loaded from: classes5.dex */
         public static class Proxy implements IPCServiceManagerAidl {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 @SuppressLint({"SimpleDateFormat"})
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class FormatTools {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FormatTools";
@@ -104,12 +104,12 @@ public class FormatTools {
         return invokeLL.intValue;
     }
 
-    public static String getDateStr(SimpleDateFormat simpleDateFormat, long j) {
+    public static String getDateStr(SimpleDateFormat simpleDateFormat, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, simpleDateFormat, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, simpleDateFormat, j2)) == null) {
             try {
-                return simpleDateFormat.format(new Date(j));
+                return simpleDateFormat.format(new Date(j2));
             } catch (Exception e2) {
                 LogTools.printWarning(TAG, e2);
                 return null;

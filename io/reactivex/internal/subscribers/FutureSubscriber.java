@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class FutureSubscriber<T> extends CountDownLatch implements FlowableSubscriber<T>, Future<T>, Subscription {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -170,20 +170,20 @@ public final class FutureSubscriber<T> extends CountDownLatch implements Flowabl
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j) {
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
         }
     }
 
     @Override // java.util.concurrent.Future
-    public T get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public T get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j2, timeUnit)) == null) {
             if (getCount() != 0) {
                 BlockingHelper.verifyNonBlocking();
-                if (!await(j, timeUnit)) {
+                if (!await(j2, timeUnit)) {
                     throw new TimeoutException();
                 }
             }

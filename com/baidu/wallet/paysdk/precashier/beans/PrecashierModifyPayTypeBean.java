@@ -3,23 +3,22 @@ package com.baidu.wallet.paysdk.precashier.beans;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.restnet.RestNameValuePair;
-import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
-import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import com.baidu.wallet.paysdk.datamodel.PrecashierModifyPayTypeResponse;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
-public class PrecashierModifyPayTypeBean extends PayBaseBean<PrecashierModifyPayTypeResponse> {
+/* loaded from: classes8.dex */
+public class PrecashierModifyPayTypeBean extends BaseBean<PrecashierModifyPayTypeResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<String, String> rec_params;
@@ -49,12 +48,12 @@ public class PrecashierModifyPayTypeBean extends PayBaseBean<PrecashierModifyPay
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Map<String, String> map = this.rec_params;
-            return (map == null || map.size() <= 0 || TextUtils.isEmpty(this.rec_params.get(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID)) || TextUtils.isEmpty("serial_num")) ? false : true;
+            return (map == null || map.size() <= 0 || TextUtils.isEmpty(this.rec_params.get("sp_no")) || TextUtils.isEmpty("serial_num")) ? false : true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -62,7 +61,7 @@ public class PrecashierModifyPayTypeBean extends PayBaseBean<PrecashierModifyPay
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -90,7 +89,7 @@ public class PrecashierModifyPayTypeBean extends PayBaseBean<PrecashierModifyPay
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -100,7 +99,7 @@ public class PrecashierModifyPayTypeBean extends PayBaseBean<PrecashierModifyPay
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

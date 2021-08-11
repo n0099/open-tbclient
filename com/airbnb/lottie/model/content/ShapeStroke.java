@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ShapeStroke implements ContentModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class ShapeStroke implements ContentModel {
     public final AnimatableFloatValue width;
 
     /* renamed from: com.airbnb.lottie.model.content.ShapeStroke$1  reason: invalid class name */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineCapType;
         public static final /* synthetic */ int[] $SwitchMap$com$airbnb$lottie$model$content$ShapeStroke$LineJoinType;
@@ -89,7 +89,7 @@ public class ShapeStroke implements ContentModel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class LineCapType {
         public static final /* synthetic */ LineCapType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -167,7 +167,7 @@ public class ShapeStroke implements ContentModel {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class LineJoinType {
         public static final /* synthetic */ LineJoinType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

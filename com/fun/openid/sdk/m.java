@@ -1,50 +1,59 @@
 package com.fun.openid.sdk;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
-public class m {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.openid.sdk.f;
+/* loaded from: classes9.dex */
+public class m implements f {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: a  reason: collision with root package name */
-    public static Object f32969a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public static Class<?> f32970b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static Method f32971c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1740631709, "Lcom/fun/openid/sdk/m;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1740631709, "Lcom/fun/openid/sdk/m;");
-                return;
+    public m() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        try {
-            Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-            f32970b = cls;
-            f32969a = cls.newInstance();
-            f32970b.getMethod("getUDID", Context.class);
-            f32971c = f32970b.getMethod("getOAID", Context.class);
-            f32970b.getMethod("getVAID", Context.class);
-            f32970b.getMethod("getAAID", Context.class);
-        } catch (Exception e2) {
-            Log.e("IdentifierManager", "reflect exception!", e2);
+    }
+
+    @Override // com.fun.openid.sdk.f
+    public void a(Context context, f.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
+            q.a(context).getClass();
+            String str = null;
+            if (!q.f69663b) {
+                FunOpenIDSdk.isLogEnabled();
+                aVar.a(false, null);
+                return;
+            }
+            q a2 = q.a(context);
+            a2.getClass();
+            if (q.f69663b) {
+                String str2 = q.f69669h;
+                if (str2 != null) {
+                    str = str2;
+                } else {
+                    a2.a(0, null);
+                    if (q.f69664c == null) {
+                        Context context2 = q.f69662a;
+                        q.f69664c = new s(q.f69670i, 0, null);
+                        context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f69664c);
+                    }
+                    str = q.f69669h;
+                }
+            }
+            aVar.a(true, str);
         }
     }
 }

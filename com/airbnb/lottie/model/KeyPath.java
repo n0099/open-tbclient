@@ -15,7 +15,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class KeyPath {
     public static /* synthetic */ Interceptable $ic;
     public static final KeyPath COMPOSITION;
@@ -189,7 +190,7 @@ public class KeyPath {
             sb.append(this.keys);
             sb.append(",resolved=");
             sb.append(this.resolvedElement != null);
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;

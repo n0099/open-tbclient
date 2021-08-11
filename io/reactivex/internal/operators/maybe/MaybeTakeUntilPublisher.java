@@ -16,13 +16,13 @@ import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class MaybeTakeUntilPublisher<T, U> extends AbstractMaybeWithUpstream<T, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Publisher<U> other;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class TakeUntilMainMaybeObserver<T, U> extends AtomicReference<Disposable> implements MaybeObserver<T>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2187421758664251153L;
@@ -30,7 +30,7 @@ public final class MaybeTakeUntilPublisher<T, U> extends AbstractMaybeWithUpstre
         public final MaybeObserver<? super T> actual;
         public final TakeUntilOtherMaybeObserver<U> other;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public static final class TakeUntilOtherMaybeObserver<U> extends AtomicReference<Subscription> implements FlowableSubscriber<U> {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -1266041316834525931L;

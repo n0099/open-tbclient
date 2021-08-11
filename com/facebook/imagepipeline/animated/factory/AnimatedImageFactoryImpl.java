@@ -31,7 +31,7 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class AnimatedImageFactoryImpl implements AnimatedImageFactory {
     public static /* synthetic */ Interceptable $ic;
     public static AnimatedImageDecoder sGifAnimatedImageDecoder;

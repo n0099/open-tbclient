@@ -11,12 +11,12 @@ import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class WXLaunchMiniProgramWithToken {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String TAG = "MicroMsg.SDK.WXLaunchMiniProgramWithToken.Req";
@@ -71,7 +71,7 @@ public class WXLaunchMiniProgramWithToken {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ERR_INVALID_TOKEN = -1000;

@@ -20,7 +20,6 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -67,7 +66,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIMATION_DURATION = 250;
@@ -117,11 +116,11 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public @interface AnimationMode {
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static abstract class BaseCallback<B> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DISMISS_EVENT_ACTION = 1;
@@ -133,7 +132,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes6.dex */
+        /* loaded from: classes9.dex */
         public @interface DismissEvent {
         }
 
@@ -164,7 +163,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class Behavior extends SwipeDismissBehavior<View> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,7 +214,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class BehaviorDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -270,19 +269,19 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     }
 
     @Deprecated
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface ContentViewCallback extends com.google.android.material.snackbar.ContentViewCallback {
     }
 
     @IntRange(from = 1)
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public @interface Duration {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface OnAttachStateChangeListener {
         void onViewAttachedToWindow(View view);
 
@@ -290,13 +289,13 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface OnLayoutChangeListener {
         void onLayoutChange(View view, int i2, int i3, int i4, int i5);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class SnackbarBaseLayout extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public static final View.OnTouchListener consumeAllTouchListener;
@@ -674,7 +673,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
                     }
                     ViewGroup.LayoutParams layoutParams = this.this$0.view.getLayoutParams();
                     if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
-                        Log.w(BaseTransientBottomBar.TAG, "Unable to apply gesture inset because layout params are not MarginLayoutParams");
+                        String unused = BaseTransientBottomBar.TAG;
                         return;
                     }
                     ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin += this.this$0.extraBottomMarginGestureInset - screenHeight;
@@ -1361,22 +1360,21 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65568, this) == null) {
             ViewGroup.LayoutParams layoutParams = this.view.getLayoutParams();
-            if ((layoutParams instanceof ViewGroup.MarginLayoutParams) && this.originalMargins != null) {
-                int i2 = this.anchorView != null ? this.extraBottomMarginAnchorView : this.extraBottomMarginWindowInset;
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                Rect rect = this.originalMargins;
-                marginLayoutParams.bottomMargin = rect.bottom + i2;
-                marginLayoutParams.leftMargin = rect.left + this.extraLeftMarginWindowInset;
-                marginLayoutParams.rightMargin = rect.right + this.extraRightMarginWindowInset;
-                this.view.requestLayout();
-                if (Build.VERSION.SDK_INT < 29 || !shouldUpdateGestureInset()) {
-                    return;
-                }
-                this.view.removeCallbacks(this.bottomMarginGestureInsetRunnable);
-                this.view.post(this.bottomMarginGestureInsetRunnable);
+            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams) || this.originalMargins == null) {
                 return;
             }
-            Log.w(TAG, "Unable to update margins because layout params are not MarginLayoutParams");
+            int i2 = this.anchorView != null ? this.extraBottomMarginAnchorView : this.extraBottomMarginWindowInset;
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
+            Rect rect = this.originalMargins;
+            marginLayoutParams.bottomMargin = rect.bottom + i2;
+            marginLayoutParams.leftMargin = rect.left + this.extraLeftMarginWindowInset;
+            marginLayoutParams.rightMargin = rect.right + this.extraRightMarginWindowInset;
+            this.view.requestLayout();
+            if (Build.VERSION.SDK_INT < 29 || !shouldUpdateGestureInset()) {
+                return;
+            }
+            this.view.removeCallbacks(this.bottomMarginGestureInsetRunnable);
+            this.view.post(this.bottomMarginGestureInsetRunnable);
         }
     }
 

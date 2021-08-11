@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class f implements c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f31387a;
+    public long f67327a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f31388b;
+    public long f67328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31389c;
+    public int f67329c;
 
     public f() {
         Interceptable interceptable = $ic;
@@ -33,27 +33,27 @@ public class f implements c {
                 return;
             }
         }
-        this.f31389c = 0;
+        this.f67329c = 0;
     }
 
-    public void a(long j) {
+    public void a(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.f31387a = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.f67327a = j2;
         }
     }
 
-    public void b(long j) {
+    public void b(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f31388b = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.f67328b = j2;
         }
     }
 
     public void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f31389c = i2;
+            this.f67329c = i2;
         }
     }
 
@@ -64,9 +64,9 @@ public class f implements c {
             return;
         }
         try {
-            jSONObject.put("total_duration", this.f31387a);
-            jSONObject.put("buffers_time", this.f31388b);
-            jSONObject.put("video_backup", this.f31389c);
+            jSONObject.put("total_duration", this.f67327a);
+            jSONObject.put("buffers_time", this.f67328b);
+            jSONObject.put("video_backup", this.f67329c);
         } catch (Throwable th) {
             th.printStackTrace();
         }

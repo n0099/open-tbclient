@@ -14,19 +14,19 @@ import com.bytedance.sdk.component.adnet.core.m;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d<T> implements m.a<T>, Future<m<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Request<?> f28012a;
+    public Request<?> f63851a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28013b;
+    public boolean f63852b;
 
     /* renamed from: c  reason: collision with root package name */
-    public m<T> f28014c;
+    public m<T> f63853c;
 
     public d() {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class d<T> implements m.a<T>, Future<m<T>> {
                 return;
             }
         }
-        this.f28013b = false;
+        this.f63852b = false;
     }
 
     public static <E> d<E> a() {
@@ -72,13 +72,13 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
             synchronized (this) {
-                if (this.f28012a == null) {
+                if (this.f63851a == null) {
                     return false;
                 }
                 if (isDone()) {
                     return false;
                 }
-                this.f28012a.cancel();
+                this.f63851a.cancel();
                 return true;
             }
         }
@@ -90,7 +90,7 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Request<?> request = this.f28012a;
+            Request<?> request = this.f63851a;
             if (request == null) {
                 return false;
             }
@@ -106,7 +106,7 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
-                if (!this.f28013b) {
+                if (!this.f63852b) {
                     z = isCancelled();
                 }
             }
@@ -118,10 +118,10 @@ public class d<T> implements m.a<T>, Future<m<T>> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Future
     /* renamed from: a */
-    public m<T> get(long j, @NonNull TimeUnit timeUnit) throws InterruptedException, TimeoutException {
+    public m<T> get(long j2, @NonNull TimeUnit timeUnit) throws InterruptedException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) ? a(Long.valueOf(TimeUnit.MILLISECONDS.convert(j, timeUnit))) : (m) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) ? a(Long.valueOf(TimeUnit.MILLISECONDS.convert(j2, timeUnit))) : (m) invokeJL.objValue;
     }
 
     private synchronized m<T> a(Long l) throws InterruptedException, TimeoutException {
@@ -129,8 +129,8 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, l)) == null) {
             synchronized (this) {
-                if (this.f28013b) {
-                    return this.f28014c;
+                if (this.f63852b) {
+                    return this.f63853c;
                 }
                 if (l == null) {
                     while (!isDone()) {
@@ -144,8 +144,8 @@ public class d<T> implements m.a<T>, Future<m<T>> {
                         uptimeMillis = SystemClock.uptimeMillis();
                     }
                 }
-                if (this.f28013b) {
-                    return this.f28014c;
+                if (this.f63852b) {
+                    return this.f63853c;
                 }
                 throw new TimeoutException();
             }
@@ -158,8 +158,8 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, mVar) == null) {
             synchronized (this) {
-                this.f28013b = true;
-                this.f28014c = mVar;
+                this.f63852b = true;
+                this.f63853c = mVar;
                 notifyAll();
             }
         }
@@ -170,8 +170,8 @@ public class d<T> implements m.a<T>, Future<m<T>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
             synchronized (this) {
-                this.f28013b = true;
-                this.f28014c = mVar;
+                this.f63852b = true;
+                this.f63853c = mVar;
                 notifyAll();
             }
         }

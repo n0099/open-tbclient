@@ -17,7 +17,7 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BASE64_TAG = ";base64";
@@ -25,7 +25,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
     public transient /* synthetic */ FieldHolder $fh;
     public final DataDecoder<Data> dataDecoder;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface DataDecoder<Data> {
         void close(Data data) throws IOException;
 
@@ -34,7 +34,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
         Class<Data> getDataClass();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class DataUriFetcher<Data> implements DataFetcher<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -111,7 +111,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class StreamFactory<Model> implements ModelLoaderFactory<Model, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

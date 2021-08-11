@@ -3,6 +3,8 @@ package com.baidu.tieba.homepage.tabfeed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.s.q.c2;
+import c.a.o0.s.q.x0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -13,14 +15,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.s.q.b2;
-import d.a.p0.s.q.w0;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
-/* loaded from: classes4.dex */
-public class SpecialColumnListData extends d.a.p0.s.q.a implements Parcelable {
+/* loaded from: classes7.dex */
+public class SpecialColumnListData extends c.a.o0.s.q.a implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
@@ -30,7 +30,7 @@ public class SpecialColumnListData extends d.a.p0.s.q.a implements Parcelable {
     public List<SpecialColumnItemData> mResultListData;
     public String title;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Parcelable.Creator<SpecialColumnListData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -118,14 +118,14 @@ public class SpecialColumnListData extends d.a.p0.s.q.a implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mListData : (List) invokeV.objValue;
     }
 
-    @Override // d.a.p0.s.q.a
-    public w0 getNegFeedBackData() {
+    @Override // c.a.o0.s.q.a
+    public x0 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (w0) invokeV.objValue;
+        return (x0) invokeV.objValue;
     }
 
     public List<SpecialColumnItemData> getResultData() {
@@ -134,14 +134,14 @@ public class SpecialColumnListData extends d.a.p0.s.q.a implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mResultListData : (List) invokeV.objValue;
     }
 
-    @Override // d.a.p0.s.q.a
-    public b2 getThreadData() {
+    @Override // c.a.o0.s.q.a
+    public c2 getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
-        return (b2) invokeV.objValue;
+        return (c2) invokeV.objValue;
     }
 
     public String getTitle() {
@@ -150,7 +150,7 @@ public class SpecialColumnListData extends d.a.p0.s.q.a implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.title : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.d.k.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

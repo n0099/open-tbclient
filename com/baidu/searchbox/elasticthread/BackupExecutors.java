@@ -12,7 +12,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BackupExecutors {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKUP_THREAD_POOL_CORE_SIZE = 15;
@@ -81,17 +81,17 @@ public class BackupExecutors {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mThreadPoolExecutor : (Executor) invokeV.objValue;
     }
 
-    public void postSerialTask(Runnable runnable, long j) {
+    public void postSerialTask(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j) == null) {
-            this.mSerialExecutor.schedule(runnable, j, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j2) == null) {
+            this.mSerialExecutor.schedule(runnable, j2, TimeUnit.MILLISECONDS);
         }
     }
 
-    public void postThreadPoolTask(Runnable runnable, long j) {
+    public void postThreadPoolTask(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, runnable, j) == null) {
-            this.mThreadPoolExecutor.schedule(runnable, j, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, runnable, j2) == null) {
+            this.mThreadPoolExecutor.schedule(runnable, j2, TimeUnit.MILLISECONDS);
         }
     }
 }

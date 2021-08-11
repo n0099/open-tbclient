@@ -14,7 +14,7 @@ import com.bumptech.glide.request.transition.ViewAnimationFactory;
 import com.bumptech.glide.request.transition.ViewPropertyAnimationFactory;
 import com.bumptech.glide.request.transition.ViewPropertyTransition;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class TransitionOptions<CHILD extends TransitionOptions<CHILD, TranscodeType>, TranscodeType> implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,7 +64,7 @@ public abstract class TransitionOptions<CHILD extends TransitionOptions<CHILD, T
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public final CHILD m45clone() {
+    public final CHILD m50clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

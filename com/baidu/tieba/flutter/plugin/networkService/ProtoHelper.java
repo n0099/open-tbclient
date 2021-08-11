@@ -1,6 +1,7 @@
 package com.baidu.tieba.flutter.plugin.networkService;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.i0.b.g;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -23,12 +24,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.i0.b.g;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ProtoHelper {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, Integer> platformImageNameMap;

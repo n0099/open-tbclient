@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMDelMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMDelMsg";
@@ -54,12 +54,12 @@ public class IMDelMsg extends Message {
         }
     }
 
-    public IMDelMsg(Context context, long j, int i2, long[] jArr, long j2, boolean z) {
+    public IMDelMsg(Context context, long j2, int i2, long[] jArr, long j3, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i2), jArr, Long.valueOf(j2), Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), jArr, Long.valueOf(j3), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -73,12 +73,12 @@ public class IMDelMsg extends Message {
         this.mReSendCount = 0;
         initCommonParameter(context);
         this.mContext = context;
-        this.mToId = j;
+        this.mToId = j2;
         setNeedReplay(true);
         this.mCategory = i2;
         setType(57);
         this.mMsgIds = jArr;
-        this.mClientMaxMsgid = j2;
+        this.mClientMaxMsgid = j3;
         this.mPriority = 14;
         this.mIsZhida = z;
     }
@@ -135,8 +135,8 @@ public class IMDelMsg extends Message {
                 jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
                 if (this.mMsgIds != null && this.mMsgIds.length > 0) {
                     JSONArray jSONArray = new JSONArray();
-                    for (long j : this.mMsgIds) {
-                        jSONArray.put(Long.valueOf(j));
+                    for (long j2 : this.mMsgIds) {
+                        jSONArray.put(Long.valueOf(j2));
                     }
                     jSONObject.put("msgid", jSONArray);
                 }
@@ -221,10 +221,10 @@ public class IMDelMsg extends Message {
         }
     }
 
-    public void setPaid(long j) {
+    public void setPaid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.mPaid = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.mPaid = j2;
         }
     }
 }

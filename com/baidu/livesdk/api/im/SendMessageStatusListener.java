@@ -1,5 +1,5 @@
 package com.baidu.livesdk.api.im;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface SendMessageStatusListener {
     void onSendProgress(int i2, Object obj);
 

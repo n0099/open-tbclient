@@ -11,8 +11,9 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ProductListResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +79,7 @@ public class ProductListResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ProductListResult{currencyType=" + this.currencyType + ", productInfoList=" + this.productInfoList + ", payWayInfoList=" + this.payWayInfoList + ", currencyName=" + this.currencyName + ", paysSettingInfo=" + this.paysSettingInfo + '}';
+            return "ProductListResult{currencyType=" + this.currencyType + ", productInfoList=" + this.productInfoList + ", payWayInfoList=" + this.payWayInfoList + ", currencyName=" + this.currencyName + ", paysSettingInfo=" + this.paysSettingInfo + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

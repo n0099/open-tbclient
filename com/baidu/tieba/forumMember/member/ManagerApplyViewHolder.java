@@ -10,25 +10,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ManagerApplyViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: a  reason: collision with root package name */
-    public TextView f15305a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public TextView f15306b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public RelativeLayout f15307c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f15308d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f15309e;
+    public RelativeLayout mAssistApplyLayout;
+    public TextView mAssistRemainNum;
+    public LinearLayout mRootLayout;
+    public int mSkinType;
+    public TextView mTipAssistLeft;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ManagerApplyViewHolder(View view) {
@@ -48,10 +38,10 @@ public class ManagerApplyViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f15309e = 3;
-        this.f15308d = (LinearLayout) view.findViewById(R.id.root_member_manager_apply);
-        this.f15305a = (TextView) view.findViewById(R.id.assist_apply_tip);
-        this.f15306b = (TextView) view.findViewById(R.id.assist_left_tv);
-        this.f15307c = (RelativeLayout) view.findViewById(R.id.assist_apply_layout);
+        this.mSkinType = 3;
+        this.mRootLayout = (LinearLayout) view.findViewById(R.id.root_member_manager_apply);
+        this.mTipAssistLeft = (TextView) view.findViewById(R.id.assist_apply_tip);
+        this.mAssistRemainNum = (TextView) view.findViewById(R.id.assist_left_tv);
+        this.mAssistApplyLayout = (RelativeLayout) view.findViewById(R.id.assist_apply_layout);
     }
 }

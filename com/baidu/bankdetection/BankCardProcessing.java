@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Environment;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.idl.authority.AlgorithmOnMainThreadException;
 import com.baidu.idl.authority.IDLAuthorityException;
@@ -23,7 +22,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class BankCardProcessing {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BankCardProcessing";
@@ -49,7 +48,7 @@ public class BankCardProcessing {
                 return;
             }
         }
-        System.loadLibrary(License.LICENSE_DEFAULT_FILE_NAME);
+        System.loadLibrary(License.LICENSE_ASSETS_FILE);
         System.loadLibrary("bankcardprocess.1.1.1");
         mInstance = null;
         mAuthorityStatus = 256;
@@ -117,9 +116,8 @@ public class BankCardProcessing {
                 bArr[i5 + 1] = (byte) ((i4 >> 8) & 255);
                 bArr[i5 + 2] = (byte) (i4 & 255);
             }
-            long currentTimeMillis4 = System.currentTimeMillis() - currentTimeMillis3;
-            Log.w(TAG, "getPixelsTime = " + currentTimeMillis2 + " ms");
-            Log.w(TAG, "getRGBsTime = " + currentTimeMillis4 + " ms");
+            String str = "getPixelsTime = " + currentTimeMillis2 + " ms";
+            String str2 = "getRGBsTime = " + (System.currentTimeMillis() - currentTimeMillis3) + " ms";
             return bArr;
         }
         return (byte[]) invokeL.objValue;
@@ -129,15 +127,13 @@ public class BankCardProcessing {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{assetManager, str, str2, str3, str4, str5, str6, str7})) == null) {
-            Log.i(TAG, "[In init] number of tasks is " + this.mNumberOfTasks.get());
+            String str8 = "[In init] number of tasks is " + this.mNumberOfTasks.get();
             int bankcardModelInit = bankcardModelInit(assetManager, str, str2, str3, str4, str5, str6);
             if (bankcardModelInit < 0) {
-                Log.e(TAG, "Model initialization failure.");
                 return bankcardModelInit;
             }
             int bankcardCaptchaInit = bankcardCaptchaInit(assetManager, str7);
             if (bankcardCaptchaInit < 0) {
-                Log.e(TAG, "Captcha initialization failure");
                 bankcardModelRelease();
                 return bankcardCaptchaInit;
             } else if (bankcardModelInit == 0 || bankcardCaptchaInit == 0) {
@@ -154,17 +150,15 @@ public class BankCardProcessing {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Log.i(TAG, "[In release] number of tasks is " + this.mNumberOfTasks.get());
+            String str = "[In release] number of tasks is " + this.mNumberOfTasks.get();
             do {
             } while (this.mNumberOfTasks.get() > 1);
             int bankcardModelRelease = bankcardModelRelease();
             if (bankcardModelRelease != 0) {
-                Log.e(TAG, "Error: release of bankcard model failure!");
                 return bankcardModelRelease;
             }
             int bankcardCaptchaRelease = bankcardCaptchaRelease();
             if (bankcardCaptchaRelease != 0) {
-                Log.e(TAG, "Error: release of captcha failure!");
                 return bankcardCaptchaRelease;
             }
             this.mNumberOfTasks.decrementAndGet();
@@ -195,14 +189,13 @@ public class BankCardProcessing {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Boolean.valueOf(z)})) == null) {
             if (!UIThread.isUITread()) {
                 if (mAuthorityStatus <= 48) {
-                    Log.i(TAG, "[In runBankCardProcess] number of tasks is " + this.mNumberOfTasks.get());
+                    String str = "[In runBankCardProcess] number of tasks is " + this.mNumberOfTasks.get();
                     if (this.mNumberOfTasks.get() >= 1) {
                         this.mNumberOfTasks.incrementAndGet();
                         BCResult BankCardProcess = BankCardProcess(bArr, i2, i3, i4, i5, i6, i7, i8, z);
                         this.mNumberOfTasks.decrementAndGet();
                         return BankCardProcess;
                     }
-                    Log.e(TAG, "Error: Initialize the model first!");
                     return null;
                 }
                 throw new IDLAuthorityException();
@@ -250,17 +243,11 @@ public class BankCardProcessing {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{assetManager, str, str2, str3, str4, str5, str6, str7, bitmap, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (!UIThread.isUITread()) {
                 if (mAuthorityStatus <= 48) {
-                    if (bitmap == null) {
-                        Log.e(TAG, "Error: input bitmap is null.");
-                        return null;
-                    } else if (bankcardModelInit(assetManager, str, str2, str3, str4, str5, str6) < 0) {
-                        Log.e(TAG, "Model initialization failure.");
-                        return null;
-                    } else if (bankcardCaptchaInit(assetManager, str7) < 0) {
-                        Log.e(TAG, "Captcha initialization failure");
-                        bankcardModelRelease();
-                        return null;
-                    } else {
+                    if (bitmap != null && bankcardModelInit(assetManager, str, str2, str3, str4, str5, str6) >= 0) {
+                        if (bankcardCaptchaInit(assetManager, str7) < 0) {
+                            bankcardModelRelease();
+                            return null;
+                        }
                         int height = bitmap.getHeight();
                         int width = bitmap.getWidth();
                         BCResult runBankCardProcess = runBankCardProcess(getRGBImageData(bitmap), height, width, 1, 1, width - 1, height - 1, i2, z);
@@ -268,12 +255,13 @@ public class BankCardProcessing {
                             String cardNumberToString = runBankCardProcess.cardNumberToString();
                             this.mCardNumber = cardNumberToString;
                             if (cardNumberToString != null) {
-                                Log.i(TAG, "cardNumber is " + this.mCardNumber);
+                                String str8 = "cardNumber is " + this.mCardNumber;
                             }
                         }
                         Statistics.getInstance().triggerEvent(TAG);
                         return runBankCardProcess;
                     }
+                    return null;
                 }
                 throw new IDLAuthorityException();
             }

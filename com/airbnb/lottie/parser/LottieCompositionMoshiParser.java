@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LottieCompositionMoshiParser {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReader.Options ASSETS_NAMES;

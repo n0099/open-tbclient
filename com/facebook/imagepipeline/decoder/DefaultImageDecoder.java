@@ -22,7 +22,7 @@ import com.facebook.imagepipeline.platform.PlatformDecoder;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DefaultImageDecoder implements ImageDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

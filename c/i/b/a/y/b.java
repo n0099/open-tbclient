@@ -1,0 +1,163 @@
+package c.i.b.a.y;
+
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import c.i.b.a.i0.v;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public final class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: a  reason: collision with root package name */
+    public byte[] f33852a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public byte[] f33853b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f33854c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int[] f33855d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int[] f33856e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f33857f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f33858g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public int f33859h;
+
+    /* renamed from: i  reason: collision with root package name */
+    public final MediaCodec.CryptoInfo f33860i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final C1500b f33861j;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @TargetApi(24)
+    /* renamed from: c.i.b.a.y.b$b  reason: collision with other inner class name */
+    /* loaded from: classes4.dex */
+    public static final class C1500b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: a  reason: collision with root package name */
+        public final MediaCodec.CryptoInfo f33862a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final MediaCodec.CryptoInfo.Pattern f33863b;
+
+        public /* synthetic */ C1500b(MediaCodec.CryptoInfo cryptoInfo, a aVar) {
+            this(cryptoInfo);
+        }
+
+        public final void b(int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+                this.f33863b.set(i2, i3);
+                this.f33862a.setPattern(this.f33863b);
+            }
+        }
+
+        public C1500b(MediaCodec.CryptoInfo cryptoInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cryptoInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f33862a = cryptoInfo;
+            this.f33863b = new MediaCodec.CryptoInfo.Pattern(0, 0);
+        }
+    }
+
+    public b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        MediaCodec.CryptoInfo b2 = v.f33623a >= 16 ? b() : null;
+        this.f33860i = b2;
+        this.f33861j = v.f33623a >= 24 ? new C1500b(b2, null) : null;
+    }
+
+    @TargetApi(16)
+    public MediaCodec.CryptoInfo a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33860i : (MediaCodec.CryptoInfo) invokeV.objValue;
+    }
+
+    @TargetApi(16)
+    public final MediaCodec.CryptoInfo b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new MediaCodec.CryptoInfo() : (MediaCodec.CryptoInfo) invokeV.objValue;
+    }
+
+    public void c(int i2, int[] iArr, int[] iArr2, byte[] bArr, byte[] bArr2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), iArr, iArr2, bArr, bArr2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            this.f33857f = i2;
+            this.f33855d = iArr;
+            this.f33856e = iArr2;
+            this.f33853b = bArr;
+            this.f33852a = bArr2;
+            this.f33854c = i3;
+            this.f33858g = i4;
+            this.f33859h = i5;
+            if (v.f33623a >= 16) {
+                d();
+            }
+        }
+    }
+
+    @TargetApi(16)
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MediaCodec.CryptoInfo cryptoInfo = this.f33860i;
+            cryptoInfo.numSubSamples = this.f33857f;
+            cryptoInfo.numBytesOfClearData = this.f33855d;
+            cryptoInfo.numBytesOfEncryptedData = this.f33856e;
+            cryptoInfo.key = this.f33853b;
+            cryptoInfo.iv = this.f33852a;
+            cryptoInfo.mode = this.f33854c;
+            if (v.f33623a >= 24) {
+                this.f33861j.b(this.f33858g, this.f33859h);
+            }
+        }
+    }
+}

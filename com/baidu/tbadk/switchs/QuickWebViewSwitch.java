@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.TriState;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class QuickWebViewSwitch extends BaseNormalSwitch {
     public static /* synthetic */ Interceptable $ic;
     public static QuickWebViewSwitch mInstance;
@@ -66,14 +66,14 @@ public class QuickWebViewSwitch extends BaseNormalSwitch {
         }
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.a.d.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, c.a.e.e.f.a
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? super.getDefaultType() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, d.a.d.e.f.a
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, c.a.e.e.f.a
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

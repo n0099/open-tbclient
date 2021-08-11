@@ -1,5 +1,6 @@
 package com.baidu.tieba.godMultiAttention;
 
+import c.a.p0.i3.d0.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
@@ -9,8 +10,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import d.a.q0.h3.d0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class MultiAttentionModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

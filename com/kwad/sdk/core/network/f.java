@@ -8,37 +8,39 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.CustomerServiceMenu;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f34862a;
+    public static f f71605a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f34863b;
+    public static f f71606b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static f f34864c;
+    public static f f71607c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f34865d;
+    public static f f71608d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static f f34866e;
+    public static f f71609e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static f f34867f;
+    public static f f71610f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static f f34868g;
+    public static f f71611g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static f f34869h;
+    public static f f71612h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static f f34870i;
-    public static f j;
+    public static f f71613i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static f f71614j;
     public static f k;
     public static f l;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,16 +60,16 @@ public class f {
                 return;
             }
         }
-        f34862a = new f(-1, "请求超事件");
-        f34863b = new f(-2, "请求异常");
-        f34864c = new f(40001, "网络错误");
-        f34865d = new f(40002, "数据解析错误");
-        f34866e = new f(40003, "广告数据为空");
-        f34867f = new f(40004, "视频资源缓存失败");
-        f34868g = new f(40005, "网络超时");
-        f34869h = new f(40007, "图片下载失败");
-        f34870i = new f(CustomerServiceMenu.WITHDRAW_SERVICE, "更多视频请前往快手App查看");
-        j = new f(100007, "复制链接失败，请稍后重试");
+        f71605a = new f(-1, "请求超事件");
+        f71606b = new f(-2, "请求异常");
+        f71607c = new f(40001, "网络错误");
+        f71608d = new f(40002, "数据解析错误");
+        f71609e = new f(40003, "广告数据为空");
+        f71610f = new f(40004, "视频资源缓存失败");
+        f71611g = new f(40005, "网络超时");
+        f71612h = new f(40007, "图片下载失败");
+        f71613i = new f(CustomerServiceMenu.WITHDRAW_SERVICE, "更多视频请前往快手App查看");
+        f71614j = new f(100007, "复制链接失败，请稍后重试");
         k = new f(100008, "内容有点敏感，不可以发送哦");
         l = new f(130001, "数据不存在");
     }

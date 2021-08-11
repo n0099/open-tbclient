@@ -6,6 +6,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.n0.a.v2.q0;
+import c.a.o0.h0.i;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -45,22 +48,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.backends.pipeline.Fresco;
-import d.a.d.e.p.l;
-import d.a.o0.a.v2.q0;
-import d.a.p0.h0.i;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class SwanAppAbTestStatic {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f13965a;
+    public static boolean f49089a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f13966b;
+    public static i f49090b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a extends i<PrivacyPolicyEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public class SwanAppAbTestStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.p0.h0.b
+        @Override // c.a.o0.h0.b
         /* renamed from: a */
         public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
             InterceptResult invokeL;
@@ -96,7 +96,7 @@ public class SwanAppAbTestStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class b implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -128,7 +128,7 @@ public class SwanAppAbTestStatic {
                     StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START);
                     statisticItem.param("obj_id", customMessage.getData());
                     TiebaStatic.log(statisticItem);
-                    if (d.a.d.a.b.f().b() != null) {
+                    if (c.a.e.a.b.f().b() != null) {
                         Uri parse = Uri.parse(customMessage.getData());
                         SwanAppAbTestStatic.d(parse);
                         SchemeRouter.invokeSchemeForInner(AppRuntime.getAppContext(), parse);
@@ -144,7 +144,7 @@ public class SwanAppAbTestStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -180,7 +180,7 @@ public class SwanAppAbTestStatic {
             PopupWindow a2;
             Activity b2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof d.a.p0.a.i) && (a2 = d.a.q0.u.b.a.a((d.a.p0.a.i) customResponsedMessage.getData())) != null && (b2 = d.a.d.a.b.f().b()) != null && b2.getWindow() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.o0.a.h) && (a2 = c.a.p0.u.b.a.a((c.a.o0.a.h) customResponsedMessage.getData())) != null && (b2 = c.a.e.a.b.f().b()) != null && b2.getWindow() != null) {
                 try {
                     a2.showAtLocation(b2.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -189,7 +189,7 @@ public class SwanAppAbTestStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class d implements UrlManager.UrlDealListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,12 +251,12 @@ public class SwanAppAbTestStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes6.dex */
         public class a extends GetUserInfoCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -312,12 +312,12 @@ public class SwanAppAbTestStatic {
             public void onSuccess(GetUserInfoResult getUserInfoResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                    d.a.o0.a.k2.g.h.a().putString("bd_box_display_name", getUserInfoResult.displayname);
-                    d.a.o0.a.k2.g.h.a().putString("bd_box_uid", getUserInfoResult.uid);
-                    d.a.o0.a.k2.g.h.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
-                    d.a.o0.a.k2.g.h.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
-                    d.a.o0.a.k2.g.h.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                    d.a.q0.u.b.b.a.l().y(getUserInfoResult);
+                    c.a.n0.a.k2.g.h.a().putString("bd_box_display_name", getUserInfoResult.displayname);
+                    c.a.n0.a.k2.g.h.a().putString("bd_box_uid", getUserInfoResult.uid);
+                    c.a.n0.a.k2.g.h.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
+                    c.a.n0.a.k2.g.h.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
+                    c.a.n0.a.k2.g.h.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
+                    c.a.p0.u.b.b.a.l().y(getUserInfoResult);
                 }
             }
         }
@@ -353,14 +353,14 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    d.a.q0.u.b.b.a.l().y(null);
+                    c.a.p0.u.b.b.a.l().y(null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new a(this), SapiAccountManager.getInstance().getSession().bduss);
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class f implements CustomMessageTask.CustomRunnable<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -384,9 +384,9 @@ public class SwanAppAbTestStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                String a2 = d.a.o0.a.l.a();
-                long f2 = d.a.o0.a.m2.b.f(0);
-                long f3 = d.a.o0.a.m2.b.f(1);
+                String a2 = c.a.n0.a.l.a();
+                long f2 = c.a.n0.a.m2.b.f(0);
+                long f3 = c.a.n0.a.m2.b.f(1);
                 TbadkCoreApplication.getInst().setSdk_ver(a2);
                 TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f2));
                 TbadkCoreApplication.getInst().setSwan_game_ver(Long.toString(f3));
@@ -396,8 +396,8 @@ public class SwanAppAbTestStatic {
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class g implements d.a.s.c<String> {
+    /* loaded from: classes6.dex */
+    public static class g implements c.a.r.c<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -415,24 +415,24 @@ public class SwanAppAbTestStatic {
             }
         }
 
-        @Override // d.a.s.c
-        public void b(int i2, Throwable th, Bundle bundle) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // c.a.r.c
+        /* renamed from: a */
+        public void onResult(String str, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bundle) == null) {
+            }
+        }
+
+        @Override // c.a.r.c
+        public void onError(int i2, Throwable th, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, th, bundle) == null) {
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.s.c
-        /* renamed from: c */
-        public void a(String str, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle) == null) {
-            }
-        }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class h implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -455,7 +455,7 @@ public class SwanAppAbTestStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.a.o0.e.o.b.b.a();
+                c.a.n0.e.o.b.b.a();
             }
         }
     }
@@ -473,11 +473,11 @@ public class SwanAppAbTestStatic {
                 return;
             }
         }
-        f13966b = new a();
+        f49090b = new a();
         if (PermissionUtil.isAgreePrivacyPolicy()) {
             c();
         } else {
-            d.a.p0.h0.h.f().m(PrivacyPolicyEvent.class, f13966b, BdUniqueId.gen());
+            c.a.o0.h0.h.f().m(PrivacyPolicyEvent.class, f49090b, BdUniqueId.gen());
         }
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -508,21 +508,21 @@ public class SwanAppAbTestStatic {
 
     public static void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f13965a) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) || f49089a) {
             return;
         }
-        f13965a = true;
+        f49089a = true;
         SwanAppInitHelper.initModules(TbadkCoreApplication.getInst(), false);
         if (Build.VERSION.SDK_INT <= 21 || TbadkCoreApplication.getInst().isRemoteProcess()) {
             return;
         }
-        d.a.q0.u.b.k.a.b();
+        c.a.p0.u.b.k.a.b();
         if (ProcessUtils.isMainProcess() && !Fresco.hasBeenInitialized()) {
             Fresco.initialize(AppRuntime.getAppContext());
         }
-        d.a.q0.u.b.b.a.l().q(TbadkCoreApplication.getInst());
-        d.a.q0.u.b.j.c.a().b(TbadkCoreApplication.getInst());
-        d.a.s.b.d(TbadkCoreApplication.getInst()).j(new g());
+        c.a.p0.u.b.b.a.l().q(TbadkCoreApplication.getInst());
+        c.a.p0.u.b.j.c.a().b(TbadkCoreApplication.getInst());
+        c.a.r.b.e(TbadkCoreApplication.getInst()).m(new g());
         q0.Y(new h(), 3000L);
     }
 

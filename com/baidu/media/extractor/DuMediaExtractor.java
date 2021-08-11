@@ -11,7 +11,6 @@ import com.android.internal.http.multipart.Part;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.CyberLog;
 import com.baidu.media.duplayer.Keep;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,20 +18,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DuMediaExtractor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Keep
     public long mNativeDuMediaExtractor;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<DuMediaExtractor> f8136a;
+        public final WeakReference<DuMediaExtractor> f42424a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(DuMediaExtractor duMediaExtractor, Looper looper) {
@@ -52,14 +51,14 @@ public class DuMediaExtractor {
                     return;
                 }
             }
-            this.f8136a = new WeakReference<>(duMediaExtractor);
+            this.f42424a = new WeakReference<>(duMediaExtractor);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                DuMediaExtractor duMediaExtractor = this.f8136a.get();
+                DuMediaExtractor duMediaExtractor = this.f42424a.get();
                 if (duMediaExtractor == null || duMediaExtractor.mNativeDuMediaExtractor == 0) {
                     CyberLog.w("DuMediaExtractor", "IjkMediaPlayer went away with unhandled events");
                 } else {
@@ -94,7 +93,7 @@ public class DuMediaExtractor {
 
     private native void nativeSetDataSource(String str, String[] strArr, String[] strArr2);
 
-    private native void nativeSetOption(int i2, String str, long j);
+    private native void nativeSetOption(int i2, String str, long j2);
 
     private native void nativeSetOption(int i2, String str, String str2);
 
@@ -124,10 +123,10 @@ public class DuMediaExtractor {
         }
     }
 
-    public void c(int i2, String str, long j) {
+    public void c(int i2, String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j)}) == null) {
-            nativeSetOption(i2, str, j);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
+            nativeSetOption(i2, str, j2);
         }
     }
 
@@ -162,7 +161,7 @@ public class DuMediaExtractor {
                     if (entry.getKey().equals("Referer")) {
                         String value = entry.getValue();
                         if (!TextUtils.isEmpty(value)) {
-                            d(1, Config.LAUNCH_REFERER, value);
+                            d(1, "referer", value);
                         }
                     } else {
                         sb.append(entry.getKey());

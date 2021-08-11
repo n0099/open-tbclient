@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.DocumentsContract;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
@@ -199,7 +198,7 @@ public class TreeDocumentFile extends DocumentFile {
                         arrayList.add(DocumentsContract.buildDocumentUriUsingTree(this.mUri, cursor.getString(0)));
                     }
                 } catch (Exception e2) {
-                    Log.w("DocumentFile", "Failed query: " + e2);
+                    String str = "Failed query: " + e2;
                 }
                 Uri[] uriArr = (Uri[]) arrayList.toArray(new Uri[arrayList.size()]);
                 DocumentFile[] documentFileArr = new DocumentFile[uriArr.length];

@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class i implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadFactory f4697a;
+    public final ThreadFactory f38681a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f4698b;
+    public final String f38682b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicInteger f4699c;
+    public final AtomicInteger f38683c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i(String str) {
@@ -58,15 +58,15 @@ public class i implements ThreadFactory {
                 return;
             }
         }
-        this.f4699c = new AtomicInteger(0);
-        this.f4698b = str;
-        this.f4697a = threadFactory;
+        this.f38683c = new AtomicInteger(0);
+        this.f38682b = str;
+        this.f38681a = threadFactory;
     }
 
     private String a(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? String.format("%s-%d", this.f4698b, Integer.valueOf(i2)) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? String.format("%s-%d", this.f38682b, Integer.valueOf(i2)) : (String) invokeI.objValue;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -74,8 +74,8 @@ public class i implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            Thread newThread = this.f4697a.newThread(runnable);
-            newThread.setName(a(this.f4699c.getAndIncrement()));
+            Thread newThread = this.f38681a.newThread(runnable);
+            newThread.setName(a(this.f38683c.getAndIncrement()));
             return newThread;
         }
         return (Thread) invokeL.objValue;

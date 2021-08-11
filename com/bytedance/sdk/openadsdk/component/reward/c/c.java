@@ -24,7 +24,7 @@ import com.bytedance.sdk.openadsdk.core.widget.TTRoundRectImageView;
 import com.bytedance.sdk.openadsdk.img.ImageLoaderWrapper;
 import com.bytedance.sdk.openadsdk.q.q;
 import com.bytedance.sdk.openadsdk.q.s;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c extends a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,7 +65,7 @@ public class c extends a {
         this.w = "fullscreen_interstitial_ad";
         this.v = mVar;
         this.n = mVar.ap();
-        this.m = this.f29579e == 2;
+        this.m = this.f65464e == 2;
     }
 
     public static boolean c(m mVar) {
@@ -110,7 +110,7 @@ public class c extends a {
     private void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            boolean z = this.f29579e == 2;
+            boolean z = this.f65464e == 2;
             this.m = z;
             if (z) {
                 int i2 = this.n;
@@ -139,7 +139,7 @@ public class c extends a {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, this) == null) {
-            this.l = LayoutInflater.from(this.f29575a).inflate(t.f(this.f29575a, "tt_activity_full_image_model_3_191_v"), (ViewGroup) null, true);
+            this.l = LayoutInflater.from(this.f65460a).inflate(t.f(this.f65460a, "tt_activity_full_image_model_3_191_v"), (ViewGroup) null, true);
             l();
         }
     }
@@ -147,28 +147,28 @@ public class c extends a {
     private void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            View inflate = LayoutInflater.from(this.f29575a).inflate(t.f(this.f29575a, "tt_activity_full_image_model_3_191_h"), (ViewGroup) null, true);
+            View inflate = LayoutInflater.from(this.f65460a).inflate(t.f(this.f65460a, "tt_activity_full_image_model_3_191_h"), (ViewGroup) null, true);
             this.l = inflate;
-            this.o = (RatioImageView) inflate.findViewById(t.e(this.f29575a, "tt_ratio_image_view"));
-            this.p = (TTRoundRectImageView) this.l.findViewById(t.e(this.f29575a, "tt_full_ad_icon"));
-            this.q = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_ad_app_name"));
-            this.r = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_desc"));
-            this.s = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_comment"));
-            this.u = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_ad_download"));
+            this.o = (RatioImageView) inflate.findViewById(t.e(this.f65460a, "tt_ratio_image_view"));
+            this.p = (TTRoundRectImageView) this.l.findViewById(t.e(this.f65460a, "tt_full_ad_icon"));
+            this.q = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_ad_app_name"));
+            this.r = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_desc"));
+            this.s = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_comment"));
+            this.u = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_ad_download"));
             a((View) this.o);
             a((View) this.p);
             a(this.q);
             a(this.r);
             a(this.s);
             a(this.u);
-            s.a((TextView) this.l.findViewById(t.e(this.f29575a, "tt_ad_logo")), this.f29576b);
+            s.a((TextView) this.l.findViewById(t.e(this.f65460a, "tt_ad_logo")), this.f65461b);
         }
     }
 
     private void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            this.l = LayoutInflater.from(this.f29575a).inflate(t.f(this.f29575a, "tt_activity_full_image_model_33_v"), (ViewGroup) null, true);
+            this.l = LayoutInflater.from(this.f65460a).inflate(t.f(this.f65460a, "tt_activity_full_image_model_33_v"), (ViewGroup) null, true);
             l();
         }
     }
@@ -176,7 +176,7 @@ public class c extends a {
     private void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.l = LayoutInflater.from(this.f29575a).inflate(t.f(this.f29575a, "tt_activity_full_image_model_33_h"), (ViewGroup) null, true);
+            this.l = LayoutInflater.from(this.f65460a).inflate(t.f(this.f65460a, "tt_activity_full_image_model_33_h"), (ViewGroup) null, true);
             l();
         }
     }
@@ -184,26 +184,26 @@ public class c extends a {
     private void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            View inflate = LayoutInflater.from(this.f29575a).inflate(t.f(this.f29575a, "tt_activity_full_image_model_173_v"), (ViewGroup) null, true);
+            View inflate = LayoutInflater.from(this.f65460a).inflate(t.f(this.f65460a, "tt_activity_full_image_model_173_v"), (ViewGroup) null, true);
             this.l = inflate;
-            this.o = (RatioImageView) inflate.findViewById(t.e(this.f29575a, "tt_ratio_image_view"));
-            this.p = (TTRoundRectImageView) this.l.findViewById(t.e(this.f29575a, "tt_full_ad_icon"));
-            this.q = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_ad_app_name"));
-            this.r = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_desc"));
-            this.u = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_ad_download"));
+            this.o = (RatioImageView) inflate.findViewById(t.e(this.f65460a, "tt_ratio_image_view"));
+            this.p = (TTRoundRectImageView) this.l.findViewById(t.e(this.f65460a, "tt_full_ad_icon"));
+            this.q = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_ad_app_name"));
+            this.r = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_desc"));
+            this.u = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_ad_download"));
             a((View) this.o);
             a((View) this.p);
             a(this.q);
             a(this.r);
             a(this.u);
-            s.a((TextView) this.l.findViewById(t.e(this.f29575a, "tt_ad_logo")), this.f29576b);
+            s.a((TextView) this.l.findViewById(t.e(this.f65460a, "tt_ad_logo")), this.f65461b);
         }
     }
 
     private void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            this.l = LayoutInflater.from(this.f29575a).inflate(t.f(this.f29575a, "tt_activity_full_image_model_173_h"), (ViewGroup) null, true);
+            this.l = LayoutInflater.from(this.f65460a).inflate(t.f(this.f65460a, "tt_activity_full_image_model_173_h"), (ViewGroup) null, true);
             l();
         }
     }
@@ -214,13 +214,13 @@ public class c extends a {
         if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (view = this.l) == null) {
             return;
         }
-        this.o = (RatioImageView) view.findViewById(t.e(this.f29575a, "tt_ratio_image_view"));
-        this.p = (TTRoundRectImageView) this.l.findViewById(t.e(this.f29575a, "tt_full_ad_icon"));
-        this.q = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_ad_app_name"));
-        this.r = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_desc"));
-        this.s = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_comment"));
-        this.t = (TTRatingBar) this.l.findViewById(t.e(this.f29575a, "tt_full_rb_score"));
-        this.u = (TextView) this.l.findViewById(t.e(this.f29575a, "tt_full_ad_download"));
+        this.o = (RatioImageView) view.findViewById(t.e(this.f65460a, "tt_ratio_image_view"));
+        this.p = (TTRoundRectImageView) this.l.findViewById(t.e(this.f65460a, "tt_full_ad_icon"));
+        this.q = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_ad_app_name"));
+        this.r = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_desc"));
+        this.s = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_comment"));
+        this.t = (TTRatingBar) this.l.findViewById(t.e(this.f65460a, "tt_full_rb_score"));
+        this.u = (TextView) this.l.findViewById(t.e(this.f65460a, "tt_full_ad_download"));
         a((View) this.o);
         a((View) this.p);
         a(this.q);
@@ -228,7 +228,7 @@ public class c extends a {
         a(this.s);
         a(this.t);
         a(this.u);
-        s.a((TextView) this.l.findViewById(t.e(this.f29575a, "tt_ad_logo")), this.f29576b);
+        s.a((TextView) this.l.findViewById(t.e(this.f65460a, "tt_ad_logo")), this.f65461b);
     }
 
     private void m() {
@@ -239,9 +239,9 @@ public class c extends a {
         }
         tTRatingBar.setStarEmptyNum(1);
         this.t.setStarFillNum(4);
-        this.t.setStarImageWidth(s.d(this.f29575a, 16.0f));
-        this.t.setStarImageHeight(s.d(this.f29575a, 16.0f));
-        this.t.setStarImagePadding(s.d(this.f29575a, 4.0f));
+        this.t.setStarImageWidth(s.d(this.f65460a, 16.0f));
+        this.t.setStarImageHeight(s.d(this.f65460a, 16.0f));
+        this.t.setStarImagePadding(s.d(this.f65460a, 4.0f));
         this.t.a();
     }
 
@@ -253,7 +253,7 @@ public class c extends a {
             return;
         }
         int f2 = mVar.al() != null ? this.v.al().f() : 6870;
-        String a2 = t.a(this.f29575a, "tt_comment_num_backup");
+        String a2 = t.a(this.f65460a, "tt_comment_num_backup");
         if (f2 > 10000) {
             str = (f2 / 10000) + "万";
         } else {
@@ -340,7 +340,7 @@ public class c extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, mVar)) == null) {
             if (mVar.X() == 4) {
-                return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f29575a, mVar, this.w);
+                return com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f65460a, mVar, this.w);
             }
             return null;
         }
@@ -349,12 +349,12 @@ public class c extends a {
 
     public void a(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || this.f29575a == null || this.v == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || view == null || this.f65460a == null || this.v == null) {
             return;
         }
-        com.bytedance.sdk.openadsdk.core.b.a aVar = this.f29582h;
+        com.bytedance.sdk.openadsdk.core.b.a aVar = this.f65467h;
         if (aVar == null) {
-            Activity activity = this.f29575a;
+            Activity activity = this.f65460a;
             m mVar = this.v;
             String str = this.w;
             aVar = new com.bytedance.sdk.openadsdk.core.b.a(activity, mVar, str, q.a(str));
@@ -380,15 +380,15 @@ public class c extends a {
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             cVar.a(8);
             cVar.b(8);
-            this.f29583i.c(false);
-            this.f29583i.d(false);
-            if (this.f29576b.d() == 2) {
-                this.f29583i.a(false);
-                this.f29583i.e(false);
+            this.f65468i.c(false);
+            this.f65468i.d(false);
+            if (this.f65461b.d() == 2) {
+                this.f65468i.a(false);
+                this.f65468i.e(false);
                 return;
             }
-            this.f29583i.a(this.f29576b.aM());
-            this.f29583i.e(true);
+            this.f65468i.a(this.f65461b.aM());
+            this.f65468i.e(true);
         }
     }
 }

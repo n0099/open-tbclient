@@ -19,10 +19,11 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TrackRunBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "trun";
@@ -51,7 +52,7 @@ public class TrackRunBox extends AbstractFullBox {
     public List<Entry> entries;
     public SampleFlags firstSampleFlags;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,10 +106,10 @@ public class TrackRunBox extends AbstractFullBox {
             }
         }
 
-        public void setSampleDuration(long j) {
+        public void setSampleDuration(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-                this.sampleDuration = j;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+                this.sampleDuration = j2;
             }
         }
 
@@ -119,10 +120,10 @@ public class TrackRunBox extends AbstractFullBox {
             }
         }
 
-        public void setSampleSize(long j) {
+        public void setSampleSize(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-                this.sampleSize = j;
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+                this.sampleSize = j2;
             }
         }
 
@@ -130,17 +131,17 @@ public class TrackRunBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return "Entry{sampleDuration=" + this.sampleDuration + ", sampleSize=" + this.sampleSize + ", sampleFlags=" + this.sampleFlags + ", sampleCompositionTimeOffset=" + this.sampleCompositionTimeOffset + '}';
+                return "Entry{sampleDuration=" + this.sampleDuration + ", sampleSize=" + this.sampleSize + ", sampleFlags=" + this.sampleFlags + ", sampleCompositionTimeOffset=" + this.sampleCompositionTimeOffset + ExtendedMessageFormat.END_FE;
             }
             return (String) invokeV.objValue;
         }
 
-        public Entry(long j, long j2, SampleFlags sampleFlags, int i2) {
+        public Entry(long j2, long j3, SampleFlags sampleFlags, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), sampleFlags, Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), sampleFlags, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -150,8 +151,8 @@ public class TrackRunBox extends AbstractFullBox {
                     return;
                 }
             }
-            this.sampleDuration = j;
-            this.sampleSize = j2;
+            this.sampleDuration = j2;
+            this.sampleSize = j3;
             this.sampleFlags = sampleFlags;
             this.sampleCompositionTimeOffset = i2;
         }
@@ -293,21 +294,21 @@ public class TrackRunBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int flags = getFlags();
-            long j = (flags & 1) == 1 ? 12L : 8L;
+            long j2 = (flags & 1) == 1 ? 12L : 8L;
             if ((flags & 4) == 4) {
-                j += 4;
-            }
-            long j2 = (flags & 256) == 256 ? 4L : 0L;
-            if ((flags & 512) == 512) {
                 j2 += 4;
+            }
+            long j3 = (flags & 256) == 256 ? 4L : 0L;
+            if ((flags & 512) == 512) {
+                j3 += 4;
             }
             if ((flags & 1024) == 1024) {
-                j2 += 4;
+                j3 += 4;
             }
             if ((flags & 2048) == 2048) {
-                j2 += 4;
+                j3 += 4;
             }
-            return j + (j2 * this.entries.size());
+            return j2 + (j3 * this.entries.size());
         }
         return invokeV.longValue;
     }
@@ -529,7 +530,7 @@ public class TrackRunBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_18, this, this));
-            return "TrackRunBox{sampleCount=" + this.entries.size() + ", dataOffset=" + this.dataOffset + ", dataOffsetPresent=" + isDataOffsetPresent() + ", sampleSizePresent=" + isSampleSizePresent() + ", sampleDurationPresent=" + isSampleDurationPresent() + ", sampleFlagsPresentPresent=" + isSampleFlagsPresent() + ", sampleCompositionTimeOffsetPresent=" + isSampleCompositionTimeOffsetPresent() + ", firstSampleFlags=" + this.firstSampleFlags + '}';
+            return "TrackRunBox{sampleCount=" + this.entries.size() + ", dataOffset=" + this.dataOffset + ", dataOffsetPresent=" + isDataOffsetPresent() + ", sampleSizePresent=" + isSampleSizePresent() + ", sampleDurationPresent=" + isSampleDurationPresent() + ", sampleFlagsPresentPresent=" + isSampleFlagsPresent() + ", sampleCompositionTimeOffsetPresent=" + isSampleCompositionTimeOffsetPresent() + ", firstSampleFlags=" + this.firstSampleFlags + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

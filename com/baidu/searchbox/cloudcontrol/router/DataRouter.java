@@ -1,6 +1,5 @@
 package com.baidu.searchbox.cloudcontrol.router;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
@@ -24,7 +23,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DataRouter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DataRouter";
@@ -160,7 +159,7 @@ public class DataRouter {
                                                         this.this$1.this$0.mServiceInfo.put(this.val$serviceName, jSONObject3);
                                                     } catch (JSONException e2) {
                                                         if (AppConfig.isDebug()) {
-                                                            Log.d(DataRouter.TAG, "routeServiceData back json is error" + e2.toString());
+                                                            String str = "routeServiceData back json is error" + e2.toString();
                                                         }
                                                     }
                                                 }
@@ -252,7 +251,7 @@ public class DataRouter {
                         countDownLatch.await(15L, TimeUnit.SECONDS);
                     } catch (InterruptedException e4) {
                         if (AppConfig.isDebug()) {
-                            Log.d(DataRouter.TAG, "processServiceData method need call  cloudControlUBCCallBack " + e4.toString());
+                            String str = "processServiceData method need call  cloudControlUBCCallBack " + e4.toString();
                             e4.printStackTrace();
                         }
                     }

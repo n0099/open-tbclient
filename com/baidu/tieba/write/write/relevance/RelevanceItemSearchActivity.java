@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import c.a.o0.v0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
@@ -13,8 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.v0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RelevanceItemSearchActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
             super.onDestroy();
             RelevanceItemSearchView relevanceItemSearchView = this.mSearchView;
             if (relevanceItemSearchView != null) {
-                relevanceItemSearchView.p();
+                relevanceItemSearchView.onDestroy();
             }
         }
     }

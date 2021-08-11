@@ -38,7 +38,7 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class ZeusLogUploader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADD_UPLOAD_FILE_FLAG = "uploadfailed";
@@ -70,7 +70,7 @@ public final class ZeusLogUploader {
     public String mType;
     public boolean mUseHttps;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class LogFilter implements FilenameFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class MyRunner implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -287,7 +287,7 @@ public final class ZeusLogUploader {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface OnFinishedListener {
         void onFinished(String str, int i2, String str2);
     }
@@ -458,7 +458,7 @@ public final class ZeusLogUploader {
         return (byte[]) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00db: ARRAY_LENGTH  (r7v2 int A[REMOVE]) = (r9v0 byte[]))] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x00da: ARRAY_LENGTH  (r7v2 int A[REMOVE]) = (r9v0 byte[]))] */
     public static boolean doUpload(byte[] bArr, String str, boolean z, String str2, StringBuffer stringBuffer) {
         InterceptResult invokeCommon;
         String str3;

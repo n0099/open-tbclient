@@ -1,6 +1,5 @@
 package com.bun.miitmdid.b;
 
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,13 +10,13 @@ import com.bun.miitmdid.utils.d;
 import com.bun.miitmdid.utils.sysParamters;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f27752a;
+    public Map<String, String> f63583a;
 
     public c() {
         Interceptable interceptable = $ic;
@@ -32,22 +31,22 @@ public class c {
                 return;
             }
         }
-        this.f27752a = new HashMap();
+        this.f63583a = new HashMap();
     }
 
     private Map<String, String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (this.f27752a.isEmpty()) {
-                this.f27752a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
-                this.f27752a.put("sv", sysParamters.a().c());
-                this.f27752a.put("md", sysParamters.a().d());
-                this.f27752a.put("mf", sysParamters.a().e());
-                this.f27752a.put(Config.PACKAGE_NAME, sysParamters.g());
+            if (this.f63583a.isEmpty()) {
+                this.f63583a.put(com.alipay.sdk.sys.a.k, sysParamters.a().b());
+                this.f63583a.put("sv", sysParamters.a().c());
+                this.f63583a.put("md", sysParamters.a().d());
+                this.f63583a.put("mf", sysParamters.a().e());
+                this.f63583a.put("pn", sysParamters.g());
             }
-            this.f27752a.put("tm", String.valueOf(System.currentTimeMillis()));
-            return this.f27752a;
+            this.f63583a.put("tm", String.valueOf(System.currentTimeMillis()));
+            return this.f63583a;
         }
         return (Map) invokeV.objValue;
     }
@@ -68,7 +67,7 @@ public class c {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ c f27753a;
+                    public final /* synthetic */ c f63584a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -85,7 +84,7 @@ public class c {
                                 return;
                             }
                         }
-                        this.f27753a = this;
+                        this.f63584a = this;
                     }
 
                     @Override // com.bun.miitmdid.b.b.a

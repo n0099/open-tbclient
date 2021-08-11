@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bx extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bu f40185a;
+    public final /* synthetic */ bu f77036a;
 
     public bx(bu buVar) {
         Interceptable interceptable = $ic;
@@ -32,12 +32,12 @@ public class bx extends ai.a {
                 return;
             }
         }
-        this.f40185a = buVar;
+        this.f77036a = buVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "10053" : (String) invokeV.objValue;
@@ -50,12 +50,12 @@ public class bx extends ai.a {
         Context context;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ckVar = this.f40185a.f163a;
+            ckVar = this.f77036a.f167a;
             if (ckVar != null) {
-                ckVar2 = this.f40185a.f163a;
-                context = this.f40185a.f160a;
+                ckVar2 = this.f77036a.f167a;
+                context = this.f77036a.f164a;
                 ckVar2.b(context);
-                this.f40185a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
+                this.f77036a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
             }
         }
     }

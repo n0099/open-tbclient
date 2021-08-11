@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ii;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PushMessageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MESSAGE = "error_message";
@@ -64,14 +64,14 @@ public class PushMessageHelper {
         }
     }
 
-    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j, String str2, String str3) {
+    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j2, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j), str2, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j2), str2, str3})) == null) {
             MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
             miPushCommandMessage.setCommand(str);
             miPushCommandMessage.setCommandArguments(list);
-            miPushCommandMessage.setResultCode(j);
+            miPushCommandMessage.setResultCode(j2);
             miPushCommandMessage.setReason(str2);
             miPushCommandMessage.setCategory(str3);
             return miPushCommandMessage;
@@ -84,7 +84,7 @@ public class PushMessageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, iiVar, hsVar, z)) == null) {
             MiPushMessage miPushMessage = new MiPushMessage();
-            miPushMessage.setMessageId(iiVar.m486a());
+            miPushMessage.setMessageId(iiVar.m489a());
             if (!TextUtils.isEmpty(iiVar.d())) {
                 miPushMessage.setMessageType(1);
                 miPushMessage.setAlias(iiVar.d());
@@ -103,17 +103,17 @@ public class PushMessageHelper {
             }
             if (hsVar != null) {
                 if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                    miPushMessage.setMessageId(hsVar.m407a());
+                    miPushMessage.setMessageId(hsVar.m410a());
                 }
                 if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                    miPushMessage.setTopic(hsVar.m412b());
+                    miPushMessage.setTopic(hsVar.m415b());
                 }
                 miPushMessage.setDescription(hsVar.d());
-                miPushMessage.setTitle(hsVar.m415c());
+                miPushMessage.setTitle(hsVar.m418c());
                 miPushMessage.setNotifyType(hsVar.a());
                 miPushMessage.setNotifyId(hsVar.c());
                 miPushMessage.setPassThrough(hsVar.b());
-                miPushMessage.setExtra(hsVar.m408a());
+                miPushMessage.setExtra(hsVar.m411a());
             }
             miPushMessage.setNotified(z);
             return miPushMessage;

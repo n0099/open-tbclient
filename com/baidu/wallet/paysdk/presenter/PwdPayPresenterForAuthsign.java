@@ -3,21 +3,21 @@ package com.baidu.wallet.paysdk.presenter;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.contract.PwdPayContract;
 import com.baidu.wallet.paysdk.datamodel.PayRequest;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.PwdPayActivity;
-import com.baidu.wallet.statistics.api.StatisticManager;
-/* loaded from: classes5.dex */
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.base.statistics.StatServiceEvent;
+import com.dxmpay.wallet.utils.StatHelper;
+/* loaded from: classes8.dex */
 public class PwdPayPresenterForAuthsign extends PwdPayContract.Presenter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,9 +65,8 @@ public class PwdPayPresenterForAuthsign extends PwdPayContract.Presenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, obj, str) == null) {
             if (i2 == 257) {
-                StatisticManager.onEventEnd(StatServiceEvent.CHECK_PASSWORD, 0);
                 BaiduPay.getInstance().bindCardAuth(this.mActivity, false);
-                StatisticManager.onEventWithValue(StatServiceEvent.EVENT_AuthorizePay_ClickNext, StatServiceEvent.VALUE_AuthorizePay_ClickNext_NewCard);
+                StatHelper.statServiceEvent(StatServiceEvent.EVENT_AuthorizePay_ClickNext, null, StatServiceEvent.VALUE_AuthorizePay_ClickNext_NewCard);
                 this.mActivity.finishWithoutAnim();
                 return;
             }

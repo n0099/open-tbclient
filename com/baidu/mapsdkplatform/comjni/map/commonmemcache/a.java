@@ -6,16 +6,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8053a;
+    public long f42337a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JNICommonMemCache f8054b;
+    public JNICommonMemCache f42338b;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -30,19 +30,19 @@ public class a {
                 return;
             }
         }
-        this.f8053a = 0L;
-        this.f8054b = null;
-        this.f8054b = new JNICommonMemCache();
+        this.f42337a = 0L;
+        this.f42338b = null;
+        this.f42338b = new JNICommonMemCache();
     }
 
     public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f8053a == 0) {
-                this.f8053a = this.f8054b.Create();
+            if (this.f42337a == 0) {
+                this.f42337a = this.f42338b.Create();
             }
-            return this.f8053a;
+            return this.f42337a;
         }
         return invokeV.longValue;
     }
@@ -50,9 +50,9 @@ public class a {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.f8053a;
-            if (j != 0) {
-                this.f8054b.Init(j);
+            long j2 = this.f42337a;
+            if (j2 != 0) {
+                this.f42338b.Init(j2);
             }
         }
     }

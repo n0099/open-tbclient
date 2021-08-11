@@ -13,7 +13,7 @@ import com.coremedia.iso.boxes.Container;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AbstractContainerBox extends BasicContainer implements Box {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -105,12 +105,12 @@ public class AbstractContainerBox extends BasicContainer implements Box {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.type : (String) invokeV.objValue;
     }
 
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             this.offset = dataSource.position() - byteBuffer.remaining();
             this.largeBox = byteBuffer.remaining() == 16;
-            parseContainer(dataSource, j, boxParser);
+            parseContainer(dataSource, j2, boxParser);
         }
     }
 

@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static o f29006a;
+    public static o f64872a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class n {
     public static void a(o oVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, oVar) == null) {
-            f29006a = oVar;
+            f64872a = oVar;
         }
     }
 
@@ -98,7 +98,7 @@ public class n {
                         case 13:
                         case 18:
                         case 19:
-                            return (f29006a == null || !f29006a.a(context, telephonyManager)) ? 5 : 6;
+                            return (f64872a == null || !f64872a.a(context, telephonyManager)) ? 5 : 6;
                         case 20:
                             return 6;
                         default:

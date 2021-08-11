@@ -5,30 +5,30 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import c.a.n0.a.f;
+import c.a.n0.a.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.f;
-import d.a.o0.a.g;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ShowConfirmBarLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f11564e;
+    public Button f46398e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f11565f;
+    public b f46399f;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShowConfirmBarLayout f11566e;
+        public final /* synthetic */ ShowConfirmBarLayout f46400e;
 
         public a(ShowConfirmBarLayout showConfirmBarLayout) {
             Interceptable interceptable = $ic;
@@ -45,20 +45,20 @@ public class ShowConfirmBarLayout extends RelativeLayout {
                     return;
                 }
             }
-            this.f11566e = showConfirmBarLayout;
+            this.f46400e = showConfirmBarLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f11566e.f11565f == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f46400e.f46399f == null) {
                 return;
             }
-            this.f11566e.f11565f.onClick(view);
+            this.f46400e.f46399f.onClick(view);
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         void onClick(View view);
     }
@@ -82,14 +82,14 @@ public class ShowConfirmBarLayout extends RelativeLayout {
             }
         }
         Button button = (Button) LayoutInflater.from(context).inflate(g.aiapps_textarea_confirm_bar, this).findViewById(f.confirm_button);
-        this.f11564e = button;
+        this.f46398e = button;
         button.setOnClickListener(new a(this));
     }
 
     public void setOnConfirmButtonClickListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f11565f = bVar;
+            this.f46399f = bVar;
         }
     }
 }

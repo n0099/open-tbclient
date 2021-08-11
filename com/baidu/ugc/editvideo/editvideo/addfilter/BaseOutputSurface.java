@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.view.Surface;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
+import c.a.v0.t.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,11 +24,10 @@ import com.baidu.ugc.editvideo.faceunity.gles.OffscreenSurface;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.faceunity.gles.WindowSurface;
 import com.faceunity.gles.GeneratedTexture;
-import d.a.w0.t.c;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

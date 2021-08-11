@@ -12,7 +12,7 @@ import io.flutter.plugin.common.StandardMessageCodec;
 import java.lang.reflect.Method;
 import ms.bd.c.b;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class g1 extends b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,11 +32,11 @@ public final class g1 extends b.a {
     }
 
     @Override // ms.bd.c.b.a
-    public Object b(int i2, long j, String str, Object obj) throws Throwable {
+    public Object b(int i2, long j2, String str, Object obj) throws Throwable {
         InterceptResult invokeCommon;
         double d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), str, obj})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), str, obj})) == null) {
             Context a2 = a.c().a();
             try {
                 Class<?> cls = Class.forName(new String(c0.b((String) h.a(16777217, 0, 0L, "28f78d", new byte[]{LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 105, 67, 69, 81, 119, 99, 28, 97, 54, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 63, 67, 23, 80, PublicSuffixDatabase.EXCEPTION_MARKER, 103, 31, 97, 62, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 110, 71, 70, 81, 42, 103, 28, 96, 51, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 111, 66, 17, 81, 118, 103, 72, 97, 100, 113, 63, 67, 69, 80, 32, 99, 28, 98, 55, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 60, 66, 20, 81, 38, 102, 75, 98, 55, 116, 104, 67, 69, 81, 37, 103, 64, 97, 100, LogSystemUploaderStrategy.ContentUtil.GZIP_HEAD_1, 111}))));

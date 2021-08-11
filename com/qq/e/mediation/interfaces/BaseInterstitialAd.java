@@ -8,9 +8,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.ads.cfg.VideoOption;
+import com.qq.e.ads.interstitial2.ADRewardListener;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialMediaListener;
-/* loaded from: classes6.dex */
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
+/* loaded from: classes10.dex */
 public abstract class BaseInterstitialAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;
@@ -68,6 +70,10 @@ public abstract class BaseInterstitialAd {
     public abstract void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener);
 
     public abstract void setMinVideoDuration(int i2);
+
+    public abstract void setRewardListener(ADRewardListener aDRewardListener);
+
+    public abstract void setServerSideVerificationOptions(ServerSideVerificationOptions serverSideVerificationOptions);
 
     public abstract void setVideoOption(VideoOption videoOption);
 

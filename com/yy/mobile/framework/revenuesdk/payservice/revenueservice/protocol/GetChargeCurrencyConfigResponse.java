@@ -16,13 +16,13 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PropsInfo;
-import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 return;
             }
         }
-        this.cmd = RevenueServerConst.GetChargeCurrencyConfigResponse;
+        this.cmd = 2021;
         this.confList = new ArrayList();
         this.payWayInfoList = new ArrayList();
         parserResponse(str);
@@ -205,7 +205,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                         this.currencyType = jSONObject.optInt("currencyType");
                         this.currencyName = jSONObject.optString("currencyName");
                         this.paysSettingInfo = new PaysSettingInfo();
-                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString(a.j));
+                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString(a.f35824j));
                         this.paysSettingInfo.customerServiceHotline = jSONObject2.optString("payChargeAmountLimit");
                         this.paysSettingInfo.customerServiceMsg = jSONObject2.optString("customerServiceMsg");
                         this.paysSettingInfo.payChargeAmountLimit = jSONObject2.optInt("payChargeAmountLimit");
@@ -231,7 +231,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "GetChargeCurrencyConfigResponse{cmd=" + this.cmd + ", uid=" + this.uid + ", seq='" + this.seq + "', expand='" + this.expend + "', currencyType=" + this.currencyType + ", confList=" + this.confList + '}';
+            return "GetChargeCurrencyConfigResponse{cmd=" + this.cmd + ", uid=" + this.uid + ", seq='" + this.seq + ExtendedMessageFormat.QUOTE + ", expand='" + this.expend + ExtendedMessageFormat.QUOTE + ", currencyType=" + this.currencyType + ", confList=" + this.confList + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

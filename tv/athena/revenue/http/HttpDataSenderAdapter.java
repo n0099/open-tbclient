@@ -28,7 +28,7 @@ import java.util.HashMap;
 import okhttp3.Request;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,31 +43,31 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
     public boolean sEnableBackupDomain;
     public String version;
 
-    /* loaded from: classes9.dex */
-    public class a extends i.a.a.c.b.a {
+    /* loaded from: classes2.dex */
+    public class a extends j.a.a.c.b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int f74173a;
+        public final /* synthetic */ int f79482a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f74174b;
+        public final /* synthetic */ String f79483b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ byte[] f74175c;
+        public final /* synthetic */ byte[] f79484c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ PSCIMessageRequest f74176d;
+        public final /* synthetic */ PSCIMessageRequest f79485d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f74177e;
+        public final /* synthetic */ String f79486e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ArrayList f74178f;
+        public final /* synthetic */ ArrayList f79487f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ HttpDataSenderAdapter f74179g;
+        public final /* synthetic */ HttpDataSenderAdapter f79488g;
 
         public a(HttpDataSenderAdapter httpDataSenderAdapter, int i2, String str, byte[] bArr, PSCIMessageRequest pSCIMessageRequest, String str2, ArrayList arrayList) {
             Interceptable interceptable = $ic;
@@ -84,44 +84,44 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
                     return;
                 }
             }
-            this.f74179g = httpDataSenderAdapter;
-            this.f74173a = i2;
-            this.f74174b = str;
-            this.f74175c = bArr;
-            this.f74176d = pSCIMessageRequest;
-            this.f74177e = str2;
-            this.f74178f = arrayList;
+            this.f79488g = httpDataSenderAdapter;
+            this.f79482a = i2;
+            this.f79483b = str;
+            this.f79484c = bArr;
+            this.f79485d = pSCIMessageRequest;
+            this.f79486e = str2;
+            this.f79487f = arrayList;
         }
 
-        @Override // i.a.a.c.b.a
+        @Override // j.a.a.c.b.a
         public void a(Request request, Exception exc) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, request, exc) == null) {
-                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f74174b + " exception: " + exc.getMessage(), new Object[0]);
-                String retryDomain = this.f74179g.getRetryDomain(this.f74177e);
+                RLog.error("HttpDataSenderAdapter", "sendByHttpPost onFail seq:" + this.f79483b + " exception: " + exc.getMessage(), new Object[0]);
+                String retryDomain = this.f79488g.getRetryDomain(this.f79486e);
                 if (!TextUtils.isEmpty(retryDomain)) {
                     try {
                         RLog.warn("HttpDataSenderAdapter", "Retry by next domain: " + retryDomain);
-                        this.f74179g.sendByHttpPost(retryDomain, this.f74173a, this.f74174b, this.f74178f, this.f74175c);
+                        this.f79488g.sendByHttpPost(retryDomain, this.f79482a, this.f79483b, this.f79487f, this.f79484c);
                         return;
                     } catch (Exception e2) {
                         RLog.error("HttpDataSenderAdapter", "Retry error, dispatch onRequestError(), " + Log.getStackTraceString(e2), new Object[0]);
                     }
                 }
                 RevenueDataParser revenueDataParser = RevenueDataParser.INSTANCE;
-                int i2 = this.f74173a;
-                String str = this.f74174b;
-                int cmd = this.f74176d.getCmd();
+                int i2 = this.f79482a;
+                String str = this.f79483b;
+                int cmd = this.f79485d.getCmd();
                 revenueDataParser.onRequestError(i2, str, cmd, -500, "onFailure = " + exc.getMessage());
-                RLog.error("HttpDataSenderAdapter", "sendByHttpPost-----onFailure-----seq:" + this.f74174b + " exception:" + exc.getMessage(), new Object[0]);
+                RLog.error("HttpDataSenderAdapter", "sendByHttpPost-----onFailure-----seq:" + this.f79483b + " exception:" + exc.getMessage(), new Object[0]);
             }
         }
 
-        @Override // i.a.a.c.b.a
+        @Override // j.a.a.c.b.a
         public void b(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                this.f74179g.onSuccess(this.f74173a, this.f74174b, this.f74175c, obj, this.f74176d);
+                this.f79488g.onSuccess(this.f79482a, this.f79483b, this.f79484c, obj, this.f79485d);
             }
         }
     }
@@ -244,7 +244,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             hashMap2.put("data", jSONObject2.toString());
             hashMap2.put("ticket", pSCIMessageRequest.getTicket());
             RLog.info("HttpDataSenderAdapter", "sendByHttpPost requstUrl:" + str3 + " seq:" + str2 + " sign:" + md5 + " ticket:" + pSCIMessageRequest.getTicket() + " hostId:" + this.hostId + " authType:" + this.authType + " clientVersion:" + this.version);
-            i.a.a.c.a.e().d(str3, hashMap2, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new a(this, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
+            j.a.a.c.a.e().d(str3, hashMap2, i2, pSCIMessageRequest.getTraceid(), this.version, this.pakageName, this.hostId, this.authType, new a(this, i2, str2, bArr, pSCIMessageRequest, str, arrayList));
         }
     }
 
@@ -276,7 +276,7 @@ public class HttpDataSenderAdapter implements IDataSenderAdapter {
             DataSenderConfig dataSenderConfig = this.config;
             if (dataSenderConfig != null && !TextUtils.isEmpty(dataSenderConfig.gslbAppId)) {
                 RLog.warn("HttpDataSenderAdapter", "tryInitHttpDns gslbAppId:" + this.config.gslbAppId);
-                i.a.a.c.c.a b2 = i.a.a.c.c.a.b();
+                j.a.a.c.c.a b2 = j.a.a.c.c.a.b();
                 DataSenderConfig dataSenderConfig2 = this.config;
                 b2.e(dataSenderConfig2.appContext, dataSenderConfig2.gslbAppId, dataSenderConfig2.hdid);
             }

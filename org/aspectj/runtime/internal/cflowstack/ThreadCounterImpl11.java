@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.Hashtable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class ThreadCounterImpl11 implements ThreadCounter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COLLECT_AT = 20000;
@@ -20,7 +20,7 @@ public class ThreadCounterImpl11 implements ThreadCounter {
     public int change_count;
     public Hashtable counters;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class Counter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

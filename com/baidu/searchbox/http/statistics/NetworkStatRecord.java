@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.ProbeTB;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class NetworkStatRecord {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_FROM_ID = 0;
@@ -235,7 +235,7 @@ public class NetworkStatRecord {
             sb.append(this.httpDnsAreaInfo);
             sb.append(", httpDnsAreaUpdateTime=");
             sb.append(this.httpDnsAreaInfoLastUpdateTime);
-            sb.append('}');
+            sb.append(ExtendedMessageFormat.END_FE);
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -253,7 +253,7 @@ public class NetworkStatRecord {
                     jSONObject.put("url", this.url);
                 }
                 if (!TextUtils.isEmpty(this.protocol)) {
-                    jSONObject.put(ProbeTB.PROTOCOL, this.protocol);
+                    jSONObject.put("protocol", this.protocol);
                 }
                 if (!TextUtils.isEmpty(this.netType)) {
                     jSONObject.put("netType", this.netType);

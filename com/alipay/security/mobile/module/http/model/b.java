@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,8 +28,8 @@ public class b {
         }
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x0069: INVOKE  (r3v4 char A[REMOVE]) = (r1v23 java.lang.String), (0 int) type: VIRTUAL call: java.lang.String.charAt(int):char)] */
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x0083: INVOKE  (r1v25 char A[REMOVE]) = (r1v23 java.lang.String), (2 int) type: VIRTUAL call: java.lang.String.charAt(int):char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x006a: INVOKE  (r3v4 char A[REMOVE]) = (r1v23 java.lang.String), (0 int) type: VIRTUAL call: java.lang.String.charAt(int):char)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: char : 0x0084: INVOKE  (r1v25 char A[REMOVE]) = (r1v23 java.lang.String), (2 int) type: VIRTUAL call: java.lang.String.charAt(int):char)] */
     public static c a(DataReportResult dataReportResult) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -38,12 +38,12 @@ public class b {
             if (dataReportResult == null) {
                 return null;
             }
-            cVar.f2130a = dataReportResult.success;
-            cVar.f2131b = dataReportResult.resultCode;
+            cVar.f35978a = dataReportResult.success;
+            cVar.f35979b = dataReportResult.resultCode;
             Map<String, String> map = dataReportResult.resultData;
             if (map != null) {
-                cVar.f2137h = map.get("apdid");
-                cVar.f2138i = map.get("apdidToken");
+                cVar.f35985h = map.get("apdid");
+                cVar.f35986i = map.get("apdidToken");
                 cVar.l = map.get("dynamicKey");
                 cVar.m = map.get("timeInterval");
                 cVar.n = map.get("webrtcUrl");
@@ -53,7 +53,7 @@ public class b {
                     if (str.length() > 0) {
                         StringBuilder sb = new StringBuilder();
                         sb.append(str.charAt(0));
-                        cVar.j = sb.toString();
+                        cVar.f35987j = sb.toString();
                     }
                     if (str.length() >= 3) {
                         StringBuilder sb2 = new StringBuilder();
@@ -78,16 +78,16 @@ public class b {
             if (dVar == null) {
                 return null;
             }
-            dataReportRequest.os = dVar.f2139a;
-            dataReportRequest.rpcVersion = dVar.j;
+            dataReportRequest.os = dVar.f35988a;
+            dataReportRequest.rpcVersion = dVar.f35997j;
             dataReportRequest.bizType = "1";
             HashMap hashMap = new HashMap();
             dataReportRequest.bizData = hashMap;
-            hashMap.put("apdid", dVar.f2140b);
-            dataReportRequest.bizData.put("apdidToken", dVar.f2141c);
-            dataReportRequest.bizData.put("umidToken", dVar.f2142d);
-            dataReportRequest.bizData.put("dynamicKey", dVar.f2143e);
-            dataReportRequest.deviceData = dVar.f2144f;
+            hashMap.put("apdid", dVar.f35989b);
+            dataReportRequest.bizData.put("apdidToken", dVar.f35990c);
+            dataReportRequest.bizData.put("umidToken", dVar.f35991d);
+            dataReportRequest.bizData.put("dynamicKey", dVar.f35992e);
+            dataReportRequest.deviceData = dVar.f35993f;
             return dataReportRequest;
         }
         return (DataReportRequest) invokeL.objValue;

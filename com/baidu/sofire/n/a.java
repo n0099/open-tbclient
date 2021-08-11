@@ -1,35 +1,34 @@
 package com.baidu.sofire.n;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Object f10495a;
+    public Object f45177a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class<?> f10496b;
+    public Class<?> f45178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f10497c;
+    public Method f45179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f10498d;
+    public Method f45180d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f10499e;
+    public Method f45181e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f10500f;
+    public String f45182f;
 
     public a() {
         Interceptable interceptable = $ic;
@@ -49,7 +48,7 @@ public final class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
-            Object obj = this.f10495a;
+            Object obj = this.f45177a;
             if (obj == null || method == null) {
                 return null;
             }
@@ -59,8 +58,7 @@ public final class a {
                     return (String) invoke;
                 }
                 return null;
-            } catch (Exception e2) {
-                Log.d("IdentifierManager", "invoke exception!", e2);
+            } catch (Exception unused) {
                 return null;
             }
         }

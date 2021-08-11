@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,8 +14,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.k;
-/* loaded from: classes3.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes6.dex */
 public class QuickLoginInfo extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<QuickLoginInfo> CREATOR;
@@ -27,7 +28,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     public String serviceAgreement;
     public boolean supportQuickLogin;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<QuickLoginInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,7 +79,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = k.f46335a;
+        DEBUG = k.f6803a;
         CREATOR = new a();
     }
 
@@ -87,7 +88,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
     }
 
     @Nullable
-    public static QuickLoginInfo parseQuickLoginInfo(d.a.o0.b.n.g.a aVar) {
+    public static QuickLoginInfo parseQuickLoginInfo(c.a.n0.b.p.g.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, aVar)) == null) {
@@ -120,7 +121,7 @@ public class QuickLoginInfo extends SwanAppIPCData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "QuickLoginInfo{supportQuickLogin=" + this.supportQuickLogin + ", encryptPhoneNum='" + this.encryptPhoneNum + "', serviceAgreement='" + this.serviceAgreement + "', hasHistory=" + this.hasHistory + ", loginMode=" + this.loginMode + ", agreeText=" + this.agreeText + '}';
+            return "QuickLoginInfo{supportQuickLogin=" + this.supportQuickLogin + ", encryptPhoneNum='" + this.encryptPhoneNum + ExtendedMessageFormat.QUOTE + ", serviceAgreement='" + this.serviceAgreement + ExtendedMessageFormat.QUOTE + ", hasHistory=" + this.hasHistory + ", loginMode=" + this.loginMode + ", agreeText=" + this.agreeText + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

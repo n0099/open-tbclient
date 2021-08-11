@@ -26,7 +26,7 @@ import com.kwad.sdk.core.imageloader.utils.L;
 import com.kwad.sdk.core.imageloader.utils.MemoryCacheUtils;
 import java.io.InputStream;
 import java.util.concurrent.Executor;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ImageLoaderConfiguration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +52,7 @@ public final class ImageLoaderConfiguration {
     public final int threadPriority;
 
     /* renamed from: com.kwad.sdk.core.imageloader.core.ImageLoaderConfiguration$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$sdk$core$imageloader$core$download$ImageDownloader$Scheme;
         public static /* synthetic */ Interceptable $ic;
@@ -84,7 +84,7 @@ public final class ImageLoaderConfiguration {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final QueueProcessingType DEFAULT_TASK_PROCESSING_TYPE;
@@ -511,7 +511,7 @@ public final class ImageLoaderConfiguration {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class NetworkDeniedImageDownloader implements ImageDownloader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -550,7 +550,7 @@ public final class ImageLoaderConfiguration {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class SlowNetworkImageDownloader implements ImageDownloader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

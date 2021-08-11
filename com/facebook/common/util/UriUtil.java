@@ -18,7 +18,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class UriUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DATA_SCHEME = "data";

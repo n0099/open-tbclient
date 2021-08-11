@@ -21,32 +21,34 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.page.widget.webview.KsAdWebView;
 import com.kwad.sdk.utils.av;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class NestedScrollWebView extends KsAdWebView implements NestedScrollingChild {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34953c;
+    public int f71699c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34954d;
+    public int f71700d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int[] f34955e;
+    public final int[] f71701e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int[] f34956f;
+    public final int[] f71702f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f34957g;
+    public int f71703g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f34958h;
+    public boolean f71704h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f34959i;
-    public int j;
+    public int f71705i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f71706j;
     public NestedScrollingChildHelper k;
     public VelocityTracker l;
     public int m;
@@ -69,8 +71,8 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
                 return;
             }
         }
-        this.f34955e = new int[2];
-        this.f34956f = new int[2];
+        this.f71701e = new int[2];
+        this.f71702f = new int[2];
         a((AttributeSet) null);
     }
 
@@ -93,8 +95,8 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
                 return;
             }
         }
-        this.f34955e = new int[2];
-        this.f34956f = new int[2];
+        this.f71701e = new int[2];
+        this.f71702f = new int[2];
         a(attributeSet);
     }
 
@@ -117,8 +119,8 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
                 return;
             }
         }
-        this.f34955e = new int[2];
-        this.f34956f = new int[2];
+        this.f71701e = new int[2];
+        this.f71702f = new int[2];
         a(attributeSet);
     }
 
@@ -129,8 +131,8 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
             ViewConfiguration viewConfiguration = ViewConfiguration.get(getContext());
             this.k = new NestedScrollingChildHelper(this);
             setNestedScrollingEnabled(true);
-            this.j = viewConfiguration.getScaledMaximumFlingVelocity();
-            this.f34959i = viewConfiguration.getScaledMinimumFlingVelocity();
+            this.f71706j = viewConfiguration.getScaledMaximumFlingVelocity();
+            this.f71705i = viewConfiguration.getScaledMinimumFlingVelocity();
         }
     }
 
@@ -216,41 +218,41 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
             int actionMasked = MotionEventCompat.getActionMasked(motionEvent);
             boolean z = false;
             if (actionMasked == 0) {
-                this.f34957g = 0;
+                this.f71703g = 0;
             }
             if (this.l == null) {
                 this.l = VelocityTracker.obtain();
             }
             int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
             int y = (int) motionEvent.getY();
-            motionEvent.offsetLocation(0.0f, this.f34957g);
+            motionEvent.offsetLocation(0.0f, this.f71703g);
             if (actionMasked != 0) {
                 if (actionMasked != 1) {
                     if (actionMasked == 2) {
-                        int i2 = this.f34953c - y;
-                        if (dispatchNestedPreScroll(0, i2, this.f34956f, this.f34955e)) {
-                            i2 -= this.f34956f[1];
-                            obtain.offsetLocation(0.0f, this.f34955e[1]);
-                            this.f34957g += this.f34955e[1];
+                        int i2 = this.f71699c - y;
+                        if (dispatchNestedPreScroll(0, i2, this.f71702f, this.f71701e)) {
+                            i2 -= this.f71702f[1];
+                            obtain.offsetLocation(0.0f, this.f71701e[1]);
+                            this.f71703g += this.f71701e[1];
                         }
                         int scrollY = getScrollY();
-                        this.f34953c = y - this.f34955e[1];
+                        this.f71699c = y - this.f71701e[1];
                         int max = Math.max(0, scrollY + i2);
                         int i3 = i2 - (max - scrollY);
-                        if (dispatchNestedScroll(0, max - i3, 0, i3, this.f34955e)) {
-                            this.f34953c = this.f34953c - this.f34955e[1];
+                        if (dispatchNestedScroll(0, max - i3, 0, i3, this.f71701e)) {
+                            this.f71699c = this.f71699c - this.f71701e[1];
                             obtain.offsetLocation(0.0f, iArr[1]);
-                            this.f34957g += this.f34955e[1];
+                            this.f71703g += this.f71701e[1];
                         }
-                        if (Math.abs(this.f34956f[1]) >= 5 || Math.abs(this.f34955e[1]) >= 5) {
-                            if (!this.f34958h) {
-                                this.f34958h = true;
+                        if (Math.abs(this.f71702f[1]) >= 5 || Math.abs(this.f71701e[1]) >= 5) {
+                            if (!this.f71704h) {
+                                this.f71704h = true;
                                 super.onTouchEvent(MotionEvent.obtain(0L, 0L, 3, 0.0f, 0.0f, 0));
                             }
                             onTouchEvent = false;
                         } else {
-                            if (this.f34958h) {
-                                this.f34958h = false;
+                            if (this.f71704h) {
+                                this.f71704h = false;
                                 onTouchEvent = false;
                             } else {
                                 onTouchEvent = super.onTouchEvent(obtain);
@@ -266,30 +268,30 @@ public class NestedScrollWebView extends KsAdWebView implements NestedScrollingC
                     }
                 }
                 this.l.addMovement(motionEvent);
-                this.l.computeCurrentVelocity(1000, this.j);
+                this.l.computeCurrentVelocity(1000, this.f71706j);
                 float f2 = -VelocityTrackerCompat.getYVelocity(this.l, MotionEventCompat.getPointerId(motionEvent, actionIndex));
-                if (Math.abs(f2) > this.f34959i && !dispatchNestedPreFling(0.0f, f2) && hasNestedScrollingParent()) {
+                if (Math.abs(f2) > this.f71705i && !dispatchNestedPreFling(0.0f, f2) && hasNestedScrollingParent()) {
                     dispatchNestedFling(0.0f, f2, true);
                 }
                 boolean onTouchEvent2 = super.onTouchEvent(motionEvent);
                 stopNestedScroll();
-                if (Math.abs(motionEvent.getY() - this.f34953c) < 10.0f && Math.abs(motionEvent.getX() - this.f34954d) < 10.0f) {
+                if (Math.abs(motionEvent.getY() - this.f71699c) < 10.0f && Math.abs(motionEvent.getX() - this.f71700d) < 10.0f) {
                     d();
                 }
                 onTouchEvent = onTouchEvent2;
                 z = true;
             } else {
-                this.f34953c = y;
-                this.f34954d = (int) motionEvent.getX();
+                this.f71699c = y;
+                this.f71700d = (int) motionEvent.getX();
                 startNestedScroll(2);
-                int[] iArr2 = this.f34956f;
+                int[] iArr2 = this.f71702f;
                 iArr2[0] = 0;
                 iArr2[1] = 0;
-                int[] iArr3 = this.f34955e;
+                int[] iArr3 = this.f71701e;
                 iArr3[0] = 0;
                 iArr3[1] = 0;
                 onTouchEvent = super.onTouchEvent(motionEvent);
-                this.f34958h = false;
+                this.f71704h = false;
             }
             if (!z) {
                 this.l.addMovement(motionEvent);

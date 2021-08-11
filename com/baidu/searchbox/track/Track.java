@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Track {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int UI_TRACK_CAPACITY = 20;
@@ -29,18 +29,18 @@ public class Track {
     public LinkedList<OnTrackUIListener> mTrackUIListeners;
 
     /* renamed from: com.baidu.searchbox.track.Track$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnTrackUIListener {
         void onAddTrackUI(TrackUI trackUI);
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class TrackCreator {
         public static /* synthetic */ Interceptable $ic;
         public static final Track mTrace;

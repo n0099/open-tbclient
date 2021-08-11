@@ -7,7 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class SptDataMessage extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +97,7 @@ public class SptDataMessage extends Message {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "SptDataMessage{mGlobalID='" + this.mGlobalID + "', mContent='" + this.mContent + "', mDescription='" + this.mDescription + "', mAppID='" + this.mAppID + "'}";
+            return "SptDataMessage{mGlobalID='" + this.mGlobalID + ExtendedMessageFormat.QUOTE + ", mContent='" + this.mContent + ExtendedMessageFormat.QUOTE + ", mDescription='" + this.mDescription + ExtendedMessageFormat.QUOTE + ", mAppID='" + this.mAppID + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

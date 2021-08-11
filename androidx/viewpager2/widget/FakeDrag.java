@@ -45,10 +45,10 @@ public final class FakeDrag {
         this.mRecyclerView = recyclerView;
     }
 
-    private void addFakeMotionEvent(long j, int i2, float f2, float f3) {
+    private void addFakeMotionEvent(long j2, int i2, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            MotionEvent obtain = MotionEvent.obtain(this.mFakeDragBeginTime, j, i2, f2, f3, 0);
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            MotionEvent obtain = MotionEvent.obtain(this.mFakeDragBeginTime, j2, i2, f2, f3, 0);
             this.mVelocityTracker.addMovement(obtain);
             obtain.recycle();
         }

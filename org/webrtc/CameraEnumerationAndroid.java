@@ -15,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.baidu.wallet.qrcodescanner.beans.QRCodeScannerBeanFactory;
 import com.bytedance.sdk.component.net.tnc.TNCManager;
 import java.util.ArrayList;
@@ -23,14 +22,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class CameraEnumerationAndroid {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ArrayList<Size> COMMON_RESOLUTIONS;
     public static final String TAG = "CameraEnumerationAndroid";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class CaptureFormat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +38,7 @@ public class CameraEnumerationAndroid {
         public final int imageFormat;
         public final int width;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes2.dex */
         public static class FramerateRange {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -183,7 +182,7 @@ public class CameraEnumerationAndroid {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class ClosestComparator<T> implements Comparator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -225,7 +224,7 @@ public class CameraEnumerationAndroid {
                 return;
             }
         }
-        COMMON_RESOLUTIONS = new ArrayList<>(Arrays.asList(new Size(160, 120), new Size(240, 160), new Size(MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 240), new Size(400, 240), new Size(480, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP), new Size(640, 360), new Size(640, 480), new Size(768, 480), new Size(854, 480), new Size(800, 600), new Size(960, RecordConstants.DEFAULT_PREVIEW_WIDTH), new Size(960, 640), new Size(1024, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE), new Size(1024, 600), new Size(1280, 720), new Size(1280, 1024), new Size(1920, 1080), new Size(1920, 1440), new Size(QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 1440), new Size(3840, DisplayCompat.DISPLAY_SIZE_4K_HEIGHT)));
+        COMMON_RESOLUTIONS = new ArrayList<>(Arrays.asList(new Size(160, 120), new Size(240, 160), new Size(MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 240), new Size(400, 240), new Size(480, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP), new Size(640, 360), new Size(640, 480), new Size(768, 480), new Size(854, 480), new Size(800, 600), new Size(960, RecordConstants.DEFAULT_PREVIEW_WIDTH), new Size(960, 640), new Size(1024, 576), new Size(1024, 600), new Size(1280, 720), new Size(1280, 1024), new Size(1920, 1080), new Size(1920, 1440), new Size(QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 1440), new Size(3840, DisplayCompat.DISPLAY_SIZE_4K_HEIGHT)));
     }
 
     public CameraEnumerationAndroid() {

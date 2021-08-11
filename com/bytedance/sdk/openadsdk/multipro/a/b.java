@@ -18,16 +18,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.utils.k;
 import com.bytedance.sdk.openadsdk.core.e;
 import com.bytedance.sdk.openadsdk.core.o;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f31707b;
+    public static final Object f67652b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f31708a;
+    public Context f67653a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
                 return;
             }
         }
-        f31707b = new Object();
+        f67652b = new Object();
     }
 
     public b() {
@@ -76,7 +76,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            Context context = this.f31708a;
+            Context context = this.f67653a;
             return context == null ? o.a() : context;
         }
         return (Context) invokeV.objValue;
@@ -94,7 +94,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, context) == null) {
-            this.f31708a = context;
+            this.f67653a = context;
         }
     }
 
@@ -111,7 +111,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
             k.b("DBMultiProviderImpl", "query: " + String.valueOf(uri));
-            synchronized (f31707b) {
+            synchronized (f67652b) {
                 if (b(uri)) {
                     return null;
                 }
@@ -136,7 +136,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
             k.b("DBMultiProviderImpl", "getType: " + String.valueOf(uri));
-            synchronized (f31707b) {
+            synchronized (f67652b) {
                 if (b(uri)) {
                     return null;
                 }
@@ -173,7 +173,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uri, contentValues)) == null) {
             k.b("DBMultiProviderImpl", "insert: " + String.valueOf(uri));
-            synchronized (f31707b) {
+            synchronized (f67652b) {
                 if (b(uri)) {
                     return null;
                 }
@@ -198,7 +198,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri, str, strArr)) == null) {
             k.b("DBMultiProviderImpl", "delete: " + String.valueOf(uri));
-            synchronized (f31707b) {
+            synchronized (f67652b) {
                 if (b(uri)) {
                     return 0;
                 }
@@ -223,7 +223,7 @@ public class b implements com.bytedance.sdk.openadsdk.multipro.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, uri, contentValues, str, strArr)) == null) {
             k.b("DBMultiProviderImpl", "update: " + String.valueOf(uri));
-            synchronized (f31707b) {
+            synchronized (f67652b) {
                 if (b(uri)) {
                     return 0;
                 }

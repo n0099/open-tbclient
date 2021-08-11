@@ -10,7 +10,7 @@ import com.bytedance.sdk.component.b.b.ab;
 import com.bytedance.sdk.component.b.b.u;
 import com.bytedance.sdk.component.b.b.z;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TncHostInterceptor implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

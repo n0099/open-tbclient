@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.DeleteFriend.DeleteFriendReqIdl;
 import tbclient.DeleteFriend.ReqData;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RequestDeleteFriendMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,10 +53,10 @@ public class RequestDeleteFriendMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.friendId : invokeV.longValue;
     }
 
-    public void setFriendId(long j) {
+    public void setFriendId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.friendId = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.friendId = j2;
         }
     }
 }

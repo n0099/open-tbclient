@@ -25,7 +25,7 @@ import com.bumptech.glide.util.pool.GlideTrace;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class BitmapEncoder implements ResourceEncoder<Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Option<Bitmap.CompressFormat> COMPRESSION_FORMAT;
@@ -95,8 +95,8 @@ public class BitmapEncoder implements ResourceEncoder<Bitmap> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x006a, code lost:
-        if (r6 != null) goto L16;
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0061, code lost:
+        if (r6 == null) goto L20;
      */
     @Override // com.bumptech.glide.load.Encoder
     /*
@@ -123,36 +123,32 @@ public class BitmapEncoder implements ResourceEncoder<Bitmap> {
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (IOException e2) {
-                e = e2;
+            } catch (IOException unused) {
             }
             try {
                 bufferedOutputStream = this.arrayPool != null ? new BufferedOutputStream(fileOutputStream, this.arrayPool) : fileOutputStream;
                 bitmap.compress(format, intValue, bufferedOutputStream);
                 bufferedOutputStream.close();
                 z = true;
-            } catch (IOException e3) {
-                e = e3;
+            } catch (IOException unused2) {
                 bufferedOutputStream = fileOutputStream;
-                if (Log.isLoggable(TAG, 3)) {
-                    Log.d(TAG, "Failed to encode Bitmap", e);
-                }
+                Log.isLoggable(TAG, 3);
             } catch (Throwable th2) {
                 th = th2;
                 bufferedOutputStream = fileOutputStream;
                 if (bufferedOutputStream != null) {
                     try {
                         bufferedOutputStream.close();
-                    } catch (IOException unused) {
+                    } catch (IOException unused3) {
                     }
                 }
                 throw th;
             }
             try {
                 bufferedOutputStream.close();
-            } catch (IOException unused2) {
+            } catch (IOException unused4) {
                 if (Log.isLoggable(TAG, 2)) {
-                    Log.v(TAG, "Compressed with type: " + format + " of size " + Util.getBitmapByteSize(bitmap) + " in " + LogTime.getElapsedMillis(logTime) + ", options format: " + options.get(COMPRESSION_FORMAT) + ", hasAlpha: " + bitmap.hasAlpha());
+                    String str = "Compressed with type: " + format + " of size " + Util.getBitmapByteSize(bitmap) + " in " + LogTime.getElapsedMillis(logTime) + ", options format: " + options.get(COMPRESSION_FORMAT) + ", hasAlpha: " + bitmap.hasAlpha();
                 }
                 return z;
             }

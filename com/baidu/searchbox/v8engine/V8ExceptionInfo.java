@@ -6,7 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes5.dex */
 public class V8ExceptionInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String V8_EXCEPTION_ERROR = "Error";
@@ -46,17 +47,17 @@ public class V8ExceptionInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "V8ExceptionInfo{exceptionTime=" + this.exceptionTime + ", exceptionMsg='" + this.exceptionMsg + "', exceptionTrace='" + this.exceptionTrace + "', exceptionType='" + this.exceptionType + "', filePath='" + this.filePath + "'}";
+            return "V8ExceptionInfo{exceptionTime=" + this.exceptionTime + ", exceptionMsg='" + this.exceptionMsg + ExtendedMessageFormat.QUOTE + ", exceptionTrace='" + this.exceptionTrace + ExtendedMessageFormat.QUOTE + ", exceptionType='" + this.exceptionType + ExtendedMessageFormat.QUOTE + ", filePath='" + this.filePath + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }
 
-    public V8ExceptionInfo(long j, String str, String str2, String str3, String str4) {
+    public V8ExceptionInfo(long j2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, str2, str3, str4};
+            Object[] objArr = {Long.valueOf(j2), str, str2, str3, str4};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -66,17 +67,17 @@ public class V8ExceptionInfo {
                 return;
             }
         }
-        this.exceptionTime = j;
+        this.exceptionTime = j2;
         this.exceptionMsg = str;
         this.exceptionTrace = str2;
         this.exceptionType = str3;
         this.filePath = str4;
     }
 
-    public void reset(long j, String str, String str2, String str3, String str4) {
+    public void reset(long j2, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2, str3, str4}) == null) {
-            this.exceptionTime = j;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), str, str2, str3, str4}) == null) {
+            this.exceptionTime = j2;
             this.exceptionMsg = str;
             this.exceptionTrace = str2;
             this.exceptionType = str3;

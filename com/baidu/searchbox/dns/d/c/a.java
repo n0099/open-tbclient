@@ -3,7 +3,6 @@ package com.baidu.searchbox.dns.d.c;
 import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.loopj.android.http.AsyncHttpClient;
@@ -24,7 +23,7 @@ import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,10 +58,10 @@ public abstract class a<T> {
                 HttpURLConnection httpURLConnection2 = null;
                 String url = getUrl();
                 if (DnsUtil.DEBUG) {
-                    Log.d(DnsUtil.TAG, " sendRequest url:" + url);
+                    String str = " sendRequest url:" + url;
                 }
-                try {
-                    if (!TextUtils.isEmpty(url)) {
+                if (!TextUtils.isEmpty(url)) {
+                    try {
                         try {
                             if (!v()) {
                                 httpURLConnection = (HttpURLConnection) new URL(url).openConnection();
@@ -81,13 +80,13 @@ public abstract class a<T> {
                         } catch (Exception e2) {
                             throw new com.baidu.searchbox.dns.d.c.a.a(e2.getMessage());
                         }
-                    }
-                    throw new com.baidu.searchbox.dns.d.c.a.b("url is empty");
-                } finally {
-                    if (httpURLConnection2 != null) {
-                        httpURLConnection2.disconnect();
+                    } finally {
+                        if (httpURLConnection2 != null) {
+                            httpURLConnection2.disconnect();
+                        }
                     }
                 }
+                throw new com.baidu.searchbox.dns.d.c.a.b("url is empty");
             }
             throw new com.baidu.searchbox.dns.d.c.a.b(10002, "request canceled");
         }

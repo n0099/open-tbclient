@@ -16,14 +16,14 @@ import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class ObservableScanSeed<T, R> extends AbstractObservableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BiFunction<R, ? super T, R> accumulator;
     public final Callable<R> seedSupplier;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ScanSeedObserver<T, R> implements Observer<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

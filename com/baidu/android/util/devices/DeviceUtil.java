@@ -26,12 +26,12 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class DeviceUtil implements IDevices {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class BrandInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,7 +94,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class CPUInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String FEATURE_COMMON = "common";
@@ -294,7 +294,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class OSInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int KITKAT = 19;
@@ -458,7 +458,7 @@ public class DeviceUtil implements IDevices {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class ScreenInfo {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int STANDARD_STATUSBAR_HEIGHT = 50;

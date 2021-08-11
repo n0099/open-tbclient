@@ -13,6 +13,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.Nullable;
+import c.a.e.e.p.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,8 +26,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EmotionButton extends View {
     public static /* synthetic */ Interceptable $ic;
     public static final int t;
@@ -34,20 +34,22 @@ public class EmotionButton extends View {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f22208e;
+    public int f57801e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f22209f;
+    public int f57802f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f22210g;
+    public int f57803g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f22211h;
+    public int f57804h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f22212i;
-    public int j;
+    public int f57805i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f57806j;
     public Paint k;
     public TextPaint l;
     public RectF m;
@@ -58,13 +60,13 @@ public class EmotionButton extends View {
     public String r;
     public float s;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EmotionButton f22213e;
+        public final /* synthetic */ EmotionButton f57807e;
 
         public a(EmotionButton emotionButton) {
             Interceptable interceptable = $ic;
@@ -81,7 +83,7 @@ public class EmotionButton extends View {
                     return;
                 }
             }
-            this.f22213e = emotionButton;
+            this.f57807e = emotionButton;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -91,7 +93,7 @@ public class EmotionButton extends View {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0 || motionEvent.getAction() == 1) {
                     int unused = EmotionButton.u = motionEvent.getAction();
-                    this.f22213e.invalidate();
+                    this.f57807e.invalidate();
                     return false;
                 }
                 return false;
@@ -142,7 +144,7 @@ public class EmotionButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             this.k.setShader(this.p);
-            this.k.setShadowLayer(t, 2.0f, 2.0f, this.f22208e);
+            this.k.setShadowLayer(t, 2.0f, 2.0f, this.f57801e);
             if (this.m == null) {
                 this.m = new RectF();
             }
@@ -164,7 +166,7 @@ public class EmotionButton extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             this.k.setShader(this.q);
-            this.k.setShadowLayer(t, 2.0f, 2.0f, this.f22211h);
+            this.k.setShadowLayer(t, 2.0f, 2.0f, this.f57804h);
             if (this.m == null) {
                 this.m = new RectF();
             }
@@ -185,12 +187,12 @@ public class EmotionButton extends View {
     public final void d(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.f22208e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f22209f = SkinManager.getColor(R.color.CAM_X0302);
-            this.f22210g = SkinManager.getColor(R.color.CAM_X0303);
-            this.f22211h = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.f22212i = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
-            this.j = SkinManager.getColor(R.color.cp_link_tip_b_alpha50);
+            this.f57801e = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.f57802f = SkinManager.getColor(R.color.CAM_X0302);
+            this.f57803g = SkinManager.getColor(R.color.CAM_X0303);
+            this.f57804h = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.f57805i = SkinManager.getColor(R.color.cp_link_tip_a_alpha50);
+            this.f57806j = SkinManager.getColor(R.color.cp_link_tip_b_alpha50);
             Paint paint = new Paint();
             this.k = paint;
             paint.setStyle(Paint.Style.FILL);
@@ -242,8 +244,8 @@ public class EmotionButton extends View {
             super.onSizeChanged(i2, i3, i4, i5);
             this.n = i2;
             this.o = i3;
-            this.p = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f22210g, this.f22209f, Shader.TileMode.MIRROR);
-            this.q = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.j, this.f22212i, Shader.TileMode.MIRROR);
+            this.p = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f57803g, this.f57802f, Shader.TileMode.MIRROR);
+            this.q = new LinearGradient(5.0f, 10.0f, this.n - 5, this.o - 10, this.f57806j, this.f57805i, Shader.TileMode.MIRROR);
         }
     }
 

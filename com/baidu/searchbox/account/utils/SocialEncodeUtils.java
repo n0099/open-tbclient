@@ -1,7 +1,6 @@
 package com.baidu.searchbox.account.utils;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.searchbox.NativeBds;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.commons.codec.binary4util.bdapp.Base64;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class SocialEncodeUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -62,13 +61,13 @@ public final class SocialEncodeUtils {
                 return new String(NativeBds.dae(str2, Base64.decode(str, 11)));
             } catch (Exception e2) {
                 if (DEBUG) {
-                    Log.i(TAG, "getSocialDecrypt plainText:" + str + ", exception:" + e2);
+                    String str3 = "getSocialDecrypt plainText:" + str + ", exception:" + e2;
                     return "";
                 }
                 return "";
             } catch (UnsatisfiedLinkError e3) {
                 if (DEBUG) {
-                    Log.i(TAG, "Only Debug Mode Throw ：UnsatisfiedLinkError exception:" + e3);
+                    String str4 = "Only Debug Mode Throw ：UnsatisfiedLinkError exception:" + e3;
                     throw e3;
                 }
                 return "";
@@ -88,7 +87,7 @@ public final class SocialEncodeUtils {
                 return new String(Base64.encode(NativeBds.ae(str2, str), 11));
             } catch (Exception e2) {
                 if (DEBUG) {
-                    Log.i(TAG, "getSocialEncryption plainText:" + str + ", exception:" + e2);
+                    String str3 = "getSocialEncryption plainText:" + str + ", exception:" + e2;
                 }
                 return "";
             }

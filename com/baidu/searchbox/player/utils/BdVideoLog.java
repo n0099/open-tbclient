@@ -1,7 +1,6 @@
 package com.baidu.searchbox.player.utils;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.player.BDPlayerConfig;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class BdVideoLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG_DEBUG = true;
@@ -25,7 +24,7 @@ public final class BdVideoLog {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidu.searchbox.player.utils.BdVideoLog$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$searchbox$player$utils$BdVideoLog$LogLevel;
         public static /* synthetic */ Interceptable $ic;
@@ -70,7 +69,7 @@ public final class BdVideoLog {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class LogLevel {
         public static final /* synthetic */ LogLevel[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -157,41 +156,9 @@ public final class BdVideoLog {
     }
 
     public static void doLog(LogLevel logLevel, String str, String str2, Throwable th) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, logLevel, str, str2, th) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$searchbox$player$utils$BdVideoLog$LogLevel[logLevel.ordinal()];
-            if (i2 == 1) {
-                if (th == null) {
-                    Log.d(str, str2);
-                } else {
-                    Log.d(str, str2, th);
-                }
-            } else if (i2 == 2) {
-                if (th == null) {
-                    Log.e(str, str2);
-                } else {
-                    Log.e(str, str2, th);
-                }
-            } else if (i2 == 3) {
-                if (th == null) {
-                    Log.i(str, str2);
-                } else {
-                    Log.i(str, str2, th);
-                }
-            } else if (i2 == 4) {
-                if (th == null) {
-                    Log.v(str, str2);
-                } else {
-                    Log.v(str, str2, th);
-                }
-            } else if (i2 != 5) {
-            } else {
-                if (th == null) {
-                    Log.w(str, str2);
-                } else {
-                    Log.w(str, str2, th);
-                }
-            }
+        if (!(interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, logLevel, str, str2, th) == null) || (i2 = AnonymousClass1.$SwitchMap$com$baidu$searchbox$player$utils$BdVideoLog$LogLevel[logLevel.ordinal()]) == 1 || i2 == 2 || i2 == 3 || i2 != 4) {
         }
     }
 

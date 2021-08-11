@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.InetSocketAddress;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class cq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40220a;
+    public int f77072a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f196a;
+    public String f200a;
 
     public cq(String str, int i2) {
         Interceptable interceptable = $ic;
@@ -33,8 +33,8 @@ public final class cq {
                 return;
             }
         }
-        this.f196a = str;
-        this.f40220a = i2;
+        this.f200a = str;
+        this.f77072a = i2;
     }
 
     public static cq a(String str, int i2) {
@@ -59,12 +59,12 @@ public final class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static InetSocketAddress m226a(String str, int i2) {
+    public static InetSocketAddress m229a(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
             cq a2 = a(str, i2);
-            return new InetSocketAddress(a2.m227a(), a2.a());
+            return new InetSocketAddress(a2.m230a(), a2.a());
         }
         return (InetSocketAddress) invokeLI.objValue;
     }
@@ -72,24 +72,24 @@ public final class cq {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40220a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f77072a : invokeV.intValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m227a() {
+    public String m230a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f196a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f200a : (String) invokeV.objValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f40220a > 0) {
-                return this.f196a + ":" + this.f40220a;
+            if (this.f77072a > 0) {
+                return this.f200a + ":" + this.f77072a;
             }
-            return this.f196a;
+            return this.f200a;
         }
         return (String) invokeV.objValue;
     }

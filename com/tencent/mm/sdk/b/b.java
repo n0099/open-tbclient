@@ -1,6 +1,5 @@
 package com.tencent.mm.sdk.b;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.sdk.b.a;
-/* loaded from: classes6.dex */
-public final class b implements a.InterfaceC0525a {
+/* loaded from: classes10.dex */
+public final class b implements a.InterfaceC2085a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +26,7 @@ public final class b implements a.InterfaceC0525a {
         }
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0525a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC2085a
     public final int b() {
         InterceptResult invokeV;
         int i2;
@@ -39,39 +38,30 @@ public final class b implements a.InterfaceC0525a {
         return invokeV.intValue;
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0525a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC2085a
     public final void d(String str, String str2) {
-        int i2;
+        int unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            i2 = a.level;
-            if (i2 <= 2) {
-                Log.i(str, str2);
-            }
+            unused = a.level;
         }
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0525a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC2085a
     public final void e(String str, String str2) {
-        int i2;
+        int unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            i2 = a.level;
-            if (i2 <= 1) {
-                Log.d(str, str2);
-            }
+            unused = a.level;
         }
     }
 
-    @Override // com.tencent.mm.sdk.b.a.InterfaceC0525a
+    @Override // com.tencent.mm.sdk.b.a.InterfaceC2085a
     public final void f(String str, String str2) {
-        int i2;
+        int unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            i2 = a.level;
-            if (i2 <= 4) {
-                Log.e(str, str2);
-            }
+            unused = a.level;
         }
     }
 }

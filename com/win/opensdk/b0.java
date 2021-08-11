@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b0 implements x2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ d0 f39742a;
+    public final /* synthetic */ d0 f76582a;
 
     public b0(d0 d0Var) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class b0 implements x2 {
                 return;
             }
         }
-        this.f39742a = d0Var;
+        this.f76582a = d0Var;
     }
 
     @Override // com.win.opensdk.x2
@@ -44,17 +44,17 @@ public class b0 implements x2 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            d0 d0Var = this.f39742a;
-            if (Q1.a(d0Var.f39779c, d0Var.f39784h)) {
-                this.f39742a.f39784h = System.currentTimeMillis();
-                d0 d0Var2 = this.f39742a;
-                Q1.a(d0Var2.f39777a, str, d0Var2.f39779c, d0Var2.f39783g, str2);
-                Z0.a(this.f39742a.f39777a).a(new a1(this.f39742a.f39779c), str).a("desc", str2).a();
-                f fVar = this.f39742a.f39782f;
+            d0 d0Var = this.f76582a;
+            if (Q1.a(d0Var.f76619c, d0Var.f76624h)) {
+                this.f76582a.f76624h = System.currentTimeMillis();
+                d0 d0Var2 = this.f76582a;
+                Q1.a(d0Var2.f76617a, str, d0Var2.f76619c, d0Var2.f76623g, str2);
+                Z0.a(this.f76582a.f76617a).a(new a1(this.f76582a.f76619c), str).a("desc", str2).a();
+                f fVar = this.f76582a.f76622f;
                 if (fVar != null) {
                     fVar.onClicked();
                 }
-                N.a(this.f39742a.f39779c, str2);
+                N.a(this.f76582a.f76619c, str2);
                 return true;
             }
             return true;

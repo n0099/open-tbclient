@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class AudioPlayData implements Parcelable, Serializable, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<AudioPlayData> CREATOR;
@@ -176,7 +176,7 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public AudioPlayData m39clone() {
+    public AudioPlayData m44clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class CancelableFontCallback extends TextAppearanceFontCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,7 +16,7 @@ public final class CancelableFontCallback extends TextAppearanceFontCallback {
     public boolean cancelled;
     public final Typeface fallbackFont;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public interface ApplyFont {
         void apply(Typeface typeface);
     }

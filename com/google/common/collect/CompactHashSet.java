@@ -1,6 +1,11 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.k;
+import c.i.d.a.n;
+import c.i.d.c.m;
+import c.i.d.c.n0;
+import c.i.d.c.u0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,11 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.k;
-import d.f.d.a.n;
-import d.f.d.c.m;
-import d.f.d.c.n0;
-import d.f.d.c.u0;
 import java.io.IOException;
 import java.io.InvalidObjectException;
 import java.io.ObjectInputStream;
@@ -25,7 +25,7 @@ import java.util.Collections;
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SIZE = 3;
@@ -40,22 +40,22 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
     public transient int size;
     public transient int[] table;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a implements Iterator<E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f33350e;
+        public int f70067e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f33351f;
+        public int f70068f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f33352g;
+        public int f70069g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ CompactHashSet f33353h;
+        public final /* synthetic */ CompactHashSet f70070h;
 
         public a(CompactHashSet compactHashSet) {
             Interceptable interceptable = $ic;
@@ -72,16 +72,16 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
                     return;
                 }
             }
-            this.f33353h = compactHashSet;
-            CompactHashSet compactHashSet2 = this.f33353h;
-            this.f33350e = compactHashSet2.modCount;
-            this.f33351f = compactHashSet2.firstEntryIndex();
-            this.f33352g = -1;
+            this.f70070h = compactHashSet;
+            CompactHashSet compactHashSet2 = this.f70070h;
+            this.f70067e = compactHashSet2.modCount;
+            this.f70068f = compactHashSet2.firstEntryIndex();
+            this.f70069g = -1;
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f33353h.modCount != this.f33350e) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f70070h.modCount != this.f70067e) {
                 throw new ConcurrentModificationException();
             }
         }
@@ -90,7 +90,7 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
         public boolean hasNext() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33351f >= 0 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f70068f >= 0 : invokeV.booleanValue;
         }
 
         @Override // java.util.Iterator
@@ -100,11 +100,11 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 a();
                 if (hasNext()) {
-                    int i2 = this.f33351f;
-                    this.f33352g = i2;
-                    CompactHashSet compactHashSet = this.f33353h;
+                    int i2 = this.f70068f;
+                    this.f70069g = i2;
+                    CompactHashSet compactHashSet = this.f70070h;
                     E e2 = (E) compactHashSet.elements[i2];
-                    this.f33351f = compactHashSet.getSuccessor(i2);
+                    this.f70068f = compactHashSet.getSuccessor(i2);
                     return e2;
                 }
                 throw new NoSuchElementException();
@@ -117,12 +117,12 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 a();
-                m.e(this.f33352g >= 0);
-                this.f33350e++;
-                CompactHashSet compactHashSet = this.f33353h;
-                compactHashSet.remove(compactHashSet.elements[this.f33352g], CompactHashSet.getHash(compactHashSet.entries[this.f33352g]));
-                this.f33351f = this.f33353h.adjustAfterRemove(this.f33351f, this.f33352g);
-                this.f33352g = -1;
+                m.e(this.f70069g >= 0);
+                this.f70067e++;
+                CompactHashSet compactHashSet = this.f70070h;
+                compactHashSet.remove(compactHashSet.elements[this.f70069g], CompactHashSet.getHash(compactHashSet.entries[this.f70069g]));
+                this.f70068f = this.f70070h.adjustAfterRemove(this.f70068f, this.f70069g);
+                this.f70069g = -1;
             }
         }
     }
@@ -155,16 +155,16 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
         return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) ? new CompactHashSet<>(i2) : (CompactHashSet) invokeI.objValue;
     }
 
-    public static int getHash(long j) {
+    public static int getHash(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) ? (int) (j >>> 32) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) ? (int) (j2 >>> 32) : invokeJ.intValue;
     }
 
-    public static int getNext(long j) {
+    public static int getNext(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) ? (int) j : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j2)) == null) ? (int) j2 : invokeJ.intValue;
     }
 
     private int hashTableMask() {
@@ -245,10 +245,10 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
         }
     }
 
-    public static long swapNext(long j, int i2) {
+    public static long swapNext(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? (j & (-4294967296L)) | (i2 & 4294967295L) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? (j2 & (-4294967296L)) | (i2 & 4294967295L) : invokeCommon.longValue;
     }
 
     private void writeObject(ObjectOutputStream objectOutputStream) throws IOException {
@@ -283,13 +283,13 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
                 iArr[hashTableMask] = i2;
             } else {
                 while (true) {
-                    long j = jArr[i3];
-                    if (getHash(j) == d2 && k.a(e2, objArr[i3])) {
+                    long j2 = jArr[i3];
+                    if (getHash(j2) == d2 && k.a(e2, objArr[i3])) {
                         return false;
                     }
-                    int next = getNext(j);
+                    int next = getNext(j2);
                     if (next == -1) {
-                        jArr[i3] = swapNext(j, i2);
+                        jArr[i3] = swapNext(j2, i2);
                         break;
                     }
                     i3 = next;
@@ -353,11 +353,11 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             int d2 = n0.d(obj);
             int i2 = this.table[hashTableMask() & d2];
             while (i2 != -1) {
-                long j = this.entries[i2];
-                if (getHash(j) == d2 && k.a(obj, this.elements[i2])) {
+                long j2 = this.entries[i2];
+                if (getHash(j2) == d2 && k.a(obj, this.elements[i2])) {
                     return true;
                 }
-                i2 = getNext(j);
+                i2 = getNext(j2);
             }
             return false;
         }
@@ -424,10 +424,10 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
             objArr[i2] = objArr[size];
             objArr[size] = null;
             long[] jArr = this.entries;
-            long j = jArr[size];
-            jArr[i2] = j;
+            long j2 = jArr[size];
+            jArr[i2] = j2;
             jArr[size] = -1;
-            int hash = getHash(j) & hashTableMask();
+            int hash = getHash(j2) & hashTableMask();
             int[] iArr = this.table;
             int i3 = iArr[hash];
             if (i3 == size) {
@@ -435,10 +435,10 @@ public class CompactHashSet<E> extends AbstractSet<E> implements Serializable {
                 return;
             }
             while (true) {
-                long j2 = this.entries[i3];
-                int next = getNext(j2);
+                long j3 = this.entries[i3];
+                int next = getNext(j3);
                 if (next == size) {
-                    this.entries[i3] = swapNext(j2, i2);
+                    this.entries[i3] = swapNext(j3, i2);
                     return;
                 }
                 i3 = next;

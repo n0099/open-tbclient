@@ -27,7 +27,7 @@ import java.nio.Buffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateProtocol, IVlogEditManager, IVlogEditViewManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_ERROR = -1;
@@ -64,17 +64,18 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
         MultiMediaDataSource multiMediaDataSource = new MultiMediaDataSource();
         this.mMultiMediaDataSource = multiMediaDataSource;
         if (iMultiMediaDataSourceView != null) {
-            multiMediaDataSource.setOnFrameAvailableListener(new SurfaceTexture.OnFrameAvailableListener(this) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager.1
+            multiMediaDataSource.setOnFrameAvailableListener(new SurfaceTexture.OnFrameAvailableListener(this, iMultiMediaDataSourceView) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ VlogEditManager this$0;
+                public final /* synthetic */ IMultiMediaDataSourceView val$protocol;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext2 = TitanRuntime.newInitContext();
                         newInitContext2.initArgs = r2;
-                        Object[] objArr2 = {this};
+                        Object[] objArr2 = {this, iMultiMediaDataSourceView};
                         interceptable2.invokeUnInit(65536, newInitContext2);
                         int i4 = newInitContext2.flag;
                         if ((i4 & 1) != 0) {
@@ -85,6 +86,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
                         }
                     }
                     this.this$0 = this;
+                    this.val$protocol = iMultiMediaDataSourceView;
                 }
 
                 @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
@@ -92,6 +94,9 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, surfaceTexture) == null) {
                         this.this$0.notifyFrameAvailable();
+                        if (surfaceTexture != null) {
+                            this.val$protocol.seek(this.this$0.mMultiMediaDataSource.getCurrentPlayTime());
+                        }
                     }
                 }
             });
@@ -105,7 +110,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void notifyFrameAvailable() {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.onFrameAvailable(null);
@@ -140,9 +145,19 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
+    public void addOneTrack(MediaTrack mediaTrack) {
+        MultiMediaDataSource multiMediaDataSource;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, mediaTrack) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+            return;
+        }
+        multiMediaDataSource.addOneTrack(mediaTrack);
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void addStickerData(MultiMediaData multiMediaData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, multiMediaData, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048580, this, multiMediaData, str) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 multiMediaDataSource.addStickerData(multiMediaData, str);
@@ -158,20 +173,20 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void cancelStickerSelected() {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.cancelStickerSelected();
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditViewManager
-    public Buffer captureVideoCover(int i2, long j, int i3, int i4) {
+    public Buffer captureVideoCover(int i2, long j2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             IMultiMediaDataSourceView iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol;
             if (iMultiMediaDataSourceView != null) {
-                iMultiMediaDataSourceView.capture(i2, j, i3, i4);
+                iMultiMediaDataSourceView.capture(i2, j2, i3, i4);
             }
             return MultiDataSourceUtil.saveOffscreenBuffer(i3, i4, true);
         }
@@ -181,7 +196,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void deleteCoverStickerData(MultiMediaData multiMediaData) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, multiMediaData) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, multiMediaData) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.deleteCoverStickerData(multiMediaData);
@@ -191,7 +206,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void deleteMultiMediaData(int i2) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.deleteMultiMediaData(i2);
@@ -201,20 +216,20 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void deleteStickerData(MultiMediaData multiMediaData, String str) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, multiMediaData, str) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, multiMediaData, str) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.deleteStickerData(multiMediaData, str);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public int editOneEffect(int i2, MediaAEffectConfig mediaAEffectConfig, long j, long j2) {
+    public int editOneEffect(int i2, MediaAEffectConfig mediaAEffectConfig, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), mediaAEffectConfig, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), mediaAEffectConfig, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
-                return multiMediaDataSource.editOneEffect(i2, mediaAEffectConfig, j, j2);
+                return multiMediaDataSource.editOneEffect(i2, mediaAEffectConfig, j2, j3);
             }
             return 0;
         }
@@ -225,7 +240,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public String exportConfigJson(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.exportConfigJson(str);
@@ -238,7 +253,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public List<MultiMediaData> getCoverStickerDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             IMultiMediaDataSourceView iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol;
             return iMultiMediaDataSourceView != null ? iMultiMediaDataSourceView.getCoverStickerDataList() : new ArrayList();
         }
@@ -249,7 +264,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public int getCurrentIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getCurrentIndex();
@@ -263,7 +278,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public long getCurrentPlayTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getCurrentPlayTime();
@@ -277,7 +292,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public SubTitleUnit getCurrentSubtitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getCurrentSubtitle();
@@ -291,7 +306,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public long getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getDuration();
@@ -305,7 +320,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public ArrayList<MultiMediaData> getInputMultiMediaData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getInputMultiMediaData();
@@ -319,7 +334,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public MediaTrackConfig getMediaTrackConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getMediaTrackConfig();
@@ -333,7 +348,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public MultiMediaData getMultiMediaData(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getMultiMediaData(i2);
@@ -347,7 +362,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public List<MultiMediaDataTrack> getMultiMediaDataTrack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getMultiMediaDataTrack();
@@ -361,7 +376,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public MediaTrack getOriginEffectTrack() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getOriginEffectTrack();
@@ -375,7 +390,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public Map<String, ShaderConfig> getShaderConfigMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getShaderConfigMap();
@@ -389,7 +404,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public List<MultiMediaData> getStickerMultiMediaDataList(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getStickerMultiMediaDataList(z);
@@ -403,7 +418,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public List<MediaSegment> getStickerSegmentsData(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getStickerSegmentsData(z);
@@ -417,7 +432,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public List<MediaSegment> getStickerSegmentsDataByType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getStickerSegmentsDataByType(str);
@@ -431,7 +446,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public List<MediaTrack> getUpdateMediaTracks() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getUpdateMediaTracks();
@@ -445,7 +460,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public float getVideoRatio() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getVideoRatio();
@@ -459,7 +474,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public float getVolume(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.getVolume(i2);
@@ -473,7 +488,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public boolean isMute() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.isMute();
@@ -487,7 +502,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public boolean isPaused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.isPaused();
@@ -501,7 +516,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 return multiMediaDataSource.isPlaying();
@@ -511,21 +526,35 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
         return invokeV.booleanValue;
     }
 
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.IMultiMediaDataSource
+    public boolean isResourceReady() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
+            if (multiMediaDataSource != null) {
+                return multiMediaDataSource.isResourceReady();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void modifyTimeByRange(long j, long j2) {
+    public void modifyTimeByRange(long j2, long j3) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
-        multiMediaDataSource.modifyTimeByRange(j, j2);
+        multiMediaDataSource.modifyTimeByRange(j2, j3);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditViewManager
     public void moveBoundsCheckEnabled(boolean z) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048608, this, z) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048610, this, z) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.moveBoundsCheckEnabled(z);
@@ -535,7 +564,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void needDrawEffect(boolean z) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048609, this, z) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048611, this, z) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.needDrawEffect(z);
@@ -544,7 +573,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogLifeProtocol
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 multiMediaDataSource.onDestroy();
@@ -558,7 +587,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void onInit() {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.onInit();
@@ -568,7 +597,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void onPause() {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048614, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.onPause();
@@ -578,7 +607,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void onResume() {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048613, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048615, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.onResume();
@@ -587,7 +616,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void pause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
             this.mTargetState = 4;
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
@@ -599,7 +628,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void prepareAsync() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 multiMediaDataSource.prepareAsync();
@@ -609,13 +638,13 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public boolean rangeSegmentScope(int i2, long j, long j2) {
+    public boolean rangeSegmentScope(int i2, long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048618, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
-                return multiMediaDataSource.rangeSegmentScope(i2, j, j2);
+                return multiMediaDataSource.rangeSegmentScope(i2, j2, j3);
             }
             return false;
         }
@@ -626,7 +655,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void registerObserver(EffectChangeObserver effectChangeObserver) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048617, this, effectChangeObserver) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048619, this, effectChangeObserver) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.registerObserver(effectChangeObserver);
@@ -636,7 +665,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void registerObserver(MediaTrackChangeObserver mediaTrackChangeObserver) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048618, this, mediaTrackChangeObserver) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048620, this, mediaTrackChangeObserver) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.registerObserver(mediaTrackChangeObserver);
@@ -645,7 +674,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void release() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 multiMediaDataSource.release();
@@ -659,7 +688,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void releaseTextures() {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048620, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048622, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.releaseTextures();
@@ -669,17 +698,27 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void removeLastEffect() {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048621, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048623, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.removeLastEffect();
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
+    public void removeOneTrack(String str) {
+        MultiMediaDataSource multiMediaDataSource;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048624, this, str) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+            return;
+        }
+        multiMediaDataSource.removeOneTrack(str);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void repeatIndex(int i2) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048622, this, i2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048625, this, i2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.repeatIndex(i2);
@@ -688,7 +727,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void replaceCoverStickerData(MultiMediaData multiMediaData) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048623, this, multiMediaData) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048626, this, multiMediaData) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.replaceCoverStickerData(multiMediaData);
@@ -697,7 +736,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void replaceStickerData(int i2, MultiMediaData multiMediaData, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048624, this, i2, multiMediaData, str) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048627, this, i2, multiMediaData, str) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 multiMediaDataSource.replaceStickerData(i2, multiMediaData, str);
@@ -712,7 +751,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048625, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 multiMediaDataSource.reset();
@@ -723,35 +762,35 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
-    public void seek(long j) {
+    public void seek(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048626, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048629, this, j2) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
-                multiMediaDataSource.seek(j);
+                multiMediaDataSource.seek(j2);
             }
             IMultiMediaDataSourceView iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol;
             if (iMultiMediaDataSourceView != null) {
-                iMultiMediaDataSourceView.seek(j);
+                iMultiMediaDataSourceView.seek(j2);
             }
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
-    public void seek(long j, int i2) {
+    public void seek(long j2, int i2) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Long.valueOf(j), Integer.valueOf(i2)}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
-        multiMediaDataSource.seek(j, i2);
+        multiMediaDataSource.seek(j2, i2);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setAngle(int i2, float f2) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setAngle(i2, f2);
@@ -761,7 +800,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     @Deprecated
     public void setAngle(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048629, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048632, this, i2, i3) == null) {
             setAngle(i2, i3);
         }
     }
@@ -770,7 +809,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setAudioChangeType(int i2) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048630, this, i2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048633, this, i2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setAudioChangeType(i2);
@@ -780,17 +819,27 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setAudioChangeType(int[] iArr) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048631, this, iArr) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048634, this, iArr) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setAudioChangeType(iArr);
+    }
+
+    @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
+    public void setAudioChangeType(int[] iArr, double[] dArr, int[] iArr2) {
+        MultiMediaDataSource multiMediaDataSource;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048635, this, iArr, dArr, iArr2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+            return;
+        }
+        multiMediaDataSource.setAudioChangeType(iArr, dArr, iArr2);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditViewManager
     public void setCurrentStickerData(int i2, String str) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048632, this, i2, str) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048636, this, i2, str) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.setCurrentStickerData(i2, str);
@@ -800,7 +849,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setEffectList(List<MediaSegment> list, Map<String, ShaderConfig> map) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048633, this, list, map) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048637, this, list, map) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setEffectList(list, map);
@@ -810,7 +859,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setFilter(float f2, String str) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{Float.valueOf(f2), str}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Float.valueOf(f2), str}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setFilter(f2, str);
@@ -820,7 +869,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setFilter(int i2, float f2, String str) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), str}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048639, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), str}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setFilter(i2, f2, str);
@@ -830,7 +879,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setFrameRate(int i2) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048636, this, i2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048640, this, i2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setFrameRate(i2);
@@ -840,7 +889,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setLooping(boolean z) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048637, this, z) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048641, this, z) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setLooping(z);
@@ -850,7 +899,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setMediaTrackConfig(MediaTrackConfig mediaTrackConfig) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048638, this, mediaTrackConfig) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048642, this, mediaTrackConfig) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setMediaTrackConfig(mediaTrackConfig);
@@ -860,7 +909,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setMultiMediaData(List<MultiMediaData> list) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048639, this, list) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048643, this, list) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setMultiMediaData(list);
@@ -870,7 +919,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setMultiMediaStateEventListener(MultiMediaStateEventListener multiMediaStateEventListener) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048640, this, multiMediaStateEventListener) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048644, this, multiMediaStateEventListener) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setMultiMediaStateEventListener(multiMediaStateEventListener);
@@ -880,7 +929,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setMultiMediaTimelineUpdateListener(MultiMediaTimelineUpdateListener multiMediaTimelineUpdateListener, boolean z) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048641, this, multiMediaTimelineUpdateListener, z) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048645, this, multiMediaTimelineUpdateListener, z) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setMultiMediaTimelineUpdateListener(multiMediaTimelineUpdateListener, z);
@@ -890,7 +939,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setMute(boolean z) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048642, this, z) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048646, this, z) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setMute(z);
@@ -900,7 +949,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setOnFrameAvailableListener(SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048643, this, onFrameAvailableListener) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048647, this, onFrameAvailableListener) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setOnFrameAvailableListener(onFrameAvailableListener);
@@ -910,7 +959,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setOnPlayStateListener(IVLogPlayControlProtocol.OnPlayStateListener onPlayStateListener) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048644, this, onPlayStateListener) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048648, this, onPlayStateListener) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setOnPlayStateListener(onPlayStateListener);
@@ -920,7 +969,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setPreRunnableTask(OnPreRunnableTask onPreRunnableTask) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048645, this, onPreRunnableTask) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048649, this, onPreRunnableTask) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setPreRunnableTask(onPreRunnableTask);
@@ -930,7 +979,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setPreparedListener(IMultiMediaPreparedListener iMultiMediaPreparedListener) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048646, this, iMultiMediaPreparedListener) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048650, this, iMultiMediaPreparedListener) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setPreparedListener(new IMultiMediaPreparedListener(this, iMultiMediaPreparedListener) { // from class: com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager.2
@@ -976,7 +1025,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setScale(float f2, float f3) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048647, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048651, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setScale(f2, f3);
@@ -986,7 +1035,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setScaleType(String str) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048648, this, str) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048652, this, str) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setScaleType(str);
@@ -995,7 +1044,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setStickerDataList(List<MultiMediaData> list, List<MediaSegment> list2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048649, this, list, list2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048653, this, list, list2) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 multiMediaDataSource.setStickerDataList(list, list2);
@@ -1011,7 +1060,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setStickerDeleteButton(String str, String str2) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048650, this, str, str2) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048654, this, str, str2) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.setStickerDeleteButton(str, str2);
@@ -1021,7 +1070,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setStickerEditButton(String str, String str2) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048651, this, str, str2) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048655, this, str, str2) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.setStickerEditButton(str, str2);
@@ -1031,7 +1080,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setStickerMaxScale(float f2) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048652, this, f2) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048656, this, f2) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.setStickerMaxScale(f2);
@@ -1041,7 +1090,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setStickerMinScale(float f2) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048653, this, f2) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048657, this, f2) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.setStickerMinScale(f2);
@@ -1051,7 +1100,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setStickerRotationButton(String str, String str2) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048654, this, str, str2) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048658, this, str, str2) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.setStickerRotationButton(str, str2);
@@ -1060,7 +1109,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setSubtitle(List<SubTitleUnit> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048655, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048659, this, list) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 multiMediaDataSource.setSubtitle(list);
@@ -1076,7 +1125,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setSubtitleConfig(SubTitleConfig subTitleConfig) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048656, this, subTitleConfig) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048660, this, subTitleConfig) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setSubtitleConfig(subTitleConfig);
@@ -1086,7 +1135,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setSubtitleOnStickerLayerTop() {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048657, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048661, this) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setSubtitleOnStickerLayerTop();
@@ -1096,7 +1145,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setTransitionByIndex(int i2, MediaTransitionConfig mediaTransitionConfig) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048658, this, i2, mediaTransitionConfig) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048662, this, i2, mediaTransitionConfig) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setTransitionByIndex(i2, mediaTransitionConfig);
@@ -1106,7 +1155,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setUpEditLayer(String str) {
         IMultiMediaDataSourceView iMultiMediaDataSourceView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048659, this, str) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048663, this, str) == null) || (iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol) == null) {
             return;
         }
         iMultiMediaDataSourceView.setUpEditLayer(str);
@@ -1115,7 +1164,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
     public void setVideoRatio(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048660, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048664, this, f2) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
                 multiMediaDataSource.setVideoRatio(f2);
@@ -1131,7 +1180,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setVolume(float f2) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048661, this, f2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048665, this, f2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setVolume(f2);
@@ -1142,7 +1191,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setVolume(int i2, float f2) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048662, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048666, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setVolume(i2, f2);
@@ -1152,7 +1201,7 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setX(float f2) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048663, this, f2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048667, this, f2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setX(f2);
@@ -1162,26 +1211,26 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void setY(float f2) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048664, this, f2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeF(1048668, this, f2) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.setY(f2);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void split(int i2, long j, OnMultiMediaSplitListener onMultiMediaSplitListener) {
+    public void split(int i2, long j2, OnMultiMediaSplitListener onMultiMediaSplitListener) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048665, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), onMultiMediaSplitListener}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048669, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), onMultiMediaSplitListener}) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
-        multiMediaDataSource.split(i2, j, onMultiMediaSplitListener);
+        multiMediaDataSource.split(i2, j2, onMultiMediaSplitListener);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol
     public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048666, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048670, this) == null) {
             this.mTargetState = 3;
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
@@ -1194,19 +1243,19 @@ public class VlogEditManager implements IMultiMediaDataSource, IVLogCommunicateP
     public void updateInputDataOrder(List<MultiMediaData> list) {
         MultiMediaDataSource multiMediaDataSource;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048667, this, list) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048671, this, list) == null) || (multiMediaDataSource = this.mMultiMediaDataSource) == null) {
             return;
         }
         multiMediaDataSource.updateInputDataOrder(list);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVlogEditManager
-    public void updateStickerDataRange(int i2, String str, long j, long j2) {
+    public void updateStickerDataRange(int i2, String str, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048668, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048672, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             MultiMediaDataSource multiMediaDataSource = this.mMultiMediaDataSource;
             if (multiMediaDataSource != null) {
-                multiMediaDataSource.updateStickerDataRange(i2, str, j, j2);
+                multiMediaDataSource.updateStickerDataRange(i2, str, j2, j3);
             }
             IMultiMediaDataSourceView iMultiMediaDataSourceView = this.mOnMultiMediaEntireProtocol;
             if (iMultiMediaDataSourceView != null) {

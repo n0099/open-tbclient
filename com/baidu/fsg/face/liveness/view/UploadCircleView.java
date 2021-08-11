@@ -14,38 +14,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UploadCircleView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f6254a;
+    public Paint f40237a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f6255b;
+    public Paint f40238b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Paint f6256c;
+    public Paint f40239c;
 
     /* renamed from: d  reason: collision with root package name */
-    public RectF f6257d;
+    public RectF f40240d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f6258e;
+    public int f40241e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f6259f;
+    public int f40242f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f6260g;
+    public int f40243g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f6261h;
+    public float f40244h;
 
     /* renamed from: i  reason: collision with root package name */
-    public float f6262i;
-    public String j;
+    public float f40245i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f40246j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UploadCircleView(Context context) {
@@ -73,21 +75,21 @@ public class UploadCircleView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             float width = getWidth() / 2;
-            float f2 = width - (this.f6260g / 2);
-            canvas.drawCircle(width, width, f2, this.f6254a);
+            float f2 = width - (this.f40243g / 2);
+            canvas.drawCircle(width, width, f2, this.f40237a);
             float f3 = width - f2;
             float f4 = f2 + width;
-            this.f6257d.set(f3, f3, f4, f4);
-            canvas.drawArc(this.f6257d, -90.0f, this.f6262i, false, this.f6255b);
-            canvas.drawText(this.j, width - (this.f6256c.measureText(this.j) / 2.0f), width, this.f6256c);
+            this.f40240d.set(f3, f3, f4, f4);
+            canvas.drawArc(this.f40240d, -90.0f, this.f40245i, false, this.f40238b);
+            canvas.drawText(this.f40246j, width - (this.f40239c.measureText(this.f40246j) / 2.0f), width, this.f40239c);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.j = i2 + "%";
-            this.f6262i = (float) ((i2 * 360) / 100);
+            this.f40246j = i2 + "%";
+            this.f40245i = (float) ((i2 * 360) / 100);
             postInvalidate();
         }
     }
@@ -132,28 +134,28 @@ public class UploadCircleView extends View {
                 return;
             }
         }
-        this.j = "";
-        this.f6260g = h.a(context, 3.0f);
-        this.f6261h = h.a(context, 24.0f);
-        this.f6258e = Color.parseColor("#E1DDDD");
-        this.f6259f = Color.parseColor("#3C76FF");
-        this.f6254a = new Paint();
-        this.f6255b = new Paint();
-        this.f6256c = new Paint();
-        this.f6257d = new RectF();
-        this.f6254a.setColor(this.f6258e);
-        this.f6254a.setStyle(Paint.Style.STROKE);
-        this.f6254a.setStrokeWidth(this.f6260g);
-        this.f6254a.setAntiAlias(true);
-        this.f6254a.setStrokeCap(Paint.Cap.ROUND);
-        this.f6255b.setColor(this.f6259f);
-        this.f6255b.setStyle(Paint.Style.STROKE);
-        this.f6255b.setStrokeWidth(this.f6260g);
-        this.f6255b.setAntiAlias(true);
-        this.f6255b.setStrokeCap(Paint.Cap.ROUND);
-        this.f6256c.setStrokeWidth(0.0f);
-        this.f6256c.setColor(this.f6259f);
-        this.f6256c.setTextSize(this.f6261h);
-        this.f6256c.setTypeface(Typeface.DEFAULT_BOLD);
+        this.f40246j = "";
+        this.f40243g = h.a(context, 3.0f);
+        this.f40244h = h.a(context, 24.0f);
+        this.f40241e = Color.parseColor("#E1DDDD");
+        this.f40242f = Color.parseColor("#3C76FF");
+        this.f40237a = new Paint();
+        this.f40238b = new Paint();
+        this.f40239c = new Paint();
+        this.f40240d = new RectF();
+        this.f40237a.setColor(this.f40241e);
+        this.f40237a.setStyle(Paint.Style.STROKE);
+        this.f40237a.setStrokeWidth(this.f40243g);
+        this.f40237a.setAntiAlias(true);
+        this.f40237a.setStrokeCap(Paint.Cap.ROUND);
+        this.f40238b.setColor(this.f40242f);
+        this.f40238b.setStyle(Paint.Style.STROKE);
+        this.f40238b.setStrokeWidth(this.f40243g);
+        this.f40238b.setAntiAlias(true);
+        this.f40238b.setStrokeCap(Paint.Cap.ROUND);
+        this.f40239c.setStrokeWidth(0.0f);
+        this.f40239c.setColor(this.f40242f);
+        this.f40239c.setTextSize(this.f40244h);
+        this.f40239c.setTypeface(Typeface.DEFAULT_BOLD);
     }
 }

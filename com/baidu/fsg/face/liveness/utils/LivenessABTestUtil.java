@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class LivenessABTestUtil {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static LivenessABTestUtil f6054a;
+    public static LivenessABTestUtil f40026a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public ABTestUtils f6055b;
+    public ABTestUtils f40027b;
 
     public LivenessABTestUtil() {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class LivenessABTestUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             synchronized (LivenessABTestUtil.class) {
-                f6054a = null;
+                f40026a = null;
             }
         }
     }
@@ -50,10 +50,10 @@ public class LivenessABTestUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
             synchronized (LivenessABTestUtil.class) {
-                if (f6054a == null) {
-                    f6054a = new LivenessABTestUtil(context);
+                if (f40026a == null) {
+                    f40026a = new LivenessABTestUtil(context);
                 }
-                livenessABTestUtil = f6054a;
+                livenessABTestUtil = f40026a;
             }
             return livenessABTestUtil;
         }
@@ -64,7 +64,7 @@ public class LivenessABTestUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ABTestUtils aBTestUtils = this.f6055b;
+            ABTestUtils aBTestUtils = this.f40027b;
             if (aBTestUtils != null) {
                 return aBTestUtils.getABTestStatistics("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0");
             }
@@ -77,7 +77,7 @@ public class LivenessABTestUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ABTestUtils aBTestUtils = this.f6055b;
+            ABTestUtils aBTestUtils = this.f40027b;
             if (aBTestUtils != null) {
                 return "1".equals(aBTestUtils.getABTestValueString("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0"));
             }
@@ -101,6 +101,6 @@ public class LivenessABTestUtil {
                 return;
             }
         }
-        this.f6055b = new ABTestUtils(context);
+        this.f40027b = new ABTestUtils(context);
     }
 }

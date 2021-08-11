@@ -1,6 +1,7 @@
 package com.baidu.tieba.gift.send;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.b1.w;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -9,10 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.w;
 import tbclient.SendFreeGift.DataReq;
 import tbclient.SendFreeGift.SendFreeGiftReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class SendFreeGiftRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -115,10 +115,10 @@ public class SendFreeGiftRequest extends NetMessage {
         }
     }
 
-    public void setPostId(long j) {
+    public void setPostId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.postId = j;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+            this.postId = j2;
         }
     }
 
@@ -136,17 +136,17 @@ public class SendFreeGiftRequest extends NetMessage {
         }
     }
 
-    public void setThreadId(long j) {
+    public void setThreadId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
-            this.threadId = j;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
+            this.threadId = j2;
         }
     }
 
-    public void setToUserId(long j) {
+    public void setToUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.toUserId = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.toUserId = j2;
         }
     }
 

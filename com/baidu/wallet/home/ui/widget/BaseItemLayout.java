@@ -1,10 +1,12 @@
 package com.baidu.wallet.home.ui.widget;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.apollon.base.widget.NetImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,13 +15,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.home.WalletNewHomeActivity;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseItemLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f25165d;
+    public int f60897d;
     public HomeCfgResponse.ConfigData mConfigData;
     public b mWalletHomeInterface;
 
@@ -41,7 +43,7 @@ public abstract class BaseItemLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f25165d = -1;
+        this.f60897d = -1;
     }
 
     public void dispatchShowPoint(String str) {
@@ -101,11 +103,11 @@ public abstract class BaseItemLayout extends RelativeLayout {
     public void setConfigData(HomeCfgResponse.ConfigData configData, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configData, bVar) == null) {
-            if (this.mConfigData == null || ((bVar instanceof WalletNewHomeActivity.r) && ((WalletNewHomeActivity.r) bVar).f25119a.f25100a > this.f25165d)) {
+            if (this.mConfigData == null || ((bVar instanceof WalletNewHomeActivity.r) && ((WalletNewHomeActivity.r) bVar).f60850a.f60831a > this.f60897d)) {
                 this.mConfigData = configData;
                 this.mWalletHomeInterface = bVar;
                 if (bVar instanceof WalletNewHomeActivity.r) {
-                    this.f25165d = ((WalletNewHomeActivity.r) bVar).f25119a.f25100a;
+                    this.f60897d = ((WalletNewHomeActivity.r) bVar).f60850a.f60831a;
                 }
                 if (!isDataValid() || this.mWalletHomeInterface == null) {
                     return;
@@ -115,6 +117,14 @@ public abstract class BaseItemLayout extends RelativeLayout {
                 refreshData();
             }
         }
+    }
+
+    public void setNetImageViewUrl(NetImageView netImageView, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, netImageView, str) == null) || netImageView == null || TextUtils.isEmpty(str) || getWalletInterface() == null) {
+            return;
+        }
+        netImageView.setImageUrl(getWalletInterface().getAndroidPrefix() + str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,6 +146,6 @@ public abstract class BaseItemLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f25165d = -1;
+        this.f60897d = -1;
     }
 }

@@ -12,21 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsTabViewPager extends BdBaseViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f15489a;
+        public boolean f50661a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f15490b;
+        public boolean f50662b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -45,26 +45,26 @@ public class FrsTabViewPager extends BdBaseViewPager {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f15489a : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f50661a : invokeV.booleanValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f15490b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f50662b : invokeV.booleanValue;
         }
 
         public void c(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.f15489a = z;
+                this.f50661a = z;
             }
         }
 
         public void d(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.f15490b = z;
+                this.f50662b = z;
             }
         }
     }
@@ -90,40 +90,33 @@ public class FrsTabViewPager extends BdBaseViewPager {
         }
     }
 
-    public final boolean c() {
+    public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? getCurrentItem() == getAdapter().getCount() - 1 : invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            e(false);
-        }
     }
 
     @Override // com.baidu.tbadk.core.view.viewpager.BdBaseViewPager, android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 0) {
-                e(true);
+                notifyFrsTabViewPagerStatus(true);
             } else if (action == 1) {
-                e(false);
+                notifyFrsTabViewPagerStatus(false);
             }
             return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
-    public void e(boolean z) {
+    public void notifyFrsTabViewPagerStatus(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             a aVar = new a();
-            aVar.c(c());
+            aVar.c(b());
             aVar.d(z);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
         }
@@ -135,7 +128,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 1) {
-                e(false);
+                notifyFrsTabViewPagerStatus(false);
             }
             return super.onTouchEvent(motionEvent);
         }
@@ -160,6 +153,13 @@ public class FrsTabViewPager extends BdBaseViewPager {
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+    }
+
+    public void notifyFrsTabViewPagerStatus() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            notifyFrsTabViewPagerStatus(false);
         }
     }
 }

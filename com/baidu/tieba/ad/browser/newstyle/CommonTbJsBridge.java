@@ -3,6 +3,9 @@ package com.baidu.tieba.ad.browser.newstyle;
 import android.content.Context;
 import android.os.Build;
 import android.webkit.JsPromptResult;
+import c.a.e.e.p.q;
+import c.a.p0.i3.l0.b;
+import c.a.p0.i3.l0.d.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
@@ -17,12 +20,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.q;
-import d.a.q0.h3.l0.b;
-import d.a.q0.h3.l0.d.c;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CommonTbJsBridge implements b {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements b {
         return (String) invokeV.objValue;
     }
 
-    @Override // d.a.q0.h3.l0.b
+    @Override // c.a.p0.i3.l0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

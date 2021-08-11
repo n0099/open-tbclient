@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class HitResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f33150a;
+    public long f69853a;
 
     public HitResult() {
         Interceptable interceptable = $ic;
@@ -27,29 +27,29 @@ public class HitResult {
                 return;
             }
         }
-        this.f33150a = 0L;
+        this.f69853a = 0L;
     }
 
-    private native long nativeCreateAnchor(long j, long j2);
+    private native long nativeCreateAnchor(long j2, long j3);
 
-    public static native void nativeDestroyHitResult(long j);
+    public static native void nativeDestroyHitResult(long j2);
 
-    private native float nativeGetDistance(long j, long j2);
+    private native float nativeGetDistance(long j2, long j3);
 
-    private native d.f.c.a.a nativeGetPose(long j, long j2);
+    private native c.i.c.a.a nativeGetPose(long j2, long j3);
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == HitResult.class && ((HitResult) obj).f33150a == this.f33150a : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? obj != null && obj.getClass() == HitResult.class && ((HitResult) obj).f69853a == this.f69853a : invokeL.booleanValue;
     }
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j = this.f33150a;
-            if (j != 0) {
-                nativeDestroyHitResult(j);
+            long j2 = this.f69853a;
+            if (j2 != 0) {
+                nativeDestroyHitResult(j2);
             }
             super.finalize();
         }
@@ -58,8 +58,8 @@ public class HitResult {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f33150a).hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Long.valueOf(this.f69853a).hashCode() : invokeV.intValue;
     }
 
-    public native long nativeAcquireTrackable(long j, long j2);
+    public native long nativeAcquireTrackable(long j2, long j3);
 }

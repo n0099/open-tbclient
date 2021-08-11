@@ -2,7 +2,6 @@ package com.bytedance.sdk.openadsdk.core.widget.webview;
 
 import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.webkit.ConsoleMessage;
 import android.webkit.WebChromeClient;
@@ -19,19 +18,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.w;
 import com.bytedance.sdk.openadsdk.e.j;
 import com.bytedance.sdk.openadsdk.q.i;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f31144a;
+    public static final String f67082a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final w f31145b;
+    public final w f67083b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f31146c;
+    public j f67084c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +45,7 @@ public class d extends WebChromeClient {
                 return;
             }
         }
-        f31144a = WebChromeClient.class.getSimpleName();
+        f67082a = WebChromeClient.class.getSimpleName();
     }
 
     public d(w wVar, j jVar) {
@@ -64,8 +63,8 @@ public class d extends WebChromeClient {
                 return;
             }
         }
-        this.f31145b = wVar;
-        this.f31146c = jVar;
+        this.f67083b = wVar;
+        this.f67084c = jVar;
     }
 
     private boolean a(@NonNull String str) {
@@ -73,11 +72,10 @@ public class d extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             try {
-                String str2 = f31144a;
-                Log.w(str2, "message:" + str);
+                String str2 = "message:" + str;
                 Uri parse = Uri.parse(str);
                 if ("bytedance".equals(parse.getScheme().toLowerCase())) {
-                    i.a(parse, this.f31145b);
+                    i.a(parse, this.f67083b);
                     return true;
                 }
                 return false;
@@ -104,7 +102,7 @@ public class d extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, webView, i2) == null) {
             super.onProgressChanged(webView, i2);
-            j jVar = this.f31146c;
+            j jVar = this.f67084c;
             if (jVar != null) {
                 jVar.a(webView, i2);
             }

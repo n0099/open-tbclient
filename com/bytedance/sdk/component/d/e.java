@@ -18,30 +18,30 @@ import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f28812a;
+    public static final int f64674a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static c f28813b;
+    public static c f64675b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f28814c;
+    public static boolean f64676c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile ThreadPoolExecutor f28815d;
+    public static volatile ThreadPoolExecutor f64677d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile ThreadPoolExecutor f28816e;
+    public static volatile ThreadPoolExecutor f64678e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile ThreadPoolExecutor f28817f;
+    public static volatile ThreadPoolExecutor f64679f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile ScheduledExecutorService f28818g;
+    public static volatile ScheduledExecutorService f64680g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,8 +57,8 @@ public class e {
                 return;
             }
         }
-        f28812a = Runtime.getRuntime().availableProcessors();
-        f28814c = true;
+        f64674a = Runtime.getRuntime().availableProcessors();
+        f64676c = true;
     }
 
     public e() {
@@ -79,15 +79,15 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f28815d == null) {
+            if (f64677d == null) {
                 synchronized (e.class) {
-                    if (f28815d == null) {
-                        f28815d = new a.C0323a().a("io").a(4).b(10).a(10L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue(f28812a)).a(f()).a();
-                        f28815d.allowCoreThreadTimeOut(true);
+                    if (f64677d == null) {
+                        f64677d = new a.C1883a().a("io").a(4).b(10).a(10L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue(f64674a)).a(f()).a();
+                        f64677d.allowCoreThreadTimeOut(true);
                     }
                 }
             }
-            return f28815d;
+            return f64677d;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -96,15 +96,15 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f28816e == null) {
+            if (f64678e == null) {
                 synchronized (e.class) {
-                    if (f28816e == null) {
-                        f28816e = new a.C0323a().a(TbConfig.TMP_LOG_DIR_NAME).b(5).a(2).a(10L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(f()).a();
-                        f28816e.allowCoreThreadTimeOut(true);
+                    if (f64678e == null) {
+                        f64678e = new a.C1883a().a(TbConfig.TMP_LOG_DIR_NAME).b(5).a(2).a(10L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(f()).a();
+                        f64678e.allowCoreThreadTimeOut(true);
                     }
                 }
             }
-            return f28816e;
+            return f64678e;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -112,11 +112,11 @@ public class e {
     public static void c(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, gVar) == null) {
-            if (f28817f == null) {
+            if (f64679f == null) {
                 c();
             }
-            if (f28817f != null) {
-                f28817f.execute(gVar);
+            if (f64679f != null) {
+                f64679f.execute(gVar);
             }
         }
     }
@@ -125,14 +125,14 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (f28818g == null) {
+            if (f64680g == null) {
                 synchronized (e.class) {
-                    if (f28818g == null) {
-                        f28818g = Executors.newSingleThreadScheduledExecutor(new h(5, "scheduled"));
+                    if (f64680g == null) {
+                        f64680g = Executors.newSingleThreadScheduledExecutor(new h(5, "scheduled"));
                     }
                 }
             }
-            return f28818g;
+            return f64680g;
         }
         return (ScheduledExecutorService) invokeV.objValue;
     }
@@ -140,7 +140,7 @@ public class e {
     public static boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f28814c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? f64676c : invokeV.booleanValue;
     }
 
     public static RejectedExecutionHandler f() {
@@ -176,20 +176,20 @@ public class e {
     public static c g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f28813b : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? f64675b : (c) invokeV.objValue;
     }
 
     public static void c(g gVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65548, null, gVar, i2) == null) {
-            if (f28817f == null) {
+            if (f64679f == null) {
                 c();
             }
-            if (gVar == null || f28817f == null) {
+            if (gVar == null || f64679f == null) {
                 return;
             }
             gVar.a(i2);
-            f28817f.execute(gVar);
+            f64679f.execute(gVar);
         }
     }
 
@@ -197,15 +197,15 @@ public class e {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (f28817f == null) {
+            if (f64679f == null) {
                 synchronized (e.class) {
-                    if (f28817f == null) {
-                        f28817f = new a.C0323a().a("aidl").b(9).a(1).a(5L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(f()).a();
-                        f28817f.allowCoreThreadTimeOut(true);
+                    if (f64679f == null) {
+                        f64679f = new a.C1883a().a("aidl").b(9).a(1).a(5L).a(TimeUnit.SECONDS).a(new PriorityBlockingQueue()).a(f()).a();
+                        f64679f.allowCoreThreadTimeOut(true);
                     }
                 }
             }
-            return f28817f;
+            return f64679f;
         }
         return (ExecutorService) invokeV.objValue;
     }
@@ -213,11 +213,11 @@ public class e {
     public static void a(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, gVar) == null) {
-            if (f28815d == null) {
+            if (f64677d == null) {
                 a();
             }
-            if (f28815d != null) {
-                f28815d.execute(gVar);
+            if (f64677d != null) {
+                f64677d.execute(gVar);
             }
         }
     }
@@ -225,11 +225,11 @@ public class e {
     public static void b(g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, gVar) == null) {
-            if (f28816e == null) {
+            if (f64678e == null) {
                 b();
             }
-            if (f28816e != null) {
-                f28816e.execute(gVar);
+            if (f64678e != null) {
+                f64678e.execute(gVar);
             }
         }
     }
@@ -237,42 +237,42 @@ public class e {
     public static void a(g gVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(AdIconUtil.AD_TEXT_ID, null, gVar, i2) == null) {
-            if (f28815d == null) {
+            if (f64677d == null) {
                 a();
             }
-            if (gVar == null || f28815d == null) {
+            if (gVar == null || f64677d == null) {
                 return;
             }
             gVar.a(i2);
-            f28815d.execute(gVar);
+            f64677d.execute(gVar);
         }
     }
 
     public static void b(g gVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65545, null, gVar, i2) == null) {
-            if (f28816e == null) {
+            if (f64678e == null) {
                 b();
             }
-            if (gVar == null || f28816e == null) {
+            if (gVar == null || f64678e == null) {
                 return;
             }
             gVar.a(i2);
-            f28816e.execute(gVar);
+            f64678e.execute(gVar);
         }
     }
 
     public static void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(AdIconUtil.BAIDU_LOGO_ID, null, z) == null) {
-            f28814c = z;
+            f64676c = z;
         }
     }
 
     public static void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, cVar) == null) {
-            f28813b = cVar;
+            f64675b = cVar;
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba.im.forum.broadcast.data;
 
+import c.a.p0.j1.i.a.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -9,10 +10,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.i1.i.a.b.a;
 import tbclient.Error;
 import tbclient.GetForumBroadcastList.GetForumBroadcastListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ResponseHttpMajorHistoryMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

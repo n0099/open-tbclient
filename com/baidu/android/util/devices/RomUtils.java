@@ -2,7 +2,6 @@ package com.baidu.android.util.devices;
 
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Locale;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class RomUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VERSION_EMUI = "ro.build.version.emui";
@@ -260,20 +259,18 @@ public class RomUtils {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0064: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x0064 */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x005e A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String getProp(String str) {
         InterceptResult invokeL;
         BufferedReader bufferedReader;
-        BufferedReader bufferedReader2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65546, null, str)) != null) {
             return (String) invokeL.objValue;
         }
-        BufferedReader bufferedReader3 = null;
+        BufferedReader bufferedReader2 = null;
         try {
             try {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
@@ -286,36 +283,34 @@ public class RomUtils {
                         e2.printStackTrace();
                     }
                     return readLine;
-                } catch (IOException e3) {
-                    e = e3;
-                    Log.e("Rom", "Unable to read prop " + str, e);
+                } catch (IOException unused) {
+                    String str2 = "Unable to read prop " + str;
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
+                        } catch (IOException e3) {
+                            e3.printStackTrace();
                         }
                     }
                     return null;
                 }
             } catch (Throwable th) {
                 th = th;
-                bufferedReader3 = bufferedReader2;
-                if (bufferedReader3 != null) {
+                bufferedReader2 = 65546;
+                if (bufferedReader2 != null) {
                     try {
-                        bufferedReader3.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
+                        bufferedReader2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (IOException e6) {
-            e = e6;
+        } catch (IOException unused2) {
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
-            if (bufferedReader3 != null) {
+            if (bufferedReader2 != null) {
             }
             throw th;
         }

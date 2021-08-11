@@ -11,7 +11,6 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
@@ -56,8 +55,7 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && sIsProjectedDrawableMethod == null) {
             try {
                 sIsProjectedDrawableMethod = Drawable.class.getDeclaredMethod("isProjected", new Class[0]);
-            } catch (Exception e2) {
-                Log.w(TAG, "Failed to retrieve Drawable#isProjected() method", e2);
+            } catch (Exception unused) {
             }
         }
     }
@@ -102,8 +100,7 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
             if (drawable != null && (method = sIsProjectedDrawableMethod) != null) {
                 try {
                     return ((Boolean) method.invoke(drawable, new Object[0])).booleanValue();
-                } catch (Exception e2) {
-                    Log.w(TAG, "Error calling Drawable#isProjected() method", e2);
+                } catch (Exception unused) {
                 }
             }
             return false;

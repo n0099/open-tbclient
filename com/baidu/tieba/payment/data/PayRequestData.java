@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PayRequestData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MOBILE_CHECK_READY = "1";
@@ -141,10 +141,10 @@ public class PayRequestData implements Serializable {
         }
     }
 
-    public void setSceneId(long j) {
+    public void setSceneId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.sceneId = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.sceneId = j2;
         }
     }
 

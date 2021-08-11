@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
-import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,39 +17,42 @@ import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1571a;
+    public String f35405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1572b;
+    public String f35406b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f1573c;
+    public String f35407c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f1574d;
+    public String f35408d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1575e;
+    public String f35409e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f1576f;
+    public String f35410f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f1577g;
+    public String f35411g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f1578h;
+    public String f35412h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f1579i;
-    public String j;
+    public String f35413i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public String f35414j;
     public String k;
     public String l;
     public String m;
@@ -80,32 +82,32 @@ public class b {
             }
         }
         this.t = new StringBuffer();
-        this.f1573c = "";
-        this.f1575e = "";
+        this.f35407c = "";
+        this.f35409e = "";
         this.n = "";
         this.m = "";
         this.p = "";
-        this.f1571a = "1.1";
+        this.f35405a = "1.1";
         long currentTimeMillis = System.currentTimeMillis();
         this.u = currentTimeMillis;
-        this.f1572b = a(currentTimeMillis);
-        this.f1574d = "";
-        this.f1576f = "";
-        this.f1577g = Build.BRAND;
-        this.f1578h = Build.MODEL;
-        this.f1579i = "Android";
-        this.j = Build.VERSION.RELEASE;
+        this.f35406b = a(currentTimeMillis);
+        this.f35408d = "";
+        this.f35410f = "";
+        this.f35411g = Build.BRAND;
+        this.f35412h = Build.MODEL;
+        this.f35413i = "Android";
+        this.f35414j = Build.VERSION.RELEASE;
         this.k = "SDK-JJ-v3.6.2";
         this.l = str;
         this.s = "0";
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) {
             try {
-                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA).format(new Date(j));
+                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA).format(new Date(j2));
             } catch (Throwable th) {
                 th.printStackTrace();
                 return "";
@@ -128,17 +130,17 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f1574d = str;
+            this.f35408d = str;
             return this;
         }
         return (b) invokeL.objValue;
     }
 
-    public b b(long j) {
+    public b b(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            this.q = j;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+            this.q = j2;
             return this;
         }
         return (b) invokeJ.objValue;
@@ -148,7 +150,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.f1575e = str;
+            this.f35409e = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -158,7 +160,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f1576f = str;
+            this.f35410f = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -212,7 +214,7 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             StringBuffer stringBuffer = this.t;
             stringBuffer.append(str);
-            stringBuffer.append("\n");
+            stringBuffer.append(StringUtils.LF);
             return this;
         }
         return (b) invokeL.objValue;
@@ -227,16 +229,16 @@ public class b {
                 this.v = currentTimeMillis;
                 this.r = currentTimeMillis - this.u;
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("v", this.f1571a);
-                jSONObject.put("t", this.f1572b);
-                jSONObject.put("tag", this.f1573c);
-                jSONObject.put("ai", this.f1574d);
-                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f1575e);
-                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f1576f);
-                jSONObject.put("br", this.f1577g);
-                jSONObject.put("ml", this.f1578h);
-                jSONObject.put(IAdRequestParam.OS, this.f1579i);
-                jSONObject.put(SearchJsBridge.COOKIE_OV, this.j);
+                jSONObject.put("v", this.f35405a);
+                jSONObject.put("t", this.f35406b);
+                jSONObject.put("tag", this.f35407c);
+                jSONObject.put("ai", this.f35408d);
+                jSONObject.put(AppIconSetting.DEFAULT_LARGE_ICON, this.f35409e);
+                jSONObject.put(NotificationStyle.NOTIFICATION_STYLE, this.f35410f);
+                jSONObject.put("br", this.f35411g);
+                jSONObject.put("ml", this.f35412h);
+                jSONObject.put("os", this.f35413i);
+                jSONObject.put(SearchJsBridge.COOKIE_OV, this.f35414j);
                 jSONObject.put("sv", this.k);
                 jSONObject.put("ri", this.l);
                 jSONObject.put(RetrieveTaskManager.KEY, this.m);

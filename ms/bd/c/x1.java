@@ -19,12 +19,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.RandomAccessFile;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class x1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f73603a;
+    public static final String f78904a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +41,7 @@ public class x1 {
             }
         }
         String str = (String) h.a(16777217, 0, 0L, "fbd40a", new byte[]{76, 60, 86, 30, 50});
-        f73603a = (String) h.a(16777217, 0, 0L, "85f2a9", new byte[]{39, 51});
+        f78904a = (String) h.a(16777217, 0, 0L, "85f2a9", new byte[]{39, 51});
     }
 
     public static synchronized String a(Context context) {
@@ -51,9 +51,9 @@ public class x1 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (x1.class) {
                 try {
-                    String str = context.getFilesDir().getAbsolutePath() + ((String) h.a(16777217, 0, 0L, "a9cb55", new byte[]{63})) + f73603a;
+                    String str = context.getFilesDir().getAbsolutePath() + ((String) h.a(16777217, 0, 0L, "a9cb55", new byte[]{63})) + f78904a;
                     if (!new File(str).exists() || (a2 = a(str)) == null || a2.length() <= 0) {
-                        InputStream open = context.getResources().getAssets().open(f73603a);
+                        InputStream open = context.getResources().getAssets().open(f78904a);
                         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                         byte[] bArr = new byte[4096];
                         while (true) {

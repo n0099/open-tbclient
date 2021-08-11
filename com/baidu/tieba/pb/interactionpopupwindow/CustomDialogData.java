@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CustomDialogData implements IBaseDialogData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String POS_LEFT = "left";
@@ -23,7 +23,7 @@ public class CustomDialogData implements IBaseDialogData {
     public Button rightButton;
     public int type;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Button implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class CustomDialogData implements IBaseDialogData {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class Head implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -105,7 +105,7 @@ public class CustomDialogData implements IBaseDialogData {
                     button.text = optJSONObject2.optString("text");
                     button.action = optJSONObject2.optString("action");
                     button.image = optJSONObject2.optString("image");
-                    if (optJSONObject2.optString("position").equals(POS_LEFT)) {
+                    if (optJSONObject2.optString("position").equals("left")) {
                         customDialogData.leftButton = button;
                     } else {
                         customDialogData.rightButton = button;

@@ -1,6 +1,5 @@
 package com.baidu.rtc;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.android.internal.http.multipart.Part;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SdpPrefer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUDIO_CODEC_PARAM_BITRATE = "maxaveragebitrate";
@@ -23,7 +22,7 @@ public class SdpPrefer {
     public static final String TAG = "SdpPrefer";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class AudioSdpAttribute {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,48 +135,41 @@ public class SdpPrefer {
                 i2++;
             }
             if (str3 == null) {
-                Log.w(TAG, "No rtpmap for " + str + " codec");
+                String str4 = "No rtpmap for " + str + " codec";
                 return str2;
             }
-            Log.d(TAG, "Found " + str + " rtpmap " + str3 + " at " + split[i2]);
-            StringBuilder sb = new StringBuilder();
-            sb.append("^a=fmtp:");
-            sb.append(str3);
-            sb.append(" \\w+=\\d+.*[\r]?$");
-            Pattern compile2 = Pattern.compile(sb.toString());
+            String str5 = "Found " + str + " rtpmap " + str3 + " at " + split[i2];
+            Pattern compile2 = Pattern.compile("^a=fmtp:" + str3 + " \\w+=\\d+.*[\r]?$");
             int i3 = 0;
             while (true) {
                 if (i3 >= split.length) {
                     z = false;
                     break;
                 } else if (compile2.matcher(split[i3]).matches()) {
-                    Log.d(TAG, "Found " + str + " " + split[i3]);
+                    String str6 = "Found " + str + " " + split[i3];
                     split[i3] = setAudioFmptParam(split[i3], audioSdpAttribute, false);
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("Update remote SDP line: ");
-                    sb2.append(split[i3]);
-                    Log.d(TAG, sb2.toString());
+                    String str7 = "Update remote SDP line: " + split[i3];
                     z = true;
                     break;
                 } else {
                     i3++;
                 }
             }
-            StringBuilder sb3 = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             for (int i4 = 0; i4 < split.length; i4++) {
-                sb3.append(split[i4]);
-                sb3.append(Part.CRLF);
+                sb.append(split[i4]);
+                sb.append(Part.CRLF);
                 if (!z && i4 == i2) {
                     String audioFmptParam = setAudioFmptParam("a=fmtp:" + str3 + " ", audioSdpAttribute, true);
-                    StringBuilder sb4 = new StringBuilder();
-                    sb4.append("Add local SDP line: ");
-                    sb4.append(audioFmptParam);
-                    Log.d(TAG, sb4.toString());
-                    sb3.append(audioFmptParam);
-                    sb3.append(Part.CRLF);
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("Add local SDP line: ");
+                    sb2.append(audioFmptParam);
+                    sb2.toString();
+                    sb.append(audioFmptParam);
+                    sb.append(Part.CRLF);
                 }
             }
-            return sb3.toString();
+            return sb.toString();
         }
         return (String) invokeLLL.objValue;
     }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.Counter;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class FlushManager {
     public static /* synthetic */ Interceptable $ic;
     public static final Object OBJ_KEY;
@@ -28,13 +28,13 @@ public class FlushManager {
     public ReportTimer mReportTimer;
 
     /* renamed from: com.yy.hiidostatis.inner.FlushManager$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class ConnectionChangeReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -96,7 +96,7 @@ public class FlushManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface FlushListener {
         void fluch(Context context);
     }
@@ -190,7 +190,7 @@ public class FlushManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class ReportTimer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long DEFAULT_INTERVAL = 1800000;

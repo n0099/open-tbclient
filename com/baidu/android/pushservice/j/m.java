@@ -27,7 +27,6 @@ import android.util.Base64;
 import android.util.Log;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.i.a.b;
@@ -47,12 +46,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.bumptech.glide.manager.DefaultConnectivityMonitorFactory;
-import com.facebook.cache.disk.DefaultDiskStorage;
 import com.heytap.mcssdk.PushManager;
 import com.heytap.mcssdk.callback.PushCallback;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.vivo.push.IPushActionListener;
 import com.vivo.push.PushClient;
@@ -79,18 +75,18 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 @SuppressLint({"WorldReadableFiles"})
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class m {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3516a = -1;
+    public static int f37418a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f3517b;
+    public static final String[] f37419b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f3518c = -1;
+    public static int f37420c = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -106,17 +102,17 @@ public final class m {
                 return;
             }
         }
-        f3517b = new String[]{"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION};
+        f37419b = new String[]{"android.permission.INTERNET", DefaultConnectivityMonitorFactory.NETWORK_PERMISSION};
     }
 
     public static boolean A(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (f3518c == -1) {
-                f3518c = !k(context, StorageUtils.EXTERNAL_STORAGE_PERMISSION) ? 1 : 0;
+            if (f37420c == -1) {
+                f37420c = !k(context, "android.permission.WRITE_EXTERNAL_STORAGE") ? 1 : 0;
             }
-            return f3518c == 0;
+            return f37420c == 0;
         }
         return invokeL.booleanValue;
     }
@@ -242,9 +238,9 @@ public final class m {
         }
     }
 
-    public static void a(Context context, long j) {
+    public static void a(Context context, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65545, null, context, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65545, null, context, j2) == null) {
             Context applicationContext = context.getApplicationContext();
             Intent a2 = l.a(applicationContext);
             String packageName = applicationContext.getPackageName();
@@ -252,17 +248,17 @@ public final class m {
             if (!TextUtils.isEmpty(packageName) && !TextUtils.isEmpty(b2)) {
                 a2.setClassName(packageName, b2);
             }
-            a(applicationContext, a2, j);
+            a(applicationContext, a2, j2);
         }
     }
 
-    public static void a(Context context, Intent intent, long j) {
+    public static void a(Context context, Intent intent, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, intent, Long.valueOf(j)}) == null) {
-            PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, intent, Label.FORWARD_REFERENCE_TYPE_SHORT);
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, intent, Long.valueOf(j2)}) == null) {
+            PendingIntent broadcast = PendingIntent.getBroadcast(context, 0, intent, 268435456);
             AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
             alarmManager.cancel(broadcast);
-            alarmManager.set(3, SystemClock.elapsedRealtime() + j, broadcast);
+            alarmManager.set(3, SystemClock.elapsedRealtime() + j2, broadcast);
         }
     }
 
@@ -340,7 +336,7 @@ public final class m {
         }
         synchronized (m.class) {
             try {
-                f3516a = z ? 1 : 0;
+                f37418a = z ? 1 : 0;
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
                 edit.putBoolean("bind_status", z);
                 edit.commit();
@@ -363,7 +359,7 @@ public final class m {
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Context f3519a;
+                    public final /* synthetic */ Context f37421a;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -380,14 +376,14 @@ public final class m {
                                 return;
                             }
                         }
-                        this.f3519a = context;
+                        this.f37421a = context;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            l.b(this.f3519a);
+                            l.b(this.f37421a);
                         }
                     }
                 }, com.baidu.android.pushservice.b.d.h() * 1000);
@@ -494,12 +490,8 @@ public final class m {
                     if (permissionInfoArr != null && permissionInfoArr.length > 0) {
                         boolean z = false;
                         for (PermissionInfo permissionInfo : permissionInfoArr) {
-                            if (permissionInfo.name.equals(str)) {
-                                if (permissionInfo.protectionLevel == 2) {
-                                    z = true;
-                                } else {
-                                    Log.e("BDPushSDK-Utility", "xiaomi proxy permission is not signature,  please check!");
-                                }
+                            if (permissionInfo.name.equals(str) && permissionInfo.protectionLevel == 2) {
+                                z = true;
                             }
                         }
                         if (!z) {
@@ -589,9 +581,9 @@ public final class m {
                 return false;
             }
             if (z) {
-                List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+                List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 576);
                 if (queryBroadcastReceivers.size() < 1) {
-                    Log.e("BDPushSDK-Utility", str2 + " is not exist or did not declared " + str);
+                    String str3 = str2 + " is not exist or did not declared " + str;
                     return false;
                 }
                 for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
@@ -600,9 +592,9 @@ public final class m {
                     }
                 }
             } else {
-                List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+                List<ResolveInfo> queryIntentServices = packageManager.queryIntentServices(intent, 576);
                 if (queryIntentServices.size() < 1) {
-                    Log.e("BDPushSDK-Utility", str2 + " is not exist or did not declared " + str);
+                    String str4 = str2 + " is not exist or did not declared " + str;
                     return false;
                 }
                 for (ResolveInfo resolveInfo2 : queryIntentServices) {
@@ -671,14 +663,7 @@ public final class m {
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.contains(" ")) {
-                Log.e("BDPushSDK-Utility", "api_key is  incorrect, please check ! ");
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) ? (TextUtils.isEmpty(str) || str.contains(" ")) ? false : true : invokeL.booleanValue;
     }
 
     public static boolean a(String str, String[] strArr) {
@@ -727,7 +712,7 @@ public final class m {
             if (packageManager == null) {
                 return null;
             }
-            list = packageManager.queryBroadcastReceivers(intent, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+            list = packageManager.queryBroadcastReceivers(intent, 576);
             if (list == null || list.size() <= 0) {
                 return null;
             }
@@ -782,10 +767,10 @@ public final class m {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f3520a;
+                public final /* synthetic */ Context f37422a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ boolean f3521b;
+                public final /* synthetic */ boolean f37423b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -802,8 +787,8 @@ public final class m {
                             return;
                         }
                     }
-                    this.f3520a = context;
-                    this.f3521b = z;
+                    this.f37422a = context;
+                    this.f37423b = z;
                 }
 
                 @Override // com.vivo.push.IPushActionListener
@@ -811,28 +796,28 @@ public final class m {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                         if (i2 == 101) {
-                            com.baidu.android.pushservice.f.b(this.f3520a, 0);
-                            if (this.f3521b) {
+                            com.baidu.android.pushservice.f.b(this.f37422a, 0);
+                            if (this.f37423b) {
                                 return;
                             }
-                            com.baidu.android.pushservice.a.a(this.f3520a, true);
-                            i.a(this.f3520a, "vi_push_proxy_mode", 0);
-                            com.baidu.android.pushservice.PushManager.enableVivoProxy(this.f3520a, false);
-                            m.a(this.f3520a, true, true);
+                            com.baidu.android.pushservice.a.a(this.f37422a, true);
+                            i.a(this.f37422a, "vi_push_proxy_mode", 0);
+                            com.baidu.android.pushservice.PushManager.enableVivoProxy(this.f37422a, false);
+                            m.a(this.f37422a, true, true);
                             return;
                         }
                         if (i2 == 0 || i2 == 1) {
-                            i.a(this.f3520a, "vi_push_proxy_mode", 1);
-                            if (!this.f3521b && !com.baidu.android.pushservice.b.d.c(this.f3520a)) {
-                                com.baidu.android.pushservice.a.a(this.f3520a, false);
+                            i.a(this.f37422a, "vi_push_proxy_mode", 1);
+                            if (!this.f37423b && !com.baidu.android.pushservice.b.d.c(this.f37422a)) {
+                                com.baidu.android.pushservice.a.a(this.f37422a, false);
                             }
-                            String regId = PushClient.getInstance(this.f3520a).getRegId();
+                            String regId = PushClient.getInstance(this.f37422a).getRegId();
                             if (!TextUtils.isEmpty(regId)) {
-                                com.baidu.android.pushservice.f.a(this.f3520a, regId);
+                                com.baidu.android.pushservice.f.a(this.f37422a, regId);
                                 return;
                             }
                         }
-                        com.baidu.android.pushservice.f.k(this.f3520a);
+                        com.baidu.android.pushservice.f.k(this.f37422a);
                     }
                 }
             });
@@ -1084,7 +1069,7 @@ public final class m {
             if (packageManager == null) {
                 return false;
             }
-            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 576);
             if (queryBroadcastReceivers.size() < 1) {
                 return false;
             }
@@ -1095,50 +1080,49 @@ public final class m {
                     if (a(context, "com.baidu.android.pushservice.action.RECEIVE", str, true)) {
                         if (d() && PushSettings.k(context)) {
                             if (!a(context, "com.huawei.intent.action.PUSH", str, true)) {
-                                Log.e("BDPushSDK-Utility", str + " did not declared com.huawei.intent.action.PUSH");
+                                String str2 = str + " did not declared com.huawei.intent.action.PUSH";
                                 return false;
                             } else if (!a(context, "com.huawei.android.push.intent.RECEIVE", str, true)) {
-                                Log.e("BDPushSDK-Utility", str + " did not declared com.huawei.android.push.intent.RECEIVE");
+                                String str3 = str + " did not declared com.huawei.android.push.intent.RECEIVE";
                                 return false;
                             } else if (!a(context, "com.huawei.android.push.intent.REGISTRATION", str, true)) {
-                                Log.e("BDPushSDK-Utility", str + " did not declared com.huawei.android.push.intent.REGISTRATION");
+                                String str4 = str + " did not declared com.huawei.android.push.intent.REGISTRATION";
                                 return false;
                             }
                         } else if (b() && PushSettings.g(context)) {
                             if (!a(context, "com.xiaomi.mipush.RECEIVE_MESSAGE", "com.baidu.android.pushservice.PushPatchMessageReceiver", true)) {
-                                Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushPatchMessageReceiver did not declared com.xiaomi.mipush.RECEIVE_MESSAGE");
+                                String str5 = "com.baidu.android.pushservice.PushPatchMessageReceiver did not declared com.xiaomi.mipush.RECEIVE_MESSAGE";
                                 return false;
                             } else if (!a(context, "com.xiaomi.mipush.MESSAGE_ARRIVED", "com.baidu.android.pushservice.PushPatchMessageReceiver", true)) {
-                                Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushPatchMessageReceiver did not declared com.xiaomi.mipush.MESSAGE_ARRIVED");
+                                String str6 = "com.baidu.android.pushservice.PushPatchMessageReceiver did not declared com.xiaomi.mipush.MESSAGE_ARRIVED";
                                 return false;
                             } else if (!a(context, "com.xiaomi.mipush.ERROR", "com.baidu.android.pushservice.PushPatchMessageReceiver", true)) {
-                                Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushPatchMessageReceiver did not declared com.xiaomi.mipush.ERROR");
+                                String str7 = "com.baidu.android.pushservice.PushPatchMessageReceiver did not declared com.xiaomi.mipush.ERROR";
                                 return false;
                             }
                         } else if (c() && PushSettings.h(context)) {
                             if (!a(context, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, "com.baidu.android.pushservice.MzPushPatchMessageReceiver", true)) {
-                                Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
+                                String str8 = "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + PushConstants.MZ_PUSH_ON_MESSAGE_ACTION;
                                 return false;
                             } else if (!a(context, PushConstants.MZ_PUSH_ON_REGISTER_ACTION, "com.baidu.android.pushservice.MzPushPatchMessageReceiver", true)) {
-                                Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + PushConstants.MZ_PUSH_ON_REGISTER_ACTION);
+                                String str9 = "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + PushConstants.MZ_PUSH_ON_REGISTER_ACTION;
                                 return false;
                             } else if (!a(context, PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION, "com.baidu.android.pushservice.MzPushPatchMessageReceiver", true)) {
-                                Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION);
+                                String str10 = "com.baidu.android.pushservice.MzPushPatchMessageReceiver did not declared " + PushConstants.MZ_PUSH_ON_UNREGISTER_ACTION;
                                 return false;
                             } else if (!r(context)) {
-                                Log.e("BDPushSDK-Utility", "com.meizu.cloud.pushsdk.SystemReceiver did not declared com.meizu.cloud.pushservice.action.PUSH_SERVICE_START");
                                 return false;
                             }
                         } else if ((e() || f() || g()) && PushSettings.i(context)) {
                             if (!a(context, "com.coloros.mcs.action.RECEIVE_MCS_MESSAGE", "com.heytap.mcssdk.PushService", false)) {
-                                Log.e("BDPushSDK-Utility", "com.heytap.mcssdk.PushService did not declared com.coloros.mcs.action.RECEIVE_MCS_MESSAGE");
+                                String str11 = "com.heytap.mcssdk.PushService did not declared com.coloros.mcs.action.RECEIVE_MCS_MESSAGE";
                                 return false;
                             } else if (!a(context, "com.heytap.mcs.action.RECEIVE_MCS_MESSAGE", "com.heytap.mcssdk.AppPushService", false)) {
-                                Log.e("BDPushSDK-Utility", "com.heytap.mcssdk.AppPushService did not declared com.heytap.mcs.action.RECEIVE_MCS_MESSAGE");
+                                String str12 = "com.heytap.mcssdk.AppPushService did not declared com.heytap.mcs.action.RECEIVE_MCS_MESSAGE";
                                 return false;
                             }
                         } else if (h() && PushSettings.j(context) && !a(context, "com.vivo.pushclient.action.RECEIVE", "com.baidu.android.pushservice.viproxy.ViPushMessageReceiver", true)) {
-                            Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.viproxy.ViPushMessageReceiver did not declared com.vivo.pushclient.action.RECEIVE");
+                            String str13 = "com.baidu.android.pushservice.viproxy.ViPushMessageReceiver did not declared com.vivo.pushclient.action.RECEIVE";
                             return false;
                         }
                         int componentEnabledSetting = packageManager.getComponentEnabledSetting(new ComponentName(context.getPackageName(), str));
@@ -1147,7 +1131,7 @@ public final class m {
                             return z3;
                         }
                         try {
-                            Log.e("BDPushSDK-Utility", str + " is disable, please check!");
+                            String str14 = str + " is disable, please check!";
                             return z3;
                         } catch (Exception e2) {
                             e = e2;
@@ -1163,7 +1147,7 @@ public final class m {
                     return z;
                 }
             }
-            Log.e("BDPushSDK-Utility", str + " did not declared com.baidu.android.pushservice.action.MESSAGE or com.baidu.android.pushservice.action.RECEIVE");
+            String str15 = str + " did not declared com.baidu.android.pushservice.action.MESSAGE or com.baidu.android.pushservice.action.RECEIVE";
             return false;
         } catch (Exception e4) {
             e = e4;
@@ -1187,7 +1171,7 @@ public final class m {
             if (packageManager == null) {
                 return false;
             }
-            list = packageManager.queryIntentServices(intent, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+            list = packageManager.queryIntentServices(intent, 576);
             return list != null && list.size() > 0;
         }
         return invokeLL.booleanValue;
@@ -1213,38 +1197,20 @@ public final class m {
 
     public static String f(Context context, String str) {
         InterceptResult invokeLL;
-        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65590, null, context, str)) == null) {
             if (PushSocket.a()) {
                 String f2 = f(context);
-                if (!TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f2)) {
-                    Log.e("BDPushSDK-Utility", f2);
-                    return f2;
-                } else if (a(str)) {
-                    if (!e(context)) {
-                        Log.e("BDPushSDK-Utility", "check SelfConfiged Receiver failed");
+                if (TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f2)) {
+                    if (a(str)) {
+                        e(context);
+                        return h() ? "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK" : ((s(context) || B(context)) && z(context)) ? "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK" : "check CommandService Enable failed";
                     }
-                    if (h()) {
-                        return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
-                    }
-                    if (!s(context) && !B(context)) {
-                        Log.e("BDPushSDK-Utility", "check CommandService Enable failed");
-                        return "check CommandService Enable failed";
-                    } else if (z(context)) {
-                        return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
-                    } else {
-                        Log.e("BDPushSDK-Utility", "check CommandService Enable failed");
-                        return "check CommandService Enable failed";
-                    }
-                } else {
-                    str2 = "check Apikey failed";
+                    return "check Apikey failed";
                 }
-            } else {
-                str2 = "check socket library failed";
+                return f2;
             }
-            Log.e("BDPushSDK-Utility", str2);
-            return str2;
+            return "check socket library failed";
         }
         return (String) invokeLL.objValue;
     }
@@ -1332,7 +1298,7 @@ public final class m {
             if (o(context)) {
                 return f.a(("com.baidu.pushservice.single_conn" + context.getPackageName() + "v3" + deviceID).getBytes(), false);
             }
-            return f.a(("com.baidu.pushservice.single_conn" + context.getPackageName() + DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX + deviceID).getBytes(), false);
+            return f.a(("com.baidu.pushservice.single_conn" + context.getPackageName() + "v2" + deviceID).getBytes(), false);
         }
         return (String) invokeL.objValue;
     }
@@ -1409,13 +1375,13 @@ public final class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65600, null, context)) == null) {
             synchronized (m.class) {
-                if (f3516a == -1) {
+                if (f37418a == -1) {
                     try {
-                        f3516a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
+                        f37418a = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).getBoolean("bind_status", false) ? 1 : 0;
                     } catch (Exception unused) {
                     }
                 }
-                z = f3516a == 1;
+                z = f37418a == 1;
             }
             return z;
         }
@@ -1855,24 +1821,20 @@ public final class m {
                 }
                 String[] strArr2 = packageManager.getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
                 if (strArr2 == null) {
-                    Log.e("BDPushSDK-Utility", "Permissions Push-SDK need are not exist !");
                     return "Permissions Push-SDK need are not exist !";
-                } else if (a(context, packageManager, strArr2)) {
-                    Log.e("BDPushSDK-Utility", "permission Push-SDK for xiaomi proxy need is not exist !");
-                    return "permission Push-SDK for xiaomi proxy need is not exist !";
-                } else if (a(context, strArr2)) {
-                    Log.e("BDPushSDK-Utility", "permission Push-SDK for oppo proxy need is not exist !");
-                    return "permission Push-SDK for oppo proxy need is not exist !";
-                } else {
-                    for (String str : f3517b) {
-                        if (!a(str, strArr2)) {
-                            String str2 = str + " permission Push-SDK need is not exist !";
-                            Log.e("BDPushSDK-Utility", str2);
-                            return str2;
-                        }
-                    }
-                    return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
                 }
+                if (a(context, packageManager, strArr2)) {
+                    return "permission Push-SDK for xiaomi proxy need is not exist !";
+                }
+                if (a(context, strArr2)) {
+                    return "permission Push-SDK for oppo proxy need is not exist !";
+                }
+                for (String str : f37419b) {
+                    if (!a(str, strArr2)) {
+                        return str + " permission Push-SDK need is not exist !";
+                    }
+                }
+                return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
             } catch (Exception e2) {
                 return "checkSDKPermissions exception " + e2.getMessage();
             }
@@ -1919,7 +1881,7 @@ public final class m {
             if (packageManager == null) {
                 return false;
             }
-            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE);
+            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 576);
             if (queryBroadcastReceivers.size() < 1) {
                 return false;
             }
@@ -1940,14 +1902,10 @@ public final class m {
             try {
                 ServiceInfo serviceInfo = context.getPackageManager().getServiceInfo(new ComponentName(context, "com.baidu.android.pushservice.CommandService"), 128);
                 if (TextUtils.isEmpty(serviceInfo.name)) {
-                    Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.CommandService did not declared ");
                     return false;
-                } else if (serviceInfo.exported) {
-                    return true;
-                } else {
-                    Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.CommandService  exported declared wrong");
-                    return true;
                 }
+                boolean z = serviceInfo.exported;
+                return true;
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();
                 return false;
@@ -1958,42 +1916,14 @@ public final class m {
 
     public static String t(Context context) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65625, null, context)) == null) {
-            if (!a(context, "com.baidu.android.pushservice.action.notification.SHOW", "com.baidu.android.pushservice.PushServiceReceiver", true)) {
-                str = "com.baidu.android.pushservice.PushServiceReceiver is not exist or did not declared com.baidu.android.pushservice.action.notification.SHOW";
-            } else if (a(context, "com.baidu.android.pushservice.action.METHOD", "com.baidu.android.pushservice.RegistrationReceiver", true)) {
-                return "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK";
-            } else {
-                str = "com.baidu.android.pushservice.RegistrationReceiver is not exist or did not declared com.baidu.android.pushservice.action.METHOD";
-            }
-            Log.e("BDPushSDK-Utility", str);
-            return str;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65625, null, context)) == null) ? !a(context, "com.baidu.android.pushservice.action.notification.SHOW", "com.baidu.android.pushservice.PushServiceReceiver", true) ? "com.baidu.android.pushservice.PushServiceReceiver is not exist or did not declared com.baidu.android.pushservice.action.notification.SHOW" : !a(context, "com.baidu.android.pushservice.action.METHOD", "com.baidu.android.pushservice.RegistrationReceiver", true) ? "com.baidu.android.pushservice.RegistrationReceiver is not exist or did not declared com.baidu.android.pushservice.action.METHOD" : "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK" : (String) invokeL.objValue;
     }
 
     public static String u(Context context) {
         InterceptResult invokeL;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65626, null, context)) == null) {
-            if (v(context)) {
-                str = "xiaomi service is not found or wrong  declared, please check!";
-            } else if (x(context)) {
-                str = "oppo service is not found or wrong  declared, please check!";
-            } else if (w(context)) {
-                str = "meizu service is not found or wrong  declared, please check!";
-            } else if (!y(context)) {
-                return a(context, "com.baidu.android.pushservice.action.PUSH_SERVICE", "com.baidu.android.pushservice.PushService", false) ? "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK" : "com.baidu.android.pushservice.PushService is not exist or did not declared com.baidu.android.pushservice.action.PUSH_SERVICE";
-            } else {
-                str = "vivo service is not found or wrong  declared, please check!";
-            }
-            Log.e("BDPushSDK-Utility", str);
-            return str;
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65626, null, context)) == null) ? v(context) ? "xiaomi service is not found or wrong  declared, please check!" : x(context) ? "oppo service is not found or wrong  declared, please check!" : w(context) ? "meizu service is not found or wrong  declared, please check!" : y(context) ? "vivo service is not found or wrong  declared, please check!" : a(context, "com.baidu.android.pushservice.action.PUSH_SERVICE", "com.baidu.android.pushservice.PushService", false) ? "com.baidu.android.pushservice.CHECK_SDK_RESULT_OK" : "com.baidu.android.pushservice.PushService is not exist or did not declared com.baidu.android.pushservice.action.PUSH_SERVICE" : (String) invokeL.objValue;
     }
 
     public static boolean v(Context context) {
@@ -2118,21 +2048,11 @@ public final class m {
                 String str = providerInfo.name;
                 String str2 = providerInfo.authority;
                 com.baidu.android.pushservice.g.a.c("Utility", "provider name  = " + str + "  export  = " + providerInfo.exported + " provider authorities = " + str2, context.getApplicationContext());
-                if (TextUtils.isEmpty(str)) {
-                    Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushInfoProvider did not declared, please check ! ");
-                    return false;
-                }
-                if (!TextUtils.isEmpty(str2) && str2.endsWith("bdpush")) {
-                    if (!providerInfo.exported) {
-                        Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushInfoProvider exported declared wrong, please check ! ");
-                    }
-                    if (TextUtils.isEmpty(providerInfo.writePermission)) {
-                        Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushInfoProvider writePermission did not decleared, please check !");
-                        return true;
-                    }
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && str2.endsWith("bdpush")) {
+                    boolean z = providerInfo.exported;
+                    TextUtils.isEmpty(providerInfo.writePermission);
                     return true;
                 }
-                Log.e("BDPushSDK-Utility", "com.baidu.android.pushservice.PushInfoProvider bdpush authority is required, please check !");
                 return false;
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();

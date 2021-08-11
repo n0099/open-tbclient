@@ -21,9 +21,6 @@ import com.alipay.sdk.util.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.lbspay.LBSPayResult;
 import com.baidu.android.lbspay.view.TitleBar;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
-import com.baidu.apollon.utils.ResUtils;
-import com.baidu.apollon.webmanager.SafeWebView;
 import com.baidu.tbadk.core.atomData.WalletPayResultActivityConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -32,11 +29,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.widget.WalletBaseEmptyView;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.core.utils.WalletGlobalUtils;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
-/* loaded from: classes.dex */
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.apollon.webmanager.SafeWebView;
+import com.dxmpay.wallet.base.widget.WalletBaseEmptyView;
+import com.dxmpay.wallet.core.utils.WalletGlobalUtils;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+/* loaded from: classes4.dex */
 public class WapPayActivity extends LBSBaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDUSCHEME = "baiduwalletjuhe";
@@ -63,7 +62,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
     public SafeWebView mWebView;
     public String title;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class OnPageCancelListener implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,31 +94,31 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class a extends SafeWebView.SafeChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WapPayActivity f2664a;
+        public final /* synthetic */ WapPayActivity f36539a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2665b;
+        public boolean f36540b;
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, webView, str, str2, jsResult)) == null) {
-                new AlertDialog.Builder(this.f2664a).setTitle(ResUtils.string(this.f2664a, "lbspay_title")).setMessage(str2).setPositiveButton(ResUtils.string(this.f2664a, "lbspay_confirm"), new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.2
+                new AlertDialog.Builder(this.f36539a).setTitle(ResUtils.string(this.f36539a, "lbspay_title")).setMessage(str2).setPositiveButton(ResUtils.string(this.f36539a, "lbspay_confirm"), new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ JsResult f2668a;
+                    public final /* synthetic */ JsResult f36543a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f2669b;
+                    public final /* synthetic */ a f36544b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -136,26 +135,26 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f2669b = this;
-                        this.f2668a = jsResult;
+                        this.f36544b = this;
+                        this.f36543a = jsResult;
                     }
 
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                            this.f2668a.confirm();
+                            this.f36543a.confirm();
                         }
                     }
-                }).setNegativeButton(ResUtils.string(this.f2664a, "lbspay_cancel"), new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.1
+                }).setNegativeButton(ResUtils.string(this.f36539a, "lbspay_cancel"), new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ JsResult f2666a;
+                    public final /* synthetic */ JsResult f36541a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f2667b;
+                    public final /* synthetic */ a f36542b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -172,15 +171,15 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f2667b = this;
-                        this.f2666a = jsResult;
+                        this.f36542b = this;
+                        this.f36541a = jsResult;
                     }
 
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                            this.f2666a.cancel();
+                            this.f36541a.cancel();
                         }
                     }
                 }).show();
@@ -194,15 +193,15 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             InterceptResult invokeLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, jsResult)) == null) {
-                new AlertDialog.Builder(this.f2664a).setTitle(ResUtils.string(this.f2664a, "lbspay_title")).setMessage(str2).setPositiveButton(ResUtils.string(this.f2664a, "lbspay_confirm"), new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.4
+                new AlertDialog.Builder(this.f36539a).setTitle(ResUtils.string(this.f36539a, "lbspay_title")).setMessage(str2).setPositiveButton(ResUtils.string(this.f36539a, "lbspay_confirm"), new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ JsResult f2672a;
+                    public final /* synthetic */ JsResult f36547a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f2673b;
+                    public final /* synthetic */ a f36548b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -219,26 +218,26 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f2673b = this;
-                        this.f2672a = jsResult;
+                        this.f36548b = this;
+                        this.f36547a = jsResult;
                     }
 
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                            this.f2672a.confirm();
+                            this.f36547a.confirm();
                         }
                     }
-                }).setNegativeButton(ResUtils.string(this.f2664a, "lbspay_cancel"), new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.3
+                }).setNegativeButton(ResUtils.string(this.f36539a, "lbspay_cancel"), new DialogInterface.OnClickListener(this, jsResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ JsResult f2670a;
+                    public final /* synthetic */ JsResult f36545a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f2671b;
+                    public final /* synthetic */ a f36546b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -255,15 +254,15 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f2671b = this;
-                        this.f2670a = jsResult;
+                        this.f36546b = this;
+                        this.f36545a = jsResult;
                     }
 
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                            this.f2670a.cancel();
+                            this.f36545a.cancel();
                         }
                     }
                 }).show();
@@ -272,20 +271,20 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             return invokeLLLL.booleanValue;
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
             InterceptResult invokeLLLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, jsPromptResult)) == null) {
-                new AlertDialog.Builder(this.f2664a).setTitle(ResUtils.string(this.f2664a, "lbspay_title")).setMessage(str2).setPositiveButton(ResUtils.string(this.f2664a, "lbspay_confirm"), new DialogInterface.OnClickListener(this, jsPromptResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.6
+                new AlertDialog.Builder(this.f36539a).setTitle(ResUtils.string(this.f36539a, "lbspay_title")).setMessage(str2).setPositiveButton(ResUtils.string(this.f36539a, "lbspay_confirm"), new DialogInterface.OnClickListener(this, jsPromptResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.6
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ JsPromptResult f2676a;
+                    public final /* synthetic */ JsPromptResult f36551a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f2677b;
+                    public final /* synthetic */ a f36552b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -302,26 +301,26 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f2677b = this;
-                        this.f2676a = jsPromptResult;
+                        this.f36552b = this;
+                        this.f36551a = jsPromptResult;
                     }
 
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                            this.f2676a.confirm();
+                            this.f36551a.confirm();
                         }
                     }
-                }).setNegativeButton(ResUtils.string(this.f2664a, "lbspay_cancel"), new DialogInterface.OnClickListener(this, jsPromptResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.5
+                }).setNegativeButton(ResUtils.string(this.f36539a, "lbspay_cancel"), new DialogInterface.OnClickListener(this, jsPromptResult) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.a.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ JsPromptResult f2674a;
+                    public final /* synthetic */ JsPromptResult f36549a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f2675b;
+                    public final /* synthetic */ a f36550b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -338,15 +337,15 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                                 return;
                             }
                         }
-                        this.f2675b = this;
-                        this.f2674a = jsPromptResult;
+                        this.f36550b = this;
+                        this.f36549a = jsPromptResult;
                     }
 
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
-                            this.f2674a.cancel();
+                            this.f36549a.cancel();
                         }
                     }
                 }).show();
@@ -355,18 +354,18 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             return invokeLLLLL.booleanValue;
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048579, this, webView, i2) == null) {
                 if (i2 <= 25) {
-                    this.f2665b = false;
-                } else if (!this.f2665b) {
-                    this.f2664a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
-                    this.f2665b = true;
+                    this.f36540b = false;
+                } else if (!this.f36540b) {
+                    this.f36539a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
+                    this.f36540b = true;
                 }
                 if (i2 == 100) {
-                    WapPayActivity wapPayActivity = this.f2664a;
+                    WapPayActivity wapPayActivity = this.f36539a;
                     if (!wapPayActivity.finishedError) {
                         wapPayActivity.hideErrorPage();
                     }
@@ -375,19 +374,19 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             }
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
-                if (!this.f2665b) {
-                    this.f2664a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
+                if (!this.f36540b) {
+                    this.f36539a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 super.onReceivedTitle(webView, str);
-                this.f2665b = true;
+                this.f36540b = true;
                 if (TextUtils.isEmpty(str)) {
                     return;
                 }
-                this.f2664a.title = str;
+                this.f36539a.title = str;
             }
         }
 
@@ -406,30 +405,30 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     return;
                 }
             }
-            this.f2664a = wapPayActivity;
+            this.f36539a = wapPayActivity;
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class b extends SafeWebView.SafeWebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WapPayActivity f2678a;
+        public final /* synthetic */ WapPayActivity f36553a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2679b;
+        public boolean f36554b;
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLZ(1048576, this, webView, str, z) == null) {
-                if (!this.f2679b) {
-                    this.f2678a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
+                if (!this.f36554b) {
+                    this.f36553a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 super.doUpdateVisitedHistory(webView, str, z);
-                this.f2679b = true;
+                this.f36554b = true;
             }
         }
 
@@ -440,63 +439,63 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             }
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onLoadResource(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
             }
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
-                LogUtil.logd("url=" + str);
-                if (!this.f2679b) {
-                    this.f2678a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
+                String str2 = "url=" + str;
+                if (!this.f36554b) {
+                    this.f36553a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
-                WalletGlobalUtils.safeDismissDialog(this.f2678a, -2);
+                WalletGlobalUtils.safeDismissDialog(this.f36553a, -2);
                 super.onPageFinished(webView, str);
-                this.f2679b = false;
-                WapPayActivity wapPayActivity = this.f2678a;
-                if (!wapPayActivity.finishedError && !TextUtils.isEmpty(wapPayActivity.title) && !this.f2678a.title.startsWith("http") && !this.f2678a.title.contains("错误") && !this.f2678a.title.contains("error")) {
-                    WapPayActivity wapPayActivity2 = this.f2678a;
+                this.f36554b = false;
+                WapPayActivity wapPayActivity = this.f36553a;
+                if (!wapPayActivity.finishedError && !TextUtils.isEmpty(wapPayActivity.title) && !this.f36553a.title.startsWith("http") && !this.f36553a.title.contains("错误") && !this.f36553a.title.contains("error")) {
+                    WapPayActivity wapPayActivity2 = this.f36553a;
                     wapPayActivity2.titleBar.setTitle(wapPayActivity2.title);
                 } else {
-                    WapPayActivity wapPayActivity3 = this.f2678a;
+                    WapPayActivity wapPayActivity3 = this.f36553a;
                     wapPayActivity3.titleBar.setTitle(ResUtils.getString(wapPayActivity3, "lbspay_title_new"));
                 }
                 if (webView.getProgress() != 100) {
-                    this.f2678a.finishedError = true;
+                    this.f36553a.finishedError = true;
                 }
             }
         }
 
-        @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
+        @Override // com.dxmpay.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, str, bitmap) == null) {
-                this.f2678a.mEmptyView.setVisibility(8);
-                LogUtil.logd("url=" + str);
-                WapPayActivity wapPayActivity = this.f2678a;
+                this.f36553a.mEmptyView.setVisibility(8);
+                String str2 = "url=" + str;
+                WapPayActivity wapPayActivity = this.f36553a;
                 wapPayActivity.titleBar.setTitle(wapPayActivity.mLoadingTitle);
-                if (!this.f2679b) {
-                    this.f2678a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
+                if (!this.f36554b) {
+                    this.f36553a.mWebView.loadUrl(WapPayActivity.JSPARAMS);
                 }
                 if (str.contains(WapPayActivity.PAGE_URL)) {
                     if (str.contains(WapPayActivity.PAY_SUCCESS)) {
                         Intent intent = new Intent();
                         intent.putExtra(WalletPayResultActivityConfig.PAY_RESULT, "success");
-                        this.f2678a.setResult(99, intent);
-                        this.f2678a.finish();
+                        this.f36553a.setResult(99, intent);
+                        this.f36553a.finish();
                     } else if (str.contains(WapPayActivity.PAY_PAY_FAILED)) {
                         Intent intent2 = new Intent();
-                        intent2.putExtra(WalletPayResultActivityConfig.PAY_RESULT, e.f2000a);
-                        this.f2678a.setResult(99, intent2);
-                        this.f2678a.finish();
+                        intent2.putExtra(WalletPayResultActivityConfig.PAY_RESULT, e.f35855a);
+                        this.f36553a.setResult(99, intent2);
+                        this.f36553a.finish();
                     } else {
-                        this.f2678a.setResult(99, new Intent());
-                        this.f2678a.finish();
+                        this.f36553a.setResult(99, new Intent());
+                        this.f36553a.finish();
                     }
                 } else if (str.contains(WapPayActivity.SMS_PAY_PAGE_URL)) {
                     if (str.contains(WapPayActivity.SMS_PAY_SUCCESS)) {
@@ -504,23 +503,23 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                         bundle.putString(WalletPayResultActivityConfig.PAY_RESULT, "success");
                         Intent intent3 = new Intent();
                         intent3.putExtras(bundle);
-                        this.f2678a.setResult(99, intent3);
-                        this.f2678a.finish();
+                        this.f36553a.setResult(99, intent3);
+                        this.f36553a.finish();
                     } else if (str.contains(WapPayActivity.SMS_PAY_CLOSE_WINDOW)) {
                         Bundle bundle2 = new Bundle();
                         bundle2.putString(WalletPayResultActivityConfig.PAY_RESULT, QueryResponse.Options.CANCEL);
                         Intent intent4 = new Intent();
                         intent4.putExtras(bundle2);
-                        this.f2678a.setResult(99, intent4);
-                        this.f2678a.finish();
+                        this.f36553a.setResult(99, intent4);
+                        this.f36553a.finish();
                     } else {
-                        this.f2678a.setResult(99, new Intent());
-                        this.f2678a.finish();
+                        this.f36553a.setResult(99, new Intent());
+                        this.f36553a.finish();
                     }
                 } else {
-                    WalletGlobalUtils.safeShowDialog(this.f2678a, -2, "");
+                    WalletGlobalUtils.safeShowDialog(this.f36553a, -2, "");
                     super.onPageStarted(webView, str, bitmap);
-                    this.f2679b = true;
+                    this.f36554b = true;
                 }
             }
         }
@@ -530,10 +529,10 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLILL(1048581, this, webView, i2, str, str2) == null) {
                 super.onReceivedError(webView, i2, str, str2);
-                WapPayActivity wapPayActivity = this.f2678a;
+                WapPayActivity wapPayActivity = this.f36553a;
                 wapPayActivity.finishedError = true;
                 wapPayActivity.mWebView.stopLoading();
-                this.f2678a.showErrorPage(str2);
+                this.f36553a.showErrorPage(str2);
             }
         }
 
@@ -558,7 +557,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                 if (host.startsWith(WapPayActivity.SUCCESS_NOTIFY_METHOD)) {
                     boolean unused = WapPayActivity.mIsSuccessFlag = true;
                 } else if (host.startsWith(WapPayActivity.CLOSE_VIEW_METHOD)) {
-                    this.f2678a.notifyMessage();
+                    this.f36553a.notifyMessage();
                 }
                 return false;
             }
@@ -580,7 +579,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                     return;
                 }
             }
-            this.f2678a = wapPayActivity;
+            this.f36553a = wapPayActivity;
         }
     }
 
@@ -644,12 +643,12 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         if (interceptable == null || interceptable.invokeL(65549, this, str) == null) {
             this.mEmptyView.setVisibility(0);
             this.titleBar.setTitle(ResUtils.getString(this, "lbspay_title_new"));
-            this.mEmptyView.showTip1_Tip2_NextBtn(ResUtils.drawable(this, "wallet_base_no_net"), ResUtils.getString(this, "wallet_base_no_network"), ResUtils.getString(this, "wallet_base_no_network_reason"), ResUtils.getString(getActivity(), "bd_wallet_reload"), new WalletBaseEmptyView.EmptyBtnClickListener(this) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.1
+            this.mEmptyView.showTip1_Tip2_NextBtn(ResUtils.drawable(this, "dxm_wallet_base_no_net"), ResUtils.getString(this, "dxm_wallet_base_no_network"), ResUtils.getString(this, "dxm_wallet_base_no_network_reason"), ResUtils.getString(getActivity(), "dxm_wallet_reload"), new WalletBaseEmptyView.EmptyBtnClickListener(this) { // from class: com.baidu.android.lbspay.activity.WapPayActivity.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ WapPayActivity f2663a;
+                public final /* synthetic */ WapPayActivity f36538a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -666,15 +665,15 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
                             return;
                         }
                     }
-                    this.f2663a = this;
+                    this.f36538a = this;
                 }
 
-                @Override // com.baidu.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
+                @Override // com.dxmpay.wallet.base.widget.WalletBaseEmptyView.EmptyBtnClickListener
                 public void onBtnClick() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        this.f2663a.mWebView.reload();
-                        this.f2663a.finishedError = false;
+                        this.f36538a.mWebView.reload();
+                        this.f36538a.finishedError = false;
                     }
                 }
             });
@@ -695,7 +694,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         }
     }
 
-    @Override // com.baidu.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
+    @Override // com.dxmpay.wallet.core.BaseActivity, androidx.activity.ComponentActivity, android.app.Activity
     public void onBackPressed() {
         SafeWebView safeWebView;
         Interceptable interceptable = $ic;
@@ -723,7 +722,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         }
     }
 
-    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.android.lbspay.activity.LBSBaseActivity, com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     @SuppressLint({"SetJavaScriptEnabled", "NewApi"})
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
@@ -737,7 +736,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             String string = getIntent().getExtras().getString(URL);
             this.mEmptyView = (WalletBaseEmptyView) findViewById(ResUtils.id(this, "lspay_empty_view"));
             this.mWebView = (SafeWebView) findViewById(ResUtils.id(this, "webView"));
-            this.mLoadingTitle = ResUtils.getString(this, "ebpay_loading");
+            this.mLoadingTitle = ResUtils.getString(this, "dxm_ebpay_loading");
             WebSettings settings = this.mWebView.getSettings();
             settings.setJavaScriptEnabled(true);
             settings.setDomStorageEnabled(true);
@@ -764,11 +763,11 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             }
             this.mWebView.loadUrl(string + FROM_SDK_FLAG);
             setBackButton();
-            PayStatisticsUtil.onEvent("wap_pay_activity");
+            StatisticManager.onEvent("wap_pay_activity");
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.base.DxmPayBaseActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {

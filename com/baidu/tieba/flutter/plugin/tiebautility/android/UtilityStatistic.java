@@ -1,5 +1,6 @@
 package com.baidu.tieba.flutter.plugin.tiebautility.android;
 
+import c.a.e.e.n.a;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.StatisticItem;
@@ -9,10 +10,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.n.a;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class UtilityStatistic implements TiebaUtilityStatisticAuto.HostUtilityStatistic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Looper;
 import android.os.RemoteException;
-import android.util.Log;
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,13 +16,13 @@ import com.huawei.android.hms.pps.a.a;
 import com.huawei.android.hms.pps.a.b;
 import java.io.IOException;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class AdvertisingIdClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Info {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,10 +82,10 @@ public class AdvertisingIdClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String tag = getTag();
-            Log.i(tag, "getAdvertisingIdInfo " + System.currentTimeMillis());
+            getTag();
+            String str = "getAdvertisingIdInfo " + System.currentTimeMillis();
             if (Looper.myLooper() == Looper.getMainLooper()) {
-                Log.w(getTag(), "Cannot be called from the main thread");
+                getTag();
                 throw new IllegalStateException("Cannot be called from the main thread");
             }
             try {
@@ -94,31 +93,31 @@ public class AdvertisingIdClient {
                 a aVar = new a();
                 Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
                 intent.setPackage("com.huawei.hwid");
-                if (!context.bindService(intent, aVar, 1)) {
-                    Log.w(getTag(), "bind failed");
-                    throw new IOException("bind failed");
-                }
-                Log.i(getTag(), "bind ok");
+                boolean bindService = context.bindService(intent, aVar, 1);
+                getTag();
                 try {
-                    try {
-                        if (aVar.f33776a) {
-                            throw new IllegalStateException();
+                    if (bindService) {
+                        try {
+                            if (aVar.f70497a) {
+                                throw new IllegalStateException();
+                            }
+                            aVar.f70497a = true;
+                            b.a.C1965a c1965a = new b.a.C1965a(aVar.f70498b.take());
+                            return new Info(c1965a.a(), c1965a.b());
+                        } catch (RemoteException unused) {
+                            getTag();
+                            throw new IOException("bind hms service RemoteException");
+                        } catch (InterruptedException unused2) {
+                            getTag();
+                            throw new IOException("bind hms service InterruptedException");
                         }
-                        aVar.f33776a = true;
-                        b.a.C0398a c0398a = new b.a.C0398a(aVar.f33777b.take());
-                        return new Info(c0398a.a(), c0398a.b());
-                    } finally {
-                        context.unbindService(aVar);
                     }
-                } catch (RemoteException unused) {
-                    Log.e(getTag(), "bind hms service RemoteException");
-                    throw new IOException("bind hms service RemoteException");
-                } catch (InterruptedException unused2) {
-                    Log.e(getTag(), "bind hms service InterruptedException");
-                    throw new IOException("bind hms service InterruptedException");
+                    throw new IOException("bind failed");
+                } finally {
+                    context.unbindService(aVar);
                 }
             } catch (PackageManager.NameNotFoundException unused3) {
-                Log.w(getTag(), "HMS not found");
+                getTag();
                 throw new IOException("Service not found");
             }
         }

@@ -3,34 +3,34 @@ package com.google.ar.core;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class AugmentedImageDatabase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f33144a;
+    public long f69847a;
 
-    private native int nativeAddImage(long j, long j2, String str, ByteBuffer byteBuffer, int i2, int i3, int i4);
+    private native int nativeAddImage(long j2, long j3, String str, ByteBuffer byteBuffer, int i2, int i3, int i4);
 
-    private native int nativeAddImageWithPhysicalSize(long j, long j2, String str, ByteBuffer byteBuffer, int i2, int i3, int i4, float f2);
+    private native int nativeAddImageWithPhysicalSize(long j2, long j3, String str, ByteBuffer byteBuffer, int i2, int i3, int i4, float f2);
 
-    public static native long nativeCreate(long j);
+    public static native long nativeCreate(long j2);
 
-    public static native long nativeDeserialize(long j, ByteBuffer byteBuffer);
+    public static native long nativeDeserialize(long j2, ByteBuffer byteBuffer);
 
-    private native int nativeGetNumImages(long j, long j2);
+    private native int nativeGetNumImages(long j2, long j3);
 
-    private native void nativeReleaseDatabase(long j);
+    private native void nativeReleaseDatabase(long j2);
 
-    private native ByteBuffer nativeSerialize(long j, long j2);
+    private native ByteBuffer nativeSerialize(long j2, long j3);
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.f33144a;
-            if (j != 0) {
-                nativeReleaseDatabase(j);
+            long j2 = this.f69847a;
+            if (j2 != 0) {
+                nativeReleaseDatabase(j2);
             }
             super.finalize();
         }

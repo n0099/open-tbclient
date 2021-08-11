@@ -12,7 +12,7 @@ import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class GifFrame implements AnimatedImageFrame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,12 +20,12 @@ public class GifFrame implements AnimatedImageFrame {
     public long mNativeContext;
 
     @DoNotStrip
-    public GifFrame(long j) {
+    public GifFrame(long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,7 +35,7 @@ public class GifFrame implements AnimatedImageFrame {
                 return;
             }
         }
-        this.mNativeContext = j;
+        this.mNativeContext = j2;
     }
 
     @DoNotStrip

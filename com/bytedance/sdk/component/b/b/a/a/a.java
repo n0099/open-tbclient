@@ -24,13 +24,13 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import org.apache.http.auth.AUTH;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class a implements u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final e f28241a;
+    public final e f64085a;
 
     public a(e eVar) {
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public final class a implements u {
                 return;
             }
         }
-        this.f28241a = eVar;
+        this.f64085a = eVar;
     }
 
     public static ab a(ab abVar) {
@@ -61,12 +61,12 @@ public final class a implements u {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            e eVar = this.f28241a;
+            e eVar = this.f64085a;
             ab a2 = eVar != null ? eVar.a(aVar.a()) : null;
             c a3 = new c.a(System.currentTimeMillis(), aVar.a(), a2).a();
-            z zVar = a3.f28247a;
-            ab abVar = a3.f28248b;
-            e eVar2 = this.f28241a;
+            z zVar = a3.f64091a;
+            ab abVar = a3.f64092b;
+            e eVar2 = this.f64085a;
             if (eVar2 != null) {
                 eVar2.a(a3);
             }
@@ -74,7 +74,7 @@ public final class a implements u {
                 com.bytedance.sdk.component.b.b.a.c.a(a2.h());
             }
             if (zVar == null && abVar == null) {
-                return new ab.a().a(aVar.a()).a(x.f28754b).a(504).a("Unsatisfiable Request (only-if-cached)").a(com.bytedance.sdk.component.b.b.a.c.f28317c).a(-1L).b(System.currentTimeMillis()).a();
+                return new ab.a().a(aVar.a()).a(x.f64616b).a(504).a("Unsatisfiable Request (only-if-cached)").a(com.bytedance.sdk.component.b.b.a.c.f64165c).a(-1L).b(System.currentTimeMillis()).a();
             }
             if (zVar == null) {
                 return abVar.i().b(a(abVar)).a();
@@ -87,20 +87,20 @@ public final class a implements u {
                     if (a4.c() == 304) {
                         ab a5 = abVar.i().a(a(abVar.g(), a4.g())).a(a4.l()).b(a4.m()).b(a(abVar)).a(a(a4)).a();
                         a4.h().close();
-                        this.f28241a.a();
-                        this.f28241a.a(abVar, a5);
+                        this.f64085a.a();
+                        this.f64085a.a(abVar, a5);
                         return a5;
                     }
                     com.bytedance.sdk.component.b.b.a.c.a(abVar.h());
                 }
                 ab a6 = a4.i().b(a(abVar)).a(a(a4)).a();
-                if (this.f28241a != null) {
+                if (this.f64085a != null) {
                     if (com.bytedance.sdk.component.b.b.a.c.e.b(a6) && c.a(a6, zVar)) {
-                        return a(this.f28241a.a(a6), a6);
+                        return a(this.f64085a.a(a6), a6);
                     }
                     if (f.a(zVar.b())) {
                         try {
-                            this.f28241a.b(zVar);
+                            this.f64085a.b(zVar);
                         } catch (IOException unused) {
                         }
                     }
@@ -128,19 +128,19 @@ public final class a implements u {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public boolean f28242a;
+                public boolean f64086a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.component.b.a.e f28243b;
+                public final /* synthetic */ com.bytedance.sdk.component.b.a.e f64087b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ b f28244c;
+                public final /* synthetic */ b f64088c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public final /* synthetic */ com.bytedance.sdk.component.b.a.d f28245d;
+                public final /* synthetic */ com.bytedance.sdk.component.b.a.d f64089d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f28246e;
+                public final /* synthetic */ a f64090e;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -157,33 +157,33 @@ public final class a implements u {
                             return;
                         }
                     }
-                    this.f28246e = this;
-                    this.f28243b = r7;
-                    this.f28244c = bVar;
-                    this.f28245d = r9;
+                    this.f64090e = this;
+                    this.f64087b = r7;
+                    this.f64088c = bVar;
+                    this.f64089d = r9;
                 }
 
                 @Override // com.bytedance.sdk.component.b.a.s
-                public long a(com.bytedance.sdk.component.b.a.c cVar, long j) throws IOException {
+                public long a(com.bytedance.sdk.component.b.a.c cVar, long j2) throws IOException {
                     InterceptResult invokeLJ;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(1048576, this, cVar, j)) == null) {
+                    if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(1048576, this, cVar, j2)) == null) {
                         try {
-                            long a3 = this.f28243b.a(cVar, j);
+                            long a3 = this.f64087b.a(cVar, j2);
                             if (a3 == -1) {
-                                if (!this.f28242a) {
-                                    this.f28242a = true;
-                                    this.f28245d.close();
+                                if (!this.f64086a) {
+                                    this.f64086a = true;
+                                    this.f64089d.close();
                                 }
                                 return -1L;
                             }
-                            cVar.a(this.f28245d.c(), cVar.b() - a3, a3);
-                            this.f28245d.u();
+                            cVar.a(this.f64089d.c(), cVar.b() - a3, a3);
+                            this.f64089d.u();
                             return a3;
                         } catch (IOException e2) {
-                            if (!this.f28242a) {
-                                this.f28242a = true;
-                                this.f28244c.b();
+                            if (!this.f64086a) {
+                                this.f64086a = true;
+                                this.f64088c.b();
                             }
                             throw e2;
                         }
@@ -195,11 +195,11 @@ public final class a implements u {
                 public void close() throws IOException {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                        if (!this.f28242a && !com.bytedance.sdk.component.b.b.a.c.a(this, 100, TimeUnit.MILLISECONDS)) {
-                            this.f28242a = true;
-                            this.f28244c.b();
+                        if (!this.f64086a && !com.bytedance.sdk.component.b.b.a.c.a(this, 100, TimeUnit.MILLISECONDS)) {
+                            this.f64086a = true;
+                            this.f64088c.b();
                         }
-                        this.f28243b.close();
+                        this.f64087b.close();
                     }
                 }
 
@@ -207,7 +207,7 @@ public final class a implements u {
                 public t a() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28243b.a() : (t) invokeV.objValue;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64087b.a() : (t) invokeV.objValue;
                 }
             }))).a();
         }
@@ -224,14 +224,14 @@ public final class a implements u {
                 String a3 = sVar.a(i2);
                 String b2 = sVar.b(i2);
                 if ((!"Warning".equalsIgnoreCase(a3) || !b2.startsWith("1")) && (!a(a3) || sVar2.a(a3) == null)) {
-                    com.bytedance.sdk.component.b.b.a.a.f28240a.a(aVar, a3, b2);
+                    com.bytedance.sdk.component.b.b.a.a.f64084a.a(aVar, a3, b2);
                 }
             }
             int a4 = sVar2.a();
             for (int i3 = 0; i3 < a4; i3++) {
                 String a5 = sVar2.a(i3);
                 if (!"Content-Length".equalsIgnoreCase(a5) && a(a5)) {
-                    com.bytedance.sdk.component.b.b.a.a.f28240a.a(aVar, a5, sVar2.b(i3));
+                    com.bytedance.sdk.component.b.b.a.a.f64084a.a(aVar, a5, sVar2.b(i3));
                 }
             }
             return aVar.a();

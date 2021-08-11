@@ -3,7 +3,7 @@ package com.alipay.apmobilesecuritysdk.otherid;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.alipay.security.mobile.module.a.a;
-import com.alipay.security.mobile.module.b.d;
+import com.alipay.security.mobile.module.c.d;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class UmidSdkWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UMIDTOKEN_FILE_NAME = "xxxwww_v2";

@@ -2,28 +2,27 @@ package com.baidu.wallet.paysdk.beans;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.beans.BaseBean;
-import com.baidu.wallet.core.domain.DomainConfig;
-import com.baidu.wallet.paysdk.PayUtils;
 import com.baidu.wallet.paysdk.datamodel.BindFastRequest;
-import com.baidu.wallet.paysdk.datamodel.FindPWDFromOldCardCheckSmsResponse;
-import com.baidu.wallet.paysdk.storage.PayRequestCache;
+import com.baidu.wallet.paysdk.datamodel.FindPWDFromOldCardSendSmsResponse;
+import com.dxmpay.apollon.armor.SecurePay;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
+import com.dxmpay.wallet.paysdk.PayUtils;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
-public class l extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
+/* loaded from: classes8.dex */
+public class l extends BaseBean<FindPWDFromOldCardSendSmsResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BindFastRequest f26153a;
+    public BindFastRequest f62039a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public <T> l(Context context) {
@@ -43,52 +42,61 @@ public class l extends BaseBean<FindPWDFromOldCardCheckSmsResponse> {
                 return;
             }
         }
-        this.f26153a = null;
-        this.f26153a = (BindFastRequest) PayRequestCache.getInstance().getBeanRequestFromCache(PayRequestCache.BindCategory.Pwd.name());
+        this.f62039a = null;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
-    public void execBean() {
+    public void a(BindFastRequest bindFastRequest) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.execBean(FindPWDFromOldCardCheckSmsResponse.class);
+        if (interceptable == null || interceptable.invokeL(1048576, this, bindFastRequest) == null) {
+            this.f62039a = bindFastRequest;
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
+    public void execBean() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.execBean(FindPWDFromOldCardSendSmsResponse.class);
+        }
+    }
+
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f26153a.getmBankCard())));
-            arrayList.add(new RestNameValuePair("sms_vcode", this.f26153a.mSmsVCode));
-            arrayList.add(new RestNameValuePair("key", SafePay.getInstance().getpwProxy()));
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.f62039a != null) {
+                ArrayList arrayList = new ArrayList();
+                arrayList.add(new RestNameValuePair("card_no", PayUtils.encrypt("card_no", this.f62039a.getmBankCard())));
+                arrayList.add(new RestNameValuePair("account_bank_code", this.f62039a.getSubBankCode()));
+                arrayList.add(new RestNameValuePair("key", SecurePay.getInstance().getpwProxy()));
+                return arrayList;
+            }
+            throw new IllegalStateException("not call setBindRequest(req) method or param(req) null");
         }
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_CHECKSMS : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? PayBeanFactory.BEAN_ID_FIND_MOBILE_PWD_BY_OLDCARD_SENDSMS : invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getEncode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "gbk" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "gbk" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_FIND_PASS_FROM_OLD_CARD_CHECKSMS;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return DomainConfig.getInstance().getAppPayHost() + BeanConstants.API_FIND_PASS_FROM_OLD_CARD_SENDSMS;
         }
         return (String) invokeV.objValue;
     }

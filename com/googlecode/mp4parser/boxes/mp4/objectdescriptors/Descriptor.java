@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public @interface Descriptor {
     int objectTypeIndication() default -1;
 

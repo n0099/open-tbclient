@@ -5,12 +5,13 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.webkit.CookieManager;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.j;
+import c.a.f.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -25,13 +26,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.e.h;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AfdSyncRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static String _ANDROID_ID = "";
@@ -105,7 +104,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
             addParam("fmt", "json");
             addParam(IAdRequestParam.ANDROID_ID, androidId());
             addParam("ot", "2");
-            addParam(Config.EXCEPTION_CRASH_TYPE, "2");
+            addParam("ct", "2");
             addParam("nt", String.valueOf(j.I()));
             addParam("uid", TbadkCoreApplication.getCurrentAccount());
             addParam("is_https", 1);
@@ -133,7 +132,7 @@ public class AfdSyncRequestMessage extends HttpMessage {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(Config.APP_KEY, str);
+                jSONObject.put("k", str);
                 jSONObject.put("v", str2);
                 return jSONObject;
             } catch (JSONException unused) {

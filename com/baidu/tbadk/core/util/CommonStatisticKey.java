@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CommonStatisticKey {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_FRIEND_ROOM_CARD_CLICK = "c14008";
@@ -26,7 +26,15 @@ public class CommonStatisticKey {
     public static final int FUNCTION_STATISTIC_LOCATION_MESSAGE = 1;
     public static final int FUNCTION_STATISTIC_LOCATION_SHELF = 9;
     public static final String HOME_PUBLISH_ALA_CLICK = "c13619";
+    public static final String KEY_BAWU_FRS_MUSK_CLICK = "c14324";
+    public static final String KEY_BAWU_MULTI_MUSK_CLICK = "c14325";
+    public static final String KEY_BAWU_TIP_DIALOG_CANCEL = "c14323";
+    public static final String KEY_BAWU_TIP_DIALOG_SHOW = "c14322";
+    public static final String KEY_CARD_ENTER_FORUM_CLICK = "C12888";
+    public static final String KEY_CARD_ENTER_FORUM_SHOW = "c12887";
     public static final String KEY_CLICK_BIGDAY_AT_WRITE = "c13114";
+    public static final String KEY_CONCERN_YY_LIVE_AVATER_CLICK = "c14279";
+    public static final String KEY_CONCERN_YY_LIVE_AVATER_SHOW = "c14280";
     public static final String KEY_CURRENCY_SWITCH_DIALOG_CLICK = "c14142";
     public static final String KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL = "c14144";
     public static final String KEY_CURRENCY_SWITCH_DIALOG_CLICK_FAIL_REASON = "c14145";
@@ -34,6 +42,8 @@ public class CommonStatisticKey {
     public static final String KEY_CURRENCY_SWITCH_DIALOG_SHOW = "c14141";
     public static final String KEY_ENTER_FORUM_SUG_SHOW = "c13371";
     public static final String KEY_ENTRANCE_CLICKED = "c12611";
+    public static final String KEY_EYE_SPLASH_BEAR_CLICK = "c14314";
+    public static final String KEY_EYE_SPLASH_BEAR_SHOW = "c14313";
     public static final String KEY_FLOATING_VIEW_CLICK = "c12913";
     public static final String KEY_FORUM_INSIDE_LIVE_CLICK = "c14137";
     public static final String KEY_FORUM_INSIDE_LIVE_SHOW = "c14136";
@@ -47,6 +57,18 @@ public class CommonStatisticKey {
     public static final String KEY_FRS_ITEM_TAB_RECOMMEND_CLICK = "c14191";
     public static final String KEY_FRS_ITEM_TAB_SHOW = "c14186";
     public static final String KEY_FRS_ITEM_TAB_TAG_CLICK = "c14188";
+    public static final String KEY_FRS_MULTI_MUSK_VIEW_CANCEL_CLICK = "c14333";
+    public static final String KEY_FRS_MULTI_MUSK_VIEW_MUSK_AND_FORBIDDEN_CLICK = "c14332";
+    public static final String KEY_FRS_MULTI_MUSK_VIEW_MUSK_CLICK = "c14331";
+    public static final String KEY_FRS_MULTI_MUSK_VIEW_SHOW = "c14330";
+    public static final String KEY_FRS_MUSK_REASON_DIALOG_CANCEL_CLICK = "c14329";
+    public static final String KEY_FRS_MUSK_REASON_DIALOG_CONFIRM_CLICK = "c14328";
+    public static final String KEY_FRS_MUSK_REASON_DIALOG_REASON_CLICK = "c14327";
+    public static final String KEY_FRS_MUSK_REASON_DIALOG_SHOW = "c14326";
+    public static final String KEY_FRS_MUSK_RESULT = "c14337";
+    public static final String KEY_FRS_MUSK_SELF_DIALOG_CANCEL_CLICK = "c14336";
+    public static final String KEY_FRS_MUSK_SELF_DIALOG_CONFIRM_CLICK = "c14335";
+    public static final String KEY_FRS_MUSK_SELF_DIALOG_SHOW = "c14334";
     public static final String KEY_FRS_ORDER_DOWNLOAD_CLICK = "c14192";
     public static final String KEY_FRS_ORDER_DOWNLOAD_EXPORT = "c14193";
     public static final String KEY_FRS_STAR_PIC_CLICK = "c12883";
@@ -56,6 +78,9 @@ public class CommonStatisticKey {
     public static final String KEY_HEATING_THREAD_CLICK = "c14203";
     public static final String KEY_HEATING_THREAD_COMMENT = "c14205";
     public static final String KEY_HEATING_THREAD_EXPOSE = "c14202";
+    public static final String KEY_HOME_PAGE_YY_LIVE_AVATER_CLICK = "c14281";
+    public static final String KEY_HOME_PAGE_YY_LIVE_AVATER_SHOW = "c14282";
+    public static final String KEY_IMMERSION_VIDEO_SHARE_DIALOG_MUSK_CLiCK = "c14339";
     public static final String KEY_INTEREST_GUIDE_CLICK = "c14096";
     public static final String KEY_INTEREST_GUIDE_SHOW = "c14095";
     public static final String KEY_ITEM_CARD_BUTTON_CLICK = "c14121";
@@ -70,6 +95,7 @@ public class CommonStatisticKey {
     public static final String KEY_LOGIN_DIALOG_INVOKE = "c14059";
     public static final String KEY_LOGIN_DIALOG_SUCCESS = "c14060";
     public static final String KEY_NEW_SCHEME_PULL_UP = "c13321";
+    public static final String KEY_PB_MORE_DIALOG_MUSK_CLICK = "c14338";
     public static final String KEY_PERSON_LIVE_TAB_CLICK = "c14123";
     public static final String KEY_PUSH_PERMISSIION_DIALOG_SHOW = "c13674";
     public static final String KEY_PUSH_PERMISSION_DIALOG_click = "c13673";
@@ -79,6 +105,7 @@ public class CommonStatisticKey {
     public static final String KEY_SCORE_POST_ENTRY_CLICK = "c13722";
     public static final String KEY_SCREEN_SHOT = "c13848";
     public static final String KEY_SHOW_BIGDAY_AT_WRITE = "c13113";
+    public static final String KEY_SHOW_PB_HEAD_NOTICE_BAR = "c14340";
     public static final String KEY_SITE_SERVICE = "c14050";
     public static final String KEY_SITE_SERVICE_ENTRANCE = "c14049";
     public static final String KEY_STATISTICS_ADVERTSDK_CLICK = "c13320";
@@ -86,6 +113,9 @@ public class CommonStatisticKey {
     public static final String KEY_STATISTICS_MOBADS_CLICK = "c13043";
     public static final String KEY_STATISTICS_MOBADS_SHOW = "c13042";
     public static final String KEY_SYSTEM_SERVICE = "c14052";
+    public static final String KEY_TIE_PLUS_DIALOG_EXPOSE = "c14298";
+    public static final String KEY_TIE_PLUS_RICH_TEXT_CLICK = "c14297";
+    public static final String KEY_TIE_PLUS_RICH_TEXT_EXPOSE = "c14296";
     public static final String KEY_UEG_POST_CLICKED = "c14048";
     public static final String KEY_VIDEO_EASTER_EGG_REPLAY = "c13044";
     public static final String KEY_VIDEO_EASTER_EGG_SHARE = "c13045";
@@ -93,6 +123,7 @@ public class CommonStatisticKey {
     public static final String KEY_VIDEO_FLOW_PLAY_CLICK = "c13257";
     public static final String KEY_VIDEO_PLAY_BTN_CLICK = "c13255";
     public static final String KEY_VIDEO_SEEK_CLICK = "c13256";
+    public static final String KEY_WORK_PUBLISH_ENTER_TYPE_CLICK = "c13793";
     public static final String KEY_WRITE_VOTE_VIEW_SHOW = "c13800";
     public static final String KEY_WRITE_WINDOW_ARTICLE_WORDS_ICON = "c12372";
     public static final String KEY_WRITE_WINDOW_LINK_ICON = "c12162";
@@ -120,9 +151,10 @@ public class CommonStatisticKey {
     public static final String VIDEO_PLAY_STATE = "c11685";
     public static final String WINDOW_CLICK = "c14076";
     public static final String WINDOW_EXPOSURE = "c14075";
+    public static final String kEY_TIE_PLUS_DIAGLO_CLICK = "c14299";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static final class Transmitthread {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String OBJ_TYPE_PB = "2";

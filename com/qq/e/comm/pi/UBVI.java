@@ -1,21 +1,16 @@
 package com.qq.e.comm.pi;
 
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
-import com.qq.e.comm.compliance.ApkDownloadComplianceInterface;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
-public interface UBVI extends ApkDownloadComplianceInterface {
+/* loaded from: classes10.dex */
+public interface UBVI extends LADI {
     public static final Map<String, String> ext = new HashMap();
 
     void destroy();
 
     void fetchAd();
-
-    int getECPM();
-
-    String getECPMLevel();
 
     void onWindowFocusChanged(boolean z);
 

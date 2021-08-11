@@ -1,5 +1,7 @@
 package com.baidu.tieba.themeCenter.background;
 
+import c.a.p0.o3.e.b;
+import c.a.p0.o3.h.e;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -9,15 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.n3.e.b;
-import d.a.q0.n3.h.e;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Error;
 import tbclient.GetBgByCategory.DataRes;
 import tbclient.GetBgByCategory.GetBgByCategoryResIdl;
 import tbclient.GetBgByCategory.ThemeBgInMain;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BackgroundGroupSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

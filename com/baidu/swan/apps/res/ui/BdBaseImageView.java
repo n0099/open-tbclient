@@ -8,24 +8,24 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
+import c.a.n0.a.v2.b0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.v2.b0;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BdBaseImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f11304e;
+    public boolean f46010e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11305f;
+    public int f46011f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseImageView(Context context) {
@@ -45,8 +45,8 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f11304e = true;
-        this.f11305f = 0;
+        this.f46010e = true;
+        this.f46011f = 0;
     }
 
     public final boolean a() {
@@ -58,7 +58,7 @@ public class BdBaseImageView extends ImageView {
     public final boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11304e || this.f11305f != b0.d(getContext()) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46010e || this.f46011f != b0.d(getContext()) : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -67,8 +67,8 @@ public class BdBaseImageView extends ImageView {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             if (b()) {
                 b0.b(getContext(), getDrawable());
-                this.f11305f = b0.d(getContext());
-                this.f11304e = false;
+                this.f46011f = b0.d(getContext());
+                this.f46010e = false;
             }
             super.draw(canvas);
         }
@@ -90,7 +90,7 @@ public class BdBaseImageView extends ImageView {
     public void setImageDrawable(@Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, drawable) == null) {
-            this.f11304e = true;
+            this.f46010e = true;
             super.setImageDrawable(drawable);
         }
     }
@@ -114,8 +114,8 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f11304e = true;
-        this.f11305f = 0;
+        this.f46010e = true;
+        this.f46011f = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -137,7 +137,7 @@ public class BdBaseImageView extends ImageView {
                 return;
             }
         }
-        this.f11304e = true;
-        this.f11305f = 0;
+        this.f46010e = true;
+        this.f46011f = 0;
     }
 }

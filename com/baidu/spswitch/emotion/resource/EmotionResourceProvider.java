@@ -2,7 +2,6 @@ package com.baidu.spswitch.emotion.resource;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -22,7 +21,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class EmotionResourceProvider implements IResourceProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -37,7 +36,7 @@ public class EmotionResourceProvider implements IResourceProvider {
     public File mEmotionSoundFile;
     public File mResourcePath;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEFAULT_UNZIP_DIR_NAME = "emotion_unzip";
@@ -86,19 +85,17 @@ public class EmotionResourceProvider implements IResourceProvider {
                 } else {
                     File file = this.mZipInputPath;
                     if (file == null || this.mUnZipOutputPath == null) {
-                        if (EmotionResourceProvider.DEBUG) {
-                            Log.d(EmotionResourceProvider.TAG, "build failed, ZipInputPath or UnZipOutputPath is empty");
-                        }
+                        boolean unused = EmotionResourceProvider.DEBUG;
                         return null;
                     }
                     try {
                         z = FileUtils.unzipFile(file.getPath(), this.mUnZipOutputPath.getPath());
-                    } catch (Exception unused) {
+                    } catch (Exception unused2) {
                         z = false;
                     }
                     if (!z) {
                         if (EmotionResourceProvider.DEBUG) {
-                            Log.d(EmotionResourceProvider.TAG, "build failed, failed to unzip, src:" + this.mZipInputPath.getPath() + ", dest:" + this.mUnZipOutputPath.getPath());
+                            String str = "build failed, failed to unzip, src:" + this.mZipInputPath.getPath() + ", dest:" + this.mUnZipOutputPath.getPath();
                         }
                         return null;
                     }

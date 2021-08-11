@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.reward.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36072a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f72868a) {
             aVar.a();
         }
     }
@@ -48,7 +48,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36072a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f72868a) {
             aVar.d();
         }
     }
@@ -59,7 +59,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36072a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f72868a) {
             aVar.c();
         }
     }
@@ -70,7 +70,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.c.
         if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || (t = this.mCallerContext) == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : t.f36072a) {
+        for (com.kwad.sdk.reward.a.a aVar : t.f72868a) {
             aVar.b();
         }
     }

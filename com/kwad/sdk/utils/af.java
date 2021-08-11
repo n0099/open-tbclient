@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.kwad.sdk.api.loader.Loader;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class af {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

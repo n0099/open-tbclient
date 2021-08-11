@@ -1,5 +1,6 @@
 package com.coremedia.iso;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -9,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.Constants;
 import com.coremedia.iso.boxes.Box;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +20,7 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.aspectj.runtime.reflect.SignatureImpl;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class PropertyBoxParserImpl extends AbstractBoxParser {
     public static /* synthetic */ Interceptable $ic;
     public static String[] EMPTY_STRING_ARRAY;
@@ -115,7 +115,7 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
                     Class<?>[] clsArr = new Class[this.param.length];
                     Object[] objArr = new Object[this.param.length];
                     for (int i2 = 0; i2 < this.param.length; i2++) {
-                        if (Constants.USER_TYPE_KEY.equals(this.param[i2])) {
+                        if ("userType".equals(this.param[i2])) {
                             objArr[i2] = bArr;
                             clsArr[i2] = byte[].class;
                         } else if ("type".equals(this.param[i2])) {
@@ -149,7 +149,7 @@ public class PropertyBoxParserImpl extends AbstractBoxParser {
     public void invoke(String str, byte[] bArr, String str2) {
         String property;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, str2) == null) {
             if (bArr != null) {
                 if ("uuid".equals(str)) {
                     Properties properties = this.mapping;

@@ -2,6 +2,10 @@ package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
 import android.text.TextUtils;
+import c.a.e.e.a.d;
+import c.a.e.e.a.f.c;
+import c.a.e.e.l.b;
+import c.a.e.e.p.l;
 import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -12,11 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.a.d;
-import d.a.d.e.a.f.c;
-import d.a.d.e.l.b;
-import d.a.d.e.p.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SimpleLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsFromCDN : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.d.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, c.a.e.e.l.e
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -168,7 +168,7 @@ public class SimpleLoaderProc extends AbstractImageLoaderProc {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f41780a = diskCancelWorker;
+            bVar.f2324a = diskCancelWorker;
         }
     }
 }

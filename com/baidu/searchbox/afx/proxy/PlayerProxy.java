@@ -21,7 +21,7 @@ import java.io.File;
 import java.io.FileDescriptor;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class PlayerProxy implements IPlayer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,7 +33,7 @@ public abstract class PlayerProxy implements IPlayer {
     public String mSourcePath;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class PlayerState {
         public static final /* synthetic */ PlayerState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -224,16 +224,16 @@ public abstract class PlayerProxy implements IPlayer {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j) {
+    public void setLoopSection(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j, long j2) {
+    public void setLoopSection(long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
         }
     }
 
@@ -322,9 +322,9 @@ public abstract class PlayerProxy implements IPlayer {
         }
     }
 
-    public void setSourceFD(FileDescriptor fileDescriptor, long j, long j2) {
+    public void setSourceFD(FileDescriptor fileDescriptor, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{fileDescriptor, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
         }
     }
 

@@ -1,6 +1,7 @@
 package com.google.common.primitives;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.n;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,14 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.a.n;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.RandomAccess;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class ImmutableLongArray implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final ImmutableLongArray EMPTY;
@@ -26,7 +26,7 @@ public final class ImmutableLongArray implements Serializable {
     public final int end;
     public final transient int start;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class AsList extends AbstractList<Long> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -154,22 +154,22 @@ public final class ImmutableLongArray implements Serializable {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public long[] f33722a;
+        public long[] f70452a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f33723b;
+        public int f70453b;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -186,8 +186,8 @@ public final class ImmutableLongArray implements Serializable {
                     return;
                 }
             }
-            this.f33723b = 0;
-            this.f33722a = new long[i2];
+            this.f70453b = 0;
+            this.f70452a = new long[i2];
         }
 
         public static int f(int i2, int i3) {
@@ -209,15 +209,15 @@ public final class ImmutableLongArray implements Serializable {
             return invokeII.intValue;
         }
 
-        public b a(long j) {
+        public b a(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
                 e(1);
-                long[] jArr = this.f33722a;
-                int i2 = this.f33723b;
-                jArr[i2] = j;
-                this.f33723b = i2 + 1;
+                long[] jArr = this.f70452a;
+                int i2 = this.f70453b;
+                jArr[i2] = j2;
+                this.f70453b = i2 + 1;
                 return this;
             }
             return (b) invokeJ.objValue;
@@ -245,9 +245,9 @@ public final class ImmutableLongArray implements Serializable {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, collection)) == null) {
                 e(collection.size());
                 for (Long l : collection) {
-                    long[] jArr = this.f33722a;
-                    int i2 = this.f33723b;
-                    this.f33723b = i2 + 1;
+                    long[] jArr = this.f70452a;
+                    int i2 = this.f70453b;
+                    this.f70453b = i2 + 1;
                     jArr[i2] = l.longValue();
                 }
                 return this;
@@ -258,18 +258,18 @@ public final class ImmutableLongArray implements Serializable {
         public ImmutableLongArray d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33723b == 0 ? ImmutableLongArray.EMPTY : new ImmutableLongArray(this.f33722a, 0, this.f33723b, null) : (ImmutableLongArray) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70453b == 0 ? ImmutableLongArray.EMPTY : new ImmutableLongArray(this.f70452a, 0, this.f70453b, null) : (ImmutableLongArray) invokeV.objValue;
         }
 
         public final void e(int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                int i3 = this.f33723b + i2;
-                long[] jArr = this.f33722a;
+                int i3 = this.f70453b + i2;
+                long[] jArr = this.f70452a;
                 if (i3 > jArr.length) {
                     long[] jArr2 = new long[f(jArr.length, i3)];
-                    System.arraycopy(this.f33722a, 0, jArr2, 0, this.f33723b);
-                    this.f33722a = jArr2;
+                    System.arraycopy(this.f70452a, 0, jArr2, 0, this.f70453b);
+                    this.f70452a = jArr2;
                 }
             }
         }
@@ -329,10 +329,10 @@ public final class ImmutableLongArray implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AsList(this, null) : (List) invokeV.objValue;
     }
 
-    public boolean contains(long j) {
+    public boolean contains(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? indexOf(j) >= 0 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? indexOf(j2) >= 0 : invokeJ.booleanValue;
     }
 
     public boolean equals(Object obj) {
@@ -382,12 +382,12 @@ public final class ImmutableLongArray implements Serializable {
         return invokeV.intValue;
     }
 
-    public int indexOf(long j) {
+    public int indexOf(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
             for (int i2 = this.start; i2 < this.end; i2++) {
-                if (this.array[i2] == j) {
+                if (this.array[i2] == j2) {
                     return i2 - this.start;
                 }
             }
@@ -402,10 +402,10 @@ public final class ImmutableLongArray implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.end == this.start : invokeV.booleanValue;
     }
 
-    public int lastIndexOf(long j) {
+    public int lastIndexOf(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048583, this, j)) != null) {
+        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048583, this, j2)) != null) {
             return invokeJ.intValue;
         }
         int i2 = this.end;
@@ -415,7 +415,7 @@ public final class ImmutableLongArray implements Serializable {
             if (i2 < i3) {
                 return -1;
             }
-            if (this.array[i2] == j) {
+            if (this.array[i2] == j2) {
                 return i2 - i3;
             }
         }
@@ -512,10 +512,10 @@ public final class ImmutableLongArray implements Serializable {
         }
     }
 
-    public static ImmutableLongArray of(long j) {
+    public static ImmutableLongArray of(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j)) == null) ? new ImmutableLongArray(new long[]{j}) : (ImmutableLongArray) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65550, null, j2)) == null) ? new ImmutableLongArray(new long[]{j2}) : (ImmutableLongArray) invokeJ.objValue;
     }
 
     public ImmutableLongArray(long[] jArr, int i2, int i3) {
@@ -550,10 +550,10 @@ public final class ImmutableLongArray implements Serializable {
         return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, collection)) == null) ? collection.isEmpty() ? EMPTY : new ImmutableLongArray(Longs.h(collection)) : (ImmutableLongArray) invokeL.objValue;
     }
 
-    public static ImmutableLongArray of(long j, long j2) {
+    public static ImmutableLongArray of(long j2, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? new ImmutableLongArray(new long[]{j, j2}) : (ImmutableLongArray) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? new ImmutableLongArray(new long[]{j2, j3}) : (ImmutableLongArray) invokeCommon.objValue;
     }
 
     public static ImmutableLongArray copyOf(Iterable<Long> iterable) {
@@ -570,37 +570,37 @@ public final class ImmutableLongArray implements Serializable {
         return (ImmutableLongArray) invokeL.objValue;
     }
 
-    public static ImmutableLongArray of(long j, long j2, long j3) {
+    public static ImmutableLongArray of(long j2, long j3, long j4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? new ImmutableLongArray(new long[]{j, j2, j3}) : (ImmutableLongArray) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) ? new ImmutableLongArray(new long[]{j2, j3, j4}) : (ImmutableLongArray) invokeCommon.objValue;
     }
 
-    public static ImmutableLongArray of(long j, long j2, long j3, long j4) {
+    public static ImmutableLongArray of(long j2, long j3, long j4, long j5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) ? new ImmutableLongArray(new long[]{j, j2, j3, j4}) : (ImmutableLongArray) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)})) == null) ? new ImmutableLongArray(new long[]{j2, j3, j4, j5}) : (ImmutableLongArray) invokeCommon.objValue;
     }
 
-    public static ImmutableLongArray of(long j, long j2, long j3, long j4, long j5) {
+    public static ImmutableLongArray of(long j2, long j3, long j4, long j5, long j6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)})) == null) ? new ImmutableLongArray(new long[]{j, j2, j3, j4, j5}) : (ImmutableLongArray) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)})) == null) ? new ImmutableLongArray(new long[]{j2, j3, j4, j5, j6}) : (ImmutableLongArray) invokeCommon.objValue;
     }
 
-    public static ImmutableLongArray of(long j, long j2, long j3, long j4, long j5, long j6) {
+    public static ImmutableLongArray of(long j2, long j3, long j4, long j5, long j6, long j7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)})) == null) ? new ImmutableLongArray(new long[]{j, j2, j3, j4, j5, j6}) : (ImmutableLongArray) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7)})) == null) ? new ImmutableLongArray(new long[]{j2, j3, j4, j5, j6, j7}) : (ImmutableLongArray) invokeCommon.objValue;
     }
 
-    public static ImmutableLongArray of(long j, long... jArr) {
+    public static ImmutableLongArray of(long j2, long... jArr) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65556, null, j, jArr)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65556, null, j2, jArr)) == null) {
             n.e(jArr.length <= 2147483646, "the total number of elements must fit in an int");
             long[] jArr2 = new long[jArr.length + 1];
-            jArr2[0] = j;
+            jArr2[0] = j2;
             System.arraycopy(jArr, 0, jArr2, 1, jArr.length);
             return new ImmutableLongArray(jArr2);
         }

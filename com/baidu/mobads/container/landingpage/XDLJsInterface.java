@@ -32,7 +32,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class XDLJsInterface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String JAVASCRIPT_PREFIX = "javascript:";
@@ -46,7 +46,7 @@ public class XDLJsInterface {
     public XMyWebView mWebView;
 
     /* renamed from: com.baidu.mobads.container.landingpage.XDLJsInterface$4  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass4 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidu$mobads$container$bridge$CommandType;
         public static /* synthetic */ Interceptable $ic;
@@ -111,7 +111,7 @@ public class XDLJsInterface {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00ee A[Catch: Exception -> 0x0150, TryCatch #0 {Exception -> 0x0150, blocks: (B:5:0x0014, B:8:0x0044, B:37:0x00e8, B:39:0x00ee, B:40:0x00f2, B:36:0x00df), top: B:49:0x0014 }] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x00ec A[Catch: Exception -> 0x014d, TryCatch #0 {Exception -> 0x014d, blocks: (B:5:0x0014, B:8:0x0044, B:37:0x00e6, B:39:0x00ec, B:40:0x00f0, B:36:0x00dd), top: B:49:0x0014 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

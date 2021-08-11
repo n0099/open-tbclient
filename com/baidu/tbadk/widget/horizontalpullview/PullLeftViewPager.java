@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PullLeftViewPager extends BdBaseViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +39,7 @@ public class PullLeftViewPager extends BdBaseViewPager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (view != this && (view instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view).h()) {
+            if (view != this && (view instanceof PullLeftRefreshLayout) && ((PullLeftRefreshLayout) view).isEnablePull()) {
                 return true;
             }
             return super.canScroll(view, z, i2, i3, i4);

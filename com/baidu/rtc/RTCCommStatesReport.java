@@ -11,7 +11,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.math.BigInteger;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes5.dex */
 public class RTCCommStatesReport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,7 +54,7 @@ public class RTCCommStatesReport {
             if (this.mPlayTransactionId == null || this.mRoomId == null || this.mUserId == null || this.mRemoteHandleId == null) {
                 return "";
             }
-            return "PlayInfo: (transactionId)" + this.mPlayTransactionId + " | (handleId)" + this.mRemoteHandleId + " | (room)" + this.mRoomId + " | (user)" + this.mUserId + "\n";
+            return "PlayInfo: (transactionId)" + this.mPlayTransactionId + " | (handleId)" + this.mRemoteHandleId + " | (room)" + this.mRoomId + " | (user)" + this.mUserId + StringUtils.LF;
         }
         return (String) invokeV.objValue;
     }

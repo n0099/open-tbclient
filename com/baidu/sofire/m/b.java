@@ -3,19 +3,18 @@ package com.baidu.sofire.m;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10482a;
+    public Context f45164a;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -32,19 +31,17 @@ public final class b {
                 return;
             }
         }
-        this.f10482a = context;
+        this.f45164a = context;
     }
 
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Cursor query = this.f10482a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+            Cursor query = this.f45164a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
             if (query != null) {
                 r1 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                 query.close();
-            } else {
-                Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
             }
             return r1;
         }

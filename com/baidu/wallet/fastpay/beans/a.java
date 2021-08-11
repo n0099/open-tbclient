@@ -8,13 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.statistics.StatSettings;
 import com.baidu.wallet.core.beans.BaseBean;
 import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.fastpay.datamodel.GetBindMobileResponse;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class a extends BaseBean<GetBindMobileResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,7 +82,7 @@ public class a extends BaseBean<GetBindMobileResponse> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DomainConfig.getInstance().getLifeHost() + StatSettings.GET_STRATETY_URL;
+            return DomainConfig.getInstance().getLifeHost() + "/callback";
         }
         return (String) invokeV.objValue;
     }

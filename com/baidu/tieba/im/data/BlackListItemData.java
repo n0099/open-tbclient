@@ -9,22 +9,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BlackListItemData extends AbstractImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f17511e;
+    public long f52728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f17512f;
+    public String f52729f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f17513g;
+    public String f52730g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f17514h;
+    public String f52731h;
 
     public BlackListItemData() {
         Interceptable interceptable = $ic;
@@ -55,37 +55,37 @@ public class BlackListItemData extends AbstractImageProvider {
     public long getUserId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f17511e : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52728e : invokeV.longValue;
     }
 
-    public void setUserId(long j) {
+    public void setUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.f17511e = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.f52728e = j2;
         }
     }
 
     public void setUserName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f17512f = str;
+            this.f52729f = str;
         }
     }
 
     public String w() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f17513g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f52730g : (String) invokeV.objValue;
     }
 
     public String x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (StringUtils.isNull(this.f17514h)) {
-                return this.f17512f;
+            if (StringUtils.isNull(this.f52731h)) {
+                return this.f52729f;
             }
-            return this.f17514h;
+            return this.f52731h;
         }
         return (String) invokeV.objValue;
     }
@@ -93,14 +93,14 @@ public class BlackListItemData extends AbstractImageProvider {
     public void y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f17513g = str;
+            this.f52730g = str;
         }
     }
 
     public void z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f17514h = str;
+            this.f52731h = str;
         }
     }
 }

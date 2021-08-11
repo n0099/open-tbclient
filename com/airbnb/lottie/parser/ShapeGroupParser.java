@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ShapeGroupParser {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReader.Options NAMES;

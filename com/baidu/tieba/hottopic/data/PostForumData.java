@@ -1,5 +1,7 @@
 package com.baidu.tieba.hottopic.data;
 
+import c.a.e.k.e.n;
+import c.a.p0.a0.d0.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,13 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.n;
-import d.a.q0.a0.e0.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PostForumData extends a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_POST_FORUM;
@@ -71,7 +71,7 @@ public class PostForumData extends a implements Serializable {
         return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (n) ListUtils.getItem(this.mRelateForumDataList, i2) : (n) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, d.a.d.k.e.n
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.e.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

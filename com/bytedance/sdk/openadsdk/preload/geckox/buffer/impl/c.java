@@ -11,32 +11,32 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f32369a;
+    public long f68330a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f32370b;
+    public long f68331b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RandomAccessFile f32371c;
+    public RandomAccessFile f68332c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f32372d;
+    public AtomicBoolean f68333d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f32373e;
+    public File f68334e;
 
-    public c(long j, File file) throws IOException {
+    public c(long j2, File file) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), file};
+            Object[] objArr = {Long.valueOf(j2), file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -46,16 +46,16 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
                 return;
             }
         }
-        this.f32372d = new AtomicBoolean(false);
-        this.f32369a = j;
-        this.f32373e = file;
+        this.f68333d = new AtomicBoolean(false);
+        this.f68330a = j2;
+        this.f68334e = file;
         file.getParentFile().mkdirs();
         try {
             RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-            this.f32371c = randomAccessFile;
-            randomAccessFile.setLength(j);
+            this.f68332c = randomAccessFile;
+            randomAccessFile.setLength(j2);
         } catch (Exception e2) {
-            com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f32371c);
+            com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f68332c);
             throw new IOException("create raf swap failed! path: " + file.getAbsolutePath() + " caused by: " + e2.getMessage(), e2);
         }
     }
@@ -63,7 +63,7 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void a() throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f32372d.get()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f68333d.get()) {
             throw new IOException("released!");
         }
     }
@@ -72,7 +72,7 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f32369a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f68330a : invokeV.longValue;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
@@ -80,8 +80,8 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (!this.f32372d.get()) {
-                return this.f32370b;
+            if (!this.f68333d.get()) {
+                return this.f68331b;
             }
             throw new IOException("released!");
         }
@@ -105,17 +105,17 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f32372d.getAndSet(true)) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.f68333d.getAndSet(true)) {
             return;
         }
-        com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f32371c);
+        com.bytedance.sdk.openadsdk.preload.geckox.utils.b.a(this.f68332c);
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
     public File f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f32373e : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f68334e : (File) invokeV.objValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0018, code lost:
@@ -125,17 +125,17 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void b(long j) throws IOException {
+    public void b(long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            if (!this.f32372d.get()) {
-                long j2 = 0;
-                if (j >= 0) {
-                    j2 = this.f32369a;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+            if (!this.f68333d.get()) {
+                long j3 = 0;
+                if (j2 >= 0) {
+                    j3 = this.f68330a;
                 }
-                j = j2;
-                this.f32370b = j;
-                this.f32371c.seek(j);
+                j2 = j3;
+                this.f68331b = j2;
+                this.f68332c.seek(j2);
                 return;
             }
             throw new IOException("released!");
@@ -159,25 +159,25 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.buffer.a
-    public synchronized long a(long j) throws IOException {
+    public synchronized long a(long j2) throws IOException {
         InterceptResult invokeJ;
-        long j2;
+        long j3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
             synchronized (this) {
-                if (this.f32372d.get()) {
+                if (this.f68333d.get()) {
                     throw new IOException("released!");
                 }
-                int i2 = (int) j;
-                if (i2 == j) {
-                    int skipBytes = this.f32371c.skipBytes(i2);
-                    this.f32370b = this.f32371c.getFilePointer();
-                    j2 = skipBytes;
+                int i2 = (int) j2;
+                if (i2 == j2) {
+                    int skipBytes = this.f68332c.skipBytes(i2);
+                    this.f68331b = this.f68332c.getFilePointer();
+                    j3 = skipBytes;
                 } else {
-                    throw new IOException("too large:" + j);
+                    throw new IOException("too large:" + j2);
                 }
             }
-            return j2;
+            return j3;
         }
         return invokeJ.longValue;
     }
@@ -194,7 +194,7 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
-            if (!this.f32372d.get()) {
+            if (!this.f68333d.get()) {
                 if (bArr == null || i3 < 1 || i2 < 0 || i2 >= bArr.length) {
                     return 0;
                 }
@@ -202,17 +202,17 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
                     i3 = bArr.length - i2;
                 }
                 synchronized (this) {
-                    if (this.f32370b == this.f32369a) {
+                    if (this.f68331b == this.f68330a) {
                         return -1;
                     }
-                    if (this.f32370b + i3 > this.f32369a) {
-                        i3 = (int) (this.f32369a - this.f32370b);
+                    if (this.f68331b + i3 > this.f68330a) {
+                        i3 = (int) (this.f68330a - this.f68331b);
                     }
-                    int read = this.f32371c.read(bArr, i2, i3);
+                    int read = this.f68332c.read(bArr, i2, i3);
                     if (read == -1) {
                         return -1;
                     }
-                    this.f32370b += read;
+                    this.f68331b += read;
                     return read;
                 }
             }
@@ -226,7 +226,7 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i2, i3)) == null) {
-            if (!this.f32372d.get()) {
+            if (!this.f68333d.get()) {
                 if (bArr == null || bArr.length == 0 || i3 < 1 || i2 < 0 || i2 >= bArr.length) {
                     return 0;
                 }
@@ -234,14 +234,14 @@ public class c implements com.bytedance.sdk.openadsdk.preload.geckox.buffer.a {
                     i3 = bArr.length - i2;
                 }
                 synchronized (this) {
-                    if (this.f32370b == this.f32369a) {
+                    if (this.f68331b == this.f68330a) {
                         return 0;
                     }
-                    if (this.f32370b + i3 > this.f32369a) {
-                        i3 = (int) (this.f32369a - this.f32370b);
+                    if (this.f68331b + i3 > this.f68330a) {
+                        i3 = (int) (this.f68330a - this.f68331b);
                     }
-                    this.f32371c.write(bArr, i2, i3);
-                    this.f32370b += i3;
+                    this.f68332c.write(bArr, i2, i3);
+                    this.f68331b += i3;
                     return i3;
                 }
             }

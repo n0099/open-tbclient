@@ -8,7 +8,6 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -373,12 +372,11 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                 String str = this.mPendingFragmentActivityResults.get(i5);
                 this.mPendingFragmentActivityResults.remove(i5);
                 if (str == null) {
-                    Log.w("FragmentActivity", "Activity result delivered for unknown Fragment.");
                     return;
                 }
                 Fragment findFragmentByWho = this.mFragments.findFragmentByWho(str);
                 if (findFragmentByWho == null) {
-                    Log.w("FragmentActivity", "Activity result no fragment exists for who: " + str);
+                    String str2 = "Activity result no fragment exists for who: " + str;
                     return;
                 }
                 findFragmentByWho.onActivityResult(i2 & 65535, i3, intent);
@@ -423,8 +421,6 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                         for (int i2 = 0; i2 < intArray.length; i2++) {
                             this.mPendingFragmentActivityResults.put(intArray[i2], stringArray[i2]);
                         }
-                    } else {
-                        Log.w("FragmentActivity", "Invalid requestCode mapping in savedInstanceState.");
                     }
                 }
             }
@@ -592,12 +588,11 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                 String str = this.mPendingFragmentActivityResults.get(i4);
                 this.mPendingFragmentActivityResults.remove(i4);
                 if (str == null) {
-                    Log.w("FragmentActivity", "Activity result delivered for unknown Fragment.");
                     return;
                 }
                 Fragment findFragmentByWho = this.mFragments.findFragmentByWho(str);
                 if (findFragmentByWho == null) {
-                    Log.w("FragmentActivity", "Activity result no fragment exists for who: " + str);
+                    String str2 = "Activity result no fragment exists for who: " + str;
                     return;
                 }
                 findFragmentByWho.onRequestPermissionsResult(i2 & 65535, strArr, iArr);

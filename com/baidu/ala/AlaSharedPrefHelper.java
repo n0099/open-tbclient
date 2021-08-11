@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AlaSharedPrefHelper {
     public static /* synthetic */ Interceptable $ic;
     public static AlaSharedPrefHelper mInstance;
@@ -94,17 +94,17 @@ public class AlaSharedPrefHelper {
         return invokeLI.intValue;
     }
 
-    public long getLong(String str, long j) {
+    public long getLong(String str, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) {
             try {
                 SharedPreferences sharedPreferences = getSharedPreferences();
                 this.mSP = sharedPreferences;
-                return sharedPreferences.getLong(str, j);
+                return sharedPreferences.getLong(str, j2);
             } catch (ClassCastException e2) {
                 BdLog.e(e2);
-                return j;
+                return j2;
             }
         }
         return invokeLJ.longValue;
@@ -159,12 +159,12 @@ public class AlaSharedPrefHelper {
         }
     }
 
-    public void putLong(String str, long j) {
+    public void putLong(String str, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048585, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048585, this, str, j2) == null) {
             SharedPreferences sharedPreferences = getSharedPreferences();
             this.mSP = sharedPreferences;
-            EditorHelper.putLong(sharedPreferences, str, j);
+            EditorHelper.putLong(sharedPreferences, str, j2);
         }
     }
 

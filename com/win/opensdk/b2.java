@@ -16,25 +16,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.win.opensdk.core.Info;
 import org.json.JSONException;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b2 extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f39744a;
+    public boolean f76584a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Context f39745b;
+    public final /* synthetic */ Context f76585b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ Info f39746c;
+    public final /* synthetic */ Info f76586c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f39747d;
+    public final /* synthetic */ String f76587d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ c2 f39748e;
+    public final /* synthetic */ c2 f76588e;
 
     public b2(c2 c2Var, Context context, Info info, String str) {
         Interceptable interceptable = $ic;
@@ -51,10 +51,10 @@ public class b2 extends WebViewClient {
                 return;
             }
         }
-        this.f39748e = c2Var;
-        this.f39745b = context;
-        this.f39746c = info;
-        this.f39747d = str;
+        this.f76588e = c2Var;
+        this.f76585b = context;
+        this.f76586c = info;
+        this.f76587d = str;
     }
 
     public final boolean a(String str) {
@@ -63,9 +63,9 @@ public class b2 extends WebViewClient {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             Uri parse = Uri.parse(str);
             if (c2.a(parse) || c2.b(parse)) {
-                this.f39744a = true;
-                if (!Q1.a(this.f39745b, parse, null)) {
-                    Z1.a(this.f39745b, parse);
+                this.f76584a = true;
+                if (!Q1.a(this.f76585b, parse, null)) {
+                    Z1.a(this.f76585b, parse);
                 }
                 return true;
             }
@@ -79,13 +79,13 @@ public class b2 extends WebViewClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
             super.onPageFinished(webView, str);
-            this.f39748e.f39774c.removeMessages(11);
-            if (this.f39744a) {
+            this.f76588e.f76614c.removeMessages(11);
+            if (this.f76584a) {
                 return;
             }
-            Y0 a2 = Z0.a(this.f39745b);
+            Y0 a2 = Z0.a(this.f76585b);
             try {
-                a2.f39714b = Z0.a("ps", new a1(this.f39746c));
+                a2.f76554b = Z0.a("ps", new a1(this.f76586c));
                 a2.a("co", 2004);
                 a2.a("msg", str);
             } catch (JSONException unused) {
@@ -93,8 +93,8 @@ public class b2 extends WebViewClient {
             a2.a();
             Message obtain = Message.obtain();
             obtain.what = 12;
-            obtain.obj = this.f39747d;
-            this.f39748e.f39774c.sendMessage(obtain);
+            obtain.obj = this.f76587d;
+            this.f76588e.f76614c.sendMessage(obtain);
         }
     }
 

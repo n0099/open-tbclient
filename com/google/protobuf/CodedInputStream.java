@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class CodedInputStream {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 4096;
@@ -63,10 +63,10 @@ public final class CodedInputStream {
         return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? (-(i2 & 1)) ^ (i2 >>> 1) : invokeI.intValue;
     }
 
-    public static long decodeZigZag64(long j) {
+    public static long decodeZigZag64(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) ? (-(j & 1)) ^ (j >>> 1) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j2)) == null) ? (-(j2 & 1)) ^ (j2 >>> 1) : invokeJ.longValue;
     }
 
     public static CodedInputStream newInstance(InputStream inputStream) {
@@ -449,12 +449,12 @@ public final class CodedInputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            long j = 0;
+            long j2 = 0;
             for (int i2 = 0; i2 < 64; i2 += 7) {
                 byte readRawByte = readRawByte();
-                j |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
+                j2 |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
                 if ((readRawByte & ByteCompanionObject.MIN_VALUE) == 0) {
-                    return j;
+                    return j2;
                 }
             }
             throw InvalidProtocolBufferException.malformedVarint();

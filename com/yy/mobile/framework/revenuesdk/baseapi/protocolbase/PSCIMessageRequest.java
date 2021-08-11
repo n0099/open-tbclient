@@ -10,9 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class PSCIMessageRequest extends RequestPacket {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PSCIMessageRequest";
@@ -161,7 +162,7 @@ public class PSCIMessageRequest extends RequestPacket {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "PSCIMessageRequest{cmd=" + this.cmd + ", appId=" + this.appId + ", version=" + this.version + ", traceid=" + this.traceid + ", jsonMsg='" + this.jsonMsg + "'}";
+            return "PSCIMessageRequest{cmd=" + this.cmd + ", appId=" + this.appId + ", version=" + this.version + ", traceid=" + this.traceid + ", jsonMsg='" + this.jsonMsg + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

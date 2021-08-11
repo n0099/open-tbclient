@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import io.flutter.embedding.engine.loader.FlutterLoader;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class FlutterMain {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isRunningInRobolectricTest;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Settings {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -9,6 +9,9 @@ import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.x.a;
+import c.a.o0.x.h;
+import c.a.o0.x.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
@@ -19,29 +22,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.x.a;
-import d.a.p0.x.h;
-import d.a.p0.x.m;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BLauncher extends ImageView implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f13022e;
+    public TextView f48015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13023f;
+    public int f48016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13024g;
+    public int f48017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public m f13025h;
+    public m f48018h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Drawable f13026i;
-    public boolean j;
+    public Drawable f48019i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public boolean f48020j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BLauncher(Context context, m mVar) {
@@ -61,146 +63,146 @@ public class BLauncher extends ImageView implements h {
                 return;
             }
         }
-        this.f13024g = 0;
-        this.j = false;
+        this.f48017g = 0;
+        this.f48020j = false;
         if (mVar == null) {
             return;
         }
-        this.f13025h = mVar;
+        this.f48018h = mVar;
         setIcon();
-        setToolId(mVar.f54166c);
+        setToolId(mVar.f14783c);
     }
 
-    public void a(String str) {
+    @Override // c.a.o0.x.h
+    public void display() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || getVisibility() == 8 || TextUtils.isEmpty(str)) {
-            return;
-        }
-        TextView textView = this.f13022e;
-        if (textView == null) {
-            TextView textView2 = new TextView(getContext());
-            this.f13022e = textView2;
-            textView2.setTag("tip");
-            ViewParent parent = getParent();
-            if (parent instanceof ViewGroup) {
-                ((ViewGroup) parent).addView(this.f13022e);
-            }
-        } else if (textView.getParent() == null) {
-            ViewParent parent2 = getParent();
-            if (parent2 instanceof ViewGroup) {
-                ((ViewGroup) parent2).addView(this.f13022e);
-            }
-        }
-        SkinManager.setViewTextColor(this.f13022e, R.color.CAM_X0111, 1, this.f13024g);
-        this.f13022e.setGravity(17);
-        if (!str.equals(" ")) {
-            this.f13022e.setTextSize(10.0f);
-            this.f13022e.setText(str);
-            SkinManager.setBackgroundResource(this.f13022e, R.drawable.icon_news_red_dot, this.f13024g);
-            this.f13022e.setVisibility(0);
-            return;
-        }
-        this.f13022e.setVisibility(8);
-        this.f13025h.o = true;
-        invalidate();
-    }
-
-    @Override // d.a.p0.x.h
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setVisibility(0);
         }
     }
 
-    public void c() {
-        TextView textView;
+    public void displayNotice(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (textView = this.f13022e) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || getVisibility() == 8 || TextUtils.isEmpty(str)) {
             return;
         }
-        textView.setVisibility(8);
-        e();
+        TextView textView = this.f48015e;
+        if (textView == null) {
+            TextView textView2 = new TextView(getContext());
+            this.f48015e = textView2;
+            textView2.setTag("tip");
+            ViewParent parent = getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).addView(this.f48015e);
+            }
+        } else if (textView.getParent() == null) {
+            ViewParent parent2 = getParent();
+            if (parent2 instanceof ViewGroup) {
+                ((ViewGroup) parent2).addView(this.f48015e);
+            }
+        }
+        SkinManager.setViewTextColor(this.f48015e, R.color.CAM_X0111, 1, this.f48017g);
+        this.f48015e.setGravity(17);
+        if (!str.equals(" ")) {
+            this.f48015e.setTextSize(10.0f);
+            this.f48015e.setText(str);
+            SkinManager.setBackgroundResource(this.f48015e, R.drawable.icon_news_red_dot, this.f48017g);
+            this.f48015e.setVisibility(0);
+            return;
+        }
+        this.f48015e.setVisibility(8);
+        this.f48018h.o = true;
+        invalidate();
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.draw(canvas);
-            if (this.f13025h.o) {
-                this.f13026i = SkinManager.getDrawable(R.drawable.icon_news_red_dot);
+            if (this.f48018h.o) {
+                this.f48019i = SkinManager.getDrawable(R.drawable.icon_news_red_dot);
                 int width = getWidth();
-                int intrinsicHeight = this.f13026i.getIntrinsicHeight();
-                this.f13026i.setBounds(getWidth() - this.f13026i.getIntrinsicWidth(), 0, width, intrinsicHeight);
-                this.f13026i.draw(canvas);
+                int intrinsicHeight = this.f48019i.getIntrinsicHeight();
+                this.f48019i.setBounds(getWidth() - this.f48019i.getIntrinsicWidth(), 0, width, intrinsicHeight);
+                this.f48019i.draw(canvas);
             }
-        }
-    }
-
-    @Override // d.a.p0.x.h
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f13025h.o = false;
-            invalidate();
         }
     }
 
     public boolean getIsOutSetVisibility() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48020j : invokeV.booleanValue;
     }
 
     public TextView getNotice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f13022e : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f48015e : (TextView) invokeV.objValue;
     }
 
-    @Override // d.a.p0.x.h
+    @Override // c.a.o0.x.h
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f13023f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f48016f : invokeV.intValue;
     }
 
-    @Override // d.a.p0.x.h
+    @Override // c.a.o0.x.h
     public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            c();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            hideNotice();
             setVisibility(8);
         }
     }
 
-    @Override // d.a.p0.x.b
+    public void hideNotice() {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (textView = this.f48015e) == null) {
+            return;
+        }
+        textView.setVisibility(8);
+        hideRedPoint();
+    }
+
+    @Override // c.a.o0.x.h
+    public void hideRedPoint() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.f48018h.o = false;
+            invalidate();
+        }
+    }
+
+    @Override // c.a.o0.x.b
     public void onAction(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) && aVar != null && aVar.f54158a == 2) {
-            Object obj = aVar.f54160c;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) && aVar != null && aVar.f14775a == 2) {
+            Object obj = aVar.f14777c;
             if (obj == null) {
-                c();
+                hideNotice();
             } else if (obj instanceof String) {
-                a((String) obj);
+                displayNotice((String) obj);
             }
         }
     }
 
-    @Override // d.a.p0.x.h
+    @Override // c.a.o0.x.h
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f13024g = i2;
+            this.f48017g = i2;
             setIcon();
-            TextView textView = this.f13022e;
+            TextView textView = this.f48015e;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, R.color.CAM_X0111, 1, i2);
-                if (!TextUtils.isEmpty(this.f13022e.getText()) && !TextUtils.isEmpty(this.f13022e.getText().toString().trim())) {
-                    SkinManager.setBackgroundResource(this.f13022e, R.drawable.icon_news_head_prompt_one, i2);
+                if (!TextUtils.isEmpty(this.f48015e.getText()) && !TextUtils.isEmpty(this.f48015e.getText().toString().trim())) {
+                    SkinManager.setBackgroundResource(this.f48015e, R.drawable.icon_news_head_prompt_one, i2);
                 } else {
-                    SkinManager.setBackgroundResource(this.f13022e, R.drawable.icon_news_down_bar_one, i2);
+                    SkinManager.setBackgroundResource(this.f48015e, R.drawable.icon_news_down_bar_one, i2);
                 }
             }
         }
@@ -211,11 +213,11 @@ public class BLauncher extends ImageView implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
             super.onMeasure(i2, i3);
-            TextView textView = this.f13022e;
-            if (textView != null && textView.getVisibility() == 0 && this.f13022e.getParent() == null) {
+            TextView textView = this.f48015e;
+            if (textView != null && textView.getVisibility() == 0 && this.f48015e.getParent() == null) {
                 ViewParent parent = getParent();
                 if (parent instanceof ViewGroup) {
-                    ((ViewGroup) parent).addView(this.f13022e);
+                    ((ViewGroup) parent).addView(this.f48015e);
                 }
             }
         }
@@ -224,25 +226,25 @@ public class BLauncher extends ImageView implements h {
     public void setIcon() {
         m mVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (mVar = this.f13025h) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (mVar = this.f48018h) == null) {
             return;
         }
-        if (mVar.f54170g) {
+        if (mVar.f14787g) {
             SvgManager svgManager = SvgManager.getInstance();
-            m mVar2 = this.f13025h;
-            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(mVar2.f54167d, mVar2.f54168e, this.f13024g));
-        } else if (mVar.f54171h) {
-            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(mVar.f54167d, mVar.f54168e, this.f13024g));
+            m mVar2 = this.f48018h;
+            setImageDrawable(svgManager.getSeletableDrawableForEditorTools(mVar2.f14784d, mVar2.f14785e, this.f48017g));
+        } else if (mVar.f14788h) {
+            setImageDrawable(WebPManager.getSeletableDrawableForEditorToolsEM(mVar.f14784d, mVar.f14785e, this.f48017g));
         } else {
-            SkinManager.setImageResource(this, mVar.f54167d, this.f13024g);
+            SkinManager.setImageResource(this, mVar.f14784d, this.f48017g);
         }
-        if (this.f13025h.d()) {
+        if (this.f48018h.d()) {
             return;
         }
         setEnabled(false);
     }
 
-    @Override // d.a.p0.x.h
+    @Override // c.a.o0.x.h
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
@@ -252,14 +254,14 @@ public class BLauncher extends ImageView implements h {
     public void setOutSetVisibilty(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.j = z;
+            this.f48020j = z;
         }
     }
 
     public void setToolId(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.f13023f = i2;
+            this.f48016f = i2;
         }
     }
 }

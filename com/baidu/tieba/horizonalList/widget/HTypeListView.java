@@ -3,6 +3,8 @@ package com.baidu.tieba.horizonalList.widget;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.ListAdapter;
+import c.a.e.k.e.a;
+import c.a.e.k.e.n;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.a;
-import d.a.d.k.e.n;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HTypeListView extends HListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public TypeAdapter f17107e;
+    public TypeAdapter f52353e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HTypeListView(Context context) {
@@ -40,38 +40,52 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f17107e = null;
-        b();
+        this.f52353e = null;
+        a();
     }
 
-    public void a(List<a> list) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            Iterator<a> it = list.iterator();
-            while (it.hasNext()) {
-                this.f17107e.a(it.next());
-            }
-            setAdapter((ListAdapter) this.f17107e);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f52353e == null) {
+            this.f52353e = new TypeAdapter();
         }
     }
 
-    public final void b() {
+    public void addAdapter(a<n, TypeAdapter.ViewHolder> aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f17107e == null) {
-            this.f17107e = new TypeAdapter();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.f52353e.a(aVar);
+            setAdapter((ListAdapter) this.f52353e);
+        }
+    }
+
+    public void addAdapters(List<a> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            Iterator<a> it = list.iterator();
+            while (it.hasNext()) {
+                this.f52353e.a(it.next());
+            }
+            setAdapter((ListAdapter) this.f52353e);
         }
     }
 
     public List<n> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f17107e.d() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f52353e.b() : (List) invokeV.objValue;
+    }
+
+    public n getItem(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.f52353e.getItem(i2) : (n) invokeI.objValue;
     }
 
     public void setData(List<? extends n> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.f17107e.h(list);
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.f52353e.f(list);
         }
     }
 
@@ -94,8 +108,8 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f17107e = null;
-        b();
+        this.f52353e = null;
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -117,6 +131,6 @@ public class HTypeListView extends HListView {
                 return;
             }
         }
-        this.f17107e = null;
+        this.f52353e = null;
     }
 }

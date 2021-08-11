@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.text.TextUtils;
 import android.view.View;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.sdk.internal.XAdSDKPorxyConfig;
 import com.baidu.mobstat.bk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +17,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class be implements bk.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,12 +93,12 @@ public class be implements bk.b {
             try {
                 DecimalFormat decimalFormat = new DecimalFormat(XAdSDKPorxyConfig.REMOTE_VERSION_DEFAULT);
                 DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
-                decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
+                decimalFormatSymbols.setDecimalSeparator('.');
                 decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
                 jSONObject.put("x", decimalFormat.format(b2));
                 jSONObject.put("y", decimalFormat.format(b3));
-                jSONObject.put(Config.EVENT_HEAT_XP, decimalFormat.format((b2 * 100.0f) / a2));
-                jSONObject.put(Config.EVENT_HEAT_YP, decimalFormat.format((b3 * 100.0f) / a3));
+                jSONObject.put("xp", decimalFormat.format((b2 * 100.0f) / a2));
+                jSONObject.put("yp", decimalFormat.format((b3 * 100.0f) / a3));
             } catch (Exception unused) {
             }
             return jSONObject;

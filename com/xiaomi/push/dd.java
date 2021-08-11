@@ -7,16 +7,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
 import com.xiaomi.push.db;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class dd extends al.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public al.b f40242a;
+    public al.b f77094a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ db f230a;
+    public final /* synthetic */ db f234a;
 
     public dd(db dbVar) {
         Interceptable interceptable = $ic;
@@ -33,18 +33,18 @@ public class dd extends al.b {
                 return;
             }
         }
-        this.f230a = dbVar;
+        this.f234a = dbVar;
     }
 
     @Override // com.xiaomi.push.al.b
     public void b() {
         db.b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (db.b) this.f230a.f218a.peek()) != null && bVar.a()) {
-            if (this.f230a.f218a.remove(bVar)) {
-                this.f40242a = bVar;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = (db.b) this.f234a.f222a.peek()) != null && bVar.a()) {
+            if (this.f234a.f222a.remove(bVar)) {
+                this.f77094a = bVar;
             }
-            al.b bVar2 = this.f40242a;
+            al.b bVar2 = this.f77094a;
             if (bVar2 != null) {
                 bVar2.b();
             }
@@ -53,12 +53,12 @@ public class dd extends al.b {
 
     @Override // com.xiaomi.push.al.b
     /* renamed from: c */
-    public void mo242c() {
+    public void mo245c() {
         al.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f40242a) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (bVar = this.f77094a) == null) {
             return;
         }
-        bVar.mo242c();
+        bVar.mo245c();
     }
 }

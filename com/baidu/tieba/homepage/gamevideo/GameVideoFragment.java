@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import c.a.o0.b1.d0;
+import c.a.p0.f1.e.b.c;
+import c.a.p0.v0.n0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,18 +20,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.b0;
-import d.a.q0.e1.e.b.c;
-import d.a.q0.u0.n0;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GameVideoFragment extends BaseFragment implements n0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public c f16695e;
+    public c f51914e;
 
     public GameVideoFragment() {
         Interceptable interceptable = $ic;
@@ -44,34 +44,27 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         }
     }
 
-    @Override // d.a.q0.u0.n0
-    public void B() {
+    @Override // c.a.p0.v0.n0
+    public void changeSkinType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // d.a.q0.u0.n0
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.p0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.m0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a066" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "a066" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, d.a.p0.m0.a
+    @Override // com.baidu.tbadk.core.BaseFragment, c.a.o0.m0.a
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (super.getCurrentPageSourceKeyList() != null) {
                 arrayList = new ArrayList(super.getCurrentPageSourceKeyList());
             } else {
@@ -85,22 +78,12 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         return (List) invokeV.objValue;
     }
 
-    @Override // d.a.q0.u0.n0
-    public void o() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.f16695e) == null) {
-            return;
-        }
-        cVar.x();
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
             super.onChangeSkinType(i2);
-            c cVar = this.f16695e;
+            c cVar = this.f51914e;
             if (cVar != null) {
                 cVar.n();
             }
@@ -110,12 +93,12 @@ public class GameVideoFragment extends BaseFragment implements n0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            if (this.f16695e == null) {
-                this.f16695e = new c(getPageContext(), getUniqueId());
+            if (this.f51914e == null) {
+                this.f51914e = new c(getPageContext(), getUniqueId());
             }
-            this.f16695e.s();
+            this.f51914e.s();
         }
     }
 
@@ -124,13 +107,13 @@ public class GameVideoFragment extends BaseFragment implements n0 {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, layoutInflater, viewGroup, bundle)) == null) {
-            c cVar = this.f16695e;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
+            c cVar = this.f51914e;
             if (cVar != null && cVar.r() != null) {
-                if (this.f16695e.r().getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.f16695e.r().getParent()).removeView(this.f16695e.r());
+                if (this.f51914e.r().getParent() instanceof ViewGroup) {
+                    ((ViewGroup) this.f51914e.r().getParent()).removeView(this.f51914e.r());
                 }
-                return this.f16695e.r();
+                return this.f51914e.r();
             }
             return super.onCreateView(layoutInflater, viewGroup, bundle);
         }
@@ -140,9 +123,9 @@ public class GameVideoFragment extends BaseFragment implements n0 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            c cVar = this.f16695e;
+            c cVar = this.f51914e;
             if (cVar != null) {
                 cVar.v();
             }
@@ -152,12 +135,26 @@ public class GameVideoFragment extends BaseFragment implements n0 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onLazyLoad();
-            c cVar = this.f16695e;
+            c cVar = this.f51914e;
             if (cVar != null) {
                 cVar.t();
             }
+        }
+    }
+
+    @Override // c.a.p0.v0.n0
+    public void onPageOutEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
+    }
+
+    @Override // c.a.p0.v0.n0
+    public void onPageStartIn() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
@@ -166,7 +163,7 @@ public class GameVideoFragment extends BaseFragment implements n0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
-            c cVar = this.f16695e;
+            c cVar = this.f51914e;
             if (cVar != null) {
                 cVar.w();
             }
@@ -181,31 +178,46 @@ public class GameVideoFragment extends BaseFragment implements n0 {
             if (isPrimary()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921400, Boolean.FALSE));
             }
-            c cVar = this.f16695e;
+            c cVar = this.f51914e;
             if (cVar != null) {
                 cVar.y(isPrimary());
             }
         }
     }
 
-    @Override // d.a.q0.u0.n0
-    public void r() {
+    @Override // c.a.p0.v0.n0
+    public void refreshPage() {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (cVar = this.f51914e) == null) {
+            return;
+        }
+        cVar.x();
+    }
+
+    public void setHeaderViewHeight(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
         }
     }
 
-    @Override // d.a.q0.u0.n0
-    public void t() {
+    @Override // c.a.p0.v0.n0
+    public void setRecommendFrsNavigationAnimDispatcher(d0 d0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, d0Var) == null) {
         }
     }
 
-    @Override // d.a.q0.u0.n0
-    public void x(b0 b0Var) {
+    public void setVideoThreadId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, b0Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        }
+    }
+
+    @Override // c.a.p0.v0.n0
+    public void showFloatingView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
         }
     }
 }

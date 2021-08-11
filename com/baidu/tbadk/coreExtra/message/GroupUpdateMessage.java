@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class GroupUpdateMessage implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1071062952403340773L;
@@ -126,10 +126,10 @@ public class GroupUpdateMessage implements Serializable {
         }
     }
 
-    public void setGroupId(long j) {
+    public void setGroupId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
-            this.groupId = j;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+            this.groupId = j2;
         }
     }
 
@@ -140,10 +140,10 @@ public class GroupUpdateMessage implements Serializable {
         }
     }
 
-    public void setLastMsgId(long j) {
+    public void setLastMsgId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.lastMsgId = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.lastMsgId = j2;
         }
     }
 

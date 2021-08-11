@@ -5,41 +5,40 @@ import android.os.Environment;
 import android.os.StatFs;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class CacheConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public long f28828a;
+    public long f64690a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28829b;
+    public int f64691b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28830c;
+    public boolean f64692c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f28831d;
+    public boolean f64693d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f28832e;
+    public File f64694e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CacheConfig(int i2, long j, File file) {
-        this(i2, j, i2 != 0, j != 0, file);
+    public CacheConfig(int i2, long j2, File file) {
+        this(i2, j2, i2 != 0, j2 != 0, file);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), file};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -66,80 +65,80 @@ public class CacheConfig {
     public static CacheConfig getDefault(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? new CacheConfig(Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16, Math.max(a() / 16, (long) Config.FULL_TRACE_LOG_LIMIT), new File(context.getFilesDir(), "image")) : (CacheConfig) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? new CacheConfig(Long.valueOf(Runtime.getRuntime().maxMemory()).intValue() / 16, Math.max(a() / 16, 10485760L), new File(context.getFilesDir(), "image")) : (CacheConfig) invokeL.objValue;
     }
 
     public File getCacheDir() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28832e : (File) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64694e : (File) invokeV.objValue;
     }
 
     public long getFileCacheSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28828a : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64690a : invokeV.longValue;
     }
 
     public int getMemoryCacheSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28829b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64691b : invokeV.intValue;
     }
 
     public boolean isDiskCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f28831d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64693d : invokeV.booleanValue;
     }
 
     public boolean isMemoryCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f28830c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64692c : invokeV.booleanValue;
     }
 
     public void setCacheDir(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, file) == null) {
-            this.f28832e = file;
+            this.f64694e = file;
         }
     }
 
     public void setDiskCache(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.f28831d = z;
+            this.f64693d = z;
         }
     }
 
-    public void setFileCacheSize(long j) {
+    public void setFileCacheSize(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.f28828a = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.f64690a = j2;
         }
     }
 
     public void setMemoryCache(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f28830c = z;
+            this.f64692c = z;
         }
     }
 
     public void setMemoryCacheSize(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f28829b = i2;
+            this.f64691b = i2;
         }
     }
 
-    public CacheConfig(int i2, long j, boolean z, boolean z2, File file) {
+    public CacheConfig(int i2, long j2, boolean z, boolean z2, File file) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2), file};
+            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2), file};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -149,10 +148,10 @@ public class CacheConfig {
                 return;
             }
         }
-        this.f28828a = j;
-        this.f28829b = i2;
-        this.f28830c = z;
-        this.f28831d = z2;
-        this.f28832e = file;
+        this.f64690a = j2;
+        this.f64691b = i2;
+        this.f64692c = z;
+        this.f64693d = z2;
+        this.f64694e = file;
     }
 }

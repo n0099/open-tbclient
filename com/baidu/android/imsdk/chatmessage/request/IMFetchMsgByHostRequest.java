@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMFetchMsgByHostRequest";
@@ -49,12 +49,12 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
     public String mKey;
     public long mUk;
 
-    public IMFetchMsgByHostRequest(Context context, String str, long j, long j2, int i2, int i3, long j3, long j4, boolean z) {
+    public IMFetchMsgByHostRequest(Context context, String str, long j2, long j3, int i2, int i3, long j4, long j5, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)};
+            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i4 = newInitContext.flag;
             if ((i4 & 1) != 0) {
@@ -65,12 +65,12 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mUk = j;
-        this.mContacter = j2;
+        this.mUk = j2;
+        this.mContacter = j3;
         this.mCategory = i2;
         this.mCount = i3;
-        this.mBeginid = j3;
-        this.mEndid = j4;
+        this.mBeginid = j4;
+        this.mEndid = j5;
         this.mKey = str;
         this.mIsReliable = z;
     }
@@ -184,8 +184,8 @@ public class IMFetchMsgByHostRequest extends BaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00f2  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0117  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x00f3  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0118  */
     /* JADX WARN: Type inference failed for: r6v1, types: [T, java.lang.Long] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

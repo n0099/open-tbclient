@@ -3,7 +3,6 @@ package androidx.recyclerview.widget;
 import android.content.Context;
 import android.graphics.Rect;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.View;
 import android.view.ViewGroup;
@@ -483,7 +482,7 @@ public class GridLayoutManager extends LinearLayoutManager {
             }
             int convertPreLayoutPositionToPostLayout = recycler.convertPreLayoutPositionToPostLayout(i2);
             if (convertPreLayoutPositionToPostLayout == -1) {
-                Log.w(TAG, "Cannot find span size for pre layout position. " + i2);
+                String str = "Cannot find span size for pre layout position. " + i2;
                 return 0;
             }
             return this.mSpanSizeLookup.getCachedSpanGroupIndex(convertPreLayoutPositionToPostLayout, this.mSpanCount);
@@ -504,7 +503,7 @@ public class GridLayoutManager extends LinearLayoutManager {
             }
             int convertPreLayoutPositionToPostLayout = recycler.convertPreLayoutPositionToPostLayout(i2);
             if (convertPreLayoutPositionToPostLayout == -1) {
-                Log.w(TAG, "Cannot find span size for pre layout position. It is not cached, not in the adapter. Pos:" + i2);
+                String str = "Cannot find span size for pre layout position. It is not cached, not in the adapter. Pos:" + i2;
                 return 0;
             }
             return this.mSpanSizeLookup.getCachedSpanIndex(convertPreLayoutPositionToPostLayout, this.mSpanCount);
@@ -525,7 +524,7 @@ public class GridLayoutManager extends LinearLayoutManager {
             }
             int convertPreLayoutPositionToPostLayout = recycler.convertPreLayoutPositionToPostLayout(i2);
             if (convertPreLayoutPositionToPostLayout == -1) {
-                Log.w(TAG, "Cannot find span size for pre layout position. It is not cached, not in the adapter. Pos:" + i2);
+                String str = "Cannot find span size for pre layout position. It is not cached, not in the adapter. Pos:" + i2;
                 return 1;
             }
             return this.mSpanSizeLookup.getSpanSize(convertPreLayoutPositionToPostLayout);
@@ -796,7 +795,7 @@ public class GridLayoutManager extends LinearLayoutManager {
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v0 */
-    /* JADX WARN: Type inference failed for: r5v1, types: [boolean, int] */
+    /* JADX WARN: Type inference failed for: r5v1, types: [int, boolean] */
     /* JADX WARN: Type inference failed for: r5v19 */
     @Override // androidx.recyclerview.widget.LinearLayoutManager
     /*

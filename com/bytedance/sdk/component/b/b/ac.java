@@ -10,7 +10,7 @@ import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class ac implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public abstract class ac implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             v a2 = a();
-            return a2 != null ? a2.a(com.bytedance.sdk.component.b.b.a.c.f28319e) : com.bytedance.sdk.component.b.b.a.c.f28319e;
+            return a2 != null ? a2.a(com.bytedance.sdk.component.b.b.a.c.f64167e) : com.bytedance.sdk.component.b.b.a.c.f64167e;
         }
         return (Charset) invokeV.objValue;
     }
@@ -103,30 +103,30 @@ public abstract class ac implements Closeable {
         return (String) invokeV.objValue;
     }
 
-    public static ac a(v vVar, long j, com.bytedance.sdk.component.b.a.e eVar) {
+    public static ac a(v vVar, long j2, com.bytedance.sdk.component.b.a.e eVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{vVar, Long.valueOf(j), eVar})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{vVar, Long.valueOf(j2), eVar})) == null) {
             if (eVar != null) {
-                return new ac(vVar, j, eVar) { // from class: com.bytedance.sdk.component.b.b.ac.1
+                return new ac(vVar, j2, eVar) { // from class: com.bytedance.sdk.component.b.b.ac.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
                     /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ v f28603a;
+                    public final /* synthetic */ v f64459a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ long f28604b;
+                    public final /* synthetic */ long f64460b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ com.bytedance.sdk.component.b.a.e f28605c;
+                    public final /* synthetic */ com.bytedance.sdk.component.b.a.e f64461c;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {vVar, Long.valueOf(j), eVar};
+                            Object[] objArr = {vVar, Long.valueOf(j2), eVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -136,30 +136,30 @@ public abstract class ac implements Closeable {
                                 return;
                             }
                         }
-                        this.f28603a = vVar;
-                        this.f28604b = j;
-                        this.f28605c = eVar;
+                        this.f64459a = vVar;
+                        this.f64460b = j2;
+                        this.f64461c = eVar;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.ac
                     public v a() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f28603a : (v) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? this.f64459a : (v) invokeV.objValue;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.ac
                     public long b() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28604b : invokeV.longValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64460b : invokeV.longValue;
                     }
 
                     @Override // com.bytedance.sdk.component.b.b.ac
                     public com.bytedance.sdk.component.b.a.e d() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28605c : (com.bytedance.sdk.component.b.a.e) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64461c : (com.bytedance.sdk.component.b.a.e) invokeV.objValue;
                     }
                 };
             }

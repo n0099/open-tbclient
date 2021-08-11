@@ -31,7 +31,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.ResponseHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -156,19 +156,19 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             sb.append("&appid=" + appid);
             sb.append("&uk=");
             sb.append(AccountManager.getUK(this.mContext));
-            long j = 0;
+            long j2 = 0;
             if (Utility.isMediaUri(this.mFilePath)) {
                 try {
                     InputStream openInputStream = this.mContext.getContentResolver().openInputStream(Uri.parse(this.mFilePath));
                     if (openInputStream != null) {
-                        j = openInputStream.available();
+                        j2 = openInputStream.available();
                     }
                 } catch (Exception unused) {
                 }
             } else {
-                j = new File(this.mFilePath).length();
+                j2 = new File(this.mFilePath).length();
             }
-            sb.append("&content_length=" + j);
+            sb.append("&content_length=" + j2);
             if (!TextUtils.isEmpty(this.mContentType)) {
                 try {
                     sb.append("&content_type=" + URLEncoder.encode(this.mContentType, "UTF-8"));

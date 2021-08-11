@@ -12,6 +12,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,10 +21,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class BdPersonListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int n0 = 1;
+    public static final int[] ExpandListView;
+    public static int ExpandListView_expandDistance = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context N;
     public final Scroller O;
@@ -39,12 +41,12 @@ public class BdPersonListView extends BdTypeListView {
     public float b0;
     public final int c0;
     public final int i0;
-    public a j0;
+    public boolean j0;
     public boolean k0;
     public boolean l0;
-    public boolean m0;
+    public a mRefreshListener;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(float f2);
 
@@ -53,16 +55,16 @@ public class BdPersonListView extends BdTypeListView {
         void onRefresh();
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f20116a;
+        public int f55471a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f20117b;
+        public int f55472b;
 
         public b(int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
@@ -79,30 +81,31 @@ public class BdPersonListView extends BdTypeListView {
                     return;
                 }
             }
-            this.f20116a = i3;
-            this.f20117b = i5;
+            this.f55471a = i3;
+            this.f55472b = i5;
         }
 
         public int a(float f2) {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f20116a + (f2 / 2.5f)) : invokeF.intValue;
+            return (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) ? (int) (this.f55471a + (f2 / 2.5f)) : invokeF.intValue;
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1003786177, "Lcom/baidu/tieba/person/listview/BdPersonListView;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1003786177, "Lcom/baidu/tieba/person/listview/BdPersonListView;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1003786177, "Lcom/baidu/tieba/person/listview/BdPersonListView;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1003786177, "Lcom/baidu/tieba/person/listview/BdPersonListView;");
-        }
+        ExpandListView = new int[]{R.anim.anim_alpha_1_to_0_duration_300, R.anim.anim_alpha_1_to_0_duration_500_accelerate};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -125,55 +128,23 @@ public class BdPersonListView extends BdTypeListView {
             }
         }
         this.W = false;
-        this.k0 = true;
+        this.j0 = true;
+        this.k0 = false;
         this.l0 = false;
-        this.m0 = false;
         this.N = context;
         this.O = new Scroller(this.N);
         this.P = new Scroller(this.N);
         this.c0 = ViewConfiguration.get(context).getScaledTouchSlop();
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ExpandListView);
-        this.i0 = obtainStyledAttributes.getDimensionPixelSize(n0, 0);
+        this.i0 = obtainStyledAttributes.getDimensionPixelSize(ExpandListView_expandDistance, 0);
         obtainStyledAttributes.recycle();
-    }
-
-    public final void I(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f2) == null) {
-            this.j0.a(360.0f - ((f2 * 360.0f) / this.i0));
-        }
-    }
-
-    public void J() {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (aVar = this.j0) == null) {
-            return;
-        }
-        aVar.onRefresh();
-    }
-
-    public final void K() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.U == null) {
-            return;
-        }
-        if (this.Q.getHeight() >= this.U.f20117b - (this.i0 / 2)) {
-            J();
-        } else {
-            this.j0.b();
-        }
-        this.O.startScroll(0, this.Q.getHeight(), 0, this.U.f20116a - this.Q.getHeight(), 200);
-        this.P.startScroll(0, this.R.getHeight(), 0, this.V.f20116a - this.R.getHeight(), 200);
-        invalidate();
-        this.W = false;
     }
 
     @Override // android.view.View
     public void computeScroll() {
         ViewGroup.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.O.computeScrollOffset()) {
                 this.Q.setLayoutParams(new AbsListView.LayoutParams(this.Q.getWidth(), this.O.getCurrY()));
             } else {
@@ -201,8 +172,8 @@ public class BdPersonListView extends BdTypeListView {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (this.Q != null && this.k0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (this.Q != null && this.j0) {
                 int action = motionEvent.getAction();
                 if (this.O.isFinished()) {
                     float y = motionEvent.getY();
@@ -217,7 +188,7 @@ public class BdPersonListView extends BdTypeListView {
                                 if (this.Q.getParent() == this && this.U != null && this.Q.isShown() && this.Q.getTop() >= 0 && Math.abs(f4) >= this.c0 && Math.abs(f3) < this.c0) {
                                     int a2 = this.U.a(this.T - this.S);
                                     b bVar = this.U;
-                                    if (a2 > bVar.f20116a && a2 <= bVar.f20117b) {
+                                    if (a2 > bVar.f55471a && a2 <= bVar.f55472b) {
                                         this.W = true;
                                         this.Q.setLayoutParams(new AbsListView.LayoutParams(this.Q.getWidth(), a2));
                                         if (this.R != null) {
@@ -228,12 +199,12 @@ public class BdPersonListView extends BdTypeListView {
                                                 this.R.setLayoutParams(layoutParams);
                                             }
                                         }
-                                        I(a2 - this.U.f20116a);
+                                        y(a2 - this.U.f55471a);
                                     } else {
                                         b bVar2 = this.U;
-                                        if (a2 <= bVar2.f20116a) {
+                                        if (a2 <= bVar2.f55471a) {
                                             this.W = false;
-                                        } else if (a2 > bVar2.f20117b) {
+                                        } else if (a2 > bVar2.f55472b) {
                                             this.W = true;
                                         } else {
                                             this.W = false;
@@ -245,12 +216,12 @@ public class BdPersonListView extends BdTypeListView {
                             }
                         }
                         if (this.W) {
-                            K();
-                            if (this.l0) {
+                            scrollCallback();
+                            if (this.k0) {
                                 return true;
                             }
                         } else {
-                            this.j0.b();
+                            this.mRefreshListener.b();
                         }
                     } else {
                         int height = this.Q.getHeight();
@@ -269,17 +240,26 @@ public class BdPersonListView extends BdTypeListView {
         return invokeL.booleanValue;
     }
 
+    public void doRefresh() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.mRefreshListener) == null) {
+            return;
+        }
+        aVar.onRefresh();
+    }
+
     public View getOuterExpandView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.R : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.R : (View) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
             if (this.W) {
                 return true;
             }
@@ -292,8 +272,8 @@ public class BdPersonListView extends BdTypeListView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
-            if (!this.W || this.m0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            if (!this.W || this.l0) {
                 return super.onTouchEvent(motionEvent);
             }
             return true;
@@ -301,31 +281,54 @@ public class BdPersonListView extends BdTypeListView {
         return invokeL.booleanValue;
     }
 
+    public final void scrollCallback() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.U == null) {
+            return;
+        }
+        if (this.Q.getHeight() >= this.U.f55472b - (this.i0 / 2)) {
+            doRefresh();
+        } else {
+            this.mRefreshListener.b();
+        }
+        this.O.startScroll(0, this.Q.getHeight(), 0, this.U.f55471a - this.Q.getHeight(), 200);
+        this.P.startScroll(0, this.R.getHeight(), 0, this.V.f55471a - this.R.getHeight(), 200);
+        invalidate();
+        this.W = false;
+    }
+
     public void setExpandView(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, view) == null) {
             this.Q = view;
         }
     }
 
     public void setNeedConsumeTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.m0 = z;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.l0 = z;
         }
     }
 
     public void setOuterExpandView(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
             this.R = view;
         }
     }
 
     public void setPersonListRefreshListener(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            this.j0 = aVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.mRefreshListener = aVar;
+        }
+    }
+
+    public final void y(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
+            this.mRefreshListener.a(360.0f - ((f2 * 360.0f) / this.i0));
         }
     }
 }

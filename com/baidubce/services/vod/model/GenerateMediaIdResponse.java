@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.model.AbstractBceResponse;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes9.dex */
 public class GenerateMediaIdResponse extends AbstractBceResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +88,7 @@ public class GenerateMediaIdResponse extends AbstractBceResponse {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "GenerateMediaIdResponse { \n  mediaId = " + this.mediaId + "\n  sourceBucket = " + this.sourceBucket + "\n  sourceKey = " + this.sourceKey + "\n  endPoint = " + this.endPoint + "\n}\n";
+            return "GenerateMediaIdResponse { \n  mediaId = " + this.mediaId + StringUtils.LF + "  sourceBucket = " + this.sourceBucket + StringUtils.LF + "  sourceKey = " + this.sourceKey + StringUtils.LF + "  endPoint = " + this.endPoint + StringUtils.LF + "}\n";
         }
         return (String) invokeV.objValue;
     }

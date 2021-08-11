@@ -11,7 +11,7 @@ import java.util.NoSuchElementException;
 import org.apache.http.Header;
 import org.apache.http.HeaderIterator;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class BasicListHeaderIterator implements HeaderIterator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -13,7 +13,7 @@ import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.clientreport.processor.IPerfProcessor;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ClientReportClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +51,9 @@ public class ClientReportClient {
         if (interceptable == null || interceptable.invokeLLLL(65539, null, context, config, iEventProcessor, iPerfProcessor) == null) {
             com.xiaomi.channel.commonutils.logger.b.c("init in process " + com.xiaomi.push.g.a(context) + " pid :" + Process.myPid() + " threadId: " + Thread.currentThread().getId());
             a.a(context).a(config, iEventProcessor, iPerfProcessor);
-            if (com.xiaomi.push.g.m339a(context)) {
+            if (com.xiaomi.push.g.m342a(context)) {
                 com.xiaomi.channel.commonutils.logger.b.c("init in process\u3000start scheduleJob");
-                a.a(context).m76a();
+                a.a(context).m79a();
             }
         }
     }

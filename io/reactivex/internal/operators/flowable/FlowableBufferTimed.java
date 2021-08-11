@@ -30,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FlowableBufferTimed<T, U extends Collection<? super T>> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
     public final long timespan;
     public final TimeUnit unit;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BufferExactBoundedSubscriber<T, U extends Collection<? super T>> extends QueueDrainSubscriber<T, U, U> implements Subscription, Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,13 +59,13 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
         public final Scheduler.Worker w;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BufferExactBoundedSubscriber(Subscriber<? super U> subscriber, Callable<U> callable, long j, TimeUnit timeUnit, int i2, boolean z, Scheduler.Worker worker) {
+        public BufferExactBoundedSubscriber(Subscriber<? super U> subscriber, Callable<U> callable, long j2, TimeUnit timeUnit, int i2, boolean z, Scheduler.Worker worker) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, callable, Long.valueOf(j), timeUnit, Integer.valueOf(i2), Boolean.valueOf(z), worker};
+                Object[] objArr = {subscriber, callable, Long.valueOf(j2), timeUnit, Integer.valueOf(i2), Boolean.valueOf(z), worker};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -78,7 +78,7 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
                 }
             }
             this.bufferSupplier = callable;
-            this.timespan = j;
+            this.timespan = j2;
             this.unit = timeUnit;
             this.maxSize = i2;
             this.restartTimerOnMaxSize = z;
@@ -178,8 +178,8 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
                         }
                         if (this.restartTimerOnMaxSize) {
                             Scheduler.Worker worker = this.w;
-                            long j = this.timespan;
-                            this.timer = worker.schedulePeriodically(this, j, j, this.unit);
+                            long j2 = this.timespan;
+                            this.timer = worker.schedulePeriodically(this, j2, j2, this.unit);
                         }
                     } catch (Throwable th) {
                         Exceptions.throwIfFatal(th);
@@ -199,8 +199,8 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
                     this.buffer = (U) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The supplied buffer is null");
                     this.actual.onSubscribe(this);
                     Scheduler.Worker worker = this.w;
-                    long j = this.timespan;
-                    this.timer = worker.schedulePeriodically(this, j, j, this.unit);
+                    long j2 = this.timespan;
+                    this.timer = worker.schedulePeriodically(this, j2, j2, this.unit);
                     subscription.request(Long.MAX_VALUE);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -212,10 +212,10 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                requested(j);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+                requested(j2);
             }
         }
 
@@ -251,7 +251,7 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BufferExactUnboundedSubscriber<T, U extends Collection<? super T>> extends QueueDrainSubscriber<T, U, U> implements Subscription, Runnable, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -264,13 +264,13 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
         public final TimeUnit unit;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BufferExactUnboundedSubscriber(Subscriber<? super U> subscriber, Callable<U> callable, long j, TimeUnit timeUnit, Scheduler scheduler) {
+        public BufferExactUnboundedSubscriber(Subscriber<? super U> subscriber, Callable<U> callable, long j2, TimeUnit timeUnit, Scheduler scheduler) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, callable, Long.valueOf(j), timeUnit, scheduler};
+                Object[] objArr = {subscriber, callable, Long.valueOf(j2), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -284,7 +284,7 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
             }
             this.timer = new AtomicReference<>();
             this.bufferSupplier = callable;
-            this.timespan = j;
+            this.timespan = j2;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -379,8 +379,8 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
                     }
                     subscription.request(Long.MAX_VALUE);
                     Scheduler scheduler = this.scheduler;
-                    long j = this.timespan;
-                    Disposable schedulePeriodicallyDirect = scheduler.schedulePeriodicallyDirect(this, j, j, this.unit);
+                    long j2 = this.timespan;
+                    Disposable schedulePeriodicallyDirect = scheduler.schedulePeriodicallyDirect(this, j2, j2, this.unit);
                     if (this.timer.compareAndSet(null, schedulePeriodicallyDirect)) {
                         return;
                     }
@@ -394,10 +394,10 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                requested(j);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+                requested(j2);
             }
         }
 
@@ -434,7 +434,7 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class BufferSkipBoundedSubscriber<T, U extends Collection<? super T>> extends QueueDrainSubscriber<T, U, U> implements Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -446,7 +446,7 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
         public final TimeUnit unit;
         public final Scheduler.Worker w;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public final class RemoveFromBuffer implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -486,13 +486,13 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BufferSkipBoundedSubscriber(Subscriber<? super U> subscriber, Callable<U> callable, long j, long j2, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public BufferSkipBoundedSubscriber(Subscriber<? super U> subscriber, Callable<U> callable, long j2, long j3, TimeUnit timeUnit, Scheduler.Worker worker) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, callable, Long.valueOf(j), Long.valueOf(j2), timeUnit, worker};
+                Object[] objArr = {subscriber, callable, Long.valueOf(j2), Long.valueOf(j3), timeUnit, worker};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -505,8 +505,8 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
                 }
             }
             this.bufferSupplier = callable;
-            this.timespan = j;
-            this.timeskip = j2;
+            this.timespan = j2;
+            this.timeskip = j3;
             this.unit = timeUnit;
             this.w = worker;
             this.buffers = new LinkedList();
@@ -594,8 +594,8 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
                     this.actual.onSubscribe(this);
                     subscription.request(Long.MAX_VALUE);
                     Scheduler.Worker worker = this.w;
-                    long j = this.timeskip;
-                    worker.schedulePeriodically(this, j, j, this.unit);
+                    long j2 = this.timeskip;
+                    worker.schedulePeriodically(this, j2, j2, this.unit);
                     this.w.schedule(new RemoveFromBuffer(this, collection), this.timespan, this.unit);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -607,10 +607,10 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-                requested(j);
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
+                requested(j2);
             }
         }
 
@@ -650,13 +650,13 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableBufferTimed(Flowable<T> flowable, long j, long j2, TimeUnit timeUnit, Scheduler scheduler, Callable<U> callable, int i2, boolean z) {
+    public FlowableBufferTimed(Flowable<T> flowable, long j2, long j3, TimeUnit timeUnit, Scheduler scheduler, Callable<U> callable, int i2, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {flowable, Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler, callable, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {flowable, Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler, callable, Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -667,8 +667,8 @@ public final class FlowableBufferTimed<T, U extends Collection<? super T>> exten
                 return;
             }
         }
-        this.timespan = j;
-        this.timeskip = j2;
+        this.timespan = j2;
+        this.timeskip = j3;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.bufferSupplier = callable;

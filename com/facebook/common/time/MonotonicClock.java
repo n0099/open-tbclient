@@ -3,7 +3,7 @@ package com.facebook.common.time;
 import com.facebook.common.internal.DoNotStrip;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface MonotonicClock {
     @DoNotStrip
     long now();

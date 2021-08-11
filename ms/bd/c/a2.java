@@ -7,10 +7,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.JProtect;
-import kotlin.text.Typography;
+import org.apache.commons.lang3.CharUtils;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
 @JProtect
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class a2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,6 +35,6 @@ public class a2 {
     public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? (str == null || str.length() <= 0) ? "" : str.trim().replace('\'', ' ').replace(Typography.quote, ' ').replace('\r', ' ').replace('\n', ' ') : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? (str == null || str.length() <= 0) ? "" : str.trim().replace(ExtendedMessageFormat.QUOTE, ' ').replace('\"', ' ').replace(CharUtils.CR, ' ').replace('\n', ' ') : (String) invokeL.objValue;
     }
 }

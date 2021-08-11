@@ -14,15 +14,15 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public abstract class p {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final p f28692a;
+    public static final p f64551a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         p a(e eVar);
     }
@@ -40,7 +40,7 @@ public abstract class p {
                 return;
             }
         }
-        f28692a = new p() { // from class: com.bytedance.sdk.component.b.b.p.1
+        f64551a = new p() { // from class: com.bytedance.sdk.component.b.b.p.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -82,7 +82,7 @@ public abstract class p {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ p f28693a;
+            public final /* synthetic */ p f64552a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -99,14 +99,14 @@ public abstract class p {
                         return;
                     }
                 }
-                this.f28693a = pVar;
+                this.f64552a = pVar;
             }
 
             @Override // com.bytedance.sdk.component.b.b.p.a
             public p a(e eVar) {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, eVar)) == null) ? this.f28693a : (p) invokeL2.objValue;
+                return (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, eVar)) == null) ? this.f64552a : (p) invokeL2.objValue;
             }
         } : (a) invokeL.objValue;
     }
@@ -117,9 +117,9 @@ public abstract class p {
         }
     }
 
-    public void a(e eVar, long j) {
+    public void a(e eVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, j2) == null) {
         }
     }
 
@@ -189,9 +189,9 @@ public abstract class p {
         }
     }
 
-    public void b(e eVar, long j) {
+    public void b(e eVar, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048589, this, eVar, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048589, this, eVar, j2) == null) {
         }
     }
 

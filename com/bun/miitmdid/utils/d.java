@@ -13,12 +13,12 @@ import java.security.PublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.ArrayList;
 import javax.crypto.Cipher;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f27826a;
+    public static final byte[] f63659a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class d {
                 return;
             }
         }
-        f27826a = "#PART#".getBytes();
+        f63659a = "#PART#".getBytes();
     }
 
     public static String a(String str) {
@@ -69,7 +69,7 @@ public class d {
                 if (i4 == 117 || i3 == length - 1) {
                     i5++;
                     if (i5 != 1) {
-                        for (byte b2 : f27826a) {
+                        for (byte b2 : f63659a) {
                             arrayList.add(Byte.valueOf(b2));
                         }
                     }

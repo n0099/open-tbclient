@@ -3,7 +3,7 @@ package org.webrtc;
 import android.hardware.Camera;
 import android.os.SystemClock;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.widget.j;
+import com.alipay.sdk.widget.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Camera1Enumerator implements CameraEnumerator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Camera1Enumerator";
@@ -182,7 +182,7 @@ public class Camera1Enumerator implements CameraEnumerator {
             if (cameraInfo == null) {
                 return null;
             }
-            String str = cameraInfo.facing == 1 ? "front" : j.j;
+            String str = cameraInfo.facing == 1 ? "front" : d.l;
             return "Camera " + i2 + ", Facing " + str + ", Orientation " + cameraInfo.orientation;
         }
         return (String) invokeI.objValue;

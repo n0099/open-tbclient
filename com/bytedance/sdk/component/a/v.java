@@ -28,27 +28,27 @@ import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Map<String, List<b>> f27957a;
+    public final Map<String, List<b>> f63794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LruCache<String, c> f27958b;
+    public final LruCache<String, c> f63795b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final k.a f27959c;
+    public final k.a f63796c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f27960d;
+    public final String f63797d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f27961e;
+    public volatile boolean f63798e;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class a extends IllegalStateException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,22 +74,22 @@ public class v {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Pattern f27964a;
+        public Pattern f63801a;
 
         /* renamed from: b  reason: collision with root package name */
-        public x f27965b;
+        public x f63802b;
 
         /* renamed from: c  reason: collision with root package name */
-        public List<String> f27966c;
+        public List<String> f63803c;
 
         /* renamed from: d  reason: collision with root package name */
-        public List<String> f27967d;
+        public List<String> f63804d;
 
         public b() {
             Interceptable interceptable = $ic;
@@ -106,19 +106,19 @@ public class v {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public x f27968a;
+        public x f63805a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Set<String> f27969b;
+        public Set<String> f63806b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Set<String> f27970c;
+        public Set<String> f63807c;
 
         public c() {
             Interceptable interceptable = $ic;
@@ -133,9 +133,9 @@ public class v {
                     return;
                 }
             }
-            this.f27968a = x.f27975a;
-            this.f27969b = new HashSet();
-            this.f27970c = new HashSet();
+            this.f63805a = x.f63812a;
+            this.f63806b = new HashSet();
+            this.f63807c = new HashSet();
         }
     }
 
@@ -155,25 +155,25 @@ public class v {
                 return;
             }
         }
-        this.f27957a = new ConcurrentHashMap();
-        this.f27961e = false;
-        this.f27960d = str;
+        this.f63794a = new ConcurrentHashMap();
+        this.f63798e = false;
+        this.f63797d = str;
         if (i2 <= 0) {
-            this.f27958b = new LruCache<>(16);
+            this.f63795b = new LruCache<>(16);
         } else {
-            this.f27958b = new LruCache<>(i2);
+            this.f63795b = new LruCache<>(i2);
         }
-        this.f27959c = aVar;
+        this.f63796c = aVar;
         if (jSONObject == null) {
-            aVar.a(d(str), new k.a.InterfaceC0314a(this, executor) { // from class: com.bytedance.sdk.component.a.v.1
+            aVar.a(d(str), new k.a.InterfaceC1874a(this, executor) { // from class: com.bytedance.sdk.component.a.v.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Executor f27962a;
+                public final /* synthetic */ Executor f63799a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ v f27963b;
+                public final /* synthetic */ v f63800b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -190,8 +190,8 @@ public class v {
                             return;
                         }
                     }
-                    this.f27963b = this;
-                    this.f27962a = executor;
+                    this.f63800b = this;
+                    this.f63799a = executor;
                 }
             });
         } else {
@@ -203,7 +203,7 @@ public class v {
     private void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, jSONObject) == null) {
-            this.f27957a.clear();
+            this.f63794a.clear();
             try {
                 JSONObject jSONObject2 = jSONObject.getJSONObject("content");
                 Iterator<String> keys = jSONObject2.keys();
@@ -211,7 +211,7 @@ public class v {
                     String next = keys.next();
                     JSONArray jSONArray = jSONObject2.getJSONArray(next);
                     LinkedList linkedList = new LinkedList();
-                    this.f27957a.put(next, linkedList);
+                    this.f63794a.put(next, linkedList);
                     for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                         linkedList.add(c(jSONArray.getJSONObject(i2)));
                     }
@@ -219,7 +219,7 @@ public class v {
             } catch (JSONException e2) {
                 i.b("Parse configurations failed, response: " + jSONObject.toString(), e2);
             }
-            this.f27961e = true;
+            this.f63798e = true;
         }
     }
 
@@ -227,8 +227,8 @@ public class v {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, this, str)) == null) {
-            if (this.f27961e) {
-                return this.f27957a.get(str);
+            if (this.f63798e) {
+                return this.f63794a.get(str);
             }
             throw new a("Permission config is outdated!");
         }
@@ -248,7 +248,7 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
             b(jSONObject);
-            this.f27959c.a(d(this.f27960d), jSONObject.toString());
+            this.f63796c.a(d(this.f63797d), jSONObject.toString());
         }
     }
 
@@ -268,13 +268,13 @@ public class v {
                         if (authority.endsWith("." + str2)) {
                         }
                     }
-                    cVar.f27968a = x.f27977c;
+                    cVar.f63805a = x.f63814c;
                     return cVar;
                 }
-                c cVar2 = this.f27958b.get(builder);
+                c cVar2 = this.f63795b.get(builder);
                 return cVar2 != null ? cVar2 : a(builder);
             }
-            cVar.f27968a = x.f27975a;
+            cVar.f63805a = x.f63812a;
             return cVar;
         }
         return (c) invokeLL.objValue;
@@ -286,20 +286,20 @@ public class v {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
             b bVar = new b();
-            bVar.f27964a = Pattern.compile(jSONObject.getString("pattern"));
-            bVar.f27965b = x.a(jSONObject.getString("group"));
-            bVar.f27966c = new ArrayList();
+            bVar.f63801a = Pattern.compile(jSONObject.getString("pattern"));
+            bVar.f63802b = x.a(jSONObject.getString("group"));
+            bVar.f63803c = new ArrayList();
             JSONArray optJSONArray = jSONObject.optJSONArray("included_methods");
             if (optJSONArray != null) {
                 for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    bVar.f27966c.add(optJSONArray.getString(i2));
+                    bVar.f63803c.add(optJSONArray.getString(i2));
                 }
             }
-            bVar.f27967d = new ArrayList();
+            bVar.f63804d = new ArrayList();
             JSONArray optJSONArray2 = jSONObject.optJSONArray("excluded_methods");
             if (optJSONArray2 != null) {
                 for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    bVar.f27967d.add(optJSONArray2.getString(i3));
+                    bVar.f63804d.add(optJSONArray2.getString(i3));
                 }
             }
             return bVar;
@@ -340,18 +340,18 @@ public class v {
                     return cVar;
                 }
                 for (b bVar : c2) {
-                    if (bVar.f27964a.matcher(str).find()) {
-                        if (bVar.f27965b.compareTo(cVar.f27968a) >= 0) {
-                            cVar.f27968a = bVar.f27965b;
+                    if (bVar.f63801a.matcher(str).find()) {
+                        if (bVar.f63802b.compareTo(cVar.f63805a) >= 0) {
+                            cVar.f63805a = bVar.f63802b;
                         }
-                        cVar.f27969b.addAll(bVar.f27966c);
-                        cVar.f27970c.addAll(bVar.f27967d);
+                        cVar.f63806b.addAll(bVar.f63803c);
+                        cVar.f63807c.addAll(bVar.f63804d);
                     }
                 }
-                this.f27958b.put(str, cVar);
+                this.f63795b.put(str, cVar);
                 return cVar;
             }
-            cVar.f27968a = x.f27975a;
+            cVar.f63805a = x.f63812a;
             return cVar;
         }
         return (c) invokeL.objValue;

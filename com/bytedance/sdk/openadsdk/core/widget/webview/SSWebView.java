@@ -32,13 +32,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SSWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f31100a;
+    public boolean f67038a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SSWebView(Context context) {
@@ -58,7 +58,7 @@ public class SSWebView extends WebView {
                 return;
             }
         }
-        this.f31100a = false;
+        this.f67038a = false;
         b(a(context));
     }
 
@@ -354,7 +354,7 @@ public class SSWebView extends WebView {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, motionEvent)) == null) {
             try {
                 boolean onTouchEvent = super.onTouchEvent(motionEvent);
-                if (motionEvent.getActionMasked() == 0 && this.f31100a && (a2 = a(this)) != null) {
+                if (motionEvent.getActionMasked() == 0 && this.f67038a && (a2 = a(this)) != null) {
                     a2.requestDisallowInterceptTouchEvent(true);
                 }
                 return onTouchEvent;
@@ -413,7 +413,7 @@ public class SSWebView extends WebView {
     public void setIsPreventTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.f31100a = z;
+            this.f67038a = z;
         }
     }
 
@@ -524,7 +524,7 @@ public class SSWebView extends WebView {
                 return;
             }
         }
-        this.f31100a = false;
+        this.f67038a = false;
         b(a(context));
     }
 
@@ -556,7 +556,7 @@ public class SSWebView extends WebView {
                 return;
             }
         }
-        this.f31100a = false;
+        this.f67038a = false;
         b(a(context));
     }
 

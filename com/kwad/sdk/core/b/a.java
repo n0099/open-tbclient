@@ -12,7 +12,7 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.m;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class a implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

@@ -1,5 +1,6 @@
 package com.baidu.tieba.godSquare.model.res;
 
+import c.a.p0.a1.c.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.godSquare.model.req.GodSquareRequestMsg;
@@ -9,11 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.z0.c.a;
 import tbclient.Error;
 import tbclient.GetHotGod.DataRes;
 import tbclient.GetHotGod.GetHotGodResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GodSquareSocketResponsedMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

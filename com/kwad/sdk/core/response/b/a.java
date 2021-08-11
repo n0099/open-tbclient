@@ -21,7 +21,7 @@ import com.kwad.sdk.utils.an;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -369,9 +369,9 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, context, adInfo)) == null) {
-            File j = com.kwad.sdk.core.config.c.j(context);
-            if (j.exists()) {
-                return Uri.fromFile(j).toString();
+            File j2 = com.kwad.sdk.core.config.c.j(context);
+            if (j2.exists()) {
+                return Uri.fromFile(j2).toString();
             }
             String g2 = com.kwad.sdk.core.config.c.g();
             return !an.a(g2) ? g2 : adInfo.downloadSafeInfo.windowPopUrl;

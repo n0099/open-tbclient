@@ -1,6 +1,5 @@
 package com.baidu.android.imrtc.utils;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LogUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "rtcsdk";
@@ -49,48 +48,42 @@ public class LogUtils {
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = TAG;
-            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = TAG;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = TAG;
-            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = TAG;
-            Log.v(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = TAG;
-            Log.w(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = TAG;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
+            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
         }
     }
 }

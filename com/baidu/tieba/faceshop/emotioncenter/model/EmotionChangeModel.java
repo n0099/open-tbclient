@@ -1,5 +1,7 @@
 package com.baidu.tieba.faceshop.emotioncenter.model;
 
+import c.a.e.a.f;
+import c.a.p0.q0.x.d.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -17,17 +19,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.f;
-import d.a.q0.p0.y.d.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class EmotionChangeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f15133e;
+    public final HttpMessageListener f50344e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public class EmotionChangeModel extends BdBaseModel {
                 if (bVar == null || (emotionCenterResponseMessage = (EmotionCenterResponseMessage) httpResponsedMessage) == null) {
                     return;
                 }
-                bVar.f0(emotionCenterResponseMessage.data);
+                bVar.change(emotionCenterResponseMessage.data);
             }
         }
     }
@@ -89,11 +89,11 @@ public class EmotionChangeModel extends BdBaseModel {
                 return;
             }
         }
-        this.f15133e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
+        this.f50344e = new a(this, CmdConfigHttp.CMD_GET_EMOTION_EMOTION_CHANGE);
         registerTask();
-        this.f15133e.setTag(getUniqueId());
-        this.f15133e.setSelfListener(true);
-        registerListener(this.f15133e);
+        this.f50344e.setTag(getUniqueId());
+        this.f50344e.setSelfListener(true);
+        registerListener(this.f50344e);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

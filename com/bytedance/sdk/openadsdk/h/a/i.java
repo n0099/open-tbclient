@@ -12,13 +12,13 @@ import com.bytedance.sdk.component.a.r;
 import com.bytedance.sdk.openadsdk.core.widget.webview.SSWebView;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class i extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<SSWebView> f31587a;
+    public WeakReference<SSWebView> f67530a;
 
     public i(SSWebView sSWebView) {
         Interceptable interceptable = $ic;
@@ -35,7 +35,7 @@ public class i extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
                 return;
             }
         }
-        this.f31587a = new WeakReference<>(sSWebView);
+        this.f67530a = new WeakReference<>(sSWebView);
     }
 
     public static void a(r rVar, SSWebView sSWebView) {
@@ -55,7 +55,7 @@ public class i extends com.bytedance.sdk.component.a.e<JSONObject, JSONObject> {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 boolean optBoolean = jSONObject.optBoolean("isPrevent", false);
-                SSWebView sSWebView = this.f31587a.get();
+                SSWebView sSWebView = this.f67530a.get();
                 if (sSWebView != null) {
                     sSWebView.setIsPreventTouchEvent(optBoolean);
                     jSONObject2.put("success", true);

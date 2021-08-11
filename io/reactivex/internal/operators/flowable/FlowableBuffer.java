@@ -24,7 +24,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class FlowableBuffer<T, C extends Collection<? super T>> extends AbstractFlowableWithUpstream<T, C> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
     public final int size;
     public final int skip;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class PublisherBufferExactSubscriber<T, C extends Collection<? super T>> implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -138,15 +138,15 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
-                this.s.request(BackpressureHelper.multiplyCap(j, this.size));
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+                this.s.request(BackpressureHelper.multiplyCap(j2, this.size));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class PublisherBufferOverlappingSubscriber<T, C extends Collection<? super T>> extends AtomicLong implements FlowableSubscriber<T>, Subscription, BooleanSupplier {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7370244972039324525L;
@@ -209,9 +209,9 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
                 return;
             }
             this.done = true;
-            long j = this.produced;
-            if (j != 0) {
-                BackpressureHelper.produced(this, j);
+            long j2 = this.produced;
+            if (j2 != 0) {
+                BackpressureHelper.produced(this, j2);
             }
             QueueDrainHelper.postComplete(this.actual, this.buffers, this, this);
         }
@@ -278,19 +278,19 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j) && !QueueDrainHelper.postCompleteRequest(j, this.actual, this.buffers, this, this)) {
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2) && !QueueDrainHelper.postCompleteRequest(j2, this.actual, this.buffers, this, this)) {
                 if (!this.once.get() && this.once.compareAndSet(false, true)) {
-                    this.s.request(BackpressureHelper.addCap(this.size, BackpressureHelper.multiplyCap(this.skip, j - 1)));
+                    this.s.request(BackpressureHelper.addCap(this.size, BackpressureHelper.multiplyCap(this.skip, j2 - 1)));
                     return;
                 }
-                this.s.request(BackpressureHelper.multiplyCap(this.skip, j));
+                this.s.request(BackpressureHelper.multiplyCap(this.skip, j2));
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class PublisherBufferSkipSubscriber<T, C extends Collection<? super T>> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5616169793639412593L;
@@ -405,14 +405,14 @@ public final class FlowableBuffer<T, C extends Collection<? super T>> extends Ab
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j) {
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
                 if (get() == 0 && compareAndSet(0, 1)) {
-                    this.s.request(BackpressureHelper.addCap(BackpressureHelper.multiplyCap(j, this.size), BackpressureHelper.multiplyCap(this.skip - this.size, j - 1)));
+                    this.s.request(BackpressureHelper.addCap(BackpressureHelper.multiplyCap(j2, this.size), BackpressureHelper.multiplyCap(this.skip - this.size, j2 - 1)));
                     return;
                 }
-                this.s.request(BackpressureHelper.multiplyCap(this.skip, j));
+                this.s.request(BackpressureHelper.multiplyCap(this.skip, j2));
             }
         }
     }

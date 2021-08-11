@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.core.config.c;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class KSAdVideoPlayConfigImpl implements KsAdVideoPlayConfig, Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -154151744722615768L;

@@ -15,22 +15,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BaseActivity extends Activity implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f9109a;
+    public boolean f43747a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9110b;
+    public boolean f43748b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9111c;
+    public String f43749c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f9112d;
+    public boolean f43750d;
 
     public BaseActivity() {
         Interceptable interceptable = $ic;
@@ -45,19 +45,19 @@ public class BaseActivity extends Activity implements NoProguard {
                 return;
             }
         }
-        this.f9109a = false;
-        this.f9110b = true;
-        this.f9112d = false;
+        this.f43747a = false;
+        this.f43748b = true;
+        this.f43750d = false;
     }
 
     @TargetApi(24)
     private void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && Build.VERSION.SDK_INT >= 24 && isInMultiWindowMode()) {
-            if (this.f9109a) {
-                PassBioGlobalUtils.toastWithText(getActivity(), this.f9111c, 1);
+            if (this.f43747a) {
+                PassBioGlobalUtils.toastWithText(getActivity(), this.f43749c, 1);
             }
-            if (this.f9110b) {
+            if (this.f43748b) {
                 return;
             }
             finish();
@@ -73,7 +73,7 @@ public class BaseActivity extends Activity implements NoProguard {
     public boolean isActivityInForeground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f9112d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43750d : invokeV.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -89,7 +89,7 @@ public class BaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f9111c = getResources().getString(R.string.pass_bio_multi_window_tips);
+            this.f43749c = getResources().getString(R.string.pass_bio_multi_window_tips);
         }
     }
 
@@ -124,10 +124,10 @@ public class BaseActivity extends Activity implements NoProguard {
         }
         super.onMultiWindowModeChanged(z);
         if (z && isActivityInForeground()) {
-            if (this.f9109a) {
-                PassBioGlobalUtils.toastWithText(getActivity(), this.f9111c, 1);
+            if (this.f43747a) {
+                PassBioGlobalUtils.toastWithText(getActivity(), this.f43749c, 1);
             }
-            if (this.f9110b) {
+            if (this.f43748b) {
                 return;
             }
             finish();
@@ -139,7 +139,7 @@ public class BaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onPause();
-            this.f9112d = false;
+            this.f43750d = false;
         }
     }
 
@@ -148,31 +148,31 @@ public class BaseActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            this.f9112d = true;
+            this.f43750d = true;
             a();
         }
     }
 
     public void setIsMultiWindowAvailable(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || z == this.f9110b) {
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || z == this.f43748b) {
             return;
         }
-        this.f9110b = z;
+        this.f43748b = z;
     }
 
     public void setIsShowMultiWindowTips(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || z == this.f9109a) {
+        if (!(interceptable == null || interceptable.invokeZ(1048586, this, z) == null) || z == this.f43747a) {
             return;
         }
-        this.f9109a = z;
+        this.f43747a = z;
     }
 
     public void setMultiWindowTipsId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f9111c = str;
+            this.f43749c = str;
         }
     }
 }

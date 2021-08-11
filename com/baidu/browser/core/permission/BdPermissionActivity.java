@@ -3,15 +3,15 @@ package com.baidu.browser.core.permission;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import c.a.k.a.p.a;
+import c.a.k.a.p.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.permissionhelper.app.ActivityCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.j.a.j.a;
-import d.a.j.a.j.b;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class BdPermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

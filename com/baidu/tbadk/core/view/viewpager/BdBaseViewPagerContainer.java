@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.k.e.n;
+import c.a.o0.s.f0.u.a;
+import c.a.o0.s.f0.u.b;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -18,19 +21,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.n;
-import d.a.p0.s.f0.u.a;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public BdBaseViewPagerContainerHolder f12830e;
+    public BdBaseViewPagerContainerHolder f47816e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f12831f;
+    public a f47817f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BdBaseViewPagerContainer(Context context) {
@@ -58,90 +59,137 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bdBaseViewPagerContainerHolder) == null) || bdBaseViewPagerContainerHolder == null) {
             return;
         }
-        SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.a(), R.color.CAM_X0201);
-        SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.f12833b, R.color.CAM_X0108, 1);
-        SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.f12836e, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.f12834c, R.color.CAM_X0109, 1);
-        SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.f12834c, R.color.CAM_X0201);
-        bdBaseViewPagerContainerHolder.f12834c.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
-        bdBaseViewPagerContainerHolder.f12835d.setSelector(SkinManager.getDrawable(R.drawable.icon_choose_dot_s));
-        bdBaseViewPagerContainerHolder.f12835d.setDrawable(SkinManager.getDrawable(R.drawable.icon_choose_dot_n));
+        SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.getView(), R.color.CAM_X0201);
+        SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.title, R.color.CAM_X0108, 1);
+        SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.divilerLine, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.mMoreView, R.color.CAM_X0109, 1);
+        SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.mMoreView, R.color.CAM_X0201);
+        bdBaseViewPagerContainerHolder.mMoreView.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
+        bdBaseViewPagerContainerHolder.mIndicatorView.setSelector(SkinManager.getDrawable(R.drawable.icon_choose_dot_s));
+        bdBaseViewPagerContainerHolder.mIndicatorView.setDrawable(SkinManager.getDrawable(R.drawable.icon_choose_dot_n));
     }
 
     public final void b(Context context, ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewGroup, z) == null) {
             BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder = new BdBaseViewPagerContainerHolder(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
-            this.f12830e = bdBaseViewPagerContainerHolder;
+            this.f47816e = bdBaseViewPagerContainerHolder;
             a(bdBaseViewPagerContainerHolder);
-            BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder2 = this.f12830e;
-            this.f12831f = new a(context, bdBaseViewPagerContainerHolder2.f12837f, bdBaseViewPagerContainerHolder2.f12835d, bdBaseViewPagerContainerHolder2.f12834c, 4, false, true);
+            BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder2 = this.f47816e;
+            this.f47817f = new a(context, bdBaseViewPagerContainerHolder2.mViewPager, bdBaseViewPagerContainerHolder2.mIndicatorView, bdBaseViewPagerContainerHolder2.mMoreView, 4, false, true);
         }
     }
 
     public IndicatorView getIndicatorView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f12830e.f12835d : (IndicatorView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f47816e.mIndicatorView : (IndicatorView) invokeV.objValue;
     }
 
     public TextView getMoreView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f12830e.f12834c : (TextView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f47816e.mMoreView : (TextView) invokeV.objValue;
     }
 
     @Override // android.view.View
     public View getRootView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f12830e.a() : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f47816e.getView() : (View) invokeV.objValue;
     }
 
     public BdBaseViewPagerContainerHolder getViewHolder() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f12830e : (BdBaseViewPagerContainerHolder) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f47816e : (BdBaseViewPagerContainerHolder) invokeV.objValue;
     }
 
     public BdBaseViewPager getViewPager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f12830e.f12837f : (BdBaseViewPager) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f47816e.mViewPager : (BdBaseViewPager) invokeV.objValue;
     }
 
-    public void setAutoScrollIntervalTime(long j) {
+    public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.f12831f.j(j);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.f47817f.i();
+        }
+    }
+
+    public void onSkinTypeChanged(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+            BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder = this.f47816e;
+            if (i2 != bdBaseViewPagerContainerHolder.skinType) {
+                a(bdBaseViewPagerContainerHolder);
+                this.f47817f.j(i2);
+                this.f47816e.skinType = i2;
+            }
+        }
+    }
+
+    public void registerAdapter(Context context, b<?, ?> bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, context, bVar) == null) {
+            this.f47817f.k(context, bVar);
+        }
+    }
+
+    public void registerAdapters(Context context, List<b<?, ?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, context, list) == null) {
+            this.f47817f.l(context, list);
+        }
+    }
+
+    public void setAutoScrollIntervalTime(long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            this.f47817f.m(j2);
         }
     }
 
     public void setDatas(List<n> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f12831f.k(list);
+        if (interceptable == null || interceptable.invokeL(1048588, this, list) == null) {
+            this.f47817f.n(list);
         }
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f12831f.l(z);
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.f47817f.o(z);
         }
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f12831f.m(z);
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.f47817f.p(z);
         }
     }
 
     public void setMaxScrollCountLimit(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f12831f.n(i2);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
+            this.f47817f.q(i2);
+        }
+    }
+
+    public void startAutoScroll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.f47817f.r();
+        }
+    }
+
+    public void stopAutoScroll() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.f47817f.s();
         }
     }
 

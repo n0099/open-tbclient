@@ -10,7 +10,7 @@ import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.mobstat.Config;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class m extends k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,7 +51,7 @@ public class m extends k {
             RouteNode routeNode = new RouteNode();
             routeNode.setTitle(optJSONObject.optString(ActVideoSetting.WIFI_DISPLAY));
             routeNode.setUid(optJSONObject.optString("uid"));
-            routeNode.setLocation(CoordUtil.decodeLocation(optJSONObject.optString(Config.PLATFORM_TYPE)));
+            routeNode.setLocation(CoordUtil.decodeLocation(optJSONObject.optString("pt")));
             return routeNode;
         }
         return (RouteNode) invokeLL.objValue;
@@ -164,7 +164,7 @@ public class m extends k {
                 if (optJSONObject3 != null) {
                     transitRouteResult.setTaxiInfo(a(optJSONObject3));
                 }
-                JSONObject optJSONObject4 = optJSONObject2.optJSONObject("option");
+                JSONObject optJSONObject4 = optJSONObject2.optJSONObject(SpeedStatsUtils.UBC_KEY_OPTION);
                 if (optJSONObject4 == null) {
                     return false;
                 }

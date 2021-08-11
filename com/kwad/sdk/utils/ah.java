@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ah {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36682a = "";
+    public static String f73503a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -48,22 +48,22 @@ public class ah {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (TextUtils.isEmpty(f36682a)) {
+            if (TextUtils.isEmpty(f73503a)) {
                 String a2 = a();
-                f36682a = a2;
+                f73503a = a2;
                 if (TextUtils.isEmpty(a2)) {
                     String b2 = b();
-                    f36682a = b2;
+                    f73503a = b2;
                     if (TextUtils.isEmpty(b2)) {
                         String b3 = b(context);
-                        f36682a = b3;
+                        f73503a = b3;
                         return b3;
                     }
-                    return f36682a;
+                    return f73503a;
                 }
-                return f36682a;
+                return f73503a;
             }
-            return f36682a;
+            return f73503a;
         }
         return (String) invokeL.objValue;
     }

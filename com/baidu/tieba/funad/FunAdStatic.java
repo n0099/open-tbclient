@@ -1,5 +1,9 @@
 package com.baidu.tieba.funad;
 
+import c.a.p0.w0.a;
+import c.a.p0.w0.b;
+import c.a.p0.x0.c;
+import c.a.p0.x0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -16,17 +20,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.v0.a;
-import d.a.q0.v0.b;
-import d.a.q0.w0.c;
-import d.a.q0.w0.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FunAdStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<a.e> {
+    /* loaded from: classes7.dex */
+    public static class a implements CustomMessageTask.CustomRunnable<a.f> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -45,7 +45,7 @@ public class FunAdStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<a.e> run(CustomMessage<a.e> customMessage) {
+        public CustomResponsedMessage<a.f> run(CustomMessage<a.f> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) ? new CustomResponsedMessage<>(2921525, new c()) : (CustomResponsedMessage) invokeL.objValue;
@@ -65,7 +65,7 @@ public class FunAdStatic {
                 return;
             }
         }
-        b.f65639a.set(new d());
+        b.f27287a.set(new d());
         a();
     }
 

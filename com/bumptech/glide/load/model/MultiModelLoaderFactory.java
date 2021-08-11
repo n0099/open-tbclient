@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MultiModelLoaderFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Factory DEFAULT_FACTORY;
@@ -34,7 +34,7 @@ public class MultiModelLoaderFactory {
     public final Factory factory;
     public final Pools.Pool<List<Throwable>> throwableListPool;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class EmptyModelLoader implements ModelLoader<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Entry<Model, Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

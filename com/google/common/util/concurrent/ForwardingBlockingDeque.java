@@ -1,16 +1,16 @@
 package com.google.common.util.concurrent;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.c.a0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.f.d.c.a0;
 import java.util.Collection;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class ForwardingBlockingDeque<E> extends a0<E> implements BlockingDeque<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public abstract class ForwardingBlockingDeque<E> extends a0<E> implements Blocki
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.f.d.c.a0, d.f.d.c.i0, d.f.d.c.y, d.f.d.c.h0
+    @Override // c.i.d.c.a0, c.i.d.c.i0, c.i.d.c.y, c.i.d.c.h0
     public abstract BlockingDeque<E> delegate();
 
     @Override // java.util.concurrent.BlockingQueue
@@ -41,45 +41,45 @@ public abstract class ForwardingBlockingDeque<E> extends a0<E> implements Blocki
     }
 
     @Override // java.util.concurrent.BlockingDeque, java.util.concurrent.BlockingQueue
-    public boolean offer(E e2, long j, TimeUnit timeUnit) throws InterruptedException {
+    public boolean offer(E e2, long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{e2, Long.valueOf(j), timeUnit})) == null) ? delegate().offer(e2, j, timeUnit) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{e2, Long.valueOf(j2), timeUnit})) == null) ? delegate().offer(e2, j2, timeUnit) : invokeCommon.booleanValue;
     }
 
     @Override // java.util.concurrent.BlockingDeque
-    public boolean offerFirst(E e2, long j, TimeUnit timeUnit) throws InterruptedException {
+    public boolean offerFirst(E e2, long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{e2, Long.valueOf(j), timeUnit})) == null) ? delegate().offerFirst(e2, j, timeUnit) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{e2, Long.valueOf(j2), timeUnit})) == null) ? delegate().offerFirst(e2, j2, timeUnit) : invokeCommon.booleanValue;
     }
 
     @Override // java.util.concurrent.BlockingDeque
-    public boolean offerLast(E e2, long j, TimeUnit timeUnit) throws InterruptedException {
+    public boolean offerLast(E e2, long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{e2, Long.valueOf(j), timeUnit})) == null) ? delegate().offerLast(e2, j, timeUnit) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{e2, Long.valueOf(j2), timeUnit})) == null) ? delegate().offerLast(e2, j2, timeUnit) : invokeCommon.booleanValue;
     }
 
     @Override // java.util.concurrent.BlockingDeque, java.util.concurrent.BlockingQueue
-    public E poll(long j, TimeUnit timeUnit) throws InterruptedException {
+    public E poll(long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048586, this, j, timeUnit)) == null) ? delegate().poll(j, timeUnit) : (E) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048586, this, j2, timeUnit)) == null) ? delegate().poll(j2, timeUnit) : (E) invokeJL.objValue;
     }
 
     @Override // java.util.concurrent.BlockingDeque
-    public E pollFirst(long j, TimeUnit timeUnit) throws InterruptedException {
+    public E pollFirst(long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048587, this, j, timeUnit)) == null) ? delegate().pollFirst(j, timeUnit) : (E) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048587, this, j2, timeUnit)) == null) ? delegate().pollFirst(j2, timeUnit) : (E) invokeJL.objValue;
     }
 
     @Override // java.util.concurrent.BlockingDeque
-    public E pollLast(long j, TimeUnit timeUnit) throws InterruptedException {
+    public E pollLast(long j2, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048588, this, j, timeUnit)) == null) ? delegate().pollLast(j, timeUnit) : (E) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048588, this, j2, timeUnit)) == null) ? delegate().pollLast(j2, timeUnit) : (E) invokeJL.objValue;
     }
 
     @Override // java.util.concurrent.BlockingDeque, java.util.concurrent.BlockingQueue

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f10426a;
+    public Context f45107a;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public final class a {
                 return;
             }
         }
-        this.f10426a = context;
+        this.f45107a = context;
     }
 
     public final boolean a(String str) {
@@ -45,7 +45,7 @@ public final class a {
                 return true;
             }
             try {
-                a2 = f.a(this.f10426a, c.b() + "p/1/r", str, false, false);
+                a2 = f.a(this.f45107a, c.b() + "p/1/r", str, false, false);
             } catch (Throwable unused) {
                 c.a();
             }

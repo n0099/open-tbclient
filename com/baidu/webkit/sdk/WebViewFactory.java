@@ -41,7 +41,7 @@ import java.io.File;
 import java.lang.reflect.Method;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class WebViewFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHROMIUM_HOST_APP = "com.baidu.browser.apps";
@@ -92,7 +92,7 @@ public final class WebViewFactory {
     public static boolean sforceMainProcessNoZeus;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface WebKitUnzipCallback {
         void unzipFinished();
     }
@@ -135,23 +135,23 @@ public final class WebViewFactory {
 
     public static void checkNativeLibraryIntegrity() throws Throwable {
         c.a aVar;
-        long j;
+        long j2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65543, null) == null) && Build.VERSION.SDK_INT == 19) {
-            if (c.a(mContext).f27572a.a()) {
-                String str = aVar.f27580d + "libzeuswebviewchromium.so";
+            if (c.a(mContext).f63400a.a()) {
+                String str = aVar.f63408d + "libzeuswebviewchromium.so";
                 try {
-                    j = new File(str).length();
+                    j2 = new File(str).length();
                 } catch (Throwable th) {
                     th.printStackTrace();
-                    j = 0;
+                    j2 = 0;
                 }
-                Log.i(TAG, "checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
+                Log.i(TAG, "checkNativeLibraryIntegrity: " + str + ", 27057988, " + j2);
                 String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("enable_sosize_check");
                 if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false")) {
-                    if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != j || j == 0) {
+                    if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != j2 || j2 == 0) {
                         mProvider = null;
-                        throw new Exception("checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
+                        throw new Exception("checkNativeLibraryIntegrity: " + str + ", 27057988, " + j2);
                     }
                 }
             }
@@ -170,7 +170,7 @@ public final class WebViewFactory {
                 if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                     return;
                 }
-                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).f27572a.f27580d);
+                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).f63400a.f63408d);
                 throw new Exception("sdk and native library dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusJarVersion + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusNativeLibraryVersion);
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -562,7 +562,7 @@ public final class WebViewFactory {
             try {
                 ApplicationInfo applicationInfo2 = context.getApplicationInfo();
                 c a2 = c.a(context);
-                c.a aVar = a2.f27572a;
+                c.a aVar = a2.f63400a;
                 mIsInstallUpdate = false;
                 String str2 = applicationInfo2.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
                 String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -573,7 +573,7 @@ public final class WebViewFactory {
                         str2 = str3;
                     }
                 }
-                if (!a2.f27572a.a() && !EngineManager.getInstance().isInstalled()) {
+                if (!a2.f63400a.a() && !EngineManager.getInstance().isInstalled()) {
                     LoadErrorCode.getInstance().trace(513);
                 }
                 packageInfo = context.getPackageManager().getPackageArchiveInfo(str2, 132);
@@ -587,7 +587,7 @@ public final class WebViewFactory {
                             applicationInfo.nativeLibraryDir = str;
                         }
                         applicationInfo = packageInfo.applicationInfo;
-                        str = aVar.f27580d + ":" + applicationInfo2.nativeLibraryDir;
+                        str = aVar.f63408d + ":" + applicationInfo2.nativeLibraryDir;
                         applicationInfo.nativeLibraryDir = str;
                     } catch (Throwable th2) {
                         th = th2;
@@ -645,7 +645,7 @@ public final class WebViewFactory {
                 return sProcessSuffix;
             }
             String processName = getProcessName(context, Process.myPid());
-            android.util.Log.d(TAG, "context=" + context + ", processName=" + processName);
+            String str = "context=" + context + ", processName=" + processName;
             if (processName == null) {
                 return null;
             }
@@ -703,16 +703,16 @@ public final class WebViewFactory {
         return (WebViewFactoryProvider) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:107:0x0242  */
-    /* JADX WARN: Removed duplicated region for block: B:112:0x0257  */
-    /* JADX WARN: Removed duplicated region for block: B:133:0x02a1 A[Catch: all -> 0x0359, TryCatch #6 {all -> 0x0359, blocks: (B:131:0x029b, B:133:0x02a1, B:135:0x02ba, B:137:0x02d5, B:139:0x02e4, B:140:0x02ed, B:142:0x02f3, B:144:0x02f9, B:147:0x0302, B:148:0x0309, B:149:0x030a, B:151:0x0325, B:153:0x032b, B:136:0x02bf, B:154:0x0339, B:155:0x0358), top: B:218:0x029b }] */
-    /* JADX WARN: Removed duplicated region for block: B:154:0x0339 A[Catch: all -> 0x0359, TryCatch #6 {all -> 0x0359, blocks: (B:131:0x029b, B:133:0x02a1, B:135:0x02ba, B:137:0x02d5, B:139:0x02e4, B:140:0x02ed, B:142:0x02f3, B:144:0x02f9, B:147:0x0302, B:148:0x0309, B:149:0x030a, B:151:0x0325, B:153:0x032b, B:136:0x02bf, B:154:0x0339, B:155:0x0358), top: B:218:0x029b }] */
-    /* JADX WARN: Removed duplicated region for block: B:160:0x0372  */
-    /* JADX WARN: Removed duplicated region for block: B:190:0x03e7  */
-    /* JADX WARN: Removed duplicated region for block: B:195:0x0414  */
-    /* JADX WARN: Removed duplicated region for block: B:198:0x0425  */
-    /* JADX WARN: Removed duplicated region for block: B:201:0x0454  */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x01d3  */
+    /* JADX WARN: Removed duplicated region for block: B:108:0x0236  */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x024b  */
+    /* JADX WARN: Removed duplicated region for block: B:134:0x0295 A[Catch: all -> 0x034d, TryCatch #6 {all -> 0x034d, blocks: (B:132:0x028f, B:134:0x0295, B:136:0x02ae, B:138:0x02c9, B:140:0x02d8, B:141:0x02e1, B:143:0x02e7, B:145:0x02ed, B:148:0x02f6, B:149:0x02fd, B:150:0x02fe, B:152:0x0319, B:154:0x031f, B:137:0x02b3, B:155:0x032d, B:156:0x034c), top: B:219:0x028f }] */
+    /* JADX WARN: Removed duplicated region for block: B:155:0x032d A[Catch: all -> 0x034d, TryCatch #6 {all -> 0x034d, blocks: (B:132:0x028f, B:134:0x0295, B:136:0x02ae, B:138:0x02c9, B:140:0x02d8, B:141:0x02e1, B:143:0x02e7, B:145:0x02ed, B:148:0x02f6, B:149:0x02fd, B:150:0x02fe, B:152:0x0319, B:154:0x031f, B:137:0x02b3, B:155:0x032d, B:156:0x034c), top: B:219:0x028f }] */
+    /* JADX WARN: Removed duplicated region for block: B:161:0x0366  */
+    /* JADX WARN: Removed duplicated region for block: B:191:0x03db  */
+    /* JADX WARN: Removed duplicated region for block: B:196:0x0408  */
+    /* JADX WARN: Removed duplicated region for block: B:199:0x0419  */
+    /* JADX WARN: Removed duplicated region for block: B:202:0x0448  */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x01c7  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -731,6 +731,7 @@ public final class WebViewFactory {
         WebViewFactoryProvider webViewFactoryProvider2;
         WebViewFactoryProvider webViewFactoryProvider3;
         ClassLoader zeusClassLoader;
+        StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
             if (!sUsingSystemWebView) {
@@ -743,11 +744,14 @@ public final class WebViewFactory {
             if (getDataDirectorySuffix() == null) {
                 String processSuffix = getProcessSuffix(mContext);
                 if (processSuffix == null) {
-                    android.util.Log.w(TAG, "process suffix is null, context=" + mContext);
+                    sb = new StringBuilder("process suffix is null, context=");
+                    sb.append(mContext);
                 } else {
                     setDataDirectorySuffix(processSuffix);
-                    android.util.Log.i(TAG, "set default suffix: " + getDataDirectorySuffix());
+                    sb = new StringBuilder("set default suffix: ");
+                    sb.append(getDataDirectorySuffix());
                 }
+                sb.toString();
             }
             IABTestInterface iABTestInterface = mABTestObject;
             if (iABTestInterface != null) {
@@ -952,14 +956,14 @@ public final class WebViewFactory {
                             }
                             if (LoadErrorCode.getInstance().getInt() == 0) {
                                 LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                                StringBuilder sb = new StringBuilder("6:");
-                                sb.append(shouldUseSystemWebView);
-                                sb.append(",");
+                                StringBuilder sb2 = new StringBuilder("6:");
+                                sb2.append(shouldUseSystemWebView);
+                                sb2.append(",");
                                 if (mPackageInfo == null) {
                                     z2 = false;
                                 }
-                                sb.append(z2);
-                                loadErrorCode.set(6, sb.toString());
+                                sb2.append(z2);
+                                loadErrorCode.set(6, sb2.toString());
                             }
                             fetchSystemPackageInfo();
                             try {
@@ -1434,7 +1438,7 @@ public final class WebViewFactory {
             try {
                 ApplicationInfo applicationInfo = context.getApplicationInfo();
                 c a2 = c.a(context);
-                c.a aVar = a2.f27572a;
+                c.a aVar = a2.f63400a;
                 mIsInstallUpdate = false;
                 String str2 = applicationInfo.nativeLibraryDir + SPLASH + "libcom.baidu.zeus.so";
                 String downloadLibPath = UtilsBlink.getDownloadLibPath(context);
@@ -1445,7 +1449,7 @@ public final class WebViewFactory {
                         str2 = str3;
                     }
                 }
-                if (!a2.f27572a.a() && !EngineManager.getInstance().isInstalled()) {
+                if (!a2.f63400a.a() && !EngineManager.getInstance().isInstalled()) {
                     LoadErrorCode.getInstance().trace(513);
                 }
                 if (str2 != null && new File(str2).exists()) {
@@ -1456,7 +1460,7 @@ public final class WebViewFactory {
                         sPackageInfoType = 1;
                         z = true;
                     }
-                    str = aVar.f27580d + ":" + applicationInfo.nativeLibraryDir;
+                    str = aVar.f63408d + ":" + applicationInfo.nativeLibraryDir;
                     sZeusNativeLibraryDir = str;
                     sPackageInfoType = 1;
                     z = true;
@@ -1716,29 +1720,29 @@ public final class WebViewFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65603, null, new Object[]{context, Boolean.valueOf(z), webKitUnzipCallback}) == null) {
             final c a2 = c.a(context);
-            a2.f27572a.a(z);
+            a2.f63400a.a(z);
             if (!z || isRendererProcess()) {
                 return;
             }
-            synchronized (c.f27569e) {
+            synchronized (c.f63397e) {
                 if (context != null) {
-                    if (a2.f27572a != null && a2.f27573b == null) {
-                        a2.f27573b = new c.b(a2, context);
+                    if (a2.f63400a != null && a2.f63401b == null) {
+                        a2.f63401b = new c.b(a2, context);
                     }
                 }
             }
-            synchronized (c.f27569e) {
-                if (a2.f27574c != webKitUnzipCallback) {
-                    a2.f27574c = webKitUnzipCallback;
-                    if (a2.f27575d == null) {
-                        a2.f27575d = new Handler(Looper.getMainLooper());
+            synchronized (c.f63397e) {
+                if (a2.f63402c != webKitUnzipCallback) {
+                    a2.f63402c = webKitUnzipCallback;
+                    if (a2.f63403d == null) {
+                        a2.f63403d = new Handler(Looper.getMainLooper());
                     }
-                    a2.f27575d.postDelayed(new Runnable(a2) { // from class: com.baidu.webkit.internal.blink.c.1
+                    a2.f63403d.postDelayed(new Runnable(a2) { // from class: com.baidu.webkit.internal.blink.c.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
                         /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ c f27576a;
+                        public final /* synthetic */ c f63404a;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -1755,17 +1759,17 @@ public final class WebViewFactory {
                                     return;
                                 }
                             }
-                            this.f27576a = a2;
+                            this.f63404a = a2;
                         }
 
                         @Override // java.lang.Runnable
                         public final void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                synchronized (c.f27571g) {
-                                    if (this.f27576a.f27574c != null) {
-                                        this.f27576a.f27574c.unzipFinished();
-                                        this.f27576a.f27574c = null;
+                                synchronized (c.f63399g) {
+                                    if (this.f63404a.f63402c != null) {
+                                        this.f63404a.f63402c.unzipFinished();
+                                        this.f63404a.f63402c = null;
                                     }
                                 }
                             }

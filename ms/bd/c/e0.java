@@ -14,7 +14,7 @@ import java.util.Map;
 import org.json.JSONArray;
 @Keep
 @JProtect
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class e0 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CLIENT_TYPE_BUSINESS = 1;
@@ -26,37 +26,39 @@ public class e0 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f73535a;
+    public String f78833a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f73536b;
+    public String f78834b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f73537c;
+    public String f78835c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f73538d;
+    public String f78836d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f73539e;
+    public String f78837e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f73540f;
+    public String f78838f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f73541g;
+    public String f78839g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f73542h;
+    public String f78840h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f73543i;
-    public int j;
+    public String f78841i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f78842j;
     public int k;
     public Map<String, String> l;
     public Map<String, String> m;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static abstract class a<T extends b> extends e0 implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -76,9 +78,9 @@ public class e0 {
                     return;
                 }
             }
-            this.f73541g = str;
-            this.f73542h = str2;
-            this.f73543i = str3;
+            this.f78839g = str;
+            this.f78840h = str2;
+            this.f78841i = str3;
             if (TextUtils.isEmpty(str) || "0".equals(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
                 throw new IllegalArgumentException("sdkID or license must be set.");
             }
@@ -88,7 +90,7 @@ public class e0 {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.j != -1) {
+                if (this.f78842j != -1) {
                     return this;
                 }
                 throw new IllegalArgumentException("MSConfig init error");
@@ -100,7 +102,7 @@ public class e0 {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.j = i2;
+                this.f78842j = i2;
                 return this;
             }
             return (T) invokeI.objValue;
@@ -110,14 +112,14 @@ public class e0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.f73537c = str;
+                this.f78835c = str;
                 return this;
             }
             return (T) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface b {
     }
 
@@ -134,16 +136,16 @@ public class e0 {
                 return;
             }
         }
-        this.f73535a = "";
-        this.f73536b = "";
-        this.f73537c = "";
-        this.f73538d = "";
-        this.f73539e = "";
-        this.f73540f = "";
-        this.f73541g = "";
-        this.f73542h = "";
-        this.f73543i = "";
-        this.j = -1;
+        this.f78833a = "";
+        this.f78834b = "";
+        this.f78835c = "";
+        this.f78836d = "";
+        this.f78837e = "";
+        this.f78838f = "";
+        this.f78839g = "";
+        this.f78840h = "";
+        this.f78841i = "";
+        this.f78842j = -1;
         this.k = -1;
         this.l = new HashMap();
         this.m = new HashMap();
@@ -154,16 +156,16 @@ public class e0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            jSONArray.put(a(this.f73535a));
-            jSONArray.put(a(this.f73542h));
-            jSONArray.put(a(this.f73541g));
-            jSONArray.put(a(this.f73543i));
-            jSONArray.put(a(this.f73536b));
-            jSONArray.put(a(this.f73537c));
-            jSONArray.put(a(this.f73538d));
-            jSONArray.put(a(this.f73539e));
-            jSONArray.put(a(this.f73540f));
-            jSONArray.put(String.valueOf(this.j));
+            jSONArray.put(a(this.f78833a));
+            jSONArray.put(a(this.f78840h));
+            jSONArray.put(a(this.f78839g));
+            jSONArray.put(a(this.f78841i));
+            jSONArray.put(a(this.f78834b));
+            jSONArray.put(a(this.f78835c));
+            jSONArray.put(a(this.f78836d));
+            jSONArray.put(a(this.f78837e));
+            jSONArray.put(a(this.f78838f));
+            jSONArray.put(String.valueOf(this.f78842j));
             jSONArray.put(String.valueOf(this.k));
             JSONArray jSONArray2 = new JSONArray();
             for (Map.Entry<String, String> entry : this.l.entrySet()) {

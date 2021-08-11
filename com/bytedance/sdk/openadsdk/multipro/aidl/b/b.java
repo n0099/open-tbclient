@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.ICommonPermissionListener;
 import com.bytedance.sdk.openadsdk.q.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b extends ICommonPermissionListener.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f31735a;
+    public Handler f67680a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a f31736b;
+    public d.a f67681b;
 
     public b(d.a aVar) {
         Interceptable interceptable = $ic;
@@ -36,8 +36,8 @@ public class b extends ICommonPermissionListener.Stub {
                 return;
             }
         }
-        this.f31735a = new Handler(Looper.getMainLooper());
-        this.f31736b = aVar;
+        this.f67680a = new Handler(Looper.getMainLooper());
+        this.f67681b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -49,10 +49,10 @@ public class b extends ICommonPermissionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ String f31738a;
+                public final /* synthetic */ String f67683a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ b f31739b;
+                public final /* synthetic */ b f67684b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -69,17 +69,17 @@ public class b extends ICommonPermissionListener.Stub {
                             return;
                         }
                     }
-                    this.f31739b = this;
-                    this.f31738a = str;
+                    this.f67684b = this;
+                    this.f67683a = str;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31739b.f31736b == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f67684b.f67681b == null) {
                         return;
                     }
-                    this.f31739b.f31736b.a(this.f31738a);
+                    this.f67684b.f67681b.a(this.f67683a);
                 }
             });
         }
@@ -94,7 +94,7 @@ public class b extends ICommonPermissionListener.Stub {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f31737a;
+                public final /* synthetic */ b f67682a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -111,16 +111,16 @@ public class b extends ICommonPermissionListener.Stub {
                             return;
                         }
                     }
-                    this.f31737a = this;
+                    this.f67682a = this;
                 }
 
                 @Override // java.lang.Runnable
                 public void run() {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f31737a.f31736b == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.f67682a.f67681b == null) {
                         return;
                     }
-                    this.f31737a.f31736b.a();
+                    this.f67682a.f67681b.a();
                 }
             });
         }
@@ -129,10 +129,10 @@ public class b extends ICommonPermissionListener.Stub {
     private void a(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, runnable) == null) {
-            if (this.f31735a == null) {
-                this.f31735a = new Handler(Looper.getMainLooper());
+            if (this.f67680a == null) {
+                this.f67680a = new Handler(Looper.getMainLooper());
             }
-            this.f31735a.post(runnable);
+            this.f67680a.post(runnable);
         }
     }
 }

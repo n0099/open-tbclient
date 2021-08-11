@@ -4,14 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class BridgeActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FLAG_RESTART = "isRestart";
@@ -36,14 +34,13 @@ public final class BridgeActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            Log.d("BridgeActivity", "onActivityResult");
             setResult(i3, intent);
             finish();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x006f  */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0073  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0062  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0066  */
     @Override // android.app.Activity
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -60,10 +57,7 @@ public final class BridgeActivity extends Activity {
             if (getIntent() == null) {
                 setResult(444222000);
                 finish();
-                return;
-            }
-            Log.d("BridgeActivity", MissionEvent.MESSAGE_CREATE);
-            if (bundle == null || !bundle.getBoolean(FLAG_RESTART)) {
+            } else if (bundle == null || !bundle.getBoolean(FLAG_RESTART)) {
                 try {
                     intent = (Intent) getIntent().getParcelableExtra("intent");
                     if (intent != null) {
@@ -71,7 +65,7 @@ public final class BridgeActivity extends Activity {
                             i2 = intent.getIntExtra("request_code", 0);
                         } catch (Exception e3) {
                             e2 = e3;
-                            Log.e("YYOpenSdk", "resultCode getIntExtra exception " + e2);
+                            String str = "resultCode getIntExtra exception " + e2;
                             if (intent == null) {
                             }
                         }
@@ -96,7 +90,6 @@ public final class BridgeActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             bundle.putBoolean(FLAG_RESTART, true);
             super.onSaveInstanceState(bundle);
-            Log.d("BridgeActivity", "onSaveInstanceState");
         }
     }
 }

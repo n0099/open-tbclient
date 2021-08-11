@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class PaBaseHttpRequest extends BaseHttpRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -82,23 +82,23 @@ public abstract class PaBaseHttpRequest extends BaseHttpRequest {
         return (String) invokeV.objValue;
     }
 
-    public String getSignByMd5Error(String str, long j, long j2, String str2) {
+    public String getSignByMd5Error(String str, long j2, long j3, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), str2})) == null) {
             try {
                 if (!TextUtils.isEmpty(str2)) {
                     if (str2.equals(Constants.ERROR_MSG_MD5_NULL)) {
-                        return j + str.substring(0, 28) + j2;
+                        return j2 + str.substring(0, 28) + j3;
                     } else if (str2.equals(Constants.ERROR_MSG_MD5_EMPTY)) {
-                        return j + str.substring(0, 24) + j2;
+                        return j2 + str.substring(0, 24) + j3;
                     } else {
                         return str2;
                     }
                 }
-                return j + str.substring(0, 20) + j2;
+                return j2 + str.substring(0, 20) + j3;
             } catch (Exception unused) {
-                return "" + j + j2;
+                return "" + j2 + j3;
             }
         }
         return (String) invokeCommon.objValue;

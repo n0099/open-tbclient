@@ -11,7 +11,7 @@ import com.baidu.wallet.api.IPrecashierCallback;
 import com.baidu.wallet.router.RouterAction;
 import com.baidu.wallet.router.RouterCallback;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class EnterWalletChangePayMethodAction implements RouterAction {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,10 +38,10 @@ public class EnterWalletChangePayMethodAction implements RouterAction {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ RouterCallback f26220a;
+                public final /* synthetic */ RouterCallback f62106a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ EnterWalletChangePayMethodAction f26221b;
+                public final /* synthetic */ EnterWalletChangePayMethodAction f62107b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -58,19 +58,19 @@ public class EnterWalletChangePayMethodAction implements RouterAction {
                             return;
                         }
                     }
-                    this.f26221b = this;
-                    this.f26220a = routerCallback;
+                    this.f62107b = this;
+                    this.f62106a = routerCallback;
                 }
 
                 @Override // com.baidu.wallet.api.IPrecashierCallback
                 public void onResult(String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.f26220a == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, str2) == null) || this.f62106a == null) {
                         return;
                     }
                     HashMap hashMap = new HashMap();
                     hashMap.put("result", str2);
-                    this.f26220a.onResult(0, hashMap);
+                    this.f62106a.onResult(0, hashMap);
                 }
             });
         }

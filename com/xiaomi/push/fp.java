@@ -1,4 +1,4 @@
 package com.xiaomi.push;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface fp {
 }

@@ -1,5 +1,8 @@
 package com.opensource.svgaplayer.proto;
 
+import c.o.a.c;
+import c.o.a.d;
+import c.o.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,13 +15,11 @@ import com.squareup.wire2.FieldEncoding;
 import com.squareup.wire2.Message;
 import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
-import d.k.a.c;
-import d.k.a.d;
-import d.k.a.h.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<SpriteEntity> ADAPTER;
@@ -30,7 +31,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String imageKey;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Builder extends Message.a<SpriteEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,7 +85,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class ProtoAdapter_SpriteEntity extends ProtoAdapter<SpriteEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -262,7 +263,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
                 sb.append(this.frames);
             }
             StringBuilder replace = sb.replace(0, 2, "SpriteEntity{");
-            replace.append('}');
+            replace.append(ExtendedMessageFormat.END_FE);
             return replace.toString();
         }
         return (String) invokeV.objValue;

@@ -15,28 +15,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.widget.BdActionBar;
 import com.baidu.wallet.core.beans.BeanConstants;
 import com.baidu.wallet.home.datamodel.HomeCfgResponse;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet.home.ui.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public View f25220a;
+    public View f60952a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f25221b;
+    public c f60953b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f25222c;
+    public ImageView f60954c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f25223d;
+    public String f60955d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f25224e;
+    public boolean f60956e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.wallet.home.ui.b.a f25225f;
+    public com.baidu.wallet.home.ui.b.a f60957f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WalletHomeActionBar(Context context) {
@@ -56,7 +56,7 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
                 return;
             }
         }
-        this.f25224e = BeanConstants.CHANNEL_ID_KUANG.equals(BeanConstants.CHANNEL_ID);
+        this.f60956e = "baiduapp".equals(BeanConstants.CHANNEL_ID);
         initHomeActionBar(context);
     }
 
@@ -71,22 +71,22 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
     public void initHomeActionBar(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.f25225f = new com.baidu.wallet.home.ui.b.a(this);
+            this.f60957f = new com.baidu.wallet.home.ui.b.a(this);
             setLeftImgZone2NotifyTextColor(getResources().getColor(ResUtils.color(context, "wallet_base_whiteColor")));
             View rightZoneView = getRightZoneView();
-            this.f25220a = rightZoneView;
-            this.f25221b = new c(rightZoneView);
-            this.f25222c = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_dot"));
+            this.f60952a = rightZoneView;
+            this.f60953b = new c(rightZoneView);
+            this.f60954c = (ImageView) findViewById(ResUtils.id(getContext(), "title_right_imgzone2_dot"));
             setSafeIconVisible(false);
             setRightImgZone2OnClickListener(new View.OnClickListener(this, context) { // from class: com.baidu.wallet.home.ui.widget.WalletHomeActionBar.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f25226a;
+                public final /* synthetic */ Context f60958a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ WalletHomeActionBar f25227b;
+                public final /* synthetic */ WalletHomeActionBar f60959b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -103,17 +103,17 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
                             return;
                         }
                     }
-                    this.f25227b = this;
-                    this.f25226a = context;
+                    this.f60959b = this;
+                    this.f60958a = context;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f25227b.f25225f == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.f60959b.f60957f == null) {
                         return;
                     }
-                    this.f25227b.f25225f.a(this.f25226a);
+                    this.f60959b.f60957f.a(this.f60958a);
                 }
             });
             setRightImgZone2Visibility(8);
@@ -124,12 +124,12 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
     public void refreshMenu(String str, HomeCfgResponse.TitleItemData[] titleItemDataArr, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, titleItemDataArr, str2) == null) {
-            if (this.f25221b == null) {
-                this.f25221b = new c(this.f25220a);
+            if (this.f60953b == null) {
+                this.f60953b = new c(this.f60952a);
             }
-            this.f25221b.a(str, titleItemDataArr, str2);
-            this.f25221b.dismiss();
-            this.f25221b.notifyMenuSetChanged();
+            this.f60953b.a(str, titleItemDataArr, str2);
+            this.f60953b.dismiss();
+            this.f60953b.notifyMenuSetChanged();
         }
     }
 
@@ -147,11 +147,11 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
-                this.f25222c.setVisibility(0);
-                this.f25222c.setImageResource(ResUtils.drawable(getContext(), "wallet_home_red_star"));
+                this.f60954c.setVisibility(0);
+                this.f60954c.setImageResource(ResUtils.drawable(getContext(), "wallet_home_red_star"));
                 return;
             }
-            this.f25222c.setVisibility(8);
+            this.f60954c.setVisibility(8);
         }
     }
 
@@ -175,7 +175,7 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
     public void showMenu() {
         c cVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (cVar = this.f25221b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (cVar = this.f60953b) == null) {
             return;
         }
         cVar.show();
@@ -184,10 +184,10 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
     public void toRefreshTitleBar(Context context, String str, HomeCfgResponse.TitleConfig titleConfig, String str2) {
         com.baidu.wallet.home.ui.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048585, this, context, str, titleConfig, str2) == null) || (aVar = this.f25225f) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLL(1048585, this, context, str, titleConfig, str2) == null) || (aVar = this.f60957f) == null) {
             return;
         }
-        this.f25223d = str2;
+        this.f60955d = str2;
         aVar.a(context, str, titleConfig, str2);
     }
 
@@ -222,7 +222,7 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
                 return;
             }
         }
-        this.f25224e = BeanConstants.CHANNEL_ID_KUANG.equals(BeanConstants.CHANNEL_ID);
+        this.f60956e = "baiduapp".equals(BeanConstants.CHANNEL_ID);
         initHomeActionBar(context);
     }
 
@@ -245,7 +245,7 @@ public class WalletHomeActionBar extends BdActionBar implements com.baidu.wallet
                 return;
             }
         }
-        this.f25224e = BeanConstants.CHANNEL_ID_KUANG.equals(BeanConstants.CHANNEL_ID);
+        this.f60956e = "baiduapp".equals(BeanConstants.CHANNEL_ID);
         initHomeActionBar(context);
     }
 }

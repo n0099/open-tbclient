@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class MediaView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public final class MediaView extends FrameLayout {
             if (Build.VERSION.SDK_INT < 11 || isHardwareAccelerated()) {
                 return;
             }
-            GDTLogger.e("Hardware acceleration is off");
+            GDTLogger.w("硬件加速未开启");
         }
     }
 }

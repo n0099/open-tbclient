@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class w extends a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static w f39495b;
+    public static w f76329b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public w() {
@@ -34,10 +34,10 @@ public final class w extends a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             synchronized (w.class) {
-                if (f39495b == null) {
-                    f39495b = new w();
+                if (f76329b == null) {
+                    f76329b = new w();
                 }
-                wVar = f39495b;
+                wVar = f76329b;
             }
             return wVar;
         }
@@ -46,8 +46,8 @@ public final class w extends a {
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && this.f39452a == null) {
-            this.f39452a = context;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && this.f76285a == null) {
+            this.f76285a = context;
             a(context, "com.vivo.push_preferences");
         }
     }

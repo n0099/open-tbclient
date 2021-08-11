@@ -9,21 +9,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class f implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f35374a;
+    public final com.kwad.sdk.core.webview.a f72130a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f35375a;
+        public int f72131a;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -52,7 +52,7 @@ public class f implements com.kwad.sdk.core.webview.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                com.kwad.sdk.utils.q.a(jSONObject, "screenOrientation", this.f35375a);
+                com.kwad.sdk.utils.q.a(jSONObject, "screenOrientation", this.f72131a);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -74,7 +74,7 @@ public class f implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f35374a = aVar;
+        this.f72130a = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -89,12 +89,12 @@ public class f implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            if (this.f35374a.f35288b == null) {
+            if (this.f72130a.f72043b == null) {
                 cVar.a(-1, "native adTemplate is null");
                 return;
             }
             a aVar = new a();
-            aVar.f35375a = this.f35374a.f35287a;
+            aVar.f72131a = this.f72130a.f72042a;
             cVar.a(aVar);
         }
     }

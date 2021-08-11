@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.FilenameFilter;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class p implements FilenameFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f73580a;
+    public final /* synthetic */ String f78881a;
 
     public p(o oVar, String str) {
         Interceptable interceptable = $ic;
@@ -30,13 +30,13 @@ public class p implements FilenameFilter {
                 return;
             }
         }
-        this.f73580a = str;
+        this.f78881a = str;
     }
 
     @Override // java.io.FilenameFilter
     public boolean accept(File file, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? str.startsWith(this.f73580a) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? str.startsWith(this.f78881a) : invokeLL.booleanValue;
     }
 }

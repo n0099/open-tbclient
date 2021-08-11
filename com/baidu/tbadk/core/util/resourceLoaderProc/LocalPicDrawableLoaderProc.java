@@ -1,6 +1,9 @@
 package com.baidu.tbadk.core.util.resourceLoaderProc;
 
 import android.graphics.Bitmap;
+import c.a.e.e.m.b;
+import c.a.e.k.d.a;
+import c.a.o0.b0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -9,10 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
-import d.a.d.k.d.a;
-import d.a.p0.b0.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,7 +75,7 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, d.a.d.e.l.e
+    @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, c.a.e.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;

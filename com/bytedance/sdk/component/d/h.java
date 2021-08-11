@@ -8,22 +8,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class h implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadGroup f28824a;
+    public final ThreadGroup f64686a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicInteger f28825b;
+    public final AtomicInteger f64687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f28826c;
+    public final String f64688c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f28827d;
+    public final int f64689d;
 
     public h(int i2, @NonNull String str) {
         Interceptable interceptable = $ic;
@@ -40,10 +40,10 @@ public class h implements ThreadFactory {
                 return;
             }
         }
-        this.f28825b = new AtomicInteger(1);
-        this.f28827d = i2;
-        this.f28824a = new ThreadGroup("tt_pangle_group_" + str);
-        this.f28826c = "tt_pangle_thread_" + str;
+        this.f64687b = new AtomicInteger(1);
+        this.f64689d = i2;
+        this.f64686a = new ThreadGroup("tt_pangle_group_" + str);
+        this.f64688c = "tt_pangle_thread_" + str;
     }
 
     @Override // java.util.concurrent.ThreadFactory
@@ -51,12 +51,12 @@ public class h implements ThreadFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            ThreadGroup threadGroup = this.f28824a;
-            Thread thread = new Thread(threadGroup, runnable, this.f28826c + "_" + this.f28825b.getAndIncrement());
+            ThreadGroup threadGroup = this.f64686a;
+            Thread thread = new Thread(threadGroup, runnable, this.f64688c + "_" + this.f64687b.getAndIncrement());
             if (thread.isDaemon()) {
                 thread.setDaemon(false);
             }
-            if (this.f28827d == 1) {
+            if (this.f64689d == 1) {
                 thread.setPriority(1);
             } else if (thread.getPriority() != 5) {
                 thread.setPriority(3);

@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import g.b.e.a;
-import g.b.i.h;
-import g.b.j.b;
+import h.b.e.a;
+import h.b.i.h;
+import h.b.j.b;
 import java.net.URI;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.java_websocket.drafts.Draft;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u0018\u0010\u0019J\u001f\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0005\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u001f\u0010\r\u001a\u00020\u00062\u0006\u0010\n\u001a\u00020\t2\u0006\u0010\f\u001a\u00020\u000bH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u0017\u0010\u0011\u001a\u00020\u00062\u0006\u0010\u0010\u001a\u00020\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u0017\u0010\u0011\u001a\u00020\u00062\u0006\u0010\u0013\u001a\u00020\u0004H\u0016¢\u0006\u0004\b\u0011\u0010\u0014R\u0016\u0010\u0016\u001a\u00020\u00158\u0002@\u0002X\u0082.¢\u0006\u0006\n\u0004\b\u0016\u0010\u0017¨\u0006\u001a"}, d2 = {"Lcom/baidu/searchbox/websocket/JavaWebSockeClientImpl;", "Lcom/baidu/searchbox/websocket/IWebSocketClient;", "", "code", "", "reason", "", IntentConfig.CLOSE, "(ILjava/lang/String;)V", "Lcom/baidu/searchbox/websocket/WebSocketRequest;", "request", "Lcom/baidu/searchbox/websocket/IWebSocketListener;", "listener", "connect", "(Lcom/baidu/searchbox/websocket/WebSocketRequest;Lcom/baidu/searchbox/websocket/IWebSocketListener;)V", "Ljava/nio/ByteBuffer;", "data", "send", "(Ljava/nio/ByteBuffer;)V", "message", "(Ljava/lang/String;)V", "Lorg/java_websocket/client/WebSocketClient;", "webSocketClient", "Lorg/java_websocket/client/WebSocketClient;", "<init>", "()V", "websocket_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class JavaWebSockeClientImpl implements IWebSocketClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -76,7 +76,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
             } else {
                 listOf = CollectionsKt__CollectionsJVMKt.listOf(new b(""));
             }
-            final g.b.f.a aVar = new g.b.f.a(emptyList, listOf);
+            final h.b.f.a aVar = new h.b.f.a(emptyList, listOf);
             final Map<String, String> headers = request.getHeaders();
             this.webSocketClient = new a(listener, request, create, aVar, headers) { // from class: com.baidu.searchbox.websocket.JavaWebSockeClientImpl$connect$1
                 public static /* synthetic */ Interceptable $ic;
@@ -107,7 +107,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     this.$request = request;
                 }
 
-                @Override // g.b.e.a
+                @Override // h.b.e.a
                 public void onClose(int i2, String str2, boolean z) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str2, Boolean.valueOf(z)}) == null) {
@@ -123,7 +123,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // g.b.e.a
+                @Override // h.b.e.a
                 public void onError(Exception p0) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p0) == null) {
@@ -132,7 +132,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // g.b.e.a
+                @Override // h.b.e.a
                 public void onMessage(String p0) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, p0) == null) {
@@ -141,7 +141,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // g.b.e.a
+                @Override // h.b.e.a
                 public void onOpen(h hVar) {
                     Iterator<String> g2;
                     Interceptable interceptable2 = $ic;
@@ -157,7 +157,7 @@ public final class JavaWebSockeClientImpl implements IWebSocketClient {
                     }
                 }
 
-                @Override // g.b.e.a
+                @Override // h.b.e.a
                 public void onMessage(ByteBuffer bytes) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, bytes) == null) {

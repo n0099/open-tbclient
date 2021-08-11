@@ -2,6 +2,16 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.k.e.n;
+import c.a.o0.s.q.b0;
+import c.a.o0.s.q.d0;
+import c.a.o0.s.q.e2;
+import c.a.o0.s.q.f2;
+import c.a.o0.s.q.g0;
+import c.a.o0.s.q.h2;
+import c.a.o0.s.q.l;
+import c.a.o0.s.q.m0;
+import c.a.o0.s.q.o2;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -17,16 +27,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.n;
-import d.a.p0.s.q.b0;
-import d.a.p0.s.q.d0;
-import d.a.p0.s.q.d2;
-import d.a.p0.s.q.e2;
-import d.a.p0.s.q.g0;
-import d.a.p0.s.q.g2;
-import d.a.p0.s.q.l;
-import d.a.p0.s.q.m0;
-import d.a.p0.s.q.n2;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ import tbclient.FrsPage.TipInfo;
 import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class ForumData implements Serializable, PreLoadImageProvider, n {
     public static /* synthetic */ Interceptable $ic = null;
     public static BdUniqueId FORUM_FLOOR_TYPE = null;
@@ -72,6 +72,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
     public String image_url;
     public boolean isBlockBawuDelete;
     public boolean isBrandForum;
+    public boolean isFrsMask;
     public int isShowAllTopThread;
     public boolean isShowBawuTask;
     public boolean isShowForumRule;
@@ -103,7 +104,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
     public List<Manager> managers;
     public int member_num;
     public String name;
-    public g2 news_info;
+    public h2 news_info;
     public int post_num;
     public String riskTipNotice;
     public String riskTipPop;
@@ -116,13 +117,13 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
     public String tag_name;
     public int thread_num;
     public String topIcon;
-    public d2 top_code;
-    public e2 top_notice_data;
+    public e2 top_code;
+    public f2 top_notice_data;
     public String topic_special_icon;
     public String topic_special_icon_right;
     public int user_level;
     public String warning_msg;
-    public n2 yuleData;
+    public o2 yuleData;
 
     static {
         InterceptResult invokeClinit;
@@ -176,18 +177,18 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         this.levelup_score = 0;
         this.is_support_local = 0;
         this.is_local_effect = 0;
-        this.top_notice_data = new e2();
+        this.top_notice_data = new f2();
         this.mBadgeData = new ArrayList<>();
         this.mFrsBannerData = new g0();
         this.mBannerListData = new BannerListData();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
         this.mPostTopicData = new PostTopicData();
-        this.top_code = new d2();
-        this.news_info = new g2();
+        this.top_code = new e2();
+        this.news_info = new h2();
         this.canAddPhotoLivePost = false;
         this.mMemberShowIconData = new d0();
-        this.yuleData = new n2();
+        this.yuleData = new o2();
         this.mIsLiveGameForum = 0;
         this.warning_msg = null;
         this.special_forum_type = null;
@@ -198,6 +199,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         this.is_private_forum = 0;
         this.isShowBawuTask = false;
         this.isShowForumRule = false;
+        this.isFrsMask = false;
         this.fShareImage = null;
         this.mTipInfos = new ArrayList();
     }
@@ -367,10 +369,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.name : (String) invokeV.objValue;
     }
 
-    public g2 getNewsInfo() {
+    public h2 getNewsInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.news_info : (g2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.news_info : (h2) invokeV.objValue;
     }
 
     public PostTopicData getPostTopicData() {
@@ -481,10 +483,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) ? this.mTipInfos : (List) invokeV.objValue;
     }
 
-    public d2 getTopCode() {
+    public e2 getTopCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.top_code : (d2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) ? this.top_code : (e2) invokeV.objValue;
     }
 
     public String getTopIcon() {
@@ -493,10 +495,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) ? this.topIcon : (String) invokeV.objValue;
     }
 
-    public e2 getTop_notice_data() {
+    public f2 getTop_notice_data() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.top_notice_data : (e2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) ? this.top_notice_data : (f2) invokeV.objValue;
     }
 
     public String getTopic_special_icon() {
@@ -511,7 +513,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) ? this.topic_special_icon_right : (String) invokeV.objValue;
     }
 
-    @Override // d.a.d.k.e.n
+    @Override // c.a.e.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -530,10 +532,10 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) ? this.warning_msg : (String) invokeV.objValue;
     }
 
-    public n2 getYuleData() {
+    public o2 getYuleData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.yuleData : (n2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) ? this.yuleData : (o2) invokeV.objValue;
     }
 
     public String getfShareImage() {
@@ -542,45 +544,51 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) ? this.fShareImage : (String) invokeV.objValue;
     }
 
+    public boolean isFrsMask() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.isFrsMask : invokeV.booleanValue;
+    }
+
     public boolean isGameForumType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) ? this.mIsLiveGameForum == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.mIsLiveGameForum == 1 : invokeV.booleanValue;
     }
 
     public int isIs_exists() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) ? this.is_exists : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.is_exists : invokeV.intValue;
     }
 
     public int isIs_forbidden() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) ? this.is_forbidden : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.is_forbidden : invokeV.intValue;
     }
 
     public int isLike() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) ? this.is_like : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.is_like : invokeV.intValue;
     }
 
     public int isLocalEffect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) ? this.is_local_effect : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.is_local_effect : invokeV.intValue;
     }
 
     public int isSupportLocal() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) ? this.is_support_local : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) ? this.is_support_local : invokeV.intValue;
     }
 
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048638, this, str) == null) {
             try {
                 parserJson(new JSONObject(str));
             } catch (Exception e2) {
@@ -591,7 +599,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
 
     public void parserProtobuf(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048639, this, forumInfo) == null) || forumInfo == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048640, this, forumInfo) == null) || forumInfo == null) {
             return;
         }
         try {
@@ -715,6 +723,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
             this.fShareImage = forumInfo.f_share_img;
             this.isShowForumRule = forumInfo.is_show_forumrule.intValue() == 1;
             this.mDeletedReasonInfo = forumInfo.deleted_reason_info;
+            this.isFrsMask = forumInfo.is_frs_mask.intValue() == 1;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }
@@ -722,7 +731,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
 
     public void setAnchorPower(AnchorPower anchorPower) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048641, this, anchorPower) == null) {
+        if (interceptable == null || interceptable.invokeL(1048642, this, anchorPower) == null) {
             this.anchorPower = anchorPower;
             if (anchorPower != null) {
                 this.canAddPhotoLivePost = anchorPower.can_add_live_post.intValue() == 1;
@@ -732,238 +741,238 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
 
     public void setCanAddPhotoLivePost(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048643, this, z) == null) {
             this.canAddPhotoLivePost = z;
         }
     }
 
     public void setCurScore(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048643, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
             this.cur_score = i2;
         }
     }
 
     public void setFavo_type(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048645, this, i2) == null) {
             this.favo_type = i2;
         }
     }
 
     public void setFirst_class(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048645, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048646, this, str) == null) {
             this.first_class = str;
         }
     }
 
     public void setFromPage(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048647, this, str) == null) {
             this.mFromPage = str;
         }
     }
 
     public void setGood_classify(ArrayList<m0> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048647, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048648, this, arrayList) == null) {
             this.good_classify = arrayList;
         }
     }
 
     public void setId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048648, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
             this.id = str;
         }
     }
 
     public void setImage_url(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048649, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048650, this, str) == null) {
             this.image_url = str;
         }
     }
 
     public void setIsLocalEffect(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048650, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
             this.is_local_effect = i2;
         }
     }
 
     public void setIsSupportLocal(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
             this.is_support_local = i2;
         }
     }
 
     public void setIs_exists(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048653, this, i2) == null) {
             this.is_exists = i2;
         }
     }
 
     public void setIs_forbidden(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048653, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048654, this, i2) == null) {
             this.is_forbidden = i2;
         }
     }
 
     public void setLevelName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048654, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048655, this, str) == null) {
             this.level_name = str;
         }
     }
 
     public void setLevelupScore(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048655, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048656, this, i2) == null) {
             this.levelup_score = i2;
         }
     }
 
     public void setLike(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048656, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048657, this, i2) == null) {
             this.is_like = i2;
         }
     }
 
     public void setMember_num(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048657, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048658, this, i2) == null) {
             this.member_num = i2;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048658, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048659, this, str) == null) {
             this.name = str;
         }
     }
 
-    public void setNewsInfo(g2 g2Var) {
+    public void setNewsInfo(h2 h2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048659, this, g2Var) == null) {
-            this.news_info = g2Var;
+        if (interceptable == null || interceptable.invokeL(1048660, this, h2Var) == null) {
+            this.news_info = h2Var;
         }
     }
 
     public void setPost_num(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048660, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
             this.post_num = i2;
         }
     }
 
     public void setRiskTipNotice(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048661, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048662, this, str) == null) {
             this.riskTipNotice = str;
         }
     }
 
     public void setRiskTipPop(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048662, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048663, this, str) == null) {
             this.riskTipPop = str;
         }
     }
 
     public void setRiskTipPopTitle(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048663, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048664, this, str) == null) {
             this.riskTipPopTitle = str;
         }
     }
 
     public void setSecond_class(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048664, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048665, this, str) == null) {
             this.second_class = str;
         }
     }
 
     public void setSignData(SignData signData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048665, this, signData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048666, this, signData) == null) {
             this.mSignData = signData;
         }
     }
 
     public void setSlogan(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048666, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048667, this, str) == null) {
             this.slogan = str;
         }
     }
 
     public void setTag_color(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048667, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048668, this, str) == null) {
             this.tag_color = str;
         }
     }
 
     public void setTag_id(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048668, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048669, this, str) == null) {
             this.tag_id = str;
         }
     }
 
     public void setTag_name(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048669, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048670, this, str) == null) {
             this.tag_name = str;
         }
     }
 
     public void setThread_num(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048670, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048671, this, i2) == null) {
             this.thread_num = i2;
         }
     }
 
-    public void setTopCode(d2 d2Var) {
+    public void setTopCode(e2 e2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048671, this, d2Var) == null) {
-            this.top_code = d2Var;
+        if (interceptable == null || interceptable.invokeL(1048672, this, e2Var) == null) {
+            this.top_code = e2Var;
         }
     }
 
-    public void setTop_notice_data(e2 e2Var) {
+    public void setTop_notice_data(f2 f2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048672, this, e2Var) == null) {
-            this.top_notice_data = e2Var;
+        if (interceptable == null || interceptable.invokeL(1048673, this, f2Var) == null) {
+            this.top_notice_data = f2Var;
         }
     }
 
     public void setUser_level(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048673, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048674, this, i2) == null) {
             this.user_level = i2;
         }
     }
 
-    public void setYuleData(n2 n2Var) {
+    public void setYuleData(o2 o2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048674, this, n2Var) == null) {
-            this.yuleData = n2Var;
+        if (interceptable == null || interceptable.invokeL(1048675, this, o2Var) == null) {
+            this.yuleData = o2Var;
         }
     }
 
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048638, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048639, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
@@ -1101,6 +1110,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
             this.isShowBawuTask = jSONObject.optInt("is_show_bawutask") == 1;
             this.isShowForumRule = jSONObject.optInt("is_show_forumrule") == 1;
             this.fShareImage = jSONObject.optString("f_share_img");
+            this.isFrsMask = jSONObject.optInt("is_frs_mask") == 1;
         } catch (Exception e9) {
             BdLog.e(e9.getMessage());
         }
@@ -1108,7 +1118,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
 
     public void parserProtobuf(SimpleForum simpleForum) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048640, this, simpleForum) == null) || simpleForum == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048641, this, simpleForum) == null) || simpleForum == null) {
             return;
         }
         try {
@@ -1117,18 +1127,15 @@ public class ForumData implements Serializable, PreLoadImageProvider, n {
             this.is_exists = simpleForum.is_exists.intValue();
             this.image_url = simpleForum.avatar;
             this.is_like = simpleForum.is_liked.intValue();
-            boolean z = false;
             this.is_sign = simpleForum.is_signed.intValue() == 1;
             this.first_class = simpleForum.first_class;
             this.second_class = simpleForum.second_class;
             this.member_num = simpleForum.member_num.intValue();
             this.post_num = simpleForum.post_num.intValue();
             this.isBrandForum = simpleForum.is_brand_forum.intValue() == 1;
-            if (simpleForum.multi_forum_perm != null && simpleForum.multi_forum_perm.is_block_bawu_delete.intValue() == 1) {
-                z = true;
-            }
-            this.isBlockBawuDelete = z;
+            this.isBlockBawuDelete = simpleForum.multi_forum_perm != null && simpleForum.multi_forum_perm.is_block_bawu_delete.intValue() == 1;
             this.mDeletedReasonInfo = simpleForum.deleted_reason_info;
+            this.isFrsMask = simpleForum.is_frs_mask.intValue() == 1;
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());
         }

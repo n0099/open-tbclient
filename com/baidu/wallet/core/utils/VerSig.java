@@ -9,13 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class VerSig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f24924a = 0;
+    public static final int f60642a = 0;
     public transient /* synthetic */ FieldHolder $fh;
 
     public VerSig() {
@@ -78,7 +77,7 @@ public final class VerSig {
                     if (SafePay.getInstance().rsaVerify(0, a(str), digest.length, digest, Base64.decode(bArr, 0)) != 0) {
                         return false;
                     }
-                } catch (IllegalArgumentException | NoSuchAlgorithmException unused) {
+                } catch (Throwable unused) {
                     return false;
                 }
             }

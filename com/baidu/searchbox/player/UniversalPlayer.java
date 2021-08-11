@@ -35,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UniversalPlayer extends BDVideoPlayer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UniversalPlayer";
@@ -48,7 +48,7 @@ public class UniversalPlayer extends BDVideoPlayer {
     public ITimerTask mProgressHelper;
     public IPlayerStyleSwitchHelper mStyleSwitchHelper;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class OrientationChangeCallBack implements OrientationHelper.IOrientationChange {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int DELAY_TIME = 1000;

@@ -36,7 +36,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes5.dex */
 public class UrlConnectionRequestHandler implements ICommonRequestHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -332,14 +333,14 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
             if (isHttpRequestNull()) {
                 sb.append("Uri: null\n");
             } else if (z) {
-                sb.append("Uri:" + this.mURLConnectionRequest.getURL().toString() + "\n");
+                sb.append("Uri:" + this.mURLConnectionRequest.getURL().toString() + StringUtils.LF);
             } else {
-                sb.append("Url:" + this.mURLConnectionRequest.getURL().toString() + " " + this.mURLConnectionRequest.getResponseCode() + "\n");
+                sb.append("Url:" + this.mURLConnectionRequest.getURL().toString() + " " + this.mURLConnectionRequest.getResponseCode() + StringUtils.LF);
             }
             Map<String, String> map = this.mRequestHeader;
             if (map != null) {
                 for (String str : map.keySet()) {
-                    sb.append(str + ":" + this.mRequestHeader.get(str) + "\n");
+                    sb.append(str + ":" + this.mRequestHeader.get(str) + StringUtils.LF);
                 }
             }
             if (!isHttpRequestNull()) {
@@ -348,9 +349,9 @@ public class UrlConnectionRequestHandler implements ICommonRequestHandler {
             if (!z && !isHttpRequestNull() && (headerFields = this.mURLConnectionRequest.getHeaderFields()) != null) {
                 for (String str2 : headerFields.keySet()) {
                     if (str2 == null) {
-                        sb.append(headerFields.get(str2).toString() + "\n");
+                        sb.append(headerFields.get(str2).toString() + StringUtils.LF);
                     } else {
-                        sb.append(str2.toString() + ":" + headerFields.get(str2).toString() + "\n");
+                        sb.append(str2.toString() + ":" + headerFields.get(str2).toString() + StringUtils.LF);
                     }
                 }
             }

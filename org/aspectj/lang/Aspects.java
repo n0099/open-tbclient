@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class Aspects {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASPECTOF = "aspectOf";

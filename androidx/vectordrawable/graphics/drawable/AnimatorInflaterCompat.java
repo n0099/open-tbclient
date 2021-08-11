@@ -16,7 +16,6 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
 import android.view.InflateException;
@@ -164,7 +163,6 @@ public class AnimatorInflaterCompat {
         if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, objArr, str) == null) || objArr == null || objArr.length == 0) {
             return;
         }
-        Log.d(TAG, str);
         int length = objArr.length;
         for (int i2 = 0; i2 < length; i2++) {
             Keyframe keyframe = (Keyframe) objArr[i2];
@@ -180,7 +178,7 @@ public class AnimatorInflaterCompat {
                 obj = keyframe.getValue();
             }
             sb.append(obj);
-            Log.d(TAG, sb.toString());
+            sb.toString();
         }
     }
 

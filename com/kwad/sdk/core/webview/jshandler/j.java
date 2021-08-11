@@ -16,33 +16,33 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class j implements com.kwad.sdk.core.webview.a.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f35407a;
+    public final com.kwad.sdk.core.webview.a f72164a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f35408b;
+    public int f72165b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class a implements com.kwad.sdk.core.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f35409a;
+        public int f72166a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f35410b;
+        public String f72167b;
 
         /* renamed from: c  reason: collision with root package name */
-        public AdTemplate f35411c;
+        public AdTemplate f72168c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f35412d;
+        public int f72169d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -64,15 +64,15 @@ public class j implements com.kwad.sdk.core.webview.a.a {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
                 return;
             }
-            this.f35409a = jSONObject.optInt(LightInvokerImpl.VOICE_ACTIONTYPE);
-            this.f35412d = jSONObject.optInt("refreshType");
-            this.f35410b = jSONObject.optString("payload");
+            this.f72166a = jSONObject.optInt(LightInvokerImpl.VOICE_ACTIONTYPE);
+            this.f72169d = jSONObject.optInt("refreshType");
+            this.f72167b = jSONObject.optString("payload");
             try {
                 String string = jSONObject.getString("adTemplate");
-                if (this.f35411c == null) {
-                    this.f35411c = new AdTemplate();
+                if (this.f72168c == null) {
+                    this.f72168c = new AdTemplate();
                 }
-                this.f35411c.parseJson(new JSONObject(string));
+                this.f72168c.parseJson(new JSONObject(string));
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.b(e2);
             }
@@ -84,10 +84,10 @@ public class j implements com.kwad.sdk.core.webview.a.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
-                com.kwad.sdk.utils.q.a(jSONObject, LightInvokerImpl.VOICE_ACTIONTYPE, this.f35409a);
-                com.kwad.sdk.utils.q.a(jSONObject, "payload", this.f35410b);
-                com.kwad.sdk.utils.q.a(jSONObject, "refreshType", this.f35412d);
-                com.kwad.sdk.utils.q.a(jSONObject, "adTemplate", this.f35411c);
+                com.kwad.sdk.utils.q.a(jSONObject, LightInvokerImpl.VOICE_ACTIONTYPE, this.f72166a);
+                com.kwad.sdk.utils.q.a(jSONObject, "payload", this.f72167b);
+                com.kwad.sdk.utils.q.a(jSONObject, "refreshType", this.f72169d);
+                com.kwad.sdk.utils.q.a(jSONObject, "adTemplate", this.f72168c);
                 return jSONObject;
             }
             return (JSONObject) invokeV.objValue;
@@ -109,8 +109,8 @@ public class j implements com.kwad.sdk.core.webview.a.a {
                 return;
             }
         }
-        this.f35408b = 0;
-        this.f35407a = aVar;
+        this.f72165b = 0;
+        this.f72164a = aVar;
     }
 
     @SuppressLint({"SwitchIntDef"})
@@ -119,36 +119,36 @@ public class j implements com.kwad.sdk.core.webview.a.a {
         AdTemplate adTemplate;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, aVar) == null) {
-            com.kwad.sdk.core.d.a.a("WebCardLogHandler", "handleH5Log actionType actionType" + aVar.f35409a);
-            if (aVar.f35409a == 1) {
-                if (aVar.f35411c != null) {
+            com.kwad.sdk.core.d.a.a("WebCardLogHandler", "handleH5Log actionType actionType" + aVar.f72166a);
+            if (aVar.f72166a == 1) {
+                if (aVar.f72168c != null) {
                     aVar2 = new n.a();
-                    aVar2.f35091f = aVar.f35410b;
-                    aVar2.m = this.f35408b;
-                    adTemplate = aVar.f35411c;
+                    aVar2.f71840f = aVar.f72167b;
+                    aVar2.m = this.f72165b;
+                    adTemplate = aVar.f72168c;
                 } else {
                     aVar2 = new n.a();
-                    aVar2.f35091f = aVar.f35410b;
-                    adTemplate = this.f35407a.f35288b;
+                    aVar2.f71840f = aVar.f72167b;
+                    adTemplate = this.f72164a.f72043b;
                 }
                 com.kwad.sdk.core.report.a.a(adTemplate, (JSONObject) null, aVar2);
-            } else if (aVar.f35409a != 2) {
-                if (aVar.f35409a == 12006) {
-                    com.kwad.sdk.core.report.d.a(b(aVar), aVar.f35412d, this.f35408b);
+            } else if (aVar.f72166a != 2) {
+                if (aVar.f72166a == 12006) {
+                    com.kwad.sdk.core.report.d.a(b(aVar), aVar.f72169d, this.f72165b);
                 } else {
-                    com.kwad.sdk.core.report.a.a(b(aVar), aVar.f35409a, this.f35407a.f35290d, aVar.f35410b);
+                    com.kwad.sdk.core.report.a.a(b(aVar), aVar.f72166a, this.f72164a.f72045d, aVar.f72167b);
                 }
             } else {
-                AdBaseFrameLayout adBaseFrameLayout = this.f35407a.f35289c;
+                AdBaseFrameLayout adBaseFrameLayout = this.f72164a.f72044c;
                 if (adBaseFrameLayout != null) {
                     n.a aVar3 = new n.a();
-                    aVar3.m = this.f35408b;
-                    com.kwad.sdk.core.report.a.a(b(aVar), this.f35407a.f35290d, aVar3, adBaseFrameLayout.getTouchCoords(), aVar.f35410b);
+                    aVar3.m = this.f72165b;
+                    com.kwad.sdk.core.report.a.a(b(aVar), this.f72164a.f72045d, aVar3, adBaseFrameLayout.getTouchCoords(), aVar.f72167b);
                     return;
                 }
                 n.a aVar4 = new n.a();
-                aVar4.m = this.f35408b;
-                com.kwad.sdk.core.report.a.a(b(aVar), this.f35407a.f35290d, aVar4, aVar.f35410b);
+                aVar4.m = this.f72165b;
+                com.kwad.sdk.core.report.a.a(b(aVar), this.f72164a.f72045d, aVar4, aVar.f72167b);
             }
         }
     }
@@ -156,7 +156,7 @@ public class j implements com.kwad.sdk.core.webview.a.a {
     private AdTemplate b(@NonNull a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) ? aVar.f35411c != null ? aVar.f35411c : this.f35407a.f35288b : (AdTemplate) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) ? aVar.f72168c != null ? aVar.f72168c : this.f72164a.f72043b : (AdTemplate) invokeL.objValue;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -171,7 +171,7 @@ public class j implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cVar) == null) {
-            if (this.f35407a.f35288b == null) {
+            if (this.f72164a.f72043b == null) {
                 cVar.a(-1, "native adTemplate is null");
             }
             try {

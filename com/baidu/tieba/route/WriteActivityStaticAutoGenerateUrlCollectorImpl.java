@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public final class WriteActivityStaticAutoGenerateUrlCollectorImpl implements ICmdRouter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -65,6 +65,8 @@ public final class WriteActivityStaticAutoGenerateUrlCollectorImpl implements IC
             arrayList.add("HotTopicChangeActivityConfig");
             arrayList.add("AccountAccessActivityConfig");
             arrayList.add("AddLinkActivityConfig");
+            arrayList.add("SelectTagActivityConfig");
+            arrayList.add("SelectClassDialogActivityConfig");
             hashMap.put("com.baidu.tieba.write.write.WriteActivityStatic", arrayList);
             return hashMap;
         }

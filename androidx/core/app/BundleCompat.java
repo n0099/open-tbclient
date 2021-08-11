@@ -3,7 +3,6 @@ package androidx.core.app;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,8 +50,7 @@ public final class BundleCompat {
                         Method method = Bundle.class.getMethod("getIBinder", String.class);
                         sGetIBinderMethod = method;
                         method.setAccessible(true);
-                    } catch (NoSuchMethodException e2) {
-                        Log.i(TAG, "Failed to retrieve getIBinder method", e2);
+                    } catch (NoSuchMethodException unused) {
                     }
                     sGetIBinderMethodFetched = true;
                 }
@@ -60,8 +58,7 @@ public final class BundleCompat {
                 if (method2 != null) {
                     try {
                         return (IBinder) method2.invoke(bundle, str);
-                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e3) {
-                        Log.i(TAG, "Failed to invoke getIBinder via reflection", e3);
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException unused2) {
                         sGetIBinderMethod = null;
                     }
                 }
@@ -78,8 +75,7 @@ public final class BundleCompat {
                         Method method = Bundle.class.getMethod("putIBinder", String.class, IBinder.class);
                         sPutIBinderMethod = method;
                         method.setAccessible(true);
-                    } catch (NoSuchMethodException e2) {
-                        Log.i(TAG, "Failed to retrieve putIBinder method", e2);
+                    } catch (NoSuchMethodException unused) {
                     }
                     sPutIBinderMethodFetched = true;
                 }
@@ -87,8 +83,7 @@ public final class BundleCompat {
                 if (method2 != null) {
                     try {
                         method2.invoke(bundle, str, iBinder);
-                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e3) {
-                        Log.i(TAG, "Failed to invoke putIBinder via reflection", e3);
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException unused2) {
                         sPutIBinderMethod = null;
                     }
                 }

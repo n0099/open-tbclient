@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class jb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public jl f40787a;
+    public jl f77662a;
 
     public jb(jl jlVar) {
         Interceptable interceptable = $ic;
@@ -28,52 +28,52 @@ public abstract class jb {
                 return;
             }
         }
-        this.f40787a = jlVar;
+        this.f77662a = jlVar;
     }
 
     public abstract byte a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract double m517a();
+    public abstract double m520a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract int m518a();
+    public abstract int m521a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract long m519a();
+    public abstract long m522a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract iy m520a();
+    public abstract iy m523a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract iz m521a();
+    public abstract iz m524a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ja m522a();
+    public abstract ja m525a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jf m523a();
+    public abstract jf m526a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jg m524a();
+    public abstract jg m527a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m525a();
+    public abstract String m528a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ByteBuffer m526a();
+    public abstract ByteBuffer m529a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract short m527a();
+    public abstract short m530a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m528a();
+    public abstract void m531a();
 
     public abstract void a(byte b2);
 
     public abstract void a(int i2);
 
-    public abstract void a(long j);
+    public abstract void a(long j2);
 
     public abstract void a(iy iyVar);
 
@@ -92,7 +92,7 @@ public abstract class jb {
     public abstract void a(boolean z);
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m529a();
+    public abstract boolean m532a();
 
     public abstract void b();
 

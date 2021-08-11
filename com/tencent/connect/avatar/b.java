@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Rect f38981a;
+    public Rect f75803a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Paint f38982b;
+    public Paint f75804b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
@@ -47,7 +47,7 @@ public class b extends View {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.f38982b = new Paint();
+            this.f75804b = new Paint();
         }
     }
 
@@ -55,16 +55,16 @@ public class b extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f38981a == null) {
-                this.f38981a = new Rect();
+            if (this.f75803a == null) {
+                this.f75803a = new Rect();
                 int measuredWidth = getMeasuredWidth();
                 int measuredHeight = getMeasuredHeight();
                 int min = Math.min(Math.min((measuredHeight - 60) - 80, measuredWidth), 640);
                 int i2 = (measuredWidth - min) / 2;
                 int i3 = (measuredHeight - min) / 2;
-                this.f38981a.set(i2, i3, i2 + min, min + i3);
+                this.f75803a.set(i2, i3, i2 + min, min + i3);
             }
-            return this.f38981a;
+            return this.f75803a;
         }
         return (Rect) invokeV.objValue;
     }
@@ -77,17 +77,17 @@ public class b extends View {
             Rect a2 = a();
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            this.f38982b.setStyle(Paint.Style.FILL);
-            this.f38982b.setColor(Color.argb(100, 0, 0, 0));
+            this.f75804b.setStyle(Paint.Style.FILL);
+            this.f75804b.setColor(Color.argb(100, 0, 0, 0));
             float f2 = measuredWidth;
-            canvas.drawRect(0.0f, 0.0f, f2, a2.top, this.f38982b);
-            canvas.drawRect(0.0f, a2.bottom, f2, measuredHeight, this.f38982b);
-            canvas.drawRect(0.0f, a2.top, a2.left, a2.bottom, this.f38982b);
-            canvas.drawRect(a2.right, a2.top, f2, a2.bottom, this.f38982b);
+            canvas.drawRect(0.0f, 0.0f, f2, a2.top, this.f75804b);
+            canvas.drawRect(0.0f, a2.bottom, f2, measuredHeight, this.f75804b);
+            canvas.drawRect(0.0f, a2.top, a2.left, a2.bottom, this.f75804b);
+            canvas.drawRect(a2.right, a2.top, f2, a2.bottom, this.f75804b);
             canvas.drawColor(Color.argb(100, 0, 0, 0));
-            this.f38982b.setStyle(Paint.Style.STROKE);
-            this.f38982b.setColor(-1);
-            canvas.drawRect(a2.left, a2.top, a2.right - 1, a2.bottom, this.f38982b);
+            this.f75804b.setStyle(Paint.Style.STROKE);
+            this.f75804b.setColor(-1);
+            canvas.drawRect(a2.left, a2.top, a2.right - 1, a2.bottom, this.f75804b);
         }
     }
 }

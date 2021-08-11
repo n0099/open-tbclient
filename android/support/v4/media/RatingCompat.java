@@ -4,7 +4,6 @@ import android.media.Rating;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -168,11 +167,10 @@ public final class RatingCompat implements Parcelable {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) == null) {
-            if (f2 >= 0.0f && f2 <= 100.0f) {
-                return new RatingCompat(6, f2);
+            if (f2 < 0.0f || f2 > 100.0f) {
+                return null;
             }
-            Log.e(TAG, "Invalid percentage-based rating value");
-            return null;
+            return new RatingCompat(6, f2);
         }
         return (RatingCompat) invokeF.objValue;
     }
@@ -187,16 +185,15 @@ public final class RatingCompat implements Parcelable {
             } else if (i2 == 4) {
                 f3 = 4.0f;
             } else if (i2 != 5) {
-                Log.e(TAG, "Invalid rating style (" + i2 + ") for a star rating");
+                String str = "Invalid rating style (" + i2 + ") for a star rating";
                 return null;
             } else {
                 f3 = 5.0f;
             }
-            if (f2 >= 0.0f && f2 <= f3) {
-                return new RatingCompat(i2, f2);
+            if (f2 < 0.0f || f2 > f3) {
+                return null;
             }
-            Log.e(TAG, "Trying to set out of range star-based rating");
-            return null;
+            return new RatingCompat(i2, f2);
         }
         return (RatingCompat) invokeCommon.objValue;
     }

@@ -1,7 +1,6 @@
 package com.google.zxing.oned;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,7 +17,7 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitArray;
 import java.util.EnumMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class UPCEANExtension5Support {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHECK_DIGIT_ENCODINGS;
@@ -157,7 +156,7 @@ public final class UPCEANExtension5Support {
             } else {
                 valueOf = String.valueOf(i2);
             }
-            return str2 + valueOf2 + IStringUtil.EXTENSION_SEPARATOR + valueOf;
+            return str2 + valueOf2 + '.' + valueOf;
         }
         return (String) invokeL.objValue;
     }

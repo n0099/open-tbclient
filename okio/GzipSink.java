@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Deflater;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class GzipSink implements Sink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,14 +46,14 @@ public final class GzipSink implements Sink {
         throw new IllegalArgumentException("sink == null");
     }
 
-    private void updateCrc(Buffer buffer, long j) {
+    private void updateCrc(Buffer buffer, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, this, buffer, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65537, this, buffer, j2) == null) {
             Segment segment = buffer.head;
-            while (j > 0) {
-                int min = (int) Math.min(j, segment.limit - segment.pos);
+            while (j2 > 0) {
+                int min = (int) Math.min(j2, segment.limit - segment.pos);
                 this.crc.update(segment.data, segment.pos, min);
-                j -= min;
+                j2 -= min;
                 segment = segment.next;
             }
         }
@@ -113,7 +113,7 @@ public final class GzipSink implements Sink {
         }
     }
 
-    public Deflater deflater() {
+    public final Deflater deflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.deflater : (Deflater) invokeV.objValue;
@@ -135,16 +135,16 @@ public final class GzipSink implements Sink {
     }
 
     @Override // okio.Sink
-    public void write(Buffer buffer, long j) throws IOException {
+    public void write(Buffer buffer, long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, buffer, j) == null) {
-            int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, buffer, j2) == null) {
+            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
             if (i2 < 0) {
-                throw new IllegalArgumentException("byteCount < 0: " + j);
+                throw new IllegalArgumentException("byteCount < 0: " + j2);
             } else if (i2 == 0) {
             } else {
-                updateCrc(buffer, j);
-                this.deflaterSink.write(buffer, j);
+                updateCrc(buffer, j2);
+                this.deflaterSink.write(buffer, j2);
             }
         }
     }

@@ -1,5 +1,5 @@
 package com.baidu.android.imsdk.internal;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface IHeartBeat {
     void onHeartBeat();
 }

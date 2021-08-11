@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class o extends IOException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f28533a;
+    public final b f64387a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public o(b bVar) {
@@ -31,6 +31,6 @@ public final class o extends IOException {
                 return;
             }
         }
-        this.f28533a = bVar;
+        this.f64387a = bVar;
     }
 }

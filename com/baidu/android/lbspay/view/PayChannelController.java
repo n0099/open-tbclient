@@ -22,10 +22,6 @@ import com.baidu.android.lbspay.channelpay.fast.ChannelFastPay;
 import com.baidu.android.lbspay.network.GetPayContent;
 import com.baidu.android.lbspay.statistics.LbsStatistics;
 import com.baidu.android.lbspay.utils.PayMode;
-import com.baidu.apollon.beans.IBeanResponseCallback;
-import com.baidu.apollon.utils.GlobalUtils;
-import com.baidu.apollon.utils.NetworkUtils;
-import com.baidu.apollon.utils.ResUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.tbadk.core.atomData.WalletPayResultActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,16 +29,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.statistics.PayStatServiceEvent;
-import com.baidu.wallet.core.NoProguard;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
-import com.baidu.wallet.statistics.api.StatisticManager;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.beans.IBeanResponseCallback;
+import com.dxmpay.apollon.utils.GlobalUtils;
+import com.dxmpay.apollon.utils.ResUtils;
+import com.dxmpay.wallet.core.NoProguard;
+import com.dxmpay.wallet.statistics.api.StatisticManager;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.util.HashMap;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PayChannelController implements IBeanResponseCallback, NoProguard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALIPAY_PAYCHANNEL = "BAIDU-ALIPAY-WISE";
@@ -61,17 +58,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
     public GetPayBean mGetPayBean;
     public Handler mHandler;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface DoShowAllChannelClick {
         void doClick();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface GetPayModeListener {
         void getSelectPayMode(PayMode payMode);
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface SelectChannelListener {
         void onSelectChannel(String str);
     }
@@ -99,26 +96,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
     /* JADX INFO: Access modifiers changed from: private */
     public void handleFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, str) == null) {
-            if (i2 == 2) {
-                LBSPayAli.getInstance().clearChannelPay();
-                this.mChannelPay = null;
-                if (!TextUtils.isEmpty(str)) {
-                    GlobalUtils.toast(this.mAct, str);
-                }
-                GetPayOrderListener getPayOrderListener = this.getPayOrderListener;
-                if (getPayOrderListener != null) {
-                    getPayOrderListener.complete();
-                }
-                LBSPayResult.payResult(this.mAct, 2, "");
+        if ((interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, str) == null) && i2 == 2) {
+            LBSPayAli.getInstance().clearChannelPay();
+            this.mChannelPay = null;
+            if (!TextUtils.isEmpty(str)) {
+                GlobalUtils.toast(this.mAct, str);
             }
-            CashierDataNew cashierDataNew = this.mCashierData;
-            if (cashierDataNew != null) {
-                cashierDataNew.getUid();
-                this.mCashierData.getOrderNo();
-                NetworkUtils.getNetName(this.mAct);
-                this.mCashierData.getCustomId();
+            GetPayOrderListener getPayOrderListener = this.getPayOrderListener;
+            if (getPayOrderListener != null) {
+                getPayOrderListener.complete();
             }
+            LBSPayResult.payResult(this.mAct, 2, "");
         }
     }
 
@@ -176,7 +164,7 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                 String orderNo = this.mCashierData.getOrderNo();
                 List<String> collectData = StatHelper.collectData(orderNo, this.mChannelId + "");
                 HashMap hashMap = new HashMap();
-                hashMap.put(BaiduPay.AMOUNT, StatHelper.getPayAmount());
+                hashMap.put("pay_amount", StatHelper.getPayAmount());
                 StatisticManager.onEventWithValues(PayStatServiceEvent.LBS_PAY_CHANNEL, collectData, hashMap);
                 GetPayBean getPayBean = (GetPayBean) LbsPayBeanFactory.getInstance().getBean((Context) this.mAct, 2, BEAN_TAG);
                 this.mGetPayBean = getPayBean;
@@ -190,7 +178,7 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             if (this.getPayOrderListener != null) {
                 this.getPayOrderListener.complete();
             }
-            GlobalUtils.toast(this.mAct, ResUtils.getString(this.mAct, "ebpay_resolve_error"));
+            GlobalUtils.toast(this.mAct, ResUtils.getString(this.mAct, "dxm_ebpay_resolve_error"));
             LBSPayResult.payResult(this.mAct, 2, "");
         } catch (Exception unused) {
             LBSPayResult.payResult(this.mAct, 2, "");
@@ -227,7 +215,7 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             return;
         }
         String string = bundle.getString(WalletPayResultActivityConfig.PAY_RESULT);
-        LogUtil.logd("result =" + string);
+        String str = "result =" + string;
         if (TextUtils.isEmpty(string)) {
             return;
         }
@@ -242,11 +230,11 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                 iChannelPay2.payCancel();
             }
         } else {
-            string.equalsIgnoreCase(e.f2000a);
+            string.equalsIgnoreCase(e.f35855a);
         }
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponseCallback
+    @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
     public void onBeanExecFailure(int i2, int i3, String str) {
         Handler handler;
         Interceptable interceptable = $ic;
@@ -258,16 +246,16 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f2709a;
+            public final /* synthetic */ int f36584a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ int f2710b;
+            public final /* synthetic */ int f36585b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f2711c;
+            public final /* synthetic */ String f36586c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ PayChannelController f2712d;
+            public final /* synthetic */ PayChannelController f36587d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -284,23 +272,23 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                         return;
                     }
                 }
-                this.f2712d = this;
-                this.f2709a = i2;
-                this.f2710b = i3;
-                this.f2711c = str;
+                this.f36587d = this;
+                this.f36584a = i2;
+                this.f36585b = i3;
+                this.f36586c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f2712d.handleFailure(this.f2709a, this.f2710b, this.f2711c);
+                    this.f36587d.handleFailure(this.f36584a, this.f36585b, this.f36586c);
                 }
             }
         });
     }
 
-    @Override // com.baidu.apollon.beans.IBeanResponseCallback
+    @Override // com.dxmpay.apollon.beans.IBeanResponseCallback
     public void onBeanExecSuccess(int i2, Object obj, String str) {
         Handler handler;
         Interceptable interceptable = $ic;
@@ -312,16 +300,16 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ int f2705a;
+            public final /* synthetic */ int f36580a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ Object f2706b;
+            public final /* synthetic */ Object f36581b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ String f2707c;
+            public final /* synthetic */ String f36582c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ PayChannelController f2708d;
+            public final /* synthetic */ PayChannelController f36583d;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -338,17 +326,17 @@ public class PayChannelController implements IBeanResponseCallback, NoProguard {
                         return;
                     }
                 }
-                this.f2708d = this;
-                this.f2705a = i2;
-                this.f2706b = obj;
-                this.f2707c = str;
+                this.f36583d = this;
+                this.f36580a = i2;
+                this.f36581b = obj;
+                this.f36582c = str;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.f2708d.handlerResponse(this.f2705a, this.f2706b, this.f2707c);
+                    this.f36583d.handlerResponse(this.f36580a, this.f36581b, this.f36582c);
                 }
             }
         });

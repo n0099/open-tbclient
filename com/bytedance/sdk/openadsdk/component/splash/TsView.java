@@ -27,38 +27,40 @@ import com.bytedance.sdk.openadsdk.core.widget.TTCountdownView;
 import com.bytedance.sdk.openadsdk.core.widget.gif.GifView;
 import com.bytedance.sdk.openadsdk.q.r;
 import com.bytedance.sdk.openadsdk.q.s;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TsView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f29730a;
+    public final Context f65620a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GifView f29731b;
+    public GifView f65621b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TTCountdownView f29732c;
+    public TTCountdownView f65622c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f29733d;
+    public ImageView f65623d;
 
     /* renamed from: e  reason: collision with root package name */
-    public FrameLayout f29734e;
+    public FrameLayout f65624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f29735f;
+    public FrameLayout f65625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f29736g;
+    public TextView f65626g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f29737h;
+    public RelativeLayout f65627h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f29738i;
-    public ImageView j;
+    public TextView f65628i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public ImageView f65629j;
     public NativeExpressView k;
     public int l;
     public int m;
@@ -83,7 +85,7 @@ public class TsView extends FrameLayout {
                 return;
             }
         }
-        this.f29730a = context;
+        this.f65620a = context;
         a(str);
     }
 
@@ -91,44 +93,44 @@ public class TsView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            Context context = this.f29730a;
+            Context context = this.f65620a;
             View inflate = FrameLayout.inflate(context, t.f(context, "tt_splash_view"), this);
-            this.f29731b = (GifView) inflate.findViewById(t.e(this.f29730a, "tt_splash_ad_gif"));
-            this.f29732c = (TTCountdownView) inflate.findViewById(t.e(this.f29730a, "tt_splash_skip_btn"));
-            this.f29733d = (ImageView) inflate.findViewById(t.e(this.f29730a, "tt_splash_video_ad_mute"));
-            this.f29734e = (FrameLayout) inflate.findViewById(t.e(this.f29730a, "tt_splash_video_container"));
-            this.f29735f = (FrameLayout) inflate.findViewById(t.e(this.f29730a, "tt_splash_express_container"));
-            TextView textView = (TextView) inflate.findViewById(t.e(this.f29730a, "tt_ad_logo"));
-            this.f29736g = textView;
+            this.f65621b = (GifView) inflate.findViewById(t.e(this.f65620a, "tt_splash_ad_gif"));
+            this.f65622c = (TTCountdownView) inflate.findViewById(t.e(this.f65620a, "tt_splash_skip_btn"));
+            this.f65623d = (ImageView) inflate.findViewById(t.e(this.f65620a, "tt_splash_video_ad_mute"));
+            this.f65624e = (FrameLayout) inflate.findViewById(t.e(this.f65620a, "tt_splash_video_container"));
+            this.f65625f = (FrameLayout) inflate.findViewById(t.e(this.f65620a, "tt_splash_express_container"));
+            TextView textView = (TextView) inflate.findViewById(t.e(this.f65620a, "tt_ad_logo"));
+            this.f65626g = textView;
             s.a(textView, str);
-            this.f29737h = (RelativeLayout) inflate.findViewById(t.e(this.f29730a, "tt_full_splash_bar_layout"));
-            this.f29738i = (TextView) inflate.findViewById(t.e(this.f29730a, "tt_splash_bar_text"));
-            this.j = (ImageView) inflate.findViewById(t.e(this.f29730a, "tt_splash_close_btn"));
+            this.f65627h = (RelativeLayout) inflate.findViewById(t.e(this.f65620a, "tt_full_splash_bar_layout"));
+            this.f65628i = (TextView) inflate.findViewById(t.e(this.f65620a, "tt_splash_bar_text"));
+            this.f65629j = (ImageView) inflate.findViewById(t.e(this.f65620a, "tt_splash_close_btn"));
         }
     }
 
     public TTCountdownView getCountDownView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29732c : (TTCountdownView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f65622c : (TTCountdownView) invokeV.objValue;
     }
 
     public View getDislikeView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29732c : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f65622c : (View) invokeV.objValue;
     }
 
     public View getFullClickBarView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29737h : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f65627h : (View) invokeV.objValue;
     }
 
     public FrameLayout getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29734e : (FrameLayout) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f65624e : (FrameLayout) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -136,7 +138,7 @@ public class TsView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onAttachedToWindow();
-            s.a(this, this.f29732c);
+            s.a(this, this.f65622c);
         }
     }
 
@@ -152,7 +154,7 @@ public class TsView extends FrameLayout {
             } else {
                 i6 = this.o;
             }
-            RelativeLayout relativeLayout = this.f29737h;
+            RelativeLayout relativeLayout = this.f65627h;
             if (relativeLayout == null || (layoutParams = (FrameLayout.LayoutParams) relativeLayout.getLayoutParams()) == null) {
                 return;
             }
@@ -167,28 +169,28 @@ public class TsView extends FrameLayout {
             layoutParams.width = s.d(o.a(), this.l);
             layoutParams.bottomMargin = s.d(o.a(), i6);
             layoutParams.gravity = 81;
-            this.f29737h.setLayoutParams(layoutParams);
+            this.f65627h.setLayoutParams(layoutParams);
         }
     }
 
     public void setADlogoLongClickContent(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            r.a(this.f29736g, str);
+            r.a(this.f65626g, str);
         }
     }
 
     public void setAdlogoViewVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            s.a((View) this.f29736g, i2);
+            s.a((View) this.f65626g, i2);
         }
     }
 
     public void setClickBarDesc(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || (textView = this.f29738i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || (textView = this.f65628i) == null) {
             return;
         }
         textView.setText(str);
@@ -197,14 +199,14 @@ public class TsView extends FrameLayout {
     public void setClickBarViewVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            s.a((View) this.f29737h, i2);
+            s.a((View) this.f65627h, i2);
         }
     }
 
     public void setCloseViewListener(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) || (imageView = this.j) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, onClickListener) == null) || (imageView = this.f65629j) == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);
@@ -213,14 +215,14 @@ public class TsView extends FrameLayout {
     public void setCloseViewVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            s.a((View) this.j, i2);
+            s.a((View) this.f65629j, i2);
         }
     }
 
     public void setCountDownTime(int i2) {
         TTCountdownView tTCountdownView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (tTCountdownView = this.f29732c) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || (tTCountdownView = this.f65622c) == null) {
             return;
         }
         tTCountdownView.setCountDownTime(i2);
@@ -229,8 +231,8 @@ public class TsView extends FrameLayout {
     public void setDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, drawable) == null) {
-            this.f29731b.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.f29731b.setImageDrawable(drawable);
+            this.f65621b.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.f65621b.setImageDrawable(drawable);
         }
     }
 
@@ -243,7 +245,7 @@ public class TsView extends FrameLayout {
         if (nativeExpressView.getParent() != null) {
             ((ViewGroup) this.k.getParent()).removeView(this.k);
         }
-        this.f29735f.addView(this.k);
+        this.f65625f.addView(this.k);
         setExpressViewVisibility(0);
         setVideoViewVisibility(8);
         setImageViewVisibility(8);
@@ -252,22 +254,22 @@ public class TsView extends FrameLayout {
     public void setExpressViewVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            s.a((View) this.f29735f, i2);
+            s.a((View) this.f65625f, i2);
         }
     }
 
     public void setGifView(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, bArr) == null) {
-            this.f29731b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.f29731b.a(bArr, false);
+            this.f65621b.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.f65621b.a(bArr, false);
         }
     }
 
     public void setImageViewVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            s.a((View) this.f29731b, i2);
+            s.a((View) this.f65621b, i2);
         }
     }
 
@@ -305,14 +307,14 @@ public class TsView extends FrameLayout {
     public void setSkipIconVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            s.a((View) this.f29732c, i2);
+            s.a((View) this.f65622c, i2);
         }
     }
 
     public final void setSkipListener(View.OnClickListener onClickListener) {
         TTCountdownView tTCountdownView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048600, this, onClickListener) == null) || (tTCountdownView = this.f29732c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048600, this, onClickListener) == null) || (tTCountdownView = this.f65622c) == null) {
             return;
         }
         tTCountdownView.setOnClickListener(onClickListener);
@@ -321,22 +323,22 @@ public class TsView extends FrameLayout {
     public void setVideoViewVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            s.a((View) this.f29734e, i2);
-            s.a((View) this.f29733d, i2);
+            s.a((View) this.f65624e, i2);
+            s.a((View) this.f65623d, i2);
         }
     }
 
     public void setVideoVoiceVisibility(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            s.a((View) this.f29733d, i2);
+            s.a((View) this.f65623d, i2);
         }
     }
 
     public final void setVoiceViewImageResource(@DrawableRes int i2) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048603, this, i2) == null) || (imageView = this.f29733d) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048603, this, i2) == null) || (imageView = this.f65623d) == null) {
             return;
         }
         imageView.setImageResource(i2);
@@ -345,7 +347,7 @@ public class TsView extends FrameLayout {
     public final void setVoiceViewListener(View.OnClickListener onClickListener) {
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048604, this, onClickListener) == null) || (imageView = this.f29733d) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048604, this, onClickListener) == null) || (imageView = this.f65623d) == null) {
             return;
         }
         imageView.setOnClickListener(onClickListener);
@@ -354,7 +356,7 @@ public class TsView extends FrameLayout {
     public void a(int i2, int i3, int i4, int i5, int i6) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) || (relativeLayout = this.f29737h) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) || (relativeLayout = this.f65627h) == null) {
             return;
         }
         if (i2 != 0) {

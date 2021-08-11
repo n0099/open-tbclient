@@ -4,19 +4,20 @@ import android.graphics.Rect;
 import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f17992a;
+    public int f53257a;
 
     public DeviderLineDecoration() {
         Interceptable interceptable = $ic;
@@ -31,8 +32,8 @@ public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        if (this.f17992a <= 0) {
-            this.f17992a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
+        if (this.f53257a <= 0) {
+            this.f53257a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds16);
         }
     }
 
@@ -48,7 +49,14 @@ public class DeviderLineDecoration extends RecyclerView.ItemDecoration {
                     return;
                 }
             }
-            rect.set(0, 0, 0, this.f17992a);
+            rect.set(0, 0, 0, this.f53257a);
+        }
+    }
+
+    public void setDividerHeight(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            this.f53257a = i2;
         }
     }
 }

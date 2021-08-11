@@ -8,36 +8,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class S {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final S f39654a;
+    public static final S f76492a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final S f39655b;
+    public static final S f76493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final S f39656c;
+    public static final S f76494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final S f39657d;
+    public static final S f76495d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final S f39658e;
+    public static final S f76496e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final S f39659f;
+    public static final S f76497f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final S f39660g;
+    public static final S f76498g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final S f39661h;
+    public static final S f76499h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final /* synthetic */ S[] f39662i;
+    public static final /* synthetic */ S[] f76500i;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -53,16 +53,16 @@ public final class S {
                 return;
             }
         }
-        f39654a = new S("UnknownHost", 0);
-        f39655b = new S("Socket", 1);
-        f39656c = new S("SocketTimeout", 2);
-        f39657d = new S("ConnectTimeout", 3);
-        f39658e = new S("IO", 4);
-        f39659f = new S("HttpResponse", 5);
-        f39660g = new S("JSON", 6);
+        f76492a = new S("UnknownHost", 0);
+        f76493b = new S("Socket", 1);
+        f76494c = new S("SocketTimeout", 2);
+        f76495d = new S("ConnectTimeout", 3);
+        f76496e = new S("IO", 4);
+        f76497f = new S("HttpResponse", 5);
+        f76498g = new S("JSON", 6);
         S s = new S("Interrupted", 7);
-        f39661h = s;
-        f39662i = new S[]{f39654a, f39655b, f39656c, f39657d, f39658e, f39659f, f39660g, s};
+        f76499h = s;
+        f76500i = new S[]{f76492a, f76493b, f76494c, f76495d, f76496e, f76497f, f76498g, s};
     }
 
     public S(String str, int i2) {
@@ -93,6 +93,6 @@ public final class S {
     public static S[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (S[]) f39662i.clone() : (S[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (S[]) f76500i.clone() : (S[]) invokeV.objValue;
     }
 }

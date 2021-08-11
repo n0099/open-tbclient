@@ -28,31 +28,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f40430a;
+        public static final a f77287a;
 
         /* renamed from: a  reason: collision with other field name */
-        public static final /* synthetic */ a[] f421a;
+        public static final /* synthetic */ a[] f425a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f40431b;
+        public static final a f77288b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f40432c;
+        public static final a f77289c;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with other field name */
-        public final int f422a;
+        public final int f426a;
 
         static {
             InterceptResult invokeClinit;
@@ -67,11 +67,11 @@ public class g {
                     return;
                 }
             }
-            f40430a = new a(RomUtils.UNKNOWN, 0, 0);
-            f40431b = new a("ALLOWED", 1, 1);
+            f77287a = new a(RomUtils.UNKNOWN, 0, 0);
+            f77288b = new a("ALLOWED", 1, 1);
             a aVar = new a("NOT_ALLOWED", 2, 2);
-            f40432c = aVar;
-            f421a = new a[]{f40430a, f40431b, aVar};
+            f77289c = aVar;
+            f425a = new a[]{f77287a, f77288b, aVar};
         }
 
         public a(String str, int i2, int i3) {
@@ -92,7 +92,7 @@ public class g {
                     return;
                 }
             }
-            this.f422a = i3;
+            this.f426a = i3;
         }
 
         public static a valueOf(String str) {
@@ -104,13 +104,13 @@ public class g {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f421a.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f425a.clone() : (a[]) invokeV.objValue;
         }
 
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f422a : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f426a : invokeV.intValue;
         }
     }
 
@@ -134,7 +134,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static ApplicationInfo m336a(Context context, String str) {
+    public static ApplicationInfo m339a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
@@ -144,7 +144,7 @@ public class g {
             try {
                 return context.getPackageManager().getApplicationInfo(str, 0);
             } catch (PackageManager.NameNotFoundException unused) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("not found app info " + str);
+                com.xiaomi.channel.commonutils.logger.b.m73a("not found app info " + str);
                 return null;
             }
         }
@@ -152,20 +152,20 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static Drawable m337a(Context context, String str) {
+    public static Drawable m340a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            ApplicationInfo m336a = m336a(context, str);
+            ApplicationInfo m339a = m339a(context, str);
             Drawable drawable = null;
-            if (m336a != null) {
+            if (m339a != null) {
                 try {
-                    drawable = m336a.loadIcon(context.getPackageManager());
+                    drawable = m339a.loadIcon(context.getPackageManager());
                     if (drawable == null && Build.VERSION.SDK_INT >= 9) {
-                        drawable = m336a.loadLogo(context.getPackageManager());
+                        drawable = m339a.loadLogo(context.getPackageManager());
                     }
                 } catch (Exception e2) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("get app icon drawable failed, " + e2);
+                    com.xiaomi.channel.commonutils.logger.b.m73a("get app icon drawable failed, " + e2);
                 }
             }
             return drawable != null ? drawable : new ColorDrawable(0);
@@ -179,7 +179,7 @@ public class g {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, applicationInfo)) == null) {
             int i2 = Build.VERSION.SDK_INT;
             if (applicationInfo == null || i2 < 24) {
-                return a.f40430a;
+                return a.f77287a;
             }
             Boolean bool = null;
             try {
@@ -192,12 +192,12 @@ public class g {
                     }
                 }
                 if (bool != null) {
-                    return bool.booleanValue() ? a.f40431b : a.f40432c;
+                    return bool.booleanValue() ? a.f77288b : a.f77289c;
                 }
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("are notifications enabled error " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m73a("are notifications enabled error " + e2);
             }
-            return a.f40430a;
+            return a.f77287a;
         }
         return (a) invokeLL.objValue;
     }
@@ -210,20 +210,20 @@ public class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z)) == null) {
             if (context == null || TextUtils.isEmpty(str) || Build.VERSION.SDK_INT < 19) {
-                return a.f40430a;
+                return a.f77287a;
             }
             try {
                 applicationInfo = str.equals(context.getPackageName()) ? context.getApplicationInfo() : context.getPackageManager().getApplicationInfo(str, 0);
                 a2 = a(context, applicationInfo);
             } catch (Throwable th) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("get app op error " + th);
+                com.xiaomi.channel.commonutils.logger.b.m73a("get app op error " + th);
             }
-            if (a2 != a.f40430a) {
+            if (a2 != a.f77287a) {
                 return a2;
             }
             Integer num = (Integer) bh.a((Class<? extends Object>) AppOpsManager.class, NotificationManagerCompat.OP_POST_NOTIFICATION);
             if (num == null) {
-                return a.f40430a;
+                return a.f77287a;
             }
             Integer num2 = (Integer) bh.a((Object) ((AppOpsManager) context.getSystemService("appops")), NotificationManagerCompat.CHECK_OP_NO_THROW, num, Integer.valueOf(applicationInfo.uid), str);
             int i2 = (Integer) bh.a((Class<? extends Object>) AppOpsManager.class, "MODE_ALLOWED");
@@ -236,9 +236,9 @@ public class g {
                 i3 = 1;
             }
             if (num2 != null) {
-                return z ? !num2.equals(i3) ? a.f40431b : a.f40432c : num2.equals(i2) ? a.f40431b : a.f40432c;
+                return z ? !num2.equals(i3) ? a.f77288b : a.f77289c : num2.equals(i2) ? a.f77288b : a.f77289c;
             }
-            return a.f40430a;
+            return a.f77287a;
         }
         return (a) invokeLLZ.objValue;
     }
@@ -276,7 +276,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m338a(Context context, String str) {
+    public static String m341a(Context context, String str) {
         PackageInfo packageInfo;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -293,7 +293,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m339a(Context context) {
+    public static boolean m342a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
@@ -311,7 +311,7 @@ public class g {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m340a(Context context, String str) {
+    public static boolean m343a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, context, str)) == null) {
@@ -333,10 +333,10 @@ public class g {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, str)) == null) {
-            ApplicationInfo m336a = m336a(context, str);
-            if (m336a != null) {
-                int i2 = m336a.icon;
-                return (i2 != 0 || Build.VERSION.SDK_INT < 9) ? i2 : m336a.logo;
+            ApplicationInfo m339a = m339a(context, str);
+            if (m339a != null) {
+                int i2 = m339a.icon;
+                return (i2 != 0 || Build.VERSION.SDK_INT < 9) ? i2 : m339a.logo;
             }
             return 0;
         }
@@ -374,7 +374,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m341b(Context context, String str) {
+    public static String m344b(Context context, String str) {
         ApplicationInfo applicationInfo;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -392,7 +392,7 @@ public class g {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static boolean m342b(Context context, String str) {
+    public static boolean m345b(Context context, String str) {
         InterceptResult invokeLL;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;

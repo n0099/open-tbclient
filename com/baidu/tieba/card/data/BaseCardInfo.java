@@ -1,6 +1,9 @@
 package com.baidu.tieba.card.data;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.k.e.n;
+import c.a.f.j;
+import c.a.f.k;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,10 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.n;
-import d.a.e.j;
-import d.a.e.k;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseCardInfo implements n, k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public abstract class BaseCardInfo implements n, k {
     public j trigger;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static final class SupportType {
         public static final /* synthetic */ SupportType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -116,7 +116,7 @@ public abstract class BaseCardInfo implements n, k {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.trigger : (j) invokeV.objValue;
     }
 
-    @Override // d.a.d.k.e.n
+    @Override // c.a.e.k.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -169,7 +169,7 @@ public abstract class BaseCardInfo implements n, k {
         }
     }
 
-    @Override // d.a.e.k
+    @Override // c.a.f.k
     public void setTrigger(j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, jVar) == null) {

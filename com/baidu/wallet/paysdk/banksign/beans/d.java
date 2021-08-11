@@ -3,32 +3,32 @@ package com.baidu.wallet.paysdk.banksign.beans;
 import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.armor.SafePay;
-import com.baidu.apollon.restnet.RestNameValuePair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.CardData;
-import com.baidu.wallet.base.datamodel.UserData;
-import com.baidu.wallet.core.beans.NetworkBean;
-import com.baidu.wallet.core.domain.DomainConfig;
 import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
-import com.baidu.wallet.paysdk.beans.PayBaseBean;
 import com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
+import com.dxmpay.apollon.armor.SecurePay;
+import com.dxmpay.apollon.restnet.RestNameValuePair;
+import com.dxmpay.wallet.base.datamodel.UserData;
+import com.dxmpay.wallet.core.beans.BaseBean;
+import com.dxmpay.wallet.core.beans.NetworkBean;
+import com.dxmpay.wallet.core.domain.DomainConfig;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
-public class d extends PayBaseBean<QueryResponse> {
+/* loaded from: classes8.dex */
+public class d extends BaseBean<QueryResponse> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26093a;
+    public String f62003a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -48,10 +48,10 @@ public class d extends PayBaseBean<QueryResponse> {
                 return;
             }
         }
-        this.f26093a = null;
+        this.f62003a = null;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public void execBean() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -59,7 +59,7 @@ public class d extends PayBaseBean<QueryResponse> {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.NetworkBean
+    @Override // com.dxmpay.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
         InterceptResult invokeV;
         String str;
@@ -85,25 +85,25 @@ public class d extends PayBaseBean<QueryResponse> {
             }
             String b2 = com.baidu.wallet.paysdk.banksign.a.a.a().b();
             if (!TextUtils.isEmpty(b2)) {
-                this.f26093a = b2;
+                this.f62003a = b2;
             } else if (PayDataCache.getInstance().isFromPreCashier()) {
-                this.f26093a = PayDataCache.getInstance().getSelectedCardNo();
+                this.f62003a = PayDataCache.getInstance().getSelectedCardNo();
             } else {
                 CardData.BondCard selectCard = PayRequestCache.getInstance().getSelectCard();
                 if (selectCard != null) {
-                    this.f26093a = selectCard.account_no;
+                    this.f62003a = selectCard.account_no;
                 }
             }
-            if (!TextUtils.isEmpty(this.f26093a)) {
-                arrayList.add(new RestNameValuePair("selected_card_no", this.f26093a));
+            if (!TextUtils.isEmpty(this.f62003a)) {
+                arrayList.add(new RestNameValuePair("selected_card_no", this.f62003a));
             }
             String sessionId = NetworkBean.SessionCache.getInstance().getSessionId(null);
             if (!TextUtils.isEmpty(sessionId)) {
                 arrayList.add(new RestNameValuePair("session_id", sessionId));
             }
             arrayList.add(new RestNameValuePair("sign_request_type", "1"));
-            String encryptProxy = SafePay.getInstance().encryptProxy(com.baidu.wallet.paysdk.banksign.a.a.a().l());
-            String str3 = SafePay.getInstance().getpwProxy();
+            String encryptProxy = SecurePay.getInstance().encryptProxy(com.baidu.wallet.paysdk.banksign.a.a.a().l());
+            String str3 = SecurePay.getInstance().getpwProxy();
             arrayList.add(new RestNameValuePair("agreement_trans_id", encryptProxy));
             arrayList.add(new RestNameValuePair("key", str3));
             return arrayList;
@@ -111,14 +111,14 @@ public class d extends PayBaseBean<QueryResponse> {
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public int getBeanId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? BankSignFactory.BEAN_ID_QUERY : invokeV.intValue;
     }
 
-    @Override // com.baidu.apollon.beans.ApollonBean
+    @Override // com.dxmpay.apollon.beans.ApollonBean
     public String getUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

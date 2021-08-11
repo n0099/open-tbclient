@@ -28,7 +28,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMPaGetInfoListRequest";
@@ -53,12 +53,12 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         }
     }
 
-    public IMPaGetInfoListRequest(Context context, List<Long> list, long j, long j2, GetPaInfoSliceListener getPaInfoSliceListener) {
+    public IMPaGetInfoListRequest(Context context, List<Long> list, long j2, long j3, GetPaInfoSliceListener getPaInfoSliceListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Long.valueOf(j), Long.valueOf(j2), getPaInfoSliceListener};
+            Object[] objArr = {context, list, Long.valueOf(j2), Long.valueOf(j3), getPaInfoSliceListener};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -69,8 +69,8 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
             }
         }
         this.mContext = context;
-        this.mAppid = j;
-        this.mUk = j2;
+        this.mAppid = j2;
+        this.mUk = j3;
         this.mPaids = list;
         this.sliceListener = getPaInfoSliceListener;
     }
@@ -154,7 +154,7 @@ public class IMPaGetInfoListRequest extends PaBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x01a1  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x01a4  */
     /* JADX WARN: Removed duplicated region for block: B:48:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*

@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
 import android.graphics.Shader;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.Xml;
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
@@ -103,8 +102,7 @@ public final class ComplexColorCompat {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, null, resources, i2, theme)) == null) {
             try {
                 return createFromXml(resources, i2, theme);
-            } catch (Exception e2) {
-                Log.e(LOG_TAG, "Failed to inflate ComplexColor.", e2);
+            } catch (Exception unused) {
                 return null;
             }
         }

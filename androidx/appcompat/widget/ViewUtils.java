@@ -2,7 +2,6 @@ package androidx.appcompat.widget;
 
 import android.graphics.Rect;
 import android.os.Build;
-import android.util.Log;
 import android.view.View;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
@@ -46,7 +45,6 @@ public class ViewUtils {
                 }
                 sComputeFitSystemWindowsMethod.setAccessible(true);
             } catch (NoSuchMethodException unused) {
-                Log.d("ViewUtils", "Could not find method computeFitSystemWindows. Oh well.");
             }
         }
     }
@@ -73,8 +71,7 @@ public class ViewUtils {
         }
         try {
             method.invoke(view, rect, rect2);
-        } catch (Exception e2) {
-            Log.d("ViewUtils", "Could not invoke computeFitSystemWindows", e2);
+        } catch (Exception unused) {
         }
     }
 
@@ -95,12 +92,7 @@ public class ViewUtils {
                 method.setAccessible(true);
             }
             method.invoke(view, new Object[0]);
-        } catch (IllegalAccessException e2) {
-            Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e2);
-        } catch (NoSuchMethodException unused) {
-            Log.d("ViewUtils", "Could not find method makeOptionalFitsSystemWindows. Oh well...");
-        } catch (InvocationTargetException e3) {
-            Log.d("ViewUtils", "Could not invoke makeOptionalFitsSystemWindows", e3);
+        } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException unused) {
         }
     }
 }

@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class z1 {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile z1 f73607b;
+    public static volatile z1 f78908b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Throwable f73608a;
+    public Throwable f78909a;
 
     public z1() {
         Interceptable interceptable = $ic;
@@ -34,21 +34,21 @@ public class z1 {
                 return;
             }
         }
-        this.f73608a = null;
+        this.f78909a = null;
     }
 
     public static z1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f73607b == null) {
+            if (f78908b == null) {
                 synchronized (z1.class) {
-                    if (f73607b == null) {
-                        f73607b = new z1();
+                    if (f78908b == null) {
+                        f78908b = new z1();
                     }
                 }
             }
-            return f73607b;
+            return f78908b;
         }
         return (z1) invokeV.objValue;
     }
@@ -59,7 +59,7 @@ public class z1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                th = this.f73608a;
+                th = this.f78909a;
             }
             return th;
         }

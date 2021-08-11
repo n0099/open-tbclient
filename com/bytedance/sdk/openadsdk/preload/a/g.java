@@ -14,38 +14,40 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.preload.a.b.d f32253a;
+    public com.bytedance.sdk.openadsdk.preload.a.b.d f68211a;
 
     /* renamed from: b  reason: collision with root package name */
-    public u f32254b;
+    public u f68212b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e f32255c;
+    public e f68213c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Map<Type, h<?>> f32256d;
+    public final Map<Type, h<?>> f68214d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<w> f32257e;
+    public final List<w> f68215e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<w> f32258f;
+    public final List<w> f68216f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f32259g;
+    public boolean f68217g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f32260h;
+    public String f68218h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f32261i;
-    public int j;
+    public int f68219i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public int f68220j;
     public boolean k;
     public boolean l;
     public boolean m;
@@ -66,15 +68,15 @@ public final class g {
                 return;
             }
         }
-        this.f32253a = com.bytedance.sdk.openadsdk.preload.a.b.d.f32152a;
-        this.f32254b = u.f32266a;
-        this.f32255c = d.f32205a;
-        this.f32256d = new HashMap();
-        this.f32257e = new ArrayList();
-        this.f32258f = new ArrayList();
-        this.f32259g = false;
-        this.f32261i = 2;
-        this.j = 2;
+        this.f68211a = com.bytedance.sdk.openadsdk.preload.a.b.d.f68106a;
+        this.f68212b = u.f68225a;
+        this.f68213c = d.f68159a;
+        this.f68214d = new HashMap();
+        this.f68215e = new ArrayList();
+        this.f68216f = new ArrayList();
+        this.f68217g = false;
+        this.f68219i = 2;
+        this.f68220j = 2;
         this.k = false;
         this.l = false;
         this.m = true;
@@ -90,13 +92,13 @@ public final class g {
             boolean z = obj instanceof s;
             com.bytedance.sdk.openadsdk.preload.a.b.a.a(z || (obj instanceof k) || (obj instanceof h) || (obj instanceof v));
             if (obj instanceof h) {
-                this.f32256d.put(type, (h) obj);
+                this.f68214d.put(type, (h) obj);
             }
             if (z || (obj instanceof k)) {
-                this.f32257e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.l.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), obj));
+                this.f68215e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.l.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), obj));
             }
             if (obj instanceof v) {
-                this.f32257e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), (v) obj));
+                this.f68215e.add(com.bytedance.sdk.openadsdk.preload.a.b.a.n.a(com.bytedance.sdk.openadsdk.preload.a.c.a.a(type), (v) obj));
             }
             return this;
         }
@@ -107,14 +109,14 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<w> arrayList = new ArrayList<>(this.f32257e.size() + this.f32258f.size() + 3);
-            arrayList.addAll(this.f32257e);
+            List<w> arrayList = new ArrayList<>(this.f68215e.size() + this.f68216f.size() + 3);
+            arrayList.addAll(this.f68215e);
             Collections.reverse(arrayList);
-            ArrayList arrayList2 = new ArrayList(this.f32258f);
+            ArrayList arrayList2 = new ArrayList(this.f68216f);
             Collections.reverse(arrayList2);
             arrayList.addAll(arrayList2);
-            a(this.f32260h, this.f32261i, this.j, arrayList);
-            return new f(this.f32253a, this.f32255c, this.f32256d, this.f32259g, this.k, this.o, this.m, this.n, this.p, this.l, this.f32254b, this.f32260h, this.f32261i, this.j, this.f32257e, this.f32258f, arrayList);
+            a(this.f68218h, this.f68219i, this.f68220j, arrayList);
+            return new f(this.f68211a, this.f68213c, this.f68214d, this.f68217g, this.k, this.o, this.m, this.n, this.p, this.l, this.f68212b, this.f68218h, this.f68219i, this.f68220j, this.f68215e, this.f68216f, arrayList);
         }
         return (f) invokeV.objValue;
     }

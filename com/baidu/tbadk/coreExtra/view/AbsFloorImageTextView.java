@@ -7,6 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
+import c.a.e.e.p.l;
+import c.a.o0.b1.l0;
+import c.a.p0.i2.i.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,40 +23,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.b1.j0;
-import d.a.q0.h2.i.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f12896h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final int f12897i;
-    public static final int j;
-    public static final int k;
-    public static final int l;
-    public static final int m;
+    public static final int BOTTOM;
+    public static final int LEFT;
+    public static final int RIGHT;
+    public static final int TEXT_SIZE;
+    public static final int TOP;
+    public static final int WIDTCH;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageUrlData f12898e;
+    public c.a f47880e;
+    public ImageUrlData mAssistUrlData;
+    public c mTbGestureDetector;
+    public String mUserId;
 
-    /* renamed from: f  reason: collision with root package name */
-    public c.a f12899f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c f12900g;
-
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements c.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f12901a;
+        public final /* synthetic */ AbsFloorImageTextView f47881a;
 
         public a(AbsFloorImageTextView absFloorImageTextView) {
             Interceptable interceptable = $ic;
@@ -70,10 +63,10 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f12901a = absFloorImageTextView;
+            this.f47881a = absFloorImageTextView;
         }
 
-        @Override // d.a.q0.h2.i.c.a
+        @Override // c.a.p0.i2.i.c.a
         public boolean a(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -83,18 +76,18 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeLL.booleanValue;
         }
 
-        @Override // d.a.q0.h2.i.c.a
+        @Override // c.a.p0.i2.i.c.a
         public boolean b(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, motionEvent)) == null) {
-                this.f12901a.c();
+                this.f47881a.jumpToPB();
                 return true;
             }
             return invokeLL.booleanValue;
         }
 
-        @Override // d.a.q0.h2.i.c.a
+        @Override // c.a.p0.i2.i.c.a
         public boolean c(View view, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -105,13 +98,13 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ AbsFloorImageTextView f12902h;
+        public final /* synthetic */ AbsFloorImageTextView f47882h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(AbsFloorImageTextView absFloorImageTextView, c.a aVar) {
@@ -131,10 +124,10 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.f12902h = absFloorImageTextView;
+            this.f47882h = absFloorImageTextView;
         }
 
-        @Override // d.a.q0.h2.i.c, android.view.GestureDetector.OnGestureListener
+        @Override // c.a.p0.i2.i.c, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -144,7 +137,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeCommon.booleanValue;
         }
 
-        @Override // d.a.q0.h2.i.c, android.view.GestureDetector.OnGestureListener
+        @Override // c.a.p0.i2.i.c, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -168,12 +161,12 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 return;
             }
         }
-        f12896h = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
-        f12897i = l.g(TbadkApplication.getInst(), R.dimen.tbds28);
-        j = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        k = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
-        l = (l.k(TbadkApplication.getInst()) - j) - k;
-        m = l.g(TbadkApplication.getInst(), R.dimen.tbds42);
+        TOP = l.g(TbadkApplication.getInst(), R.dimen.tbds34);
+        BOTTOM = l.g(TbadkApplication.getInst(), R.dimen.tbds28);
+        LEFT = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        RIGHT = l.g(TbadkApplication.getInst(), R.dimen.tbds44);
+        WIDTCH = (l.k(TbadkApplication.getInst()) - LEFT) - RIGHT;
+        TEXT_SIZE = l.g(TbadkApplication.getInst(), R.dimen.tbds42);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -195,18 +188,11 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             }
         }
         a aVar = new a(this);
-        this.f12899f = aVar;
-        this.f12900g = new b(this, aVar);
+        this.f47880e = aVar;
+        this.mTbGestureDetector = new b(this, aVar);
     }
 
-    public void a(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            b(this, i2);
-        }
-    }
-
-    public void b(View view, int i2) {
+    public void checkAndSetViewHeight(View view, int i2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) || view == null) {
             return;
@@ -220,18 +206,18 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         view.setLayoutParams(layoutParams);
     }
 
-    public void c() {
+    public void jumpToPB() {
         ImageUrlData imageUrlData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageUrlData = this.f12898e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (imageUrlData = this.mAssistUrlData) == null) {
             return;
         }
         String valueOf = String.valueOf(imageUrlData.threadId);
-        String valueOf2 = String.valueOf(this.f12898e.postId);
+        String valueOf2 = String.valueOf(this.mAssistUrlData.postId);
         PbActivityConfig pbActivityConfig = new PbActivityConfig(getContext());
-        ImageUrlData imageUrlData2 = this.f12898e;
+        ImageUrlData imageUrlData2 = this.mAssistUrlData;
         PbActivityConfig createHistoryCfg = pbActivityConfig.createHistoryCfg(valueOf, valueOf2, imageUrlData2.mIsSeeHost, imageUrlData2.mIsReserver, null);
-        if (this.f12898e.isFirstPost) {
+        if (this.mAssistUrlData.isFirstPost) {
             createHistoryCfg.setJumpToTopArea(true);
         } else {
             createHistoryCfg.setJumpToCommentArea(true);
@@ -239,19 +225,27 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createHistoryCfg));
     }
 
-    public Pair<Integer, Integer> d(String str) {
+    public Pair<Integer, Integer> measureTextViewHeightAndLine(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? j0.i(str, m, l) : (Pair) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? l0.i(str, TEXT_SIZE, WIDTCH) : (Pair) invokeL.objValue;
     }
-
-    public abstract void e(boolean z);
-
-    public abstract void f(ImageUrlData imageUrlData);
 
     public void setUserId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.mUserId = str;
+        }
+    }
+
+    public abstract void updateExpandState(boolean z);
+
+    public abstract void updateTextView(ImageUrlData imageUrlData);
+
+    public void checkAndSetViewHeight(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            checkAndSetViewHeight(this, i2);
         }
     }
 }

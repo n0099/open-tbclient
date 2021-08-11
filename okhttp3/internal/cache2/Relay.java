@@ -18,7 +18,7 @@ import okio.Buffer;
 import okio.ByteString;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class Relay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long FILE_HEADER_SIZE = 32;
@@ -38,7 +38,7 @@ public final class Relay {
     public long upstreamPos;
     public Thread upstreamReader;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class RelaySource implements Source {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -184,19 +184,19 @@ public final class Relay {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public long read(Buffer buffer, long j) throws IOException {
+        public long read(Buffer buffer, long j2) throws IOException {
             InterceptResult invokeLJ;
             char c2;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) != null) {
+            if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) != null) {
                 return invokeLJ.longValue;
             }
             if (this.fileOperator != null) {
                 synchronized (this.this$0) {
                     while (true) {
-                        long j2 = this.sourcePos;
-                        long j3 = this.this$0.upstreamPos;
-                        if (j2 == j3) {
+                        long j3 = this.sourcePos;
+                        long j4 = this.this$0.upstreamPos;
+                        if (j3 == j4) {
                             if (!this.this$0.complete) {
                                 if (this.this$0.upstreamReader != null) {
                                     this.timeout.waitUntilNotified(this.this$0);
@@ -209,9 +209,9 @@ public final class Relay {
                                 return -1L;
                             }
                         } else {
-                            long size = j3 - this.this$0.buffer.size();
+                            long size = j4 - this.this$0.buffer.size();
                             if (this.sourcePos >= size) {
-                                long min = Math.min(j, j3 - this.sourcePos);
+                                long min = Math.min(j2, j4 - this.sourcePos);
                                 this.this$0.buffer.copyTo(buffer, this.sourcePos - size, min);
                                 this.sourcePos += min;
                                 return min;
@@ -250,12 +250,12 @@ public final class Relay {
         PREFIX_DIRTY = ByteString.encodeUtf8("OkHttp DIRTY :(\n");
     }
 
-    public Relay(RandomAccessFile randomAccessFile, Source source, long j, ByteString byteString, long j2) {
+    public Relay(RandomAccessFile randomAccessFile, Source source, long j2, ByteString byteString, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {randomAccessFile, source, Long.valueOf(j), byteString, Long.valueOf(j2)};
+            Object[] objArr = {randomAccessFile, source, Long.valueOf(j2), byteString, Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -270,17 +270,17 @@ public final class Relay {
         this.file = randomAccessFile;
         this.upstream = source;
         this.complete = source == null;
-        this.upstreamPos = j;
+        this.upstreamPos = j2;
         this.metadata = byteString;
-        this.bufferMaxSize = j2;
+        this.bufferMaxSize = j3;
     }
 
-    public static Relay edit(File file, Source source, ByteString byteString, long j) throws IOException {
+    public static Relay edit(File file, Source source, ByteString byteString, long j2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{file, source, byteString, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{file, source, byteString, Long.valueOf(j2)})) == null) {
             RandomAccessFile randomAccessFile = new RandomAccessFile(file, "rw");
-            Relay relay = new Relay(randomAccessFile, source, 0L, byteString, j);
+            Relay relay = new Relay(randomAccessFile, source, 0L, byteString, j2);
             randomAccessFile.setLength(0L);
             relay.writeHeader(PREFIX_DIRTY, -1L, -1L);
             return relay;
@@ -308,13 +308,13 @@ public final class Relay {
         return (Relay) invokeL.objValue;
     }
 
-    private void writeHeader(ByteString byteString, long j, long j2) throws IOException {
+    private void writeHeader(ByteString byteString, long j2, long j3) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{byteString, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{byteString, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             Buffer buffer = new Buffer();
             buffer.write(byteString);
-            buffer.writeLong(j);
             buffer.writeLong(j2);
+            buffer.writeLong(j3);
             if (buffer.size() == 32) {
                 new FileOperator(this.file.getChannel()).write(0L, buffer, 32L);
                 return;
@@ -323,21 +323,21 @@ public final class Relay {
         }
     }
 
-    private void writeMetadata(long j) throws IOException {
+    private void writeMetadata(long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(AdIconUtil.AD_TEXT_ID, this, j2) == null) {
             Buffer buffer = new Buffer();
             buffer.write(this.metadata);
-            new FileOperator(this.file.getChannel()).write(32 + j, buffer, this.metadata.size());
+            new FileOperator(this.file.getChannel()).write(32 + j2, buffer, this.metadata.size());
         }
     }
 
-    public void commit(long j) throws IOException {
+    public void commit(long j2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            writeMetadata(j);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            writeMetadata(j2);
             this.file.getChannel().force(false);
-            writeHeader(PREFIX_CLEAN, j, this.metadata.size());
+            writeHeader(PREFIX_CLEAN, j2, this.metadata.size());
             this.file.getChannel().force(false);
             synchronized (this) {
                 this.complete = true;

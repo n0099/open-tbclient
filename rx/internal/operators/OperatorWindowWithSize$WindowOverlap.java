@@ -4,26 +4,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.f;
-import h.j;
-import h.n.a;
+import i.f;
+import i.j;
+import i.n.a;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f73710e;
+    public final int f79015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f73711f;
+    public final int f79016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicLong f73712g;
+    public final AtomicLong f79017g;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public final class WindowOverlapProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
@@ -48,21 +48,21 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends j<T> implemen
             this.this$0 = operatorWindowWithSize$WindowOverlap;
         }
 
-        @Override // h.f
-        public void request(long j) {
+        @Override // i.f
+        public void request(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
                 if (i2 < 0) {
-                    throw new IllegalArgumentException("n >= 0 required but it was " + j);
+                    throw new IllegalArgumentException("n >= 0 required but it was " + j2);
                 } else if (i2 != 0) {
                     OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = this.this$0;
                     if (!get() && compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowOverlap.request(h.o.a.a.a(h.o.a.a.c(operatorWindowWithSize$WindowOverlap.f73711f, j - 1), operatorWindowWithSize$WindowOverlap.f73710e));
+                        operatorWindowWithSize$WindowOverlap.request(i.o.a.a.a(i.o.a.a.c(operatorWindowWithSize$WindowOverlap.f79016f, j2 - 1), operatorWindowWithSize$WindowOverlap.f79015e));
                     } else {
-                        this.this$0.request(h.o.a.a.c(operatorWindowWithSize$WindowOverlap.f73711f, j));
+                        this.this$0.request(i.o.a.a.c(operatorWindowWithSize$WindowOverlap.f79016f, j2));
                     }
-                    h.o.a.a.b(operatorWindowWithSize$WindowOverlap.f73712g, j);
+                    i.o.a.a.b(operatorWindowWithSize$WindowOverlap.f79017g, j2);
                     operatorWindowWithSize$WindowOverlap.d();
                 }
             }

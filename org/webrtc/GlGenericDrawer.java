@@ -10,12 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.RendererCommon;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_VERTEX_SHADER_STRING = "varying vec2 tc;\nattribute vec4 in_pos;\nattribute vec4 in_tc;\nuniform mat4 tex_mat;\nvoid main() {\n  gl_Position = in_pos;\n  tc = (tex_mat * in_tc).xy;\n}\n";
@@ -36,7 +35,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public int texMatrixLocation;
     public final String vertexShader;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface ShaderCallbacks {
         void onNewShader(GlShader glShader);
 
@@ -44,7 +43,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class ShaderType {
         public static final /* synthetic */ ShaderType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -229,9 +228,9 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
             }
             glShader.useProgram();
             GLES20.glEnableVertexAttribArray(this.inPosLocation);
-            GLES20.glVertexAttribPointer(this.inPosLocation, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) FULL_RECTANGLE_BUFFER);
+            GLES20.glVertexAttribPointer(this.inPosLocation, 2, 5126, false, 0, (Buffer) FULL_RECTANGLE_BUFFER);
             GLES20.glEnableVertexAttribArray(this.inTcLocation);
-            GLES20.glVertexAttribPointer(this.inTcLocation, 2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, 0, (Buffer) FULL_RECTANGLE_TEXTURE_BUFFER);
+            GLES20.glVertexAttribPointer(this.inTcLocation, 2, 5126, false, 0, (Buffer) FULL_RECTANGLE_TEXTURE_BUFFER);
             GLES20.glUniformMatrix4fv(this.texMatrixLocation, 1, false, fArr, 0);
             this.shaderCallbacks.onPrepareShader(glShader, fArr, i2, i3, i4, i5);
             GlUtil.checkNoGLES2Error("Prepare shader");

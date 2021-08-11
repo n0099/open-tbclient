@@ -6,7 +6,14 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
+import c.a.e.e.m.b;
+import c.a.e.e.p.l;
+import c.a.o0.b.d;
+import c.a.o0.b.g.a;
+import c.a.o0.b1.e0;
+import c.a.o0.s.q.c2;
+import c.a.p0.v0.n2.k;
+import c.a.p0.x2.y;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,15 +28,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.b;
-import d.a.d.e.p.l;
-import d.a.p0.b.d;
-import d.a.p0.b.g.a;
-import d.a.p0.b1.c0;
-import d.a.p0.s.q.b2;
-import d.a.q0.u0.n2.k;
-import d.a.q0.w2.w;
-/* loaded from: classes3.dex */
+import com.dxmpay.wallet.utils.StatHelper;
+/* loaded from: classes6.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -64,6 +64,7 @@ public class FrsActivityConfig extends IntentConfig {
     public static final String FRS_FROM_FORUM_RULE_EDIT = "frs_from_forum_rule_edit";
     public static final String FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD = "frequently_forum_new_thread";
     public static final String FRS_FROM_FREQUENTLY_FORUM_POST_THREAD = "frequently_forum_post_thread";
+    public static final String FRS_FROM_IM_REC_FORUM = "frs_from_im_rec_forum";
     public static final String FRS_FROM_ITEM = "frs_from_item";
     public static final String FRS_FROM_MANGA_COVER = "form_manga_cover";
     public static final String FRS_FROM_PB = "tb_pb";
@@ -131,10 +132,10 @@ public class FrsActivityConfig extends IntentConfig {
             intent.putExtra("name", str);
             intent.putExtra("from", str2);
             intent.putExtra("back_special", false);
-            intent.putExtra(GOOD, false);
+            intent.putExtra("good", false);
             intent.putExtra("yuelaou_locate", str3);
             if (!(getContext() instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             return this;
         }
@@ -149,11 +150,11 @@ public class FrsActivityConfig extends IntentConfig {
             intent.putExtra("name", str);
             intent.putExtra("from", str2);
             intent.putExtra("back_special", false);
-            intent.putExtra(GOOD, false);
+            intent.putExtra("good", false);
             intent.putExtra(FOLLOWED_HAS_NEW, false);
             intent.putExtra(ALA_IS_ONLIVING, z);
             if (!(getContext() instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             return this;
         }
@@ -194,7 +195,7 @@ public class FrsActivityConfig extends IntentConfig {
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
                 i2 = 6;
             }
-            if (d.y() && a.f52014c != a.d()) {
+            if (d.z() && a.f12523c != a.d()) {
                 frsRequestData.H(k.d(a.d()));
             }
             frsRequestData.setSortType(k.d(i2));
@@ -203,13 +204,13 @@ public class FrsActivityConfig extends IntentConfig {
             } else {
                 frsRequestData.K(0);
             }
-            frsRequestData.w("forum_name", d.a.d.e.p.k.getUrlEncode(stringExtra));
+            frsRequestData.w("forum_name", c.a.e.e.p.k.getUrlEncode(stringExtra));
             frsRequestData.w("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
             k.e(i2, frsRequestData);
             frsRequestData.S("2");
-            frsRequestData.T("-2");
+            frsRequestData.T(StatHelper.SENSOR_ERR_2);
             frsRequestData.M(stringExtra);
             frsRequestData.Z(1);
             frsRequestData.E(0);
@@ -222,7 +223,7 @@ public class FrsActivityConfig extends IntentConfig {
             }
             frsRequestData.O(null);
             frsRequestData.a0(stringExtra3);
-            frsRequestData.N(b.f(c0.a(), 0L));
+            frsRequestData.N(b.f(e0.a(), 0L));
             frsRequestData.setStType(stringExtra2);
             frsRequestData.J(1);
             frsRequestData.setNeedCache(true);
@@ -230,9 +231,9 @@ public class FrsActivityConfig extends IntentConfig {
             frsRequestData.I(longExtra);
             k.e(i2, frsRequestData);
             frsRequestData.Q(1);
-            if (b2.H3.get() && w.o().b() != null) {
-                int d2 = w.o().b().d(stringExtra, false);
-                int e2 = w.o().b().e(stringExtra, false);
+            if (c2.J3.get() && y.o().b() != null) {
+                int d2 = y.o().b().d(stringExtra, false);
+                int e2 = y.o().b().e(stringExtra, false);
                 if (frsRequestData.A() == 1) {
                     d2++;
                 } else if (frsRequestData.A() == 2) {
@@ -278,11 +279,11 @@ public class FrsActivityConfig extends IntentConfig {
         return (FrsActivityConfig) invokeI.objValue;
     }
 
-    public FrsActivityConfig setFakeThreadId(long j) {
+    public FrsActivityConfig setFakeThreadId(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
-            getIntent().putExtra(FRS_FAKE_THREAD_ID, j);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
+            getIntent().putExtra(FRS_FAKE_THREAD_ID, j2);
             return this;
         }
         return (FrsActivityConfig) invokeJ.objValue;
@@ -314,10 +315,10 @@ public class FrsActivityConfig extends IntentConfig {
             intent.putExtra("name", str);
             intent.putExtra("from", str2);
             intent.putExtra("back_special", z);
-            intent.putExtra(GOOD, z2);
+            intent.putExtra("good", z2);
             intent.putExtra(FOLLOWED_HAS_NEW, z3);
             if (!(getContext() instanceof Activity)) {
-                intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                intent.addFlags(268435456);
             }
             return this;
         }

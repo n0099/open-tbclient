@@ -16,10 +16,11 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PropsInfo;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class GetChargeCurrencyConfigChannelsResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +188,7 @@ public class GetChargeCurrencyConfigChannelsResponse implements IBaseJsonRespons
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "GetChargeCurrencyConfigChannelsResponse{cmd=" + this.cmd + ", uid=" + this.uid + ", seq='" + this.seq + "', expand='" + this.expend + "', currencyType=" + this.currencyType + ", confList=" + this.confList + '}';
+            return "GetChargeCurrencyConfigChannelsResponse{cmd=" + this.cmd + ", uid=" + this.uid + ", seq='" + this.seq + ExtendedMessageFormat.QUOTE + ", expand='" + this.expend + ExtendedMessageFormat.QUOTE + ", currencyType=" + this.currencyType + ", confList=" + this.confList + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

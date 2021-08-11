@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.components.command.OAdRemoteApkDownloaderObserver;
 import com.baidu.mobads.container.components.command.XAdRemoteAPKDownloadExtraInfo;
@@ -30,7 +29,7 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class InstallReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "InstallReceiver";
@@ -42,7 +41,7 @@ public class InstallReceiver extends BroadcastReceiver {
     public XAdRemoteAPKDownloadExtraInfo mExtraInfo;
     public ArrayList<SoftReference<InstallListener>> mListeners;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface InstallListener {
         void onPackageInstalled(Context context, Intent intent);
     }
@@ -85,7 +84,7 @@ public class InstallReceiver extends BroadcastReceiver {
                 return false;
             }
             Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
             return context.getPackageManager().queryIntentActivities(intent, 65536).size() > 0;
         }
         return invokeLL.booleanValue;
@@ -234,7 +233,7 @@ public class InstallReceiver extends BroadcastReceiver {
                                     } else if (TextUtils.isEmpty(this.val$finalPK) || (launchIntentForPackage = this.val$context.getPackageManager().getLaunchIntentForPackage(this.val$finalPK)) == null) {
                                         return null;
                                     } else {
-                                        launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                                        launchIntentForPackage.addFlags(268435456);
                                         this.val$context.startActivity(launchIntentForPackage);
                                         return null;
                                     }
@@ -263,7 +262,7 @@ public class InstallReceiver extends BroadcastReceiver {
                     Thread.sleep(600L);
                     Intent launchIntentForPackage = context.getPackageManager().getLaunchIntentForPackage(replace);
                     if (launchIntentForPackage != null) {
-                        launchIntentForPackage.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                        launchIntentForPackage.addFlags(268435456);
                         context.startActivity(launchIntentForPackage);
                         XAdInstallController.getInstance().stopListener(context, this.mExtraInfo.packageName);
                         SendLogUtil.Builder append2 = SendLogUtil.Builder.create(context).appendType(SDKLogTypeConstants.TYPE_INSTALL_WAKE_UP).append(XAdRemoteAPKDownloadExtraInfo.ADID, this.mExtraInfo.getAdid()).append(XAdRemoteAPKDownloadExtraInfo.QK, this.mExtraInfo.getQueryKey()).append("pk", this.mExtraInfo.getPackageName()).append(XAdRemoteAPKDownloadExtraInfo.BUYER, this.mExtraInfo.getBuyer()).append("prod", this.mExtraInfo.getProd()).appendAppSid(this.mExtraInfo.getAppsid()).append("schema", this.mExtraInfo.mPage).append("from", SocialConstants.PARAM_RECEIVER).append("clicktime", String.valueOf(this.mExtraInfo.getClickTime())).append("appsize", String.valueOf(this.mExtraInfo.getAppSize()));

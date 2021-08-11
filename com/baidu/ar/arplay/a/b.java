@@ -1,7 +1,6 @@
 package com.baidu.ar.arplay.a;
 
 import android.content.SharedPreferences;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static int dj = 1;
@@ -71,14 +70,15 @@ public class b {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0032  */
-    /* JADX WARN: Removed duplicated region for block: B:26:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x002b  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public String getValue(int i2, String str) {
         InterceptResult invokeIL;
-        String str2;
+        String string;
+        SharedPreferences sharedPreferences;
         Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str)) != null) {
@@ -86,43 +86,29 @@ public class b {
         }
         if (i2 == dj) {
             map = this.dm;
-        } else if (i2 == dk) {
-            map = this.dn;
+        } else if (i2 != dk) {
+            string = (i2 != dl || (sharedPreferences = this.f0do) == null) ? null : sharedPreferences.getString(str, "");
+            return string != null ? "" : string;
         } else {
-            if (i2 == dl) {
-                SharedPreferences sharedPreferences = this.f0do;
-                if (sharedPreferences != null) {
-                    str2 = sharedPreferences.getString(str, "");
-                    return str2 == null ? "" : str2;
-                }
-                Log.e("TAG", "prefs data store is null");
-            }
-            str2 = null;
-            if (str2 == null) {
-            }
+            map = this.dn;
         }
-        str2 = map.get(str);
-        if (str2 == null) {
+        string = map.get(str);
+        if (string != null) {
         }
     }
 
     public void setValue(int i2, String str, String str2) {
+        SharedPreferences sharedPreferences;
         Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i2, str, str2) == null) {
             if (i2 == dj) {
                 map = this.dm;
             } else if (i2 != dk) {
-                if (i2 == dl) {
-                    SharedPreferences sharedPreferences = this.f0do;
-                    if (sharedPreferences != null) {
-                        sharedPreferences.edit().putString(str, str2).commit();
-                        return;
-                    } else {
-                        Log.e("TAG", "prefs data store is null");
-                        return;
-                    }
+                if (i2 != dl || (sharedPreferences = this.f0do) == null) {
+                    return;
                 }
+                sharedPreferences.edit().putString(str, str2).commit();
                 return;
             } else {
                 map = this.dn;

@@ -7,7 +7,6 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.util.Log;
 import android.util.SparseArray;
 import android.util.TypedValue;
 import androidx.annotation.ColorRes;
@@ -185,8 +184,7 @@ public final class AppCompatResources {
             Resources resources = context.getResources();
             try {
                 return ColorStateListInflaterCompat.createFromXml(resources, resources.getXml(i2), context.getTheme());
-            } catch (Exception e2) {
-                Log.e(LOG_TAG, "Failed to inflate ColorStateList, leaving it to the framework", e2);
+            } catch (Exception unused) {
                 return null;
             }
         }

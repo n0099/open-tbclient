@@ -12,15 +12,15 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ExecutorService f34010a;
+    public static final ExecutorService f70738a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f34011b;
+    public static final Handler f70739b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,13 +36,13 @@ public class i {
                 return;
             }
         }
-        f34010a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        f34011b = new Handler(Looper.getMainLooper());
+        f70738a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        f70739b = new Handler(Looper.getMainLooper());
     }
 
     public static Future<?> a(Runnable runnable) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, runnable)) == null) ? f34010a.submit(runnable) : (Future) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, runnable)) == null) ? f70738a.submit(runnable) : (Future) invokeL.objValue;
     }
 }

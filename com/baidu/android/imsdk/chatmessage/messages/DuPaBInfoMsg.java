@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class DuPaBInfoMsg extends ChatMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String B_ACTION = "action";
@@ -138,12 +138,12 @@ public class DuPaBInfoMsg extends ChatMsg {
         }
     }
 
-    public DuPaBInfoMsg(String str, long j, String str2, String str3, String str4, int i2) {
+    public DuPaBInfoMsg(String str, long j2, String str2, String str3, String str4, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), str2, str3, str4, Integer.valueOf(i2)};
+            Object[] objArr = {str, Long.valueOf(j2), str2, str3, str4, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -157,7 +157,7 @@ public class DuPaBInfoMsg extends ChatMsg {
         setCategory(7);
         setChatType(7);
         this.addr = str;
-        this.time = j;
+        this.time = j2;
         this.longitude = str2;
         this.latitude = str3;
         this.ip = str4;

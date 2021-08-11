@@ -1,6 +1,5 @@
 package com.baidu.rtc.player;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +14,7 @@ import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 import java.util.Scanner;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class AsyncHttpRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HTTP_REQUEST_TIMEOUT_MS = 5000;
@@ -27,7 +26,7 @@ public class AsyncHttpRequest {
     public final String method;
     public final String url;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface AsyncHttpEvents {
         void onHttpComplete(String str);
 
@@ -111,7 +110,6 @@ public class AsyncHttpRequest {
                     OutputStream outputStream = httpURLConnection.getOutputStream();
                     outputStream.write(bArr, 0, bArr.length);
                     outputStream.close();
-                    Log.d("AsyncHttpRequest", this.message);
                 }
                 int responseCode = httpURLConnection.getResponseCode();
                 if (responseCode == 200) {

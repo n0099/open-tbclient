@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class K {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public List f39590a;
+    public List f76426a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39591b;
+    public String f76427b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f39592c;
+    public String f76428c;
 
     public K() {
         Interceptable interceptable = $ic;
@@ -37,6 +37,6 @@ public class K {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39591b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f76427b : (String) invokeV.objValue;
     }
 }

@@ -2,7 +2,6 @@ package androidx.core.text;
 
 import android.icu.util.ULocale;
 import android.os.Build;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -54,10 +53,9 @@ public final class ICUCompat {
                 sGetScriptMethod = cls.getMethod("getScript", String.class);
                 sAddLikelySubtagsMethod = cls.getMethod("addLikelySubtags", String.class);
             }
-        } catch (Exception e3) {
+        } catch (Exception unused) {
             sGetScriptMethod = null;
             sAddLikelySubtagsMethod = null;
-            Log.w(TAG, e3);
         }
     }
 
@@ -84,10 +82,7 @@ public final class ICUCompat {
                 if (sAddLikelySubtagsMethod != null) {
                     return (String) sAddLikelySubtagsMethod.invoke(null, locale2);
                 }
-            } catch (IllegalAccessException e2) {
-                Log.w(TAG, e2);
-            } catch (InvocationTargetException e3) {
-                Log.w(TAG, e3);
+            } catch (IllegalAccessException | InvocationTargetException unused) {
             }
             return locale2;
         }
@@ -102,10 +97,7 @@ public final class ICUCompat {
                 if (sGetScriptMethod != null) {
                     return (String) sGetScriptMethod.invoke(null, str);
                 }
-            } catch (IllegalAccessException e2) {
-                Log.w(TAG, e2);
-            } catch (InvocationTargetException e3) {
-                Log.w(TAG, e3);
+            } catch (IllegalAccessException | InvocationTargetException unused) {
             }
             return null;
         }
@@ -124,11 +116,7 @@ public final class ICUCompat {
             if (i2 >= 21) {
                 try {
                     return ((Locale) sAddLikelySubtagsMethod.invoke(null, locale)).getScript();
-                } catch (IllegalAccessException e2) {
-                    Log.w(TAG, e2);
-                    return locale.getScript();
-                } catch (InvocationTargetException e3) {
-                    Log.w(TAG, e3);
+                } catch (IllegalAccessException | InvocationTargetException unused) {
                     return locale.getScript();
                 }
             }

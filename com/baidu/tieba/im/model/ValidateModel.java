@@ -2,6 +2,12 @@ package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.p.l;
+import c.a.o0.b1.h0;
+import c.a.o0.b1.k0;
+import c.a.o0.b1.n;
+import c.a.p0.j1.h.d;
+import c.a.p0.j1.k.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -17,18 +23,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.b1.f0;
-import d.a.p0.b1.i0;
-import d.a.p0.b1.n;
-import d.a.q0.i1.h.d;
-import d.a.q0.i1.k.b;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ValidateModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -116,7 +116,7 @@ public class ValidateModel {
         if (!(interceptable == null || interceptable.invokeLL(65539, null, validateItemData, nVar) == null) || validateItemData == null) {
             return;
         }
-        i0.c(new f0<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.3
+        k0.c(new h0<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ValidateItemData val$data;
@@ -141,7 +141,7 @@ public class ValidateModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.p0.b1.f0
+            @Override // c.a.o0.b1.h0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -210,7 +210,7 @@ public class ValidateModel {
     public static void requestValidateDataCountFromDB(n<Integer> nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, nVar) == null) {
-            i0.c(new f0<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
+            k0.c(new h0<Integer>() { // from class: com.baidu.tieba.im.model.ValidateModel.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -230,7 +230,7 @@ public class ValidateModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // d.a.p0.b1.f0
+                @Override // c.a.o0.b1.h0
                 public Integer doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -243,7 +243,7 @@ public class ValidateModel {
     public static void requestValidateDataFromDB(int i2, int i3, n<LinkedList<GroupNewsPojo>> nVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(65543, null, i2, i3, nVar) == null) {
-            i0.c(new f0<LinkedList<GroupNewsPojo>>(i2, i3) { // from class: com.baidu.tieba.im.model.ValidateModel.4
+            k0.c(new h0<LinkedList<GroupNewsPojo>>(i2, i3) { // from class: com.baidu.tieba.im.model.ValidateModel.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int val$count;
@@ -269,7 +269,7 @@ public class ValidateModel {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // d.a.p0.b1.f0
+                @Override // c.a.o0.b1.h0
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -294,7 +294,7 @@ public class ValidateModel {
         if (!(interceptable == null || interceptable.invokeLL(65545, null, nVar, validateItemData) == null) || validateItemData == null) {
             return;
         }
-        i0.c(new f0<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.1
+        k0.c(new h0<Boolean>(validateItemData) { // from class: com.baidu.tieba.im.model.ValidateModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ValidateItemData val$data;
@@ -319,7 +319,7 @@ public class ValidateModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // d.a.p0.b1.f0
+            @Override // c.a.o0.b1.h0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;

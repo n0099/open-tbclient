@@ -1,6 +1,8 @@
 package com.baidu.tieba.im.model;
 
 import android.text.TextUtils;
+import c.a.e.e.k.a;
+import c.a.e.e.m.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -9,9 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.k.a;
-import d.a.d.e.m.b;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PvCacheModel {
     public static /* synthetic */ Interceptable $ic;
     public static PvCacheModel mCacheModel;

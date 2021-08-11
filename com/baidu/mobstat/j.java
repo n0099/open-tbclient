@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class j implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public m f9015a;
+    public m f43650a;
 
     public j(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -36,7 +36,7 @@ public abstract class j implements Closeable {
             }
         }
         l lVar = new l();
-        this.f9015a = new m(lVar, str);
+        this.f43650a = new m(lVar, str);
         File databasePath = lVar.getDatabasePath(".confd");
         if (databasePath == null || !databasePath.canWrite()) {
             return;
@@ -47,7 +47,7 @@ public abstract class j implements Closeable {
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, str) == null) {
-            this.f9015a.a(str);
+            this.f43650a.a(str);
         }
     }
 
@@ -58,10 +58,10 @@ public abstract class j implements Closeable {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f9015a.b() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f43650a.b() : invokeV.intValue;
     }
 
-    public abstract boolean b(long j);
+    public abstract boolean b(long j2);
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
@@ -69,7 +69,7 @@ public abstract class j implements Closeable {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             synchronized (this) {
                 try {
-                    this.f9015a.close();
+                    this.f43650a.close();
                 } catch (Exception e2) {
                     bb.c().b(e2);
                 }
@@ -84,7 +84,7 @@ public abstract class j implements Closeable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
                 try {
-                    a2 = this.f9015a.a();
+                    a2 = this.f43650a.a();
                 } catch (Exception e2) {
                     bb.c().b(e2);
                     return false;
@@ -99,7 +99,7 @@ public abstract class j implements Closeable {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i2, i3)) == null) {
-            return this.f9015a.a(null, null, null, null, null, str + " desc", i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
+            return this.f43650a.a(null, null, null, null, null, str + " desc", i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
         }
         return (Cursor) invokeLII.objValue;
     }
@@ -110,7 +110,7 @@ public abstract class j implements Closeable {
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048579, this, str, str2, str3, i2)) == null) {
             String str4 = str + "=? ";
             String[] strArr = {str2};
-            return this.f9015a.a(null, str4, strArr, null, null, str3 + " desc", i2 + "");
+            return this.f43650a.a(null, str4, strArr, null, null, str3 + " desc", i2 + "");
         }
         return (Cursor) invokeLLLI.objValue;
     }
@@ -118,17 +118,17 @@ public abstract class j implements Closeable {
     public long a(ContentValues contentValues) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contentValues)) == null) ? this.f9015a.a((String) null, contentValues) : invokeL.longValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contentValues)) == null) ? this.f43650a.a((String) null, contentValues) : invokeL.longValue;
     }
 
-    public boolean a(long j) {
+    public boolean a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(j);
+            sb.append(j2);
             sb.append("");
-            return this.f9015a.a("_id=? ", new String[]{sb.toString()}) > 0;
+            return this.f43650a.a("_id=? ", new String[]{sb.toString()}) > 0;
         }
         return invokeJ.booleanValue;
     }

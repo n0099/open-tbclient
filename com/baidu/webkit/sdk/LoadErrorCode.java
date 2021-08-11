@@ -21,7 +21,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class LoadErrorCode {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COLON = ":";
@@ -60,7 +60,7 @@ public class LoadErrorCode {
     public volatile StringBuilder mDetails;
     public volatile int mErrorCode;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Statistics {
         public static /* synthetic */ Interceptable $ic = null;
         public static final boolean DEBUG = true;
@@ -80,7 +80,7 @@ public class LoadErrorCode {
         public static volatile File sRecordFile;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes9.dex */
         public static class ErrorItem {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;

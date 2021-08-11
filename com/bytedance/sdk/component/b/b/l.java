@@ -2,7 +2,6 @@ package com.bytedance.sdk.component.b.b;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,38 +20,40 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import okhttp3.internal.http.HttpDate;
 import org.apache.http.cookie.ClientCookie;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Pattern f28674a;
+    public static final Pattern f64532a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Pattern f28675b;
+    public static final Pattern f64533b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Pattern f28676c;
+    public static final Pattern f64534c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f28677d;
+    public static final Pattern f64535d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final String f28678e;
+    public final String f64536e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f28679f;
+    public final String f64537f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final long f28680g;
+    public final long f64538g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final String f28681h;
+    public final String f64539h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final String f28682i;
-    public final boolean j;
+    public final String f64540i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public final boolean f64541j;
     public final boolean k;
     public final boolean l;
     public final boolean m;
@@ -70,18 +71,18 @@ public final class l {
                 return;
             }
         }
-        f28674a = Pattern.compile("(\\d{2,4})[^\\d]*");
-        f28675b = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
-        f28676c = Pattern.compile("(\\d{1,2})[^\\d]*");
-        f28677d = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
+        f64532a = Pattern.compile("(\\d{2,4})[^\\d]*");
+        f64533b = Pattern.compile("(?i)(jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec).*");
+        f64534c = Pattern.compile("(\\d{1,2})[^\\d]*");
+        f64535d = Pattern.compile("(\\d{1,2}):(\\d{1,2}):(\\d{1,2})[^\\d]*");
     }
 
-    public l(String str, String str2, long j, String str3, String str4, boolean z, boolean z2, boolean z3, boolean z4) {
+    public l(String str, String str2, long j2, String str3, String str4, boolean z, boolean z2, boolean z3, boolean z4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j), str3, str4, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)};
+            Object[] objArr = {str, str2, Long.valueOf(j2), str3, str4, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -91,12 +92,12 @@ public final class l {
                 return;
             }
         }
-        this.f28678e = str;
-        this.f28679f = str2;
-        this.f28680g = j;
-        this.f28681h = str3;
-        this.f28682i = str4;
-        this.j = z;
+        this.f64536e = str;
+        this.f64537f = str2;
+        this.f64538g = j2;
+        this.f64539h = str3;
+        this.f64540i = str4;
+        this.f64541j = z;
         this.k = z2;
         this.m = z3;
         this.l = z4;
@@ -105,13 +106,13 @@ public final class l {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f28678e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64536e : (String) invokeV.objValue;
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28679f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64537f : (String) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -120,7 +121,7 @@ public final class l {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (obj instanceof l) {
                 l lVar = (l) obj;
-                return lVar.f28678e.equals(this.f28678e) && lVar.f28679f.equals(this.f28679f) && lVar.f28681h.equals(this.f28681h) && lVar.f28682i.equals(this.f28682i) && lVar.f28680g == this.f28680g && lVar.j == this.j && lVar.k == this.k && lVar.l == this.l && lVar.m == this.m;
+                return lVar.f64536e.equals(this.f64536e) && lVar.f64537f.equals(this.f64537f) && lVar.f64539h.equals(this.f64539h) && lVar.f64540i.equals(this.f64540i) && lVar.f64538g == this.f64538g && lVar.f64541j == this.f64541j && lVar.k == this.k && lVar.l == this.l && lVar.m == this.m;
             }
             return false;
         }
@@ -131,8 +132,8 @@ public final class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            long j = this.f28680g;
-            return ((((((((((((((((527 + this.f28678e.hashCode()) * 31) + this.f28679f.hashCode()) * 31) + this.f28681h.hashCode()) * 31) + this.f28682i.hashCode()) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + (!this.j ? 1 : 0)) * 31) + (!this.k ? 1 : 0)) * 31) + (!this.l ? 1 : 0)) * 31) + (!this.m ? 1 : 0);
+            long j2 = this.f64538g;
+            return ((((((((((((((((527 + this.f64536e.hashCode()) * 31) + this.f64537f.hashCode()) * 31) + this.f64539h.hashCode()) * 31) + this.f64540i.hashCode()) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + (!this.f64541j ? 1 : 0)) * 31) + (!this.k ? 1 : 0)) * 31) + (!this.l ? 1 : 0)) * 31) + (!this.m ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -186,20 +187,20 @@ public final class l {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static l a(long j, t tVar, String str) {
+    public static l a(long j2, t tVar, String str) {
         InterceptResult invokeCommon;
-        long j2;
+        long j3;
         String g2;
         l lVar;
         String str2;
         String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j), tVar, str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{Long.valueOf(j2), tVar, str})) == null) {
             int length = str.length();
             char c2 = ';';
             int a2 = com.bytedance.sdk.component.b.b.a.c.a(str, 0, length, ';');
-            char c3 = com.alipay.sdk.encrypt.a.f1923h;
-            int a3 = com.bytedance.sdk.component.b.b.a.c.a(str, 0, a2, (char) com.alipay.sdk.encrypt.a.f1923h);
+            char c3 = com.alipay.sdk.encrypt.a.f35773h;
+            int a3 = com.bytedance.sdk.component.b.b.a.c.a(str, 0, a2, (char) com.alipay.sdk.encrypt.a.f35773h);
             if (a3 == a2) {
                 return null;
             }
@@ -214,8 +215,8 @@ public final class l {
             int i2 = a2 + 1;
             String str3 = null;
             String str4 = null;
-            long j3 = -1;
-            long j4 = 253402300799999L;
+            long j4 = -1;
+            long j5 = 253402300799999L;
             boolean z = false;
             boolean z2 = false;
             boolean z3 = true;
@@ -227,11 +228,11 @@ public final class l {
                 String c7 = a5 < a4 ? com.bytedance.sdk.component.b.b.a.c.c(str, a5 + 1, a4) : "";
                 if (c6.equalsIgnoreCase("expires")) {
                     try {
-                        j4 = a(c7, 0, c7.length());
+                        j5 = a(c7, 0, c7.length());
                     } catch (NumberFormatException | IllegalArgumentException unused) {
                     }
                 } else if (c6.equalsIgnoreCase(ClientCookie.MAX_AGE_ATTR)) {
-                    j3 = a(c7);
+                    j4 = a(c7);
                 } else {
                     if (c6.equalsIgnoreCase("domain")) {
                         str4 = b(c7);
@@ -245,22 +246,22 @@ public final class l {
                     }
                     i2 = a4 + 1;
                     c2 = ';';
-                    c3 = com.alipay.sdk.encrypt.a.f1923h;
+                    c3 = com.alipay.sdk.encrypt.a.f35773h;
                 }
                 z4 = true;
                 i2 = a4 + 1;
                 c2 = ';';
-                c3 = com.alipay.sdk.encrypt.a.f1923h;
+                c3 = com.alipay.sdk.encrypt.a.f35773h;
             }
-            long j5 = Long.MIN_VALUE;
-            if (j3 != Long.MIN_VALUE) {
-                if (j3 != -1) {
-                    j5 = j + (j3 <= 9223372036854775L ? j3 * 1000 : Long.MAX_VALUE);
-                    if (j5 < j || j5 > HttpDate.MAX_DATE) {
-                        j2 = 253402300799999L;
+            long j6 = Long.MIN_VALUE;
+            if (j4 != Long.MIN_VALUE) {
+                if (j4 != -1) {
+                    j6 = j2 + (j4 <= 9223372036854775L ? j4 * 1000 : Long.MAX_VALUE);
+                    if (j6 < j2 || j6 > HttpDate.MAX_DATE) {
+                        j3 = 253402300799999L;
                     }
                 } else {
-                    j2 = j4;
+                    j3 = j5;
                 }
                 g2 = tVar.g();
                 if (str4 != null) {
@@ -282,9 +283,9 @@ public final class l {
                     int lastIndexOf = i3.lastIndexOf(47);
                     substring = lastIndexOf != 0 ? i3.substring(0, lastIndexOf) : "/";
                 }
-                return new l(c4, c5, j2, str2, substring, z, z2, z3, z4);
+                return new l(c4, c5, j3, str2, substring, z, z2, z3, z4);
             }
-            j2 = j5;
+            j3 = j6;
             g2 = tVar.g();
             if (str4 != null) {
             }
@@ -295,7 +296,7 @@ public final class l {
             String i32 = tVar.i();
             int lastIndexOf2 = i32.lastIndexOf(47);
             substring = lastIndexOf2 != 0 ? i32.substring(0, lastIndexOf2) : "/";
-            return new l(c4, c5, j2, str2, substring, z, z2, z3, z4);
+            return new l(c4, c5, j3, str2, substring, z, z2, z3, z4);
         }
         return (l) invokeCommon.objValue;
     }
@@ -305,7 +306,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2, i3)) == null) {
             int a2 = a(str, i2, i3, false);
-            Matcher matcher = f28677d.matcher(str);
+            Matcher matcher = f64535d.matcher(str);
             int i4 = -1;
             int i5 = -1;
             int i6 = -1;
@@ -315,21 +316,21 @@ public final class l {
             while (a2 < i3) {
                 int a3 = a(str, a2 + 1, i3, true);
                 matcher.region(a2, a3);
-                if (i5 == -1 && matcher.usePattern(f28677d).matches()) {
+                if (i5 == -1 && matcher.usePattern(f64535d).matches()) {
                     i5 = Integer.parseInt(matcher.group(1));
                     i8 = Integer.parseInt(matcher.group(2));
                     i9 = Integer.parseInt(matcher.group(3));
-                } else if (i6 == -1 && matcher.usePattern(f28676c).matches()) {
+                } else if (i6 == -1 && matcher.usePattern(f64534c).matches()) {
                     i6 = Integer.parseInt(matcher.group(1));
-                } else if (i7 == -1 && matcher.usePattern(f28675b).matches()) {
-                    i7 = f28675b.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
-                } else if (i4 == -1 && matcher.usePattern(f28674a).matches()) {
+                } else if (i7 == -1 && matcher.usePattern(f64533b).matches()) {
+                    i7 = f64533b.pattern().indexOf(matcher.group(1).toLowerCase(Locale.US)) / 4;
+                } else if (i4 == -1 && matcher.usePattern(f64532a).matches()) {
                     i4 = Integer.parseInt(matcher.group(1));
                 }
                 a2 = a(str, a3 + 1, i3, false);
             }
             if (i4 >= 70 && i4 <= 99) {
-                i4 += FeatureCodes.SKY_SEG;
+                i4 += 1900;
             }
             if (i4 >= 0 && i4 <= 69) {
                 i4 += 2000;
@@ -346,7 +347,7 @@ public final class l {
                         throw new IllegalArgumentException();
                     }
                     if (i9 >= 0 && i9 <= 59) {
-                        GregorianCalendar gregorianCalendar = new GregorianCalendar(com.bytedance.sdk.component.b.b.a.c.f28321g);
+                        GregorianCalendar gregorianCalendar = new GregorianCalendar(com.bytedance.sdk.component.b.b.a.c.f64169g);
                         gregorianCalendar.setLenient(false);
                         gregorianCalendar.set(1, i4);
                         gregorianCalendar.set(2, i7 - 1);
@@ -431,15 +432,15 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f28678e);
-            sb.append(com.alipay.sdk.encrypt.a.f1923h);
-            sb.append(this.f28679f);
+            sb.append(this.f64536e);
+            sb.append(com.alipay.sdk.encrypt.a.f35773h);
+            sb.append(this.f64537f);
             if (this.l) {
-                if (this.f28680g == Long.MIN_VALUE) {
+                if (this.f64538g == Long.MIN_VALUE) {
                     sb.append("; max-age=0");
                 } else {
                     sb.append("; expires=");
-                    sb.append(com.bytedance.sdk.component.b.b.a.c.d.a(new Date(this.f28680g)));
+                    sb.append(com.bytedance.sdk.component.b.b.a.c.d.a(new Date(this.f64538g)));
                 }
             }
             if (!this.m) {
@@ -447,11 +448,11 @@ public final class l {
                 if (z) {
                     sb.append(".");
                 }
-                sb.append(this.f28681h);
+                sb.append(this.f64539h);
             }
             sb.append("; path=");
-            sb.append(this.f28682i);
-            if (this.j) {
+            sb.append(this.f64540i);
+            if (this.f64541j) {
                 sb.append("; secure");
             }
             if (this.k) {

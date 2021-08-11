@@ -3,7 +3,6 @@ package com.baidu.fsg.base.utils;
 import android.annotation.SuppressLint;
 import android.os.Environment;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.fsg.base.ApollonConstants;
 import com.baidu.mobads.container.util.AdIconUtil;
@@ -16,24 +15,24 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.regex.Pattern;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class CheckUtils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5384a = "CheckUtils";
+    public static final String f39328a = "CheckUtils";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5385b = 3;
+    public static final int f39329b = 3;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5386c = 12;
+    public static final int f39330c = 12;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5387d = 4;
+    public static final int f39331d = 4;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f5388e;
+    public static long f39332e;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CheckUtils() {
@@ -233,7 +232,7 @@ public final class CheckUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str != null && str.length() == 3 : invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x004c  */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0043  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -253,14 +252,12 @@ public final class CheckUtils {
                         try {
                             z = file.createNewFile();
                         } catch (IOException unused) {
-                            if (ApollonConstants.DEBUG) {
-                                Log.w("CheckUtils", "isExternalStorageWriteable() can't create test file.");
-                            }
+                            boolean z2 = ApollonConstants.DEBUG;
                         }
                     }
                     long currentTimeMillis2 = System.currentTimeMillis();
                     if (ApollonConstants.DEBUG) {
-                        Log.i("CheckUtils", "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.");
+                        String str = "Utility.isExternalStorageWriteable(" + z + ") cost " + (currentTimeMillis2 - currentTimeMillis) + "ms.";
                     }
                     return z;
                 }
@@ -279,14 +276,14 @@ public final class CheckUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j = currentTimeMillis - f5388e;
-            LogUtil.logd("timeD=" + j);
-            if (0 < j && j < 500) {
-                LogUtil.logd("点的太快了 timeD=" + j);
-                return true;
+            long j2 = currentTimeMillis - f39332e;
+            LogUtil.logd("timeD=" + j2);
+            if (0 >= j2 || j2 >= 500) {
+                f39332e = currentTimeMillis;
+                return false;
             }
-            f5388e = currentTimeMillis;
-            return false;
+            LogUtil.logd("点的太快了 timeD=" + j2);
+            return true;
         }
         return invokeV.booleanValue;
     }

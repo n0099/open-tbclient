@@ -17,15 +17,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.R;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class b extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f34998a;
+    public a f71746a;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void a(DialogInterface dialogInterface);
 
@@ -55,7 +55,7 @@ public class b extends Dialog {
         if (context instanceof Activity) {
             setOwnerActivity((Activity) context);
         }
-        this.f34998a = aVar;
+        this.f71746a = aVar;
     }
 
     private View a() {
@@ -68,7 +68,7 @@ public class b extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f34999a;
+                public final /* synthetic */ b f71747a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -85,14 +85,14 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f34999a = this;
+                    this.f71747a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f34999a.f34998a.c(this.f34999a);
+                        this.f71747a.f71746a.c(this.f71747a);
                     }
                 }
             });
@@ -101,7 +101,7 @@ public class b extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f35000a;
+                public final /* synthetic */ b f71748a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -118,7 +118,7 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f35000a = this;
+                    this.f71748a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -133,7 +133,7 @@ public class b extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f35001a;
+                public final /* synthetic */ b f71749a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -150,14 +150,14 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f35001a = this;
+                    this.f71749a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f35001a.f34998a.a(this.f35001a);
+                        this.f71749a.f71746a.a(this.f71749a);
                     }
                 }
             });
@@ -166,7 +166,7 @@ public class b extends Dialog {
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ b f35002a;
+                public final /* synthetic */ b f71750a;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -183,14 +183,14 @@ public class b extends Dialog {
                             return;
                         }
                     }
-                    this.f35002a = this;
+                    this.f71750a = this;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        this.f35002a.f34998a.b(this.f35002a);
+                        this.f71750a.f71746a.b(this.f71750a);
                     }
                 }
             });

@@ -16,112 +16,109 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.apollon.permission.PermissionManager;
-import com.baidu.apollon.statistics.PayStatisticsUtil;
 import com.baidu.apollon.statusbar.ImmersiveStatusBarManager;
 import com.baidu.apollon.statusbar.StatusBarUtils;
 import com.baidu.apollon.utils.PhoneUtils;
 import com.baidu.apollon.utils.ResUtils;
-import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.wallet.base.iddetect.UrlOcrConfig;
+import com.baidu.wallet.base.iddetect.beans.IDDetectBean;
 import com.baidu.wallet.base.iddetect.beans.IDDetectBeanFactory;
 import com.baidu.wallet.base.iddetect.datamodel.IDDetectResponse;
-import com.baidu.wallet.base.iddetect.utils.d;
-import com.baidu.wallet.base.iddetect.utils.e;
-import com.baidu.wallet.base.iddetect.utils.f;
+import com.baidu.wallet.base.iddetect.utils.BitmapUtil;
+import com.baidu.wallet.base.iddetect.utils.IdcardUtils;
+import com.baidu.wallet.base.iddetect.utils.StorageUtils;
+import com.baidu.wallet.base.iddetect.utils.Utils;
 import com.baidu.wallet.base.iddetect.view.LaserScannerForScan;
 import com.baidu.wallet.base.iddetect.view.SurfaceViewForScan;
-import com.baidu.wallet.base.statistics.StatServiceEvent;
 import com.baidu.wallet.core.SDKBaseActivity;
 import com.baidu.wallet.core.beans.BeanActivity;
 import com.baidu.wallet.core.beans.BeanManager;
 import com.baidu.wallet.core.utils.BaiduWalletUtils;
 import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.core.utils.WalletGlobalUtils;
+import com.baidu.wallet.utils.ImageUtils;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.coremedia.iso.boxes.TrackReferenceTypeBox;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.lang.ref.WeakReference;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class IdCardActivity extends BeanActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int CAMERA_REQUEST_CODE = 3;
+    public static final int DELAY_START_TIME = 2000;
     public static final String KEY_IMG_PATH = "card_img_path";
     public static final String KEY_NAME = "name";
     public static final String KEY_NUMBER = "number";
+    public static final int MAX_INTERVAL_TIME = 200;
+    public static final int MAX_TIMES = 50;
+    public static final int MESSAGE_BACK = 7;
+    public static final int MESSAGE_CHECK_SUCCESS = 0;
+    public static final int MESSAGE_DEBUG_FOR_SERVER = 3;
+    public static final int MESSAGE_DELAY = 2;
+    public static final int MESSAGE_DONE = 6;
+    public static final int MESSAGE_NOT_RECOGNIZE = 1;
+    public static final int MESSAGE_SHOW_TOAST = 4;
+    public static final int MESSAGE_TIMES_OUT = 5;
     public static final int RESULT_INNER_ERROR = 3;
     public static final int RESULT_NO_PERMISSION = 2;
     public static final String RESULT_PERMISSION_KEY = "permission_name";
     public static final String TAG = "IdCardActivity";
+    public static final int WRITE_EXTERNAL_STORAGE_REQUEST_CODE = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public com.baidu.wallet.base.iddetect.a B;
-    public View C;
-    public final Handler D;
+    public boolean mCanShoot;
+    public Bitmap mCardBmp;
+    public String mCardImagePath;
+    public String mCardName;
+    public String mCardNumber;
+    public String mCardRealPath;
+    public Activity mContext;
+    public int mCurrentTimes;
+    public String mDebugInfo;
+    public final Handler mHandler;
+    public TextView mHint;
+    public boolean mIsDebugForServer;
+    public boolean mIsProcess;
+    public boolean mIsResume;
+    public boolean mIsStart;
+    public long mLastTime;
+    public View mLeftView;
+    public Bitmap mMaskBmp;
+    public CameraSizeInfo mPermissionTest;
+    public LaserScannerForScan mScanFrame;
+    public SurfaceViewForScan mSurfaceView;
+    public int mTargetHeight;
+    public float mTargetRatioH;
+    public float mTargetRatioW;
+    public int mTargetWidth;
+    public int mTargetXpos;
+    public int mTargetYpos;
+    public LinearLayout mTitleBar;
+    public View mTitleBarMargin;
+    public String mToastInfo;
+    public View mTopView;
 
-    /* renamed from: a  reason: collision with root package name */
-    public Activity f24186a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public View f24187b;
-
-    /* renamed from: c  reason: collision with root package name */
-    public View f24188c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f24189d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public LaserScannerForScan f24190e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public SurfaceViewForScan f24191f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f24192g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f24193h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public float f24194i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public Bitmap r;
-    public Bitmap s;
-    public boolean t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
-    public long x;
-    public int y;
-    public String z;
-
-    /* loaded from: classes5.dex */
-    public static class a extends Handler {
+    /* loaded from: classes8.dex */
+    public static class MyHandler extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<IdCardActivity> mActivity;
 
-        /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<IdCardActivity> f24203a;
-
-        public a(IdCardActivity idCardActivity) {
+        public MyHandler(IdCardActivity idCardActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -136,50 +133,48 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                     return;
                 }
             }
-            this.f24203a = new WeakReference<>(idCardActivity);
+            this.mActivity = new WeakReference<>(idCardActivity);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             IdCardActivity idCardActivity;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (idCardActivity = this.f24203a.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || (idCardActivity = this.mActivity.get()) == null) {
                 return;
             }
             int i2 = message.what;
             if (i2 == 0) {
-                LogUtil.i(IdCardActivity.TAG, "成功" + idCardActivity.y + ";姓名=" + idCardActivity.o + ";号码=" + idCardActivity.n);
-                idCardActivity.v = false;
-                idCardActivity.D.sendEmptyMessage(6);
+                LogUtil.i(IdCardActivity.TAG, "成功" + idCardActivity.mCurrentTimes + ";姓名=" + idCardActivity.mCardName + ";号码=" + idCardActivity.mCardNumber);
+                idCardActivity.mCanShoot = false;
+                idCardActivity.mHandler.sendEmptyMessage(6);
             } else if (i2 == 1) {
-                LogUtil.i(IdCardActivity.TAG, "失败" + idCardActivity.y);
-                idCardActivity.v = true;
-                idCardActivity.u = false;
-                idCardActivity.f24191f.autoFocus();
+                LogUtil.i(IdCardActivity.TAG, "失败" + idCardActivity.mCurrentTimes);
+                idCardActivity.mCanShoot = true;
+                idCardActivity.mIsProcess = false;
+                idCardActivity.mSurfaceView.autoFocus();
             } else if (i2 == 2) {
-                idCardActivity.t = true;
+                idCardActivity.mIsStart = true;
             } else if (i2 == 3) {
-                if (idCardActivity.A) {
-                    idCardActivity.f24192g.setText(idCardActivity.z);
+                if (idCardActivity.mIsDebugForServer) {
+                    idCardActivity.mHint.setText(idCardActivity.mDebugInfo);
                 }
             } else if (i2 == 5) {
-                PayStatisticsUtil.onEvent(StatServiceEvent.IDCARD_DETECT_EVENTID_FAIL_TIMEOUT);
-                idCardActivity.t = false;
-                idCardActivity.D.sendEmptyMessage(7);
+                idCardActivity.mIsStart = false;
+                idCardActivity.mHandler.sendEmptyMessage(7);
             } else if (i2 != 6) {
                 if (i2 != 7) {
                     return;
                 }
-                idCardActivity.f();
+                idCardActivity.release();
                 IdCardController.getInstance().fail(0, null);
                 idCardActivity.finish();
             } else {
-                PayStatisticsUtil.onEventWithValue(StatServiceEvent.IDCARD_DETECT_EVENTID_SUCCESS_TIMES, "" + idCardActivity.y);
-                idCardActivity.f();
+                idCardActivity.release();
                 Bundle bundle = new Bundle();
-                bundle.putString("name", idCardActivity.o);
-                bundle.putString(IdCardActivity.KEY_IMG_PATH, idCardActivity.q);
-                bundle.putString(IdCardActivity.KEY_NUMBER, idCardActivity.n);
+                bundle.putString("name", idCardActivity.mCardName);
+                bundle.putString(IdCardActivity.KEY_IMG_PATH, idCardActivity.mCardRealPath);
+                bundle.putString(IdCardActivity.KEY_NUMBER, idCardActivity.mCardNumber);
                 IdCardController.getInstance().success(bundle);
                 idCardActivity.finish();
             }
@@ -199,17 +194,480 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 return;
             }
         }
-        this.f24193h = -1.0f;
-        this.f24194i = -1.0f;
-        this.p = "";
-        this.t = false;
-        this.u = false;
-        this.v = true;
-        this.x = 0L;
-        this.y = 0;
-        this.A = false;
-        this.B = null;
-        this.D = new a(this);
+        this.mTargetRatioH = -1.0f;
+        this.mTargetRatioW = -1.0f;
+        this.mCardImagePath = "";
+        this.mIsStart = false;
+        this.mIsProcess = false;
+        this.mCanShoot = true;
+        this.mLastTime = 0L;
+        this.mCurrentTimes = 0;
+        this.mIsDebugForServer = false;
+        this.mPermissionTest = null;
+        this.mHandler = new MyHandler(this);
+    }
+
+    private JSONObject addParams(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, this, bitmap)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put(UrlOcrConfig.IdCardKey.IDCARD_PIC, BitmapUtil.getBase64(bitmap));
+                jSONObject.put(UrlOcrConfig.IdCardKey.METHODDATA, jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("os", "android");
+                jSONObject3.put("osversion", Build.VERSION.RELEASE);
+                jSONObject3.put("brand", Build.BRAND);
+                jSONObject3.put("model", Build.MODEL);
+                jSONObject3.put(UrlOcrConfig.IdCardKey.VERSION_CODE, Utils.getVersionCode(this.mContext));
+                jSONObject3.put(UrlOcrConfig.IdCardKey.VERSION_NAME, Utils.getVersionName(this.mContext));
+                jSONObject.put("channeldata", jSONObject3);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    private boolean checkCardInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
+            String str = this.mCardName;
+            return (str == null || str.equals("")) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private void checkWritePermission(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65560, this, activity) == null) {
+            if (PermissionManager.checkCallingPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                initActivity();
+            } else {
+                BaiduWalletUtils.requestPermissionsDialog(null, getActivity(), new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, new BaiduWalletUtils.IRequestPermissionCallBack(this, activity) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.4
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ IdCardActivity this$0;
+                    public final /* synthetic */ Activity val$activity;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, activity};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$activity = activity;
+                    }
+
+                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                    public void isAllAgree(Boolean bool) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
+                            if (bool.booleanValue()) {
+                                if (PermissionManager.checkCallingOrSelfPermission(this.val$activity, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 1)) {
+                                    return;
+                                }
+                                this.this$0.handleNoExternalStoragePermission();
+                            } else if (Build.VERSION.SDK_INT >= 23) {
+                                this.this$0.onRequestPermissionsResult(1, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, new int[]{-1});
+                            }
+                        }
+                    }
+
+                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                    public void isShow(String str, Boolean bool) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bool) == null) {
+                        }
+                    }
+
+                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                    public void requestResult(String str, Boolean bool) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bool) == null) {
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dealData(byte[] bArr, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLIII(65561, this, bArr, i2, i3, i4) == null) || this.mIsProcess) {
+            return;
+        }
+        this.mIsProcess = true;
+        int i5 = this.mCurrentTimes;
+        if (i5 >= 50) {
+            this.mHandler.sendEmptyMessage(5);
+            return;
+        }
+        this.mCurrentTimes = i5 + 1;
+        Bitmap bitmapFromData = getBitmapFromData(bArr, i2, i3);
+        this.mMaskBmp = bitmapFromData;
+        Bitmap dealWithSmall = dealWithSmall(bitmapFromData);
+        this.mCardBmp = dealWithSmall;
+        saveFaceImage(dealWithSmall, this.mCardImagePath, "IdCard");
+        IDDetectBean iDDetectBean = (IDDetectBean) IDDetectBeanFactory.getInstance().getBean((Context) this.mContext, IDDetectBeanFactory.BEAN_ID_ID_DETECT, TAG);
+        iDDetectBean.setBeanParams(BitmapUtil.getBase64(this.mCardBmp));
+        iDDetectBean.setResponseCallback(this);
+        iDDetectBean.execBean();
+    }
+
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:37:0x00d8 -> B:45:0x00e8). Please submit an issue!!! */
+    private void dealResult(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65562, this, bArr) == null) {
+            if (bArr != null && bArr.length != 0) {
+                if (this.mIsDebugForServer) {
+                    try {
+                        this.mDebugInfo = new String(bArr, "UTF-8");
+                        this.mHandler.sendEmptyMessage(3);
+                    } catch (UnsupportedEncodingException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+                try {
+                    LogUtil.i(TAG, "dealResult=:" + new String(bArr, "UTF-8") + "data.length =" + bArr.length);
+                    JSONObject jSONObject = new JSONObject(new String(bArr, "UTF-8"));
+                    int optInt = jSONObject.optInt("status");
+                    if (optInt == 0) {
+                        if (!jSONObject.isNull("result")) {
+                            JSONObject jSONObject2 = jSONObject.getJSONObject("result");
+                            String optString = jSONObject2.optString(UrlOcrConfig.IdCardKey.IDCARD_NO);
+                            this.mCardNumber = optString;
+                            if (TextUtils.isEmpty(optString)) {
+                                this.mHandler.sendEmptyMessage(1);
+                            } else if (IdcardUtils.validateIdCard18(this.mCardNumber)) {
+                                this.mCardName = jSONObject2.optString("name");
+                                if (checkCardInfo()) {
+                                    this.mHandler.sendEmptyMessage(0);
+                                } else {
+                                    this.mHandler.sendEmptyMessage(1);
+                                }
+                            } else {
+                                this.mHandler.sendEmptyMessage(1);
+                            }
+                        } else {
+                            this.mHandler.sendEmptyMessage(1);
+                        }
+                    } else {
+                        this.mHandler.sendEmptyMessage(1);
+                        String optString2 = jSONObject.optString("msg");
+                        if (optString2 != null) {
+                            if (optInt == 2) {
+                                LogUtil.d(TAG, "联网错误信息：" + optString2);
+                            } else {
+                                this.mToastInfo = optString2;
+                                this.mHandler.sendEmptyMessage(4);
+                            }
+                        }
+                    }
+                } catch (Exception unused) {
+                    this.mHandler.sendEmptyMessage(1);
+                }
+                return;
+            }
+            LogUtil.i(TAG, "data==null");
+            this.mHandler.sendEmptyMessage(1);
+        }
+    }
+
+    private Bitmap dealWithSmall(Bitmap bitmap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65563, this, bitmap)) == null) {
+            if (this.mTargetRatioH == -1.0f) {
+                initRatio(bitmap.getWidth(), bitmap.getHeight());
+            }
+            return Bitmap.createBitmap(bitmap, this.mTargetXpos, this.mTargetYpos, this.mTargetWidth, this.mTargetHeight);
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    private Bitmap getBitmapFromData(byte[] bArr, int i2, int i3) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65564, this, bArr, i2, i3)) == null) ? Bitmap.createBitmap(ImageUtils.decodeYUV420SP(bArr, i2, i3), i2, i3, Bitmap.Config.ARGB_8888) : (Bitmap) invokeLII.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleNoCamaraPermission() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65565, this) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString(RESULT_PERMISSION_KEY, "访问相机的权限");
+            IdCardController.getInstance().fail(2, bundle);
+            dialogPermission();
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void handleNoExternalStoragePermission() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65566, this) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString(RESULT_PERMISSION_KEY, "读写存储卡的权限");
+            IdCardController.getInstance().fail(2, bundle);
+            finish();
+        }
+    }
+
+    private void initActivity() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65567, this) == null) {
+            try {
+                setContentView(ResUtils.layout(this.mContext, "wallet_base_id_detect"));
+                initView();
+                initData();
+            } catch (Exception unused) {
+                dialogPermission();
+            }
+        }
+    }
+
+    private void initData() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65568, this) == null) {
+            this.mScanFrame.startScan();
+            findViewById(ResUtils.id(this.mContext, "back_btn")).setOnClickListener(this);
+            this.mSurfaceView.setPreviewCallback(new SurfaceViewForScan.Callback(this) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ IdCardActivity this$0;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.Callback
+                public void onFrame(byte[] bArr, int i2, int i3, int i4) {
+                    Interceptable interceptable2 = $ic;
+                    if ((interceptable2 == null || interceptable2.invokeLIII(1048576, this, bArr, i2, i3, i4) == null) && this.this$0.mIsStart && this.this$0.mIsResume && this.this$0.mCanShoot) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        if (currentTimeMillis - this.this$0.mLastTime >= 200) {
+                            this.this$0.mLastTime = currentTimeMillis;
+                            this.this$0.dealData(bArr, i2, i3, i4);
+                        }
+                    }
+                }
+            });
+            if (this.mCanShoot) {
+                this.mHandler.sendEmptyMessageDelayed(2, 2000L);
+            }
+        }
+    }
+
+    private void initPermission(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65569, this, activity) == null) {
+            if (PermissionManager.checkCallingPermission(activity, PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
+                if (PermissionManager.checkCallingPermission(activity, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+                    initActivity();
+                    return;
+                } else {
+                    BaiduWalletUtils.requestPermissionsDialog(null, getActivity(), new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, new BaiduWalletUtils.IRequestPermissionCallBack(this, activity) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.2
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ IdCardActivity this$0;
+                        public final /* synthetic */ Activity val$activity;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, activity};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$activity = activity;
+                        }
+
+                        @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                        public void isAllAgree(Boolean bool) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
+                                if (bool.booleanValue()) {
+                                    if (PermissionManager.checkCallingOrSelfPermission(this.val$activity, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 1)) {
+                                        return;
+                                    }
+                                    this.this$0.handleNoExternalStoragePermission();
+                                } else if (Build.VERSION.SDK_INT >= 23) {
+                                    this.this$0.onRequestPermissionsResult(1, new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, new int[]{-1});
+                                }
+                            }
+                        }
+
+                        @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                        public void isShow(String str, Boolean bool) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bool) == null) {
+                            }
+                        }
+
+                        @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                        public void requestResult(String str, Boolean bool) {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bool) == null) {
+                            }
+                        }
+                    });
+                    return;
+                }
+            }
+            BaiduWalletUtils.requestPermissionsDialog(null, activity, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack(this, activity) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ IdCardActivity this$0;
+                public final /* synthetic */ Activity val$activity;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, activity};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$activity = activity;
+                }
+
+                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                public void isAllAgree(Boolean bool) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
+                        if (bool.booleanValue()) {
+                            if (PermissionManager.checkCallingOrSelfPermission(this.val$activity, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 3)) {
+                                return;
+                            }
+                            this.this$0.handleNoCamaraPermission();
+                        } else if (Build.VERSION.SDK_INT >= 23) {
+                            this.this$0.onRequestPermissionsResult(3, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
+                        }
+                    }
+                }
+
+                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                public void isShow(String str, Boolean bool) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bool) == null) {
+                    }
+                }
+
+                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
+                public void requestResult(String str, Boolean bool) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bool) == null) {
+                    }
+                }
+            });
+        }
+    }
+
+    private void initRatio(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65570, this, i2, i3) == null) {
+            this.mTargetRatioH = (i3 * 1.0f) / this.mSurfaceView.getHeight();
+            float width = (i2 * 1.0f) / this.mSurfaceView.getWidth();
+            this.mTargetRatioW = width;
+            this.mTargetXpos = (int) (width * this.mLeftView.getWidth());
+            this.mTargetYpos = (int) (this.mTargetRatioH * (this.mTopView.getHeight() + this.mTitleBar.getHeight()));
+            this.mTargetWidth = (int) (this.mTargetRatioW * this.mScanFrame.getWidth());
+            this.mTargetHeight = (int) (this.mTargetRatioH * this.mScanFrame.getHeight());
+        }
+    }
+
+    private void initView() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65571, this) == null) {
+            SurfaceViewForScan surfaceViewForScan = (SurfaceViewForScan) findViewById(ResUtils.id(this.mContext, "surface_view"));
+            this.mSurfaceView = surfaceViewForScan;
+            surfaceViewForScan.setAttachedActivity(this);
+            LaserScannerForScan laserScannerForScan = (LaserScannerForScan) findViewById(ResUtils.id(this.mContext, "frame"));
+            this.mScanFrame = laserScannerForScan;
+            laserScannerForScan.setAttachedActivity(this);
+            this.mTopView = findViewById(ResUtils.id(this.mContext, "view_top"));
+            this.mLeftView = findViewById(ResUtils.id(this.mContext, "view_left"));
+            this.mTitleBar = (LinearLayout) findViewById(ResUtils.id(this.mContext, "title_bar"));
+            this.mHint = (TextView) findViewById(ResUtils.id(this.mContext, TrackReferenceTypeBox.TYPE1));
+            View findViewById = findViewById(ResUtils.id(getActivity(), "title_bar_margin"));
+            this.mTitleBarMargin = findViewById;
+            setTop(findViewById);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65572, this) == null) {
+            this.mScanFrame.stopScan();
+            this.mSurfaceView.setPreviewCallback(null);
+            this.mSurfaceView.releaseSource();
+        }
+    }
+
+    private void saveFaceImage(Bitmap bitmap, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65573, this, bitmap, str, str2) == null) {
+            File cacheDirectory = StorageUtils.getCacheDirectory(getActivity());
+            if (!cacheDirectory.exists()) {
+                cacheDirectory.mkdirs();
+            }
+            String str3 = cacheDirectory.getAbsolutePath() + File.separator + str2 + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+            File file = new File(str3);
+            if (file.exists()) {
+                file.delete();
+            }
+            System.out.println(str3);
+            BitmapUtil.saveImage(this.mContext, bitmap, str3, Bitmap.CompressFormat.JPEG, 70);
+            this.mCardRealPath = str3;
+        }
     }
 
     public void dialogPermission() {
@@ -232,8 +690,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public void handleFailure(int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) && i2 == 57345) {
-            PayStatisticsUtil.onEventEndWithValue(StatServiceEvent.IDCARD_DETECT_API_DETECT, i3, str);
-            this.D.sendEmptyMessage(1);
+            this.mHandler.sendEmptyMessage(1);
         }
     }
 
@@ -241,17 +698,16 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public void handleResponse(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeILL(1048579, this, i2, obj, str) == null) && i2 == 57345) {
-            PayStatisticsUtil.onEventEnd(StatServiceEvent.IDCARD_DETECT_API_DETECT, 0);
             if (obj != null && (obj instanceof IDDetectResponse)) {
                 IDDetectResponse iDDetectResponse = (IDDetectResponse) obj;
-                if (!TextUtils.isEmpty(iDDetectResponse.name) && !TextUtils.isEmpty(iDDetectResponse.id_card) && d.a(iDDetectResponse.id_card)) {
-                    this.o = iDDetectResponse.name;
-                    this.n = iDDetectResponse.id_card;
-                    this.D.sendEmptyMessage(0);
+                if (!TextUtils.isEmpty(iDDetectResponse.name) && !TextUtils.isEmpty(iDDetectResponse.id_card) && IdcardUtils.validateIdCard18(iDDetectResponse.id_card)) {
+                    this.mCardName = iDDetectResponse.name;
+                    this.mCardNumber = iDDetectResponse.id_card;
+                    this.mHandler.sendEmptyMessage(0);
                     return;
                 }
             }
-            this.D.sendEmptyMessage(1);
+            this.mHandler.sendEmptyMessage(1);
         }
     }
 
@@ -269,17 +725,15 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            PayStatisticsUtil.onEventWithValue(StatServiceEvent.IDCARD_DETECT_EVENTID_FAIL_TIMES, "" + this.y);
-            this.D.sendEmptyMessage(7);
+            this.mHandler.sendEmptyMessage(7);
         }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && view.getId() == ResUtils.id(this.f24186a, "back_btn")) {
-            PayStatisticsUtil.onEventWithValue(StatServiceEvent.IDCARD_DETECT_EVENTID_FAIL_TIMES, "" + this.y);
-            this.D.sendEmptyMessage(7);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, view) == null) && view.getId() == ResUtils.id(this.mContext, "back_btn")) {
+            this.mHandler.sendEmptyMessage(7);
         }
     }
 
@@ -288,8 +742,8 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f24186a = getActivity();
-            a(getActivity());
+            this.mContext = getActivity();
+            initPermission(getActivity());
             setIsMultiWindowAvailable(false);
             setIsShowMultiWindowTips(true);
             setMultiWindowTipsId("wallet_base_multi_window_close");
@@ -310,7 +764,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onPause();
-            this.w = false;
+            this.mIsResume = false;
         }
     }
 
@@ -323,9 +777,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                 dialog.setOnDismissListener(new DialogInterface.OnDismissListener(this) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ IdCardActivity f24195a;
+                    public final /* synthetic */ IdCardActivity this$0;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -342,7 +794,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                                 return;
                             }
                         }
-                        this.f24195a = this;
+                        this.this$0 = this;
                     }
 
                     @Override // android.content.DialogInterface.OnDismissListener
@@ -350,13 +802,13 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
                             Bundle bundle = new Bundle();
-                            if (PermissionManager.checkCallingPermission(this.f24195a.getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
+                            if (PermissionManager.checkCallingPermission(this.this$0.getActivity(), PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
                                 IdCardController.getInstance().fail(3, null);
                             } else {
                                 bundle.putString(IdCardActivity.RESULT_PERMISSION_KEY, "访问相机的权限");
                                 IdCardController.getInstance().fail(2, bundle);
                             }
-                            this.f24195a.finish();
+                            this.this$0.finish();
                         }
                     }
                 });
@@ -370,16 +822,16 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         if (interceptable == null || interceptable.invokeILL(1048587, this, i2, strArr, iArr) == null) {
             if (i2 == 1) {
                 if (iArr != null && iArr.length > 0 && iArr[0] == 0) {
-                    c();
+                    initActivity();
                 } else {
-                    b();
+                    handleNoExternalStoragePermission();
                 }
             } else if (i2 != 3) {
             } else {
                 if (iArr != null && iArr.length > 0 && iArr[0] == 0) {
-                    b(getActivity());
+                    checkWritePermission(getActivity());
                 } else {
-                    a();
+                    handleNoCamaraPermission();
                 }
             }
         }
@@ -390,7 +842,7 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
-            this.w = true;
+            this.mIsResume = true;
         }
     }
 
@@ -540,389 +992,5 @@ public class IdCardActivity extends BeanActivity implements View.OnClickListener
         }
         view.setLayoutParams(new LinearLayout.LayoutParams(-1, StatusBarUtils.getStatusBarHeight(this.mAct)));
         ImmersiveStatusBarManager.setTopBar(getActivity(), view, isStatusbarTextColorBlack());
-    }
-
-    private void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            SurfaceViewForScan surfaceViewForScan = (SurfaceViewForScan) findViewById(ResUtils.id(this.f24186a, "surface_view"));
-            this.f24191f = surfaceViewForScan;
-            surfaceViewForScan.setAttachedActivity(this);
-            LaserScannerForScan laserScannerForScan = (LaserScannerForScan) findViewById(ResUtils.id(this.f24186a, "frame"));
-            this.f24190e = laserScannerForScan;
-            laserScannerForScan.setAttachedActivity(this);
-            this.f24187b = findViewById(ResUtils.id(this.f24186a, "view_top"));
-            this.f24188c = findViewById(ResUtils.id(this.f24186a, "view_left"));
-            this.f24189d = (LinearLayout) findViewById(ResUtils.id(this.f24186a, "title_bar"));
-            this.f24192g = (TextView) findViewById(ResUtils.id(this.f24186a, TrackReferenceTypeBox.TYPE1));
-            View findViewById = findViewById(ResUtils.id(getActivity(), "title_bar_margin"));
-            this.C = findViewById;
-            setTop(findViewById);
-        }
-    }
-
-    private void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            this.f24190e.startScan();
-            findViewById(ResUtils.id(this.f24186a, "back_btn")).setOnClickListener(this);
-            this.f24191f.setPreviewCallback(new SurfaceViewForScan.a(this) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.5
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ IdCardActivity f24202a;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f24202a = this;
-                }
-
-                @Override // com.baidu.wallet.base.iddetect.view.SurfaceViewForScan.a
-                public void a(byte[] bArr, int i2, int i3, int i4) {
-                    Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLIII(1048576, this, bArr, i2, i3, i4) == null) && this.f24202a.t && this.f24202a.w && this.f24202a.v) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        if (currentTimeMillis - this.f24202a.x >= 200) {
-                            this.f24202a.x = currentTimeMillis;
-                            this.f24202a.a(bArr, i2, i3, i4);
-                        }
-                    }
-                }
-            });
-            if (this.v) {
-                this.D.sendEmptyMessageDelayed(2, 2000L);
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65559, this) == null) {
-            this.f24190e.stopScan();
-            this.f24191f.setPreviewCallback(null);
-            this.f24191f.releaseSource();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString(RESULT_PERMISSION_KEY, "读写存储卡的权限");
-            IdCardController.getInstance().fail(2, bundle);
-            finish();
-        }
-    }
-
-    private void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            try {
-                setContentView(ResUtils.layout(this.f24186a, "wallet_base_id_detect"));
-                d();
-                e();
-            } catch (Exception unused) {
-                dialogPermission();
-            }
-        }
-    }
-
-    private void a(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, this, activity) == null) {
-            if (PermissionManager.checkCallingPermission(activity, PermissionRequest.RESOURCE_VIDEO_CAPTURE)) {
-                if (PermissionManager.checkCallingPermission(activity, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
-                    c();
-                    return;
-                } else {
-                    BaiduWalletUtils.requestPermissionsDialog(null, getActivity(), new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new BaiduWalletUtils.IRequestPermissionCallBack(this, activity) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-
-                        /* renamed from: a  reason: collision with root package name */
-                        public final /* synthetic */ Activity f24196a;
-
-                        /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ IdCardActivity f24197b;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, activity};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.f24197b = this;
-                            this.f24196a = activity;
-                        }
-
-                        @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                        public void isAllAgree(Boolean bool) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
-                                if (bool.booleanValue()) {
-                                    if (PermissionManager.checkCallingOrSelfPermission(this.f24196a, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 1)) {
-                                        return;
-                                    }
-                                    this.f24197b.b();
-                                } else if (Build.VERSION.SDK_INT >= 23) {
-                                    this.f24197b.onRequestPermissionsResult(1, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new int[]{-1});
-                                }
-                            }
-                        }
-
-                        @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                        public void isShow(String str, Boolean bool) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bool) == null) {
-                            }
-                        }
-
-                        @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                        public void requestResult(String str, Boolean bool) {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bool) == null) {
-                            }
-                        }
-                    });
-                    return;
-                }
-            }
-            BaiduWalletUtils.requestPermissionsDialog(null, activity, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new BaiduWalletUtils.IRequestPermissionCallBack(this, activity) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.3
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Activity f24198a;
-
-                /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ IdCardActivity f24199b;
-
-                {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {this, activity};
-                        interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
-                            newInitContext.thisArg = this;
-                            interceptable2.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.f24199b = this;
-                    this.f24198a = activity;
-                }
-
-                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                public void isAllAgree(Boolean bool) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
-                        if (bool.booleanValue()) {
-                            if (PermissionManager.checkCallingOrSelfPermission(this.f24198a, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 3)) {
-                                return;
-                            }
-                            this.f24199b.a();
-                        } else if (Build.VERSION.SDK_INT >= 23) {
-                            this.f24199b.onRequestPermissionsResult(3, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, new int[]{-1});
-                        }
-                    }
-                }
-
-                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                public void isShow(String str, Boolean bool) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bool) == null) {
-                    }
-                }
-
-                @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                public void requestResult(String str, Boolean bool) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bool) == null) {
-                    }
-                }
-            });
-        }
-    }
-
-    private void b(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, this, activity) == null) {
-            if (PermissionManager.checkCallingPermission(activity, StorageUtils.EXTERNAL_STORAGE_PERMISSION)) {
-                c();
-            } else {
-                BaiduWalletUtils.requestPermissionsDialog(null, getActivity(), new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new BaiduWalletUtils.IRequestPermissionCallBack(this, activity) { // from class: com.baidu.wallet.base.iddetect.IdCardActivity.4
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    /* renamed from: a  reason: collision with root package name */
-                    public final /* synthetic */ Activity f24200a;
-
-                    /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ IdCardActivity f24201b;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, activity};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.f24201b = this;
-                        this.f24200a = activity;
-                    }
-
-                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                    public void isAllAgree(Boolean bool) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, bool) == null) {
-                            if (bool.booleanValue()) {
-                                if (PermissionManager.checkCallingOrSelfPermission(this.f24200a, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, 1)) {
-                                    return;
-                                }
-                                this.f24201b.b();
-                            } else if (Build.VERSION.SDK_INT >= 23) {
-                                this.f24201b.onRequestPermissionsResult(1, new String[]{StorageUtils.EXTERNAL_STORAGE_PERMISSION}, new int[]{-1});
-                            }
-                        }
-                    }
-
-                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                    public void isShow(String str, Boolean bool) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bool) == null) {
-                        }
-                    }
-
-                    @Override // com.baidu.wallet.core.utils.BaiduWalletUtils.IRequestPermissionCallBack
-                    public void requestResult(String str, Boolean bool) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bool) == null) {
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(AdIconUtil.AD_TEXT_ID, this) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString(RESULT_PERMISSION_KEY, "访问相机的权限");
-            IdCardController.getInstance().fail(2, bundle);
-            dialogPermission();
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void a(byte[] bArr, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65546, this, bArr, i2, i3, i4) == null) || this.u) {
-            return;
-        }
-        this.u = true;
-        int i5 = this.y;
-        if (i5 >= 50) {
-            this.D.sendEmptyMessage(5);
-            return;
-        }
-        this.y = i5 + 1;
-        Bitmap a2 = a(bArr, i2, i3);
-        this.r = a2;
-        Bitmap a3 = a(a2);
-        this.s = a3;
-        a(a3, this.p, "IdCard");
-        com.baidu.wallet.base.iddetect.beans.a aVar = (com.baidu.wallet.base.iddetect.beans.a) IDDetectBeanFactory.getInstance().getBean((Context) this.f24186a, IDDetectBeanFactory.BEAN_ID_ID_DETECT, TAG);
-        aVar.a(com.baidu.wallet.base.iddetect.utils.a.a(this.s));
-        aVar.setResponseCallback(this);
-        aVar.execBean();
-        PayStatisticsUtil.onEventStart(StatServiceEvent.IDCARD_DETECT_API_DETECT);
-    }
-
-    private Bitmap a(byte[] bArr, int i2, int i3) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i2, i3)) == null) ? Bitmap.createBitmap(e.a(bArr, i2, i3), i2, i3, Bitmap.Config.ARGB_8888) : (Bitmap) invokeLII.objValue;
-    }
-
-    private void a(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(AdIconUtil.BAIDU_LOGO_ID, this, i2, i3) == null) {
-            this.f24193h = (i3 * 1.0f) / this.f24191f.getHeight();
-            float width = (i2 * 1.0f) / this.f24191f.getWidth();
-            this.f24194i = width;
-            this.j = (int) (width * this.f24188c.getWidth());
-            this.k = (int) (this.f24193h * (this.f24187b.getHeight() + this.f24189d.getHeight()));
-            this.l = (int) (this.f24194i * this.f24190e.getWidth());
-            this.m = (int) (this.f24193h * this.f24190e.getHeight());
-        }
-    }
-
-    private Bitmap a(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, bitmap)) == null) {
-            if (this.f24193h == -1.0f) {
-                a(bitmap.getWidth(), bitmap.getHeight());
-            }
-            return Bitmap.createBitmap(bitmap, this.j, this.k, this.l, this.m);
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    private void a(Bitmap bitmap, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, this, bitmap, str, str2) == null) {
-            File a2 = f.a(getActivity());
-            if (!a2.exists()) {
-                a2.mkdirs();
-            }
-            String str3 = a2.getAbsolutePath() + File.separator + str2 + ".jpg";
-            File file = new File(str3);
-            if (file.exists()) {
-                file.delete();
-            }
-            System.out.println(str3);
-            com.baidu.wallet.base.iddetect.utils.a.a(this.f24186a, bitmap, str3, Bitmap.CompressFormat.JPEG, 70);
-            this.q = str3;
-        }
     }
 }

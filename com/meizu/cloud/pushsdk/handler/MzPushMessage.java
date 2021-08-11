@@ -5,7 +5,8 @@ import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.io.Serializable;
 import java.util.Map;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class MzPushMessage implements Serializable {
     public static final String TAG = "MzPushMessage";
     public String content;
@@ -37,7 +38,7 @@ public class MzPushMessage implements Serializable {
                 str = null;
             }
         }
-        d.h.a.a.a.b(TAG, "self json " + str);
+        c.l.a.a.a.b(TAG, "self json " + str);
         return str;
     }
 
@@ -90,6 +91,6 @@ public class MzPushMessage implements Serializable {
     }
 
     public String toString() {
-        return "MzPushMessage{title='" + this.title + "', content='" + this.content + "', pushType=" + this.pushType + ", taskId='" + this.taskId + "', selfDefineContentString='" + this.selfDefineContentString + "', notifyId=" + this.notifyId + '}';
+        return "MzPushMessage{title='" + this.title + ExtendedMessageFormat.QUOTE + ", content='" + this.content + ExtendedMessageFormat.QUOTE + ", pushType=" + this.pushType + ", taskId='" + this.taskId + ExtendedMessageFormat.QUOTE + ", selfDefineContentString='" + this.selfDefineContentString + ExtendedMessageFormat.QUOTE + ", notifyId=" + this.notifyId + ExtendedMessageFormat.END_FE;
     }
 }

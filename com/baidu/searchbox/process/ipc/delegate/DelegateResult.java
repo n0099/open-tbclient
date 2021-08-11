@@ -13,7 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes5.dex */
 public class DelegateResult implements DelegateDef.ResultCode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +67,7 @@ public class DelegateResult implements DelegateDef.ResultCode {
                 StringBuilder sb = this.mDesc;
                 sb.append("[desc]:: ");
                 sb.append(str);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             return this;
         }

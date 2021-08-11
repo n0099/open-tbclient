@@ -10,15 +10,15 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class af {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static Object f40854a;
+    public static Object f77729a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static Map<String, Queue<String>> f884a;
+    public static Map<String, Queue<String>> f888a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,24 +34,24 @@ public class af {
                 return;
             }
         }
-        f40854a = new Object();
-        f884a = new HashMap();
+        f77729a = new Object();
+        f888a = new HashMap();
     }
 
     public static boolean a(XMPushService xMPushService, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, xMPushService, str, str2)) == null) {
-            synchronized (f40854a) {
+            synchronized (f77729a) {
                 SharedPreferences sharedPreferences = xMPushService.getSharedPreferences("push_message_ids", 0);
-                Queue<String> queue = f884a.get(str);
+                Queue<String> queue = f888a.get(str);
                 if (queue == null) {
                     String[] split = sharedPreferences.getString(str, "").split(",");
                     LinkedList linkedList = new LinkedList();
                     for (String str3 : split) {
                         linkedList.add(str3);
                     }
-                    f884a.put(str, linkedList);
+                    f888a.put(str, linkedList);
                     queue = linkedList;
                 }
                 if (queue.contains(str2)) {

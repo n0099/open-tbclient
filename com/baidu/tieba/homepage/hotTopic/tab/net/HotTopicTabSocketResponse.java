@@ -1,5 +1,8 @@
 package com.baidu.tieba.homepage.hotTopic.tab.net;
 
+import c.a.e.k.e.n;
+import c.a.p0.f1.f.a.c;
+import c.a.p0.f1.f.a.f.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,12 +11,9 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.d.k.e.n;
-import d.a.q0.e1.f.a.c;
-import d.a.q0.e1.f.a.f.a;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class HotTopicTabSocketResponse extends SocketResponsedMessage implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,14 +38,14 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         }
     }
 
-    @Override // d.a.q0.e1.f.a.f.a
+    @Override // c.a.p0.f1.f.a.f.a
     public List<n> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // d.a.q0.e1.f.a.f.a
+    @Override // c.a.p0.f1.f.a.f.a
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

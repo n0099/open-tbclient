@@ -16,16 +16,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class PushInfoProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f2713a;
+    public Context f36588a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UriMatcher f2714b;
+    public UriMatcher f36589b;
 
     public PushInfoProvider() {
         Interceptable interceptable = $ic;
@@ -40,7 +40,7 @@ public class PushInfoProvider extends ContentProvider {
                 return;
             }
         }
-        this.f2714b = new UriMatcher(-1);
+        this.f36589b = new UriMatcher(-1);
     }
 
     @Override // android.content.ContentProvider
@@ -79,22 +79,22 @@ public class PushInfoProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Context context = getContext();
-            this.f2713a = context;
+            this.f36588a = context;
             String str = m.o(context) ? "pushinfo_v3" : "pushinfo";
-            if (this.f2714b == null) {
-                this.f2714b = new UriMatcher(-1);
+            if (this.f36589b == null) {
+                this.f36589b = new UriMatcher(-1);
             }
             try {
-                UriMatcher uriMatcher = this.f2714b;
-                uriMatcher.addURI(this.f2713a.getPackageName() + ".bdpush", str, 1);
-                UriMatcher uriMatcher2 = this.f2714b;
-                uriMatcher2.addURI(this.f2713a.getPackageName() + ".bdpush", "verif", 2);
-                UriMatcher uriMatcher3 = this.f2714b;
-                uriMatcher3.addURI(this.f2713a.getPackageName() + ".bdpush", "msgInfo", 3);
-                UriMatcher uriMatcher4 = this.f2714b;
-                uriMatcher4.addURI(this.f2713a.getPackageName() + ".bdpush", "appstatus", 4);
+                UriMatcher uriMatcher = this.f36589b;
+                uriMatcher.addURI(this.f36588a.getPackageName() + ".bdpush", str, 1);
+                UriMatcher uriMatcher2 = this.f36589b;
+                uriMatcher2.addURI(this.f36588a.getPackageName() + ".bdpush", "verif", 2);
+                UriMatcher uriMatcher3 = this.f36589b;
+                uriMatcher3.addURI(this.f36588a.getPackageName() + ".bdpush", "msgInfo", 3);
+                UriMatcher uriMatcher4 = this.f36589b;
+                uriMatcher4.addURI(this.f36588a.getPackageName() + ".bdpush", "appstatus", 4);
             } catch (Throwable th) {
-                new b.c(this.f2713a).a(Log.getStackTraceString(th)).a();
+                new b.c(this.f36588a).a(Log.getStackTraceString(th)).a();
             }
             return true;
         }
@@ -113,26 +113,26 @@ public class PushInfoProvider extends ContentProvider {
             synchronized (com.baidu.android.pushservice.c.c.a()) {
                 cursor = null;
                 try {
-                    match = this.f2714b.match(uri);
+                    match = this.f36589b.match(uri);
                 } catch (Exception e2) {
-                    new b.c(this.f2713a).a(Log.getStackTraceString(e2)).a();
+                    new b.c(this.f36588a).a(Log.getStackTraceString(e2)).a();
                 }
                 if (match == 1) {
-                    SQLiteDatabase a3 = com.baidu.android.pushservice.c.c.a(this.f2713a);
+                    SQLiteDatabase a3 = com.baidu.android.pushservice.c.c.a(this.f36588a);
                     if (a3 != null) {
                         query = a3.query("PushShareInfo", null, null, null, null, null, null);
                     }
                 } else if (match == 2) {
-                    SQLiteDatabase a4 = com.baidu.android.pushservice.c.c.a(this.f2713a);
+                    SQLiteDatabase a4 = com.baidu.android.pushservice.c.c.a(this.f36588a);
                     if (a4 != null) {
                         query = a4.query("PushVerifInfo", strArr, str, strArr2, null, null, str2);
                     }
                 } else if (match == 3) {
-                    SQLiteDatabase a5 = com.baidu.android.pushservice.c.c.a(this.f2713a);
+                    SQLiteDatabase a5 = com.baidu.android.pushservice.c.c.a(this.f36588a);
                     if (a5 != null) {
                         query = a5.query("PushMsgInfos", strArr, str, strArr2, null, null, str2);
                     }
-                } else if (match == 4 && (a2 = com.baidu.android.pushservice.c.c.a(this.f2713a)) != null) {
+                } else if (match == 4 && (a2 = com.baidu.android.pushservice.c.c.a(this.f36588a)) != null) {
                     query = a2.query("PushAppStatus", strArr, str, strArr2, null, null, str2);
                 }
                 cursor = query;
@@ -151,20 +151,20 @@ public class PushInfoProvider extends ContentProvider {
     */
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         InterceptResult invokeLLLL;
-        long j;
+        long j2;
         SQLiteDatabase sQLiteDatabase;
         long update;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
             synchronized (com.baidu.android.pushservice.c.c.a()) {
                 Cursor cursor = null;
-                j = -1;
+                j2 = -1;
                 try {
                     try {
-                        if (this.f2714b.match(uri) != 1) {
+                        if (this.f36589b.match(uri) != 1) {
                             sQLiteDatabase = null;
                         } else {
-                            sQLiteDatabase = com.baidu.android.pushservice.c.c.a(this.f2713a);
+                            sQLiteDatabase = com.baidu.android.pushservice.c.c.a(this.f36588a);
                             if (sQLiteDatabase != null) {
                                 try {
                                     try {
@@ -173,20 +173,20 @@ public class PushInfoProvider extends ContentProvider {
                                             try {
                                                 if (query.getCount() != 0) {
                                                     update = sQLiteDatabase.update("PushShareInfo", contentValues, str, null);
-                                                    j = update;
+                                                    j2 = update;
                                                     cursor = query;
                                                 }
                                             } catch (Exception e2) {
                                                 e = e2;
                                                 cursor = query;
-                                                new b.c(this.f2713a).a(Log.getStackTraceString(e)).a();
+                                                new b.c(this.f36588a).a(Log.getStackTraceString(e)).a();
                                                 if (cursor != null) {
                                                     cursor.close();
                                                 }
                                                 if (sQLiteDatabase != null) {
                                                     sQLiteDatabase.close();
                                                 }
-                                                return (int) j;
+                                                return (int) j2;
                                             } catch (Throwable th) {
                                                 th = th;
                                                 cursor = query;
@@ -200,7 +200,7 @@ public class PushInfoProvider extends ContentProvider {
                                             }
                                         }
                                         update = sQLiteDatabase.insert("PushShareInfo", null, contentValues);
-                                        j = update;
+                                        j2 = update;
                                         cursor = query;
                                     } catch (Exception e3) {
                                         e = e3;
@@ -223,7 +223,7 @@ public class PushInfoProvider extends ContentProvider {
                     sQLiteDatabase = null;
                 }
             }
-            return (int) j;
+            return (int) j2;
         }
         return invokeLLLL.intValue;
     }

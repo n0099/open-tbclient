@@ -5,12 +5,12 @@ import androidx.annotation.Keep;
 import com.kwad.sdk.api.core.KsAdSdkApi;
 @KsAdSdkApi
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface KsInterstitialAd {
 
     @KsAdSdkApi
     @Keep
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public interface AdInteractionListener {
         @KsAdSdkApi
         @Keep

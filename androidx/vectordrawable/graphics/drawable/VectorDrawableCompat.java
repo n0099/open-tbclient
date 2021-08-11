@@ -21,7 +21,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.VectorDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.Xml;
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
@@ -451,11 +450,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                     return createFromXmlInner(resources, (XmlPullParser) xml, asAttributeSet, theme);
                 }
                 throw new XmlPullParserException("No start tag found");
-            } catch (IOException e2) {
-                Log.e(LOGTAG, "parser error", e2);
-                return null;
-            } catch (XmlPullParserException e3) {
-                Log.e(LOGTAG, "parser error", e3);
+            } catch (IOException | XmlPullParserException unused) {
                 return null;
             }
         }
@@ -565,12 +560,8 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
             for (int i3 = 0; i3 < i2; i3++) {
                 str = str + "    ";
             }
-            Log.v(LOGTAG, str + "current group is :" + vGroup.getGroupName() + " rotation is " + vGroup.mRotate);
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            sb.append("matrix is :");
-            sb.append(vGroup.getLocalMatrix().toString());
-            Log.v(LOGTAG, sb.toString());
+            String str2 = str + "current group is :" + vGroup.getGroupName() + " rotation is " + vGroup.mRotate;
+            String str3 = str + "matrix is :" + vGroup.getLocalMatrix().toString();
             for (int i4 = 0; i4 < vGroup.mChildren.size(); i4++) {
                 VObject vObject = vGroup.mChildren.get(i4);
                 if (vObject instanceof VGroup) {
@@ -980,14 +971,14 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void scheduleSelf(Runnable runnable, long j) {
+    public void scheduleSelf(Runnable runnable, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048604, this, runnable, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048604, this, runnable, j2) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                drawable.scheduleSelf(runnable, j);
+                drawable.scheduleSelf(runnable, j2);
             } else {
-                super.scheduleSelf(runnable, j);
+                super.scheduleSelf(runnable, j2);
             }
         }
     }
@@ -1324,7 +1315,7 @@ public class VectorDrawableCompat extends VectorDrawableCommon {
                 for (int i3 = 0; i3 < i2; i3++) {
                     str = str + "    ";
                 }
-                Log.v(VectorDrawableCompat.LOGTAG, str + "current path is :" + this.mPathName + " pathData is " + nodesToString(this.mNodes));
+                String str2 = str + "current path is :" + this.mPathName + " pathData is " + nodesToString(this.mNodes);
             }
         }
 

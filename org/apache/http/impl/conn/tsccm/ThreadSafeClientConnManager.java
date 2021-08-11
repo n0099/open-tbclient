@@ -16,7 +16,7 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class ThreadSafeClientConnManager implements ClientConnectionManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +51,9 @@ public class ThreadSafeClientConnManager implements ClientConnectionManager {
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public void closeIdleConnections(long j, TimeUnit timeUnit) {
+    public void closeIdleConnections(long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, timeUnit) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -103,9 +103,9 @@ public class ThreadSafeClientConnManager implements ClientConnectionManager {
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public void releaseConnection(ManagedClientConnection managedClientConnection, long j, TimeUnit timeUnit) {
+    public void releaseConnection(ManagedClientConnection managedClientConnection, long j2, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{managedClientConnection, Long.valueOf(j), timeUnit}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{managedClientConnection, Long.valueOf(j2), timeUnit}) == null) {
             throw new RuntimeException("Stub!");
         }
     }

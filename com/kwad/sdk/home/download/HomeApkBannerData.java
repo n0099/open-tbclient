@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.b.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class HomeApkBannerData extends com.kwad.sdk.core.response.a.a implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3305476346070314287L;

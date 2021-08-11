@@ -15,19 +15,19 @@ import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.baidu.wallet.home.ui.widget.BaseItemView;
 import com.baidu.wallet.home.ui.widget.MaskTextView;
 import com.baidu.wallet.home.ui.widget.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class UMHGuideItem extends BaseItemView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public NetImageView f25423a;
+    public NetImageView f61170a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f25424b;
+    public MaskTextView f61171b;
 
     /* renamed from: c  reason: collision with root package name */
-    public MaskTextView f25425c;
+    public MaskTextView f61172c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public UMHGuideItem(Context context) {
@@ -63,9 +63,9 @@ public class UMHGuideItem extends BaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_guide_item"), this);
-            this.f25423a = (NetImageView) findViewById(ResUtils.id(getContext(), "item_logo"));
-            this.f25424b = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_title"));
-            this.f25425c = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_desc"));
+            this.f61170a = (NetImageView) findViewById(ResUtils.id(getContext(), "item_logo"));
+            this.f61171b = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_title"));
+            this.f61172c = (MaskTextView) findViewById(ResUtils.id(getContext(), "item_desc"));
         }
     }
 
@@ -74,9 +74,9 @@ public class UMHGuideItem extends BaseItemView {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || getData() == null) {
             return;
         }
-        setNetImageViewUrl(this.f25423a, getData().logo);
-        this.f25424b.setMaskText(getData().name);
-        this.f25425c.setMaskText(getData().desc);
+        setNetImageViewUrl(this.f61170a, getData().logo);
+        this.f61171b.setMaskText(getData().name);
+        this.f61172c.setMaskText(getData().desc);
         handlePoint();
     }
 

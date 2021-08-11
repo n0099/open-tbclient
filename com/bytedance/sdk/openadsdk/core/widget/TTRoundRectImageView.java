@@ -18,22 +18,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class TTRoundRectImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f30972a;
+    public Paint f66903a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30973b;
+    public int f66904b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30974c;
+    public int f66905c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Matrix f30975d;
+    public Matrix f66906d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TTRoundRectImageView(Context context) {
@@ -91,10 +91,10 @@ public class TTRoundRectImageView extends ImageView {
                     if (a2.getWidth() != getWidth() || a2.getHeight() != getHeight()) {
                         f2 = Math.max((getWidth() * 1.0f) / a2.getWidth(), (getHeight() * 1.0f) / a2.getHeight());
                     }
-                    this.f30975d.setScale(f2, f2);
-                    bitmapShader.setLocalMatrix(this.f30975d);
-                    this.f30972a.setShader(bitmapShader);
-                    canvas.drawRoundRect(new RectF(0.0f, 0.0f, getWidth(), getHeight()), this.f30973b, this.f30974c, this.f30972a);
+                    this.f66906d.setScale(f2, f2);
+                    bitmapShader.setLocalMatrix(this.f66906d);
+                    this.f66903a.setShader(bitmapShader);
+                    canvas.drawRoundRect(new RectF(0.0f, 0.0f, getWidth(), getHeight()), this.f66904b, this.f66905c, this.f66903a);
                     return;
                 }
                 super.onDraw(canvas);
@@ -107,7 +107,7 @@ public class TTRoundRectImageView extends ImageView {
     public void setXRound(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f30973b = i2;
+            this.f66904b = i2;
             postInvalidate();
         }
     }
@@ -115,7 +115,7 @@ public class TTRoundRectImageView extends ImageView {
     public void setYRound(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f30974c = i2;
+            this.f66905c = i2;
             postInvalidate();
         }
     }
@@ -160,12 +160,12 @@ public class TTRoundRectImageView extends ImageView {
                 return;
             }
         }
-        this.f30973b = 25;
-        this.f30974c = 25;
+        this.f66904b = 25;
+        this.f66905c = 25;
         Paint paint = new Paint();
-        this.f30972a = paint;
+        this.f66903a = paint;
         paint.setAntiAlias(true);
-        this.f30972a.setFilterBitmap(true);
-        this.f30975d = new Matrix();
+        this.f66903a.setFilterBitmap(true);
+        this.f66906d = new Matrix();
     }
 }

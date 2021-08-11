@@ -5,7 +5,6 @@ import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +31,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import com.facebook.imagepipeline.transcoder.ImageTranscoderFactory;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ProducerSequenceFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -533,7 +532,7 @@ public class ProducerSequenceFactory {
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, uri)) == null) {
             String valueOf = String.valueOf(uri);
             if (valueOf.length() > 30) {
-                return valueOf.substring(0, 30) + StringHelper.STRING_MORE;
+                return valueOf.substring(0, 30) + "...";
             }
             return valueOf;
         }

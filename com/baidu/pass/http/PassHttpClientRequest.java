@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Comparable<PassHttpClientRequest> {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9362a = "PassHttpClientRequest";
+    public static final String f44009a = "PassHttpClientRequest";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f9363b;
+    public int f44010b;
     public volatile boolean cancelRequest;
     public Context context;
     public Method method;
@@ -40,7 +40,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
             }
         }
         this.cancelRequest = false;
-        this.f9363b = i2;
+        this.f44010b = i2;
         this.method = method;
         this.context = context;
         this.paramDTO = passHttpParamDTO;
@@ -66,7 +66,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
             try {
                 new b().a(this);
             } catch (Exception e2) {
-                Log.e(f9362a, "PassHttpClientRequestrun " + e2.getMessage());
+                Log.e(f44009a, "PassHttpClientRequestrun " + e2.getMessage());
                 HttpResponseHandler httpResponseHandler2 = this.responseHandler;
                 if (httpResponseHandler2 != null) {
                     httpResponseHandler2.b(e2, e2.getMessage());
@@ -87,7 +87,7 @@ public class PassHttpClientRequest implements com.baidu.pass.a, Runnable, Compar
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passHttpClientRequest)) == null) {
             ReqPriority reqPriority = this.paramDTO.priority;
             ReqPriority reqPriority2 = passHttpClientRequest.paramDTO.priority;
-            return reqPriority == reqPriority2 ? this.f9363b - passHttpClientRequest.f9363b : reqPriority2.ordinal() - reqPriority.ordinal();
+            return reqPriority == reqPriority2 ? this.f44010b - passHttpClientRequest.f44010b : reqPriority2.ordinal() - reqPriority.ordinal();
         }
         return invokeL.intValue;
     }

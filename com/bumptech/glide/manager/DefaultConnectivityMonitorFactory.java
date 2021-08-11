@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.ConnectivityMonitor;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NETWORK_PERMISSION = "android.permission.ACCESS_NETWORK_STATE";
@@ -38,9 +38,7 @@ public class DefaultConnectivityMonitorFactory implements ConnectivityMonitorFac
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, connectivityListener)) == null) {
             boolean z = ContextCompat.checkSelfPermission(context, NETWORK_PERMISSION) == 0;
-            if (Log.isLoggable("ConnectivityMonitor", 3)) {
-                Log.d("ConnectivityMonitor", z ? "ACCESS_NETWORK_STATE permission granted, registering connectivity monitor" : "ACCESS_NETWORK_STATE permission missing, cannot register connectivity monitor");
-            }
+            Log.isLoggable("ConnectivityMonitor", 3);
             return z ? new DefaultConnectivityMonitor(context, connectivityListener) : new NullConnectivityMonitor();
         }
         return (ConnectivityMonitor) invokeLL.objValue;

@@ -17,23 +17,23 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static a.C0318a a(i iVar) {
+    public static a.C1878a a(i iVar) {
         InterceptResult invokeL;
         boolean z;
-        long j;
         long j2;
         long j3;
         long j4;
         long j5;
+        long j6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iVar)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            Map<String, String> map = iVar.f28114c;
+            Map<String, String> map = iVar.f63956c;
             String str = map.get("Date");
             long a2 = str != null ? a(str) : 0L;
             String str2 = map.get("Cache-Control");
@@ -41,8 +41,8 @@ public class b {
             if (str2 != null) {
                 String[] split = str2.split(",", 0);
                 int i3 = 0;
-                j = 0;
                 j2 = 0;
+                j3 = 0;
                 while (i2 < split.length) {
                     String trim = split[i2].trim();
                     if (trim.equals("no-cache") || trim.equals("no-store")) {
@@ -50,11 +50,11 @@ public class b {
                     }
                     if (trim.startsWith("max-age=")) {
                         try {
-                            j = Long.parseLong(trim.substring(8));
+                            j2 = Long.parseLong(trim.substring(8));
                         } catch (Exception unused) {
                         }
                     } else if (trim.startsWith("stale-while-revalidate=")) {
-                        j2 = Long.parseLong(trim.substring(23));
+                        j3 = Long.parseLong(trim.substring(23));
                     } else if (trim.equals("must-revalidate") || trim.equals("proxy-revalidate")) {
                         i3 = 1;
                     }
@@ -64,8 +64,8 @@ public class b {
                 z = true;
             } else {
                 z = false;
-                j = 0;
                 j2 = 0;
+                j3 = 0;
             }
             String str3 = map.get("Expires");
             long a3 = str3 != null ? a(str3) : 0L;
@@ -73,36 +73,36 @@ public class b {
             long a4 = str4 != null ? a(str4) : 0L;
             String str5 = map.get("ETag");
             if (z) {
-                j4 = currentTimeMillis + (j * 1000);
+                j5 = currentTimeMillis + (j2 * 1000);
                 if (i2 != 0) {
-                    j5 = j4;
+                    j6 = j5;
                 } else {
-                    Long.signum(j2);
-                    j5 = (j2 * 1000) + j4;
+                    Long.signum(j3);
+                    j6 = (j3 * 1000) + j5;
                 }
-                j3 = j5;
+                j4 = j6;
             } else {
-                j3 = 0;
+                j4 = 0;
                 if (a2 <= 0 || a3 < a2) {
-                    j4 = 0;
+                    j5 = 0;
                 } else {
-                    j4 = currentTimeMillis + (a3 - a2);
-                    j3 = j4;
+                    j5 = currentTimeMillis + (a3 - a2);
+                    j4 = j5;
                 }
             }
-            a.C0318a c0318a = new a.C0318a();
-            c0318a.f28160a = iVar.f28112a;
-            c0318a.f28161b = iVar.f28113b;
-            c0318a.f28162c = str5;
-            c0318a.f28166g = j4;
-            c0318a.f28165f = j3;
-            c0318a.f28163d = a2;
-            c0318a.f28164e = a4;
-            c0318a.f28167h = map;
-            c0318a.f28168i = iVar.f28115d;
-            return c0318a;
+            a.C1878a c1878a = new a.C1878a();
+            c1878a.f64003a = iVar.f63954a;
+            c1878a.f64004b = iVar.f63955b;
+            c1878a.f64005c = str5;
+            c1878a.f64009g = j5;
+            c1878a.f64008f = j4;
+            c1878a.f64006d = a2;
+            c1878a.f64007e = a4;
+            c1878a.f64010h = map;
+            c1878a.f64011i = iVar.f63957d;
+            return c1878a;
         }
-        return (a.C0318a) invokeL.objValue;
+        return (a.C1878a) invokeL.objValue;
     }
 
     public static long a(String str) {
@@ -119,10 +119,10 @@ public class b {
         return invokeL.longValue;
     }
 
-    public static String a(long j) {
+    public static String a(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? a().format(new Date(j)) : (String) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? a().format(new Date(j2)) : (String) invokeJ.objValue;
     }
 
     public static SimpleDateFormat a() {

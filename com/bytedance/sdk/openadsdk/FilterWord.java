@@ -12,22 +12,22 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FilterWord {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29099a;
+    public String f64970a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29100b;
+    public String f64971b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f29101c;
+    public boolean f64972c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<FilterWord> f29102d;
+    public List<FilterWord> f64973d;
 
     public FilterWord(String str, String str2) {
         Interceptable interceptable = $ic;
@@ -44,8 +44,8 @@ public class FilterWord {
                 return;
             }
         }
-        this.f29099a = str;
-        this.f29100b = str2;
+        this.f64970a = str;
+        this.f64971b = str2;
     }
 
     public static FilterWord parseFromJson(JSONObject jSONObject) {
@@ -82,41 +82,41 @@ public class FilterWord {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, filterWord) == null) || filterWord == null) {
             return;
         }
-        if (this.f29102d == null) {
-            this.f29102d = new ArrayList();
+        if (this.f64973d == null) {
+            this.f64973d = new ArrayList();
         }
-        this.f29102d.add(filterWord);
+        this.f64973d.add(filterWord);
     }
 
     public String getId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29099a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f64970a : (String) invokeV.objValue;
     }
 
     public boolean getIsSelected() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29101c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f64972c : invokeV.booleanValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f29100b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f64971b : (String) invokeV.objValue;
     }
 
     public List<FilterWord> getOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f29102d : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f64973d : (List) invokeV.objValue;
     }
 
     public boolean hasSecondOptions() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            List<FilterWord> list = this.f29102d;
+            List<FilterWord> list = this.f64973d;
             return (list == null || list.isEmpty()) ? false : true;
         }
         return invokeV.booleanValue;
@@ -125,27 +125,27 @@ public class FilterWord {
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (TextUtils.isEmpty(this.f29099a) || TextUtils.isEmpty(this.f29100b)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (TextUtils.isEmpty(this.f64970a) || TextUtils.isEmpty(this.f64971b)) ? false : true : invokeV.booleanValue;
     }
 
     public void setId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f29099a = str;
+            this.f64970a = str;
         }
     }
 
     public void setIsSelected(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f29101c = z;
+            this.f64972c = z;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f29100b = str;
+            this.f64971b = str;
         }
     }
 

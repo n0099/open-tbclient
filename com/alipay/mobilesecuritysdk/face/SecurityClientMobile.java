@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class SecurityClientMobile {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class SecurityClientMobile {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, map)) == null) {
             synchronized (SecurityClientMobile.class) {
                 HashMap hashMap = new HashMap();
-                hashMap.put(b.f1880g, a.a(map, b.f1880g, ""));
+                hashMap.put(b.f35724g, a.a(map, b.f35724g, ""));
                 hashMap.put("tid", a.a(map, "tid", ""));
                 hashMap.put("userId", a.a(map, "userId", ""));
                 APSecuritySdk.getInstance(context).initToken(0, hashMap, null);

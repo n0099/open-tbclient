@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.webview.jshandler.a;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class c implements com.kwad.sdk.core.d<a.C0429a> {
+/* loaded from: classes10.dex */
+public class c implements com.kwad.sdk.core.d<a.C1996a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,24 +29,24 @@ public class c implements com.kwad.sdk.core.d<a.C0429a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
-    public void a(a.C0429a c0429a, JSONObject jSONObject) {
+    public void a(a.C1996a c1996a, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c0429a, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c1996a, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        c0429a.f35344a = jSONObject.optBoolean("clickActionButton");
+        c1996a.f72099a = jSONObject.optBoolean("clickActionButton");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.core.d
-    public JSONObject b(a.C0429a c0429a, JSONObject jSONObject) {
+    public JSONObject b(a.C1996a c1996a, JSONObject jSONObject) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, c0429a, jSONObject)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, c1996a, jSONObject)) == null) {
             if (jSONObject == null) {
                 jSONObject = new JSONObject();
             }
-            com.kwad.sdk.utils.q.a(jSONObject, "clickActionButton", c0429a.f35344a);
+            com.kwad.sdk.utils.q.a(jSONObject, "clickActionButton", c1996a.f72099a);
             return jSONObject;
         }
         return (JSONObject) invokeLL.objValue;

@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ValidateItemData extends AbstractImageProvider implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3854743775726463617L;
@@ -154,10 +154,10 @@ public class ValidateItemData extends AbstractImageProvider implements Serializa
         }
     }
 
-    public void setApplyTime(long j) {
+    public void setApplyTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.applyTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.applyTime = j2;
         }
     }
 
@@ -182,10 +182,10 @@ public class ValidateItemData extends AbstractImageProvider implements Serializa
         }
     }
 
-    public void setInviterUserId(long j) {
+    public void setInviterUserId(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
-            this.inviterUserId = j;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+            this.inviterUserId = j2;
         }
     }
 

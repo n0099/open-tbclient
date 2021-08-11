@@ -1,6 +1,7 @@
 package com.baidu.searchbox.anr.impl;
 
-import android.util.Log;
+import c.a.g0.a.b.b;
+import c.a.g0.a.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
@@ -11,9 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.a.b.b;
-import d.a.h0.a.b.d;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ANRRuntime {
     public static /* synthetic */ Interceptable $ic;
     public static ANRRuntime sInstance;
@@ -63,10 +62,7 @@ public class ANRRuntime {
             }
             for (IANRRegister iANRRegister : this.mIANRMonitorList.getList()) {
                 if (iANRRegister != null && iANRRegister.checkEnable()) {
-                    if (AppConfig.isDebug()) {
-                        Log.d("Ruka", "enableANR = true");
-                        return true;
-                    }
+                    AppConfig.isDebug();
                     return true;
                 }
             }

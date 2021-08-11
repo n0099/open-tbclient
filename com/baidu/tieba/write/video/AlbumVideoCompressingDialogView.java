@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlbumVideoCompressingDialogView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public AlbumCompressProgressView f22819e;
+    public AlbumCompressProgressView f58475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f22820f;
+    public TextView f58476f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlbumVideoCompressingDialogView(Context context) {
@@ -48,12 +48,12 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.dailog_album_video_compress, this);
-            this.f22819e = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
-            this.f22820f = (TextView) findViewById(R.id.txt_compress_progress);
+            this.f58475e = (AlbumCompressProgressView) findViewById(R.id.view_compress_progress);
+            this.f58476f = (TextView) findViewById(R.id.txt_compress_progress);
         }
     }
 
-    public boolean b() {
+    public boolean isShowing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getParent() != null : invokeV.booleanValue;
@@ -64,8 +64,8 @@ public class AlbumVideoCompressingDialogView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 < 0 || i2 > 100) {
             return;
         }
-        this.f22819e.setProgress(i2);
-        TextView textView = this.f22820f;
+        this.f58475e.setProgress(i2);
+        TextView textView = this.f58476f;
         textView.setText(i2 + "%");
     }
 

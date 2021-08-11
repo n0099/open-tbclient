@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import c.a.g0.b.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.aperf.runtime.AperfRuntime;
@@ -29,13 +30,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.h0.b.a.a;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BaseUncaughtException";
@@ -149,13 +149,9 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
                 if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
                     hashSet.add(obtainFragmentSnapShot);
                 }
-                if (LLog.sDebug) {
-                    if (hashSet.size() > 0) {
-                        Log.d(TAG, "uploadLogFiles.size() = " + hashSet.size());
-                        for (int i2 = 0; i2 < hashSet.size(); i2++) {
-                        }
-                    } else {
-                        Log.d(TAG, "uploadLogFiles is null or uploadLogFiles.size() = 0");
+                if (LLog.sDebug && hashSet.size() > 0) {
+                    String str = "uploadLogFiles.size() = " + hashSet.size();
+                    for (int i2 = 0; i2 < hashSet.size(); i2++) {
                     }
                 }
             } else {
@@ -165,17 +161,17 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
             if (hashSet != null) {
                 file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
                 if (LLog.sDebug && file != null) {
-                    Log.d(TAG, "pathNameKeeper = " + file.getAbsolutePath());
+                    String str2 = "pathNameKeeper = " + file.getAbsolutePath();
                 }
             }
             onReport(this.mContext, sb, file, createLogExtra);
         }
     }
 
-    public void setProcessLaunchTime(long j) {
+    public void setProcessLaunchTime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.mProcessLaunchTime = j;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.mProcessLaunchTime = j2;
         }
     }
 

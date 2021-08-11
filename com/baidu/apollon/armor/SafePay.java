@@ -1,6 +1,5 @@
 package com.baidu.apollon.armor;
 
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class SafePay {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INPUT_ID_CVV = 2;
@@ -27,16 +26,16 @@ public final class SafePay {
     public static final int SIG_RSA_SHA512 = 13;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f3625a = false;
+    public static final boolean f37535a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3626b = "SafePay";
+    public static final String f37536b = "SafePay";
 
     /* renamed from: c  reason: collision with root package name */
-    public static SafePay f3627c = null;
+    public static SafePay f37537c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f3628d = true;
+    public static boolean f37538d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -55,8 +54,8 @@ public final class SafePay {
         try {
             System.loadLibrary("bd_wsp_v1_1");
         } catch (UnsatisfiedLinkError e2) {
-            f3628d = false;
-            Log.e(f3626b, "load library failed, " + e2.getMessage());
+            f37538d = false;
+            String str = "load library failed, " + e2.getMessage();
         }
     }
 
@@ -80,15 +79,15 @@ public final class SafePay {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (SafePay.class) {
-                if (f3627c == null) {
+                if (f37537c == null) {
                     SafePay safePay2 = new SafePay();
-                    f3627c = safePay2;
+                    f37537c = safePay2;
                     try {
                         safePay2.init();
                     } catch (Throwable unused) {
                     }
                 }
-                safePay = f3627c;
+                safePay = f37537c;
             }
             return safePay;
         }
@@ -152,7 +151,7 @@ public final class SafePay {
         return (String) invokeL.objValue;
     }
 
-    public native String getA(long j);
+    public native String getA(long j2);
 
     public native String getB(int i2);
 
@@ -224,7 +223,7 @@ public final class SafePay {
     public boolean prepareCompleted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? f3628d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? f37538d : invokeV.booleanValue;
     }
 
     public native String rsaDecrypt(String str);

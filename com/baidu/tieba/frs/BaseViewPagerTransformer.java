@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseViewPagerTransformer implements ViewPager.PageTransformer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +27,13 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         }
     }
 
-    public boolean a() {
+    public static final float min(float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f2 < f3 ? f3 : f2 : invokeCommon.floatValue;
+    }
+
+    public boolean hideOffscreenPages() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -36,7 +42,7 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         return invokeV.booleanValue;
     }
 
-    public boolean b() {
+    public boolean isPagingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -45,13 +51,13 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         return invokeV.booleanValue;
     }
 
-    public void c(View view, float f2) {
+    public void onPostTransform(View view, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
         }
     }
 
-    public void d(View view, float f2) {
+    public void onPreTransform(View view, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048579, this, view, f2) == null) {
             float width = view.getWidth();
@@ -64,8 +70,8 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
             view.setPivotX(0.0f);
             view.setPivotY(0.0f);
             view.setTranslationY(0.0f);
-            view.setTranslationX(b() ? 0.0f : (-width) * f2);
-            if (a()) {
+            view.setTranslationX(isPagingEnabled() ? 0.0f : (-width) * f2);
+            if (hideOffscreenPages()) {
                 if (f2 > -1.0f && f2 < 1.0f) {
                     f3 = 1.0f;
                 }
@@ -78,15 +84,15 @@ public abstract class BaseViewPagerTransformer implements ViewPager.PageTransfor
         }
     }
 
-    public abstract void e(View view, float f2);
+    public abstract void onTransform(View view, float f2);
 
     @Override // androidx.viewpager.widget.ViewPager.PageTransformer
     public void transformPage(View view, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(1048581, this, view, f2) == null) {
-            d(view, f2);
-            e(view, f2);
-            c(view, f2);
+            onPreTransform(view, f2);
+            onTransform(view, f2);
+            onPostTransform(view, f2);
         }
     }
 }

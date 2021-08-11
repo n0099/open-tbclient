@@ -22,7 +22,7 @@ import java.util.Map;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class DownloadHttpManagerConnection implements DownloadConnection, DownloadConnection.Connected {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DownloadHttpManagerConnection";
@@ -32,7 +32,7 @@ public class DownloadHttpManagerConnection implements DownloadConnection, Downlo
     public final GetRequest.GetRequestBuilder requestBuilder;
     public Response response;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class Factory implements DownloadConnection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

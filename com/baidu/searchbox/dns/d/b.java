@@ -1,7 +1,6 @@
 package com.baidu.searchbox.dns.d;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.dns.util.DnsUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,13 +19,13 @@ public class b {
     public final Object J;
 
     /* renamed from: com.baidu.searchbox.dns.d.b$1  reason: invalid class name */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public static b K;
@@ -69,7 +68,7 @@ public class b {
             synchronized (this.J) {
                 if (this.I.get(str) == null) {
                     if (DnsUtil.DEBUG) {
-                        Log.d(DnsUtil.TAG, " creat dns transmit task isBatch: " + z + " host: " + str);
+                        String str2 = " creat dns transmit task isBatch: " + z + " host: " + str;
                     }
                     return new com.baidu.searchbox.dns.d.a(z, str, i2);
                 }
@@ -88,7 +87,7 @@ public class b {
             this.I.remove(str);
         }
         if (DnsUtil.DEBUG) {
-            Log.d(DnsUtil.TAG, " remove dns transmit task: " + str);
+            String str2 = " remove dns transmit task: " + str;
         }
     }
 
@@ -118,7 +117,7 @@ public class b {
             this.I.put(str, aVar);
         }
         if (DnsUtil.DEBUG) {
-            Log.d(DnsUtil.TAG, " add dns transmit task: " + str);
+            String str2 = " add dns transmit task: " + str;
         }
     }
 }

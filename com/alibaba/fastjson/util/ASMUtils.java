@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.alibaba.fastjson.asm.ClassReader;
 import com.alibaba.fastjson.asm.TypeCollector;
-import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +20,7 @@ import java.lang.reflect.AccessibleObject;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class ASMUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_ANDROID;
@@ -187,7 +186,7 @@ public class ASMUtils {
                 classLoader = ClassLoader.getSystemClassLoader();
             }
             String name2 = declaringClass.getName();
-            InputStream resourceAsStream = classLoader.getResourceAsStream(name2.replace(IStringUtil.EXTENSION_SEPARATOR, '/') + ".class");
+            InputStream resourceAsStream = classLoader.getResourceAsStream(name2.replace('.', '/') + ".class");
             if (resourceAsStream == null) {
                 return new String[0];
             }
@@ -223,7 +222,7 @@ public class ASMUtils {
             if (cls.isArray()) {
                 return PreferencesUtil.LEFT_MOUNT + desc(cls.getComponentType());
             } else if (!cls.isPrimitive()) {
-                return cls.getName().replace(IStringUtil.EXTENSION_SEPARATOR, '/');
+                return cls.getName().replace('.', '/');
             } else {
                 return getPrimitiveLetter(cls);
             }

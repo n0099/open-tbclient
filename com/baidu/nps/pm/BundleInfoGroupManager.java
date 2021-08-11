@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BundleInfoGroupManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,10 +27,10 @@ public class BundleInfoGroupManager {
         }
     }
 
-    public static Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j) {
+    public static Map<String, BundleInfoGroup> toBundleInfoGroups(List<BundleInfo> list, long j2) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, list, j)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, list, j2)) == null) {
             HashMap hashMap = new HashMap();
             if (list == null) {
                 return null;
@@ -38,7 +38,7 @@ public class BundleInfoGroupManager {
             for (BundleInfo bundleInfo : list) {
                 BundleInfoGroup bundleInfoGroup = (BundleInfoGroup) hashMap.get(bundleInfo.getPackageName());
                 if (bundleInfoGroup == null) {
-                    bundleInfoGroup = new BundleInfoGroup(j);
+                    bundleInfoGroup = new BundleInfoGroup(j2);
                     hashMap.put(bundleInfo.getPackageName(), bundleInfoGroup);
                 }
                 bundleInfoGroup.updateBundleByType(bundleInfo.getType(), bundleInfo);

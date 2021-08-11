@@ -3,7 +3,6 @@ package com.baidu.swan.apps.view;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -12,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
+import c.a.n0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,41 +20,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwanAppWebPopPullLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean j;
+
+    /* renamed from: j  reason: collision with root package name */
+    public static final boolean f46454j;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ViewDragHelper f11614e;
+    public final ViewDragHelper f46455e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f11615f;
+    public final int f46456f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public c f11616g;
+    public c f46457g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f11617h;
+    public b f46458h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f11618i;
+    public View f46459i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface b {
         boolean a(MotionEvent motionEvent);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public interface c {
         void a();
 
@@ -65,13 +66,13 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         void d(float f2);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class d extends ViewDragHelper.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SwanAppWebPopPullLayout f11619a;
+        public final /* synthetic */ SwanAppWebPopPullLayout f46460a;
 
         public d(SwanAppWebPopPullLayout swanAppWebPopPullLayout) {
             Interceptable interceptable = $ic;
@@ -88,7 +89,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f11619a = swanAppWebPopPullLayout;
+            this.f46460a = swanAppWebPopPullLayout;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
@@ -102,40 +103,40 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         public int getViewVerticalDragRange(View view) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? this.f11619a.getHeight() : invokeL.intValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view)) == null) ? this.f46460a.getHeight() : invokeL.intValue;
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewCaptured(View view, int i2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) || this.f11619a.f11616g == null) {
+            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) || this.f46460a.f46457g == null) {
                 return;
             }
-            this.f11619a.f11616g.c();
+            this.f46460a.f46457g.c();
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewPositionChanged(View view, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || this.f11619a.f11616g == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || this.f46460a.f46457g == null) {
                 return;
             }
-            this.f11619a.f11616g.d(i3 / this.f11619a.getHeight());
+            this.f46460a.f46457g.d(i3 / this.f46460a.getHeight());
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewReleased(View view, float f2, float f3) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f11619a.f11616g == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)}) == null) || this.f46460a.f46457g == null) {
                 return;
             }
-            if (view.getTop() > ((f3 > ((float) this.f11619a.f11615f) ? 1 : (f3 == ((float) this.f11619a.f11615f) ? 0 : -1)) > 0 ? this.f11619a.getHeight() / 6 : this.f11619a.getHeight() / 3)) {
-                this.f11619a.f11616g.b();
+            if (view.getTop() > ((f3 > ((float) this.f46460a.f46456f) ? 1 : (f3 == ((float) this.f46460a.f46456f) ? 0 : -1)) > 0 ? this.f46460a.getHeight() / 6 : this.f46460a.getHeight() / 3)) {
+                this.f46460a.f46457g.b();
                 return;
             }
-            this.f11619a.f11616g.a();
-            this.f11619a.f11614e.settleCapturedViewAt(0, 0);
-            this.f11619a.invalidate();
+            this.f46460a.f46457g.a();
+            this.f46460a.f46455e.settleCapturedViewAt(0, 0);
+            this.f46460a.invalidate();
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
@@ -166,7 +167,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
                 return;
             }
         }
-        j = k.f46335a;
+        f46454j = k.f6803a;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -193,15 +194,15 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f11614e.continueSettling(true)) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f46455e.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
 
-    public boolean d() {
+    public boolean isChildDragged() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f11618i.getTop() > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46459i.getTop() > 0 : invokeV.booleanValue;
     }
 
     @Override // android.view.View
@@ -209,7 +210,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.f11618i = getChildAt(0);
+            this.f46459i = getChildAt(0);
         }
     }
 
@@ -218,19 +219,17 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (j) {
-                Log.d("SwanAppWebPopPullLayout", "onInterceptTouchEvent");
-            }
-            boolean shouldInterceptTouchEvent = this.f11614e.shouldInterceptTouchEvent(motionEvent);
-            b bVar = this.f11617h;
+            boolean z = f46454j;
+            boolean shouldInterceptTouchEvent = this.f46455e.shouldInterceptTouchEvent(motionEvent);
+            b bVar = this.f46458h;
             if (bVar != null) {
                 shouldInterceptTouchEvent = bVar.a(motionEvent);
             }
             if (motionEvent.getAction() == 0 || motionEvent.getAction() == 5) {
                 try {
-                    this.f11614e.processTouchEvent(motionEvent);
+                    this.f46455e.processTouchEvent(motionEvent);
                 } catch (Exception e2) {
-                    if (j) {
+                    if (f46454j) {
                         e2.printStackTrace();
                     }
                 }
@@ -248,10 +247,10 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
             try {
-                this.f11614e.processTouchEvent(motionEvent);
+                this.f46455e.processTouchEvent(motionEvent);
                 return true;
             } catch (Exception e2) {
-                if (j) {
+                if (f46454j) {
                     e2.printStackTrace();
                     return true;
                 }
@@ -264,14 +263,14 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
     public void setCallback(@Nullable c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f11616g = cVar;
+            this.f46457g = cVar;
         }
     }
 
     public void setInterceptCallback(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f11617h = bVar;
+            this.f46458h = bVar;
         }
     }
 
@@ -315,7 +314,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
                 return;
             }
         }
-        this.f11614e = ViewDragHelper.create(this, 1.0f, new d(this, null));
-        this.f11615f = ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
+        this.f46455e = ViewDragHelper.create(this, 1.0f, new d(this, null));
+        this.f46456f = ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
     }
 }

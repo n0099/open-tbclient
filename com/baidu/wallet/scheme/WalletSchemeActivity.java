@@ -5,31 +5,30 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.Base64Utils;
-import com.baidu.apollon.utils.JsonUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.api.BaiduPayDelegate;
-import com.baidu.wallet.core.NoProguard;
-import com.baidu.wallet.core.utils.LogUtil;
 import com.baidu.wallet.paysdk.ui.PayBaseBeanActivity;
+import com.dxmpay.apollon.utils.Base64Utils;
+import com.dxmpay.apollon.utils.JsonUtils;
+import com.dxmpay.wallet.core.NoProguard;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class WalletSchemeActivity extends PayBaseBeanActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String order;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class SchemeOrder implements NoProguard, Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -237137357302783447L;
         public transient /* synthetic */ FieldHolder $fh;
         public Orderinfo kBWParameters;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static class Orderinfo implements NoProguard, Serializable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = 7620618282105798227L;
@@ -103,24 +102,24 @@ public class WalletSchemeActivity extends PayBaseBeanActivity {
                 return;
             }
             String replace = fragment.replace("www.baifubao.com/pay#", "").replace("www.dxmpay.com/pay#", "");
-            LogUtil.d("King", "fragment: " + uri.getFragment());
-            LogUtil.d("King", "scheme: " + uri.getScheme());
-            LogUtil.d("King", "scheme specific part : " + uri.getSchemeSpecificPart());
-            LogUtil.d("King", "path : " + uri.getPath());
-            LogUtil.d("King", "last path segment : " + uri.getLastPathSegment());
-            LogUtil.d("King", "host : " + uri.getHost());
-            LogUtil.d("King", "uri : " + uri.toString());
+            String str = "fragment: " + uri.getFragment();
+            String str2 = "scheme: " + uri.getScheme();
+            String str3 = "scheme specific part : " + uri.getSchemeSpecificPart();
+            String str4 = "path : " + uri.getPath();
+            String str5 = "last path segment : " + uri.getLastPathSegment();
+            String str6 = "host : " + uri.getHost();
+            String str7 = "uri : " + uri.toString();
             if (TextUtils.isEmpty(replace)) {
                 finish();
                 return;
             }
             try {
-                String str = new String(Base64Utils.decode(replace));
-                if (TextUtils.isEmpty(str)) {
+                String str8 = new String(Base64Utils.decode(replace));
+                if (TextUtils.isEmpty(str8)) {
                     finish();
                     return;
                 }
-                SchemeOrder schemeOrder = (SchemeOrder) JsonUtils.fromJson(str, SchemeOrder.class);
+                SchemeOrder schemeOrder = (SchemeOrder) JsonUtils.fromJson(str8, SchemeOrder.class);
                 if (schemeOrder == null || schemeOrder.kBWParameters == null || TextUtils.isEmpty(schemeOrder.kBWParameters.kBWPayInfoOrder)) {
                     return;
                 }
@@ -132,14 +131,14 @@ public class WalletSchemeActivity extends PayBaseBeanActivity {
         }
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanActivity
+    @Override // com.dxmpay.wallet.core.beans.BeanActivity
     public void handleResponse(int i2, Object obj, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048576, this, i2, obj, str) == null) {
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.beans.BeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.dxmpay.wallet.core.beans.BeanActivity, com.dxmpay.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {

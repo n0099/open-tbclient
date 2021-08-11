@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.ByteCompanionObject;
 import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class c0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

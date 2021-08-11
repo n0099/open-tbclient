@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class l<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38361a;
+    public int f75146a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f38362b;
+    public T f75147b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f38363c;
+    public final boolean f75148c;
 
     public l(int i2, T t, boolean z) {
         Interceptable interceptable = $ic;
@@ -35,28 +35,28 @@ public final class l<T> {
                 return;
             }
         }
-        this.f38361a = i2;
-        this.f38362b = t;
-        this.f38363c = z;
+        this.f75146a = i2;
+        this.f75147b = t;
+        this.f75148c = z;
     }
 
     public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38361a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f75146a : invokeV.intValue;
     }
 
     public final T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38362b : (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f75147b : (T) invokeV.objValue;
     }
 
     public final String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "{code:" + this.f38361a + ", response:" + this.f38362b + ", resultFormCache:" + this.f38363c + "}";
+            return "{code:" + this.f75146a + ", response:" + this.f75147b + ", resultFormCache:" + this.f75148c + "}";
         }
         return (String) invokeV.objValue;
     }

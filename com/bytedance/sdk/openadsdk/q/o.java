@@ -20,16 +20,16 @@ import java.io.StringWriter;
 import java.lang.Thread;
 import java.lang.reflect.Method;
 import java.util.Properties;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class o implements Thread.UncaughtExceptionHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f32529a;
+    public Thread.UncaughtExceptionHandler f68491a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f32530b;
+    public String f68492b;
 
     public o() {
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class o implements Thread.UncaughtExceptionHandler {
                 return;
             }
         }
-        this.f32529a = Thread.getDefaultUncaughtExceptionHandler();
+        this.f68491a = Thread.getDefaultUncaughtExceptionHandler();
         Thread.setDefaultUncaughtExceptionHandler(this);
         b();
     }
@@ -65,12 +65,12 @@ public class o implements Thread.UncaughtExceptionHandler {
         try {
             if ("mounted".equals(Environment.getExternalStorageState()) && (externalFilesDir = a2.getExternalFilesDir("TTCache")) != null) {
                 externalFilesDir.mkdirs();
-                this.f32530b = externalFilesDir.getPath();
+                this.f68492b = externalFilesDir.getPath();
             }
-            if (TextUtils.isEmpty(this.f32530b)) {
+            if (TextUtils.isEmpty(this.f68492b)) {
                 File file = new File(a2.getFilesDir(), "TTCache");
                 file.mkdirs();
-                this.f32530b = file.getPath();
+                this.f68492b = file.getPath();
             }
         } catch (Throwable unused) {
         }
@@ -135,7 +135,7 @@ public class o implements Thread.UncaughtExceptionHandler {
             if (z) {
                 a(thread, th);
             }
-            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f32529a;
+            Thread.UncaughtExceptionHandler uncaughtExceptionHandler = this.f68491a;
             if (uncaughtExceptionHandler == null || uncaughtExceptionHandler == this) {
                 return;
             }
@@ -168,17 +168,17 @@ public class o implements Thread.UncaughtExceptionHandler {
         }
         FileInputStream fileInputStream = null;
         try {
-            if (TextUtils.isEmpty(this.f32530b)) {
+            if (TextUtils.isEmpty(this.f68492b)) {
                 b();
             }
         } catch (Throwable th2) {
             th = th2;
             fileOutputStream = null;
         }
-        if (TextUtils.isEmpty(this.f32530b)) {
+        if (TextUtils.isEmpty(this.f68492b)) {
             return;
         }
-        File file = new File(this.f32530b, "tt_crash_count.properties");
+        File file = new File(this.f68492b, "tt_crash_count.properties");
         boolean z2 = true;
         if (file.exists() && file.isFile() && file.canRead()) {
             ?? properties = new Properties();

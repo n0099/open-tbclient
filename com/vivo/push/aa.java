@@ -11,27 +11,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class aa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f39271a;
+    public Context f76102a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f39272b;
+    public Handler f76103b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Object f39273c;
+    public final Object f76104c;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ aa f39274a;
+        public final /* synthetic */ aa f76105a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(aa aaVar, Looper looper) {
@@ -51,14 +51,14 @@ public abstract class aa {
                     return;
                 }
             }
-            this.f39274a = aaVar;
+            this.f76105a = aaVar;
         }
 
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                this.f39274a.b(message);
+                this.f76105a.b(message);
             }
         }
     }
@@ -76,16 +76,16 @@ public abstract class aa {
                 return;
             }
         }
-        this.f39273c = new Object();
+        this.f76104c = new Object();
         HandlerThread handlerThread = new HandlerThread(getClass().getSimpleName(), 1);
         handlerThread.start();
-        this.f39272b = new a(this, handlerThread.getLooper());
+        this.f76103b = new a(this, handlerThread.getLooper());
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f39271a = context;
+            this.f76102a = context;
         }
     }
 
@@ -94,12 +94,12 @@ public abstract class aa {
     public final void a(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            synchronized (this.f39273c) {
-                if (this.f39272b == null) {
+            synchronized (this.f76104c) {
+                if (this.f76103b == null) {
                     String simpleName = getClass().getSimpleName();
                     com.vivo.push.util.p.e(simpleName, ("Dead worker dropping a message: " + message.what) + " (Thread " + Thread.currentThread().getId() + SmallTailInfo.EMOTION_SUFFIX);
                 } else {
-                    this.f39272b.sendMessage(message);
+                    this.f76103b.sendMessage(message);
                 }
             }
         }

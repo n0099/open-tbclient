@@ -15,7 +15,7 @@ import io.reactivex.internal.fuseable.SimplePlainQueue;
 import io.reactivex.internal.util.Pow2;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReferenceArray;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class SpscLinkedArrayQueue<T> implements SimplePlainQueue<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Object HAS_NEXT;
@@ -89,10 +89,10 @@ public final class SpscLinkedArrayQueue<T> implements SimplePlainQueue<T> {
         return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? i2 : invokeI.intValue;
     }
 
-    public static int calcWrappedOffset(long j, int i2) {
+    public static int calcWrappedOffset(long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i2)})) == null) ? calcDirectOffset(((int) j) & i2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? calcDirectOffset(((int) j2) & i2) : invokeCommon.intValue;
     }
 
     private long lpConsumerIndex() {
@@ -137,49 +137,49 @@ public final class SpscLinkedArrayQueue<T> implements SimplePlainQueue<T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) ? this.producerIndex.get() : invokeV.longValue;
     }
 
-    private T newBufferPeek(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i2) {
+    private T newBufferPeek(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{atomicReferenceArray, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             this.consumerBuffer = atomicReferenceArray;
-            return (T) lvElement(atomicReferenceArray, calcWrappedOffset(j, i2));
+            return (T) lvElement(atomicReferenceArray, calcWrappedOffset(j2, i2));
         }
         return (T) invokeCommon.objValue;
     }
 
-    private T newBufferPoll(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i2) {
+    private T newBufferPoll(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{atomicReferenceArray, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             this.consumerBuffer = atomicReferenceArray;
-            int calcWrappedOffset = calcWrappedOffset(j, i2);
+            int calcWrappedOffset = calcWrappedOffset(j2, i2);
             T t = (T) lvElement(atomicReferenceArray, calcWrappedOffset);
             if (t != null) {
                 soElement(atomicReferenceArray, calcWrappedOffset, null);
-                soConsumerIndex(j + 1);
+                soConsumerIndex(j2 + 1);
             }
             return t;
         }
         return (T) invokeCommon.objValue;
     }
 
-    private void resize(AtomicReferenceArray<Object> atomicReferenceArray, long j, int i2, T t, long j2) {
+    private void resize(AtomicReferenceArray<Object> atomicReferenceArray, long j2, int i2, T t, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{atomicReferenceArray, Long.valueOf(j), Integer.valueOf(i2), t, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{atomicReferenceArray, Long.valueOf(j2), Integer.valueOf(i2), t, Long.valueOf(j3)}) == null) {
             AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
             this.producerBuffer = atomicReferenceArray2;
-            this.producerLookAhead = (j2 + j) - 1;
+            this.producerLookAhead = (j3 + j2) - 1;
             soElement(atomicReferenceArray2, i2, t);
             soNext(atomicReferenceArray, atomicReferenceArray2);
             soElement(atomicReferenceArray, i2, HAS_NEXT);
-            soProducerIndex(j + 1);
+            soProducerIndex(j2 + 1);
         }
     }
 
-    private void soConsumerIndex(long j) {
+    private void soConsumerIndex(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65550, this, j) == null) {
-            this.consumerIndex.lazySet(j);
+        if (interceptable == null || interceptable.invokeJ(65550, this, j2) == null) {
+            this.consumerIndex.lazySet(j2);
         }
     }
 
@@ -197,19 +197,19 @@ public final class SpscLinkedArrayQueue<T> implements SimplePlainQueue<T> {
         }
     }
 
-    private void soProducerIndex(long j) {
+    private void soProducerIndex(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65553, this, j) == null) {
-            this.producerIndex.lazySet(j);
+        if (interceptable == null || interceptable.invokeJ(65553, this, j2) == null) {
+            this.producerIndex.lazySet(j2);
         }
     }
 
-    private boolean writeToQueue(AtomicReferenceArray<Object> atomicReferenceArray, T t, long j, int i2) {
+    private boolean writeToQueue(AtomicReferenceArray<Object> atomicReferenceArray, T t, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{atomicReferenceArray, t, Long.valueOf(j), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{atomicReferenceArray, t, Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             soElement(atomicReferenceArray, i2, t);
-            soProducerIndex(j + 1);
+            soProducerIndex(j2 + 1);
             return true;
         }
         return invokeCommon.booleanValue;
@@ -248,9 +248,9 @@ public final class SpscLinkedArrayQueue<T> implements SimplePlainQueue<T> {
                 if (lpProducerIndex < this.producerLookAhead) {
                     return writeToQueue(atomicReferenceArray, t, lpProducerIndex, calcWrappedOffset);
                 }
-                long j = this.producerLookAheadStep + lpProducerIndex;
-                if (lvElement(atomicReferenceArray, calcWrappedOffset(j, i2)) == null) {
-                    this.producerLookAhead = j - 1;
+                long j2 = this.producerLookAheadStep + lpProducerIndex;
+                if (lvElement(atomicReferenceArray, calcWrappedOffset(j2, i2)) == null) {
+                    this.producerLookAhead = j2 - 1;
                     return writeToQueue(atomicReferenceArray, t, lpProducerIndex, calcWrappedOffset);
                 } else if (lvElement(atomicReferenceArray, calcWrappedOffset(1 + lpProducerIndex, i2)) == null) {
                     return writeToQueue(atomicReferenceArray, t, lpProducerIndex, calcWrappedOffset);
@@ -327,12 +327,12 @@ public final class SpscLinkedArrayQueue<T> implements SimplePlainQueue<T> {
             AtomicReferenceArray<Object> atomicReferenceArray = this.producerBuffer;
             long lvProducerIndex = lvProducerIndex();
             int i2 = this.producerMask;
-            long j = 2 + lvProducerIndex;
-            if (lvElement(atomicReferenceArray, calcWrappedOffset(j, i2)) == null) {
+            long j2 = 2 + lvProducerIndex;
+            if (lvElement(atomicReferenceArray, calcWrappedOffset(j2, i2)) == null) {
                 int calcWrappedOffset = calcWrappedOffset(lvProducerIndex, i2);
                 soElement(atomicReferenceArray, calcWrappedOffset + 1, t2);
                 soElement(atomicReferenceArray, calcWrappedOffset, t);
-                soProducerIndex(j);
+                soProducerIndex(j2);
                 return true;
             }
             AtomicReferenceArray<Object> atomicReferenceArray2 = new AtomicReferenceArray<>(atomicReferenceArray.length());
@@ -342,7 +342,7 @@ public final class SpscLinkedArrayQueue<T> implements SimplePlainQueue<T> {
             soElement(atomicReferenceArray2, calcWrappedOffset2, t);
             soNext(atomicReferenceArray, atomicReferenceArray2);
             soElement(atomicReferenceArray, calcWrappedOffset2, HAS_NEXT);
-            soProducerIndex(j);
+            soProducerIndex(j2);
             return true;
         }
         return invokeLL.booleanValue;

@@ -1,5 +1,5 @@
 package io.flutter.plugin.platform;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface PlatformViewRegistry {
     boolean registerViewFactory(String str, PlatformViewFactory platformViewFactory);
 }

@@ -6,15 +6,15 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.sdk.openadsdk.core.o;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f31806a = "com.bytedance.openadsdk";
+    public static String f67751a = "com.bytedance.openadsdk";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f31807b;
+    public static String f67752b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +30,7 @@ public class e {
                 return;
             }
         }
-        f31807b = "content://" + f31806a + ".TTMultiProvider";
+        f67752b = "content://" + f67751a + ".TTMultiProvider";
         a();
     }
 
@@ -39,7 +39,7 @@ public class e {
         if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || o.a() == null) {
             return;
         }
-        f31806a = o.a().getPackageName();
-        f31807b = "content://" + f31806a + ".TTMultiProvider";
+        f67751a = o.a().getPackageName();
+        f67752b = "content://" + f67751a + ".TTMultiProvider";
     }
 }

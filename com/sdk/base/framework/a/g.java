@@ -9,27 +9,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f38331a;
+    public static final g f75115a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f38332b;
+    public static final g f75116b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f38333c;
+    public static final g f75117c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f38334d;
+    public static final g f75118d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f38335e;
+    public static final g f75119e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f38336f;
+    public static final g f75120f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -45,12 +45,12 @@ public final class g {
                 return;
             }
         }
-        f38331a = new g("WAITING", 0, 0);
-        f38332b = new g("STARTED", 1, 1);
-        f38333c = new g("LOADING", 2, 2);
-        f38334d = new g("FAILURE", 3, 3);
-        f38335e = new g("CANCELLED", 4, 4);
-        f38336f = new g(com.alipay.security.mobile.module.http.model.c.f2136g, 5, 5);
+        f75115a = new g("WAITING", 0, 0);
+        f75116b = new g("STARTED", 1, 1);
+        f75117c = new g("LOADING", 2, 2);
+        f75118d = new g("FAILURE", 3, 3);
+        f75119e = new g("CANCELLED", 4, 4);
+        f75120f = new g(com.alipay.security.mobile.module.http.model.c.f35984g, 5, 5);
     }
 
     public g(String str, int i2, int i3) {

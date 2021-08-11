@@ -12,7 +12,7 @@ import io.reactivex.internal.util.NotificationLite;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class SerializedSubscriber<T> implements FlowableSubscriber<T>, Subscription {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QUEUE_LINK_SIZE = 4;
@@ -175,10 +175,10 @@ public final class SerializedSubscriber<T> implements FlowableSubscriber<T>, Sub
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j) {
+    public void request(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.subscription.request(j);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
+            this.subscription.request(j2);
         }
     }
 

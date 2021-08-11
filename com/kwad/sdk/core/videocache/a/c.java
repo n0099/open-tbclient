@@ -1,5 +1,5 @@
 package com.kwad.sdk.core.videocache.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface c {
     String a(String str);
 }

@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class bd extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ bc f23626a;
+    public final /* synthetic */ bc f59362a;
 
     public bd(bc bcVar) {
         Interceptable interceptable = $ic;
@@ -31,7 +31,7 @@ public final class bd extends TimerTask {
                 return;
             }
         }
-        this.f23626a = bcVar;
+        this.f59362a = bcVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -43,11 +43,11 @@ public final class bd extends TimerTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Message message = new Message();
             message.what = 3;
-            handler = this.f23626a.f23625a.r;
+            handler = this.f59362a.f59361a.r;
             handler.sendMessage(message);
-            timer = this.f23626a.f23625a.q;
+            timer = this.f59362a.f59361a.q;
             timer.cancel();
-            timer2 = this.f23626a.f23625a.q;
+            timer2 = this.f59362a.f59361a.q;
             timer2.purge();
         }
     }

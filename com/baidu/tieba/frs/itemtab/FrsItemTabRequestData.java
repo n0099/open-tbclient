@@ -1,5 +1,8 @@
 package com.baidu.tieba.frs.itemtab;
 
+import c.a.e.e.p.l;
+import c.a.o0.b1.w;
+import c.a.o0.i0.b.g;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -8,13 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-import d.a.p0.b1.w;
-import d.a.p0.i0.b.g;
 import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsItemTabRequestData extends OrmObject implements g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,8 +34,8 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         }
     }
 
-    @Override // d.a.p0.i0.b.i
-    public Object b(boolean z) {
+    @Override // c.a.o0.i0.b.i
+    public Object c(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -52,7 +52,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return invokeZ.objValue;
     }
 
-    @Override // d.a.p0.i0.b.f
+    @Override // c.a.o0.i0.b.f
     public HashMap<String, Object> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class FrsItemTabRequestData extends OrmObject implements g {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // d.a.p0.i0.b.f
+    @Override // c.a.o0.i0.b.f
     public HashMap<String, String> u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

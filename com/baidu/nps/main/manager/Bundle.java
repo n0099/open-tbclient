@@ -6,6 +6,9 @@ import android.content.pm.ProviderInfo;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.util.Log;
+import c.a.a0.h.a;
+import c.a.a0.i.c;
+import c.a.a0.i.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.invoke.IInvoker;
 import com.baidu.nps.main.invoke.InvokeException;
@@ -16,10 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.b0.h.a;
-import d.a.b0.i.c;
-import d.a.b0.i.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Bundle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CLAZZ_SUFFIX_INVOKER = ".Invoker";

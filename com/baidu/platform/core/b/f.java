@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class f extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,17 +41,17 @@ public class f extends com.baidu.platform.base.e {
                 if (SDKInitializer.getCoordType() == CoordType.GCJ02) {
                     latLng = CoordTrans.gcjToBaidu(latLng);
                 }
-                com.baidu.platform.util.a aVar = this.f9434a;
+                com.baidu.platform.util.a aVar = this.f44083a;
                 aVar.a("location", latLng.latitude + "," + latLng.longitude);
             }
-            this.f9434a.a("coordtype", "bd09ll");
-            this.f9434a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
-            this.f9434a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
-            this.f9434a.a("pois", "1");
-            this.f9434a.a("output", "jsonaes");
-            this.f9434a.a("from", "android_map_sdk");
-            this.f9434a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
-            this.f9434a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
+            this.f44083a.a("coordtype", "bd09ll");
+            this.f44083a.a("page_index", String.valueOf(reverseGeoCodeOption.getPageNum()));
+            this.f44083a.a("page_size", String.valueOf(reverseGeoCodeOption.getPageSize()));
+            this.f44083a.a("pois", "1");
+            this.f44083a.a("output", "jsonaes");
+            this.f44083a.a("from", "android_map_sdk");
+            this.f44083a.a("latest_admin", String.valueOf(reverseGeoCodeOption.getLatestAdmin()));
+            this.f44083a.a("radius", String.valueOf(reverseGeoCodeOption.getRadius()));
         }
     }
 

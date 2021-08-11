@@ -16,7 +16,7 @@ import com.tencent.connect.share.QzonePublish;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class VideoPlayData implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<VideoPlayData> CREATOR;

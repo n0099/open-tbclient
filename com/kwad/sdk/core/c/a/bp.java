@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.c.a;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.PhotoComment;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class bp implements com.kwad.sdk.core.d<PhotoComment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +36,7 @@ public class bp implements com.kwad.sdk.core.d<PhotoComment> {
             return;
         }
         photoComment.subCommentCount = jSONObject.optLong("subCommentCount");
-        photoComment.hot = jSONObject.optBoolean("hot");
+        photoComment.hot = jSONObject.optBoolean(ThreadAchievementShareDialogView.HOT_LIST_VIEW_TYPE);
         photoComment.likedCount = jSONObject.optLong("likedCount");
         photoComment.time = jSONObject.optString("time");
         photoComment.timestamp = jSONObject.optLong("timestamp");
@@ -59,7 +60,7 @@ public class bp implements com.kwad.sdk.core.d<PhotoComment> {
                 jSONObject = new JSONObject();
             }
             com.kwad.sdk.utils.q.a(jSONObject, "subCommentCount", photoComment.subCommentCount);
-            com.kwad.sdk.utils.q.a(jSONObject, "hot", photoComment.hot);
+            com.kwad.sdk.utils.q.a(jSONObject, ThreadAchievementShareDialogView.HOT_LIST_VIEW_TYPE, photoComment.hot);
             com.kwad.sdk.utils.q.a(jSONObject, "likedCount", photoComment.likedCount);
             com.kwad.sdk.utils.q.a(jSONObject, "time", photoComment.time);
             com.kwad.sdk.utils.q.a(jSONObject, "timestamp", photoComment.timestamp);

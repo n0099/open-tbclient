@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class UnifiedListenerManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -148,43 +148,43 @@ public class UnifiedListenerManager {
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-            public void fetchEnd(@NonNull DownloadTask downloadTask, int i4, long j) {
+            public void fetchEnd(@NonNull DownloadTask downloadTask, int i4, long j2) {
                 DownloadListener[] threadSafeArray;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048582, this, new Object[]{downloadTask, Integer.valueOf(i4), Long.valueOf(j)}) == null) || (threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, this.this$0.realListenerMap)) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048582, this, new Object[]{downloadTask, Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, this.this$0.realListenerMap)) == null) {
                     return;
                 }
                 for (DownloadListener downloadListener : threadSafeArray) {
                     if (downloadListener != null) {
-                        downloadListener.fetchEnd(downloadTask, i4, j);
+                        downloadListener.fetchEnd(downloadTask, i4, j2);
                     }
                 }
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-            public void fetchProgress(@NonNull DownloadTask downloadTask, int i4, long j) {
+            public void fetchProgress(@NonNull DownloadTask downloadTask, int i4, long j2) {
                 DownloadListener[] threadSafeArray;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(1048583, this, new Object[]{downloadTask, Integer.valueOf(i4), Long.valueOf(j)}) == null) || (threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, this.this$0.realListenerMap)) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(1048583, this, new Object[]{downloadTask, Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, this.this$0.realListenerMap)) == null) {
                     return;
                 }
                 for (DownloadListener downloadListener : threadSafeArray) {
                     if (downloadListener != null) {
-                        downloadListener.fetchProgress(downloadTask, i4, j);
+                        downloadListener.fetchProgress(downloadTask, i4, j2);
                     }
                 }
             }
 
             @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-            public void fetchStart(@NonNull DownloadTask downloadTask, int i4, long j) {
+            public void fetchStart(@NonNull DownloadTask downloadTask, int i4, long j2) {
                 DownloadListener[] threadSafeArray;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{downloadTask, Integer.valueOf(i4), Long.valueOf(j)}) == null) || (threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, this.this$0.realListenerMap)) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{downloadTask, Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (threadSafeArray = UnifiedListenerManager.getThreadSafeArray(downloadTask, this.this$0.realListenerMap)) == null) {
                     return;
                 }
                 for (DownloadListener downloadListener : threadSafeArray) {
                     if (downloadListener != null) {
-                        downloadListener.fetchStart(downloadTask, i4, j);
+                        downloadListener.fetchStart(downloadTask, i4, j2);
                     }
                 }
             }

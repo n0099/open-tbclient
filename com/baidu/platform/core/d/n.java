@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class n extends com.baidu.platform.base.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,24 +33,24 @@ public class n extends com.baidu.platform.base.e {
     private void a(TransitRoutePlanOption transitRoutePlanOption) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, transitRoutePlanOption) == null) {
-            this.f9434a.a("qt", "bus");
-            com.baidu.platform.util.a aVar = this.f9434a;
+            this.f44083a.a("qt", "bus");
+            com.baidu.platform.util.a aVar = this.f44083a;
             aVar.a("sy", transitRoutePlanOption.mPolicy.getInt() + "");
-            this.f9434a.a("ie", "utf-8");
-            this.f9434a.a("lrn", "20");
-            this.f9434a.a("version", "3");
-            this.f9434a.a("rp_format", "json");
-            this.f9434a.a("rp_filter", "mobile");
-            this.f9434a.a("ic_info", "2");
-            this.f9434a.a("exptype", "depall");
-            this.f9434a.a(IAdRequestParam.SN, a(transitRoutePlanOption.mFrom));
-            this.f9434a.a("en", a(transitRoutePlanOption.mTo));
+            this.f44083a.a("ie", "utf-8");
+            this.f44083a.a("lrn", "20");
+            this.f44083a.a("version", "3");
+            this.f44083a.a("rp_format", "json");
+            this.f44083a.a("rp_filter", "mobile");
+            this.f44083a.a("ic_info", "2");
+            this.f44083a.a("exptype", "depall");
+            this.f44083a.a(IAdRequestParam.SN, a(transitRoutePlanOption.mFrom));
+            this.f44083a.a(com.baidu.fsg.base.statistics.f.f39281a, a(transitRoutePlanOption.mTo));
             String str = transitRoutePlanOption.mCityName;
             if (str != null) {
-                this.f9434a.a("c", str);
+                this.f44083a.a("c", str);
             }
             if (TransitRoutePlanOption.TransitPolicy.EBUS_NO_SUBWAY == transitRoutePlanOption.mPolicy) {
-                this.f9434a.a("f", "[0,2,4,7,5,8,9,10,11]");
+                this.f44083a.a("f", "[0,2,4,7,5,8,9,10,11]");
             }
         }
     }

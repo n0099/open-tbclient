@@ -1,7 +1,6 @@
 package androidx.appcompat.widget;
 
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
@@ -207,8 +206,6 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
                     this.mPopup = null;
                     clearAnchorPos();
                     this.mAnchor.removeOnAttachStateChangeListener(this);
-                } else {
-                    Log.e(TAG, "sActiveHandler.mPopup == null");
                 }
             }
             if (sPendingHandler == this) {
@@ -273,9 +270,9 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
     }
 
     public void show(boolean z) {
-        long j;
-        int longPressTimeout;
         long j2;
+        int longPressTimeout;
+        long j3;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && ViewCompat.isAttachedToWindow(this.mAnchor)) {
             setPendingHandler(null);
@@ -290,19 +287,19 @@ public class TooltipCompatHandler implements View.OnLongClickListener, View.OnHo
             tooltipPopup.show(this.mAnchor, this.mAnchorX, this.mAnchorY, this.mFromTouch, this.mTooltipText);
             this.mAnchor.addOnAttachStateChangeListener(this);
             if (this.mFromTouch) {
-                j2 = LONG_CLICK_HIDE_TIMEOUT_MS;
+                j3 = LONG_CLICK_HIDE_TIMEOUT_MS;
             } else {
                 if ((ViewCompat.getWindowSystemUiVisibility(this.mAnchor) & 1) == 1) {
-                    j = 3000;
+                    j2 = 3000;
                     longPressTimeout = ViewConfiguration.getLongPressTimeout();
                 } else {
-                    j = 15000;
+                    j2 = 15000;
                     longPressTimeout = ViewConfiguration.getLongPressTimeout();
                 }
-                j2 = j - longPressTimeout;
+                j3 = j2 - longPressTimeout;
             }
             this.mAnchor.removeCallbacks(this.mHideRunnable);
-            this.mAnchor.postDelayed(this.mHideRunnable, j2);
+            this.mAnchor.postDelayed(this.mHideRunnable, j3);
         }
     }
 }

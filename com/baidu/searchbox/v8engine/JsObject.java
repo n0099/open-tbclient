@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class JsObject extends JsReleaser {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -78,43 +78,43 @@ public class JsObject extends JsReleaser {
         return invokeI.booleanValue;
     }
 
-    private native JsSerializeValue nativeAsSerializeValue(long j);
+    private native JsSerializeValue nativeAsSerializeValue(long j2);
 
-    private native int nativeGetPropertyIndex(long j, String str);
+    private native int nativeGetPropertyIndex(long j2, String str);
 
-    private native String nativeGetPropertyName(long j, int i2);
+    private native String nativeGetPropertyName(long j2, int i2);
 
-    private native int nativePropertyType(long j, int i2);
+    private native int nativePropertyType(long j2, int i2);
 
-    private native boolean nativeStrictEquals(long j, long j2);
+    private native boolean nativeStrictEquals(long j2, long j3);
 
-    private native boolean nativeToBoolean(long j, int i2);
+    private native boolean nativeToBoolean(long j2, int i2);
 
-    private native double nativeToDouble(long j, int i2);
+    private native double nativeToDouble(long j2, int i2);
 
-    private native double[] nativeToDoubleArray(long j, int i2);
+    private native double[] nativeToDoubleArray(long j2, int i2);
 
-    private native int nativeToInteger(long j, int i2);
+    private native int nativeToInteger(long j2, int i2);
 
-    private native int[] nativeToIntegerArray(long j, int i2);
+    private native int[] nativeToIntegerArray(long j2, int i2);
 
-    private native JsArrayBuffer nativeToJsArrayBuffer(long j, int i2);
+    private native JsArrayBuffer nativeToJsArrayBuffer(long j2, int i2);
 
-    private native JsFunction nativeToJsFunction(long j, long j2, int i2);
+    private native JsFunction nativeToJsFunction(long j2, long j3, int i2);
 
-    private native JsObject nativeToJsObject(long j, int i2);
+    private native JsObject nativeToJsObject(long j2, int i2);
 
-    private native long nativeToLong(long j, int i2);
+    private native long nativeToLong(long j2, int i2);
 
-    private native JsObject[] nativeToObjectArray(long j, int i2);
+    private native JsObject[] nativeToObjectArray(long j2, int i2);
 
-    private native JsSerializeValue nativeToSerializeValue(long j, int i2);
+    private native JsSerializeValue nativeToSerializeValue(long j2, int i2);
 
-    private native String nativeToString(long j, int i2);
+    private native String nativeToString(long j2, int i2);
 
-    private native String[] nativeToStringArray(long j, int i2);
+    private native String[] nativeToStringArray(long j2, int i2);
 
-    private native int nativeType(long j);
+    private native int nativeType(long j2);
 
     public static String typeToString(int i2) {
         InterceptResult invokeI;
@@ -167,11 +167,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return 0;
             }
-            return nativeGetPropertyIndex(j, str);
+            return nativeGetPropertyIndex(j2, str);
         }
         return invokeL.intValue;
     }
@@ -180,8 +180,8 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            return j == 0 ? SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : nativeGetPropertyName(j, i2);
+            long j2 = this.mNativeObject.get();
+            return j2 == 0 ? SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : nativeGetPropertyName(j2, i2);
         }
         return (String) invokeI.objValue;
     }
@@ -190,11 +190,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return 0;
             }
-            return nativePropertyType(j, i2);
+            return nativePropertyType(j2, i2);
         }
         return invokeI.intValue;
     }
@@ -204,11 +204,11 @@ public class JsObject extends JsReleaser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             V8Engine.checkValid(this.mOwnedNativeEngine, this.mOwnedThreadId);
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return 0;
             }
-            return nativeType(j);
+            return nativeType(j2);
         }
         return invokeV.intValue;
     }
@@ -293,11 +293,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return false;
             }
-            return nativeToBoolean(j, i2);
+            return nativeToBoolean(j2, i2);
         }
         return invokeI.booleanValue;
     }
@@ -306,11 +306,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return 0.0d;
             }
-            return nativeToDouble(j, i2);
+            return nativeToDouble(j2, i2);
         }
         return invokeI.doubleValue;
     }
@@ -319,11 +319,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return null;
             }
-            return nativeToDoubleArray(j, i2);
+            return nativeToDoubleArray(j2, i2);
         }
         return (double[]) invokeI.objValue;
     }
@@ -332,11 +332,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return 0;
             }
-            return nativeToInteger(j, i2);
+            return nativeToInteger(j2, i2);
         }
         return invokeI.intValue;
     }
@@ -345,11 +345,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return null;
             }
-            return nativeToIntegerArray(j, i2);
+            return nativeToIntegerArray(j2, i2);
         }
         return (int[]) invokeI.objValue;
     }
@@ -358,11 +358,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return null;
             }
-            return nativeToJsArrayBuffer(j, i2);
+            return nativeToJsArrayBuffer(j2, i2);
         }
         return (JsArrayBuffer) invokeI.objValue;
     }
@@ -371,11 +371,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return null;
             }
-            return nativeToJsFunction(this.mOwnedNativeEngine, j, i2);
+            return nativeToJsFunction(this.mOwnedNativeEngine, j2, i2);
         }
         return (JsFunction) invokeI.objValue;
     }
@@ -384,11 +384,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return null;
             }
-            return nativeToJsObject(j, i2);
+            return nativeToJsObject(j2, i2);
         }
         return (JsObject) invokeI.objValue;
     }
@@ -397,11 +397,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return 0L;
             }
-            return nativeToLong(j, i2);
+            return nativeToLong(j2, i2);
         }
         return invokeI.longValue;
     }
@@ -410,11 +410,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return null;
             }
-            return nativeToObjectArray(j, i2);
+            return nativeToObjectArray(j2, i2);
         }
         return (JsObject[]) invokeI.objValue;
     }
@@ -423,11 +423,11 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return null;
             }
-            return nativeToSerializeValue(j, i2);
+            return nativeToSerializeValue(j2, i2);
         }
         return (JsSerializeValue) invokeI.objValue;
     }
@@ -436,8 +436,8 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            return j == 0 ? StringUtil.NULL_STRING : nativeToString(j, i2);
+            long j2 = this.mNativeObject.get();
+            return j2 == 0 ? StringUtil.NULL_STRING : nativeToString(j2, i2);
         }
         return (String) invokeI.objValue;
     }
@@ -446,23 +446,23 @@ public class JsObject extends JsReleaser {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
-            long j = this.mNativeObject.get();
-            if (j == 0) {
+            long j2 = this.mNativeObject.get();
+            if (j2 == 0) {
                 return null;
             }
-            return nativeToStringArray(j, i2);
+            return nativeToStringArray(j2, i2);
         }
         return (String[]) invokeI.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public JsObject(long j, long j2, long j3, int i2) {
-        super(j, j2, j3);
+    public JsObject(long j2, long j3, long j4, int i2) {
+        super(j2, j3, j4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r9;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {

@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class HttpURLExecutorRunnable implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -39,7 +39,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     public String mUrl;
     public boolean mUsingDNSProxy;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface OnWebRequestListener {
         void onFailed();
 

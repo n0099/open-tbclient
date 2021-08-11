@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.StateSet;
 import android.util.Xml;
 import androidx.annotation.ColorInt;
@@ -87,8 +86,7 @@ public final class ColorStateListInflaterCompat {
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, resources, i2, theme)) == null) {
             try {
                 return createFromXml(resources, resources.getXml(i2), theme);
-            } catch (Exception e2) {
-                Log.e("CSLCompat", "Failed to inflate ColorStateList.", e2);
+            } catch (Exception unused) {
                 return null;
             }
         }

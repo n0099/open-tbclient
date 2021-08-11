@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class Sig {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String ASSET_PLUGIN_SIG = "vDQpBBbXetFKLAVjL6p8+OmdKZ6LV8mOJ9CUoA4rY0VhTWJYuiHB5mHqGJ3NJ3pM/Ks+TDDyqOmOxLoPZAUz5iuoMNwRS1eJPoapMJAc+4T8qMDeHWORoDLcIRwo4X/TrtkT58tJMZrKGgGYDKsExQPMBPX45CZCkJlL5ht5fZE=";
+    public static String ASSET_PLUGIN_SIG = "RJ/TtH8aJygvkOyXNrUdUBuKtfyz93+8LOaCB+aOG5KyZH0XxOC1BB5F4bo/eQaN0UOpaonTjjKfwfJRUllqWCfTbxP2no/1/xIoRdtgBP2gaVtG53CxN5PmeAocyd8/rLTb4DGhojdgNf2i3521FL+Hf7qqJ1y6/adb5oZLgYg=";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

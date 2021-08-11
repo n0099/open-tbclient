@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.datamodel.UserData;
+import com.dxmpay.wallet.base.datamodel.UserData;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class CardAddResponse extends DirectPayContentResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,7 +21,7 @@ public class CardAddResponse extends DirectPayContentResponse {
     public CustomerSvcCfg intelligent_service;
     public int request_type;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class ConfirmWindow implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class CustomerSvcCfg implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -71,12 +71,12 @@ public class CardAddResponse extends DirectPayContentResponse {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static CardAddResponse f26182a;
+        public static CardAddResponse f62068a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -92,7 +92,7 @@ public class CardAddResponse extends DirectPayContentResponse {
                     return;
                 }
             }
-            f26182a = new CardAddResponse();
+            f62068a = new CardAddResponse();
         }
     }
 
@@ -113,17 +113,17 @@ public class CardAddResponse extends DirectPayContentResponse {
     public static CardAddResponse getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f26182a : (CardAddResponse) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.f62068a : (CardAddResponse) invokeV.objValue;
     }
 
     public static void updateContent(Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65538, null, obj) == null) && (obj instanceof CardAddResponse)) {
-            CardAddResponse unused = a.f26182a = (CardAddResponse) obj;
+            CardAddResponse unused = a.f62068a = (CardAddResponse) obj;
         }
     }
 
-    @Override // com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse, com.baidu.apollon.beans.IBeanResponse
+    @Override // com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse, com.dxmpay.apollon.beans.IBeanResponse
     public boolean checkResponseValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -143,7 +143,7 @@ public class CardAddResponse extends DirectPayContentResponse {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.bind_card_num > 0 : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse, com.baidu.apollon.beans.IBeanResponse
+    @Override // com.baidu.wallet.paysdk.datamodel.DirectPayContentResponse, com.dxmpay.apollon.beans.IBeanResponse
     public void storeResponse(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {

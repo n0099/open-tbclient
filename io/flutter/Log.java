@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Log {
     public static /* synthetic */ Interceptable $ic = null;
     public static int logLevel = 3;
@@ -60,7 +60,12 @@ public class Log {
     public static void e(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            android.util.Log.e(str, str2);
+        }
+    }
+
+    public static void e(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) {
         }
     }
 
@@ -98,7 +103,12 @@ public class Log {
     public static void w(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            android.util.Log.w(str, str2);
+        }
+    }
+
+    public static void w(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, th) == null) {
         }
     }
 
@@ -106,20 +116,6 @@ public class Log {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) {
             android.util.Log.wtf(str, str2);
-        }
-    }
-
-    public static void e(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(AdIconUtil.AD_TEXT_ID, null, str, str2, th) == null) {
-            android.util.Log.e(str, str2, th);
-        }
-    }
-
-    public static void w(@NonNull String str, @NonNull String str2, @NonNull Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, str, str2, th) == null) {
-            android.util.Log.w(str, str2, th);
         }
     }
 

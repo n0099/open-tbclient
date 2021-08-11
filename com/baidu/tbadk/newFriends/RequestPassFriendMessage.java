@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.PassFriend.PassFriendReqIdl;
 import tbclient.PassFriend.ReqData;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class RequestPassFriendMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,10 +61,10 @@ public class RequestPassFriendMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.st_type : (String) invokeV.objValue;
     }
 
-    public void setFriendId(long j, String str) {
+    public void setFriendId(long j2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048579, this, j, str) == null) {
-            this.friendId = j;
+        if (interceptable == null || interceptable.invokeJL(1048579, this, j2, str) == null) {
+            this.friendId = j2;
             this.st_type = str;
         }
     }

@@ -26,7 +26,6 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.common.util.Util;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mapsdkplatform.comapi.map.r;
@@ -41,7 +40,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.core.imageloader.utils.StorageUtils;
 import com.tencent.connect.common.Constants;
 import com.tencent.open.log.SLog;
 import com.tencent.tauth.IUiListener;
@@ -62,42 +60,42 @@ import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.MediaStreamTrack;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f39246a = "";
+    public static String f76077a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f39247b = "";
+    public static String f76078b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f39248c = "";
+    public static String f76079c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f39249d = "";
+    public static String f76080d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f39250e = -1;
+    public static int f76081e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f39251f = "0123456789ABCDEF";
+    public static String f76082f = "0123456789ABCDEF";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f39254a;
+        public String f76085a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f39255b;
+        public long f76086b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f39256c;
+        public long f76087c;
 
         public a(String str, int i2) {
             Interceptable interceptable = $ic;
@@ -114,10 +112,10 @@ public class l {
                     return;
                 }
             }
-            this.f39254a = str;
-            this.f39255b = i2;
+            this.f76085a = str;
+            this.f76086b = i2;
             if (str != null) {
-                this.f39256c = str.length();
+                this.f76087c = str.length();
             }
         }
     }
@@ -414,7 +412,7 @@ public class l {
                 return "";
             }
             String d2 = d(context, str);
-            f39248c = d2;
+            f76079c = d2;
             return d2;
         }
         return (String) invokeLL.objValue;
@@ -474,7 +472,7 @@ public class l {
                 return "";
             }
             b(context, str);
-            return f39247b;
+            return f76078b;
         }
         return (String) invokeLL.objValue;
     }
@@ -532,7 +530,7 @@ public class l {
                 return "";
             }
             b(context, str);
-            return f39246a;
+            return f76077a;
         }
         return (String) invokeLL.objValue;
     }
@@ -545,10 +543,10 @@ public class l {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f39247b = str2;
-            f39246a = str2.substring(0, str2.lastIndexOf(46));
-            f39249d = f39247b.substring(f39247b.lastIndexOf(46) + 1, f39247b.length());
-            f39250e = packageInfo.versionCode;
+            f76078b = str2;
+            f76077a = str2.substring(0, str2.lastIndexOf(46));
+            f76080d = f76078b.substring(f76078b.lastIndexOf(46) + 1, f76078b.length());
+            f76081e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             SLog.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -614,7 +612,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
             Context a2 = f.a();
-            return a2 != null && a2.getPackageManager().checkPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, a2.getPackageName()) == 0;
+            return a2 != null && a2.getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", a2.getPackageName()) == 0;
         }
         return invokeV.booleanValue;
     }
@@ -708,7 +706,7 @@ public class l {
                         cursor.close();
                     }
                     try {
-                        parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f7788a);
+                        parcelFileDescriptor = context.getContentResolver().openFileDescriptor(uri, r.f42062a);
                         try {
                             fileInputStream = new FileInputStream(parcelFileDescriptor.getFileDescriptor());
                             try {
@@ -880,32 +878,32 @@ public class l {
             intent.setComponent(new ComponentName(str, str2));
             intent.setAction("android.intent.action.VIEW");
             intent.addFlags(1073741824);
-            intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+            intent.addFlags(268435456);
             intent.setData(Uri.parse(str3));
             context.startActivity(intent);
         }
     }
 
-    public static void a(Context context, String str, long j, String str2) {
+    public static void a(Context context, String str, long j2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{context, str, Long.valueOf(j), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{context, str, Long.valueOf(j2), str2}) == null) {
             Bundle bundle = new Bundle();
             bundle.putString("appid_for_getting_config", str2);
             bundle.putString("strValue", str2);
             bundle.putString("nValue", str);
             bundle.putString("qver", Constants.SDK_VERSION);
-            if (j != 0) {
-                bundle.putLong("elt", j);
+            if (j2 != 0) {
+                bundle.putLong("elt", j2);
             }
             new Thread(context, bundle) { // from class: com.tencent.open.utils.l.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ Context f39252a;
+                public final /* synthetic */ Context f76083a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Bundle f39253b;
+                public final /* synthetic */ Bundle f76084b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -922,8 +920,8 @@ public class l {
                             return;
                         }
                     }
-                    this.f39252a = context;
-                    this.f39253b = bundle;
+                    this.f76083a = context;
+                    this.f76084b = bundle;
                 }
 
                 @Override // java.lang.Thread, java.lang.Runnable
@@ -931,7 +929,7 @@ public class l {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            HttpUtils.openUrl2(this.f39252a, "https://cgi.qplus.com/report/report", "GET", this.f39253b);
+                            HttpUtils.openUrl2(this.f76083a, "https://cgi.qplus.com/report/report", "GET", this.f76084b);
                         } catch (Exception e2) {
                             SLog.e("openSDK_LOG.Util", "reportBernoulli has exception: " + e2.getMessage());
                         }
@@ -1164,7 +1162,7 @@ public class l {
                     }
                     return bArr2;
                 } catch (Throwable th) {
-                    SLog.e(Util.f2611b, "xor Exception! ", th);
+                    SLog.e(Util.f36486b, "xor Exception! ", th);
                 }
             }
             return bArr;
@@ -1434,7 +1432,7 @@ public class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65554, null, context, str, str2)) == null) {
             if (Build.VERSION.SDK_INT < 19) {
-                a2 = context.getPackageManager().checkPermission(StorageUtils.EXTERNAL_STORAGE_PERMISSION, context.getPackageName()) == 0 ? a(str, str2) : false;
+                a2 = context.getPackageManager().checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0 ? a(str, str2) : false;
             } else {
                 a2 = a(str, str2);
             }

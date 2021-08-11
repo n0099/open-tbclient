@@ -13,16 +13,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class NotificationClickedActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public BroadcastReceiver f40029a;
+    public BroadcastReceiver f76880a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f57a;
+    public Handler f61a;
 
     public NotificationClickedActivity() {
         Interceptable interceptable = $ic;
@@ -67,12 +67,12 @@ public final class NotificationClickedActivity extends Activity {
             attributes.gravity = BadgeDrawable.TOP_START;
             window.setAttributes(attributes);
             Handler handler = new Handler();
-            this.f57a = handler;
+            this.f61a = handler;
             handler.postDelayed(new ab(this), 3000L);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("action_clicked_activity_finish");
             ac acVar = new ac(this);
-            this.f40029a = acVar;
+            this.f76880a = acVar;
             try {
                 registerReceiver(acVar, intentFilter, d.a(this), null);
             } catch (Exception unused) {
@@ -86,9 +86,9 @@ public final class NotificationClickedActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            this.f57a.removeCallbacksAndMessages(null);
+            this.f61a.removeCallbacksAndMessages(null);
             try {
-                unregisterReceiver(this.f40029a);
+                unregisterReceiver(this.f76880a);
             } catch (Exception unused) {
             }
         }

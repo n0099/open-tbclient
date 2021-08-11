@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.NonNull;
+import c.a.p0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
@@ -14,8 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TBAdWebView extends BaseAdWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,28 +41,28 @@ public class TBAdWebView extends BaseAdWebView {
     }
 
     @Override // com.baidu.tieba.ad.webview.BaseAdWebView
-    public void b(@NonNull DownloadCacheKey downloadCacheKey, boolean z) {
+    public String getUserAgent() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, downloadCacheKey, z) == null) {
-            if (!a.h().s() && !PermissionUtil.checkWriteExternalStorage(this.f13833f)) {
-                PermissionUtil.requestWriteExternalStorage((Activity) this.f13833f, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ad.webview.BaseAdWebView
+    public void handleDownload(@NonNull DownloadCacheKey downloadCacheKey, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadCacheKey, z) == null) {
+            if (!a.h().u() && !PermissionUtil.checkWriteExternalStorage(this.mContext)) {
+                PermissionUtil.requestWriteExternalStorage((Activity) this.mContext, 0);
                 return;
             }
-            BaseAdWebView.d dVar = this.j;
+            BaseAdWebView.d dVar = this.mDownloadStartListener;
             if (dVar != null) {
                 dVar.onDownloadStart(downloadCacheKey);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ad.webview.BaseAdWebView
-    public String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion();
-        }
-        return (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

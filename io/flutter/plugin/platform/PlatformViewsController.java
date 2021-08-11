@@ -4,7 +4,6 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -28,7 +27,7 @@ import io.flutter.view.TextureRegistry;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PlatformViewsController implements PlatformViewsAccessibilityDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MINIMAL_SDK = 20;
@@ -47,7 +46,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
     public final HashMap<Integer, VirtualDisplayController> vdControllers;
 
     /* renamed from: io.flutter.plugin.platform.PlatformViewsController$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class AnonymousClass1 implements PlatformViewsChannel.PlatformViewsHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +108,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
                             int physicalPixels2 = this.this$0.toPhysicalPixels(platformViewCreationRequest.logicalHeight);
                             this.this$0.validateVirtualDisplayDimensions(physicalPixels, physicalPixels2);
                             TextureRegistry.SurfaceTextureEntry createSurfaceTexture = this.this$0.textureRegistry.createSurfaceTexture();
-                            VirtualDisplayController create = VirtualDisplayController.create(this.this$0.context, this.this$0.accessibilityEventsDelegate, factory, createSurfaceTexture, physicalPixels, physicalPixels2, platformViewCreationRequest.viewId, decodeMessage, new View.OnFocusChangeListener() { // from class: f.a.b.a.a
+                            VirtualDisplayController create = VirtualDisplayController.create(this.this$0.context, this.this$0.accessibilityEventsDelegate, factory, createSurfaceTexture, physicalPixels, physicalPixels2, platformViewCreationRequest.viewId, decodeMessage, new View.OnFocusChangeListener() { // from class: g.a.b.a.a
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -379,7 +378,7 @@ public class PlatformViewsController implements PlatformViewsAccessibilityDelega
         if (interceptable == null || interceptable.invokeII(65561, this, i2, i3) == null) {
             DisplayMetrics displayMetrics = this.context.getResources().getDisplayMetrics();
             if (i3 > displayMetrics.heightPixels || i2 > displayMetrics.widthPixels) {
-                Log.w("PlatformViewsController", "Creating a virtual display of size: [" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + "] may result in problems(https://github.com/flutter/flutter/issues/2897).It is larger than the device screen size: [" + displayMetrics.widthPixels + StringUtil.ARRAY_ELEMENT_SEPARATOR + displayMetrics.heightPixels + "].");
+                String str = "Creating a virtual display of size: [" + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i3 + "] may result in problems(https://github.com/flutter/flutter/issues/2897).It is larger than the device screen size: [" + displayMetrics.widthPixels + StringUtil.ARRAY_ELEMENT_SEPARATOR + displayMetrics.heightPixels + "].";
             }
         }
     }

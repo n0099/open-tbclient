@@ -8,7 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes8.dex */
 public final class l implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,7 +102,7 @@ public final class l implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "PagerLogEntity{id=" + this.id + ", pagerName='" + this.J + "', startTime='" + this.V + "', endTime='" + this.W + "', path='" + this.path + "', sessionId='" + this.H + "'}";
+            return "PagerLogEntity{id=" + this.id + ", pagerName='" + this.J + ExtendedMessageFormat.QUOTE + ", startTime='" + this.V + ExtendedMessageFormat.QUOTE + ", endTime='" + this.W + ExtendedMessageFormat.QUOTE + ", path='" + this.path + ExtendedMessageFormat.QUOTE + ", sessionId='" + this.H + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class JNIFavorite {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,27 +24,27 @@ public class JNIFavorite {
         }
     }
 
-    public native boolean Add(long j, String str, String str2);
+    public native boolean Add(long j2, String str, String str2);
 
-    public native boolean Clear(long j);
+    public native boolean Clear(long j2);
 
     public native long Create();
 
-    public native int GetAll(long j, Bundle bundle);
+    public native int GetAll(long j2, Bundle bundle);
 
-    public native String GetValue(long j, String str);
+    public native String GetValue(long j2, String str);
 
-    public native boolean IsExist(long j, String str);
+    public native boolean IsExist(long j2, String str);
 
-    public native boolean Load(long j, String str, String str2, String str3, int i2, int i3, int i4);
+    public native boolean Load(long j2, String str, String str2, String str3, int i2, int i3, int i4);
 
-    public native int Release(long j);
+    public native int Release(long j2);
 
-    public native boolean Remove(long j, String str);
+    public native boolean Remove(long j2, String str);
 
-    public native boolean SaveCache(long j);
+    public native boolean SaveCache(long j2);
 
-    public native boolean SetType(long j, int i2);
+    public native boolean SetType(long j2, int i2);
 
-    public native boolean Update(long j, String str, String str2);
+    public native boolean Update(long j2, String str, String str2);
 }

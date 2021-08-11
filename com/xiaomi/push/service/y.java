@@ -27,7 +27,7 @@ import com.xiaomi.push.iv;
 import com.xiaomi.push.service.av;
 import java.nio.ByteBuffer;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,15 +55,15 @@ public final class y {
             try {
                 fa faVar = new fa();
                 faVar.a(5);
-                faVar.c(lVar.f962a);
+                faVar.c(lVar.f966a);
                 faVar.b(a(ibVar));
                 faVar.a("SECMSG", "message");
-                String str = lVar.f962a;
-                ibVar.f633a.f558a = str.substring(0, str.indexOf(TNCManager.TNC_PROBE_HEADER_SECEPTOR));
-                ibVar.f633a.f562c = str.substring(str.indexOf("/") + 1);
-                faVar.a(ip.a(ibVar), lVar.f40961c);
+                String str = lVar.f966a;
+                ibVar.f637a.f562a = str.substring(0, str.indexOf(TNCManager.TNC_PROBE_HEADER_SECEPTOR));
+                ibVar.f637a.f566c = str.substring(str.indexOf("/") + 1);
+                faVar.a(ip.a(ibVar), lVar.f77837c);
                 faVar.a((short) 1);
-                com.xiaomi.channel.commonutils.logger.b.m70a("try send mi push message. packagename:" + ibVar.f638b + " action:" + ibVar.f631a);
+                com.xiaomi.channel.commonutils.logger.b.m73a("try send mi push message. packagename:" + ibVar.f642b + " action:" + ibVar.f635a);
                 return faVar;
             } catch (NullPointerException e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
@@ -82,7 +82,7 @@ public final class y {
             ieVar.c("package uninstalled");
             ieVar.a(gc.i());
             ieVar.a(false);
-            return a(str, str2, ieVar, hf.f40530i);
+            return a(str, str2, ieVar, hf.f77389i);
         }
         return (ib) invokeLL.objValue;
     }
@@ -100,8 +100,8 @@ public final class y {
             byte[] a2 = ip.a(t);
             ib ibVar = new ib();
             hu huVar = new hu();
-            huVar.f557a = 5L;
-            huVar.f558a = "fakeid";
+            huVar.f561a = 5L;
+            huVar.f562a = "fakeid";
             ibVar.a(huVar);
             ibVar.a(ByteBuffer.wrap(a2));
             ibVar.a(hfVar);
@@ -119,14 +119,14 @@ public final class y {
         Map<String, String> map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, ibVar)) == null) {
-            hs hsVar = ibVar.f632a;
-            if (hsVar != null && (map = hsVar.f548b) != null) {
+            hs hsVar = ibVar.f636a;
+            if (hsVar != null && (map = hsVar.f552b) != null) {
                 String str = map.get("ext_traffic_source_pkg");
                 if (!TextUtils.isEmpty(str)) {
                     return str;
                 }
             }
-            return ibVar.f638b;
+            return ibVar.f642b;
         }
         return (String) invokeL.objValue;
     }
@@ -157,16 +157,16 @@ public final class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, xMPushService, ibVar) == null) {
             cy.a(ibVar.b(), xMPushService.getApplicationContext(), ibVar, -1);
-            fl m560a = xMPushService.m560a();
-            if (m560a == null) {
+            fl m563a = xMPushService.m563a();
+            if (m563a == null) {
                 throw new fw("try send msg while connection is null.");
             }
-            if (!m560a.m323a()) {
+            if (!m563a.m326a()) {
                 throw new fw("Don't support XMPP connection.");
             }
             fa a2 = a(m.a((Context) xMPushService), xMPushService, ibVar);
             if (a2 != null) {
-                m560a.b(a2);
+                m563a.b(a2);
             }
         }
     }
@@ -190,16 +190,16 @@ public final class y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65547, null, xMPushService, str, bArr) == null) {
             cy.a(str, xMPushService.getApplicationContext(), bArr);
-            fl m560a = xMPushService.m560a();
-            if (m560a == null) {
+            fl m563a = xMPushService.m563a();
+            if (m563a == null) {
                 throw new fw("try send msg while connection is null.");
             }
-            if (!m560a.m323a()) {
+            if (!m563a.m326a()) {
                 throw new fw("Don't support XMPP connection.");
             }
             fa a2 = a(xMPushService, bArr);
             if (a2 != null) {
-                m560a.b(a2);
+                m563a.b(a2);
             } else {
                 p.a(xMPushService, str, bArr, ErrorCode.ERROR_INVALID_PAYLOAD, "not a valid message");
             }

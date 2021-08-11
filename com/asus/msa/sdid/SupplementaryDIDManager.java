@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.util.Log;
 import androidx.annotation.Keep;
 import com.asus.msa.a.a;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class SupplementaryDIDManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DEBUG = false;
@@ -30,13 +29,13 @@ public class SupplementaryDIDManager {
     public com.asus.msa.sdid.a mListener;
     public ServiceConnection mServiceConnection;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SupplementaryDIDManager f2151e;
+        public final /* synthetic */ SupplementaryDIDManager f36001e;
 
         public a(SupplementaryDIDManager supplementaryDIDManager) {
             Interceptable interceptable = $ic;
@@ -53,18 +52,16 @@ public class SupplementaryDIDManager {
                     return;
                 }
             }
-            this.f2151e = supplementaryDIDManager;
+            this.f36001e = supplementaryDIDManager;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                if (SupplementaryDIDManager.DEBUG) {
-                    Log.i(SupplementaryDIDManager.TAG, "did service binded");
-                }
-                this.f2151e.mDidService = a.AbstractBinderC0019a.a(iBinder);
-                this.f2151e.notifyAllListeners(true);
+                boolean unused = SupplementaryDIDManager.DEBUG;
+                this.f36001e.mDidService = a.AbstractBinderC1565a.a(iBinder);
+                this.f36001e.notifyAllListeners(true);
             }
         }
 
@@ -72,7 +69,7 @@ public class SupplementaryDIDManager {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f2151e.notifyAllListeners(false);
+                this.f36001e.notifyAllListeners(false);
             }
         }
     }
@@ -124,7 +121,7 @@ public class SupplementaryDIDManager {
                 }
             } catch (Exception e2) {
                 if (DEBUG) {
-                    Log.e(TAG, "notify did bind status error :" + e2.getMessage());
+                    String str = "notify did bind status error :" + e2.getMessage();
                 }
             }
         }
@@ -137,13 +134,11 @@ public class SupplementaryDIDManager {
                 if (!this.isBinded || this.mServiceConnection == null || this.mContext == null) {
                     return;
                 }
-                if (DEBUG) {
-                    Log.i(TAG, "start to unbind did service");
-                }
+                boolean z = DEBUG;
                 this.isBinded = false;
                 this.mContext.unbindService(this.mServiceConnection);
             } catch (Exception e2) {
-                Log.w(TAG, e2.getMessage());
+                e2.getMessage();
             }
         }
     }
@@ -157,9 +152,7 @@ public class SupplementaryDIDManager {
                 ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
                 Intent intent2 = new Intent(intent);
                 intent2.setComponent(componentName);
-                if (DEBUG) {
-                    Log.i(TAG, "start to bind did service.");
-                }
+                boolean z = DEBUG;
                 this.isBinded = this.mContext.bindService(intent2, this.mServiceConnection, 1);
             } catch (Exception unused) {
                 notifyAllListeners(false);

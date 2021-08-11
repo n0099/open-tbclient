@@ -13,7 +13,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class ShapeData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -113,7 +114,7 @@ public class ShapeData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "ShapeData{numCurves=" + this.curves.size() + "closed=" + this.closed + '}';
+            return "ShapeData{numCurves=" + this.curves.size() + "closed=" + this.closed + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

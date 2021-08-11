@@ -1,6 +1,10 @@
 package com.baidu.wallet.core;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,8 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public final class Permission {
     public static final /* synthetic */ Permission[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -64,16 +74,56 @@ public final class Permission {
         this.val = i3;
     }
 
+    public static Map<String, EnumSet<Permission>> parseDomainsConfig(@NonNull String str) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            HashMap hashMap = new HashMap();
+            JSONObject jSONObject = new JSONObject(str);
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next)) {
+                    hashMap.put(next, parsePermission(jSONObject.optInt(next)));
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static EnumSet<Permission> parsePermission(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+            EnumSet<Permission> of = EnumSet.of(NONE);
+            if (READ_NORMAL.verify(i2)) {
+                of.add(READ_NORMAL);
+            }
+            if (READ_PRIVATE.verify(i2)) {
+                of.add(READ_PRIVATE);
+            }
+            if (WRITE.verify(i2)) {
+                of.add(WRITE);
+            }
+            if (READ_DEVICE.verify(i2)) {
+                of.add(READ_DEVICE);
+            }
+            return of;
+        }
+        return (EnumSet) invokeI.objValue;
+    }
+
     public static Permission valueOf(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (Permission) Enum.valueOf(Permission.class, str) : (Permission) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (Permission) Enum.valueOf(Permission.class, str) : (Permission) invokeL.objValue;
     }
 
     public static Permission[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Permission[]) $VALUES.clone() : (Permission[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.AD_TEXT_ID, null)) == null) ? (Permission[]) $VALUES.clone() : (Permission[]) invokeV.objValue;
     }
 
     public int getVal() {

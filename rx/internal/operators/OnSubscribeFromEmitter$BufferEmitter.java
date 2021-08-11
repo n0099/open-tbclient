@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.j;
-import h.o.a.a;
-import h.o.d.i.f;
-import h.o.d.j.f0;
-import h.o.d.j.z;
+import i.j;
+import i.o.a.a;
+import i.o.d.i.f;
+import i.o.d.j.f0;
+import i.o.d.j.z;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFromEmitter$BaseEmitter<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2427151001689639875L;
@@ -52,10 +52,10 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
             Queue<Object> queue = this.queue;
             int i3 = 1;
             do {
-                long j = get();
-                long j2 = 0;
+                long j2 = get();
+                long j3 = 0;
                 while (true) {
-                    i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
                     if (i2 == 0) {
                         break;
                     } else if (jVar.isUnsubscribed()) {
@@ -78,7 +78,7 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                             break;
                         } else {
                             jVar.onNext((Object) NotificationLite.e(poll));
-                            j2++;
+                            j3++;
                         }
                     }
                 }
@@ -100,8 +100,8 @@ public final class OnSubscribeFromEmitter$BufferEmitter<T> extends OnSubscribeFr
                         }
                     }
                 }
-                if (j2 != 0) {
-                    a.g(this, j2);
+                if (j3 != 0) {
+                    a.g(this, j3);
                 }
                 i3 = this.wip.addAndGet(-i3);
             } while (i3 != 0);

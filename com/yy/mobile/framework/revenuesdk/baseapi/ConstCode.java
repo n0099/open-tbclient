@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class ConstCode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class BindResCode {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BIND_LOAD_FULL = 406;
@@ -60,7 +60,7 @@ public class ConstCode {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class PktErrorCode {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int PKT_LEN_BIG = 2;
@@ -84,7 +84,7 @@ public class ConstCode {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class SdkResCode {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int NEED_BIND = -2;
@@ -131,7 +131,7 @@ public class ConstCode {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class SrvResCode {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int RES_BADGATEWAY = 502;
@@ -195,7 +195,7 @@ public class ConstCode {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class Status {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int Binded = 6;

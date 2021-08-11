@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ExperimentManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ID_CTR_LP_BACK = "18797";
@@ -22,7 +22,7 @@ public class ExperimentManager {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class ExpHitStatus {
         public static final /* synthetic */ ExpHitStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

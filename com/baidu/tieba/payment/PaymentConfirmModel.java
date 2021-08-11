@@ -1,5 +1,6 @@
 package com.baidu.tieba.payment;
 
+import c.a.e.a.f;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
@@ -17,14 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.f;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public f<T> f19205e;
+    public f<T> f54570e;
 
     public PaymentConfirmModel(f<T> fVar) {
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
                 return;
             }
         }
-        this.f19205e = fVar;
+        this.f54570e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -79,7 +79,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("password", payRequestData.getPassword());
         httpMessage.addParam("bindid", payRequestData.getBindId());
         httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-        this.f19205e.sendMessage(httpMessage);
+        this.f54570e.sendMessage(httpMessage);
     }
 
     public void x() {
@@ -121,6 +121,6 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
         httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
         httpMessage.addParam("currency", paymentConfirmRequestData.getCurrency());
-        this.f19205e.sendMessage(httpMessage);
+        this.f54570e.sendMessage(httpMessage);
     }
 }

@@ -1,6 +1,8 @@
 package com.baidu.tbadk.template.message;
 
-import android.util.Log;
+import c.a.o0.z0.c.a;
+import c.a.o0.z0.c.b;
+import c.a.o0.z0.c.c;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,10 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.z0.c.a;
-import d.a.p0.z0.c.b;
-import d.a.p0.z0.c.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TemplateNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,7 +47,7 @@ public class TemplateNetMessage extends NetMessage {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            Log.i("Template", "TemplateNetMessage-->isShortConnection=" + z);
+            String str = "TemplateNetMessage-->isShortConnection=" + z;
             return this.mIReq.a(z);
         }
         return invokeZ.objValue;

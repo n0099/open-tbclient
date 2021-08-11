@@ -35,7 +35,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import okio.Okio;
 import org.json.JSONObject;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LottieCompositionFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Map<String, LottieTask<LottieComposition>> taskCache;

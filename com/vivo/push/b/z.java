@@ -1,23 +1,22 @@
 package com.vivo.push.b;
 
-import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class z extends com.vivo.push.y {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39326a;
+    public int f76158a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z() {
-        super(IMConstants.IM_MSG_TYPE_SHIELD);
+        super(2011);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,13 +30,13 @@ public final class z extends com.vivo.push.y {
                 return;
             }
         }
-        this.f39326a = 0;
+        this.f76158a = 0;
     }
 
     public final void a(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.f39326a = i2;
+            this.f76158a = i2;
         }
     }
 
@@ -45,7 +44,7 @@ public final class z extends com.vivo.push.y {
     public final void c(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            aVar.a("com.bbk.push.ikey.MODE_TYPE", this.f39326a);
+            aVar.a("com.bbk.push.ikey.MODE_TYPE", this.f76158a);
         }
     }
 
@@ -62,7 +61,7 @@ public final class z extends com.vivo.push.y {
     public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39326a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f76158a : invokeV.intValue;
     }
 
     @Override // com.vivo.push.y
@@ -76,7 +75,7 @@ public final class z extends com.vivo.push.y {
     public final void d(com.vivo.push.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f39326a = aVar.b("com.bbk.push.ikey.MODE_TYPE", 0);
+            this.f76158a = aVar.b("com.bbk.push.ikey.MODE_TYPE", 0);
         }
     }
 }

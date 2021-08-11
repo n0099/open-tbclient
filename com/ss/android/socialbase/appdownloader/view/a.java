@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import c.p.a.e.b.d.c;
+import c.p.a.e.b.g.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.tieba.service.AsInstallService;
@@ -15,9 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.l.a.e.b.d.c;
-import d.l.a.e.b.g.e;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a extends Fragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,7 +103,7 @@ public class a extends Fragment {
             String packageName = e2.getPackageName();
             if (!TextUtils.isEmpty(Build.MANUFACTURER)) {
                 String lowerCase = Build.MANUFACTURER.toLowerCase();
-                if (lowerCase.contains(c.f72192c)) {
+                if (lowerCase.contains(c.f34866c)) {
                     Intent intent = new Intent();
                     intent.putExtra("packageName", packageName);
                     intent.setComponent(new ComponentName("com.color.safecenter", "com.color.safecenter.permission.PermissionManagerActivity"));
@@ -147,10 +147,10 @@ public class a extends Fragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
-            if (d.l.a.e.a.f.c.d()) {
-                d.l.a.e.a.f.c.c(true);
+            if (c.p.a.e.a.f.c.d()) {
+                c.p.a.e.a.f.c.c(true);
             } else {
-                d.l.a.e.a.f.c.c(false);
+                c.p.a.e.a.f.c.c(false);
             }
         }
     }

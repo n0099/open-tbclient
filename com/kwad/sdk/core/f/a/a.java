@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.f.b.a;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f34595a;
+    public Context f71336a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f34596b;
+    public final LinkedBlockingQueue<IBinder> f71337b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f34597c;
+    public ServiceConnection f71338c;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -42,13 +42,13 @@ public class a {
                 return;
             }
         }
-        this.f34596b = new LinkedBlockingQueue<>(1);
-        this.f34597c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.a.1
+        this.f71337b = new LinkedBlockingQueue<>(1);
+        this.f71338c = new ServiceConnection(this) { // from class: com.kwad.sdk.core.f.a.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ a f34598a;
+            public final /* synthetic */ a f71339a;
 
             {
                 Interceptable interceptable2 = $ic;
@@ -65,7 +65,7 @@ public class a {
                         return;
                     }
                 }
-                this.f34598a = this;
+                this.f71339a = this;
             }
 
             @Override // android.content.ServiceConnection
@@ -73,7 +73,7 @@ public class a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     try {
-                        this.f34598a.f34596b.put(iBinder);
+                        this.f71339a.f71337b.put(iBinder);
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
                     }
@@ -87,7 +87,7 @@ public class a {
                 }
             }
         };
-        this.f34595a = context;
+        this.f71336a = context;
     }
 
     public String a() {
@@ -101,16 +101,16 @@ public class a {
                 Intent intent = new Intent();
                 intent.setAction("com.asus.msa.action.ACCESS_DID");
                 intent.setComponent(new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService"));
-                if (this.f34595a.bindService(intent, this.f34597c, 1)) {
+                if (this.f71336a.bindService(intent, this.f71338c, 1)) {
                     try {
-                        str = new a.C0417a(this.f34596b.take()).a();
+                        str = new a.C1984a(this.f71337b.take()).a();
                         com.kwad.sdk.core.d.a.c("ASUSDeviceIDHelper", "getOAID oaid:" + str);
-                        context = this.f34595a;
-                        serviceConnection = this.f34597c;
+                        context = this.f71336a;
+                        serviceConnection = this.f71338c;
                     } catch (Exception e2) {
                         com.kwad.sdk.core.d.a.a(e2);
-                        context = this.f34595a;
-                        serviceConnection = this.f34597c;
+                        context = this.f71336a;
+                        serviceConnection = this.f71338c;
                     }
                     context.unbindService(serviceConnection);
                 }

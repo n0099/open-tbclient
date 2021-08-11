@@ -2,15 +2,15 @@ package com.baidu.nps.stub.pkginfo;
 
 import android.app.Application;
 import android.content.pm.PackageInfo;
+import c.a.a0.i.c;
+import c.a.a0.i.e;
 import com.baidu.nps.stub.context.ContextHolderImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.b0.i.c;
-import d.a.b0.i.e;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class PackageInfoHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

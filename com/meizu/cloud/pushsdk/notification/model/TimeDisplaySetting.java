@@ -3,9 +3,10 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class TimeDisplaySetting implements Parcelable {
     public static final Parcelable.Creator<TimeDisplaySetting> CREATOR = new Parcelable.Creator<TimeDisplaySetting>() { // from class: com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,7 +47,7 @@ public class TimeDisplaySetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                d.h.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                c.l.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -74,7 +75,7 @@ public class TimeDisplaySetting implements Parcelable {
             return timeDisplaySetting;
         }
         str = "no such tag time_display_setting";
-        d.h.a.a.a.b(TAG, str);
+        c.l.a.a.a.b(TAG, str);
         return timeDisplaySetting;
     }
 
@@ -108,7 +109,7 @@ public class TimeDisplaySetting implements Parcelable {
     }
 
     public String toString() {
-        return "TimeDisplaySetting{isTimeDisplay=" + this.isTimeDisplay + ", startShowTime='" + this.startShowTime + "', endShowTime='" + this.endShowTime + "'}";
+        return "TimeDisplaySetting{isTimeDisplay=" + this.isTimeDisplay + ", startShowTime='" + this.startShowTime + ExtendedMessageFormat.QUOTE + ", endShowTime='" + this.endShowTime + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
     }
 
     @Override // android.os.Parcelable

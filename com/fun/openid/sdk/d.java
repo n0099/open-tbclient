@@ -12,26 +12,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.openid.sdk.e;
 import com.fun.openid.sdk.f;
 import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class d implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static final class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f32958a;
+        public boolean f69647a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f32959b;
+        public final LinkedBlockingQueue<IBinder> f69648b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -46,19 +45,19 @@ public class d implements f {
                     return;
                 }
             }
-            this.f32958a = false;
-            this.f32959b = new LinkedBlockingQueue<>();
+            this.f69647a = false;
+            this.f69648b = new LinkedBlockingQueue<>();
         }
 
         public IBinder a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f32958a) {
+                if (this.f69647a) {
                     throw new IllegalStateException();
                 }
-                this.f32958a = true;
-                return this.f32959b.poll(5L, TimeUnit.SECONDS);
+                this.f69647a = true;
+                return this.f69648b.poll(5L, TimeUnit.SECONDS);
             }
             return (IBinder) invokeV.objValue;
         }
@@ -68,7 +67,7 @@ public class d implements f {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName, iBinder) == null) {
                 try {
-                    this.f32959b.put(iBinder);
+                    this.f69648b.put(iBinder);
                 } catch (InterruptedException e2) {
                     e2.printStackTrace();
                 }
@@ -99,9 +98,6 @@ public class d implements f {
 
     @Override // com.fun.openid.sdk.f
     public void a(Context context, f.a aVar) {
-        IBinder a2;
-        Parcel obtain;
-        Parcel obtain2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             a aVar2 = new a();
@@ -109,25 +105,29 @@ public class d implements f {
             intent.setPackage("com.huawei.hwid");
             try {
                 if (!context.bindService(intent, aVar2, 1)) {
-                    ((e.a) aVar).a(false, null);
+                    aVar.a(false, null);
                     return;
                 }
                 try {
-                    a2 = aVar2.a();
-                    obtain = Parcel.obtain();
-                    obtain2 = Parcel.obtain();
+                    IBinder a2 = aVar2.a();
+                    Parcel obtain = Parcel.obtain();
+                    Parcel obtain2 = Parcel.obtain();
+                    try {
+                        obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
+                        a2.transact(1, obtain, obtain2, 0);
+                        obtain2.readException();
+                        String readString = obtain2.readString();
+                        obtain2.recycle();
+                        obtain.recycle();
+                        aVar.a(true, readString);
+                    } catch (Throwable th) {
+                        obtain2.recycle();
+                        obtain.recycle();
+                        throw th;
+                    }
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    ((e.a) aVar).a(true, null);
-                }
-                try {
-                    obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-                    a2.transact(1, obtain, obtain2, 0);
-                    obtain2.readException();
-                    ((e.a) aVar).a(true, obtain2.readString());
-                } finally {
-                    obtain2.recycle();
-                    obtain.recycle();
+                    aVar.a(true, null);
                 }
             } finally {
                 context.unbindService(aVar2);

@@ -1,5 +1,7 @@
 package com.baidu.tieba.homepage.gamevideo;
 
+import c.a.o0.x0.b;
+import c.a.p0.i3.d0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -13,9 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.x0.b;
-import d.a.q0.h3.d0.a;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class GameVideoStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

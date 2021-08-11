@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class w {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static w f10566c;
+    public static w f45251c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public SharedPreferences f10567a;
+    public SharedPreferences f45252a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f10568b;
+    public SharedPreferences.Editor f45253b;
 
     public w(Context context) {
         Interceptable interceptable = $ic;
@@ -37,9 +37,9 @@ public final class w {
                 return;
             }
         }
-        SharedPreferences sharedPreferences = com.baidu.sofire.h.a.a(context).f10436a;
-        this.f10567a = sharedPreferences;
-        this.f10568b = sharedPreferences.edit();
+        SharedPreferences sharedPreferences = com.baidu.sofire.h.a.a(context).f45117a;
+        this.f45252a = sharedPreferences;
+        this.f45253b = sharedPreferences.edit();
     }
 
     public static synchronized w a(Context context) {
@@ -48,12 +48,12 @@ public final class w {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             synchronized (w.class) {
                 if (context == null) {
-                    return f10566c;
+                    return f45251c;
                 }
-                if (f10566c == null) {
-                    f10566c = new w(context);
+                if (f45251c == null) {
+                    f45251c = new w(context);
                 }
-                return f10566c;
+                return f45251c;
             }
         }
         return (w) invokeL.objValue;
@@ -62,14 +62,14 @@ public final class w {
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f10567a.getBoolean("lt_sdcf", true) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45252a.getBoolean("lt_sdcf", true) : invokeV.booleanValue;
     }
 
     public final void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.f10568b.putBoolean("lt_sssf", z);
-            this.f10568b.commit();
+            this.f45253b.putBoolean("lt_sssf", z);
+            this.f45253b.commit();
         }
     }
 }

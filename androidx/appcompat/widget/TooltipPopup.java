@@ -6,7 +6,6 @@ import android.content.ContextWrapper;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,7 +90,6 @@ public class TooltipPopup {
             int dimensionPixelOffset3 = this.mContext.getResources().getDimensionPixelOffset(z ? R.dimen.tooltip_y_offset_touch : R.dimen.tooltip_y_offset_non_touch);
             View appRootView = getAppRootView(view);
             if (appRootView == null) {
-                Log.e(TAG, "Cannot find app view");
                 return;
             }
             appRootView.getWindowVisibleDisplayFrame(this.mTmpDisplayFrame);

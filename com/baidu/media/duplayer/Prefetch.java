@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 @Keep
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class Prefetch {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "filecache-Prefetch";
@@ -62,17 +62,17 @@ public class Prefetch {
             if (str == null || str.length() <= 0) {
                 return;
             }
-            String j = Utils.j();
-            if (j == null) {
+            String j2 = Utils.j();
+            if (j2 == null) {
                 str5 = "";
             } else {
-                str5 = "http://" + j;
+                str5 = "http://" + j2;
             }
             CyberLog.i(TAG, "adjustPrefetchPolicy call before url : " + str + " prefetchSize : " + i9);
             PlayerConfigManagerInternal.b adjustPrefetchPolicy = adjustPrefetchPolicy(str, i9, prefetchOptions);
-            CyberLog.i(TAG, "adjustPrefetchPolicy call after url : " + adjustPrefetchPolicy.f8144b + " info.adjustSize : " + adjustPrefetchPolicy.f8143a);
-            if (Utils.a() > Utils.f8111b) {
-                nativeAdd(adjustPrefetchPolicy.f8144b, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, adjustPrefetchPolicy.f8143a, str4, i5, i6, i7, i8);
+            CyberLog.i(TAG, "adjustPrefetchPolicy call after url : " + adjustPrefetchPolicy.f42432b + " info.adjustSize : " + adjustPrefetchPolicy.f42431a);
+            if (Utils.a() > Utils.f42398b) {
+                nativeAdd(adjustPrefetchPolicy.f42432b, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, adjustPrefetchPolicy.f42431a, str4, i5, i6, i7, i8);
             }
         }
     }

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class LottieValueAnimator extends BaseLottieAnimator implements Choreographer.FrameCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -103,16 +103,16 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
     }
 
     @Override // android.view.Choreographer.FrameCallback
-    public void doFrame(long j) {
+    public void doFrame(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
             postFrameCallback();
             if (this.composition == null || !isRunning()) {
                 return;
             }
             L.beginSection("LottieValueAnimator#doFrame");
-            long j2 = this.lastFrameTimeNs;
-            float frameDurationNs = ((float) (j2 != 0 ? j - j2 : 0L)) / getFrameDurationNs();
+            long j3 = this.lastFrameTimeNs;
+            float frameDurationNs = ((float) (j3 != 0 ? j2 - j3 : 0L)) / getFrameDurationNs();
             float f2 = this.frame;
             if (isReversed()) {
                 frameDurationNs = -frameDurationNs;
@@ -121,7 +121,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
             this.frame = f3;
             boolean z = !MiscUtils.contains(f3, getMinFrame(), getMaxFrame());
             this.frame = MiscUtils.clamp(this.frame, getMinFrame(), getMaxFrame());
-            this.lastFrameTimeNs = j;
+            this.lastFrameTimeNs = j2;
             notifyUpdate();
             if (z) {
                 if (getRepeatCount() != -1 && this.repeatCount >= getRepeatCount()) {
@@ -137,7 +137,7 @@ public class LottieValueAnimator extends BaseLottieAnimator implements Choreogra
                     } else {
                         this.frame = isReversed() ? getMaxFrame() : getMinFrame();
                     }
-                    this.lastFrameTimeNs = j;
+                    this.lastFrameTimeNs = j2;
                 }
             }
             verifyFrame();

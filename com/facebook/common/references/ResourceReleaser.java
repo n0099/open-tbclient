@@ -1,5 +1,5 @@
 package com.facebook.common.references;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface ResourceReleaser<T> {
     void release(T t);
 }

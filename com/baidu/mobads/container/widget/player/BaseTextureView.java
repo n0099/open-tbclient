@@ -3,7 +3,6 @@ package com.baidu.mobads.container.widget.player;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.SurfaceTexture;
-import android.util.Log;
 import android.view.Surface;
 import android.view.TextureView;
 import androidx.core.view.InputDeviceCompat;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @TargetApi(14)
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class BaseTextureView extends TextureView implements TextureView.SurfaceTextureListener, ISurfaceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -110,7 +109,7 @@ public class BaseTextureView extends TextureView implements TextureView.SurfaceT
                     defaultSize2 = (i4 * defaultSize) / i5;
                 }
             }
-            Log.i("BaseTextureView", String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.mVideoWidth), Integer.valueOf(this.mVideoHeight)));
+            String.format("onMeasure.  measure size(%sx%s)", Integer.valueOf(this.mVideoWidth), Integer.valueOf(this.mVideoHeight));
             setMeasuredDimension(defaultSize, defaultSize2);
         }
     }

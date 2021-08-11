@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Field f32201a;
+    public final Field f68155a;
 
     public c(Field field) {
         Interceptable interceptable = $ic;
@@ -29,6 +29,6 @@ public final class c {
             }
         }
         com.bytedance.sdk.openadsdk.preload.a.b.a.a(field);
-        this.f32201a = field;
+        this.f68155a = field;
     }
 }

@@ -1,6 +1,12 @@
 package com.google.common.collect;
 
 import androidx.core.view.InputDeviceCompat;
+import c.i.d.a.g;
+import c.i.d.a.k;
+import c.i.d.a.n;
+import c.i.d.c.m;
+import c.i.d.c.n1;
+import c.i.d.f.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.common.primitives.Ints;
-import d.f.d.a.g;
-import d.f.d.a.k;
-import d.f.d.a.n;
-import d.f.d.c.m;
-import d.f.d.c.n1;
-import d.f.d.f.c;
 import java.io.Serializable;
 import java.util.AbstractList;
 import java.util.AbstractSequentialList;
@@ -24,12 +24,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.RandomAccess;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Lists {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class OnePlusArrayList<E> extends AbstractList<E> implements Serializable, RandomAccess {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -76,7 +76,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static final class StringAsImmutableList extends ImmutableList<Character> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -168,7 +168,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class TransformingRandomAccessList<F, T> extends AbstractList<T> implements RandomAccess, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -176,13 +176,13 @@ public final class Lists {
         public final List<F> fromList;
         public final g<? super F, ? extends T> function;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public class a extends n1<F, T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ TransformingRandomAccessList f33503f;
+            public final /* synthetic */ TransformingRandomAccessList f70224f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(TransformingRandomAccessList transformingRandomAccessList, ListIterator listIterator) {
@@ -202,14 +202,14 @@ public final class Lists {
                         return;
                     }
                 }
-                this.f33503f = transformingRandomAccessList;
+                this.f70224f = transformingRandomAccessList;
             }
 
-            @Override // d.f.d.c.m1
+            @Override // c.i.d.c.m1
             public T a(F f2) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f33503f.function.apply(f2) : (T) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f70224f.function.apply(f2) : (T) invokeL.objValue;
             }
         }
 
@@ -287,7 +287,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class TransformingSequentialList<F, T> extends AbstractSequentialList<T> implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -295,13 +295,13 @@ public final class Lists {
         public final List<F> fromList;
         public final g<? super F, ? extends T> function;
 
-        /* loaded from: classes6.dex */
+        /* loaded from: classes10.dex */
         public class a extends n1<F, T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ TransformingSequentialList f33504f;
+            public final /* synthetic */ TransformingSequentialList f70225f;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
             public a(TransformingSequentialList transformingSequentialList, ListIterator listIterator) {
@@ -321,14 +321,14 @@ public final class Lists {
                         return;
                     }
                 }
-                this.f33504f = transformingSequentialList;
+                this.f70225f = transformingSequentialList;
             }
 
-            @Override // d.f.d.c.m1
+            @Override // c.i.d.c.m1
             public T a(F f2) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f33504f.function.apply(f2) : (T) invokeL.objValue;
+                return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, f2)) == null) ? this.f70225f.function.apply(f2) : (T) invokeL.objValue;
             }
         }
 
@@ -376,7 +376,7 @@ public final class Lists {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class TwoPlusArrayList<E> extends AbstractList<E> implements Serializable, RandomAccess {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -582,7 +582,7 @@ public final class Lists {
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, iterable)) == null) {
             n.p(iterable);
             if (iterable instanceof Collection) {
-                return new ArrayList<>(d.f.d.c.n.a(iterable));
+                return new ArrayList<>(c.i.d.c.n.a(iterable));
             }
             return k(iterable.iterator());
         }

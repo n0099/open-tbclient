@@ -7,9 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final float RATIO = 0.5f;
     public transient /* synthetic */ FieldHolder $fh;
 
     public CubeOutViewPagerTransformer() {
@@ -26,14 +27,14 @@ public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
         }
     }
 
-    public static double f(double d2, double d3, double d4, double d5, double d6) {
+    public static double mapValueFromRangeToRange(double d2, double d3, double d4, double d5, double d6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Double.valueOf(d6)})) == null) ? (((d2 - d3) / (d4 - d3)) * (d6 - d5)) + d5 : invokeCommon.doubleValue;
     }
 
     @Override // com.baidu.tieba.frs.BaseViewPagerTransformer
-    public boolean b() {
+    public boolean isPagingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -43,18 +44,18 @@ public class CubeOutViewPagerTransformer extends BaseViewPagerTransformer {
     }
 
     @Override // com.baidu.tieba.frs.BaseViewPagerTransformer
-    public void e(View view, float f2) {
+    public void onTransform(View view, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, f2) == null) {
-            float f3 = ((float) f(f2, -1.0d, 1.0d, -90.0d, 90.0d)) * 0.5f;
+            float mapValueFromRangeToRange = ((float) mapValueFromRangeToRange(f2, -1.0d, 1.0d, -90.0d, 90.0d)) * 0.5f;
             view.setCameraDistance(5500 * 1.0f);
             if (f2 > 0.0f) {
-                view.setRotationY(f3);
+                view.setRotationY(mapValueFromRangeToRange);
                 view.setPivotX(0.0f);
                 view.setPivotY(view.getHeight() * 0.5f);
                 view.setLayerType(2, null);
             } else if (f2 < 0.0f) {
-                view.setRotationY(f3);
+                view.setRotationY(mapValueFromRangeToRange);
                 view.setPivotX(view.getWidth() * 1.0f);
                 view.setPivotY(view.getHeight() * 0.5f);
                 view.setLayerType(2, null);

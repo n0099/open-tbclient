@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class p extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBDrawVideo f39900a;
+    public final /* synthetic */ PBDrawVideo f76746a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public p(PBDrawVideo pBDrawVideo, Looper looper) {
@@ -33,7 +33,7 @@ public class p extends Handler {
                 return;
             }
         }
-        this.f39900a = pBDrawVideo;
+        this.f76746a = pBDrawVideo;
     }
 
     @Override // android.os.Handler
@@ -41,10 +41,10 @@ public class p extends Handler {
         PBDrawVideo pBDrawVideo;
         PBDrawVideoListener pBDrawVideoListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBDrawVideoListener = (pBDrawVideo = this.f39900a).f39620c) == null || pBDrawVideo.f39621d) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, message) == null) || message.what != 0 || (pBDrawVideoListener = (pBDrawVideo = this.f76746a).f76456c) == null || pBDrawVideo.f76457d) {
             return;
         }
         pBDrawVideoListener.onFail(PBError.LOAD_TIME_OUT);
-        this.f39900a.f39622e = true;
+        this.f76746a.f76458e = true;
     }
 }

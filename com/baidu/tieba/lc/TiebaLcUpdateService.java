@@ -3,6 +3,7 @@ package com.baidu.tieba.lc;
 import android.content.Intent;
 import android.os.IBinder;
 import androidx.annotation.Nullable;
+import c.a.p0.n1.b;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
@@ -12,9 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.m1.b;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class TiebaLcUpdateService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

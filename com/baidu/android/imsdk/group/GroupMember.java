@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GroupMember implements Parcelable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ADDSTATUSFAIL = 1;
@@ -87,12 +87,12 @@ public class GroupMember implements Parcelable, NoProGuard {
         };
     }
 
-    public GroupMember(long j, String str, int i2) {
+    public GroupMember(long j2, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), str, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j2), str, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -110,7 +110,7 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.valid = 0;
         this.mNickName = "";
         this.mPortrait = "";
-        this.mUk = j;
+        this.mUk = j2;
         this.mName = str;
         this.role = i2;
     }
@@ -198,10 +198,10 @@ public class GroupMember implements Parcelable, NoProGuard {
         }
     }
 
-    public void setBduid(long j) {
+    public void setBduid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
-            this.mBduid = j;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+            this.mBduid = j2;
         }
     }
 
@@ -212,10 +212,10 @@ public class GroupMember implements Parcelable, NoProGuard {
         }
     }
 
-    public void setJointime(long j) {
+    public void setJointime(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
-            this.jointime = j;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+            this.jointime = j2;
         }
     }
 
@@ -277,12 +277,12 @@ public class GroupMember implements Parcelable, NoProGuard {
         }
     }
 
-    public GroupMember(String str, long j, String str2, long j2, int i2, long j3) {
+    public GroupMember(String str, long j2, String str2, long j3, int i2, long j4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j), str2, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3)};
+            Object[] objArr = {str, Long.valueOf(j2), str2, Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4)};
             interceptable.invokeUnInit(65539, newInitContext);
             int i3 = newInitContext.flag;
             if ((i3 & 1) != 0) {
@@ -301,11 +301,11 @@ public class GroupMember implements Parcelable, NoProGuard {
         this.mNickName = "";
         this.mPortrait = "";
         this.groupid = str;
-        this.mUk = j;
+        this.mUk = j2;
         this.mName = str2;
-        this.mBduid = j2;
+        this.mBduid = j3;
         this.role = i2;
-        this.jointime = j3;
+        this.jointime = j4;
     }
 
     public GroupMember(Parcel parcel) {

@@ -33,13 +33,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AlaSquareTabInfo> mAlaSquareTabInfos;
     public View mCustomScrollView;
-    public d.a.q0.v.h.a.a mGameEntryAdapter;
+    public c.a.p0.v.h.a.a mGameEntryAdapter;
     public NoScrollGridView mGridView;
     public int mHasSearchTab;
     public NavigationBar mNavigationBar;
@@ -50,13 +50,13 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public IAlaSquareTabController mSquareTabController;
     public TextView mTextSearchHint;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaAllGameLiveEntryActivity f14303e;
+        public final /* synthetic */ AlaAllGameLiveEntryActivity f49443e;
 
         public a(AlaAllGameLiveEntryActivity alaAllGameLiveEntryActivity) {
             Interceptable interceptable = $ic;
@@ -73,25 +73,25 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f14303e = alaAllGameLiveEntryActivity;
+            this.f49443e = alaAllGameLiveEntryActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.f14303e.getPageContext().getPageActivity())));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2015003, new IntentConfig(this.f49443e.getPageContext().getPageActivity())));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class b implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaAllGameLiveEntryActivity f14304e;
+        public final /* synthetic */ AlaAllGameLiveEntryActivity f49444e;
 
         public b(AlaAllGameLiveEntryActivity alaAllGameLiveEntryActivity) {
             Interceptable interceptable = $ic;
@@ -108,23 +108,23 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
                     return;
                 }
             }
-            this.f14304e = alaAllGameLiveEntryActivity;
+            this.f49444e = alaAllGameLiveEntryActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
             AlaSquareTabInfo alaSquareTabInfo;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j)}) == null) || (alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(this.f14304e.mGameEntryAdapter.a(), i2)) == null || this.f14304e.mSquareTabController == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (alaSquareTabInfo = (AlaSquareTabInfo) ListUtils.getItem(this.f49444e.mGameEntryAdapter.a(), i2)) == null || this.f49444e.mSquareTabController == null) {
                 return;
             }
-            int tabIndex = this.f14304e.mSquareTabController.getTabIndex(alaSquareTabInfo.id);
+            int tabIndex = this.f49444e.mSquareTabController.getTabIndex(alaSquareTabInfo.id);
             if (tabIndex >= 0) {
-                this.f14304e.mSquareTabController.goToTab(tabIndex);
-                this.f14304e.finish();
+                this.f49444e.mSquareTabController.goToTab(tabIndex);
+                this.f49444e.finish();
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaNewSquareSubListActivityConfig(this.f14304e, alaSquareTabInfo)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaNewSquareSubListActivityConfig(this.f49444e, alaSquareTabInfo)));
         }
     }
 
@@ -175,7 +175,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
             }
             this.mNoDataRootView = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.ala_all_game_no_data, (ViewGroup) null);
             this.mCustomScrollView = this.mRootView.findViewById(R.id.scroll_grid_view_root);
-            this.mGameEntryAdapter = new d.a.q0.v.h.a.a(getPageContext());
+            this.mGameEntryAdapter = new c.a.p0.v.h.a.a(getPageContext());
             NoScrollGridView noScrollGridView = (NoScrollGridView) this.mRootView.findViewById(R.id.ala_live_list);
             this.mGridView = noScrollGridView;
             noScrollGridView.setOnItemClickListener(new b(this));

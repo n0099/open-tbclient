@@ -14,7 +14,6 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -40,7 +39,7 @@ import com.google.android.material.internal.StaticLayoutBuilderCompat;
 import com.google.android.material.resources.CancelableFontCallback;
 import com.google.android.material.resources.TextAppearance;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public final class CollapsingTextHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG_DRAW = false;
@@ -342,7 +341,7 @@ public final class CollapsingTextHelper {
             try {
                 staticLayout = StaticLayoutBuilderCompat.obtain(this.text, this.textPaint, (int) f2).setEllipsize(TextUtils.TruncateAt.END).setIsRtl(z).setAlignment(Layout.Alignment.ALIGN_NORMAL).setIncludePad(false).setMaxLines(i2).build();
             } catch (StaticLayoutBuilderCompat.StaticLayoutBuilderCompatException e2) {
-                Log.e(TAG, e2.getCause().getMessage(), e2);
+                e2.getCause().getMessage();
                 staticLayout = null;
             }
             return (StaticLayout) Preconditions.checkNotNull(staticLayout);

@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class bc extends ba {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static bc f8836c;
+    public static bc f43143c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8837b;
+    public boolean f43144b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class bc extends ba {
                 return;
             }
         }
-        f8836c = new bc();
+        f43143c = new bc();
     }
 
     public bc() {
@@ -52,7 +52,7 @@ public class bc extends ba {
     public static bc c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f8836c : (bc) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f43143c : (bc) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.ba
@@ -65,7 +65,7 @@ public class bc extends ba {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f8837b = z;
+            this.f43144b = z;
         }
     }
 
@@ -73,6 +73,6 @@ public class bc extends ba {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f8837b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43144b : invokeV.booleanValue;
     }
 }

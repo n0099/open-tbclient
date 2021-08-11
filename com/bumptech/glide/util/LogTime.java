@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public final class LogTime {
     public static /* synthetic */ Interceptable $ic;
     public static final double MILLIS_MULTIPLIER;
@@ -46,10 +46,10 @@ public final class LogTime {
         }
     }
 
-    public static double getElapsedMillis(long j) {
+    public static double getElapsedMillis(long j2) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? (getLogTime() - j) * MILLIS_MULTIPLIER : invokeJ.doubleValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? (getLogTime() - j2) * MILLIS_MULTIPLIER : invokeJ.doubleValue;
     }
 
     @TargetApi(17)

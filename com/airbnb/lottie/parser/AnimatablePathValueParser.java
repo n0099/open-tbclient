@@ -9,7 +9,6 @@ import com.airbnb.lottie.model.animatable.AnimatableValue;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class AnimatablePathValueParser {
     public static /* synthetic */ Interceptable $ic;
     public static JsonReader.Options NAMES;
@@ -38,7 +37,7 @@ public class AnimatablePathValueParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(Config.APP_KEY, "x", "y");
+        NAMES = JsonReader.Options.of("k", "x", "y");
     }
 
     public AnimatablePathValueParser() {

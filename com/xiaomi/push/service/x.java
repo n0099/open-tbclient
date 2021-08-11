@@ -13,19 +13,19 @@ import com.xiaomi.push.hw;
 import com.xiaomi.push.ib;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class x extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ ib f40984a;
+    public final /* synthetic */ ib f77860a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ ie f982a;
+    public final /* synthetic */ ie f986a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f983a;
+    public final /* synthetic */ XMPushService f987a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(int i2, ie ieVar, ib ibVar, XMPushService xMPushService) {
@@ -45,9 +45,9 @@ public final class x extends XMPushService.i {
                 return;
             }
         }
-        this.f982a = ieVar;
-        this.f40984a = ibVar;
-        this.f983a = xMPushService;
+        this.f986a = ieVar;
+        this.f77860a = ibVar;
+        this.f987a = xMPushService;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -63,17 +63,17 @@ public final class x extends XMPushService.i {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
                 hw hwVar = new hw();
-                hwVar.c(hp.D.f509a);
-                hwVar.a(this.f982a.m465a());
-                hwVar.a(this.f982a.a());
-                hwVar.b(this.f982a.b());
-                hwVar.e(this.f982a.c());
+                hwVar.c(hp.D.f513a);
+                hwVar.a(this.f986a.m468a());
+                hwVar.a(this.f986a.a());
+                hwVar.b(this.f986a.b());
+                hwVar.e(this.f986a.c());
                 hwVar.a(0L);
                 hwVar.d("success clear push message.");
-                y.a(this.f983a, y.b(this.f40984a.b(), this.f40984a.m451a(), hwVar, hf.f40530i));
+                y.a(this.f987a, y.b(this.f77860a.b(), this.f77860a.m454a(), hwVar, hf.f77389i));
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.d("clear push message. " + e2);
-                this.f983a.a(10, e2);
+                this.f987a.a(10, e2);
             }
         }
     }

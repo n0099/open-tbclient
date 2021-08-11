@@ -1,7 +1,6 @@
 package kotlin.text;
 
 import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.tbadk.core.util.StringHelper;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
@@ -12,8 +11,9 @@ import kotlin.internal.PlatformImplementationsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.sequences.SequencesKt___SequencesKt;
+import org.apache.commons.lang3.StringUtils;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001e\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010 \n\u0002\b\u000f\u001a#\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00020\u0000\u0012\u0004\u0012\u00020\u00000\u00022\u0006\u0010\u0001\u001a\u00020\u0000H\u0002¢\u0006\u0004\b\u0003\u0010\u0004\u001a\u0013\u0010\t\u001a\u00020\u0006*\u00020\u0000H\u0002¢\u0006\u0004\b\u0007\u0010\b\u001a\u001b\u0010\n\u001a\u00020\u0000*\u00020\u00002\b\b\u0002\u0010\u0001\u001a\u00020\u0000¢\u0006\u0004\b\n\u0010\u000b\u001aL\u0010\u0012\u001a\u00020\u0000*\b\u0012\u0004\u0012\u00020\u00000\f2\u0006\u0010\r\u001a\u00020\u00062\u0012\u0010\u000e\u001a\u000e\u0012\u0004\u0012\u00020\u0000\u0012\u0004\u0012\u00020\u00000\u00022\u0014\u0010\u000f\u001a\u0010\u0012\u0004\u0012\u00020\u0000\u0012\u0006\u0012\u0004\u0018\u00010\u00000\u0002H\u0082\b¢\u0006\u0004\b\u0010\u0010\u0011\u001a\u001b\u0010\u0014\u001a\u00020\u0000*\u00020\u00002\b\b\u0002\u0010\u0013\u001a\u00020\u0000¢\u0006\u0004\b\u0014\u0010\u000b\u001a%\u0010\u0016\u001a\u00020\u0000*\u00020\u00002\b\b\u0002\u0010\u0013\u001a\u00020\u00002\b\b\u0002\u0010\u0015\u001a\u00020\u0000¢\u0006\u0004\b\u0016\u0010\u0017\u001a\u0011\u0010\u0018\u001a\u00020\u0000*\u00020\u0000¢\u0006\u0004\b\u0018\u0010\u0019\u001a\u001b\u0010\u001a\u001a\u00020\u0000*\u00020\u00002\b\b\u0002\u0010\u0015\u001a\u00020\u0000¢\u0006\u0004\b\u001a\u0010\u000b¨\u0006\u001b"}, d2 = {"", "indent", "Lkotlin/Function1;", "getIndentFunction$StringsKt__IndentKt", "(Ljava/lang/String;)Lkotlin/Function1;", "getIndentFunction", "", "indentWidth$StringsKt__IndentKt", "(Ljava/lang/String;)I", "indentWidth", "prependIndent", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "", "resultSizeEstimate", "indentAddFunction", "indentCutFunction", "reindent$StringsKt__IndentKt", "(Ljava/util/List;ILkotlin/Function1;Lkotlin/Function1;)Ljava/lang/String;", "reindent", "newIndent", "replaceIndent", "marginPrefix", "replaceIndentByMargin", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "trimIndent", "(Ljava/lang/String;)Ljava/lang/String;", "trimMargin", "kotlin-stdlib"}, k = 5, mv = {1, 1, 15}, pn = "", xi = 0, xs = "kotlin/text/StringsKt")
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class StringsKt__IndentKt extends StringsKt__AppendableKt {
     public static final Function1<String, String> getIndentFunction$StringsKt__IndentKt(String str) {
         return str.length() == 0 ? StringsKt__IndentKt$getIndentFunction$1.INSTANCE : new StringsKt__IndentKt$getIndentFunction$2(str);
@@ -38,7 +38,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
     public static final String prependIndent(String prependIndent, String indent) {
         Intrinsics.checkNotNullParameter(prependIndent, "$this$prependIndent");
         Intrinsics.checkNotNullParameter(indent, "indent");
-        return SequencesKt___SequencesKt.joinToString$default(SequencesKt___SequencesKt.map(StringsKt__StringsKt.lineSequence(prependIndent), new StringsKt__IndentKt$prependIndent$1(indent)), "\n", null, null, 0, null, null, 62, null);
+        return SequencesKt___SequencesKt.joinToString$default(SequencesKt___SequencesKt.map(StringsKt__StringsKt.lineSequence(prependIndent), new StringsKt__IndentKt$prependIndent$1(indent)), StringUtils.LF, null, null, 0, null, null, 62, null);
     }
 
     public static /* synthetic */ String prependIndent$default(String str, String str2, int i2, Object obj) {
@@ -76,7 +76,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
             }
             i3 = i4;
         }
-        joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList, new StringBuilder(i2), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : "\n", (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? StringHelper.STRING_MORE : null, (r14 & 64) != 0 ? null : null);
+        joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList, new StringBuilder(i2), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : StringUtils.LF, (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? "..." : null, (r14 & 64) != 0 ? null : null);
         String sb = ((StringBuilder) joinTo).toString();
         Intrinsics.checkNotNullExpressionValue(sb, "mapIndexedNotNull { inde…\"\\n\")\n        .toString()");
         return sb;
@@ -124,7 +124,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
             }
             i2 = i3;
         }
-        joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList3, new StringBuilder(length), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : "\n", (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? StringHelper.STRING_MORE : null, (r14 & 64) != 0 ? null : null);
+        joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList3, new StringBuilder(length), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : StringUtils.LF, (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? "..." : null, (r14 & 64) != 0 ? null : null);
         String sb = ((StringBuilder) joinTo).toString();
         Intrinsics.checkNotNullExpressionValue(sb, "mapIndexedNotNull { inde…\"\\n\")\n        .toString()");
         return sb;
@@ -194,7 +194,7 @@ public class StringsKt__IndentKt extends StringsKt__AppendableKt {
                 }
                 i3 = i4;
             }
-            joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList, new StringBuilder(length), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : "\n", (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? StringHelper.STRING_MORE : null, (r14 & 64) != 0 ? null : null);
+            joinTo = CollectionsKt___CollectionsKt.joinTo(arrayList, new StringBuilder(length), (r14 & 2) != 0 ? StringUtil.ARRAY_ELEMENT_SEPARATOR : StringUtils.LF, (r14 & 4) != 0 ? "" : null, (r14 & 8) == 0 ? null : "", (r14 & 16) != 0 ? -1 : 0, (r14 & 32) != 0 ? "..." : null, (r14 & 64) != 0 ? null : null);
             String sb = ((StringBuilder) joinTo).toString();
             Intrinsics.checkNotNullExpressionValue(sb, "mapIndexedNotNull { inde…\"\\n\")\n        .toString()");
             return sb;

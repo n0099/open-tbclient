@@ -7,46 +7,46 @@ import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<com.meizu.cloud.pushsdk.c.a.b> f37577a;
+    public final List<com.meizu.cloud.pushsdk.c.a.b> f74421a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f37578b;
+    public final long f74422b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f37579c;
+    public final String f74423c;
 
     /* renamed from: com.meizu.cloud.pushsdk.c.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public static abstract class AbstractC0466a<T extends AbstractC0466a<T>> {
+    /* loaded from: classes10.dex */
+    public static abstract class AbstractC2033a<T extends AbstractC2033a<T>> {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<com.meizu.cloud.pushsdk.c.a.b> f37580a = new LinkedList();
+        public List<com.meizu.cloud.pushsdk.c.a.b> f74424a = new LinkedList();
 
         /* renamed from: b  reason: collision with root package name */
-        public long f37581b = System.currentTimeMillis();
+        public long f74425b = System.currentTimeMillis();
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37582c = e.b();
+        public String f74426c = e.b();
 
         public abstract T a();
 
-        public T a(long j) {
-            this.f37581b = j;
+        public T a(long j2) {
+            this.f74425b = j2;
             return a();
         }
     }
 
-    public a(AbstractC0466a<?> abstractC0466a) {
-        d.a(abstractC0466a.f37580a);
-        d.a(abstractC0466a.f37582c);
-        d.a(!abstractC0466a.f37582c.isEmpty(), "eventId cannot be empty");
-        this.f37577a = abstractC0466a.f37580a;
-        this.f37578b = abstractC0466a.f37581b;
-        this.f37579c = abstractC0466a.f37582c;
+    public a(AbstractC2033a<?> abstractC2033a) {
+        d.a(abstractC2033a.f74424a);
+        d.a(abstractC2033a.f74426c);
+        d.a(!abstractC2033a.f74426c.isEmpty(), "eventId cannot be empty");
+        this.f74421a = abstractC2033a.f74424a;
+        this.f74422b = abstractC2033a.f74425b;
+        this.f74423c = abstractC2033a.f74426c;
     }
 
     public c a(c cVar) {
@@ -56,14 +56,14 @@ public class a {
     }
 
     public List<com.meizu.cloud.pushsdk.c.a.b> a() {
-        return new ArrayList(this.f37577a);
+        return new ArrayList(this.f74421a);
     }
 
     public long b() {
-        return this.f37578b;
+        return this.f74422b;
     }
 
     public String c() {
-        return this.f37579c;
+        return this.f74423c;
     }
 }

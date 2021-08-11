@@ -7,6 +7,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.g;
+import c.a.e.e.p.l;
+import c.a.o0.s.c;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -18,10 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.g;
-import d.a.d.e.p.l;
-import d.a.p0.s.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MorePopupWindow extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +109,7 @@ public class MorePopupWindow extends PopupWindow {
 
     public void onChangeSkinType(BaseActivity baseActivity, int i2, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, baseActivity, i2, drawable) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, baseActivity, i2, drawable) == null) {
             applaySkin(baseActivity.getLayoutMode(), i2, drawable);
         }
     }
@@ -211,14 +211,14 @@ public class MorePopupWindow extends PopupWindow {
 
     public void onChangeSkinType(BaseFragmentActivity baseFragmentActivity, int i2, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, baseFragmentActivity, i2, drawable) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, baseFragmentActivity, i2, drawable) == null) {
             applaySkin(baseFragmentActivity.getLayoutMode(), i2, drawable);
         }
     }
 
     public void onChangeSkinType(c cVar, int i2, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, cVar, i2, drawable) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, cVar, i2, drawable) == null) {
             applaySkin(cVar, i2, drawable);
         }
     }

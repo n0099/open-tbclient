@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.IllegalFormatException;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class LogEx {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean ENABLE_LOG = true;

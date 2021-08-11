@@ -9,33 +9,33 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
+import c.a.p0.v.d.i.f.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.q0.v.d.h.a.d;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PagerSnapHelper extends SnapHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
 
-    /* renamed from: c  reason: collision with root package name */
-    public d f14236c;
+    /* renamed from: d  reason: collision with root package name */
+    public d f49373d;
     @Nullable
 
-    /* renamed from: d  reason: collision with root package name */
-    public d f14237d;
+    /* renamed from: e  reason: collision with root package name */
+    public d f49374e;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public class a extends LinearSmoothScroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ PagerSnapHelper f14238a;
+        public final /* synthetic */ PagerSnapHelper f49375a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PagerSnapHelper pagerSnapHelper, Context context) {
@@ -55,7 +55,7 @@ public class PagerSnapHelper extends SnapHelper {
                     return;
                 }
             }
-            this.f14238a = pagerSnapHelper;
+            this.f49375a = pagerSnapHelper;
         }
 
         @Override // androidx.recyclerview.widget.LinearSmoothScroller
@@ -76,8 +76,8 @@ public class PagerSnapHelper extends SnapHelper {
         public void onTargetFound(View view, RecyclerView.State state, RecyclerView.SmoothScroller.Action action) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view, state, action) == null) {
-                PagerSnapHelper pagerSnapHelper = this.f14238a;
-                int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f14239a.getLayoutManager(), view);
+                PagerSnapHelper pagerSnapHelper = this.f49375a;
+                int[] calculateDistanceToFinalSnap = pagerSnapHelper.calculateDistanceToFinalSnap(pagerSnapHelper.f49376a.getLayoutManager(), view);
                 int i2 = calculateDistanceToFinalSnap[0];
                 int i3 = calculateDistanceToFinalSnap[1];
                 int calculateTimeForDeceleration = calculateTimeForDeceleration(Math.max(Math.abs(i2), Math.abs(i3)));
@@ -200,7 +200,7 @@ public class PagerSnapHelper extends SnapHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, layoutManager)) == null) {
             if (layoutManager instanceof RecyclerView.SmoothScroller.ScrollVectorProvider) {
-                return new a(this, this.f14239a.getContext());
+                return new a(this, this.f49376a.getContext());
             }
             return null;
         }
@@ -212,11 +212,11 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, layoutManager)) == null) {
-            d dVar = this.f14237d;
-            if (dVar == null || dVar.f65299a != layoutManager) {
-                this.f14237d = d.a(layoutManager);
+            d dVar = this.f49374e;
+            if (dVar == null || dVar.f25121a != layoutManager) {
+                this.f49374e = d.a(layoutManager);
             }
-            return this.f14237d;
+            return this.f49374e;
         }
         return (d) invokeL.objValue;
     }
@@ -226,11 +226,11 @@ public class PagerSnapHelper extends SnapHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutManager)) == null) {
-            d dVar = this.f14236c;
-            if (dVar == null || dVar.f65299a != layoutManager) {
-                this.f14236c = d.b(layoutManager);
+            d dVar = this.f49373d;
+            if (dVar == null || dVar.f25121a != layoutManager) {
+                this.f49373d = d.b(layoutManager);
             }
-            return this.f14236c;
+            return this.f49373d;
         }
         return (d) invokeL.objValue;
     }

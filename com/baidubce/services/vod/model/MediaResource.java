@@ -9,7 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes9.dex */
 public class MediaResource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -178,41 +179,41 @@ public class MediaResource {
             StringBuilder sb = new StringBuilder("  MediaResource { \n");
             sb.append("    mediaId = ");
             sb.append(this.mediaId);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("    status = ");
             sb.append(this.status);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("    attributes = ");
             sb.append(this.attributes);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("    meta = ");
             sb.append(this.meta);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("    createTime = ");
             sb.append(this.createTime);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("    publishTime = ");
             sb.append(this.publishTime);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  transcodingPresetGroupName = ");
             sb.append(this.transcodingPresetGroupName);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  source = ");
             sb.append(this.source);
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             sb.append("  playableUrlList = [");
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             for (PlayableUrl playableUrl : this.playableUrlList) {
                 sb.append(playableUrl.toString());
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             sb.append("] \n");
             sb.append("  thumbnailList = [");
-            sb.append("\n");
+            sb.append(StringUtils.LF);
             for (String str : this.thumbnailList) {
                 sb.append("    thumbnail =");
                 sb.append(str);
-                sb.append("\n");
+                sb.append(StringUtils.LF);
             }
             sb.append("  }\n");
             return sb.toString();

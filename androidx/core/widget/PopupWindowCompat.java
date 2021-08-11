@@ -1,7 +1,6 @@
 package androidx.core.widget;
 
 import android.os.Build;
-import android.util.Log;
 import android.view.View;
 import android.widget.PopupWindow;
 import androidx.annotation.NonNull;
@@ -56,8 +55,7 @@ public final class PopupWindowCompat {
                         Field declaredField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
                         sOverlapAnchorField = declaredField;
                         declaredField.setAccessible(true);
-                    } catch (NoSuchFieldException e2) {
-                        Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e2);
+                    } catch (NoSuchFieldException unused) {
                     }
                     sOverlapAnchorFieldAttempted = true;
                 }
@@ -65,8 +63,7 @@ public final class PopupWindowCompat {
                 if (field != null) {
                     try {
                         return ((Boolean) field.get(popupWindow)).booleanValue();
-                    } catch (IllegalAccessException e3) {
-                        Log.i(TAG, "Could not get overlap anchor field in PopupWindow", e3);
+                    } catch (IllegalAccessException unused2) {
                         return false;
                     }
                 }
@@ -117,8 +114,7 @@ public final class PopupWindowCompat {
                         Field declaredField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
                         sOverlapAnchorField = declaredField;
                         declaredField.setAccessible(true);
-                    } catch (NoSuchFieldException e2) {
-                        Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e2);
+                    } catch (NoSuchFieldException unused) {
                     }
                     sOverlapAnchorFieldAttempted = true;
                 }
@@ -126,8 +122,7 @@ public final class PopupWindowCompat {
                 if (field != null) {
                     try {
                         field.set(popupWindow, Boolean.valueOf(z));
-                    } catch (IllegalAccessException e3) {
-                        Log.i(TAG, "Could not set overlap anchor field in PopupWindow", e3);
+                    } catch (IllegalAccessException unused2) {
                     }
                 }
             }

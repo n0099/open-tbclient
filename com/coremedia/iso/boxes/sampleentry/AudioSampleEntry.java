@@ -19,7 +19,8 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes9.dex */
 public final class AudioSampleEntry extends AbstractSampleEntry {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -217,9 +218,9 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(28);
             dataSource.read(allocate);
             allocate.position(6);
@@ -258,10 +259,10 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
             }
             if (TYPE7.equals(this.type)) {
                 System.err.println(TYPE7);
-                long j2 = ((j - 28) - (this.soundVersion != 1 ? 0 : 16)) - (this.soundVersion != 2 ? 0 : 36);
-                ByteBuffer allocate4 = ByteBuffer.allocate(CastUtils.l2i(j2));
+                long j3 = ((j2 - 28) - (this.soundVersion != 1 ? 0 : 16)) - (this.soundVersion != 2 ? 0 : 36);
+                ByteBuffer allocate4 = ByteBuffer.allocate(CastUtils.l2i(j3));
                 dataSource.read(allocate4);
-                addBox(new Box(this, j2, allocate4) { // from class: com.coremedia.iso.boxes.sampleentry.AudioSampleEntry.1
+                addBox(new Box(this, j3, allocate4) { // from class: com.coremedia.iso.boxes.sampleentry.AudioSampleEntry.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AudioSampleEntry this$0;
@@ -273,7 +274,7 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j2), allocate4};
+                            Object[] objArr = {this, Long.valueOf(j3), allocate4};
                             interceptable2.invokeUnInit(65536, newInitContext);
                             int i2 = newInitContext.flag;
                             if ((i2 & 1) != 0) {
@@ -284,7 +285,7 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
                             }
                         }
                         this.this$0 = this;
-                        this.val$remaining = j2;
+                        this.val$remaining = j3;
                         this.val$owmaSpecifics = allocate4;
                     }
 
@@ -329,9 +330,9 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
                     }
 
                     @Override // com.coremedia.iso.boxes.Box
-                    public void parse(DataSource dataSource2, ByteBuffer byteBuffer2, long j3, BoxParser boxParser2) throws IOException {
+                    public void parse(DataSource dataSource2, ByteBuffer byteBuffer2, long j4, BoxParser boxParser2) throws IOException {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{dataSource2, byteBuffer2, Long.valueOf(j3), boxParser2}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048581, this, new Object[]{dataSource2, byteBuffer2, Long.valueOf(j4), boxParser2}) == null) {
                             throw new RuntimeException("NotImplemented");
                         }
                     }
@@ -346,28 +347,28 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
                 });
                 return;
             }
-            parseContainer(dataSource, ((j - 28) - (this.soundVersion != 1 ? 0 : 16)) - (this.soundVersion != 2 ? 0 : 36), boxParser);
+            parseContainer(dataSource, ((j2 - 28) - (this.soundVersion != 1 ? 0 : 16)) - (this.soundVersion != 2 ? 0 : 36), boxParser);
         }
     }
 
-    public void setBytesPerFrame(long j) {
+    public void setBytesPerFrame(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
-            this.bytesPerFrame = j;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
+            this.bytesPerFrame = j2;
         }
     }
 
-    public void setBytesPerPacket(long j) {
+    public void setBytesPerPacket(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
-            this.bytesPerPacket = j;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
+            this.bytesPerPacket = j2;
         }
     }
 
-    public void setBytesPerSample(long j) {
+    public void setBytesPerSample(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
-            this.bytesPerSample = j;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
+            this.bytesPerSample = j2;
         }
     }
 
@@ -399,17 +400,17 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setReserved2(long j) {
+    public void setReserved2(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
-            this.reserved2 = j;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
+            this.reserved2 = j2;
         }
     }
 
-    public void setSampleRate(long j) {
+    public void setSampleRate(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
-            this.sampleRate = j;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
+            this.sampleRate = j2;
         }
     }
 
@@ -420,10 +421,10 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
         }
     }
 
-    public void setSamplesPerPacket(long j) {
+    public void setSamplesPerPacket(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
-            this.samplesPerPacket = j;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
+            this.samplesPerPacket = j2;
         }
     }
 
@@ -453,7 +454,7 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return "AudioSampleEntry{bytesPerSample=" + this.bytesPerSample + ", bytesPerFrame=" + this.bytesPerFrame + ", bytesPerPacket=" + this.bytesPerPacket + ", samplesPerPacket=" + this.samplesPerPacket + ", packetSize=" + this.packetSize + ", compressionId=" + this.compressionId + ", soundVersion=" + this.soundVersion + ", sampleRate=" + this.sampleRate + ", sampleSize=" + this.sampleSize + ", channelCount=" + this.channelCount + ", boxes=" + getBoxes() + '}';
+            return "AudioSampleEntry{bytesPerSample=" + this.bytesPerSample + ", bytesPerFrame=" + this.bytesPerFrame + ", bytesPerPacket=" + this.bytesPerPacket + ", samplesPerPacket=" + this.samplesPerPacket + ", packetSize=" + this.packetSize + ", compressionId=" + this.compressionId + ", soundVersion=" + this.soundVersion + ", sampleRate=" + this.sampleRate + ", sampleSize=" + this.sampleSize + ", channelCount=" + this.channelCount + ", boxes=" + getBoxes() + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

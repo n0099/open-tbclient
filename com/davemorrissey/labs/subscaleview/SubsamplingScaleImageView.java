@@ -20,7 +20,6 @@ import android.os.Message;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.FloatMath;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -48,7 +47,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class SubsamplingScaleImageView extends View {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EASE_IN_OUT_QUAD = 2;
@@ -139,7 +138,7 @@ public class SubsamplingScaleImageView extends View {
     public PointF vTranslateStart;
     public boolean zoomEnabled;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class BitmapLoadTask extends BdAsyncTask<Void, Void, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,7 +189,7 @@ public class SubsamplingScaleImageView extends View {
                     this.bitmap = decoderFactory.make().decode(context, this.source);
                     return Integer.valueOf(subsamplingScaleImageView.getExifOrientation(uri));
                 } catch (Exception e2) {
-                    Log.e(SubsamplingScaleImageView.TAG, "Failed to load bitmap", e2);
+                    String unused = SubsamplingScaleImageView.TAG;
                     this.exception = e2;
                     return null;
                 }
@@ -224,7 +223,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class DefaultOnImageEventListener implements OnImageEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -279,7 +278,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface OnImageEventListener {
         void onImageLoadError(Exception exc);
 
@@ -292,7 +291,7 @@ public class SubsamplingScaleImageView extends View {
         void onTileLoadError(Exception exc);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Tile {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -323,7 +322,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class TileLoadTask extends BdAsyncTask<Void, Void, Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -380,7 +379,7 @@ public class SubsamplingScaleImageView extends View {
                     }
                     return decodeRegion;
                 } catch (Exception e2) {
-                    Log.e(SubsamplingScaleImageView.TAG, "Failed to decode tile", e2);
+                    String unused = SubsamplingScaleImageView.TAG;
                     this.exception = e2;
                     return null;
                 } catch (OutOfMemoryError e3) {
@@ -414,7 +413,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class TilesInitTask extends BdAsyncTask<Void, Void, int[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -472,7 +471,7 @@ public class SubsamplingScaleImageView extends View {
                     }
                     return new int[]{i2, i3, exifOrientation};
                 } catch (Exception e2) {
-                    Log.e(SubsamplingScaleImageView.TAG, "Failed to initialise bitmap decoder", e2);
+                    String unused = SubsamplingScaleImageView.TAG;
                     this.exception = e2;
                     return null;
                 }
@@ -763,27 +762,27 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    private float ease(int i2, long j, float f2, float f3, long j2) {
+    private float ease(int i2, long j2, float f2, float f3, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j3)})) == null) {
             if (i2 != 1) {
                 if (i2 == 2) {
-                    return easeInOutQuad(j, f2, f3, j2);
+                    return easeInOutQuad(j2, f2, f3, j3);
                 }
                 throw new IllegalStateException("Unexpected easing type: " + i2);
             }
-            return easeOutQuad(j, f2, f3, j2);
+            return easeOutQuad(j2, f2, f3, j3);
         }
         return invokeCommon.floatValue;
     }
 
-    private float easeInOutQuad(long j, float f2, float f3, long j2) {
+    private float easeInOutQuad(long j2, float f2, float f3, long j3) {
         InterceptResult invokeCommon;
         float f4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, this, new Object[]{Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
-            float f5 = ((float) j) / (((float) j2) / 2.0f);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65586, this, new Object[]{Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j3)})) == null) {
+            float f5 = ((float) j2) / (((float) j3) / 2.0f);
             if (f5 < 1.0f) {
                 f4 = (f3 / 2.0f) * f5;
             } else {
@@ -796,11 +795,11 @@ public class SubsamplingScaleImageView extends View {
         return invokeCommon.floatValue;
     }
 
-    private float easeOutQuad(long j, float f2, float f3, long j2) {
+    private float easeOutQuad(long j2, float f2, float f3, long j3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, this, new Object[]{Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j2)})) == null) {
-            float f4 = ((float) j) / ((float) j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65587, this, new Object[]{Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3), Long.valueOf(j3)})) == null) {
+            float f4 = ((float) j2) / ((float) j3);
             return ((-f3) * f4 * (f4 - 2.0f)) + f2;
         }
         return invokeCommon.floatValue;
@@ -896,13 +895,11 @@ public class SubsamplingScaleImageView extends View {
                     if (attributeInt == 8) {
                         return 270;
                     }
-                    String str2 = TAG;
-                    Log.w(str2, "Unsupported EXIF orientation: " + attributeInt);
+                    String str2 = "Unsupported EXIF orientation: " + attributeInt;
                     return 0;
                 }
                 return 0;
             } catch (Exception unused) {
-                Log.w(TAG, "Could not get EXIF orientation of image");
                 return 0;
             }
         }
@@ -1888,7 +1885,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:41:0x0088, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0082, code lost:
         if (r5 != 262) goto L42;
      */
     @Override // android.view.View
@@ -1912,7 +1909,7 @@ public class SubsamplingScaleImageView extends View {
             boolean z = false;
             if (!this.isQuickScaling && ((gestureDetector = this.detector) == null || gestureDetector.onTouchEvent(motionEvent))) {
                 if (motionEvent.getAction() == 1) {
-                    Log.e("SubsamplingScaleImageView", "action1:detector.onTouchEvent:" + this.detector.onTouchEvent(motionEvent));
+                    String str = "action1:detector.onTouchEvent:" + this.detector.onTouchEvent(motionEvent);
                 }
                 this.isZooming = false;
                 this.isPanning = false;
@@ -2434,7 +2431,7 @@ public class SubsamplingScaleImageView extends View {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048636, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? viewToSourceCoord(f2, f3, new PointF()) : (PointF) invokeCommon.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class ScaleAndTranslate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2572,7 +2569,7 @@ public class SubsamplingScaleImageView extends View {
         return (PointF) invokeCommon.objValue;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static class Anim {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2612,7 +2609,7 @@ public class SubsamplingScaleImageView extends View {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public final class AnimationBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -2700,11 +2697,11 @@ public class SubsamplingScaleImageView extends View {
             }
         }
 
-        public AnimationBuilder withDuration(long j) {
+        public AnimationBuilder withDuration(long j2) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                this.duration = j;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+                this.duration = j2;
                 return this;
             }
             return (AnimationBuilder) invokeJ.objValue;

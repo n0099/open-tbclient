@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class MaxListView extends ListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f25771a;
+    public int f61655a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f25772b;
+    public Context f61656b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaxListView(Context context) {
@@ -40,28 +40,28 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f25772b = context;
+        this.f61656b = context;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.f25771a = DisplayUtils.dip2px(this.f25772b, 400.0f);
+            this.f61655a = DisplayUtils.dip2px(this.f61656b, 400.0f);
         }
     }
 
     public int getListViewHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25771a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f61655a : invokeV.intValue;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
     public void onMeasure(int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            int i4 = this.f25771a;
+            int i4 = this.f61655a;
             if (i4 > -1) {
                 i3 = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
             }
@@ -72,7 +72,7 @@ public class MaxListView extends ListView {
     public void setListViewHeight(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f25771a = i2;
+            this.f61655a = i2;
         }
     }
 
@@ -95,7 +95,7 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f25772b = context;
+        this.f61656b = context;
         a();
     }
 
@@ -118,7 +118,7 @@ public class MaxListView extends ListView {
                 return;
             }
         }
-        this.f25772b = context;
+        this.f61656b = context;
         a();
     }
 }

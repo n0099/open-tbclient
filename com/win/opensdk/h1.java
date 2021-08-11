@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class h1 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ m1 f39819a;
+    public final /* synthetic */ m1 f76660a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public h1(m1 m1Var, Looper looper) {
@@ -33,7 +33,7 @@ public class h1 extends Handler {
                 return;
             }
         }
-        this.f39819a = m1Var;
+        this.f76660a = m1Var;
     }
 
     @Override // android.os.Handler
@@ -44,12 +44,12 @@ public class h1 extends Handler {
             int i2 = message.what;
             m1.c();
             if (i2 == 100101) {
-                this.f39819a.j.removeMessages(100101);
-                Y0 a2 = Z0.a(this.f39819a.f39872a);
+                this.f76660a.f76725j.removeMessages(100101);
+                Y0 a2 = Z0.a(this.f76660a.f76716a);
                 a1 a1Var = new a1(null);
-                a1Var.f39726a = this.f39819a.f39873b;
-                a2.a(a1Var, U1.r(this.f39819a.f39872a) * 1000, 2002, 0).a();
-                this.f39819a.a(PBError.TIMEOUT);
+                a1Var.f76566a = this.f76660a.f76717b;
+                a2.a(a1Var, U1.r(this.f76660a.f76716a) * 1000, 2002, 0).a();
+                this.f76660a.a(PBError.TIMEOUT);
             }
         }
     }

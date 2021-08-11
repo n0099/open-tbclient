@@ -19,7 +19,6 @@ import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import androidx.annotation.AttrRes;
 import androidx.annotation.ColorInt;
 import androidx.annotation.IntRange;
@@ -49,7 +48,7 @@ import com.google.android.material.shape.ShapePath;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.BitSet;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SHADOW_COMPAT_MODE_ALWAYS = 2;
@@ -88,7 +87,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     public final Region transparentRegion;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public @interface CompatibilityShadowMode {
     }
 
@@ -229,9 +228,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
     private void drawCompatShadow(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, this, canvas) == null) {
-            if (this.containsIncompatibleShadowOp.cardinality() > 0) {
-                Log.w(TAG, "Compatibility shadow requested but can't be drawn for all operations in this shape.");
-            }
+            this.containsIncompatibleShadowOp.cardinality();
             if (this.drawableState.shadowCompatOffset != 0) {
                 canvas.drawPath(this.path, this.shadowRenderer.getShadowPaint());
             }
@@ -1355,7 +1352,7 @@ public class MaterialShapeDrawable extends Drawable implements TintAwareDrawable
         };
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static final class MaterialShapeDrawableState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -13,18 +13,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.loader.Loader;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class m {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36771a = "";
+    public static String f73594a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36772b = "";
+    public static String f73595b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36773c = "";
+    public static String f73596c = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -68,16 +68,16 @@ public class m {
                 return "";
             }
             if (i2 == 0) {
-                str = f36771a;
+                str = f73594a;
                 str2 = "aes_key";
             } else if (i2 == 1) {
-                str = f36772b;
+                str = f73595b;
                 str2 = "rsa_public_key";
             } else if (i2 != 2) {
                 str = "";
                 str2 = str;
             } else {
-                str = f36773c;
+                str = f73596c;
                 str2 = "rsa_private_key";
             }
             if (TextUtils.isEmpty(str)) {
@@ -94,11 +94,11 @@ public class m {
                         com.kwad.sdk.core.d.a.e(EncryptUtils.TAG, "EncryptUtils getKey get encryptedKey is invalid ");
                     }
                     if (i2 == 0) {
-                        f36771a = a2;
+                        f73594a = a2;
                     } else if (i2 == 1) {
-                        f36772b = a2;
+                        f73595b = a2;
                     } else if (i2 == 2) {
-                        f36773c = a2;
+                        f73596c = a2;
                     }
                     return a2;
                 }

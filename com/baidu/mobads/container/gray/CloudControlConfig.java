@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CloudControlConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "com.baidu.mobads.container.gray.CloudControlConfig";
@@ -31,7 +31,7 @@ public class CloudControlConfig {
     public String mSPName;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static final class AvailablePKType {
         public static final /* synthetic */ AvailablePKType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

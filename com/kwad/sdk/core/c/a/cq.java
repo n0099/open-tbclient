@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.c.a;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class cq implements com.kwad.sdk.core.d<PhotoInfo.VideoInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +37,7 @@ public class cq implements com.kwad.sdk.core.d<PhotoInfo.VideoInfo> {
         }
         videoInfo.videoUrl = jSONObject.optString("videoUrl");
         videoInfo.manifest = jSONObject.optString("manifest");
-        videoInfo.firstFrame = jSONObject.optString("firstFrame");
+        videoInfo.firstFrame = jSONObject.optString(SpeedStatsMainTable.FIRST_FRAME_STAGE);
         videoInfo.duration = jSONObject.optLong("duration");
         videoInfo.size = jSONObject.optInt("size");
         videoInfo.width = jSONObject.optInt("width");
@@ -58,7 +59,7 @@ public class cq implements com.kwad.sdk.core.d<PhotoInfo.VideoInfo> {
             }
             com.kwad.sdk.utils.q.a(jSONObject, "videoUrl", videoInfo.videoUrl);
             com.kwad.sdk.utils.q.a(jSONObject, "manifest", videoInfo.manifest);
-            com.kwad.sdk.utils.q.a(jSONObject, "firstFrame", videoInfo.firstFrame);
+            com.kwad.sdk.utils.q.a(jSONObject, SpeedStatsMainTable.FIRST_FRAME_STAGE, videoInfo.firstFrame);
             com.kwad.sdk.utils.q.a(jSONObject, "duration", videoInfo.duration);
             com.kwad.sdk.utils.q.a(jSONObject, "size", videoInfo.size);
             com.kwad.sdk.utils.q.a(jSONObject, "width", videoInfo.width);

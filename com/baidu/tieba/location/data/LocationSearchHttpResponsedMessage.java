@@ -1,5 +1,6 @@
 package com.baidu.tieba.location.data;
 
+import c.a.p0.s1.c.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -10,9 +11,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.r1.c.a;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

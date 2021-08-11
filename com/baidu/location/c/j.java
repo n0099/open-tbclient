@@ -8,16 +8,16 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ boolean f6770a;
+    public final /* synthetic */ boolean f41006a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ i.a f6771b;
+    public final /* synthetic */ i.a f41007b;
 
     public j(i.a aVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -34,8 +34,8 @@ public class j implements Runnable {
                 return;
             }
         }
-        this.f6771b = aVar;
-        this.f6770a = z;
+        this.f41007b = aVar;
+        this.f41006a = z;
     }
 
     @Override // java.lang.Runnable
@@ -43,11 +43,11 @@ public class j implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            z = this.f6771b.f6767a.j;
+            z = this.f41007b.f41003a.f41002j;
             if (!z) {
-                this.f6771b.f6767a.j = this.f6770a;
+                this.f41007b.f41003a.f41002j = this.f41006a;
             }
-            this.f6771b.f6767a.q();
+            this.f41007b.f41003a.q();
             l.c().h();
             if (System.currentTimeMillis() - t.b() <= 5000) {
                 x.a().c();

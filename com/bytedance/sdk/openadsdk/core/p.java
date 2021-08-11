@@ -5,22 +5,22 @@ import com.bytedance.sdk.openadsdk.FilterWord;
 import com.bytedance.sdk.openadsdk.core.q;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface p<T> {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface a {
-        void a(boolean z, long j, long j2);
+        void a(boolean z, long j2, long j3);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a(int i2, String str);
 
         void a(com.bytedance.sdk.openadsdk.core.e.a aVar);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface c {
         void a(int i2, String str);
 

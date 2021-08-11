@@ -21,14 +21,13 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import org.apache.commons.base.CharEncoding;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class Md5Utils {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static char[] f5421a;
+    public static char[] f39365a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,7 +43,7 @@ public final class Md5Utils {
                 return;
             }
         }
-        f5421a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+        f39365a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
     public Md5Utils() {
@@ -86,6 +85,44 @@ public final class Md5Utils {
         return (String) invokeL.objValue;
     }
 
+    public static String a(byte[] bArr, Character ch) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, ch)) == null) {
+            StringBuffer stringBuffer = new StringBuffer(bArr.length * (ch == null ? 2 : 3));
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                int i3 = (bArr[i2] >>> 4) & 15;
+                int i4 = bArr[i2] & 15;
+                if (i2 > 0 && ch != null) {
+                    stringBuffer.append(ch.charValue());
+                }
+                stringBuffer.append(f39365a[i3]);
+                stringBuffer.append(f39365a[i4]);
+            }
+            return stringBuffer.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static MessageDigest a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                return MessageDigest.getInstance("MD5");
+            } catch (NoSuchAlgorithmException e2) {
+                throw new RuntimeException(e2);
+            }
+        }
+        return (MessageDigest) invokeV.objValue;
+    }
+
+    public static byte[] a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? b(str.getBytes()) : (byte[]) invokeL.objValue;
+    }
+
     public static byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -111,52 +148,52 @@ public final class Md5Utils {
         InterceptResult invokeL;
         Interceptable interceptable2 = $ic;
         if (interceptable2 == null || (invokeL = (interceptable = interceptable2).invokeL(65543, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String str2 = null;
-                str2 = null;
-                str2 = null;
-                FileInputStream fileInputStream = null;
+            if (TextUtils.isEmpty(str)) {
+                throw new IllegalArgumentException("file path is empty");
+            }
+            String str2 = null;
+            str2 = null;
+            str2 = null;
+            FileInputStream fileInputStream = null;
+            try {
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = interceptable;
+            }
+            try {
                 try {
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream = interceptable;
+                    interceptable = new FileInputStream(str);
+                } catch (IOException e2) {
+                    e2.printStackTrace();
                 }
                 try {
-                    try {
-                        interceptable = new FileInputStream(str);
-                    } catch (IOException e2) {
-                        e2.printStackTrace();
-                    }
-                    try {
-                        str2 = getMd5FromInputStream(interceptable);
+                    str2 = getMd5FromInputStream(interceptable);
+                    interceptable.close();
+                    interceptable = interceptable;
+                } catch (FileNotFoundException e3) {
+                    e = e3;
+                    e.printStackTrace();
+                    if (interceptable != 0) {
                         interceptable.close();
                         interceptable = interceptable;
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
-                        e.printStackTrace();
-                        if (interceptable != 0) {
-                            interceptable.close();
-                            interceptable = interceptable;
-                        }
-                        return str2;
                     }
-                } catch (FileNotFoundException e4) {
-                    e = e4;
-                    interceptable = 0;
-                } catch (Throwable th2) {
-                    th = th2;
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (IOException e5) {
-                            e5.printStackTrace();
-                        }
-                    }
-                    throw th;
+                    return str2;
                 }
-                return str2;
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                interceptable = 0;
+            } catch (Throwable th2) {
+                th = th2;
+                if (fileInputStream != null) {
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
             }
-            throw new IllegalArgumentException("file path is empty");
+            return str2;
         }
         return (String) invokeL.objValue;
     }
@@ -188,6 +225,12 @@ public final class Md5Utils {
         return (String) invokeL.objValue;
     }
 
+    public static String md5Hex(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? a(a(str), null) : (String) invokeL.objValue;
+    }
+
     public static String md5Hex(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -211,6 +254,23 @@ public final class Md5Utils {
         return (String) invokeL.objValue;
     }
 
+    public static String toMD5(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
+            if (str != null) {
+                try {
+                    return a(str.getBytes(str2));
+                } catch (UnsupportedEncodingException e2) {
+                    e2.printStackTrace();
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static String toMD5NoEncode(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -230,7 +290,7 @@ public final class Md5Utils {
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
             if (str != null) {
                 try {
-                    return a(new String(str.getBytes("UTF-8"), "GBK").getBytes(CharEncoding.UTF_16LE));
+                    return a(new String(str.getBytes("UTF-8"), "GBK").getBytes("UTF-16LE"));
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                     return null;
@@ -263,66 +323,5 @@ public final class Md5Utils {
             return toMD5(sb.toString());
         }
         return (String) invokeLLL.objValue;
-    }
-
-    public static String md5Hex(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? a(a(str), null) : (String) invokeL.objValue;
-    }
-
-    public static String toMD5(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
-            if (str != null) {
-                try {
-                    return a(str.getBytes(str2));
-                } catch (UnsupportedEncodingException e2) {
-                    e2.printStackTrace();
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static MessageDigest a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                return MessageDigest.getInstance("MD5");
-            } catch (NoSuchAlgorithmException e2) {
-                throw new RuntimeException(e2);
-            }
-        }
-        return (MessageDigest) invokeV.objValue;
-    }
-
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.AD_TEXT_ID, null, str)) == null) ? b(str.getBytes()) : (byte[]) invokeL.objValue;
-    }
-
-    public static String a(byte[] bArr, Character ch) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, ch)) == null) {
-            StringBuffer stringBuffer = new StringBuffer(bArr.length * (ch == null ? 2 : 3));
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                int i3 = (bArr[i2] >>> 4) & 15;
-                int i4 = bArr[i2] & 15;
-                if (i2 > 0 && ch != null) {
-                    stringBuffer.append(ch.charValue());
-                }
-                stringBuffer.append(f5421a[i3]);
-                stringBuffer.append(f5421a[i4]);
-            }
-            return stringBuffer.toString();
-        }
-        return (String) invokeLL.objValue;
     }
 }

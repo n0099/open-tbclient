@@ -1,5 +1,7 @@
 package com.baidu.tbadk.mutiprocess;
 
+import c.a.o0.h0.h;
+import c.a.o0.h0.l.a;
 import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
 import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
@@ -18,9 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.h0.h;
-import d.a.p0.h0.l.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class MutiProcessStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -61,16 +61,16 @@ public class MutiProcessStatic {
             try {
                 h f2 = h.f();
                 f2.l(AgreeEvent.class, new a());
-                f2.l(MissionEvent.class, new d.a.p0.h0.r.a());
-                f2.l(CompeteTaskEvent.class, new d.a.p0.h0.n.a());
-                f2.l(ShareEvent.class, new d.a.p0.h0.t.a());
-                f2.l(HistoryEvent.class, new d.a.p0.h0.p.a());
-                f2.l(BackBaiduBoxViewEvent.class, new d.a.p0.h0.m.a());
-                f2.l(SyncDataEvent.class, new d.a.p0.h0.v.a());
-                f2.l(ShowReplyInPbEvent.class, new d.a.p0.h0.u.a());
-                f2.l(LocationEvent.class, new d.a.p0.h0.q.a());
-                f2.l(PrePageKeyEvent.class, new d.a.p0.h0.s.a());
-                f2.l(CurrentPageTypeEvent.class, new d.a.p0.h0.o.a());
+                f2.l(MissionEvent.class, new c.a.o0.h0.r.a());
+                f2.l(CompeteTaskEvent.class, new c.a.o0.h0.n.a());
+                f2.l(ShareEvent.class, new c.a.o0.h0.t.a());
+                f2.l(HistoryEvent.class, new c.a.o0.h0.p.a());
+                f2.l(BackBaiduBoxViewEvent.class, new c.a.o0.h0.m.a());
+                f2.l(SyncDataEvent.class, new c.a.o0.h0.v.a());
+                f2.l(ShowReplyInPbEvent.class, new c.a.o0.h0.u.a());
+                f2.l(LocationEvent.class, new c.a.o0.h0.q.a());
+                f2.l(PrePageKeyEvent.class, new c.a.o0.h0.s.a());
+                f2.l(CurrentPageTypeEvent.class, new c.a.o0.h0.o.a());
             } catch (Exception e2) {
                 e2.printStackTrace();
             }

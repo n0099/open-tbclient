@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class NativePlayerJsBridgeHandler implements CpuLpVideoLayout.OnVideoStatusListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CB_CUR_VIDEO_ID = "curvideoid";
@@ -40,7 +40,7 @@ public class NativePlayerJsBridgeHandler implements CpuLpVideoLayout.OnVideoStat
     public PlayerCallBack mPlayerCallBack;
     public final WebView mWebView;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface PlayerCallBack {
         void changeVideoUrl(JsWithPlayerData jsWithPlayerData);
 

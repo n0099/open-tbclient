@@ -19,9 +19,10 @@ import java.net.URL;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
 import javax.net.ssl.HttpsURLConnection;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public final class l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +32,7 @@ public final class l {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                String string = w.a(context).f10567a.getString("lt_sha", "");
+                String string = w.a(context).f45252a.getString("lt_sha", "");
                 if (TextUtils.isEmpty(string)) {
                     com.baidu.sofire.b.a();
                     return new JSONArray();
@@ -108,7 +109,7 @@ public final class l {
                     byte[] encoded = x509Certificate.getPublicKey().getEncoded();
                     if (encoded != null) {
                         String encodeToString = Base64.encodeToString(encoded, 0);
-                        str = str + o.a(encodeToString.replace("\n", "").replace("\r", ""));
+                        str = str + o.a(encodeToString.replace(StringUtils.LF, "").replace(StringUtils.CR, ""));
                     }
                     str = str + ";";
                 }

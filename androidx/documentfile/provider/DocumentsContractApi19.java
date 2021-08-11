@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
@@ -88,7 +87,7 @@ public class DocumentsContractApi19 {
                 cursor = context.getContentResolver().query(uri, new String[]{"document_id"}, null, null, null);
                 return cursor.getCount() > 0;
             } catch (Exception e2) {
-                Log.w("DocumentFile", "Failed query: " + e2);
+                String str = "Failed query: " + e2;
                 return false;
             } finally {
                 closeQuietly(cursor);
@@ -171,17 +170,17 @@ public class DocumentsContractApi19 {
         return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65550, null, context, uri, str, i2)) == null) ? (int) queryForLong(context, uri, str, i2) : invokeLLLI.intValue;
     }
 
-    public static long queryForLong(Context context, Uri uri, String str, long j) {
+    public static long queryForLong(Context context, Uri uri, String str, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, uri, str, Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{context, uri, str, Long.valueOf(j2)})) == null) {
             Cursor cursor = null;
             try {
                 cursor = context.getContentResolver().query(uri, new String[]{str}, null, null, null);
-                return (!cursor.moveToFirst() || cursor.isNull(0)) ? j : cursor.getLong(0);
+                return (!cursor.moveToFirst() || cursor.isNull(0)) ? j2 : cursor.getLong(0);
             } catch (Exception e2) {
-                Log.w("DocumentFile", "Failed query: " + e2);
-                return j;
+                String str2 = "Failed query: " + e2;
+                return j2;
             } finally {
                 closeQuietly(cursor);
             }
@@ -199,7 +198,7 @@ public class DocumentsContractApi19 {
                 cursor = context.getContentResolver().query(uri, new String[]{str}, null, null, null);
                 return (!cursor.moveToFirst() || cursor.isNull(0)) ? str2 : cursor.getString(0);
             } catch (Exception e2) {
-                Log.w("DocumentFile", "Failed query: " + e2);
+                String str3 = "Failed query: " + e2;
                 return str2;
             } finally {
                 closeQuietly(cursor);

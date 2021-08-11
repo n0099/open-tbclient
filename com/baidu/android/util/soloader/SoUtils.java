@@ -2,7 +2,6 @@ package com.baidu.android.util.soloader;
 
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.searchbox.NoProGuard;
@@ -19,7 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class SoUtils implements NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -31,7 +30,7 @@ public final class SoUtils implements NoProGuard {
     public static String[] uris;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static final class SOLOG {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String SO_LOAD_LIBRARY = "SO_LOAD_LIBRARY";
@@ -56,7 +55,7 @@ public final class SoUtils implements NoProGuard {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface SoUbcLoggable {
         void onEvent(String str, String str2);
     }
@@ -98,15 +97,15 @@ public final class SoUtils implements NoProGuard {
             if (inputStream != null && outputStream != null) {
                 try {
                     byte[] bArr = new byte[i2 * 1024];
-                    long j = 0;
+                    long j2 = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
                         if (read > 0) {
                             outputStream.write(bArr, 0, read);
-                            j += read;
+                            j2 += read;
                         } else {
                             outputStream.flush();
-                            return j;
+                            return j2;
                         }
                     }
                 } catch (IOException e2) {
@@ -138,7 +137,7 @@ public final class SoUtils implements NoProGuard {
                 String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                 String substring = (split == null || split.length != 2) ? str : split[0].substring(3);
                 if (DEBUG) {
-                    Log.e("SoUtils", "SoUtils load but the param soName:" + str + ", name:" + substring);
+                    String str2 = "SoUtils load but the param soName:" + str + ", name:" + substring;
                 }
                 return substring;
             }
@@ -177,7 +176,7 @@ public final class SoUtils implements NoProGuard {
                 soUbcLoggable.onEvent(str, str2);
             }
             if (DEBUG) {
-                Log.d("SoUtils", "onEvent:UbcImpl=" + soUbcLoggable + ";eventId=" + str + ";content=" + str2);
+                String str3 = "onEvent:UbcImpl=" + soUbcLoggable + ";eventId=" + str + ";content=" + str2;
             }
         }
     }

@@ -1,16 +1,14 @@
 package com.faceunity.gles;
 
 import android.opengl.GLES20;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class FlatShadedProgram {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER = "precision mediump float;uniform vec4 uColor;void main() {    gl_FragColor = uColor;}";
@@ -42,7 +40,7 @@ public class FlatShadedProgram {
         int createProgram = GlUtil.createProgram(VERTEX_SHADER, FRAGMENT_SHADER);
         this.mProgramHandle = createProgram;
         if (createProgram != 0) {
-            Log.d("Grafika", "Created program " + this.mProgramHandle);
+            String str = "Created program " + this.mProgramHandle;
             int glGetAttribLocation = GLES20.glGetAttribLocation(this.mProgramHandle, "aPosition");
             this.maPositionLoc = glGetAttribLocation;
             GlUtil.checkLocation(glGetAttribLocation, "aPosition");
@@ -69,7 +67,7 @@ public class FlatShadedProgram {
             GlUtil.checkGlError("glUniform4fv ");
             GLES20.glEnableVertexAttribArray(this.maPositionLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, i4, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i5, (Buffer) floatBuffer);
+            GLES20.glVertexAttribPointer(this.maPositionLoc, i4, 5126, false, i5, (Buffer) floatBuffer);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glDrawArrays(5, i2, i3);
             GlUtil.checkGlError("glDrawArrays");

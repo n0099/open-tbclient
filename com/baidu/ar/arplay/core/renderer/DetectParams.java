@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public abstract class DetectParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,17 +39,17 @@ public abstract class DetectParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTimestamp : invokeV.longValue;
     }
 
-    public void setFrameBufferAddr(long j) {
+    public void setFrameBufferAddr(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.mFrameBufferAddr = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            this.mFrameBufferAddr = j2;
         }
     }
 
-    public void setTimestamp(long j) {
+    public void setTimestamp(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.mTimestamp = j;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+            this.mTimestamp = j2;
         }
     }
 }

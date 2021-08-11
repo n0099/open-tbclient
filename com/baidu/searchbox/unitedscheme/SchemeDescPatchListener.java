@@ -3,7 +3,6 @@ package com.baidu.searchbox.unitedscheme;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.android.VersionUtils;
@@ -26,7 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeDescPatchListener.DESC_PATCH_ACTION, module = "scheme")
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class SchemeDescPatchListener extends JSONObjectCommandListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -165,8 +164,7 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
             }
             if (!TextUtils.equals(actionData.version, getLocalVersion(context, str, str2)) && actionData.data != null) {
                 if (DEBUG) {
-                    String str3 = TAG;
-                    Log.d(str3, "value.data " + actionData.data);
+                    String str3 = "value.data " + actionData.data;
                 }
                 if (SavePatchToFile(actionData.data.toString())) {
                     PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).edit().putString(DESC_PATCH_VERSION, actionData.version).apply();

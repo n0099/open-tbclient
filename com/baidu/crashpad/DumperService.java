@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.IBinder;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.crashpad.ZeusLogUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public final class DumperService extends Service implements ZeusLogUploader.OnFinishedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALLBACK = "CRASH_CALLBACK";
@@ -86,7 +85,7 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0048  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0040  */
     @Override // com.baidu.crashpad.ZeusLogUploader.OnFinishedListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -101,8 +100,7 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
             if (str3 != null && !str3.isEmpty() && !this.mCallback.equals("0")) {
                 try {
                     obj = Class.forName(this.mCallback).newInstance();
-                } catch (Throwable th) {
-                    Log.e(TAG, "", th);
+                } catch (Throwable unused) {
                 }
                 if (this.mCrashLogFailedEncrypt && i2 == 3 && (zeusLogUploader = this.mLogUploader) != null && zeusLogUploader.encryptUploadFailedFile(str, true) != 6) {
                     str2 = "Failed to encrypt file.";

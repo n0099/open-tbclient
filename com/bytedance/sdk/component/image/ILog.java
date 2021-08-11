@@ -1,5 +1,5 @@
 package com.bytedance.sdk.component.image;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public interface ILog {
     void d(String str);
 

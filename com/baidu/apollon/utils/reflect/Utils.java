@@ -17,21 +17,21 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.regex.Pattern;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Object[] f4137a;
+    public static final Object[] f38064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f4138b;
+    public static final Class<?>[] f38065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f4139c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
+    public static final String f38066c = "(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f4140d;
+    public static final Pattern f38067d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,9 +47,9 @@ public class Utils {
                 return;
             }
         }
-        f4137a = new Object[0];
-        f4138b = new Class[0];
-        f4140d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
+        f38064a = new Object[0];
+        f38065b = new Class[0];
+        f38067d = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
     }
 
     public Utils() {
@@ -84,7 +84,7 @@ public class Utils {
     public static Object[] b(Object[] objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, objArr)) == null) ? (objArr == null || objArr.length == 0) ? f4137a : objArr : (Object[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(AdIconUtil.BAIDU_LOGO_ID, null, objArr)) == null) ? (objArr == null || objArr.length == 0) ? f38064a : objArr : (Object[]) invokeL.objValue;
     }
 
     public static List<Class<?>> getAllInterfaces(Class<?> cls) {
@@ -152,7 +152,7 @@ public class Utils {
     public static boolean validateJavaIdentifier(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f4140d.matcher(str).matches() : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) ? f38067d.matcher(str).matches() : invokeL.booleanValue;
     }
 
     public static Class<?>[] a(Object... objArr) {
@@ -163,7 +163,7 @@ public class Utils {
                 return null;
             }
             if (objArr.length == 0) {
-                return f4138b;
+                return f38065b;
             }
             Class<?>[] clsArr = new Class[objArr.length];
             for (int i2 = 0; i2 < objArr.length; i2++) {
@@ -177,7 +177,7 @@ public class Utils {
     public static Class<?>[] a(Class<?>[] clsArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? f4138b : clsArr : (Class[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, clsArr)) == null) ? (clsArr == null || clsArr.length == 0) ? f38065b : clsArr : (Class[]) invokeL.objValue;
     }
 
     public static void a(Class<?> cls, HashSet<Class<?>> hashSet) {

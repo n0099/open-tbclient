@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class dp extends dq {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f40256a;
+    public String f77108a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dp(Context context, int i2, String str) {
@@ -38,17 +38,17 @@ public class dp extends dq {
                 return;
             }
         }
-        this.f40256a = str;
+        this.f77108a = str;
     }
 
     private String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            if (TextUtils.isEmpty(this.f40256a)) {
+            if (TextUtils.isEmpty(this.f77108a)) {
                 return null;
             }
-            String b2 = bj.b(this.f40256a);
+            String b2 = bj.b(this.f77108a);
             if (TextUtils.isEmpty(b2)) {
                 return null;
             }
@@ -59,7 +59,7 @@ public class dp extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public hh mo184a() {
+    public hh mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? hh.x : (hh) invokeV.objValue;
@@ -67,7 +67,7 @@ public class dp extends dq {
 
     @Override // com.xiaomi.push.dq, com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo184a() {
+    public String mo187a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "24" : (String) invokeV.objValue;
@@ -83,7 +83,7 @@ public class dp extends dq {
             if (a2 == null || a2.length <= 0) {
                 return null;
             }
-            PackageManager packageManager = ((dq) this).f241a.getPackageManager();
+            PackageManager packageManager = ((dq) this).f245a.getPackageManager();
             StringBuilder sb = new StringBuilder();
             for (String str2 : a2) {
                 try {

@@ -11,7 +11,6 @@ import com.airbnb.lottie.model.content.GradientType;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
 import com.baidu.mapsdkplatform.comapi.map.r;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.Collections;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GradientFillParser {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonReader.Options GRADIENT_NAMES;
@@ -41,8 +40,8 @@ public class GradientFillParser {
                 return;
             }
         }
-        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", Config.OS, "t", "s", "e", r.f7788a, "hd");
-        GRADIENT_NAMES = JsonReader.Options.of("p", Config.APP_KEY);
+        NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", r.f42062a, "hd");
+        GRADIENT_NAMES = JsonReader.Options.of("p", "k");
     }
 
     public GradientFillParser() {

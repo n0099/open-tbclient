@@ -16,8 +16,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
-import kotlin.text.Typography;
-/* loaded from: classes.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes4.dex */
 public class FieldSerializer implements Comparable<FieldSerializer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,7 +37,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
     public boolean writeEnumUsingToString;
     public final boolean writeNull;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class RuntimeSerializerInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,7 +114,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
             }
         }
         fieldInfo.setAccessible();
-        this.double_quoted_fieldPrefix = Typography.quote + fieldInfo.name + "\":";
+        this.double_quoted_fieldPrefix = '\"' + fieldInfo.name + "\":";
         JSONField annotation = fieldInfo.getAnnotation();
         if (annotation != null) {
             SerializerFeature[] serialzeFeatures3 = annotation.serialzeFeatures();
@@ -194,7 +194,7 @@ public class FieldSerializer implements Comparable<FieldSerializer> {
             if (serializeWriter.quoteFieldNames) {
                 if (SerializerFeature.isEnabled(serializeWriter.features, this.fieldInfo.serialzeFeatures, SerializerFeature.UseSingleQuotes)) {
                     if (this.single_quoted_fieldPrefix == null) {
-                        this.single_quoted_fieldPrefix = '\'' + this.fieldInfo.name + "':";
+                        this.single_quoted_fieldPrefix = ExtendedMessageFormat.QUOTE + this.fieldInfo.name + "':";
                     }
                     serializeWriter.write(this.single_quoted_fieldPrefix);
                     return;

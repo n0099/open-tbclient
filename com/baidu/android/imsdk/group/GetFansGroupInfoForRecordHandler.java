@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GetFansGroupInfoForRecordHandler extends GetChatObjectInfoForRecordHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GetFansGroupInfoForRecordHandler";
@@ -43,13 +43,13 @@ public class GetFansGroupInfoForRecordHandler extends GetChatObjectInfoForRecord
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
-    public void getChatObjectInfo(long j, CallBack callBack) {
+    public void getChatObjectInfo(long j2, CallBack callBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j, callBack) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j2, callBack) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(String.valueOf(j));
-            LogUtils.d(TAG, "getChatObjectInfo " + j);
-            GroupManagerImpl.getInstance(this.mContext).getFansGroupInfo(arrayList, true, new BIMValueCallBack<ArrayList<GroupInfo>>(this, callBack, j) { // from class: com.baidu.android.imsdk.group.GetFansGroupInfoForRecordHandler.1
+            arrayList.add(String.valueOf(j2));
+            LogUtils.d(TAG, "getChatObjectInfo " + j2);
+            GroupManagerImpl.getInstance(this.mContext).getFansGroupInfo(arrayList, true, new BIMValueCallBack<ArrayList<GroupInfo>>(this, callBack, j2) { // from class: com.baidu.android.imsdk.group.GetFansGroupInfoForRecordHandler.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ GetFansGroupInfoForRecordHandler this$0;
@@ -61,7 +61,7 @@ public class GetFansGroupInfoForRecordHandler extends GetChatObjectInfoForRecord
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, callBack, Long.valueOf(j)};
+                        Object[] objArr = {this, callBack, Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i2 = newInitContext.flag;
                         if ((i2 & 1) != 0) {
@@ -73,7 +73,7 @@ public class GetFansGroupInfoForRecordHandler extends GetChatObjectInfoForRecord
                     }
                     this.this$0 = this;
                     this.val$callBack = callBack;
-                    this.val$contacter = j;
+                    this.val$contacter = j2;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */

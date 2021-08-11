@@ -1,6 +1,5 @@
 package com.baidu.ar.h;
 
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -9,7 +8,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes.dex */
+/* loaded from: classes5.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic = null;
     public static int xT = 5;
@@ -60,18 +59,16 @@ public final class b {
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) || xT > 6) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.AD_TEXT_ID, null, str, str2) == null) {
+            int i2 = xT;
         }
-        Log.e(str, str2);
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) || xT > 3) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, str, str2) == null) {
+            int i2 = xT;
         }
-        Log.d(str, str2);
     }
 
     public static String gw() {
@@ -93,25 +90,22 @@ public final class b {
 
     public static void j(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || xT > 2) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
+            int i2 = xT;
         }
-        Log.v(str, str2);
     }
 
     public static void k(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || xT > 4) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            int i2 = xT;
         }
-        Log.i(str, str2);
     }
 
     public static void l(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || xT > 5) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
+            int i2 = xT;
         }
-        Log.w(str, str2);
     }
 }

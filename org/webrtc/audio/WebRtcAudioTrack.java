@@ -27,7 +27,7 @@ import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
 import org.webrtc.audio.JavaAudioDeviceModule;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class WebRtcAudioTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long AUDIO_TRACK_THREAD_JOIN_TIMEOUT_MS = 2000;
@@ -57,7 +57,7 @@ public class WebRtcAudioTrack {
     public final ThreadUtils.ThreadChecker threadChecker;
     public final VolumeLogger volumeLogger;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public class AudioTrackThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -393,9 +393,9 @@ public class WebRtcAudioTrack {
         }
     }
 
-    public static native void nativeCacheDirectBufferAddress(long j, ByteBuffer byteBuffer);
+    public static native void nativeCacheDirectBufferAddress(long j2, ByteBuffer byteBuffer);
 
-    public static native void nativeGetPlayoutData(long j, int i2);
+    public static native void nativeGetPlayoutData(long j2, int i2);
 
     private void releaseAudioResources() {
         Interceptable interceptable = $ic;
@@ -526,10 +526,10 @@ public class WebRtcAudioTrack {
     }
 
     @CalledByNative
-    public void setNativeAudioTrack(long j) {
+    public void setNativeAudioTrack(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.nativeAudioTrack = j;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            this.nativeAudioTrack = j2;
         }
     }
 

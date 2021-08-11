@@ -3,7 +3,6 @@ package io.flutter.plugins.webviewflutter;
 import android.annotation.TargetApi;
 import android.hardware.display.DisplayManager;
 import android.os.Build;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -14,7 +13,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Iterator;
 @TargetApi(19)
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DisplayListenerProxy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DisplayListenerProxy";
@@ -61,7 +60,7 @@ public class DisplayListenerProxy {
                 }
                 return arrayList;
             } catch (IllegalAccessException | NoSuchFieldException e2) {
-                Log.w(TAG, "Could not extract WebView's display listeners. " + e2);
+                String str = "Could not extract WebView's display listeners. " + e2;
                 return new ArrayList<>();
             }
         }

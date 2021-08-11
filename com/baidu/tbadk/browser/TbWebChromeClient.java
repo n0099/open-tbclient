@@ -13,6 +13,10 @@ import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.e.m.g;
+import c.a.e.e.p.k;
+import c.a.o0.t.c.a0;
+import c.a.p0.i3.l0.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
@@ -23,11 +27,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.m.g;
-import d.a.d.e.p.k;
-import d.a.p0.t.c.a0;
-import d.a.q0.h3.l0.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TbWebChromeClient extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,11 +77,11 @@ public class TbWebChromeClient extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+    public void onExceededDatabaseQuota(String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j2, j3, j4, quotaUpdater);
+            quotaUpdater.updateQuota(j3 * 2);
         }
     }
 
@@ -134,8 +134,8 @@ public class TbWebChromeClient extends WebChromeClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, webView, str, str2, str3, jsPromptResult)) == null) {
             if (!a0.a(str) && str2.startsWith("tiebaapp")) {
-                d.a.q0.h3.l0.d.c cVar2 = new d.a.q0.h3.l0.d.c();
-                cVar2.s(d.a.q0.h3.l0.d.g.b(str2));
+                c.a.p0.i3.l0.d.c cVar2 = new c.a.p0.i3.l0.d.c();
+                cVar2.s(c.a.p0.i3.l0.d.g.b(str2));
                 cVar2.t(301);
                 callJsMethod(webView, cVar2.c(), cVar2.d());
             }

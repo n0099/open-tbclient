@@ -5,7 +5,6 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.SparseIntArray;
 import android.util.Xml;
 import android.view.LayoutInflater;
@@ -15,9 +14,10 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Constraints;
 import androidx.constraintlayout.widget.R;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.HorizontalTranslateLayout;
+import com.baidu.adp.widget.VerticalTranslateLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobads.container.util.AdIconUtil;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-import com.kwad.sdk.core.config.item.TipsConfigItem;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -926,7 +925,6 @@ public class ConstraintSet {
                                         constraint.heightPercent = typedArray.getFloat(index, 1.0f);
                                         continue;
                                     case 71:
-                                        Log.e(TAG, "CURRENTLY UNSUPPORTED");
                                         continue;
                                     case 72:
                                         constraint.mBarrierDirection = typedArray.getInt(index, constraint.mBarrierDirection);
@@ -938,11 +936,10 @@ public class ConstraintSet {
                                         constraint.mBarrierAllowsGoneWidgets = typedArray.getBoolean(index, constraint.mBarrierAllowsGoneWidgets);
                                         continue;
                                     case 75:
-                                        Log.w(TAG, "unused attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
+                                        String str = "unused attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index);
                                         continue;
                                     default:
-                                        Log.w(TAG, "Unknown attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
-                                        continue;
+                                        String str2 = "Unknown attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index);
                                         continue;
                                 }
                         }
@@ -957,13 +954,13 @@ public class ConstraintSet {
         if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
             switch (i2) {
                 case 1:
-                    return CustomDialogData.POS_LEFT;
+                    return "left";
                 case 2:
-                    return "right";
+                    return HorizontalTranslateLayout.RIGHT;
                 case 3:
-                    return "top";
+                    return VerticalTranslateLayout.TOP;
                 case 4:
-                    return TipsConfigItem.TipConfigData.BOTTOM;
+                    return "bottom";
                 case 5:
                     return "baseline";
                 case 6:

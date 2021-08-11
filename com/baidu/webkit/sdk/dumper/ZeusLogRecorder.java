@@ -28,7 +28,8 @@ import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes5.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes9.dex */
 public class ZeusLogRecorder extends ZeusCrashHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "ZeusLogRecorder";
@@ -48,7 +49,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
     public String recordPrefName;
     public AtomicInteger unUploadFileSize;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class LogRecordBean {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,12 +104,12 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface OnFinishedUploadLogListener {
         void onFinishedUploadLog(List<LogRecordBean> list, String str);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public class WatchThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -161,7 +162,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                             String nextLine = scanner.nextLine();
                             if (this.this$0.isProcessIdInLine(nextLine) && nextLine != null && nextLine.trim().length() != 0) {
                                 this.writer.write(nextLine);
-                                this.writer.write("\n");
+                                this.writer.write(StringUtils.LF);
                             }
                         }
                     }
@@ -279,7 +280,7 @@ public class ZeusLogRecorder extends ZeusCrashHandler {
                 do {
                     if (isProcessIdInLine(str)) {
                         writer.write(str);
-                        writer.write("\n");
+                        writer.write(StringUtils.LF);
                     }
                     str = bufferedReader.readLine();
                 } while (str != null);

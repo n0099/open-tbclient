@@ -1,5 +1,6 @@
 package com.baidu.tbadk;
 
+import c.a.e.a.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
@@ -11,8 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.a.k.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class TiebaDatabase {
     public static /* synthetic */ Interceptable $ic;
     public static TiebaDatabase _instance;

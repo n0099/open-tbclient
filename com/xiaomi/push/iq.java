@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.xiaomi.push.iq;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public interface iq<T extends iq, F> extends Serializable, Comparable<T> {
     void a(jb jbVar);
 

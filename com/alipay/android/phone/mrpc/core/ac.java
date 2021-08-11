@@ -1,4 +1,4 @@
 package com.alipay.android.phone.mrpc.core;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public interface ac {
 }

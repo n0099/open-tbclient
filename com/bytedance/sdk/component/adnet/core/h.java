@@ -13,25 +13,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.component.adnet.err.VAdError;
 import java.util.concurrent.BlockingQueue;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class h extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final BlockingQueue<Request<?>> f28107a;
+    public final BlockingQueue<Request<?>> f63949a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.component.adnet.face.b f28108b;
+    public final com.bytedance.sdk.component.adnet.face.b f63950b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.bytedance.sdk.component.adnet.face.a f28109c;
+    public final com.bytedance.sdk.component.adnet.face.a f63951c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.bytedance.sdk.component.adnet.face.c f28110d;
+    public final com.bytedance.sdk.component.adnet.face.c f63952d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile boolean f28111e;
+    public volatile boolean f63953e;
 
     public h(BlockingQueue<Request<?>> blockingQueue, com.bytedance.sdk.component.adnet.face.b bVar, com.bytedance.sdk.component.adnet.face.a aVar, com.bytedance.sdk.component.adnet.face.c cVar) {
         Interceptable interceptable = $ic;
@@ -48,11 +48,11 @@ public class h extends Thread {
                 return;
             }
         }
-        this.f28111e = false;
-        this.f28107a = blockingQueue;
-        this.f28108b = bVar;
-        this.f28109c = aVar;
-        this.f28110d = cVar;
+        this.f63953e = false;
+        this.f63949a = blockingQueue;
+        this.f63950b = bVar;
+        this.f63951c = aVar;
+        this.f63952d = cVar;
     }
 
     @TargetApi(14)
@@ -67,7 +67,7 @@ public class h extends Thread {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f28111e = true;
+            this.f63953e = true;
             interrupt();
         }
     }
@@ -83,7 +83,7 @@ public class h extends Thread {
             try {
                 b();
             } catch (InterruptedException unused) {
-                if (this.f28111e) {
+                if (this.f63953e) {
                     Thread.currentThread().interrupt();
                     return;
                 }
@@ -95,7 +95,7 @@ public class h extends Thread {
     private void b() throws InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            a(this.f28107a.take());
+            a(this.f63949a.take());
         }
     }
 
@@ -113,7 +113,7 @@ public class h extends Thread {
                         o.a(e2, "Unhandled exception %s", e2.toString());
                         VAdError vAdError = new VAdError(e2, 608);
                         vAdError.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-                        this.f28110d.a(request, vAdError);
+                        this.f63952d.a(request, vAdError);
                         request.e();
                     }
                 } catch (VAdError e3) {
@@ -128,24 +128,24 @@ public class h extends Thread {
                     return;
                 }
                 b(request);
-                i a2 = this.f28108b.a(request);
-                request.setNetDuration(a2.f28117f);
+                i a2 = this.f63950b.a(request);
+                request.setNetDuration(a2.f63959f);
                 request.addMarker("network-http-complete");
-                if (a2.f28116e && request.hasHadResponseDelivered()) {
+                if (a2.f63958e && request.hasHadResponseDelivered()) {
                     request.a("not-modified");
                     request.e();
                     request.a(4);
                     return;
                 }
                 m<?> a3 = request.a(a2);
-                request.setNetDuration(a2.f28117f);
+                request.setNetDuration(a2.f63959f);
                 request.addMarker("network-parse-complete");
-                if (request.shouldCache() && a3.f28130b != null) {
-                    this.f28109c.a(request.getCacheKey(), a3.f28130b);
+                if (request.shouldCache() && a3.f63973b != null) {
+                    this.f63951c.a(request.getCacheKey(), a3.f63973b);
                     request.addMarker("network-cache-written");
                 }
                 request.markDelivered();
-                this.f28110d.a(request, a3);
+                this.f63952d.a(request, a3);
                 request.b(a3);
                 request.a(4);
             }
@@ -155,7 +155,7 @@ public class h extends Thread {
     private void a(Request<?> request, VAdError vAdError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, request, vAdError) == null) {
-            this.f28110d.a(request, request.a(vAdError));
+            this.f63952d.a(request, request.a(vAdError));
         }
     }
 }

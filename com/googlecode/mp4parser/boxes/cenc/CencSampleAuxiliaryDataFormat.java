@@ -11,14 +11,15 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
+/* loaded from: classes10.dex */
 public class CencSampleAuxiliaryDataFormat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public byte[] iv;
     public List<Pair> pairs;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public class Pair {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -26,12 +27,12 @@ public class CencSampleAuxiliaryDataFormat {
         public long encrypted;
         public final /* synthetic */ CencSampleAuxiliaryDataFormat this$0;
 
-        public Pair(CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, int i2, long j) {
+        public Pair(CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, int i2, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cencSampleAuxiliaryDataFormat, Integer.valueOf(i2), Long.valueOf(j)};
+                Object[] objArr = {cencSampleAuxiliaryDataFormat, Integer.valueOf(i2), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -43,7 +44,7 @@ public class CencSampleAuxiliaryDataFormat {
             }
             this.this$0 = cencSampleAuxiliaryDataFormat;
             this.clear = i2;
-            this.encrypted = j;
+            this.encrypted = j2;
         }
 
         public boolean equals(Object obj) {
@@ -66,8 +67,8 @@ public class CencSampleAuxiliaryDataFormat {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                long j = this.encrypted;
-                return (this.clear * 31) + ((int) (j ^ (j >>> 32)));
+                long j2 = this.encrypted;
+                return (this.clear * 31) + ((int) (j2 ^ (j2 >>> 32)));
             }
             return invokeV.intValue;
         }
@@ -98,10 +99,10 @@ public class CencSampleAuxiliaryDataFormat {
         this.pairs = new LinkedList();
     }
 
-    public Pair createPair(int i2, long j) {
+    public Pair createPair(int i2, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j)})) == null) ? new Pair(this, i2, j) : (Pair) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? new Pair(this, i2, j2) : (Pair) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -152,7 +153,7 @@ public class CencSampleAuxiliaryDataFormat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "Entry{iv=" + Hex.encodeHex(this.iv) + ", pairs=" + this.pairs + '}';
+            return "Entry{iv=" + Hex.encodeHex(this.iv) + ", pairs=" + this.pairs + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

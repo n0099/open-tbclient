@@ -9,7 +9,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-/* loaded from: classes4.dex */
+import org.apache.commons.lang3.StringUtils;
+/* loaded from: classes8.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +41,7 @@ public final class b {
                     if (readLine == null) {
                         break;
                     }
-                    eVar.add(readLine + "\n");
+                    eVar.add(readLine + StringUtils.LF);
                 }
                 String linkedList = eVar.toString();
                 try {

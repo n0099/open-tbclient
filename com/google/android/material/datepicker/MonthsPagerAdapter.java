@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.R;
 import com.google.android.material.datepicker.MaterialCalendar;
-/* loaded from: classes6.dex */
+/* loaded from: classes9.dex */
 public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final int itemHeight;
     public final MaterialCalendar.OnDayClickListener onDayClickListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes9.dex */
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -173,9 +173,9 @@ public class MonthsPagerAdapter extends RecyclerView.Adapter<ViewHolder> {
                 }
 
                 @Override // android.widget.AdapterView.OnItemClickListener
-                public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
+                public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j)}) == null) && this.val$monthGrid.getAdapter2().withinMonth(i3)) {
+                    if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j2)}) == null) && this.val$monthGrid.getAdapter2().withinMonth(i3)) {
                         this.this$0.onDayClickListener.onDayClick(this.val$monthGrid.getAdapter2().getItem(i3).longValue());
                     }
                 }

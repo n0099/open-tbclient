@@ -1024,7 +1024,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                                 try {
                                     next.callbacks.onConnect(next.root.getRootId(), this.val$token, next.root.getExtras());
                                 } catch (RemoteException unused) {
-                                    Log.w(MediaBrowserServiceCompat.TAG, "Connection for " + next.pkg + " is no longer valid.");
+                                    String str = "Connection for " + next.pkg + " is no longer valid.";
                                     it.remove();
                                 }
                             }
@@ -1282,7 +1282,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             ConnectionRecord connectionRecord = this.this$1.this$0.mConnections.get(this.val$callbacks.asBinder());
                             if (connectionRecord == null) {
-                                Log.w(MediaBrowserServiceCompat.TAG, "addSubscription for callback that isn't registered id=" + this.val$id);
+                                String str2 = "addSubscription for callback that isn't registered id=" + this.val$id;
                                 return;
                             }
                             this.this$1.this$0.addSubscription(this.val$id, connectionRecord, this.val$token, this.val$options);
@@ -1343,12 +1343,12 @@ public abstract class MediaBrowserServiceCompat extends Service {
                                 MediaBrowserServiceCompat mediaBrowserServiceCompat2 = this.this$1.this$0;
                                 mediaBrowserServiceCompat2.mCurConnection = null;
                                 if (onGetRoot == null) {
-                                    Log.i(MediaBrowserServiceCompat.TAG, "No root for client " + this.val$pkg + " from service " + AnonymousClass1.class.getName());
+                                    String str2 = "No root for client " + this.val$pkg + " from service " + AnonymousClass1.class.getName();
                                     try {
                                         this.val$callbacks.onConnectFailed();
                                         return;
                                     } catch (RemoteException unused) {
-                                        Log.w(MediaBrowserServiceCompat.TAG, "Calling onConnectFailed() failed. Ignoring. pkg=" + this.val$pkg);
+                                        String str3 = "Calling onConnectFailed() failed. Ignoring. pkg=" + this.val$pkg;
                                         return;
                                     }
                                 }
@@ -1359,7 +1359,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                                         this.val$callbacks.onConnect(connectionRecord.root.getRootId(), this.this$1.this$0.mSession, connectionRecord.root.getExtras());
                                     }
                                 } catch (RemoteException unused2) {
-                                    Log.w(MediaBrowserServiceCompat.TAG, "Calling onConnect() failed. Dropping client. pkg=" + this.val$pkg);
+                                    String str4 = "Calling onConnect() failed. Dropping client. pkg=" + this.val$pkg;
                                     this.this$1.this$0.mConnections.remove(asBinder);
                                 }
                             }
@@ -1453,7 +1453,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         ConnectionRecord connectionRecord = this.this$1.this$0.mConnections.get(this.val$callbacks.asBinder());
                         if (connectionRecord == null) {
-                            Log.w(MediaBrowserServiceCompat.TAG, "getMediaItem for callback that isn't registered id=" + this.val$mediaId);
+                            String str2 = "getMediaItem for callback that isn't registered id=" + this.val$mediaId;
                             return;
                         }
                         this.this$1.this$0.performLoadItem(this.val$mediaId, connectionRecord, this.val$receiver);
@@ -1509,7 +1509,6 @@ public abstract class MediaBrowserServiceCompat extends Service {
                             try {
                                 asBinder.linkToDeath(connectionRecord, 0);
                             } catch (RemoteException unused) {
-                                Log.w(MediaBrowserServiceCompat.TAG, "IBinder is already dead.");
                             }
                         }
                     }
@@ -1555,10 +1554,10 @@ public abstract class MediaBrowserServiceCompat extends Service {
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             ConnectionRecord connectionRecord = this.this$1.this$0.mConnections.get(this.val$callbacks.asBinder());
                             if (connectionRecord == null) {
-                                Log.w(MediaBrowserServiceCompat.TAG, "removeSubscription for callback that isn't registered id=" + this.val$id);
+                                String str2 = "removeSubscription for callback that isn't registered id=" + this.val$id;
                             } else if (this.this$1.this$0.removeSubscription(this.val$id, connectionRecord, this.val$token)) {
                             } else {
-                                Log.w(MediaBrowserServiceCompat.TAG, "removeSubscription called for " + this.val$id + " which is not subscribed");
+                                String str3 = "removeSubscription called for " + this.val$id + " which is not subscribed";
                             }
                         }
                     }
@@ -1608,7 +1607,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         ConnectionRecord connectionRecord = this.this$1.this$0.mConnections.get(this.val$callbacks.asBinder());
                         if (connectionRecord == null) {
-                            Log.w(MediaBrowserServiceCompat.TAG, "search for callback that isn't registered query=" + this.val$query);
+                            String str2 = "search for callback that isn't registered query=" + this.val$query;
                             return;
                         }
                         this.this$1.this$0.performSearch(this.val$query, this.val$extras, connectionRecord, this.val$receiver);
@@ -1659,7 +1658,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         ConnectionRecord connectionRecord = this.this$1.this$0.mConnections.get(this.val$callbacks.asBinder());
                         if (connectionRecord == null) {
-                            Log.w(MediaBrowserServiceCompat.TAG, "sendCustomAction for callback that isn't registered action=" + this.val$action + ", extras=" + this.val$extras);
+                            String str2 = "sendCustomAction for callback that isn't registered action=" + this.val$action + ", extras=" + this.val$extras;
                             return;
                         }
                         this.this$1.this$0.performCustomAction(this.val$action, this.val$extras, connectionRecord, this.val$receiver);
@@ -1874,7 +1873,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                         this.mServiceBinderImpl.sendCustomAction(data.getString(MediaBrowserProtocol.DATA_CUSTOM_ACTION), bundle5, (ResultReceiver) data.getParcelable(MediaBrowserProtocol.DATA_RESULT_RECEIVER), new ServiceCallbacksCompat(message.replyTo));
                         return;
                     default:
-                        Log.w(MediaBrowserServiceCompat.TAG, "Unhandled message: " + message + "\n  Service version: 2\n  Client version: " + message.arg1);
+                        String str = "Unhandled message: " + message + "\n  Service version: 2\n  Client version: " + message.arg1;
                         return;
                 }
             }
@@ -1892,15 +1891,15 @@ public abstract class MediaBrowserServiceCompat extends Service {
         }
 
         @Override // android.os.Handler
-        public boolean sendMessageAtTime(Message message, long j) {
+        public boolean sendMessageAtTime(Message message, long j2) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, message, j)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, message, j2)) == null) {
                 Bundle data = message.getData();
                 data.setClassLoader(MediaBrowserCompat.class.getClassLoader());
                 data.putInt("data_calling_uid", Binder.getCallingUid());
                 data.putInt("data_calling_pid", Binder.getCallingPid());
-                return super.sendMessageAtTime(message, j);
+                return super.sendMessageAtTime(message, j2);
             }
             return invokeLJ.booleanValue;
         }
@@ -2236,7 +2235,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
                         if (this.this$0.mConnections.get(this.val$connection.callbacks.asBinder()) != this.val$connection) {
                             if (MediaBrowserServiceCompat.DEBUG) {
-                                Log.d(MediaBrowserServiceCompat.TAG, "Not sending onLoadChildren result for connection that has been disconnected. pkg=" + this.val$connection.pkg + " id=" + this.val$parentId);
+                                String str2 = "Not sending onLoadChildren result for connection that has been disconnected. pkg=" + this.val$connection.pkg + " id=" + this.val$parentId;
                                 return;
                             }
                             return;
@@ -2247,7 +2246,7 @@ public abstract class MediaBrowserServiceCompat extends Service {
                         try {
                             this.val$connection.callbacks.onLoadChildren(this.val$parentId, list, this.val$subscribeOptions, this.val$notifyChildrenChangedOptions);
                         } catch (RemoteException unused) {
-                            Log.w(MediaBrowserServiceCompat.TAG, "Calling onLoadChildren() failed for id=" + this.val$parentId + " package=" + this.val$connection.pkg);
+                            String str3 = "Calling onLoadChildren() failed for id=" + this.val$parentId + " package=" + this.val$connection.pkg;
                         }
                     }
                 }

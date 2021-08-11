@@ -2,13 +2,12 @@ package com.baidu.tieba.ala.livecard.models;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class FrsPageAlaTabRequestMessage extends HttpMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,7 +38,7 @@ public class FrsPageAlaTabRequestMessage extends HttpMessage {
         this.mForumId = str2;
         addParam("forum_name", str);
         addParam("forum_id", str2);
-        addParam(Config.PACKAGE_NAME, i3);
+        addParam("pn", i3);
     }
 
     public String getForumId() {

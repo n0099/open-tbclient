@@ -7,8 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class NetRedirectInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +67,7 @@ public class NetRedirectInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "NetRedirectInfo{mStatusCode=" + this.mStatusCode + ", mNewUrl='" + this.mNewUrl + "', mNewMethod='" + this.mNewMethod + "', mNewReferrer='" + this.mNewReferrer + "'}";
+            return "NetRedirectInfo{mStatusCode=" + this.mStatusCode + ", mNewUrl='" + this.mNewUrl + ExtendedMessageFormat.QUOTE + ", mNewMethod='" + this.mNewMethod + ExtendedMessageFormat.QUOTE + ", mNewReferrer='" + this.mNewReferrer + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

@@ -13,19 +13,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.sdk.api.core.ResContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class n extends ContextWrapper implements ResContext {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f34051a;
+    public final Context f70779a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Resources.Theme f34052b;
+    public Resources.Theme f70780b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34053c;
+    public int f70781c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n(Context context) {
@@ -45,9 +45,9 @@ public class n extends ContextWrapper implements ResContext {
                 return;
             }
         }
-        this.f34053c = -1;
-        this.f34051a = context;
-        this.f34053c = ((Integer) Reflect.a(context).d("getThemeResId").a()).intValue();
+        this.f70781c = -1;
+        this.f70779a = context;
+        this.f70781c = ((Integer) Reflect.a(context).d("getThemeResId").a()).intValue();
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -79,7 +79,7 @@ public class n extends ContextWrapper implements ResContext {
     public Context getDelegatedContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34051a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f70779a : (Context) invokeV.objValue;
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
@@ -123,15 +123,15 @@ public class n extends ContextWrapper implements ResContext {
             }
             Resources externalResource = Loader.get().getExternalResource();
             if (externalResource != null) {
-                if (this.f34052b == null) {
+                if (this.f70780b == null) {
                     Resources.Theme newTheme = externalResource.newTheme();
-                    this.f34052b = newTheme;
-                    int i2 = this.f34053c;
+                    this.f70780b = newTheme;
+                    int i2 = this.f70781c;
                     if (i2 > 0) {
                         newTheme.applyStyle(i2, true);
                     }
                 }
-                return this.f34052b;
+                return this.f70780b;
             }
             return theme;
         }
@@ -142,7 +142,7 @@ public class n extends ContextWrapper implements ResContext {
     public void registerComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, componentCallbacks) == null) {
-            this.f34051a.registerComponentCallbacks(componentCallbacks);
+            this.f70779a.registerComponentCallbacks(componentCallbacks);
         }
     }
 
@@ -150,7 +150,7 @@ public class n extends ContextWrapper implements ResContext {
     public void unregisterComponentCallbacks(ComponentCallbacks componentCallbacks) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, componentCallbacks) == null) {
-            this.f34051a.unregisterComponentCallbacks(componentCallbacks);
+            this.f70779a.unregisterComponentCallbacks(componentCallbacks);
         }
     }
 }

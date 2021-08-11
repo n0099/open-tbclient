@@ -7,10 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.StatusCode;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes2.dex */
 public class GlShader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GlShader";
@@ -130,7 +129,7 @@ public class GlShader {
             }
             int attribLocation = getAttribLocation(str);
             GLES20.glEnableVertexAttribArray(attribLocation);
-            GLES20.glVertexAttribPointer(attribLocation, i2, (int) StatusCode.PUBLIC_SECURITY_AUTH_NOT_EXIST, false, i3, (Buffer) floatBuffer);
+            GLES20.glVertexAttribPointer(attribLocation, i2, 5126, false, i3, (Buffer) floatBuffer);
             GlUtil.checkNoGLES2Error("setVertexAttribArray");
         }
     }

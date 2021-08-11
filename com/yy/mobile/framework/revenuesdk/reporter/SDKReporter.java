@@ -23,7 +23,7 @@ import com.yy.mobile.framework.revenuesdk.statistics.PayUIReporter;
 import com.yy.mobile.framework.revenuesdk.statistics.PayUVReporter;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.HiidoConstantContent;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class SDKReporter implements ISDKReporter {
     public static /* synthetic */ Interceptable $ic;
     public static StatisAPI mStatisAPI;

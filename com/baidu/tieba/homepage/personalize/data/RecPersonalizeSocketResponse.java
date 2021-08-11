@@ -1,5 +1,6 @@
 package com.baidu.tieba.homepage.personalize.data;
 
+import c.a.p0.f1.h.j.i;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +9,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Wire;
-import d.a.q0.e1.h.j.i;
 import java.util.List;
 import tbclient.Error;
 import tbclient.Personalized.DataRes;
 import tbclient.Personalized.PersonalizedResIdl;
 import tbclient.ThreadInfo;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -62,10 +62,10 @@ public class RecPersonalizeSocketResponse extends SocketResponsedMessage {
             }
             setErrorString(personalizedResIdl.error.usermsg);
         }
-        i.f56179a = false;
+        i.f17479a = false;
         if (i.c(this) && (dataRes = personalizedResIdl.data) != null && (list = dataRes.thread_list) != null && list.size() == 0) {
             this.resultData = i.b();
-            i.f56179a = true;
+            i.f17479a = true;
             i.a();
             return;
         }

@@ -1,192 +1,116 @@
 package com.alipay.sdk.app;
 
-import android.app.Activity;
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.os.Handler;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.util.n;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobads.container.util.AdIconUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes.dex */
-public class b extends WebViewClient {
+/* loaded from: classes4.dex */
+public class b {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f1820a;
+    public static boolean f35680a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1821b;
+    public static String f35681b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: c  reason: collision with root package name */
-    public Handler f1822c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public com.alipay.sdk.widget.a f1823d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public boolean f1824e;
-
-    /* loaded from: classes.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: a  reason: collision with root package name */
-        public final WeakReference<b> f1825a;
-
-        public a(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f1825a = new WeakReference<>(bVar);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(434189639, "Lcom/alipay/sdk/app/b;")) == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f1825a.get()) == null) {
-                return;
-            }
-            bVar.d();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(434189639, "Lcom/alipay/sdk/app/b;");
         }
     }
 
-    public b(Activity activity) {
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f1820a = activity;
-        this.f1822c = new Handler(this.f1820a.getMainLooper());
     }
 
-    private void c() {
-        Activity activity;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (activity = this.f1820a) == null) {
-            return;
-        }
-        if (this.f1823d == null) {
-            com.alipay.sdk.widget.a aVar = new com.alipay.sdk.widget.a(activity, com.alipay.sdk.widget.a.f2047a);
-            this.f1823d = aVar;
-            aVar.a(true);
-        }
-        this.f1823d.b();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            com.alipay.sdk.widget.a aVar = this.f1823d;
-            if (aVar != null) {
-                aVar.c();
-            }
-            this.f1823d = null;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            f35681b = str;
         }
     }
 
-    public boolean b() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1824e : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(AdIconUtil.BAIDU_LOGO_ID, null)) == null) ? f35680a : invokeV.booleanValue;
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageFinished(WebView webView, String str) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
-            Activity activity = this.f1820a;
-            if (this.f1822c == null || activity == null || activity.isFinishing()) {
-                return;
-            }
-            d();
-            this.f1822c.removeCallbacksAndMessages(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            c b2 = c.b(c.f35684c.a());
+            return a(b2.a(), b2.b(), "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            c b2 = c.b(c.f35687f.a());
+            return a(b2.a(), b2.b(), "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            c b2 = c.b(c.f35686e.a());
+            return a(b2.a(), b2.b(), "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35681b : (String) invokeV.objValue;
+    }
+
+    public static void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(AdIconUtil.AD_TEXT_ID, null, z) == null) {
+            f35680a = z;
         }
     }
 
-    @Override // android.webkit.WebViewClient
-    public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
+    public static String a(int i2, String str, String str2) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, str, bitmap) == null) {
-            Activity activity = this.f1820a;
-            if (this.f1822c != null && activity != null && !activity.isFinishing()) {
-                c();
-                this.f1822c.postDelayed(new a(this), 30000L);
-            }
-            super.onPageStarted(webView, str, bitmap);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65539, null, i2, str, str2)) == null) {
+            return "resultStatus={" + i2 + "};memo={" + str + "};result={" + str2 + "}";
         }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onReceivedError(WebView webView, int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048580, this, webView, i2, str, str2) == null) {
-            this.f1824e = true;
-            super.onReceivedError(webView, i2, str, str2);
-        }
-    }
-
-    @Override // android.webkit.WebViewClient
-    public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, webView, sslErrorHandler, sslError) == null) || (activity = this.f1820a) == null) {
-            return;
-        }
-        com.alipay.sdk.app.statistic.a.a("net", com.alipay.sdk.app.statistic.c.r, "1" + sslError);
-        if (this.f1821b) {
-            sslErrorHandler.proceed();
-            this.f1821b = false;
-            return;
-        }
-        activity.runOnUiThread(new c(this, activity, sslErrorHandler));
-    }
-
-    @Override // android.webkit.WebViewClient
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) ? n.a(webView, str, this.f1820a) : invokeLL.booleanValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f1822c = null;
-            this.f1820a = null;
-        }
+        return (String) invokeILL.objValue;
     }
 }

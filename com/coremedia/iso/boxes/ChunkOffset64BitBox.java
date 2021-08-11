@@ -15,7 +15,7 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class ChunkOffset64BitBox extends ChunkOffsetBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "co64";
@@ -92,8 +92,8 @@ public class ChunkOffset64BitBox extends ChunkOffsetBox {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
             writeVersionAndFlags(byteBuffer);
             IsoTypeWriter.writeUInt32(byteBuffer, this.chunkOffsets.length);
-            for (long j : this.chunkOffsets) {
-                IsoTypeWriter.writeUInt64(byteBuffer, j);
+            for (long j2 : this.chunkOffsets) {
+                IsoTypeWriter.writeUInt64(byteBuffer, j2);
             }
         }
     }

@@ -11,9 +11,9 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
+import c.a.n0.a.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.facade.picture.widget.BdImageViewTouchBase;
 import com.baidu.swan.facade.picture.widget.ZoomImageView;
@@ -24,8 +24,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.o0.a.k;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class PictureCropView extends PictureView {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean s;
@@ -36,16 +35,16 @@ public class PictureCropView extends PictureView {
     public Paint q;
     public boolean r;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class a implements ZoomImageView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ZoomImageView f11751a;
+        public final /* synthetic */ ZoomImageView f46613a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f11752b;
+        public final /* synthetic */ PictureCropView f46614b;
 
         public a(PictureCropView pictureCropView, ZoomImageView zoomImageView) {
             Interceptable interceptable = $ic;
@@ -62,17 +61,17 @@ public class PictureCropView extends PictureView {
                     return;
                 }
             }
-            this.f11752b = pictureCropView;
-            this.f11751a = zoomImageView;
+            this.f46614b = pictureCropView;
+            this.f46613a = zoomImageView;
         }
 
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.a
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-                this.f11752b.r = drawable != null;
+                this.f46614b.r = drawable != null;
                 if (drawable != null) {
-                    this.f11752b.q(this.f11751a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+                    this.f46614b.o(this.f46613a, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 }
             }
         }
@@ -81,24 +80,24 @@ public class PictureCropView extends PictureView {
         public void b(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
-                this.f11752b.r = bitmap != null;
+                this.f46614b.r = bitmap != null;
                 if (bitmap != null) {
-                    this.f11752b.q(this.f11751a, bitmap.getWidth(), bitmap.getHeight());
+                    this.f46614b.o(this.f46613a, bitmap.getWidth(), bitmap.getHeight());
                 }
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class b implements BdImageViewTouchBase.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ZoomImageView f11753a;
+        public final /* synthetic */ ZoomImageView f46615a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f11754b;
+        public final /* synthetic */ PictureCropView f46616b;
 
         public b(PictureCropView pictureCropView, ZoomImageView zoomImageView) {
             Interceptable interceptable = $ic;
@@ -115,29 +114,29 @@ public class PictureCropView extends PictureView {
                     return;
                 }
             }
-            this.f11754b = pictureCropView;
-            this.f11753a = zoomImageView;
+            this.f46616b = pictureCropView;
+            this.f46615a = zoomImageView;
         }
 
         @Override // com.baidu.swan.facade.picture.widget.BdImageViewTouchBase.f
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
-                this.f11754b.o(this.f11753a, drawable);
+                this.f46616b.m(this.f46615a, drawable);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public class c implements ZoomImageView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public RectF f11755a;
+        public RectF f46617a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f11756b;
+        public final /* synthetic */ PictureCropView f46618b;
 
         public c(PictureCropView pictureCropView) {
             Interceptable interceptable = $ic;
@@ -154,8 +153,8 @@ public class PictureCropView extends PictureView {
                     return;
                 }
             }
-            this.f11756b = pictureCropView;
-            this.f11755a = new RectF();
+            this.f46618b = pictureCropView;
+            this.f46617a = new RectF();
         }
 
         @Override // com.baidu.swan.facade.picture.widget.ZoomImageView.b
@@ -164,10 +163,10 @@ public class PictureCropView extends PictureView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{zoomImageView, Double.valueOf(d2), Double.valueOf(d3)})) == null) {
                 RectF bitmapRect = zoomImageView.getBitmapRect();
-                this.f11755a.set((float) d2, (float) d3, 0.0f, 0.0f);
-                this.f11756b.t(bitmapRect, this.f11755a);
-                RectF rectF = this.f11755a;
-                zoomImageView.v(rectF.left, rectF.top);
+                this.f46617a.set((float) d2, (float) d3, 0.0f, 0.0f);
+                this.f46618b.p(bitmapRect, this.f46617a);
+                RectF rectF = this.f46617a;
+                zoomImageView.postTranslate(rectF.left, rectF.top);
                 return true;
             }
             return invokeCommon.booleanValue;
@@ -178,7 +177,7 @@ public class PictureCropView extends PictureView {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{zoomImageView, motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                zoomImageView.w(-f2, -f3);
+                zoomImageView.scrollBy(-f2, -f3);
                 zoomImageView.invalidate();
                 return true;
             }
@@ -209,7 +208,7 @@ public class PictureCropView extends PictureView {
                 return;
             }
         }
-        s = k.f46335a;
+        s = k.f6803a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -235,15 +234,15 @@ public class PictureCropView extends PictureView {
         this.p = Color.argb(128, 0, 0, 0);
         this.q = new Paint();
         this.r = false;
-        g(context);
+        f(context);
     }
 
-    private void g(Context context) {
+    private void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) == null) {
             this.q.setColor(this.p);
             this.q.setStyle(Paint.Style.FILL);
-            this.n = context.getResources().getDrawable(d.a.o0.e.b.swan_app_picture_crop_bounds);
+            this.n = context.getResources().getDrawable(c.a.n0.e.b.swan_app_picture_crop_bounds);
             ZoomImageView zoomImageView = (ZoomImageView) getImageView();
             zoomImageView.setDoubleTapEnabled(true);
             zoomImageView.setCalcBaseMatrix(false);
@@ -258,14 +257,41 @@ public class PictureCropView extends PictureView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            r(canvas);
+            drawCropRect(canvas);
+        }
+    }
+
+    public void drawCropRect(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && this.r) {
+            drawShade(canvas, this.o);
+            if (this.n == null || this.o.isEmpty()) {
+                return;
+            }
+            this.n.setBounds(this.o);
+            this.n.draw(canvas);
+        }
+    }
+
+    public void drawShade(Canvas canvas, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, canvas, rect) == null) {
+            int width = canvas.getWidth();
+            int height = canvas.getHeight();
+            Paint paint = this.q;
+            float f2 = width;
+            canvas.drawRect(0.0f, 0.0f, f2, rect.top, paint);
+            float f3 = height;
+            canvas.drawRect(0.0f, rect.top, rect.left, f3, paint);
+            canvas.drawRect(rect.left, rect.bottom, f2, f3, paint);
+            canvas.drawRect(rect.right, rect.top, f2, rect.bottom, paint);
         }
     }
 
     public Bitmap getCroppedImage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Bitmap imageViewBitmap = getImageViewBitmap();
             if (imageViewBitmap == null) {
                 return null;
@@ -305,9 +331,9 @@ public class PictureCropView extends PictureView {
         return (Bitmap) invokeV.objValue;
     }
 
-    public final void o(ZoomImageView zoomImageView, Drawable drawable) {
+    public final void m(ZoomImageView zoomImageView, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, zoomImageView, drawable) == null) || zoomImageView == null || drawable == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, zoomImageView, drawable) == null) || zoomImageView == null || drawable == null) {
             return;
         }
         Matrix imageViewMatrix = zoomImageView.getImageViewMatrix();
@@ -316,31 +342,20 @@ public class PictureCropView extends PictureView {
         imageViewMatrix.mapRect(rectF);
         float width = rectF.width();
         float width2 = zoomImageView.getWidth();
-        zoomImageView.v(width > width2 ? ((width2 - width) / 2.0f) - rectF.left : 0.0f, 0.0f);
+        zoomImageView.postTranslate(width > width2 ? ((width2 - width) / 2.0f) - rectF.left : 0.0f, 0.0f);
     }
 
-    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
-            if (z) {
-                p();
-            }
-        }
-    }
-
-    public final void p() {
+    public final void n() {
         float f2;
         float f3;
         float f4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             WallpaperManager wallpaperManager = WallpaperManager.getInstance(getContext());
             int desiredMinimumWidth = wallpaperManager.getDesiredMinimumWidth();
             int desiredMinimumHeight = wallpaperManager.getDesiredMinimumHeight();
             if (s) {
-                Log.d("PictureCropView", "PictureCropView#configureBounds, desiredMinWidth = " + desiredMinimumWidth + ", desiredMinHeight = " + desiredMinimumHeight);
+                String str = "PictureCropView#configureBounds, desiredMinWidth = " + desiredMinimumWidth + ", desiredMinHeight = " + desiredMinimumHeight;
             }
             float f5 = desiredMinimumWidth;
             float f6 = desiredMinimumHeight;
@@ -364,14 +379,14 @@ public class PictureCropView extends PictureView {
             boolean mapRect = matrix.mapRect(rectF);
             rectF.round(this.o);
             if (s) {
-                Log.d("PictureCropView", "PictureCropView#configureBounds: calculate the crop size ======  , mCropBoundRect = " + this.o + ", mapRectVal = " + mapRect);
+                String str2 = "PictureCropView#configureBounds: calculate the crop size ======  , mCropBoundRect = " + this.o + ", mapRectVal = " + mapRect;
             }
         }
     }
 
-    public final void q(ZoomImageView zoomImageView, int i2, int i3) {
+    public final void o(ZoomImageView zoomImageView, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048581, this, zoomImageView, i2, i3) == null) || zoomImageView == null || i2 <= 0 || i3 <= 0) {
+        if (!(interceptable == null || interceptable.invokeLII(1048582, this, zoomImageView, i2, i3) == null) || zoomImageView == null || i2 <= 0 || i3 <= 0) {
             return;
         }
         int width = (zoomImageView.getWidth() - zoomImageView.getPaddingLeft()) - zoomImageView.getPaddingRight();
@@ -382,41 +397,25 @@ public class PictureCropView extends PictureView {
         }
         float f2 = i2 * height > width * i3 ? height / i3 : width / i2;
         if (s) {
-            Log.d("PictureCropView", "PictureCropView#configureZoomRange() scale = " + f2);
+            String str = "PictureCropView#configureZoomRange() scale = " + f2;
         }
         if (f2 > 0.0f) {
             zoomImageView.setZoomRange(f2, 3.0f + f2);
         }
     }
 
-    public void r(Canvas canvas) {
+    @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, canvas) == null) && this.r) {
-            s(canvas, this.o);
-            if (this.n == null || this.o.isEmpty()) {
-                return;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            super.onLayout(z, i2, i3, i4, i5);
+            if (z) {
+                n();
             }
-            this.n.setBounds(this.o);
-            this.n.draw(canvas);
         }
     }
 
-    public void s(Canvas canvas, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, canvas, rect) == null) {
-            int width = canvas.getWidth();
-            int height = canvas.getHeight();
-            Paint paint = this.q;
-            float f2 = width;
-            canvas.drawRect(0.0f, 0.0f, f2, rect.top, paint);
-            float f3 = height;
-            canvas.drawRect(0.0f, rect.top, rect.left, f3, paint);
-            canvas.drawRect(rect.left, rect.bottom, f2, f3, paint);
-            canvas.drawRect(rect.right, rect.top, f2, rect.bottom, paint);
-        }
-    }
-
-    public final boolean t(RectF rectF, RectF rectF2) {
+    public final boolean p(RectF rectF, RectF rectF2) {
         InterceptResult invokeLL;
         float f2;
         float f3;
@@ -486,7 +485,7 @@ public class PictureCropView extends PictureView {
         this.p = Color.argb(128, 0, 0, 0);
         this.q = new Paint();
         this.r = false;
-        g(context);
+        f(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -513,6 +512,6 @@ public class PictureCropView extends PictureView {
         this.p = Color.argb(128, 0, 0, 0);
         this.q = new Paint();
         this.r = false;
-        g(context);
+        f(context);
     }
 }

@@ -1,6 +1,10 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import android.text.TextUtils;
+import c.a.o0.b1.c;
+import c.a.o0.b1.w;
+import c.a.p0.f1.c.d;
+import c.a.p0.x2.l0.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -11,13 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.b1.c;
-import d.a.p0.b1.w;
-import d.a.q0.e1.c.d;
-import d.a.q0.w2.i0.b;
 import tbclient.Userlike.DataReq;
 import tbclient.Userlike.UserlikeReqIdl;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class ConcernPageRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -54,7 +54,7 @@ public class ConcernPageRequestMessage extends NetMessage {
             String d2 = isEmpty ? "" : b.f().d("CONCERN");
             c cVar = this.adInfo;
             if (cVar != null && !isEmpty) {
-                str = cVar.f52038b;
+                str = cVar.f12552b;
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(e2);
@@ -81,9 +81,9 @@ public class ConcernPageRequestMessage extends NetMessage {
                         builder.page_tag = d.w();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(d.a.p0.s.d0.b.j().l(d.a.p0.s.d0.b.n("concern_data_res_request_time"), 0L));
+                builder.last_req_unix = Long.valueOf(c.a.o0.s.d0.b.j().l(c.a.o0.s.d0.b.n("concern_data_res_request_time"), 0L));
                 int i2 = 1;
-                builder.follow_type = Integer.valueOf(d.a.p0.b.d.i() ? d.a.p0.s.d0.b.j().k("key_home_concern_all_status", 0) : 1);
+                builder.follow_type = Integer.valueOf(c.a.o0.b.d.i() ? c.a.o0.s.d0.b.j().k("key_home_concern_all_status", 0) : 1);
                 if (z) {
                     w.a(builder, true);
                 }

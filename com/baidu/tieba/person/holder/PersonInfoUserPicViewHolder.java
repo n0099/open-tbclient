@@ -2,6 +2,8 @@ package com.baidu.tieba.person.holder;
 
 import android.view.View;
 import android.widget.TextView;
+import c.a.e.k.e.n;
+import c.a.o0.u.m;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -15,30 +17,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.k.e.n;
-import d.a.p0.u.m;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public TbImageView f20103a;
+    public n f55468a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f20104b;
+    public int f55469b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f20105c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public n f20106d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f20107e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f20108f;
+    public View.OnClickListener f55470c;
+    public View coverView;
+    public TbImageView imageView;
+    public TextView tipTextView;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonInfoUserPicViewHolder(View view) {
@@ -58,57 +52,57 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.f20107e = 3;
+        this.f55469b = 3;
         TbImageView tbImageView = (TbImageView) view.findViewById(R.id.photo_image_view);
-        this.f20103a = tbImageView;
+        this.imageView = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.f20105c = view.findViewById(R.id.normal_pic_click_bg);
-        this.f20104b = (TextView) view.findViewById(R.id.tip_default_view);
+        this.coverView = view.findViewById(R.id.normal_pic_click_bg);
+        this.tipTextView = (TextView) view.findViewById(R.id.tip_default_view);
     }
 
-    public void b(n nVar) {
+    public void bindDataToView(n nVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, nVar) == null) && (nVar instanceof m)) {
-            this.f20106d = nVar;
+            this.f55468a = nVar;
             m mVar = (m) nVar;
             if (mVar.d()) {
                 String headPortraitFilter = HeadIconRefreshHelper.headPortraitFilter(mVar.c());
-                this.f20104b.setVisibility(0);
+                this.tipTextView.setVisibility(0);
                 if (StringUtils.isNull(headPortraitFilter)) {
-                    this.f20103a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
+                    this.imageView.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
                 } else {
-                    this.f20103a.M(headPortraitFilter, 25, false);
+                    this.imageView.startLoad(headPortraitFilter, 25, false);
                 }
             } else {
-                this.f20103a.setDefaultResource(R.drawable.img_default_100);
-                this.f20104b.setVisibility(8);
-                this.f20103a.M(mVar.c(), 10, false);
+                this.imageView.setDefaultResource(R.drawable.img_default_100);
+                this.tipTextView.setVisibility(8);
+                this.imageView.startLoad(mVar.c(), 10, false);
             }
-            a().setOnClickListener(this.f20108f);
-            d(TbadkCoreApplication.getInst().getSkinType());
+            getView().setOnClickListener(this.f55470c);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public n c() {
+    public n getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f20106d : (n) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f55468a : (n) invokeV.objValue;
     }
 
-    public void d(int i2) {
+    public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f20107e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f55469b == i2) {
             return;
         }
-        SkinManager.setViewTextColor(this.f20104b, R.color.CAM_X0111, 1);
-        SkinManager.setBackgroundColor(this.f20104b, R.color.black_alpha50);
-        this.f20107e = i2;
+        SkinManager.setViewTextColor(this.tipTextView, R.color.CAM_X0111, 1);
+        SkinManager.setBackgroundColor(this.tipTextView, R.color.black_alpha50);
+        this.f55469b = i2;
     }
 
-    public void e(View.OnClickListener onClickListener) {
+    public void setOnclickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f20108f = onClickListener;
+            this.f55470c = onClickListener;
         }
     }
 }

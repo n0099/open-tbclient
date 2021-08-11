@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingCrash";
@@ -74,8 +74,8 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, file, eventObject)) == null) {
-            if (context == null && LLog.sDebug) {
-                Log.d("ForwardingCrash", "Context is null in ForwardingEventSceneHandler.getCustomizedSnapshots.");
+            if (context == null) {
+                boolean z = LLog.sDebug;
             }
             HashSet hashSet = null;
             for (ProcessEventSceneHandler processEventSceneHandler : this.mEventSceneHandlers) {
@@ -90,7 +90,7 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
                         }
                     } catch (Exception e2) {
                         if (LLog.sDebug) {
-                            Log.d("ForwardingCrash", Log.getStackTraceString(e2));
+                            Log.getStackTraceString(e2);
                         }
                     }
                 }
@@ -118,7 +118,7 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
                         }
                     } catch (Exception e2) {
                         if (LLog.sDebug) {
-                            Log.d("ForwardingCrash", Log.getStackTraceString(e2));
+                            Log.getStackTraceString(e2);
                         }
                     }
                 }
@@ -144,7 +144,7 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
                             }
                         } catch (Exception e2) {
                             if (LLog.sDebug) {
-                                Log.d("ForwardingCrash", Log.getStackTraceString(e2));
+                                Log.getStackTraceString(e2);
                             }
                         }
                     }
@@ -161,8 +161,8 @@ public class ForwardingProcessEventSceneHandler extends ProcessEventSceneHandler
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, processEventSceneHandler)) == null) {
             if (processEventSceneHandler != null) {
                 this.mEventSceneHandlers.add(processEventSceneHandler);
-            } else if (LLog.sDebug) {
-                Log.d("ForwardingCrash", "callback instance should not be null in addEventHandleCallback()");
+            } else {
+                boolean z = LLog.sDebug;
             }
             return this;
         }

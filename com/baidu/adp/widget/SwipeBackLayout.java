@@ -18,6 +18,7 @@ import android.widget.FrameLayout;
 import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
+import c.a.e.e.p.l;
 import com.baidu.adp.R;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,10 +27,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.l;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class SwipeBackLayout extends FrameLayout {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int SKIN_TYPE_DARK = 4;
+    public static final int SKIN_TYPE_NIGHT = 1;
+    public static final int SKIN_TYPE_NORMAL = 0;
+    public static final int SKIN_TYPE_THEME = 2;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public boolean B;
@@ -39,20 +43,22 @@ public class SwipeBackLayout extends FrameLayout {
     public b F;
 
     /* renamed from: e  reason: collision with root package name */
-    public Activity f2436e;
+    public Activity f36299e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f2437f;
+    public View f36300f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ViewGroup f2438g;
+    public ViewGroup f36301g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Scroller f2439h;
+    public Scroller f36302h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f2440i;
-    public float j;
+    public int f36303i;
+
+    /* renamed from: j  reason: collision with root package name */
+    public float f36304j;
     public float k;
     public float l;
     public int m;
@@ -70,13 +76,13 @@ public class SwipeBackLayout extends FrameLayout {
     public int y;
     public float z;
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Interpolator {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public final float f2441a;
+        public final float f36305a;
 
         public a(float f2) {
             Interceptable interceptable = $ic;
@@ -93,7 +99,7 @@ public class SwipeBackLayout extends FrameLayout {
                     return;
                 }
             }
-            this.f2441a = f2;
+            this.f36305a = f2;
         }
 
         @Override // android.animation.TimeInterpolator
@@ -101,7 +107,7 @@ public class SwipeBackLayout extends FrameLayout {
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-                float f3 = f2 * this.f2441a;
+                float f3 = f2 * this.f36305a;
                 if (f3 > 0.9d) {
                     return 1.0f;
                 }
@@ -111,14 +117,14 @@ public class SwipeBackLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface b {
         void a(boolean z);
 
         void b();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public interface c {
         void disableSwipeBack();
 
@@ -155,23 +161,40 @@ public class SwipeBackLayout extends FrameLayout {
         this.C = false;
         this.D = false;
         this.E = true;
-        i(context);
+        f(context);
     }
 
-    public void a(Activity activity) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.r) {
+                this.f36302h.abortAnimation();
+                int scrollX = getScrollX();
+                int scrollY = getScrollY();
+                int currX = this.f36302h.getCurrX();
+                int currY = this.f36302h.getCurrY();
+                if (scrollX != currX || scrollY != currY) {
+                    this.f36300f.scrollTo(currX, currY);
+                }
+            }
+            this.r = false;
+        }
+    }
+
+    public void attachToActivity(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
             try {
-                this.f2436e = activity;
+                this.f36299e = activity;
                 Window window = activity.getWindow();
                 window.setBackgroundDrawable(new ColorDrawable(0));
                 ViewGroup viewGroup = (ViewGroup) window.getDecorView();
                 ViewGroup viewGroup2 = (ViewGroup) viewGroup.getChildAt(0);
-                this.f2438g = viewGroup2;
+                this.f36301g = viewGroup2;
                 viewGroup.removeView(viewGroup2);
-                this.f2438g.setClickable(true);
-                addView(this.f2438g);
-                this.f2437f = (View) this.f2438g.getParent();
+                this.f36301g.setClickable(true);
+                addView(this.f36301g);
+                this.f36300f = (View) this.f36301g.getParent();
                 viewGroup.addView(this);
             } catch (Exception e2) {
                 this.q = false;
@@ -180,35 +203,18 @@ public class SwipeBackLayout extends FrameLayout {
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.r) {
-                this.f2439h.abortAnimation();
-                int scrollX = getScrollX();
-                int scrollY = getScrollY();
-                int currX = this.f2439h.getCurrX();
-                int currY = this.f2439h.getCurrY();
-                if (scrollX != currX || scrollY != currY) {
-                    this.f2437f.scrollTo(currX, currY);
-                }
-            }
-            this.r = false;
-        }
-    }
-
-    public final void c(MotionEvent motionEvent) {
+    public final void b(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent) == null) {
             int i2 = this.n;
-            int h2 = h(motionEvent, i2);
-            if (j(motionEvent, h2, i2)) {
+            int e2 = e(motionEvent, i2);
+            if (g(motionEvent, e2, i2)) {
                 return;
             }
-            float x = MotionEventCompat.getX(motionEvent, h2);
-            float f2 = x - this.j;
+            float x = MotionEventCompat.getX(motionEvent, e2);
+            float f2 = x - this.f36304j;
             float abs = Math.abs(f2);
-            float y = MotionEventCompat.getY(motionEvent, h2);
+            float y = MotionEventCompat.getY(motionEvent, e2);
             float abs2 = Math.abs(y - this.k);
             if (f2 <= 0.0f || abs <= this.y || abs <= abs2) {
                 return;
@@ -218,38 +224,61 @@ public class SwipeBackLayout extends FrameLayout {
             if (bVar != null) {
                 bVar.b();
             }
-            this.j = x;
+            this.f36304j = x;
             this.k = y;
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.o = false;
+            this.n = -1;
+            i();
         }
     }
 
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.f2439h.isFinished() && this.f2439h.computeScrollOffset()) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!this.f36302h.isFinished() && this.f36302h.computeScrollOffset()) {
                 int scrollX = getScrollX();
                 int scrollY = getScrollY();
-                int currX = this.f2439h.getCurrX();
-                int currY = this.f2439h.getCurrY();
+                int currX = this.f36302h.getCurrX();
+                int currY = this.f36302h.getCurrY();
                 if (scrollX != currX || scrollY != currY) {
-                    this.f2437f.scrollTo(currX, currY);
+                    this.f36300f.scrollTo(currX, currY);
                 }
                 invalidate();
             }
-            if (this.f2439h.isFinished() && this.p) {
-                this.f2436e.finish();
-                this.f2436e.overridePendingTransition(0, 0);
+            if (this.f36302h.isFinished() && this.p) {
+                this.f36299e.finish();
+                this.f36299e.overridePendingTransition(0, 0);
             }
-            if (this.f2439h.isFinished()) {
-                b();
+            if (this.f36302h.isFinished()) {
+                a();
             }
         }
     }
 
-    public void d() {
+    public final int d(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+            int i2 = this.n;
+            int e2 = e(motionEvent, i2);
+            if (g(motionEvent, e2, i2)) {
+                return 0;
+            }
+            return (int) Math.abs(MotionEventCompat.getX(motionEvent, e2) - this.l);
+        }
+        return invokeL.intValue;
+    }
+
+    public void disableSwipeJustOnce() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.A = true;
             this.q = false;
         }
@@ -258,9 +287,9 @@ public class SwipeBackLayout extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            View view = this.f2437f;
+            View view = this.f36300f;
             if (view != null) {
                 int i2 = this.m;
                 int bottom = view.getBottom();
@@ -270,7 +299,7 @@ public class SwipeBackLayout extends FrameLayout {
                 rect.left = 0;
                 rect.right = i2;
                 canvas.clipRect(rect);
-                int i3 = this.f2440i;
+                int i3 = this.f36303i;
                 if (i3 != 0) {
                     this.s = 100 - ((int) (((-this.m) / i3) * 120.0f));
                 }
@@ -292,58 +321,18 @@ public class SwipeBackLayout extends FrameLayout {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
             boolean dispatchTouchEvent = super.dispatchTouchEvent(motionEvent);
-            m(motionEvent);
+            h(motionEvent);
             return dispatchTouchEvent;
         }
         return invokeL.booleanValue;
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.o = false;
-            this.n = -1;
-            n();
-        }
-    }
-
-    public void f(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            if (this.B) {
-                this.f2438g.setBackgroundResource(R.color.transparent);
-            } else if (!this.E) {
-                this.f2438g.setBackgroundResource(R.color.swipe_layout_normal_bg);
-            } else if (i2 == 1) {
-                this.f2438g.setBackgroundResource(R.color.swipe_layout_night_bg);
-            } else if (i2 == 4) {
-                this.f2438g.setBackgroundResource(R.color.swipe_layout_dark_bg);
-            } else {
-                this.f2438g.setBackgroundResource(R.color.swipe_layout_normal_bg);
-            }
-        }
-    }
-
-    public final int g(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            int i2 = this.n;
-            int h2 = h(motionEvent, i2);
-            if (j(motionEvent, h2, i2)) {
-                return 0;
-            }
-            return (int) Math.abs(MotionEventCompat.getX(motionEvent, h2) - this.l);
-        }
-        return invokeL.intValue;
-    }
-
-    public final int h(MotionEvent motionEvent, int i2) {
+    public final int e(MotionEvent motionEvent, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, motionEvent, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, motionEvent, i2)) == null) {
             int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i2);
             if (findPointerIndex == -1) {
                 this.n = -1;
@@ -353,11 +342,11 @@ public class SwipeBackLayout extends FrameLayout {
         return invokeLI.intValue;
     }
 
-    public final void i(Context context) {
+    public final void f(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
             TypedValue.applyDimension(1, 24.0f, getResources().getDisplayMetrics());
-            this.f2439h = new Scroller(context, new a(1.5f));
+            this.f36302h = new Scroller(context, new a(1.5f));
             ViewConfiguration.get(context.getApplicationContext()).getScaledTouchSlop();
             this.w = ViewConfiguration.getMaximumFlingVelocity();
             this.v = ViewConfiguration.getMinimumFlingVelocity();
@@ -366,39 +355,33 @@ public class SwipeBackLayout extends FrameLayout {
         }
     }
 
-    public final boolean j(MotionEvent motionEvent, int i2, int i3) {
+    public void forceChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            if (this.B) {
+                this.f36301g.setBackgroundResource(R.color.transparent);
+            } else if (!this.E) {
+                this.f36301g.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            } else if (i2 == 1) {
+                this.f36301g.setBackgroundResource(R.color.swipe_layout_night_bg);
+            } else if (i2 == 4) {
+                this.f36301g.setBackgroundResource(R.color.swipe_layout_dark_bg);
+            } else {
+                this.f36301g.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            }
+        }
+    }
+
+    public final boolean g(MotionEvent motionEvent, int i2, int i3) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeLII = interceptable.invokeLII(1048588, this, motionEvent, i2, i3)) == null) ? motionEvent == null || i3 == -1 || i2 == -1 || i2 >= motionEvent.getPointerCount() : invokeLII.booleanValue;
     }
 
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.q : invokeV.booleanValue;
-    }
-
-    public void l(int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048590, this, i2) == null) && this.q) {
-            if (this.B) {
-                this.f2438g.setBackgroundResource(R.color.transparent);
-            } else if (!this.E) {
-                this.f2438g.setBackgroundResource(R.color.swipe_layout_normal_bg);
-            } else if (i2 == 1) {
-                this.f2438g.setBackgroundResource(R.color.swipe_layout_night_bg);
-            } else if (i2 == 4) {
-                this.f2438g.setBackgroundResource(R.color.swipe_layout_dark_bg);
-            } else {
-                this.f2438g.setBackgroundResource(R.color.swipe_layout_normal_bg);
-            }
-        }
-    }
-
-    public final boolean m(MotionEvent motionEvent) {
+    public final boolean h(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, motionEvent)) == null) {
             int action = motionEvent.getAction() & 255;
             if (action == 1 || action == 3) {
                 if (this.A) {
@@ -416,10 +399,10 @@ public class SwipeBackLayout extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public final void n() {
+    public final void i() {
         VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (velocityTracker = this.u) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (velocityTracker = this.u) == null) {
             return;
         }
         velocityTracker.clear();
@@ -427,12 +410,59 @@ public class SwipeBackLayout extends FrameLayout {
         this.u = null;
     }
 
-    public final void o() {
+    public boolean isIsSupportNight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.E : invokeV.booleanValue;
+    }
+
+    public boolean isSwipeBackEnabled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.q : invokeV.booleanValue;
+    }
+
+    public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             this.r = true;
-            this.f2439h.startScroll(this.f2437f.getScrollX(), 0, -this.f2437f.getScrollX(), 0);
+            this.f36302h.startScroll(this.f36300f.getScrollX(), 0, -this.f36300f.getScrollX(), 0);
             postInvalidate();
+        }
+    }
+
+    public final void k(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            this.r = true;
+            this.f36302h.startScroll(this.f36300f.getScrollX(), 0, -this.f36300f.getScrollX(), 0, i2);
+            postInvalidate();
+        }
+    }
+
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.r = true;
+            this.f36302h.startScroll(this.f36300f.getScrollX(), 0, (-(this.f36303i + this.f36300f.getScrollX())) + 1, 0);
+            postInvalidate();
+        }
+    }
+
+    public void onChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048596, this, i2) == null) && this.q) {
+            if (this.B) {
+                this.f36301g.setBackgroundResource(R.color.transparent);
+            } else if (!this.E) {
+                this.f36301g.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            } else if (i2 == 1) {
+                this.f36301g.setBackgroundResource(R.color.swipe_layout_night_bg);
+            } else if (i2 == 4) {
+                this.f36301g.setBackgroundResource(R.color.swipe_layout_dark_bg);
+            } else {
+                this.f36301g.setBackgroundResource(R.color.swipe_layout_normal_bg);
+            }
         }
     }
 
@@ -440,7 +470,7 @@ public class SwipeBackLayout extends FrameLayout {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, motionEvent)) == null) {
             if (!this.q) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
@@ -451,17 +481,17 @@ public class SwipeBackLayout extends FrameLayout {
                         int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                         int pointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
                         this.n = pointerId;
-                        if (!j(motionEvent, actionIndex, pointerId)) {
-                            this.j = MotionEventCompat.getX(motionEvent, actionIndex);
+                        if (!g(motionEvent, actionIndex, pointerId)) {
+                            this.f36304j = MotionEventCompat.getX(motionEvent, actionIndex);
                             this.k = MotionEventCompat.getY(motionEvent, actionIndex);
                             this.l = MotionEventCompat.getX(motionEvent, actionIndex);
                         }
                     } else if (action == 2) {
-                        c(motionEvent);
+                        b(motionEvent);
                     }
                     return this.o;
                 }
-                e();
+                c();
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -472,13 +502,13 @@ public class SwipeBackLayout extends FrameLayout {
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             try {
                 super.onLayout(z, i2, i3, i4, i5);
             } catch (Throwable unused) {
             }
             if (z) {
-                this.f2440i = getWidth();
+                this.f36303i = getWidth();
             }
         }
     }
@@ -487,7 +517,7 @@ public class SwipeBackLayout extends FrameLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, motionEvent)) == null) {
             if (!this.p && !this.r) {
                 if (this.u == null) {
                     this.u = VelocityTracker.obtain();
@@ -500,14 +530,14 @@ public class SwipeBackLayout extends FrameLayout {
                         VelocityTracker velocityTracker = this.u;
                         velocityTracker.computeCurrentVelocity(1000, this.w);
                         this.z = velocityTracker.getXVelocity();
-                        int g2 = g(motionEvent);
-                        e();
-                        if (Math.abs(this.z) > this.v && g2 > this.x) {
+                        int d2 = d(motionEvent);
+                        c();
+                        if (Math.abs(this.z) > this.v && d2 > this.x) {
                             if (this.z > 0.0f) {
                                 this.p = true;
-                                q();
+                                l();
                             } else {
-                                o();
+                                j();
                                 this.p = false;
                             }
                             b bVar = this.F;
@@ -516,11 +546,11 @@ public class SwipeBackLayout extends FrameLayout {
                             }
                             return true;
                         }
-                        if (this.f2437f.getScrollX() <= (-this.f2440i) / 2) {
+                        if (this.f36300f.getScrollX() <= (-this.f36303i) / 2) {
                             this.p = true;
-                            q();
+                            l();
                         } else {
-                            o();
+                            j();
                             this.p = false;
                         }
                         b bVar2 = this.F;
@@ -529,40 +559,40 @@ public class SwipeBackLayout extends FrameLayout {
                         }
                     } else if (action == 2) {
                         if (this.D) {
-                            b();
+                            a();
                             int actionIndex = motionEvent.getActionIndex();
                             this.n = motionEvent.getPointerId(actionIndex);
-                            this.j = (motionEvent.getX(actionIndex) - 1.0f) - this.y;
+                            this.f36304j = (motionEvent.getX(actionIndex) - 1.0f) - this.y;
                             this.k = motionEvent.getY(actionIndex);
                             this.l = motionEvent.getX(actionIndex);
                             this.o = false;
                             this.D = false;
                         }
                         if (!this.o) {
-                            c(motionEvent);
+                            b(motionEvent);
                         }
                         if (this.o) {
-                            int h2 = h(motionEvent, this.n);
-                            if (!j(motionEvent, h2, this.n)) {
-                                float x = MotionEventCompat.getX(motionEvent, h2);
-                                float f3 = this.j - x;
-                                this.j = x;
+                            int e2 = e(motionEvent, this.n);
+                            if (!g(motionEvent, e2, this.n)) {
+                                float x = MotionEventCompat.getX(motionEvent, e2);
+                                float f3 = this.f36304j - x;
+                                this.f36304j = x;
                                 float scrollX = getScrollX() + f3;
-                                float f4 = -this.f2440i;
+                                float f4 = -this.f36303i;
                                 if (scrollX < f4) {
                                     f2 = f4;
                                 } else if (scrollX <= 0.0f) {
                                     f2 = scrollX;
                                 }
                                 int i2 = (int) f2;
-                                this.j += f2 - i2;
+                                this.f36304j += f2 - i2;
                                 this.m = i2;
-                                this.f2437f.scrollTo(i2, getScrollY());
+                                this.f36300f.scrollTo(i2, getScrollY());
                             }
                         }
                     } else if (action == 3) {
-                        e();
-                        p(10);
+                        c();
+                        k(10);
                         this.p = false;
                         b bVar3 = this.F;
                         if (bVar3 != null) {
@@ -570,10 +600,10 @@ public class SwipeBackLayout extends FrameLayout {
                         }
                     }
                 } else {
-                    b();
+                    a();
                     int actionIndex2 = MotionEventCompat.getActionIndex(motionEvent);
                     this.n = MotionEventCompat.getPointerId(motionEvent, actionIndex2);
-                    this.j = motionEvent.getX();
+                    this.f36304j = motionEvent.getX();
                     this.l = MotionEventCompat.getX(motionEvent, actionIndex2);
                 }
                 return super.onTouchEvent(motionEvent);
@@ -583,49 +613,11 @@ public class SwipeBackLayout extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public final void p(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.r = true;
-            this.f2439h.startScroll(this.f2437f.getScrollX(), 0, -this.f2437f.getScrollX(), 0, i2);
-            postInvalidate();
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.r = true;
-            this.f2439h.startScroll(this.f2437f.getScrollX(), 0, (-(this.f2440i + this.f2437f.getScrollX())) + 1, 0);
-            postInvalidate();
-        }
-    }
-
-    public void r(double d2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Double.valueOf(d2)}) == null) {
-            if (d2 != 1.0d) {
-                if (d2 == 2.0d) {
-                    this.p = true;
-                    q();
-                    return;
-                }
-                return;
-            }
-            if (!this.q) {
-                this.C = true;
-            }
-            this.D = true;
-            this.q = true;
-            this.o = true;
-        }
-    }
-
     public void setBgTransparent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             this.B = true;
-            ViewGroup viewGroup = this.f2438g;
+            ViewGroup viewGroup = this.f36301g;
             if (viewGroup != null) {
                 viewGroup.setBackgroundResource(R.color.transparent);
             }
@@ -637,9 +629,9 @@ public class SwipeBackLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
             if (!z) {
                 if (this.B) {
-                    this.f2438g.setBackgroundResource(R.color.transparent);
+                    this.f36301g.setBackgroundResource(R.color.transparent);
                 } else {
-                    this.f2438g.setBackgroundResource(R.color.swipe_layout_normal_bg);
+                    this.f36301g.setBackgroundResource(R.color.swipe_layout_normal_bg);
                 }
             }
             this.E = z;
@@ -657,6 +649,26 @@ public class SwipeBackLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             this.q = z;
+        }
+    }
+
+    public void swipeBackControl(double d2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Double.valueOf(d2)}) == null) {
+            if (d2 != 1.0d) {
+                if (d2 == 2.0d) {
+                    this.p = true;
+                    l();
+                    return;
+                }
+                return;
+            }
+            if (!this.q) {
+                this.C = true;
+            }
+            this.D = true;
+            this.q = true;
+            this.o = true;
         }
     }
 
@@ -691,7 +703,7 @@ public class SwipeBackLayout extends FrameLayout {
         this.C = false;
         this.D = false;
         this.E = true;
-        i(context);
+        f(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -725,6 +737,6 @@ public class SwipeBackLayout extends FrameLayout {
         this.C = false;
         this.D = false;
         this.E = true;
-        i(context);
+        f(context);
     }
 }

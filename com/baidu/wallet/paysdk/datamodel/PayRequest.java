@@ -4,8 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.apollon.utils.EncodeUtils;
-import com.baidu.apollon.utils.SharedPreferencesUtils;
 import com.baidu.mobads.container.util.AdIconUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,9 +15,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.wallet.base.datamodel.CardData;
 import com.baidu.wallet.base.datamodel.PayData;
 import com.baidu.wallet.base.datamodel.Withholding;
-import com.baidu.wallet.core.beans.BeanRequestBase;
-import com.baidu.wallet.core.utils.LogUtil;
-import com.baidu.wallet.core.utils.StringUtils;
 import com.baidu.wallet.paysdk.api.BaiduPay;
 import com.baidu.wallet.paysdk.beans.BeanConstants;
 import com.baidu.wallet.paysdk.datamodel.ErrorContentResponse;
@@ -30,12 +25,16 @@ import com.baidu.wallet.paysdk.fingerprint.WalletFingerprint;
 import com.baidu.wallet.paysdk.storage.PayDataCache;
 import com.baidu.wallet.paysdk.storage.PayRequestCache;
 import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
-import com.baidu.wallet.util.StatHelper;
+import com.dxmpay.apollon.utils.EncodeUtils;
+import com.dxmpay.apollon.utils.SharedPreferencesUtils;
+import com.dxmpay.wallet.core.beans.BeanRequestBase;
+import com.dxmpay.wallet.core.utils.StringUtils;
+import com.dxmpay.wallet.utils.StatHelper;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.net.URLDecoder;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class PayRequest extends BeanRequestBase implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CASHIER_TYPE_ZHUAN_ZHANG = "1";
@@ -89,7 +88,7 @@ public class PayRequest extends BeanRequestBase implements Serializable {
     public Withholding withholding;
     public String withholding_auth;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes8.dex */
     public static class PayPrice implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,7 +108,7 @@ public class PayRequest extends BeanRequestBase implements Serializable {
         public PayType payType;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-        /* loaded from: classes5.dex */
+        /* loaded from: classes8.dex */
         public static final class PayType {
             public static final /* synthetic */ PayType[] $VALUES;
             public static /* synthetic */ Interceptable $ic;
@@ -289,9 +288,9 @@ public class PayRequest extends BeanRequestBase implements Serializable {
             payPrice3.easyPrice = "0";
             payPrice3.easyTipFromCalc = "";
             PayDataCache.b<Boolean, String> canUseCredit = PayDataCache.getInstance().canUseCredit();
-            this.mPayPrice.creditIsEnable = canUseCredit.f26492a.booleanValue();
+            this.mPayPrice.creditIsEnable = canUseCredit.f62389a.booleanValue();
             PayPrice payPrice4 = this.mPayPrice;
-            payPrice4.creditTip = canUseCredit.f26493b;
+            payPrice4.creditTip = canUseCredit.f62390b;
             payPrice4.creditPayAmount = "0";
             payPrice4.availableCredit = PayDataCache.getInstance().getAvailableCreditAmount();
         }
@@ -307,9 +306,9 @@ public class PayRequest extends BeanRequestBase implements Serializable {
             payPrice.creditTip = "";
             payPrice.availableCredit = PayDataCache.getInstance().getAvailableCreditAmount();
             PayDataCache.b<Boolean, String> canUseBalance = PayDataCache.getInstance().canUseBalance();
-            this.mPayPrice.balanceIsEnable = canUseBalance.f26492a.booleanValue();
+            this.mPayPrice.balanceIsEnable = canUseBalance.f62389a.booleanValue();
             PayPrice payPrice2 = this.mPayPrice;
-            payPrice2.balanceTip = canUseBalance.f26493b;
+            payPrice2.balanceTip = canUseBalance.f62390b;
             payPrice2.balanceJumpUrl = PayDataCache.getInstance().getBalanceJumpUrl();
             PayPrice payPrice3 = this.mPayPrice;
             payPrice3.balancePayAmount = "0";
@@ -334,17 +333,17 @@ public class PayRequest extends BeanRequestBase implements Serializable {
                 this.mBondCard = getDefaultBankCardIdx();
             }
             PayDataCache.b<Boolean, String> canUseBalance = PayDataCache.getInstance().canUseBalance();
-            this.mPayPrice.balanceIsEnable = canUseBalance.f26492a.booleanValue();
+            this.mPayPrice.balanceIsEnable = canUseBalance.f62389a.booleanValue();
             PayPrice payPrice2 = this.mPayPrice;
-            payPrice2.balanceTip = canUseBalance.f26493b;
+            payPrice2.balanceTip = canUseBalance.f62390b;
             payPrice2.balanceJumpUrl = PayDataCache.getInstance().getBalanceJumpUrl();
             PayPrice payPrice3 = this.mPayPrice;
             payPrice3.balancePayAmount = "0";
             payPrice3.balanceTransAmount = getBalanceTransAmount();
             PayDataCache.b<Boolean, String> canUseCredit = PayDataCache.getInstance().canUseCredit();
-            this.mPayPrice.creditIsEnable = canUseCredit.f26492a.booleanValue();
+            this.mPayPrice.creditIsEnable = canUseCredit.f62389a.booleanValue();
             PayPrice payPrice4 = this.mPayPrice;
-            payPrice4.creditTip = canUseCredit.f26493b;
+            payPrice4.creditTip = canUseCredit.f62390b;
             payPrice4.creditPayAmount = "0";
             payPrice4.availableCredit = PayDataCache.getInstance().getAvailableCreditAmount();
         }
@@ -428,7 +427,7 @@ public class PayRequest extends BeanRequestBase implements Serializable {
             payPrice3.easyPrice = "0";
             payPrice3.balancePayAmount = "0";
         }
-        LogUtil.d(TAG, "本地计算金额之后的payprice是： " + this.mPayPrice);
+        String str = "本地计算金额之后的payprice是： " + this.mPayPrice;
     }
 
     public void calcPayPriceByRemote(CalcPaymentResponse calcPaymentResponse) {
@@ -479,10 +478,10 @@ public class PayRequest extends BeanRequestBase implements Serializable {
         }
         this.mPayPrice.creditIsEnable = StringUtils.isAmountMoreThanZero(calcPaymentResponse.credit_trans_amount);
         this.mPayPrice.creditTip = calcPaymentResponse.credit_select_desc;
-        LogUtil.d(TAG, "服务器计算金额之后的payprice是： " + this.mPayPrice);
+        String str3 = "服务器计算金额之后的payprice是： " + this.mPayPrice;
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanRequestBase
+    @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public boolean checkRequestValidity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -753,7 +752,7 @@ public class PayRequest extends BeanRequestBase implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.wallet.core.beans.BeanRequestBase
+    @Override // com.dxmpay.wallet.core.beans.BeanRequestBase
     public String getRequestId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -837,21 +836,18 @@ public class PayRequest extends BeanRequestBase implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048612, this, str) == null) {
             this.mParams = str;
             if (str.contains("input_charset=1")) {
-                LogUtil.d(TAG, "订单为gbk编码");
                 String str2 = "";
                 try {
                     String decode = URLDecoder.decode(str, "gbk");
-                    LogUtil.d(TAG, "gbkParams=" + decode);
+                    String str3 = "gbkParams=" + decode;
                     str2 = EncodeUtils.gbk2utf8(decode);
-                    LogUtil.d(TAG, "转 utf8 tmpParam=" + str2);
+                    String str4 = "转 utf8 tmpParam=" + str2;
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                 }
                 if (!TextUtils.isEmpty(str2)) {
                     str = str2;
                 }
-            } else {
-                LogUtil.d(TAG, "订单为utf-8编码");
             }
             this.mSpNO = getSinalParam(str, "SP_NO");
             this.mOrderNo = getSinalParam(str, "ORDER_NO");
@@ -863,13 +859,12 @@ public class PayRequest extends BeanRequestBase implements Serializable {
         if (interceptable == null || interceptable.invokeL(1048613, this, str) == null) {
             this.mParams = str;
             if (str.contains("input_charset=1")) {
-                LogUtil.d(TAG, "订单为gbk编码");
                 String str2 = "";
                 try {
                     String decode = URLDecoder.decode(str, "gbk");
-                    LogUtil.d(TAG, "gbkParams=" + decode);
+                    String str3 = "gbkParams=" + decode;
                     str2 = EncodeUtils.gbk2utf8(decode);
-                    LogUtil.d(TAG, "转 utf8 tmpParam=" + str2);
+                    String str4 = "转 utf8 tmpParam=" + str2;
                 } catch (UnsupportedEncodingException e2) {
                     e2.printStackTrace();
                 } catch (IllegalArgumentException e3) {
@@ -878,8 +873,6 @@ public class PayRequest extends BeanRequestBase implements Serializable {
                 if (!TextUtils.isEmpty(str2)) {
                     str = str2;
                 }
-            } else {
-                LogUtil.d(TAG, "订单为utf-8编码");
             }
             this.mSpNO = getSinalParam(str, "SP_NO");
             this.mOrderNo = getSinalParam(str, "ORDER_NO");
@@ -959,17 +952,17 @@ public class PayRequest extends BeanRequestBase implements Serializable {
                     }
                     payPrice.easyPrice = this.mPrice;
                     PayDataCache.b<Boolean, String> canUseBalance = PayDataCache.getInstance().canUseBalance();
-                    this.mPayPrice.balanceIsEnable = canUseBalance.f26492a.booleanValue();
+                    this.mPayPrice.balanceIsEnable = canUseBalance.f62389a.booleanValue();
                     PayPrice payPrice4 = this.mPayPrice;
-                    payPrice4.balanceTip = canUseBalance.f26493b;
+                    payPrice4.balanceTip = canUseBalance.f62390b;
                     payPrice4.balanceJumpUrl = PayDataCache.getInstance().getBalanceJumpUrl();
                     PayPrice payPrice5 = this.mPayPrice;
                     payPrice5.balancePayAmount = "0";
                     payPrice5.balanceTransAmount = getBalanceTransAmount();
                     PayDataCache.b<Boolean, String> canUseCredit = PayDataCache.getInstance().canUseCredit();
-                    this.mPayPrice.creditIsEnable = canUseCredit.f26492a.booleanValue();
+                    this.mPayPrice.creditIsEnable = canUseCredit.f62389a.booleanValue();
                     PayPrice payPrice6 = this.mPayPrice;
-                    payPrice6.creditTip = canUseCredit.f26493b;
+                    payPrice6.creditTip = canUseCredit.f62390b;
                     payPrice6.creditPayAmount = "0";
                     payPrice6.availableCredit = PayDataCache.getInstance().getAvailableCreditAmount();
                     return;

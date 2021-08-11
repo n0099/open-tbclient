@@ -1,16 +1,16 @@
 package com.baidu.smallgame.sdk.delegate;
 
 import android.opengl.GLSurfaceView;
+import c.a.i0.a.d.c;
+import c.a.w.c.a;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
 import com.baidu.smallgame.sdk.ArBridge;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import d.a.j0.a.d.c;
-import d.a.x.c.a;
 import org.json.JSONArray;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface AREngineDelegate {
     boolean ableToDraw();
 
@@ -50,7 +50,7 @@ public interface AREngineDelegate {
 
     void queueEvent(Runnable runnable);
 
-    void queueEvent(Runnable runnable, long j);
+    void queueEvent(Runnable runnable, long j2);
 
     void removeDebugConsole(DebugConsole debugConsole);
 
@@ -66,9 +66,9 @@ public interface AREngineDelegate {
 
     void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener);
 
-    void setGameRecordCallback(d.a.x.c.c cVar);
+    void setGameRecordCallback(c.a.w.c.c cVar);
 
-    void setOnStuckScreenListener(d.a.j0.a.d.a aVar);
+    void setOnStuckScreenListener(c.a.i0.a.d.a aVar);
 
     void setPermissionProxy(PermissionProxy permissionProxy);
 
@@ -78,7 +78,7 @@ public interface AREngineDelegate {
 
     void setScreenShotStatus(boolean z);
 
-    void setStuckScreenLimitTime(long j);
+    void setStuckScreenLimitTime(long j2);
 
     void smallGameDestroy();
 

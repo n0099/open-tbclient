@@ -3,13 +3,14 @@ package com.baidu.tbadk.editortools.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import c.a.o0.x.a;
+import c.a.o0.x.n;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.p0.x.n;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public abstract class ICommonTabHost extends LinearLayout implements n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +35,19 @@ public abstract class ICommonTabHost extends LinearLayout implements n {
         }
     }
 
+    public abstract /* synthetic */ void display();
+
     public abstract /* synthetic */ int getToolId();
+
+    public abstract /* synthetic */ void hide();
+
+    public abstract /* synthetic */ void init();
+
+    public abstract /* synthetic */ void onAction(a aVar);
+
+    public abstract void onChangeSkinType(int i2);
+
+    public abstract /* synthetic */ void sendAction(a aVar);
 
     public abstract /* synthetic */ void setEditorTools(EditorTools editorTools);
 

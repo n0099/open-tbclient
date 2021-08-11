@@ -3,7 +3,6 @@ package com.baidu.pass.ecommerce;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.ecommerce.callback.GetContactCallback;
 import com.baidu.pass.ecommerce.result.GetContactResult;
@@ -19,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class ContactUtil {
     public static /* synthetic */ Interceptable $ic;
     public static ContactUtil instance;
@@ -184,7 +183,7 @@ public class ContactUtil {
                             context2.startActivity(intent);
                             return;
                         }
-                        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
+                        intent.setFlags(268435456);
                         this.val$context.startActivity(intent);
                     }
                 }

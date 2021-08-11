@@ -11,9 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class SwanAppPageInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SwanAppPageInfo> CREATOR;
@@ -26,7 +27,7 @@ public class SwanAppPageInfo implements Parcelable {
     public String type;
     public String url;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Parcelable.Creator<SwanAppPageInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +130,7 @@ public class SwanAppPageInfo implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SwanAppPageInfo{appName='" + this.appName + "', iconUrl='" + this.iconUrl + "', appDesc='" + this.appDesc + "', title='" + this.title + "', imageUrl='" + this.imageUrl + "', type='" + this.type + "', url='" + this.url + "'}";
+            return "SwanAppPageInfo{appName='" + this.appName + ExtendedMessageFormat.QUOTE + ", iconUrl='" + this.iconUrl + ExtendedMessageFormat.QUOTE + ", appDesc='" + this.appDesc + ExtendedMessageFormat.QUOTE + ", title='" + this.title + ExtendedMessageFormat.QUOTE + ", imageUrl='" + this.imageUrl + ExtendedMessageFormat.QUOTE + ", type='" + this.type + ExtendedMessageFormat.QUOTE + ", url='" + this.url + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
         }
         return (String) invokeV.objValue;
     }

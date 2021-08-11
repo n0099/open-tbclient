@@ -6,13 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class C0 implements x2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ E0 f39552a;
+    public final /* synthetic */ E0 f76387a;
 
     public C0(E0 e0) {
         Interceptable interceptable = $ic;
@@ -29,7 +29,7 @@ public class C0 implements x2 {
                 return;
             }
         }
-        this.f39552a = e0;
+        this.f76387a = e0;
     }
 
     @Override // com.win.opensdk.x2
@@ -44,17 +44,17 @@ public class C0 implements x2 {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            E0 e0 = this.f39552a;
-            if (Q1.a(e0.f39567c, e0.f39572h)) {
-                this.f39552a.f39572h = System.currentTimeMillis();
-                E0 e02 = this.f39552a;
-                Q1.a(e02.f39565a, str, e02.f39567c, e02.f39571g, str2);
-                Z0.a(this.f39552a.f39565a).a(new a1(this.f39552a.f39567c), str).a("desc", str2).a();
-                PBNativeListener pBNativeListener = this.f39552a.f39570f;
+            E0 e0 = this.f76387a;
+            if (Q1.a(e0.f76402c, e0.f76407h)) {
+                this.f76387a.f76407h = System.currentTimeMillis();
+                E0 e02 = this.f76387a;
+                Q1.a(e02.f76400a, str, e02.f76402c, e02.f76406g, str2);
+                Z0.a(this.f76387a.f76400a).a(new a1(this.f76387a.f76402c), str).a("desc", str2).a();
+                PBNativeListener pBNativeListener = this.f76387a.f76405f;
                 if (pBNativeListener != null) {
                     pBNativeListener.onClicked();
                 }
-                N.a(this.f39552a.f39567c, str2);
+                N.a(this.f76387a.f76402c, str2);
                 return true;
             }
             return true;

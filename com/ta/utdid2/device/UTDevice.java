@@ -7,8 +7,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.ta.utdid2.a.a.f;
-/* loaded from: classes6.dex */
+import com.ta.utdid2.a.a.g;
+/* loaded from: classes10.dex */
 public class UTDevice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,22 +27,22 @@ public class UTDevice {
         }
     }
 
-    public static String a(Context context) {
+    public static String d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             a b2 = b.b(context);
-            return (b2 == null || f.isEmpty(b2.getUtdid())) ? "ffffffffffffffffffffffff" : b2.getUtdid();
+            return (b2 == null || g.m63a(b2.f())) ? "ffffffffffffffffffffffff" : b2.f();
         }
         return (String) invokeL.objValue;
     }
 
-    public static String b(Context context) {
+    public static String e(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            String d2 = c.a(context).d();
-            return (d2 == null || f.isEmpty(d2)) ? "ffffffffffffffffffffffff" : d2;
+            String h2 = c.a(context).h();
+            return (h2 == null || g.m63a(h2)) ? "ffffffffffffffffffffffff" : h2;
         }
         return (String) invokeL.objValue;
     }
@@ -51,13 +51,13 @@ public class UTDevice {
     public static String getUtdid(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? a(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? d(context) : (String) invokeL.objValue;
     }
 
     @Deprecated
     public static String getUtdidForUpdate(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? b(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? e(context) : (String) invokeL.objValue;
     }
 }

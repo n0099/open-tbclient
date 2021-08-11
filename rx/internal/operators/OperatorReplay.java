@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.d;
-import h.g;
-import h.j;
-import h.k;
+import i.d;
+import i.g;
+import i.j;
+import i.k;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -23,24 +23,24 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes9.dex */
-public final class OperatorReplay<T> extends h.p.a<T> {
+/* loaded from: classes2.dex */
+public final class OperatorReplay<T> extends i.p.a<T> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final h.n.e f73694i;
+    public static final i.n.e f78998i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public final h.d<? extends T> f73695f;
+    public final i.d<? extends T> f78999f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicReference<f<T>> f73696g;
+    public final AtomicReference<f<T>> f79000g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final h.n.e<? extends e<T>> f73697h;
+    public final i.n.e<? extends e<T>> f79001h;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class BoundedReplayBuffer<T> extends AtomicReference<Node> implements e<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2346567790059478686L;
@@ -100,9 +100,9 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 Object enterTransform = enterTransform(NotificationLite.b());
-                long j = this.index + 1;
-                this.index = j;
-                addLast(new Node(enterTransform, j));
+                long j2 = this.index + 1;
+                this.index = j2;
+                addLast(new Node(enterTransform, j2));
                 truncateFinal();
             }
         }
@@ -118,9 +118,9 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
                 Object enterTransform = enterTransform(NotificationLite.c(th));
-                long j = this.index + 1;
-                this.index = j;
-                addLast(new Node(enterTransform, j));
+                long j2 = this.index + 1;
+                this.index = j2;
+                addLast(new Node(enterTransform, j2));
                 truncateFinal();
             }
         }
@@ -162,9 +162,9 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
                 Object enterTransform = enterTransform(NotificationLite.h(t));
-                long j = this.index + 1;
-                this.index = j;
-                addLast(new Node(enterTransform, j));
+                long j2 = this.index + 1;
+                this.index = j2;
+                addLast(new Node(enterTransform, j2));
                 truncate();
             }
         }
@@ -217,23 +217,23 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                         if (innerProducer.isUnsubscribed() || (jVar = innerProducer.child) == null) {
                             return;
                         }
-                        long j = innerProducer.get();
-                        long j2 = 0;
-                        while (j2 != j && (node = node2.get()) != null) {
+                        long j2 = innerProducer.get();
+                        long j3 = 0;
+                        while (j3 != j2 && (node = node2.get()) != null) {
                             Object leaveTransform = leaveTransform(node.value);
                             try {
                                 if (NotificationLite.a(jVar, leaveTransform)) {
                                     innerProducer.index = null;
                                     return;
                                 }
-                                j2++;
+                                j3++;
                                 if (innerProducer.isUnsubscribed()) {
                                     return;
                                 }
                                 node2 = node;
                             } catch (Throwable th) {
                                 innerProducer.index = null;
-                                h.m.a.e(th);
+                                i.m.a.e(th);
                                 innerProducer.unsubscribe();
                                 if (NotificationLite.g(leaveTransform) || NotificationLite.f(leaveTransform)) {
                                     return;
@@ -242,10 +242,10 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                                 return;
                             }
                         }
-                        if (j2 != 0) {
+                        if (j3 != 0) {
                             innerProducer.index = node2;
-                            if (j != Long.MAX_VALUE) {
-                                innerProducer.produced(j2);
+                            if (j2 != Long.MAX_VALUE) {
+                                innerProducer.produced(j3);
                             }
                         }
                         synchronized (innerProducer) {
@@ -280,8 +280,8 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static final class InnerProducer<T> extends AtomicLong implements h.f, k {
+    /* loaded from: classes2.dex */
+    public static final class InnerProducer<T> extends AtomicLong implements i.f, k {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long UNSUBSCRIBED = Long.MIN_VALUE;
         public static final long serialVersionUID = -4453897557930727610L;
@@ -313,18 +313,18 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             this.totalRequested = new AtomicLong();
         }
 
-        public void addTotalRequested(long j) {
-            long j2;
+        public void addTotalRequested(long j2) {
             long j3;
+            long j4;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
                 do {
-                    j2 = this.totalRequested.get();
-                    j3 = j2 + j;
-                    if (j3 < 0) {
-                        j3 = Long.MAX_VALUE;
+                    j3 = this.totalRequested.get();
+                    j4 = j3 + j2;
+                    if (j4 < 0) {
+                        j4 = Long.MAX_VALUE;
                     }
-                } while (!this.totalRequested.compareAndSet(j2, j3));
+                } while (!this.totalRequested.compareAndSet(j3, j4));
             }
         }
 
@@ -334,65 +334,65 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (U) this.index : (U) invokeV.objValue;
         }
 
-        @Override // h.k
+        @Override // i.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
         }
 
-        public long produced(long j) {
+        public long produced(long j2) {
             InterceptResult invokeJ;
-            long j2;
             long j3;
+            long j4;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-                if (j > 0) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
+                if (j2 > 0) {
                     do {
-                        j2 = get();
-                        if (j2 == Long.MIN_VALUE) {
+                        j3 = get();
+                        if (j3 == Long.MIN_VALUE) {
                             return Long.MIN_VALUE;
                         }
-                        j3 = j2 - j;
-                        if (j3 < 0) {
-                            throw new IllegalStateException("More produced (" + j + ") than requested (" + j2 + SmallTailInfo.EMOTION_SUFFIX);
+                        j4 = j3 - j2;
+                        if (j4 < 0) {
+                            throw new IllegalStateException("More produced (" + j2 + ") than requested (" + j3 + SmallTailInfo.EMOTION_SUFFIX);
                         }
-                    } while (!compareAndSet(j2, j3));
-                    return j3;
+                    } while (!compareAndSet(j3, j4));
+                    return j4;
                 }
                 throw new IllegalArgumentException("Cant produce zero or less");
             }
             return invokeJ.longValue;
         }
 
-        @Override // h.f
-        public void request(long j) {
+        @Override // i.f
+        public void request(long j2) {
             int i2;
-            long j2;
             long j3;
+            long j4;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048580, this, j) == null) || j < 0) {
+            if (!(interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) || j2 < 0) {
                 return;
             }
             do {
-                j2 = get();
-                if (j2 == Long.MIN_VALUE) {
+                j3 = get();
+                if (j3 == Long.MIN_VALUE) {
                     return;
                 }
-                if (j2 >= 0 && i2 == 0) {
+                if (j3 >= 0 && i2 == 0) {
                     return;
                 }
-                j3 = j2 + j;
-                if (j3 < 0) {
-                    j3 = Long.MAX_VALUE;
+                j4 = j3 + j2;
+                if (j4 < 0) {
+                    j4 = Long.MAX_VALUE;
                 }
-            } while (!compareAndSet(j2, j3));
-            addTotalRequested(j);
+            } while (!compareAndSet(j3, j4));
+            addTotalRequested(j2);
             this.parent.f(this);
-            this.parent.f73704e.replay(this);
+            this.parent.f79008e.replay(this);
         }
 
-        @Override // h.k
+        @Override // i.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || get() == Long.MIN_VALUE || getAndSet(Long.MIN_VALUE) == Long.MIN_VALUE) {
@@ -404,7 +404,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class Node extends AtomicReference<Node> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 245354315435971818L;
@@ -412,12 +412,12 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public final long index;
         public final Object value;
 
-        public Node(Object obj, long j) {
+        public Node(Object obj, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj, Long.valueOf(j)};
+                Object[] objArr = {obj, Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -428,11 +428,11 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                 }
             }
             this.value = obj;
-            this.index = j;
+            this.index = j2;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SizeAndTimeBoundReplayBuffer<T> extends BoundedReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3457957419649567404L;
@@ -441,12 +441,12 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public final long maxAgeInMillis;
         public final g scheduler;
 
-        public SizeAndTimeBoundReplayBuffer(int i2, long j, g gVar) {
+        public SizeAndTimeBoundReplayBuffer(int i2, long j2, g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), gVar};
+                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -458,14 +458,14 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             }
             this.scheduler = gVar;
             this.limit = i2;
-            this.maxAgeInMillis = j;
+            this.maxAgeInMillis = j2;
         }
 
         @Override // rx.internal.operators.OperatorReplay.BoundedReplayBuffer
         public Object enterTransform(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? new h.s.a(this.scheduler.now(), obj) : invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) ? new i.s.a(this.scheduler.now(), obj) : invokeL.objValue;
         }
 
         @Override // rx.internal.operators.OperatorReplay.BoundedReplayBuffer
@@ -481,7 +481,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                     Node node4 = node3;
                     node = node2;
                     node2 = node4;
-                    if (node2 == null || ((h.s.a) node2.value).a() > now) {
+                    if (node2 == null || ((i.s.a) node2.value).a() > now) {
                         break;
                     }
                     node3 = node2.get();
@@ -495,7 +495,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public Object leaveTransform(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? ((h.s.a) obj).b() : invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) ? ((i.s.a) obj).b() : invokeL.objValue;
         }
 
         @Override // rx.internal.operators.OperatorReplay.BoundedReplayBuffer
@@ -517,7 +517,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                             i2++;
                             this.size = i3 - 1;
                             node3 = node2.get();
-                        } else if (((h.s.a) node2.value).a() > now) {
+                        } else if (((i.s.a) node2.value).a() > now) {
                             break;
                         } else {
                             i2++;
@@ -555,7 +555,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                     Node node3 = node2;
                     Node node4 = node;
                     node = node3;
-                    if (node == null || this.size <= 1 || ((h.s.a) node.value).a() > now) {
+                    if (node == null || this.size <= 1 || ((i.s.a) node.value).a() > now) {
                         break;
                     }
                     i2++;
@@ -566,7 +566,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class SizeBoundReplayBuffer<T> extends BoundedReplayBuffer<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5898283885385201806L;
@@ -601,7 +601,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class UnboundedReplayBuffer<T> extends ArrayList<Object> implements e<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7063189396499112664L;
@@ -673,18 +673,18 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                         if (jVar == null) {
                             return;
                         }
-                        long j = innerProducer.get();
-                        long j2 = 0;
-                        while (j2 != j && intValue < i2) {
+                        long j2 = innerProducer.get();
+                        long j3 = 0;
+                        while (j3 != j2 && intValue < i2) {
                             Object obj = get(intValue);
                             try {
                                 if (NotificationLite.a(jVar, obj) || innerProducer.isUnsubscribed()) {
                                     return;
                                 }
                                 intValue++;
-                                j2++;
+                                j3++;
                             } catch (Throwable th) {
-                                h.m.a.e(th);
+                                i.m.a.e(th);
                                 innerProducer.unsubscribe();
                                 if (NotificationLite.g(obj) || NotificationLite.f(obj)) {
                                     return;
@@ -693,10 +693,10 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                                 return;
                             }
                         }
-                        if (j2 != 0) {
+                        if (j3 != 0) {
                             innerProducer.index = Integer.valueOf(intValue);
-                            if (j != Long.MAX_VALUE) {
-                                innerProducer.produced(j2);
+                            if (j2 != Long.MAX_VALUE) {
+                                innerProducer.produced(j3);
                             }
                         }
                         synchronized (innerProducer) {
@@ -712,8 +712,8 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class a implements h.n.e {
+    /* loaded from: classes2.dex */
+    public static class a implements i.n.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -731,7 +731,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             }
         }
 
-        @Override // h.n.e
+        @Override // i.n.e
         public Object call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -739,13 +739,13 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class b implements h.n.e<e<T>> {
+    /* loaded from: classes2.dex */
+    public static class b implements i.n.e<e<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f73698e;
+        public final /* synthetic */ int f79002e;
 
         public b(int i2) {
             Interceptable interceptable = $ic;
@@ -762,39 +762,39 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                     return;
                 }
             }
-            this.f73698e = i2;
+            this.f79002e = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.e
+        @Override // i.n.e
         /* renamed from: a */
         public e<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new SizeBoundReplayBuffer(this.f73698e) : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new SizeBoundReplayBuffer(this.f79002e) : (e) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class c implements h.n.e<e<T>> {
+    /* loaded from: classes2.dex */
+    public static class c implements i.n.e<e<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f73699e;
+        public final /* synthetic */ int f79003e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f73700f;
+        public final /* synthetic */ long f79004f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ g f73701g;
+        public final /* synthetic */ g f79005g;
 
-        public c(int i2, long j, g gVar) {
+        public c(int i2, long j2, g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j), gVar};
+                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -804,33 +804,33 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                     return;
                 }
             }
-            this.f73699e = i2;
-            this.f73700f = j;
-            this.f73701g = gVar;
+            this.f79003e = i2;
+            this.f79004f = j2;
+            this.f79005g = gVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.e
+        @Override // i.n.e
         /* renamed from: a */
         public e<T> call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new SizeAndTimeBoundReplayBuffer(this.f73699e, this.f73700f, this.f73701g) : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new SizeAndTimeBoundReplayBuffer(this.f79003e, this.f79004f, this.f79005g) : (e) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static class d implements d.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AtomicReference f73702e;
+        public final /* synthetic */ AtomicReference f79006e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ h.n.e f73703f;
+        public final /* synthetic */ i.n.e f79007f;
 
-        public d(AtomicReference atomicReference, h.n.e eVar) {
+        public d(AtomicReference atomicReference, i.n.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -845,25 +845,25 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                     return;
                 }
             }
-            this.f73702e = atomicReference;
-            this.f73703f = eVar;
+            this.f79006e = atomicReference;
+            this.f79007f = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // h.n.b
+        @Override // i.n.b
         /* renamed from: a */
         public void call(j<? super T> jVar) {
             f fVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
                 while (true) {
-                    fVar = (f) this.f73702e.get();
+                    fVar = (f) this.f79006e.get();
                     if (fVar != null) {
                         break;
                     }
-                    f fVar2 = new f((e) this.f73703f.call());
+                    f fVar2 = new f((e) this.f79007f.call());
                     fVar2.d();
-                    if (this.f73702e.compareAndSet(fVar, fVar2)) {
+                    if (this.f79006e.compareAndSet(fVar, fVar2)) {
                         fVar = fVar2;
                         break;
                     }
@@ -871,13 +871,13 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                 InnerProducer<T> innerProducer = new InnerProducer<>(fVar, jVar);
                 fVar.b(innerProducer);
                 jVar.add(innerProducer);
-                fVar.f73704e.replay(innerProducer);
+                fVar.f79008e.replay(innerProducer);
                 jVar.setProducer(innerProducer);
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public interface e<T> {
         void complete();
 
@@ -888,44 +888,46 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         void replay(InnerProducer<T> innerProducer);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes2.dex */
     public static final class f<T> extends j<T> implements k {
         public static /* synthetic */ Interceptable $ic;
         public static final InnerProducer[] t;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: e  reason: collision with root package name */
-        public final e<T> f73704e;
+        public final e<T> f79008e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f73705f;
+        public boolean f79009f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f73706g;
+        public volatile boolean f79010g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final h.o.d.d<InnerProducer<T>> f73707h;
+        public final i.o.d.d<InnerProducer<T>> f79011h;
 
         /* renamed from: i  reason: collision with root package name */
-        public InnerProducer<T>[] f73708i;
-        public volatile long j;
+        public InnerProducer<T>[] f79012i;
+
+        /* renamed from: j  reason: collision with root package name */
+        public volatile long f79013j;
         public long k;
         public final AtomicBoolean l;
         public boolean m;
         public boolean n;
         public long o;
         public long p;
-        public volatile h.f q;
+        public volatile i.f q;
         public List<InnerProducer<T>> r;
         public boolean s;
 
-        /* loaded from: classes9.dex */
-        public class a implements h.n.a {
+        /* loaded from: classes2.dex */
+        public class a implements i.n.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ f f73709e;
+            public final /* synthetic */ f f79014e;
 
             public a(f fVar) {
                 Interceptable interceptable = $ic;
@@ -942,20 +944,20 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                         return;
                     }
                 }
-                this.f73709e = fVar;
+                this.f79014e = fVar;
             }
 
-            @Override // h.n.a
+            @Override // i.n.a
             public void call() {
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f73709e.f73706g) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f79014e.f79010g) {
                     return;
                 }
-                synchronized (this.f73709e.f73707h) {
-                    if (!this.f73709e.f73706g) {
-                        this.f73709e.f73707h.g();
-                        this.f73709e.j++;
-                        this.f73709e.f73706g = true;
+                synchronized (this.f79014e.f79011h) {
+                    if (!this.f79014e.f79010g) {
+                        this.f79014e.f79011h.g();
+                        this.f79014e.f79013j++;
+                        this.f79014e.f79010g = true;
                     }
                 }
             }
@@ -992,9 +994,9 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                     return;
                 }
             }
-            this.f73704e = eVar;
-            this.f73707h = new h.o.d.d<>();
-            this.f73708i = t;
+            this.f79008e = eVar;
+            this.f79011h = new i.o.d.d<>();
+            this.f79012i = t;
             this.l = new AtomicBoolean();
             request(0L);
         }
@@ -1004,15 +1006,15 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, innerProducer)) == null) {
                 if (innerProducer != null) {
-                    if (this.f73706g) {
+                    if (this.f79010g) {
                         return false;
                     }
-                    synchronized (this.f73707h) {
-                        if (this.f73706g) {
+                    synchronized (this.f79011h) {
+                        if (this.f79010g) {
                             return false;
                         }
-                        this.f73707h.a(innerProducer);
-                        this.j++;
+                        this.f79011h.a(innerProducer);
+                        this.f79013j++;
                         return true;
                     }
                 }
@@ -1026,8 +1028,8 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             InnerProducer<T>[] innerProducerArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                synchronized (this.f73707h) {
-                    InnerProducer<T>[] h2 = this.f73707h.h();
+                synchronized (this.f79011h) {
+                    InnerProducer<T>[] h2 = this.f79011h.h();
                     int length = h2.length;
                     innerProducerArr = new InnerProducer[length];
                     System.arraycopy(h2, 0, innerProducerArr, 0, length);
@@ -1040,46 +1042,46 @@ public final class OperatorReplay<T> extends h.p.a<T> {
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                add(h.u.e.a(new a(this)));
+                add(i.u.e.a(new a(this)));
             }
         }
 
-        public void e(long j, long j2) {
+        public void e(long j2, long j3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-                long j3 = this.p;
-                h.f fVar = this.q;
-                long j4 = j - j2;
-                if (j4 == 0) {
-                    if (j3 == 0 || fVar == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                long j4 = this.p;
+                i.f fVar = this.q;
+                long j5 = j2 - j3;
+                if (j5 == 0) {
+                    if (j4 == 0 || fVar == null) {
                         return;
                     }
                     this.p = 0L;
-                    fVar.request(j3);
+                    fVar.request(j4);
                     return;
                 }
-                this.o = j;
+                this.o = j2;
                 if (fVar == null) {
-                    long j5 = j3 + j4;
-                    if (j5 < 0) {
-                        j5 = Long.MAX_VALUE;
+                    long j6 = j4 + j5;
+                    if (j6 < 0) {
+                        j6 = Long.MAX_VALUE;
                     }
-                    this.p = j5;
-                } else if (j3 != 0) {
+                    this.p = j6;
+                } else if (j4 != 0) {
                     this.p = 0L;
-                    fVar.request(j3 + j4);
+                    fVar.request(j4 + j5);
                 } else {
-                    fVar.request(j4);
+                    fVar.request(j5);
                 }
             }
         }
 
         public void f(InnerProducer<T> innerProducer) {
             InnerProducer<T>[] c2;
-            long j;
+            long j2;
             List<InnerProducer<T>> list;
             boolean z;
-            long j2;
+            long j3;
             InnerProducer<T>[] c3;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048580, this, innerProducer) == null) || isUnsubscribed()) {
@@ -1101,19 +1103,19 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                     return;
                 }
                 this.m = true;
-                long j3 = this.o;
+                long j4 = this.o;
                 if (innerProducer != null) {
-                    j = Math.max(j3, innerProducer.totalRequested.get());
+                    j2 = Math.max(j4, innerProducer.totalRequested.get());
                 } else {
-                    long j4 = j3;
+                    long j5 = j4;
                     for (InnerProducer<T> innerProducer2 : c()) {
                         if (innerProducer2 != null) {
-                            j4 = Math.max(j4, innerProducer2.totalRequested.get());
+                            j5 = Math.max(j5, innerProducer2.totalRequested.get());
                         }
                     }
-                    j = j4;
+                    j2 = j5;
                 }
-                e(j, j3);
+                e(j2, j4);
                 while (!isUnsubscribed()) {
                     synchronized (this) {
                         if (!this.n) {
@@ -1126,62 +1128,62 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                         z = this.s;
                         this.s = false;
                     }
-                    long j5 = this.o;
+                    long j6 = this.o;
                     if (list != null) {
-                        j2 = j5;
+                        j3 = j6;
                         for (InnerProducer<T> innerProducer3 : list) {
-                            j2 = Math.max(j2, innerProducer3.totalRequested.get());
+                            j3 = Math.max(j3, innerProducer3.totalRequested.get());
                         }
                     } else {
-                        j2 = j5;
+                        j3 = j6;
                     }
                     if (z) {
                         for (InnerProducer<T> innerProducer4 : c()) {
                             if (innerProducer4 != null) {
-                                j2 = Math.max(j2, innerProducer4.totalRequested.get());
+                                j3 = Math.max(j3, innerProducer4.totalRequested.get());
                             }
                         }
                     }
-                    e(j2, j5);
+                    e(j3, j6);
                 }
             }
         }
 
         public void g(InnerProducer<T> innerProducer) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048581, this, innerProducer) == null) || this.f73706g) {
+            if (!(interceptable == null || interceptable.invokeL(1048581, this, innerProducer) == null) || this.f79010g) {
                 return;
             }
-            synchronized (this.f73707h) {
-                if (this.f73706g) {
+            synchronized (this.f79011h) {
+                if (this.f79010g) {
                     return;
                 }
-                this.f73707h.e(innerProducer);
-                if (this.f73707h.b()) {
-                    this.f73708i = t;
+                this.f79011h.e(innerProducer);
+                if (this.f79011h.b()) {
+                    this.f79012i = t;
                 }
-                this.j++;
+                this.f79013j++;
             }
         }
 
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                InnerProducer<T>[] innerProducerArr = this.f73708i;
-                if (this.k != this.j) {
-                    synchronized (this.f73707h) {
-                        innerProducerArr = this.f73708i;
-                        InnerProducer<T>[] h2 = this.f73707h.h();
+                InnerProducer<T>[] innerProducerArr = this.f79012i;
+                if (this.k != this.f79013j) {
+                    synchronized (this.f79011h) {
+                        innerProducerArr = this.f79012i;
+                        InnerProducer<T>[] h2 = this.f79011h.h();
                         int length = h2.length;
                         if (innerProducerArr.length != length) {
                             innerProducerArr = new InnerProducer[length];
-                            this.f73708i = innerProducerArr;
+                            this.f79012i = innerProducerArr;
                         }
                         System.arraycopy(h2, 0, innerProducerArr, 0, length);
-                        this.k = this.j;
+                        this.k = this.f79013j;
                     }
                 }
-                e<T> eVar = this.f73704e;
+                e<T> eVar = this.f79008e;
                 for (InnerProducer<T> innerProducer : innerProducerArr) {
                     if (innerProducer != null) {
                         eVar.replay(innerProducer);
@@ -1190,48 +1192,48 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             }
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onCompleted() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f73705f) {
+            if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f79009f) {
                 return;
             }
-            this.f73705f = true;
+            this.f79009f = true;
             try {
-                this.f73704e.complete();
+                this.f79008e.complete();
                 h();
             } finally {
                 unsubscribe();
             }
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) || this.f73705f) {
+            if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th) == null) || this.f79009f) {
                 return;
             }
-            this.f73705f = true;
+            this.f79009f = true;
             try {
-                this.f73704e.error(th);
+                this.f79008e.error(th);
                 h();
             } finally {
                 unsubscribe();
             }
         }
 
-        @Override // h.e
+        @Override // i.e
         public void onNext(T t2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048585, this, t2) == null) || this.f73705f) {
+            if (!(interceptable == null || interceptable.invokeL(1048585, this, t2) == null) || this.f79009f) {
                 return;
             }
-            this.f73704e.next(t2);
+            this.f79008e.next(t2);
             h();
         }
 
-        @Override // h.j
-        public void setProducer(h.f fVar) {
+        @Override // i.j
+        public void setProducer(i.f fVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
                 if (this.q == null) {
@@ -1258,11 +1260,11 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                 return;
             }
         }
-        f73694i = new a();
+        f78998i = new a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OperatorReplay(d.a<T> aVar, h.d<? extends T> dVar, AtomicReference<f<T>> atomicReference, h.n.e<? extends e<T>> eVar) {
+    public OperatorReplay(d.a<T> aVar, i.d<? extends T> dVar, AtomicReference<f<T>> atomicReference, i.n.e<? extends e<T>> eVar) {
         super(aVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -1279,18 +1281,18 @@ public final class OperatorReplay<T> extends h.p.a<T> {
                 return;
             }
         }
-        this.f73695f = dVar;
-        this.f73696g = atomicReference;
-        this.f73697h = eVar;
+        this.f78999f = dVar;
+        this.f79000g = atomicReference;
+        this.f79001h = eVar;
     }
 
-    public static <T> h.p.a<T> K(h.d<? extends T> dVar) {
+    public static <T> i.p.a<T> K(i.d<? extends T> dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dVar)) == null) ? O(dVar, f73694i) : (h.p.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dVar)) == null) ? O(dVar, f78998i) : (i.p.a) invokeL.objValue;
     }
 
-    public static <T> h.p.a<T> L(h.d<? extends T> dVar, int i2) {
+    public static <T> i.p.a<T> L(i.d<? extends T> dVar, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, dVar, i2)) == null) {
@@ -1299,44 +1301,44 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             }
             return O(dVar, new b(i2));
         }
-        return (h.p.a) invokeLI.objValue;
+        return (i.p.a) invokeLI.objValue;
     }
 
-    public static <T> h.p.a<T> M(h.d<? extends T> dVar, long j, TimeUnit timeUnit, g gVar) {
+    public static <T> i.p.a<T> M(i.d<? extends T> dVar, long j2, TimeUnit timeUnit, g gVar) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{dVar, Long.valueOf(j), timeUnit, gVar})) == null) ? N(dVar, j, timeUnit, gVar, Integer.MAX_VALUE) : (h.p.a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{dVar, Long.valueOf(j2), timeUnit, gVar})) == null) ? N(dVar, j2, timeUnit, gVar, Integer.MAX_VALUE) : (i.p.a) invokeCommon.objValue;
     }
 
-    public static <T> h.p.a<T> N(h.d<? extends T> dVar, long j, TimeUnit timeUnit, g gVar, int i2) {
+    public static <T> i.p.a<T> N(i.d<? extends T> dVar, long j2, TimeUnit timeUnit, g gVar, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{dVar, Long.valueOf(j), timeUnit, gVar, Integer.valueOf(i2)})) == null) ? O(dVar, new c(i2, timeUnit.toMillis(j), gVar)) : (h.p.a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(AdIconUtil.AD_TEXT_ID, null, new Object[]{dVar, Long.valueOf(j2), timeUnit, gVar, Integer.valueOf(i2)})) == null) ? O(dVar, new c(i2, timeUnit.toMillis(j2), gVar)) : (i.p.a) invokeCommon.objValue;
     }
 
-    public static <T> h.p.a<T> O(h.d<? extends T> dVar, h.n.e<? extends e<T>> eVar) {
+    public static <T> i.p.a<T> O(i.d<? extends T> dVar, i.n.e<? extends e<T>> eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, dVar, eVar)) == null) {
             AtomicReference atomicReference = new AtomicReference();
             return new OperatorReplay(new d(atomicReference, eVar), dVar, atomicReference, eVar);
         }
-        return (h.p.a) invokeLL.objValue;
+        return (i.p.a) invokeLL.objValue;
     }
 
-    @Override // h.p.a
-    public void J(h.n.b<? super k> bVar) {
+    @Override // i.p.a
+    public void J(i.n.b<? super k> bVar) {
         f<T> fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             while (true) {
-                fVar = this.f73696g.get();
+                fVar = this.f79000g.get();
                 if (fVar != null && !fVar.isUnsubscribed()) {
                     break;
                 }
-                f<T> fVar2 = new f<>(this.f73697h.call());
+                f<T> fVar2 = new f<>(this.f79001h.call());
                 fVar2.d();
-                if (this.f73696g.compareAndSet(fVar, fVar2)) {
+                if (this.f79000g.compareAndSet(fVar, fVar2)) {
                     fVar = fVar2;
                     break;
                 }
@@ -1345,7 +1347,7 @@ public final class OperatorReplay<T> extends h.p.a<T> {
             z = (fVar.l.get() || !fVar.l.compareAndSet(false, true)) ? false : false;
             bVar.call(fVar);
             if (z) {
-                this.f73695f.I(fVar);
+                this.f78999f.I(fVar);
             }
         }
     }

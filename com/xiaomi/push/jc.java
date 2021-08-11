@@ -4,13 +4,13 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class jc extends iv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f40788a;
+    public int f77663a;
 
     public jc() {
         Interceptable interceptable = $ic;
@@ -25,7 +25,7 @@ public class jc extends iv {
                 return;
             }
         }
-        this.f40788a = 0;
+        this.f77663a = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,8 +46,8 @@ public class jc extends iv {
                 return;
             }
         }
-        this.f40788a = 0;
-        this.f40788a = i2;
+        this.f77663a = 0;
+        this.f77663a = i2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -68,6 +68,6 @@ public class jc extends iv {
                 return;
             }
         }
-        this.f40788a = 0;
+        this.f77663a = 0;
     }
 }

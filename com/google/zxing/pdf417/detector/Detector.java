@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class Detector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BARCODE_MIN_HEIGHT = 10;
@@ -83,7 +83,7 @@ public final class Detector {
             BitMatrix blackMatrix = binaryBitmap.getBlackMatrix();
             List<ResultPoint[]> detect = detect(z, blackMatrix);
             if (detect.isEmpty()) {
-                blackMatrix = blackMatrix.m56clone();
+                blackMatrix = blackMatrix.m61clone();
                 blackMatrix.rotate180();
                 detect = detect(z, blackMatrix);
             }

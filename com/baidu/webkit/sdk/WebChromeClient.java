@@ -33,7 +33,7 @@ import java.lang.reflect.Method;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class WebChromeClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG;
@@ -56,12 +56,12 @@ public class WebChromeClient {
     public transient /* synthetic */ FieldHolder $fh;
     public WebView mWebView;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public interface CustomViewCallback {
         void onCustomViewHidden();
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static abstract class FileChooserParams {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MODE_OPEN = 0;
@@ -622,10 +622,10 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+    public void onExceededDatabaseQuota(String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            quotaUpdater.updateQuota(j);
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) {
+            quotaUpdater.updateQuota(j2);
         }
     }
 
@@ -740,10 +740,10 @@ public class WebChromeClient {
     }
 
     @Deprecated
-    public void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
+    public void onReachedMaxAppCacheSize(long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
-            quotaUpdater.updateQuota(j2);
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            quotaUpdater.updateQuota(j3);
         }
     }
 

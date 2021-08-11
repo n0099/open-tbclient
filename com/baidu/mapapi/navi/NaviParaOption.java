@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class NaviParaOption {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7247a;
+    public LatLng f41505a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7248b;
+    public String f41506b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LatLng f7249c;
+    public LatLng f41507c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7250d;
+    public String f41508d;
 
     public NaviParaOption() {
         Interceptable interceptable = $ic;
@@ -42,7 +42,7 @@ public class NaviParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.f7250d = str;
+            this.f41508d = str;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;
@@ -52,7 +52,7 @@ public class NaviParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng)) == null) {
-            this.f7249c = latLng;
+            this.f41507c = latLng;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;
@@ -61,32 +61,32 @@ public class NaviParaOption {
     public String getEndName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f7250d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41508d : (String) invokeV.objValue;
     }
 
     public LatLng getEndPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f7249c : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41507c : (LatLng) invokeV.objValue;
     }
 
     public String getStartName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f7248b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f41506b : (String) invokeV.objValue;
     }
 
     public LatLng getStartPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f7247a : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f41505a : (LatLng) invokeV.objValue;
     }
 
     public NaviParaOption startName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            this.f7248b = str;
+            this.f41506b = str;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;
@@ -96,7 +96,7 @@ public class NaviParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, latLng)) == null) {
-            this.f7247a = latLng;
+            this.f41505a = latLng;
             return this;
         }
         return (NaviParaOption) invokeL.objValue;

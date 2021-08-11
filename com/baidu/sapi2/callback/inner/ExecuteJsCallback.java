@@ -1,5 +1,5 @@
 package com.baidu.sapi2.callback.inner;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public interface ExecuteJsCallback {
     void jsExecuteCompleted(String str);
 }

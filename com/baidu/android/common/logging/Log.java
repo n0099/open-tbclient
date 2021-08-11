@@ -22,7 +22,7 @@ import java.io.StringWriter;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public final class Log {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_LIMETE = 10485760;
@@ -64,26 +64,18 @@ public final class Log {
     public static void d(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && sLogEnabled) {
-            if (sLog2File && (logger = sFilelogger) != null) {
-                Level level = Level.INFO;
-                logger.log(level, str + ": " + str2);
-                return;
-            }
-            android.util.Log.d(str, str2);
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && sLogEnabled && sLog2File && (logger = sFilelogger) != null) {
+            Level level = Level.INFO;
+            logger.log(level, str + ": " + str2);
         }
     }
 
     public static void e(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && sLogEnabled) {
-            if (sLog2File && (logger = sFilelogger) != null) {
-                Level level = Level.SEVERE;
-                logger.log(level, str + ": " + str2);
-                return;
-            }
-            android.util.Log.e(str, str2);
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && sLogEnabled && sLog2File && (logger = sFilelogger) != null) {
+            Level level = Level.SEVERE;
+            logger.log(level, str + ": " + str2);
         }
     }
 
@@ -155,13 +147,9 @@ public final class Log {
     public static void i(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && sLogEnabled) {
-            if (sLog2File && (logger = sFilelogger) != null) {
-                Level level = Level.INFO;
-                logger.log(level, str + ": " + str2);
-                return;
-            }
-            android.util.Log.i(str, str2);
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && sLogEnabled && sLog2File && (logger = sFilelogger) != null) {
+            Level level = Level.INFO;
+            logger.log(level, str + ": " + str2);
         }
     }
 
@@ -198,26 +186,18 @@ public final class Log {
     public static void v(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) && sLogEnabled) {
-            if (sLog2File && (logger = sFilelogger) != null) {
-                Level level = Level.INFO;
-                logger.log(level, str + ": " + str2);
-                return;
-            }
-            android.util.Log.v(str, str2);
+        if ((interceptable == null || interceptable.invokeLL(65550, null, str, str2) == null) && sLogEnabled && sLog2File && (logger = sFilelogger) != null) {
+            Level level = Level.INFO;
+            logger.log(level, str + ": " + str2);
         }
     }
 
     public static void w(String str, String str2) {
         Logger logger;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && sLogEnabled) {
-            if (sLog2File && (logger = sFilelogger) != null) {
-                Level level = Level.WARNING;
-                logger.log(level, str + ": " + str2);
-                return;
-            }
-            android.util.Log.w(str, str2);
+        if ((interceptable == null || interceptable.invokeLL(65552, null, str, str2) == null) && sLogEnabled && sLog2File && (logger = sFilelogger) != null) {
+            Level level = Level.WARNING;
+            logger.log(level, str + ": " + str2);
         }
     }
 

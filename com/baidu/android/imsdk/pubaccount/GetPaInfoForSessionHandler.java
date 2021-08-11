@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -92,19 +92,19 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
-    public void getChatObjectInfo(long j, CallBack callBack) {
+    public void getChatObjectInfo(long j2, CallBack callBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j, callBack) == null) {
-            PaInfo paInfo = PaManagerImpl.getInstance(this.mContext).getPaInfo(j);
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j2, callBack) == null) {
+            PaInfo paInfo = PaManagerImpl.getInstance(this.mContext).getPaInfo(j2);
             if (paInfo == null) {
                 int i2 = this.mNextTask;
                 if (i2 != -1) {
-                    GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) GetChatObjectInfoForRecordManager.newInstance(this.mContext, 0, j, i2);
+                    GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) GetChatObjectInfoForRecordManager.newInstance(this.mContext, 0, j2, i2);
                     this.mChatObjectHandler = getChatObjectInfoForRecordHandler;
-                    if (getChatObjectInfoForRecordHandler.getChatObjectInfoSync(this.mContext, j, callBack)) {
+                    if (getChatObjectInfoForRecordHandler.getChatObjectInfoSync(this.mContext, j2, callBack)) {
                         return;
                     }
-                    PaManager.getPaInfo(this.mContext, j, new IGetPaInfoListener(this, callBack) { // from class: com.baidu.android.imsdk.pubaccount.GetPaInfoForSessionHandler.1
+                    PaManager.getPaInfo(this.mContext, j2, new IGetPaInfoListener(this, callBack) { // from class: com.baidu.android.imsdk.pubaccount.GetPaInfoForSessionHandler.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ GetPaInfoForSessionHandler this$0;

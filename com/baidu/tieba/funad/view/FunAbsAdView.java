@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
+import c.a.p0.i3.h0.o;
+import c.a.p0.w0.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.FunNativeAd;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import d.a.q0.h3.h0.n;
-import d.a.q0.v0.a;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public abstract class FunAbsAdView extends NativeAdContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public String f16319e;
+    public String funAdTitle;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunAbsAdView(Context context) {
@@ -45,17 +43,7 @@ public abstract class FunAbsAdView extends NativeAdContainer {
         }
     }
 
-    public abstract void b();
-
-    public abstract FrameLayout c(FunNativeAd funNativeAd);
-
-    public abstract void d(int i2);
-
-    public abstract void e(BdUniqueId bdUniqueId);
-
-    public abstract void f(@NonNull n nVar, @NonNull Activity activity);
-
-    public abstract void g(Context context);
+    public abstract void destroyDownloadButton();
 
     public abstract List<View> getClickViews();
 
@@ -63,13 +51,25 @@ public abstract class FunAbsAdView extends NativeAdContainer {
 
     public abstract View getFeedBackView();
 
+    public abstract FrameLayout getGdtAdContainer(FunNativeAd funNativeAd);
+
     public abstract int getLayoutId();
 
-    public abstract a.f getLogItem();
+    public abstract a.g getLogItem();
 
     public abstract String getPageType();
 
-    public abstract void h();
+    public abstract void hideOrShowView(int i2);
+
+    public abstract void hideShowByType(BdUniqueId bdUniqueId);
+
+    public abstract void inflateFunAd(@NonNull o oVar, @NonNull Activity activity);
+
+    public abstract void initView(Context context);
+
+    public abstract void onChangedSkinType();
+
+    public abstract void resetAdLaybleState(@NonNull FunNativeAd funNativeAd);
 
     public abstract void setFeedBackListener(View.OnClickListener onClickListener);
 
@@ -116,6 +116,6 @@ public abstract class FunAbsAdView extends NativeAdContainer {
                 return;
             }
         }
-        g(context);
+        initView(context);
     }
 }

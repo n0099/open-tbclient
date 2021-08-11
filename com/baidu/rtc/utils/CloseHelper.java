@@ -2,13 +2,12 @@ package com.baidu.rtc.utils;
 
 import android.database.Cursor;
 import android.media.MediaMetadataRetriever;
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class CloseHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "CloseHelper";
@@ -36,7 +35,7 @@ public class CloseHelper {
         try {
             cursor.close();
         } catch (Exception e2) {
-            Log.e(TAG, e2.getMessage());
+            e2.getMessage();
         }
     }
 
@@ -48,7 +47,7 @@ public class CloseHelper {
         try {
             mediaMetadataRetriever.release();
         } catch (Exception e2) {
-            Log.e(TAG, e2.getMessage());
+            e2.getMessage();
         }
     }
 
@@ -60,7 +59,7 @@ public class CloseHelper {
         try {
             closeable.close();
         } catch (Throwable th) {
-            Log.e(TAG, th.getMessage());
+            th.getMessage();
         }
     }
 }

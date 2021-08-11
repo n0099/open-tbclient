@@ -8,7 +8,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.util.TypedValue;
 import androidx.annotation.AnyRes;
 import androidx.annotation.ColorInt;
@@ -209,16 +208,14 @@ public final class ResourcesCompat {
                                 Method declaredMethod = Resources.Theme.class.getDeclaredMethod("rebase", new Class[0]);
                                 sRebaseMethod = declaredMethod;
                                 declaredMethod.setAccessible(true);
-                            } catch (NoSuchMethodException e2) {
-                                Log.i(ResourcesCompat.TAG, "Failed to retrieve rebase() method", e2);
+                            } catch (NoSuchMethodException unused) {
                             }
                             sRebaseMethodFetched = true;
                         }
                         if (sRebaseMethod != null) {
                             try {
                                 sRebaseMethod.invoke(theme, new Object[0]);
-                            } catch (IllegalAccessException | InvocationTargetException e3) {
-                                Log.i(ResourcesCompat.TAG, "Failed to invoke rebase() method via reflection", e3);
+                            } catch (IllegalAccessException | InvocationTargetException unused2) {
                                 sRebaseMethod = null;
                             }
                         }
@@ -406,7 +403,7 @@ public final class ResourcesCompat {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x00a7  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0093  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -434,7 +431,6 @@ public final class ResourcesCompat {
                     if (charSequence2.toLowerCase().endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION)) {
                         FontResourcesParserCompat.FamilyResourceEntry parse = FontResourcesParserCompat.parse(resources.getXml(i2), resources);
                         if (parse == null) {
-                            Log.e(TAG, "Failed to find font-family tag");
                             if (fontCallback != null) {
                                 fontCallback.callbackFailAsync(-3, handler);
                             }
@@ -451,14 +447,14 @@ public final class ResourcesCompat {
                         }
                     }
                     return createFromResourcesFontFile;
-                } catch (IOException e2) {
-                    Log.e(TAG, "Failed to read xml resource " + charSequence2, e2);
+                } catch (IOException unused) {
+                    String str = "Failed to read xml resource " + charSequence2;
                     if (fontCallback != null) {
                         fontCallback.callbackFailAsync(-3, handler);
                     }
                     return null;
-                } catch (XmlPullParserException e3) {
-                    Log.e(TAG, "Failed to parse xml resource " + charSequence2, e3);
+                } catch (XmlPullParserException unused2) {
+                    String str2 = "Failed to parse xml resource " + charSequence2;
                     if (fontCallback != null) {
                     }
                     return null;

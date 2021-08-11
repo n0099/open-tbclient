@@ -1,6 +1,7 @@
 package com.baidu.adp.framework.task;
 
 import androidx.core.view.InputDeviceCompat;
+import c.a.e.c.j.e;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,9 +9,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.c.j.e;
 import java.security.InvalidParameterException;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public abstract class MessageTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

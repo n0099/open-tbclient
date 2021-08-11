@@ -14,15 +14,15 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f38407a = "com.sdk.base.framework.f.c.a";
+    public static final String f75193a = "com.sdk.base.framework.f.c.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f38408b;
+    public static final boolean f75194b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -38,7 +38,7 @@ public class a {
                 return;
             }
         }
-        f38408b = f.f38384b;
+        f75194b = f.f75169b;
     }
 
     public a() {
@@ -94,7 +94,7 @@ public class a {
                 }
                 return jSONObject.toString();
             } catch (Exception e2) {
-                c.b(f38407a, e2.getMessage(), Boolean.valueOf(f38408b));
+                c.b(f75193a, e2.getMessage(), Boolean.valueOf(f75194b));
                 return null;
             }
         }

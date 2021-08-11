@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.web.WebViewRequestCallback;
 import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseWebViewClient extends WebViewClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

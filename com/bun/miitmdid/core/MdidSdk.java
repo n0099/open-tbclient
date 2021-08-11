@@ -19,7 +19,7 @@ import com.bun.miitmdid.supplier.b;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.a;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class MdidSdk implements SupplierListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,12 +27,12 @@ public class MdidSdk implements SupplierListener {
     public b _setting;
 
     /* renamed from: com.bun.miitmdid.core.MdidSdk$1  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f27754a;
+        public static final /* synthetic */ int[] f63585a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,49 +49,49 @@ public class MdidSdk implements SupplierListener {
                 }
             }
             int[] iArr = new int[b.a.values().length];
-            f27754a = iArr;
+            f63585a = iArr;
             try {
-                iArr[b.a.f27772c.ordinal()] = 1;
+                iArr[b.a.f63603c.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f27754a[b.a.f27773d.ordinal()] = 2;
+                f63585a[b.a.f63604d.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f27754a[b.a.f27771b.ordinal()] = 3;
+                f63585a[b.a.f63602b.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f27754a[b.a.f27774e.ordinal()] = 4;
+                f63585a[b.a.f63605e.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f27754a[b.a.f27775f.ordinal()] = 5;
+                f63585a[b.a.f63606f.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f27754a[b.a.f27776g.ordinal()] = 6;
+                f63585a[b.a.f63607g.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                f27754a[b.a.f27777h.ordinal()] = 7;
+                f63585a[b.a.f63608h.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                f27754a[b.a.f27778i.ordinal()] = 8;
+                f63585a[b.a.f63609i.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                f27754a[b.a.j.ordinal()] = 9;
+                f63585a[b.a.f63610j.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                f27754a[b.a.k.ordinal()] = 10;
+                f63585a[b.a.k.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                f27754a[b.a.l.ordinal()] = 11;
+                f63585a[b.a.l.ordinal()] = 11;
             } catch (NoSuchFieldError unused11) {
             }
         }
@@ -161,7 +161,7 @@ public class MdidSdk implements SupplierListener {
             this._InnerListener = iIdentifierListener;
             com.bun.miitmdid.utils.b.a(context);
             b.a a2 = b.a.a(Build.MANUFACTURER);
-            if (a2 == b.a.f27770a) {
+            if (a2 == b.a.f63601a) {
                 return _InnerFailed(ErrorCode.INIT_ERROR_MANUFACTURER_NOSUPPORT, new com.bun.miitmdid.supplier.a());
             }
             com.bun.miitmdid.a.a a3 = com.bun.miitmdid.a.a.a(context);
@@ -170,7 +170,7 @@ public class MdidSdk implements SupplierListener {
             }
             this._setting = a3;
             com.bun.miitmdid.supplier.f.b bVar = null;
-            switch (AnonymousClass1.f27754a[a2.ordinal()]) {
+            switch (AnonymousClass1.f63585a[a2.ordinal()]) {
                 case 1:
                     bVar = new com.bun.miitmdid.supplier.i.b(context);
                     break;

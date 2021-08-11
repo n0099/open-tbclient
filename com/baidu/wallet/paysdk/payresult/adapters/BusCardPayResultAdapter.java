@@ -7,9 +7,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.BaseActivity;
+import com.dxmpay.wallet.core.BaseActivity;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes8.dex */
 public class BusCardPayResultAdapter extends PayResultAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,7 +40,7 @@ public class BusCardPayResultAdapter extends PayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.getPaySuccessContents();
-            this.contents.put("okBtnText", "wallet_base_payresult_goto_next");
+            this.contents.put("okBtnText", "dxm_wallet_base_payresult_goto_next");
             return this.contents;
         }
         return (HashMap) invokeV.objValue;
@@ -52,7 +52,7 @@ public class BusCardPayResultAdapter extends PayResultAdapter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
             super.onCreateCheckInvalide(bundle);
-            return this.f26306c != null;
+            return this.f62206c != null;
         }
         return invokeL.booleanValue;
     }

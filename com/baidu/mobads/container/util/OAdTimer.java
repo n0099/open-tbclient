@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class OAdTimer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DELAY = 300;
@@ -32,7 +32,7 @@ public class OAdTimer {
     public BaseTask mTockFuture;
     public AtomicInteger state;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public interface EventHandler {
         void onTimer(int i2);
 

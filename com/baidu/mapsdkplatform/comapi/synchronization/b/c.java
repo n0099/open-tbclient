@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public /* synthetic */ class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f7840a;
+    public static final /* synthetic */ int[] f42117a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,25 +28,25 @@ public /* synthetic */ class c {
             }
         }
         int[] iArr = new int[c.a.values().length];
-        f7840a = iArr;
+        f42117a = iArr;
         try {
-            iArr[c.a.f7873a.ordinal()] = 1;
+            iArr[c.a.f42150a.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f7840a[c.a.f7875c.ordinal()] = 2;
+            f42117a[c.a.f42152c.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f7840a[c.a.f7877e.ordinal()] = 3;
+            f42117a[c.a.f42154e.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f7840a[c.a.f7874b.ordinal()] = 4;
+            f42117a[c.a.f42151b.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         try {
-            f7840a[c.a.f7876d.ordinal()] = 5;
+            f42117a[c.a.f42153d.ordinal()] = 5;
         } catch (NoSuchFieldError unused5) {
         }
     }

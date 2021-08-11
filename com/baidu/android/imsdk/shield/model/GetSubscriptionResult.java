@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes.dex */
+/* loaded from: classes4.dex */
 public class GetSubscriptionResult extends HttpHelper.ResponseResult implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GetSubscriptionResult> CREATOR;
@@ -140,10 +140,10 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         }
     }
 
-    public void setPauid(long j) {
+    public void setPauid(long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.mPauid = j;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+            this.mPauid = j2;
         }
     }
 
@@ -193,7 +193,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         this.mPaNickName = parcel.readString();
     }
 
-    /* loaded from: classes.dex */
+    /* loaded from: classes4.dex */
     public static class SubscriptionInfo implements Parcelable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Parcelable.Creator<SubscriptionInfo> CREATOR;
@@ -256,12 +256,12 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             };
         }
 
-        public SubscriptionInfo(long j, String str, String str2, int i2) {
+        public SubscriptionInfo(long j2, String str, String str2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j2), str, str2, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65538, newInitContext);
                 int i3 = newInitContext.flag;
                 if ((i3 & 1) != 0) {
@@ -273,7 +273,7 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             }
             this.mTopicName = "";
             this.mDescription = "";
-            this.mTopicId = j;
+            this.mTopicId = j2;
             this.mTopicName = str;
             this.mDescription = str2;
             this.mStatus = i2;
@@ -340,10 +340,10 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             }
         }
 
-        public void setTopicId(long j) {
+        public void setTopicId(long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-                this.mTopicId = j;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
+                this.mTopicId = j2;
             }
         }
 

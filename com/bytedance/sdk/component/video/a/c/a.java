@@ -23,35 +23,35 @@ import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f29033a;
+    public Context f64900a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.component.video.b.a f29034b;
+    public com.bytedance.sdk.component.video.b.a f64901b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f29035c;
+    public volatile boolean f64902c;
 
     /* renamed from: d  reason: collision with root package name */
-    public File f29036d;
+    public File f64903d;
 
     /* renamed from: e  reason: collision with root package name */
-    public File f29037e;
+    public File f64904e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final List<InterfaceC0327a> f29038f;
+    public final List<InterfaceC1887a> f64905f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f29039g;
+    public volatile boolean f64906g;
 
     /* renamed from: com.bytedance.sdk.component.video.a.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
-    public interface InterfaceC0327a {
+    /* loaded from: classes9.dex */
+    public interface InterfaceC1887a {
         void a(com.bytedance.sdk.component.video.b.a aVar, int i2);
 
         void a(com.bytedance.sdk.component.video.b.a aVar, int i2, String str);
@@ -74,15 +74,15 @@ public class a {
                 return;
             }
         }
-        this.f29035c = false;
-        this.f29036d = null;
-        this.f29037e = null;
-        this.f29038f = new ArrayList();
-        this.f29039g = false;
-        this.f29033a = context;
-        this.f29034b = aVar;
-        this.f29036d = com.bytedance.sdk.component.video.d.b.b(aVar.d(), aVar.c());
-        this.f29037e = com.bytedance.sdk.component.video.d.b.c(aVar.d(), aVar.c());
+        this.f64902c = false;
+        this.f64903d = null;
+        this.f64904e = null;
+        this.f64905f = new ArrayList();
+        this.f64906g = false;
+        this.f64900a = context;
+        this.f64901b = aVar;
+        this.f64903d = com.bytedance.sdk.component.video.d.b.b(aVar.d(), aVar.c());
+        this.f64904e = com.bytedance.sdk.component.video.d.b.c(aVar.d(), aVar.c());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -90,8 +90,8 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
-                this.f29037e.delete();
-                this.f29036d.delete();
+                this.f64904e.delete();
+                this.f64903d.delete();
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -105,10 +105,10 @@ public class a {
             return;
         }
         try {
-            if (this.f29036d.renameTo(this.f29037e)) {
+            if (this.f64903d.renameTo(this.f64904e)) {
                 return;
             }
-            throw new IOException("Error renaming file " + this.f29036d + " to " + this.f29037e + " for completion!");
+            throw new IOException("Error renaming file " + this.f64903d + " to " + this.f64904e + " for completion!");
         } finally {
         }
     }
@@ -117,30 +117,30 @@ public class a {
         w.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            w wVar = com.bytedance.sdk.component.video.a.b.a.f29032b;
+            w wVar = com.bytedance.sdk.component.video.a.b.a.f64899b;
             if (wVar != null) {
                 aVar = wVar.y();
             } else {
                 aVar = new w.a();
             }
-            aVar.a(this.f29034b.g(), TimeUnit.MILLISECONDS).b(this.f29034b.h(), TimeUnit.MILLISECONDS).c(this.f29034b.i(), TimeUnit.MILLISECONDS);
+            aVar.a(this.f64901b.g(), TimeUnit.MILLISECONDS).b(this.f64901b.h(), TimeUnit.MILLISECONDS).c(this.f64901b.i(), TimeUnit.MILLISECONDS);
             w a2 = aVar.a();
             z.a aVar2 = new z.a();
-            long length = this.f29036d.length();
-            if (this.f29034b.j()) {
-                aVar2.a("RANGE", "bytes=" + length + "-").a(this.f29034b.b()).a().d();
+            long length = this.f64903d.length();
+            if (this.f64901b.j()) {
+                aVar2.a("RANGE", "bytes=" + length + "-").a(this.f64901b.b()).a().d();
             } else {
-                aVar2.a("RANGE", "bytes=" + length + "-" + this.f29034b.e()).a(this.f29034b.b()).a().d();
+                aVar2.a("RANGE", "bytes=" + length + "-" + this.f64901b.e()).a(this.f64901b.b()).a().d();
             }
             a2.a(aVar2.d()).a(new f(this, length) { // from class: com.bytedance.sdk.component.video.a.c.a.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: a  reason: collision with root package name */
-                public final /* synthetic */ long f29040a;
+                public final /* synthetic */ long f64907a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ a f29041b;
+                public final /* synthetic */ a f64908b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -157,22 +157,22 @@ public class a {
                             return;
                         }
                     }
-                    this.f29041b = this;
-                    this.f29040a = length;
+                    this.f64908b = this;
+                    this.f64907a = length;
                 }
 
                 @Override // com.bytedance.sdk.component.b.b.f
                 public void onFailure(e eVar, IOException iOException) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, eVar, iOException) == null) {
-                        a aVar3 = this.f29041b;
-                        aVar3.a(aVar3.f29034b, 601, iOException.getMessage());
-                        com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                        a aVar3 = this.f64908b;
+                        aVar3.a(aVar3.f64901b, 601, iOException.getMessage());
+                        com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                     }
                 }
 
                 /* JADX WARN: Code restructure failed: missing block: B:42:0x00f8, code lost:
-                    r21.f29041b.b(r21.f29041b.f29034b, r23.c());
+                    r21.f64908b.b(r21.f64908b.f64901b, r23.c());
                  */
                 /* JADX WARN: Code restructure failed: missing block: B:43:0x0107, code lost:
                     if (r15 == null) goto L62;
@@ -196,7 +196,7 @@ public class a {
                     r23.close();
                  */
                 /* JADX WARN: Code restructure failed: missing block: B:51:0x011a, code lost:
-                    com.bytedance.sdk.component.video.d.c.b("VideoPreload", "Pre finally ", r21.f29041b.f29034b.b(), " Preload size=", java.lang.Long.valueOf(r21.f29041b.f29034b.e()));
+                    com.bytedance.sdk.component.video.d.c.b("VideoPreload", "Pre finally ", r21.f64908b.f64901b.b(), " Preload size=", java.lang.Long.valueOf(r21.f64908b.f64901b.e()));
                  */
                 /* JADX WARN: Removed duplicated region for block: B:106:0x023f A[Catch: IOException -> 0x023b, TryCatch #10 {IOException -> 0x023b, blocks: (B:102:0x0237, B:106:0x023f, B:108:0x0244, B:109:0x0247), top: B:148:0x0237 }] */
                 /* JADX WARN: Removed duplicated region for block: B:108:0x0244 A[Catch: IOException -> 0x023b, TryCatch #10 {IOException -> 0x023b, blocks: (B:102:0x0237, B:106:0x023f, B:108:0x0244, B:109:0x0247), top: B:148:0x0237 }] */
@@ -214,36 +214,36 @@ public class a {
                     InputStream inputStream;
                     InputStream inputStream2;
                     ac acVar2;
-                    long j;
+                    long j2;
                     boolean z;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, abVar) == null) {
-                        long j2 = this.f29040a;
+                        long j3 = this.f64907a;
                         try {
                             if (abVar != null) {
                                 boolean d2 = abVar.d();
                                 if (!d2) {
-                                    this.f29041b.a(this.f29041b.f29034b, abVar.c(), abVar.e());
+                                    this.f64908b.a(this.f64908b.f64901b, abVar.c(), abVar.e());
                                     if (abVar != null) {
                                         try {
                                             abVar.close();
                                         } catch (IOException e2) {
                                             e = e2;
                                             e.printStackTrace();
-                                            com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                                            com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                                             return;
                                         }
                                     }
-                                    c.b("VideoPreload", "Pre finally ", this.f29041b.f29034b.b(), " Preload size=", Long.valueOf(this.f29041b.f29034b.e()));
+                                    c.b("VideoPreload", "Pre finally ", this.f64908b.f64901b.b(), " Preload size=", Long.valueOf(this.f64908b.f64901b.e()));
                                 } else {
                                     abVar.h();
                                     try {
                                         acVar2 = abVar.h();
                                         if (!d2 || acVar2 == null) {
-                                            j = 0;
+                                            j2 = 0;
                                             inputStream = null;
                                         } else {
-                                            j = this.f29040a + acVar2.b();
+                                            j2 = this.f64907a + acVar2.b();
                                             inputStream = acVar2.c();
                                         }
                                     } catch (Throwable th) {
@@ -253,9 +253,9 @@ public class a {
                                         inputStream = null;
                                         try {
                                             th.printStackTrace();
-                                            this.f29041b.c();
-                                            a aVar3 = this.f29041b;
-                                            com.bytedance.sdk.component.video.b.a aVar4 = this.f29041b.f29034b;
+                                            this.f64908b.c();
+                                            a aVar3 = this.f64908b;
+                                            com.bytedance.sdk.component.video.b.a aVar4 = this.f64908b.f64901b;
                                             if (abVar != null) {
                                             }
                                             aVar3.a(aVar4, i2, th.getMessage());
@@ -265,15 +265,15 @@ public class a {
                                             }
                                             if (abVar != null) {
                                             }
-                                            c.b("VideoPreload", "Pre finally ", this.f29041b.f29034b.b(), " Preload size=", Long.valueOf(this.f29041b.f29034b.e()));
-                                            com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                                            c.b("VideoPreload", "Pre finally ", this.f64908b.f64901b.b(), " Preload size=", Long.valueOf(this.f64908b.f64901b.e()));
+                                            com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                                         } catch (Throwable th2) {
                                             if (inputStream != null) {
                                                 try {
                                                     inputStream.close();
                                                 } catch (IOException e3) {
                                                     e3.printStackTrace();
-                                                    com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                                                    com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                                                     throw th2;
                                                 }
                                             }
@@ -283,21 +283,21 @@ public class a {
                                             if (abVar != null) {
                                                 abVar.close();
                                             }
-                                            c.b("VideoPreload", "Pre finally ", this.f29041b.f29034b.b(), " Preload size=", Long.valueOf(this.f29041b.f29034b.e()));
-                                            com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                                            c.b("VideoPreload", "Pre finally ", this.f64908b.f64901b.b(), " Preload size=", Long.valueOf(this.f64908b.f64901b.e()));
+                                            com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                                             throw th2;
                                         }
                                     }
                                     try {
                                         if (inputStream == null) {
-                                            this.f29041b.a(this.f29041b.f29034b, abVar.c(), abVar.e());
+                                            this.f64908b.a(this.f64908b.f64901b, abVar.c(), abVar.e());
                                             if (inputStream != null) {
                                                 try {
                                                     inputStream.close();
                                                 } catch (IOException e4) {
                                                     e = e4;
                                                     e.printStackTrace();
-                                                    com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                                                    com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                                                     return;
                                                 }
                                             }
@@ -307,25 +307,25 @@ public class a {
                                             if (abVar != null) {
                                                 abVar.close();
                                             }
-                                            c.b("VideoPreload", "Pre finally ", this.f29041b.f29034b.b(), " Preload size=", Long.valueOf(this.f29041b.f29034b.e()));
+                                            c.b("VideoPreload", "Pre finally ", this.f64908b.f64901b.b(), " Preload size=", Long.valueOf(this.f64908b.f64901b.e()));
                                         } else {
-                                            RandomAccessFile randomAccessFile = new RandomAccessFile(this.f29041b.f29036d, "rw");
+                                            RandomAccessFile randomAccessFile = new RandomAccessFile(this.f64908b.f64903d, "rw");
                                             byte[] bArr = new byte[8192];
                                             int i3 = 0;
-                                            long j3 = 0;
+                                            long j4 = 0;
                                             while (true) {
                                                 int read = inputStream.read(bArr, i3, 8192 - i3);
                                                 if (read != -1) {
-                                                    if (this.f29041b.f29035c) {
+                                                    if (this.f64908b.f64902c) {
                                                         break;
                                                     }
                                                     i3 += read;
-                                                    j3 += read;
-                                                    if (j3 % 8192 != 0 && j3 != j - this.f29040a) {
+                                                    j4 += read;
+                                                    if (j4 % 8192 != 0 && j4 != j2 - this.f64907a) {
                                                         z = false;
                                                         if (!z) {
-                                                            com.bytedance.sdk.component.video.d.b.a(randomAccessFile, bArr, Long.valueOf(j2).intValue(), i3, this.f29041b.f29034b.c());
-                                                            j2 += i3;
+                                                            com.bytedance.sdk.component.video.d.b.a(randomAccessFile, bArr, Long.valueOf(j3).intValue(), i3, this.f64908b.f64901b.c());
+                                                            j3 += i3;
                                                             i3 = 0;
                                                         }
                                                     }
@@ -333,10 +333,10 @@ public class a {
                                                     if (!z) {
                                                     }
                                                 } else {
-                                                    if (this.f29041b.f29034b.j() && j == this.f29041b.f29036d.length()) {
-                                                        this.f29041b.d();
+                                                    if (this.f64908b.f64901b.j() && j2 == this.f64908b.f64903d.length()) {
+                                                        this.f64908b.d();
                                                     }
-                                                    this.f29041b.a(this.f29041b.f29034b, abVar.c());
+                                                    this.f64908b.a(this.f64908b.f64901b, abVar.c());
                                                     inputStream2 = inputStream;
                                                 }
                                             }
@@ -346,9 +346,9 @@ public class a {
                                         acVar = acVar2;
                                         i2 = 601;
                                         th.printStackTrace();
-                                        this.f29041b.c();
-                                        a aVar32 = this.f29041b;
-                                        com.bytedance.sdk.component.video.b.a aVar42 = this.f29041b.f29034b;
+                                        this.f64908b.c();
+                                        a aVar32 = this.f64908b;
+                                        com.bytedance.sdk.component.video.b.a aVar42 = this.f64908b.f64901b;
                                         if (abVar != null) {
                                         }
                                         aVar32.a(aVar42, i2, th.getMessage());
@@ -358,16 +358,16 @@ public class a {
                                         }
                                         if (abVar != null) {
                                         }
-                                        c.b("VideoPreload", "Pre finally ", this.f29041b.f29034b.b(), " Preload size=", Long.valueOf(this.f29041b.f29034b.e()));
-                                        com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                                        c.b("VideoPreload", "Pre finally ", this.f64908b.f64901b.b(), " Preload size=", Long.valueOf(this.f64908b.f64901b.e()));
+                                        com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                                     }
                                 }
-                                com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                                com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                                 return;
                             }
                             i2 = 601;
                             try {
-                                this.f29041b.a(this.f29041b.f29034b, 601, "Network link failed.");
+                                this.f64908b.a(this.f64908b.f64901b, 601, "Network link failed.");
                                 inputStream2 = null;
                                 acVar2 = null;
                             } catch (Throwable th4) {
@@ -375,9 +375,9 @@ public class a {
                                 acVar = null;
                                 inputStream = null;
                                 th.printStackTrace();
-                                this.f29041b.c();
-                                a aVar322 = this.f29041b;
-                                com.bytedance.sdk.component.video.b.a aVar422 = this.f29041b.f29034b;
+                                this.f64908b.c();
+                                a aVar322 = this.f64908b;
+                                com.bytedance.sdk.component.video.b.a aVar422 = this.f64908b.f64901b;
                                 if (abVar != null) {
                                     i2 = abVar.c();
                                 }
@@ -388,7 +388,7 @@ public class a {
                                     } catch (IOException e5) {
                                         e = e5;
                                         e.printStackTrace();
-                                        com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                                        com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                                     }
                                 }
                                 if (acVar != null) {
@@ -397,8 +397,8 @@ public class a {
                                 if (abVar != null) {
                                     abVar.close();
                                 }
-                                c.b("VideoPreload", "Pre finally ", this.f29041b.f29034b.b(), " Preload size=", Long.valueOf(this.f29041b.f29034b.e()));
-                                com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                                c.b("VideoPreload", "Pre finally ", this.f64908b.f64901b.b(), " Preload size=", Long.valueOf(this.f64908b.f64901b.e()));
+                                com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                             }
                             if (inputStream2 != null) {
                                 try {
@@ -406,7 +406,7 @@ public class a {
                                 } catch (IOException e6) {
                                     e = e6;
                                     e.printStackTrace();
-                                    com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                                    com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                                 }
                             }
                             if (acVar2 != null) {
@@ -415,51 +415,51 @@ public class a {
                             if (abVar != null) {
                                 abVar.close();
                             }
-                            c.b("VideoPreload", "Pre finally ", this.f29041b.f29034b.b(), " Preload size=", Long.valueOf(this.f29041b.f29034b.e()));
+                            c.b("VideoPreload", "Pre finally ", this.f64908b.f64901b.b(), " Preload size=", Long.valueOf(this.f64908b.f64901b.e()));
                         } catch (Throwable th5) {
                             th = th5;
                             i2 = 601;
                         }
-                        com.bytedance.sdk.component.video.a.b.a.a(this.f29041b.f29034b);
+                        com.bytedance.sdk.component.video.a.b.a.a(this.f64908b.f64901b);
                     }
                 }
             });
         }
     }
 
-    public void a(InterfaceC0327a interfaceC0327a) {
+    public void a(InterfaceC1887a interfaceC1887a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0327a) == null) {
-            if (this.f29039g) {
-                synchronized (InterfaceC0327a.class) {
-                    this.f29038f.add(interfaceC0327a);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC1887a) == null) {
+            if (this.f64906g) {
+                synchronized (InterfaceC1887a.class) {
+                    this.f64905f.add(interfaceC1887a);
                 }
                 return;
             }
-            this.f29038f.add(interfaceC0327a);
-            if (!this.f29037e.exists() && (this.f29034b.j() || this.f29036d.length() < this.f29034b.e())) {
-                this.f29039g = true;
-                this.f29034b.a(0);
+            this.f64905f.add(interfaceC1887a);
+            if (!this.f64904e.exists() && (this.f64901b.j() || this.f64903d.length() < this.f64901b.e())) {
+                this.f64906g = true;
+                this.f64901b.a(0);
                 b();
                 return;
             }
             c.a("VideoPreload", "Cache file is exist");
-            this.f29034b.a(1);
-            a(this.f29034b, 200);
-            com.bytedance.sdk.component.video.a.b.a.a(this.f29034b);
+            this.f64901b.a(1);
+            a(this.f64901b, 200);
+            com.bytedance.sdk.component.video.a.b.a.a(this.f64901b);
         }
     }
 
     public com.bytedance.sdk.component.video.b.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29034b : (com.bytedance.sdk.component.video.b.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f64901b : (com.bytedance.sdk.component.video.b.a) invokeV.objValue;
     }
 
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f29035c = z;
+            this.f64902c = z;
         }
     }
 
@@ -467,10 +467,10 @@ public class a {
     public void a(com.bytedance.sdk.component.video.b.a aVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, aVar, i2) == null) {
-            synchronized (InterfaceC0327a.class) {
-                for (InterfaceC0327a interfaceC0327a : this.f29038f) {
-                    if (interfaceC0327a != null) {
-                        interfaceC0327a.a(aVar, i2);
+            synchronized (InterfaceC1887a.class) {
+                for (InterfaceC1887a interfaceC1887a : this.f64905f) {
+                    if (interfaceC1887a != null) {
+                        interfaceC1887a.a(aVar, i2);
                     }
                 }
             }
@@ -481,10 +481,10 @@ public class a {
     public void a(com.bytedance.sdk.component.video.b.a aVar, int i2, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(AdIconUtil.AD_TEXT_ID, this, aVar, i2, str) == null) {
-            synchronized (InterfaceC0327a.class) {
-                for (InterfaceC0327a interfaceC0327a : this.f29038f) {
-                    if (interfaceC0327a != null) {
-                        interfaceC0327a.a(aVar, i2, str);
+            synchronized (InterfaceC1887a.class) {
+                for (InterfaceC1887a interfaceC1887a : this.f64905f) {
+                    if (interfaceC1887a != null) {
+                        interfaceC1887a.a(aVar, i2, str);
                     }
                 }
             }
@@ -495,10 +495,10 @@ public class a {
     public void b(com.bytedance.sdk.component.video.b.a aVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(65545, this, aVar, i2) == null) {
-            synchronized (InterfaceC0327a.class) {
-                for (InterfaceC0327a interfaceC0327a : this.f29038f) {
-                    if (interfaceC0327a != null) {
-                        interfaceC0327a.b(aVar, i2);
+            synchronized (InterfaceC1887a.class) {
+                for (InterfaceC1887a interfaceC1887a : this.f64905f) {
+                    if (interfaceC1887a != null) {
+                        interfaceC1887a.b(aVar, i2);
                     }
                 }
             }

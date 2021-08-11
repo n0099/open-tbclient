@@ -8,18 +8,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public final class DownAPPConfirmPolicy {
     public static /* synthetic */ Interceptable $ic;
     public static final DownAPPConfirmPolicy Default;
     public static final DownAPPConfirmPolicy NOConfirm;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ DownAPPConfirmPolicy[] f37902b;
+    public static final /* synthetic */ DownAPPConfirmPolicy[] f74739b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f37903a;
+    public final int f74740a;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +37,7 @@ public final class DownAPPConfirmPolicy {
         Default = new DownAPPConfirmPolicy("Default", 0, 0);
         DownAPPConfirmPolicy downAPPConfirmPolicy = new DownAPPConfirmPolicy("NOConfirm", 1, 2);
         NOConfirm = downAPPConfirmPolicy;
-        f37902b = new DownAPPConfirmPolicy[]{Default, downAPPConfirmPolicy};
+        f74739b = new DownAPPConfirmPolicy[]{Default, downAPPConfirmPolicy};
     }
 
     public DownAPPConfirmPolicy(String str, int i2, int i3) {
@@ -58,7 +58,7 @@ public final class DownAPPConfirmPolicy {
                 return;
             }
         }
-        this.f37903a = i3;
+        this.f74740a = i3;
     }
 
     public static DownAPPConfirmPolicy valueOf(String str) {
@@ -70,12 +70,12 @@ public final class DownAPPConfirmPolicy {
     public static DownAPPConfirmPolicy[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DownAPPConfirmPolicy[]) f37902b.clone() : (DownAPPConfirmPolicy[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (DownAPPConfirmPolicy[]) f74739b.clone() : (DownAPPConfirmPolicy[]) invokeV.objValue;
     }
 
     public final int value() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f37903a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f74740a : invokeV.intValue;
     }
 }

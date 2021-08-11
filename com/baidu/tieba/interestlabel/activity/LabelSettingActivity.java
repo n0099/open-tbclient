@@ -2,6 +2,8 @@ package com.baidu.tieba.interestlabel.activity;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
+import c.a.e.e.p.j;
+import c.a.p0.m1.b.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -16,22 +18,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import d.a.d.e.p.j;
-import d.a.q0.l1.b.b;
 import java.util.List;
-/* loaded from: classes4.dex */
-public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements d.a.q0.l1.c.a {
+/* loaded from: classes7.dex */
+public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> implements c.a.p0.m1.c.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel mLabelSettingModel;
     public LabelSettingView mLabelSettingView;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f18120a;
+        public static final /* synthetic */ int[] f53382a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -48,13 +48,13 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
                 }
             }
             int[] iArr = new int[LabelRequestEnum.values().length];
-            f18120a = iArr;
+            f53382a = iArr;
             try {
                 iArr[LabelRequestEnum.GET_LABEL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f18120a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
+                f53382a[LabelRequestEnum.SUB_LABEL.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -74,40 +74,40 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         }
     }
 
-    @Override // d.a.q0.l1.c.a
+    @Override // c.a.p0.m1.c.a
     public void callback(LabelRequestEnum labelRequestEnum, b bVar, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, bVar, i2) == null) {
-            int i3 = a.f18120a[labelRequestEnum.ordinal()];
+            int i3 = a.f53382a[labelRequestEnum.ordinal()];
             if (i3 != 1) {
                 if (i3 == 2 && i2 == 0) {
-                    d.a.p0.s.d0.b.j().t("set_recommend_label", true);
+                    c.a.o0.s.d0.b.j().t("set_recommend_label", true);
                     finish();
                     return;
                 }
                 return;
             }
-            this.mLabelSettingView.g();
+            this.mLabelSettingView.hideLoadingView();
             if (bVar != null && !ListUtils.isEmpty(bVar.b())) {
-                this.mLabelSettingView.h();
+                this.mLabelSettingView.hideNetRefreshView();
                 this.mLabelSettingView.setData(bVar);
                 return;
             }
-            this.mLabelSettingView.o(true);
+            this.mLabelSettingView.showNetRefreshView(true);
         }
     }
 
-    @Override // d.a.q0.l1.c.a
+    @Override // c.a.p0.m1.c.a
     public void getLabel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!j.A()) {
-                this.mLabelSettingView.g();
-                this.mLabelSettingView.o(true);
+                this.mLabelSettingView.hideLoadingView();
+                this.mLabelSettingView.showNetRefreshView(true);
                 return;
             }
-            this.mLabelSettingView.h();
-            this.mLabelSettingView.n(true);
+            this.mLabelSettingView.hideNetRefreshView();
+            this.mLabelSettingView.showLoadingView(true);
             this.mLabelSettingModel.B();
         }
     }
@@ -117,7 +117,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.mLabelSettingView.l();
+            this.mLabelSettingView.onChangeSkinType();
         }
     }
 
@@ -140,8 +140,8 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         LabelSettingView labelSettingView;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, keyEvent)) == null) {
-            if (i2 == 4 && (labelSettingView = this.mLabelSettingView) != null && labelSettingView.f()) {
-                this.mLabelSettingView.m();
+            if (i2 == 4 && (labelSettingView = this.mLabelSettingView) != null && labelSettingView.hasChangeLabel()) {
+                this.mLabelSettingView.showDialog();
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);
@@ -149,7 +149,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         return invokeIL.booleanValue;
     }
 
-    @Override // d.a.q0.l1.c.a
+    @Override // c.a.p0.m1.c.a
     public void subLabel(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {

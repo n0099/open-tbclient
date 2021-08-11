@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.webrtc.JniCommon;
 import org.webrtc.RefCounted;
 import org.webrtc.VideoFrame;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class RTCI420Buffer implements VideoFrame.I420Buffer {
     public static /* synthetic */ Interceptable $ic;
     public static Class mCropClass;
@@ -33,7 +33,7 @@ public class RTCI420Buffer implements VideoFrame.I420Buffer {
     public final int strideY;
     public final int width;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public class RefCountDelegate implements RefCounted {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

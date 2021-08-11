@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.core.dynamic.b.f;
 import com.bytedance.sdk.openadsdk.q.s;
-/* loaded from: classes5.dex */
+/* loaded from: classes9.dex */
 public class DynamicButton extends DynamicBaseWidgetImp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,7 +46,7 @@ public class DynamicButton extends DynamicBaseWidgetImp {
     private void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            this.p = ((this.f30085f - ((int) s.b(this.f30088i, this.j.e()))) / 2) - this.j.a();
+            this.p = ((this.f65987f - ((int) s.b(this.f65990i, this.f65991j.e()))) / 2) - this.f65991j.a();
             this.q = 0;
         }
     }
@@ -58,18 +58,18 @@ public class DynamicButton extends DynamicBaseWidgetImp {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             super.b();
             if (Build.VERSION.SDK_INT >= 17) {
-                this.n.setTextAlignment(this.j.h());
+                this.n.setTextAlignment(this.f65991j.h());
             }
-            ((TextView) this.n).setText(this.j.i());
-            ((TextView) this.n).setTextColor(this.j.g());
-            ((TextView) this.n).setTextSize(this.j.e());
+            ((TextView) this.n).setText(this.f65991j.i());
+            ((TextView) this.n).setTextColor(this.f65991j.g());
+            ((TextView) this.n).setTextSize(this.f65991j.e());
             if (Build.VERSION.SDK_INT >= 16) {
                 this.n.setBackground(getBackgroundDrawable());
             }
             ((TextView) this.n).setGravity(17);
             ((TextView) this.n).setIncludeFontPadding(false);
             f();
-            this.n.setPadding(this.j.c(), this.p, this.j.d(), this.q);
+            this.n.setPadding(this.f65991j.c(), this.p, this.f65991j.d(), this.q);
             return true;
         }
         return invokeV.booleanValue;

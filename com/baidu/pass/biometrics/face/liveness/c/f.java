@@ -15,17 +15,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes2.dex */
+/* loaded from: classes5.dex */
 public class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes2.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f9269a;
+        public static final /* synthetic */ int[] f43913a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,29 +42,29 @@ public class f {
                 }
             }
             int[] iArr = new int[HeadPose.values().length];
-            f9269a = iArr;
+            f43913a = iArr;
             try {
                 iArr[HeadPose.UP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f9269a[HeadPose.DOWN.ordinal()] = 2;
+                f43913a[HeadPose.DOWN.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f9269a[HeadPose.MOUTH_OPEN.ordinal()] = 3;
+                f43913a[HeadPose.MOUTH_OPEN.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f9269a[HeadPose.TURN_LEFT.ordinal()] = 4;
+                f43913a[HeadPose.TURN_LEFT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f9269a[HeadPose.TURN_RIGHT.ordinal()] = 5;
+                f43913a[HeadPose.TURN_RIGHT.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                f9269a[HeadPose.EYES_BLINK.ordinal()] = 6;
+                f43913a[HeadPose.EYES_BLINK.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
         }
@@ -190,7 +190,7 @@ public class f {
                 list.clear();
             }
             for (HeadPose headPose : list2) {
-                int i2 = a.f9269a[headPose.ordinal()];
+                int i2 = a.f43913a[headPose.ordinal()];
                 if (i2 == 1) {
                     list.add(LivenessTypeEnum.HeadUp);
                 } else if (i2 == 2) {
@@ -243,7 +243,7 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headPose)) == null) {
-            int i2 = a.f9269a[headPose.ordinal()];
+            int i2 = a.f43913a[headPose.ordinal()];
             if (i2 != 1) {
                 if (i2 != 2) {
                     if (i2 != 3) {

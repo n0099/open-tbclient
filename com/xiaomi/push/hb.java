@@ -18,24 +18,24 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes10.dex */
 public class hb {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f40519a;
+    public static boolean f77378a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: a  reason: collision with root package name */
-        public Context f40520a;
+        public Context f77379a;
 
         /* renamed from: a  reason: collision with other field name */
-        public he f468a;
+        public he f472a;
 
         public a(Context context, he heVar) {
             Interceptable interceptable = $ic;
@@ -52,15 +52,15 @@ public class hb {
                     return;
                 }
             }
-            this.f468a = heVar;
-            this.f40520a = context;
+            this.f472a = heVar;
+            this.f77379a = context;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                hb.c(this.f40520a, this.f468a);
+                hb.c(this.f77379a, this.f472a);
             }
         }
     }
@@ -170,7 +170,7 @@ public class hb {
                 com.xiaomi.channel.commonutils.logger.b.d(str);
                 hc.a(context, heVar, arrayList);
                 if (file != null && file.exists() && !file.delete()) {
-                    com.xiaomi.channel.commonutils.logger.b.m70a("TinyData delete reading temp file failed");
+                    com.xiaomi.channel.commonutils.logger.b.m73a("TinyData delete reading temp file failed");
                 }
                 y.a(bufferedInputStream2);
             } catch (Throwable th2) {
@@ -200,14 +200,14 @@ public class hb {
         File file;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(AdIconUtil.BAIDU_LOGO_ID, null, context, heVar) == null) {
-            if (f40519a) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("TinyData extractTinyData is running");
+            if (f77378a) {
+                com.xiaomi.channel.commonutils.logger.b.m73a("TinyData extractTinyData is running");
                 return;
             }
-            f40519a = true;
+            f77378a = true;
             File file2 = new File(context.getFilesDir(), "tiny_data.data");
             if (!file2.exists()) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("TinyData no ready file to get data.");
+                com.xiaomi.channel.commonutils.logger.b.m73a("TinyData no ready file to get data.");
                 return;
             }
             a(context);
@@ -215,7 +215,7 @@ public class hb {
             FileLock fileLock = null;
             try {
                 File file3 = new File(context.getFilesDir(), "tiny_data.lock");
-                y.m643a(file3);
+                y.m646a(file3);
                 randomAccessFile = new RandomAccessFile(file3, "rw");
                 try {
                     try {
@@ -280,13 +280,13 @@ public class hb {
             y.a(randomAccessFile);
             file = new File(context.getFilesDir() + "/tdReadTemp/tiny_data.data");
             if (file.exists()) {
-                com.xiaomi.channel.commonutils.logger.b.m70a("TinyData no ready file to get data.");
+                com.xiaomi.channel.commonutils.logger.b.m73a("TinyData no ready file to get data.");
                 return;
             }
             a(context, heVar, file, a2);
             ha.a(false);
             b(context);
-            f40519a = false;
+            f77378a = false;
         }
     }
 }
