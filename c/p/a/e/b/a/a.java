@@ -233,7 +233,7 @@ public class a {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v4, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v4, types: [boolean, int] */
     public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

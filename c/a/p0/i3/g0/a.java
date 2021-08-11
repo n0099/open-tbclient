@@ -316,7 +316,7 @@ public class a {
     /* JADX DEBUG: Multi-variable search result rejected for r3v8, resolved type: c.a.e.e.g.d */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r12v3 */
-    /* JADX WARN: Type inference failed for: r12v4, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r12v4, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r12v7 */
     public static void c(TbPageContext tbPageContext, View view, boolean z, f fVar) {
         int i2;
